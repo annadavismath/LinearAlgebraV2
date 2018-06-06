@@ -1,1 +1,1 @@
-Isomorphic Vector Spaces
+Kernel and Image of a linear transformation
