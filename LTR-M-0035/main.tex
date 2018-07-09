@@ -42,8 +42,8 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  
 First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$ in $W$, then reversing the arrows gives us a mapping that is clearly not a function. (See Figure \ref{fig:notonetoone}) %
 
-\begin{figure}[h]
-\centering
+%\begin{image}
+\begin{center}
 \begin{tikzcd}
 \vec{v}_1 \arrow[rd, mapsto]  & \\
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
@@ -54,14 +54,15 @@ First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vecto
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
 \vec{v}_2 \arrow[ru, mapsfrom]  &
 \end{tikzcd}
-\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
-  \label{fig:notonetoone} 
-\end{figure}    
+\end{center}
+%\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
+%  \label{fig:notonetoone} 
+%\end{image}    
 
-Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse})  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. (See Figure \ref{fig:notonto}.)
+Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse})  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. %(See Figure \ref{fig:notonto}.)
 
-\begin{figure}[h]
-\centering
+%\begin{figure}[h]
+\begin{center}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -70,9 +71,10 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}\quad
-\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
+%\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
   \label{fig:notonto} 
-\end{figure}
+%\end{figure}
+\end{center}
 
 We now illustrate these potential issues with specific examples.
 \begin{example}\label{ex:notonetoone} Let $T:\RR^2\rightarrow \RR^2$ be a linear transformation whose standard matrix is
