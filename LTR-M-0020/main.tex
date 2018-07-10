@@ -1,0 +1,171 @@
+\documentclass{ximera}
+
+\author{Anna Davis \and Paul Zachlin} \title{Standard Matrix of a Linear Transformation} \license{CC-BY 4.0}
+
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+
+
+\newtheorem{general}{Generalization}
+\newtheorem{initprob}{Exploration Problem}
+\usepackage{tikz-cd}
+%\pgfplotsset{compat=1.14}
+\input{preamble.tex}
+
+\begin{document}
+\begin{abstract}
+  We establish that every linear transformation of $\RR^n$ is a matrix transformation, and define the standard matrix of a linear transformation.
+\end{abstract}
+\maketitle
+
+
+
+\section*{Columns as Images of Standard Unit Vectors}
+
+\begin{initprob} Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
+$$A=\begin{bmatrix}1&-2&4\\0&3&5\end{bmatrix}$$
+We will examine the effect of $T$ on the standard unit vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$.
+
+$$T(\vec{i})=A\vec{i}=\begin{bmatrix}1\\0\end{bmatrix},\quad T(\vec{j})=A\vec{j}=\begin{bmatrix}-2\\3\end{bmatrix}, \quad
+T(\vec{k})=A\vec{k}=\begin{bmatrix}4\\5\end{bmatrix}$$
+
+It turns out that the image of $\vec{i}$ is the first column of $A$, the image of $\vec{j}$ is the second column of $A$, and the image of $\vec{k}$ is the third column.
+\end{initprob}
+
+
+\begin{general} The linear transformation $T$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
+
+  Suppose $T:\RR^n\rightarrow\RR^m$ is a linear transformation induced by the matrix $A$.  Then
+\begin{equation*} \label{eq:matlintrans}
+ A=\begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+		\vdots & \vdots&\ddots &\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}
+		 = 
+         \begin{bmatrix}
+           | & |& &|\\
+		T(\vec{e}_1) & T(\vec{e}_2)&\dots &T(\vec{e}_n)\\
+		|&| & &|
+         \end{bmatrix}
+\end{equation*}
+\end{general}
+
+\section*{Linear Transformations of $\RR^n$ as Matrix Transformations}
+
+We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of {\it all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
+
+\begin{example}  
+Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{b}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
+
+\begin{explanation}  Observe that 
+$$\vec{b}=\vec{i}-3\vec{j}+6\vec{k}$$
+We find $T(\vec{b})$ by using the fact that $T$ is linear.
+$$T(\vec{b})=T(\vec{i}-3\vec{j}+6\vec{k})=T(\vec{i})-3T(\vec{j})+6T(\vec{k})=\begin{bmatrix}3\\-1\end{bmatrix}-3\begin{bmatrix}0\\4\end{bmatrix}+6\begin{bmatrix}-2\\1\end{bmatrix}=\begin{bmatrix}-9\\-7\end{bmatrix}$$
+Because of properties of linear transformations, the information about the images of the standard unit vectors proved to be sufficient for us to determine the image of $\vec{b}$. 
+\end{explanation}
+\end{example}
+
+\begin{general} Every vector $\vec{x}$ of $\RR^n$ can be written as a linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1)\ldots T(\vec{e}_n)$ allows us to construct a matrix $A$ that induces the desired linear transformation.  We formalize this idea in a theorem.
+\end{general}
+
+
+  \begin{theorem}\label{th:matlin} Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation.  Then 
+  \begin{equation*} \label{matlintrans}
+ A=\begin{bmatrix}
+           | & |& &|\\
+		T(\vec{e}_1) & T(\vec{e}_2)&\dots &T(\vec{e}_n)\\
+		|&| & &|
+         \end{bmatrix}
+\end{equation*}
+satisfies $T(\vec{x})=A\vec{x}$.  In other words, $A$ induces the linear transformation $T$.
+\end{theorem}
+
+
+\begin{proof}  Observe that
+\begin{align*}\vec{x}=\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}=x_1\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}+x_2\begin{bmatrix}0\\1\\\vdots\\0\end{bmatrix}+\dots+x_n\begin{bmatrix}0\\0\\\vdots\\1\end{bmatrix}=x_1\vec{e}_1+x_2\vec{e}_2+\dots+x_n\vec{e}_n
+\end{align*}
+Because $T$ is linear, we have
+\begin{align*}
+T(\vec{x})&=T(x_1\vec{e}_1+x_2\vec{e}_2+\dots+x_n\vec{e}_n)=x_1T(\vec{e}_1)+x_2T(\vec{e}_2)+\dots+x_nT(\vec{e}_n)\\
+&=\begin{bmatrix}
+           | & |& &|\\
+		T(\vec{e}_1) & T(\vec{e}_2)&\dots &T(\vec{e}_n)\\
+		|&| & &|
+         \end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}=A\vec{x}
+\end{align*}
+Thus, for every $\vec{x}$ in $\RR^n$, we have $T(\vec{x})=A\vec{x}$. 
+\end{proof}
+
+We will see in Module {\color{red}LTR-M-0080 (use a ref later)} that the matrix used to represent a linear transformation depends on a choice of basis.  Since $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$ is known as the {\it standard basis} for $\RR^n$, it is natural to denote the matrix in Theorem \ref{th:matlin} in a similar way.
+
+
+\begin{definition} 
+  
+The matrix in Theorem \ref{matlintrans} is known as the {\it standard matrix of the linear transformation} $T$.
+  
+\end{definition}
+
+
+In Theorem \ref{th:matrixtran} we showed that every transformation induced by a matrix is linear.  Theorem \ref{th:matlin} states that every linear transformation from $\RR^n$ into $\RR^m$ is induced by a matrix.  We combine these results in a corollary.
+
+
+  \begin{corollary}\label{cor} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.
+\end{corollary}
+
+\begin{example}\label{ex:findmatrix}
+Find the matrix of a linear transformation $T:\RR^2\rightarrow \RR^2$ such that $T(\vec{i})=2\vec{i}$ and $T(\vec{j})=2\vec{j}$.  
+\begin{explanation}
+We use the images of $\vec{i}$ and $\vec{j}$ as columns of the matrix.  The standard matrix of $T$ is
+$$\begin{bmatrix}2&0\\0&2\end{bmatrix}$$
+\end{explanation}
+\end{example}
+ 
+ 
+ 
+
+\section*{Practice Problems}
+\begin{problem}
+Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T(\vec{i})=\begin{bmatrix}-4\\2\\1\end{bmatrix}$ and $T(\vec{j})=\begin{bmatrix}0\\-1\\5\end{bmatrix}$.  Find $T\Big(\begin{bmatrix}4\\-1\end{bmatrix}\Big)$.
+
+$$T\Big(\begin{bmatrix}4\\-1\end{bmatrix}\Big)=\begin{bmatrix}\answer{-16}\\\answer{9}\\\answer{-1}\end{bmatrix}$$
+\end{problem}
+\begin{problem}
+Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T\Big(\begin{bmatrix}1\\-1\end{bmatrix}\Big)=\begin{bmatrix}1\\4\\-1\end{bmatrix}$ and $T\Big(\begin{bmatrix}2\\0\end{bmatrix}\Big)=\begin{bmatrix}0\\6\\4\end{bmatrix}$.  Find the standard matrix $A$ of $T$.
+
+$$A=\begin{bmatrix}\answer{0}&\answer{-1}\\\answer{3}&\answer{-1}\\\answer{2}&\answer{3}\end{bmatrix}$$
+\end{problem}
+\begin{problem} 
+Find the standard matrix $A$ of each linear transformation $T:\RR^2\rightarrow\RR^2$ described below.
+  \begin{problem}
+  $T$ doubles the $x$ component of every vector and triples the $y$ component.
+  
+  $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{3}\end{bmatrix}$$
+  \end{problem}
+  \begin{problem}
+  $T$ reverses the direction of each vector.
+  
+  $$A=\begin{bmatrix}\answer{-1}&\answer{0}\\\answer{0}&\answer{-1}\end{bmatrix}$$
+  \end{problem}
+  \begin{problem}
+  $T$ doubles the length of each vector.
+  
+  $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{2}\end{bmatrix}$$
+  \end{problem}
+  \begin{problem}
+  $T$ projects each vector onto the $x$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}4\\0\end{bmatrix}$)
+  
+  $$A=\begin{bmatrix}\answer{1}&\answer{0}\\\answer{0}&\answer{0}\end{bmatrix}$$
+  \end{problem}
+  \begin{problem}
+  $T$ projects each vector onto the $y$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}0\\5\end{bmatrix}$)
+  
+  $$A=\begin{bmatrix}\answer{0}&\answer{0}\\\answer{0}&\answer{1}\end{bmatrix}$$
+ \end{problem}
+ \end{problem}
+ 
+
+\end{document} 
