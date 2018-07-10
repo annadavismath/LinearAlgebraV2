@@ -1,1 +1,0 @@
-Gersgorin's Theorem
