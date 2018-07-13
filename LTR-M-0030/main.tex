@@ -13,8 +13,8 @@
 \usepackage{tikz-cd}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows}
-%\pgfplotsset{compat=1.14}
-\input{preamble.tex}
+\pgfplotsset{compat=1.14}
+
 
 
 \begin{document}
@@ -73,7 +73,7 @@ Even though $S$ is defined on all of $\RR^2$, we are only interested in the acti
 
 The actions of individual transformations, as well as the composite transformation are shown below.
 
-\begin{image}\label{fig:actionofst} 
+\begin{image}[3.5in]\label{fig:actionofst} 
 \centering
 \begin{tikzpicture}[scale=.7]
 
@@ -92,9 +92,9 @@ The actions of individual transformations, as well as the composite transformati
   \draw[<->] (10,-1)--(10,3);
   %\draw[line width=2pt,red,-stealth](0,0)--(-1,-1) node[anchor=north east]{$-\vec{u}$};
   \fill[blue!40!white] (10,0) circle (0.2cm);
-  \draw [->,line width=1pt,-stealth]  (2,1)to[out=60](4.5, 1)node[above=7mm, left=6mm]{$T$};
-\draw [->,line width=1pt,-stealth] (7,1)to[out=60](9.5, 1)node[above=7mm, left=6mm]{$S$};
-\draw [->,line width=1pt,-stealth] (2,3.5)to[out=10](11, 3.5)node[above=12mm, left=20mm]{$S\circ T$};
+  \draw [->,line width=1pt,-stealth]  (2,1)to[out=60, in=120](4.5, 1)node[above=7mm, left=6mm]{$T$};
+\draw [->,line width=1pt,-stealth] (7,1)to[out=60, in=120](9.5, 1)node[above=7mm, left=6mm]{$S$};
+\draw [->,line width=1pt,-stealth] (2,3.5)to[out=30, in=150](11, 3.5)node[above=12mm, left=25mm]{$S\circ T$};
 \end{tikzpicture}
 %\caption{The action of $T$, $S$ and $S\circ T$.}
   
@@ -117,10 +117,15 @@ Let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations. We will
 \end{proof}
 
 \begin{theorem}Composition of linear transformations is associative.  In other words, for linear transformations  $T$, $S$ and $R$
+
 \begin{center}
-%\begin{tikzcd}
-%U\rar{T}\arrow[black, bend right]{rrr}[black,swap]{R\circ S\circ T}  & V \rar{S}  & W \rar{R} & Z
-%\end{tikzcd}
+\begin{tikzpicture}
+\node{
+\begin{tikzcd}
+U\rar{T}\arrow[black, bend right]{rrr}[black,swap]{R\circ S\circ T}  & V \rar{S}  & W \rar{R} & Z
+\end{tikzcd}
+};
+\end{tikzpicture}
 \end{center}
 We have $(R\circ S)\circ T=R\circ (S\circ T)$.
 \end{theorem}
@@ -156,7 +161,7 @@ $$\begin{bmatrix}3&-1\\-3&1\end{bmatrix}\begin{bmatrix}1&1\\3&3\end{bmatrix}=\be
 \end{explanation}
 \end{example}
 
-We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, we found it extremely cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication}).  We are now in a position to prove this result with ease.  
+We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication}).  We are now in a position to prove this result with ease.  
 
 Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since transformation composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
 
@@ -197,7 +202,7 @@ Definition \ref{def:inverse} does not specifically require an inverse $S$ of a l
 \begin{theorem}\label{th:inverseislinear} Suppose $T:V\rightarrow W$ is an invertible linear transformation.  Let $S$ be an inverse of $T$.  Then $S$ is  linear.
 \end{theorem}
 
-\begin{proof} The proof of this result is left to the reader.
+\begin{proof} The proof of this result is left to the reader. (See Practice Problem \ref{prob:inverseislinear})
 %Let $\vec{w}_1$ and $\vec{w}_2$ be vectors in $W$ such that $\vec{w}_1=T(\vec{v}_1)$ and $T(\vec{w}_2)=\vec{v}_2$ for some $\vec{v}_1$ and $\vec{v}_2$ in $V$. Let $k_1$ and $k_2$ be scalars.
 %\begin{align*}
 %S(k_1\vec{w}_1+k_2\vec{w}_2)&=S(k_1T(\vec{v}_1)+k_2T(\vec{v}_2))\\
@@ -212,7 +217,7 @@ Definition \ref{def:inverse} does not specifically require an inverse $S$ of a l
 
 \subsection*{Linear Transformations of $\RR^n$ and the Standard Matrix of the Inverse Transformation}
 
-Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{matlin})  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n\times n}$ and $M_TM_S=I_{m\times m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
+Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{matlin})  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n}$ and $M_TM_S=I_{m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
 
 Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices, and $n=m$. 
 
@@ -266,7 +271,7 @@ Propose a candidate for an inverse of $T$ and verify your choice using Definitio
 \end{problem}
 \begin{problem}Explain why linear transformation $T:\RR^2\rightarrow\RR^2$ given by $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x+2y\\-3x-3y\end{bmatrix}$$ does not have an inverse.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:inverseislinear}
 Prove Theorem \ref{th:inverseislinear}.  
 \end{problem}
 \begin{problem} Suppose $T:U\rightarrow V$ and $S:V\rightarrow W$ are linear transformations with inverses $T'$ and $S'$ respectively.  Prove that $T'\circ S'$ is an inverse of $S\circ T$.

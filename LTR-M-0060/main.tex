@@ -11,8 +11,7 @@
 \newtheorem{initprob}{Exploration Problem}
 \usepackage{tikz-cd}
 \usepackage{tikz-3dplot}
-%\pgfplotsset{compat=1.14}
-\input{preamble.tex}
+\pgfplotsset{compat=1.14}
 
 
 
@@ -80,7 +79,7 @@ We will now combine the results of Theorem \ref{th:onetoonelinind} and Theorem \
 Let $T:V\rightarrow W$ be an isomorphism.  Suppose $\mathcal{B}_V=\{\vec{v}_1,\ldots ,\vec{v}_n\}$ is a basis for $V$.  Then $\{T(\vec{v}_1),\ldots ,T(\vec{v}_n)\}$ is a basis for $W$.
 \end{theorem}
 \begin{proof}
-See Problem \ref{pr:bijectionsbasisproof}. {\color{red} reference}
+Left to the reader.  (See Practice Problem \ref{prob:bijectionsbasisproof}) 
 \end{proof}
  
  
@@ -132,7 +131,7 @@ We conclude that $\vec{w}$ is an image of an element of $V$, so $T$ is onto.
 
 \end{proof}
 
-And from this proof follows a corollary, that some would argue is a very important result.  It shows why we spent so much time trying to understand $\RR^n$ in this course!
+From this proof follows a corollary, that some would argue is a very important result.  It shows why we spent so much time trying to understand $\RR^n$ in this course!
 
 \begin{corollary}\label{cor:ndimisotorn}
 Every $n$-dimensional vector space is isomorphic to $\RR^n$.
@@ -143,7 +142,7 @@ The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\R
 
 
 %\begin{figure}[h]
-\begin{center}
+\begin{image}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
 	\draw[->](-2,0,0)--(3,0,0) ;
@@ -165,7 +164,7 @@ The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\R
  \end{tikzpicture}
 %\caption{Two spaces of dimension 2 are isomorphic.}
   \label{fig:planeisoplane} 
-  \end{center}
+  \end{image}
 %\end{figure}
 
 \end{example}
@@ -207,7 +206,7 @@ We leave it to the reader to verify that $T$ is an isomorphism.
 
 \section*{Practice Problems}
 
-\begin{problem}\label{pr:bijectionsbasisproof}
+\begin{problem}\label{prob:bijectionsbasisproof}
 Prove Theorem \ref{th:bijectionsbasis}.
 \end{problem}
 

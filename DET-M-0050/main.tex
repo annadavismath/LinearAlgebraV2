@@ -1,0 +1,172 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{The Laplace Expansion Theorem} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+We state and prove the Laplace Expansion Theorem for determinants.
+\end{abstract}
+\maketitle
+
+
+
+\section*{Introduction and Examples}
+We originally defined the determinant of a matrix in terms of cofactor expansion along the top row of the matrix.  We later showed that cofactor expansion along the first column produces the same result.  Surprisingly, it turns out that the value of the determinant can be computed by expanding along any row or column.  This result is known as the Laplace Expansion Theorem.  We begin by generalizing some definitions we first encountered in {\color{red} reference}.
+
+Given an $n\times n$ matrix 
+$$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \dots & a_{1n}  \\
+    a_{21} & a_{22} & \dots & a_{2(j-1)} & a_{2j} & a_{2(j+1)} & \dots & a_{2n}  \\
+   \vdots & \vdots &  & \vdots & \vdots & \vdots &  & \vdots  \\
+   a_{(i-1)1} & a_{(i-1)2} & \ldots & a_{(i-1)(j-1)} & a_{(i-1)j} & a_{(i-1)(j+1)} & \ldots & a_{(i-1)n}\\
+  a_{i1} & a_{i2} & \ldots & a_{i(j-1)} & a_{ij} & a_{i(j+1)} & \ldots & a_{in}\\
+  a_{(i+1)1} & a_{(i+1)2} & \ldots & a_{(i+1)(j-1)} & a_{(i+1)j} & a_{(i+1)(j+1)} & \ldots & a_{(i+1)n}\\
+  \vdots & \vdots &  & \vdots & \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots & a_{n(j-1)} & a_{nj} & a_{n(j+1)} & \dots & a_{nn}\end{bmatrix}$$
+   define $A_{ij}$ to be an $(n-1)\times (n-1)$ matrix obtained from $A$ by deleting the $i^{th}$ row and the $j^{th}$ column of $A$.
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m)[
+    matrix of math nodes,
+    nodes in empty cells,
+    left delimiter={[},right delimiter={]},minimum width=width("a(i-1)(j-1)")] {
+    a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \dots & a_{1n}  \\
+    a_{21} & a_{22} & \dots & a_{2(j-1)} & a_{2j} & a_{2(j+1)} & \dots & a_{2n}  \\
+   \vdots & \vdots &  & \vdots & \vdots & \vdots &  & \vdots  \\
+   a_{(i-1)1} & a_{(i-1)2} & \ldots & a_{(i-1)(j-1)} & a_{(i-1)j} & a_{(i-1)(j+1)} & \ldots & a_{(i-1)n}\\
+  a_{i1} & a_{i2} & \ldots & a_{i(j-1)} & a_{ij} & a_{i(j+1)} & \ldots & a_{in}\\
+  a_{(i+1)1} & a_{(i+1)2} & \ldots & a_{(i+1)(j-1)} & a_{(i+1)j} & a_{(i+1)(j+1)} & \ldots & a_{(i+1)n}\\
+  \vdots & \vdots &  & \vdots & \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots & a_{n(j-1)} & a_{nj} & a_{n(j+1)} & \dots & a_{nn}  \\
+  } ;
+\draw (m-1-1.north west) rectangle (m-4-4.south east);
+\draw (m-1-6.north west) rectangle (m-4-8.south east);
+\draw (m-6-1.north west) rectangle (m-8-4.south east);
+\draw (m-6-6.north west) rectangle (m-8-8.south east);
+ 
+  \end{tikzpicture}
+ \end{center} 
+ 
+ Define the \dfn{$(i,j)$-cofactor} of $A$ by
+ $$C_{ij}=(-1)^{i+j}\text{det}(A_{ij})$$
+ Note that the sign of $(-1)^{i+j}$ follows a checker board pattern.
+ $$\begin{bmatrix}+&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\
+ +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
+
+\begin{theorem}[Laplace Expansion Theorem]\label{th:laplace1}
+Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Then
+\begin{align}\label{eq:laplace1a}
+\det{A}&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\nonumber\\
+&=a_{i1}(-1)^{i+1}\det{A_{i1}}+a_{i2}(-1)^{i+2}\det{A_{i2}}+\ldots +a_{in}(-1)^{i+n}\det{A_{in}}\nonumber\\
+&=\sum_{j=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
+\end{align}
+and
+\begin{align}\label{eq:laplace1b}
+\det{A}&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\nonumber\\
+&=a_{1j}(-1)^{1+j}\det{A_{1j}}+a_{2j}(-1)^{2+j}\det{A_{2j}}+\ldots +a_{nj}(-1)^{n+j}\det{A_{nj}}\nonumber\\
+&=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
+\end{align}
+\end{theorem}
+ 
+ Computation (\ref{eq:laplace1a}) is called the \dfn{cofactor expansion along the $i^{th}$ row}.  Computation (\ref{eq:laplace1b}) is called \dfn{cofactor expansion along the $j^{th}$ column}.  
+ 
+ \begin{example}
+Let  
+$$A=\begin{bmatrix}4&-1&2&1\\3&0&1&-2\\
+2&1&5&1\\-2&1&3&-1\end{bmatrix}$$
+Find $\det{A}$ by cofactor expansion along the second row.
+\begin{explanation}
+Matrix $A$ is the same as the matrix in Example \ref{ex:expansiontoprow} of DET-M-0010.  According to the Laplace Expansion Theorem we should get the same value for the determinant as we did in Example \ref{ex:expansiontoprow} regardless of which row or column we expand along.  The second row has the advantage over other rows in that it contains a zero.  This makes computing one of the cofactors unnecessary.  Following the checker board sign pattern along the second row we get
+
+\begin{align*}
+\det{A}&=-(3)\det{A_{21}}+(0)\det{A_{22}}-(1)\det{A_{23}}+(-2)\det{A_{24}}\\
+&=-3\begin{vmatrix}-1&2&1\\1&5&1\\1&3&-1\end{vmatrix}-\begin{vmatrix}4&-1&1\\2&1&1\\-2&1&-1\end{vmatrix}+(-2)\begin{vmatrix}4&-1&2\\2&1&5\\-2&1&3\end{vmatrix}\\&=-3(\answer{10})-(\answer{-4})-2(\answer{16})\\
+&=\answer{-58}
+\end{align*}
+This answer is the same as the answer we got using cofactor expansion along the first row in Example \ref{ex:expansiontoprow}.
+\end{explanation}
+ \end{example}
+ 
+It is clear that having zeros as entries in the matrix significantly reduces the number of computations necessary to find the determinant.  The following example demonstrates how Laplace Expansion Theorem allows us to use zeros to our advantage.
+
+\begin{example}Find $\det{A}$ if
+$$A=\begin{bmatrix}4&0&0&0&2\\0&-1&1&0&0\\2&0&0&-5&3\\0&1&4&0&-1\\1&1&5&0&0\end{bmatrix}$$
+
+\begin{explanation}
+The fourth column contains the most zeros, so we will expand along that column.  The  $(3, 4)$-entry is the only non-zero entry in the fourth column.  So the sign is given by $(-1)^{3+4}=-1$.  You can also consult the checker board pattern to confirm this.  
+$$\det{A}=-(-5)\begin{vmatrix}4&0&0&2\\0&-1&1&0\\0&1&4&-1\\1&1&5&0\end{vmatrix}
+$$
+Next we will expand along the top row.
+$$\det{A}=5\left(4\begin{vmatrix}-1&1&0\\1&4&-1\\1&5&0\end{vmatrix}-2\begin{vmatrix}0&-1&1\\0&1&4&\\1&1&5\end{vmatrix}\right)$$
+Try the next step on your own.  We suggest that you expand the first matrix along the last column and expand the second matrix along the first column.
+$$\text{det}(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
+\end{explanation}
+\end{example}
+
+\section*{Proof of the Laplace Expansion Theorem}
+
+We started the topic of determinants by introducing two definitions of the determinant and proving that they produce the same result.  However, if you examine our proofs carefully, you will find that none of the proofs rely on cofactor expansion along the first row.  So, all of our results were derived based exclusively on cofactor expansion along the first column.  Indeed, we did not have to present the first definition at all. Our only motivation for doing so was that both definitions are standard and widely used. 
+
+In keeping with our effort to avoid cofactor expansion along the first row in proofs, we will prove the  Laplace Expansion Theorem using cofactor expansion along the first column.  Then cofactor expansion along the first row will simply become a consequence of the Laplace Expansion Theorem, rendering the equivalence proof (Theorem \ref{th:rowcolexpequivalence}) of DET-M-0020 redundant.
+
+We begin by stating the following counterpart of Theorem \ref{th:elemrowopsanddet} of DET-M-0030.
+\begin{theorem}[Elementary Column Operations and the Determinant]\label{th:elemcolopsanddet}
+Let $A$ be an $n\times n$ matrix.  
+\begin{enumerate}
+\item\label{item:rowswapanddet}
+If $B$ is obtained from $A$ by interchanging two different columns, then $$\det{B}=-\det{A}$$
+\item \label{item:rowconstantmultanddet}
+If $B$ is obtained from $A$ by multiplying one of the columns of $A$ by a non-zero constant $k$.  Then $$\det{B}=k\det{A}$$
+\item \label{item:addmultotherrowdet}
+If $B$ is obtained from $A$ by adding a multiple of one column of $A$ to another column, then
+$$\det{B}=\det{A}$$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+This is a direct consequence of the fact that $\det{A^T}=\det{A}$. (Theorem \ref{th:detoftrans} of DET-M-0040)
+\end{proof}
+
+We are now ready to prove Theorem \ref{th:laplace1}.  For convenience we restate the result:
+
+
+Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Then
+\begin{align*}
+\text{det}(A)&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\\
+&=a_{i1}(-1)^{i+1}\det{A_{i1}}+a_{i2}(-1)^{i+2}\det{A_{i2}}+\ldots +a_{in}(-1)^{i+n}\det{A_{in}}\\
+&=\sum_{j=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
+\end{align*}
+and
+\begin{align*}
+\text{det}(A)&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\\
+&=a_{1j}(-1)^{1+j}\det{A_{1j}}+a_{2j}(-1)^{2+j}\det{A_{2j}}+\ldots +a_{nj}(-1)^{n+j}\det{A_{nj}}\\
+&=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
+\end{align*}
+
+
+\begin{proof}[Proof of Laplace Expansion Theorem]
+We will start by showing that cofactor expansion along column $j$ produces the same result as cofactor expansion along the first column.  Observe that column $j$ can be shifted into the first column position by $j-1$ consecutive row switches.  Let $A'=\begin{bmatrix}a'_{ij}\end{bmatrix}$ be the matrix obtained from $A$ by performing the necessary column switches.  Then 
+\begin{align*}
+\det{A}&=(-1)^{j-1}\det{A'}\\
+&=(-1)^{j-1}\sum_{i=1}^na'_{i1}(-1)^{i+1}\det{A'_{i1}}\\
+&=(-1)^{j-1}\sum_{i=1}^na_{ij}(-1)^{i+1}\det{A_{ij}}\\
+&=\sum_{i=1}^na_{ij}(-1)^{j-1}(-1)^{i+1}\det{A_{ij}}\\
+&=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
+\end{align*}
+
+To show that the determinant of $A$ can also be computed by cofactor expansion along any row follows from the fact that $\det{A}=\det{A^T}$. (Theorem \ref{th:detoftrans} of DET-M-0040)
+\end{proof}
+\section*{Practice Problems}
+
+\begin{problem}
+Find $\text{det}(A)$
+  $$A=\begin{bmatrix}1&-2&0&0&0\\0&-4&1&1&0\\3&0&-1&0&1\\0&0&4&1&0\\-1&-2&0&0&0\end{bmatrix}$$
+  Answer:
+  $$\text{det}(C)=\answer{12}$$
+\end{problem}
+
+
+\end{document} 

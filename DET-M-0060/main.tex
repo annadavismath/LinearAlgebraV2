@@ -1,0 +1,300 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{Determinants and Inverses of Nonsingular Matrices} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We derive the formula for Cramer's rule and use it to express the inverse of a matrix in terms of determinants.
+\end{abstract}
+\maketitle
+
+Combining results of Theorem \ref{th:detofsingularmatrix} and Theorem {\color{red}ref} shows that the following statements about matrix $A$ are equivalent:
+\begin{itemize}
+\item $A^{-1}$ exists
+\item Any equation $Ax=\vec{b}$ has a unique solution
+\item $\det{A}\neq 0$
+\end{itemize}
+In this module we will take a closer look at the relationship between the determinant of a nonsingular matrix $A$, solution to the system $A\vec{x}=\vec{b}$, and the inverse of $A$.  
+\section*{Cramer's Rule}
+We begin by establishing a formula that allows us to express the unique solution to the system $A\vec{x}=\vec{b}$ in terms of the determinant of $A$, for a nonsingular matrix $A$.  This formula is called Cramer's rule.
+
+Consider the system
+$$\begin{array}{ccccc}
+      ax& +&by&=&e\\
+      cx & +&dy&= &f 
+    \end{array}$$
+    
+ The system can be written as a matrix equation
+ $$\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}e\\f\end{bmatrix}$$
+ 
+ Using one of our standard methods for solving systems we find that 
+ $$x=\frac{ed-bf}{ad-bc}\quad\text{and}\quad y=\frac{af-ec}{ad-bc}$$
+ 
+ Observe that the denominators in the expressions for $x$ and $y$ are the same and equal to $\det{\begin{bmatrix}a&b\\c&d\end{bmatrix}}$.
+ 
+ A close examination shows that the numerators of expressions for $x$ and $y$ can also be interpreted as determinants of matrices. The numerator of the expression for $x$ is the determinant of the matrix that is formed by replacing the first column of $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ with $\begin{bmatrix}e\\f\end{bmatrix}$.  The numerator of the expression for $y$ is the determinant of the matrix that is formed by replacing the second column of $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ with $\begin{bmatrix}e\\f\end{bmatrix}$.  Thus, $x$ and $y$ can be written as
+ 
+ $$x=\frac{ed-bf}{ad-bc}=\frac{\begin{vmatrix}e&b\\f&d\end{vmatrix}}{\begin{vmatrix}a&b\\c&d\end{vmatrix}}\quad\text{and}\quad y=\frac{af-ec}{ad-bc}=\frac{\begin{vmatrix}a&e\\c&f\end{vmatrix}}{\begin{vmatrix}a&b\\c&d\end{vmatrix}}$$
+Note that a unique solution to the system exists if and only if the determinant of the coefficient matrix is not zero.
+
+It turns out that a solution to any square system $A\vec{x}=\vec{b}$ can be expressed using ratios of determinants, provided that $A$ is nonsingular.  The general formula for the $i^{th}$ component of the solution vector is
+$$x_i=\frac{\det{(\text{matrix } A \text{ with column } i \text{ replaced by } \vec{b})}}{\det{A}}$$
+
+To formalize this expression, we need to introduce some notation.  Given a matrix $A$ and a vector $\vec{b}$ we use 
+$$A_i(\vec{b})$$
+to denote the matrix obtained from $A$ by replacing the $i^{th}$ column of $A$ with $\vec{b}$. In other words,
+$$A_i(\vec{b})=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}$$
+Using our new notation, we can write the $i^{th}$ component of the solution vector as
+$$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
+
+We will work through a couple of examples before proving this result as a theorem.
+
+\begin{example}\label{ex:cramer2by2}
+Solve $A\vec{x}=\vec{b}$ using Cramer's rule if
+$$A=\begin{bmatrix}3&-1\\2&5\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}-2\\4\end{bmatrix}$$
+
+\begin{explanation}
+We start by computing the determinant of $A$.
+$$\det{A}=\begin{vmatrix}3&-1\\2&5\end{vmatrix}=(3)(5)-(-1)(2)=17$$
+Next, we compute $\det{A_1(\vec{b})}$ and $\det{A_2(\vec{b})}$.
+$$\det{A_1(\vec{b})}=\begin{vmatrix}-2&-1\\4&5\end{vmatrix}=(-2)(5)-(-1)(4)=-6$$
+
+$$\det{A_2(\vec{b})}=\begin{vmatrix}3&-2\\2&4\end{vmatrix}=(3)(4)-(-2)(2)=16$$
+We now compute the components of the solution vector.
+$$x_1=\frac{-6}{17}\quad\text{and}\quad x_2=\frac{16}{17}$$
+Finally, it is a good idea to verify that what we found is a solution to the system.
+$$\begin{bmatrix}3&-1\\2&5\end{bmatrix}\begin{bmatrix}-6/17\\16/17\end{bmatrix}=\begin{bmatrix}-18/17-16/17\\-12/17+80/17\end{bmatrix}=\begin{bmatrix}-34/17\\68/17\end{bmatrix}=\begin{bmatrix}-2\\4\end{bmatrix}$$
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:cramer3by3}
+Solve $A\vec{x}=\vec{b}$ using Cramer's rule if
+$$A=\begin{bmatrix}1&2&-1\\-1&1&1\\0&3&1\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}-2\\3\\1\end{bmatrix}$$
+
+\begin{explanation}
+Find the determinant of $A$.
+$$\det{A}=\begin{vmatrix}1&2&-1\\-1&1&1\\0&3&1\end{vmatrix}=\answer{3}$$
+
+Next, we compute $\det{A_i(\vec{b})}$ for $i=1, 2, 3$.
+$$\det{A_1(\vec{b})}=\begin{vmatrix}-2&2&-1\\3&1&1\\1&3&1\end{vmatrix}=\answer{-8}$$
+
+$$\det{A_2(\vec{b})}=\begin{vmatrix}1&-2&-1\\-1&3&1\\0&1&1\end{vmatrix}=\answer{1}$$
+
+$$\det{A_3(\vec{b})}=\begin{vmatrix}1&2&-2\\-1&1&3\\0&3&1\end{vmatrix}=\answer{0}$$
+
+This gives us the solution vector
+$$\vec{x}=\begin{bmatrix}\answer{-8/3}\\\answer{1/3}\\\answer{0}\end{bmatrix}$$
+You should verify that what you found really is a solution.
+\end{explanation}
+\end{example}
+We are now ready to state and prove Cramer's rule as a theorem.
+
+\begin{theorem}\label{th:cramer}
+Let $A$ be a nonsingular $n\times n$ matrix, and let $\vec{b}$ be an $n\times 1$ vector.  Then the components of the solution vector $\vec{x}$ of $A\vec{x}=\vec{b}$ are given by
+$$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
+\end{theorem}
+\begin{proof}
+For this proof we will need to think of matrices in terms of their columns.  Thus,
+$$A=\begin{bmatrix}
+           | & |& &|\\
+		A_1 & A_2&\dots&A_n\\
+		| & |& &|
+         \end{bmatrix}$$
+We will also need the identity matrix $I$.  The columns of $I$ are standard unit vectors.
+$$I=\begin{bmatrix}
+           | & |& &|\\
+		\vec{e}_1 & \vec{e}_2&\dots&\vec{e}_n\\
+		| & |& &|
+         \end{bmatrix}$$
+Recall that 
+$$A_i(\vec{b})=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}$$
+         
+Similarly,
+$$I_i(\vec{x})=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		\vec{e}_1 & \vec{e}_2&\dots &\vec{e}_{i-1}&\vec{x}&\vec{e}_{i+1}&\dots&\vec{e}_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}$$
+         Observe that $x_i$ is the only non-zero entry in the $i^{th}$ row of $I_i(\vec{x})$.  Cofactor expansion along the $i^{th}$ row gives us 
+         \begin{equation}\label{eq:cramerix}\det{I_i(\vec{x})}=x_i\end{equation}
+Now, consider the product $A\Big(I_i(\vec{x})\Big)$
+\begin{align*}A\Big(I_i(\vec{x})\Big)&=\begin{bmatrix}
+           | & |& &|\\
+		A_1 & A_2&\dots&A_n\\
+		| & |& &|
+         \end{bmatrix}\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		\vec{e}_1 & \vec{e}_2&\dots &\vec{e}_{i-1}&\vec{x}&\vec{e}_{i+1}&\dots&\vec{e}_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}\\
+         &=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		A_1 & A_2&\dots &A_{i-1}&A\vec{x}&A_{i+1}&\dots&A_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}\\
+         &=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}=A_i(\vec{b})
+\end{align*}
+
+This gives us 
+$$AI_i(\vec{x})=A_i(\vec{b})$$
+$$\det{AI_i(\vec{x})}=\det{A_i(\vec{b})}$$
+$$\det{A}\det{I_i(\vec{x})}=\det{A_i(\vec{b})}$$
+By our earlier observation in (\ref{eq:cramerix}) we have
+$$\det{A}x_i=\det{A_i(\vec{b})}$$
+$A$ is nonsingular, so $\det{A}\neq 0$.  Thus
+$$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
+\end{proof}
+
+Finding the determinant is computationally expensive.  Because Cramer's rule requires finding many determinants, it is not a computationally efficient way of solving a system of equations.  However, Cramer's rule is often used for small systems in applications that arise in economics, natural, and social sciences, particularly when solving for only a subset of the variables.
+
+\section*{Adjoint Formula for the Inverse of a Matrix}
+
+In Practice Problem {\color{red} reference} of Module {\color{red} reference} we used the row reduction algorithm to show that if $$A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$$ is nonsingular then 
+
+\begin{equation}\label{eq:twobytwoinverse}A^{-1}=\frac{1}{\det{A}}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\end{equation}
+This formula is a special case of a general formula for the inverse of a nonsingular square matrix.  Just like the formula for a $2\times 2$ matrix, the general formula  includes the coefficient $\frac{1}{\det{A}}$ and a matrix related to the original matrix.  We will now derive the general formula using Cramer's rule.
+
+Let $A$ be an $n\times n$ nonsingular matrix.  When looking for the inverse of $A$, we look for a matrix $X$ such that $AX=I$.  We will think of matrices in terms of their columns
+
+$$I=\begin{bmatrix}
+           | & |& &|\\
+		\vec{e}_1 & \vec{e}_2&\dots&\vec{e}_n\\
+		| & |& &|
+         \end{bmatrix}\quad\text{and}\quad X=\begin{bmatrix}
+           | & |& &|\\
+		X_1 & X_2&\dots&X_n\\
+		| & |& &|
+         \end{bmatrix}$$
+
+If $AX=I$ then we must have
+$$AX_1=\vec{e}_1$$
+$$AX_2=\vec{e}_2$$
+$$\vdots$$
+$$AX_n=\vec{e}_n$$
+This gives us $n$ systems of equations.  Solution vectors to these systems are the columns of $X$.  Thus, the $j^{th}$ column of $X$ is
+$$X_j=\begin{bmatrix}x_{1j}\\x_{2j}\\\vdots\\x_{nj}\end{bmatrix}\quad\text{such that}\quad AX_j=\vec{e}_j$$
+By Cramer's rule 
+$$x_{ij}=\frac{\det{A_i(\vec{e}_j)}}{\det{A}}$$
+         
+But
+$$A_i(\vec{e})=\begin{bmatrix}
+           | & |& &|&|&|&&|\\
+		A_1 & A_2&\dots &A_{i-1}&\vec{e}_j&A_{i+1}&\dots&A_n\\
+		| & |& &|&|&|&&|
+         \end{bmatrix}$$
+To find $\det{A_i(\vec{e}_j)}$, we can expand along the $i^{th}$ column of $A_i(\vec{e}_j)$.  But the $i^{th}$ column of $A_i(\vec{e}_j)$ is the vector $\vec{e}_j$ which has 1 in the $j^{th}$ spot and zeros everywhere else.  Thus 
+$$\det{A_i(\vec{e}_j)}=(-1)^{i+j}\det{A_{ji}}=C_{ji}$$
+We now have
+$$X_j=\begin{bmatrix}C_{j1}/\det{A}\\C_{j2}/\det{A}\\\vdots\\C_{jn}/\det{A}\end{bmatrix}=\frac{1}{\det{A}}\begin{bmatrix}C_{j1}\\C_{j2}\\\vdots\\C_{jn}\end{bmatrix}$$
+Thus,
+$$A^{-1}=X=\frac{1}{\det{A}}\begin{bmatrix}C_{11}&C_{21}&\ldots&C_{n1}\\C_{12}&C_{22}&\ldots&C_{n2}\\\vdots&\vdots&\ddots&\vdots\\
+C_{1n}&C_{2n}&\ldots&C_{nn}\end{bmatrix}$$
+
+The matrix of cofactors of $A$ is called the \dfn{adjoint} of $A$.  We write
+$$\text{adj}(A)=\begin{bmatrix}C_{11}&C_{21}&\ldots&C_{n1}\\C_{12}&C_{22}&\ldots&C_{n2}\\\vdots&\vdots&\ddots&\vdots\\
+C_{1n}&C_{2n}&\ldots&C_{nn}\end{bmatrix}$$
+
+\begin{warning}
+Note the order of subscripts of $C$ in the adjoint matrix.  The $(i,j)$-entry of the adjoint matrix is $C_{ji}$.
+\end{warning}
+
+We summarize our result as a theorem 
+
+\begin{theorem}\label{th:adjointinverseformula}
+Let $A$ be a nonsingular square matrix, then
+$$A^{-1}=\frac{1}{\det{A}}\textnormal{adj}(A)$$
+\end{theorem}
+
+\begin{example}
+Use Theorem \ref{th:adjointinverseformula} to  find $A^{-1}$ if 
+$$A=\begin{bmatrix}1&-1&2\\1&1&1\\1&3&-1\end{bmatrix}$$
+\begin{explanation}
+We begin by finding $\det{A}$
+$$\det{A}=\answer{-2}$$
+The first column of $\textnormal{adj}(A)$ has entries $C_{11}$, $C_{12}$ and $C_{13}$.
+$$C_{11}=(-1)^{1+1}\begin{vmatrix}1&1\\3&-1\end{vmatrix}=\answer{-4}$$
+$$C_{12}=(-1)^{1+2}\begin{vmatrix}1&1\\1&-1\end{vmatrix}=\answer{2}$$
+$$C_{13}=(-1)^{1+3}\begin{vmatrix}1&1\\1&3\end{vmatrix}=\answer{2}$$
+The second column of $\textnormal{adj}(A)$ has entries $C_{21}$, $C_{22}$ and $C_{23}$.
+$$C_{21}=(-1)^{2+1}\begin{vmatrix}\answer{-1}&\answer{2}\\\answer{3}&\answer{-1}\end{vmatrix}=\answer{5}$$
+$$C_{22}=(-1)^{2+2}\begin{vmatrix}\answer{1}&\answer{2}\\\answer{1}&\answer{-1}\end{vmatrix}=\answer{-3}$$
+$$C_{23}=(-1)^{2+3}\begin{vmatrix}\answer{1}&\answer{-1}\\\answer{1}&\answer{3}\end{vmatrix}=\answer{-4}$$
+Now we compute the third column of $\textnormal{adj}(A)$.
+$$C_{31}=\answer{-3}$$
+$$C_{32}=\answer{1}$$
+$$C_{33}=\answer{2}$$
+This gives us
+$$A^{-1}=\begin{bmatrix}2&-5/2&3/2\\-1&3/2&-1/2\\-1&2&-1\end{bmatrix}$$
+Compare this result to the answer in Problem \ref{ex:inverse3} of Module {\color{red} reference}.
+
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+
+\begin{problem} Use Cramer's rule to solve each of the following systems.
+  \begin{problem}
+  $$\begin{array}{ccccc}
+      -3x& +&2y&=&1\\
+      2x & -&y&= &4 
+    \end{array}$$
+    Answer:
+    $$x=\answer{9}\quad y=\answer{14}$$
+  \end{problem}
+  
+  \begin{problem}
+  $$\begin{bmatrix}2&-5&1\\6&0&-2\\-3&1&1\end{bmatrix}\vec{x}=\begin{bmatrix}1\\4\\3\end{bmatrix}$$
+  Answer:
+  $$\vec{x}=\begin{bmatrix}\answer{28/5}\\\answer{5}\\\answer{74/5}\end{bmatrix}$$
+  \end{problem}
+\end{problem}
+
+\begin{problem}
+Consider the equation
+$$\begin{bmatrix}1&1&1&1\\2&3&2&-1\\3&-2&3&-2\\2&1&1&1\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}10\\10\\0\\11\end{bmatrix}$$
+\begin{enumerate}
+\item Solve for $x_2$ using Cramer's Rule.
+
+Answer: $$x_2=\answer{2}$$
+\item If you had to solve for all four variables, which method would you use?  Why?
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Use Theorem \ref{th:adjointinverseformula} to find the inverse of each of the following matrices.
+  \begin{problem}
+  $$A=\begin{bmatrix}2&7\\1&3\end{bmatrix}$$
+  Answer:
+  $$A^{-1}=\begin{bmatrix}\answer{-3}&\answer{7}\\\answer{1}&\answer{-2}\end{bmatrix}$$
+  \end{problem}
+  
+  \begin{problem}
+  $$A=\begin{bmatrix}2&1&4\\4&-2&1\\0&3&-1\end{bmatrix}$$
+  Answer:
+  $$A^{-1}=\frac{1}{\answer{50}}\begin{bmatrix}\answer{-1}&\answer{13}&\answer{9}\\\answer{4}&\answer{-2}&\answer{14}\\\answer{12}&\answer{-6}&\answer{-8}\end{bmatrix}$$
+  \end{problem}
+\end{problem}
+
+\begin{problem}
+Show that the formula in (\ref{eq:twobytwoinverse}) is a special case of the formula in Theorem \ref{th:adjointinverseformula} by showing that 
+$$\textnormal{adj}\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
+\end{problem}
+\end{document} 

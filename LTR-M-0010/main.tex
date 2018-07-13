@@ -1,7 +1,20 @@
 \documentclass{ximera}
-\usepackage{OERLinearAlgebra}
+
 
 \author{Anna Davis \and Paul Zachlin} \title{Introduction to Linear Transformations} \license{CC-BY 4.0}
+
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+\newcommand{\id}{\text{id}}
+ 
+\newtheorem{general}{Generalization}
+\newtheorem{initprob}{Exploration Problem}
+\usepackage{tikz-cd}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows}
+\pgfplotsset{compat=1.14}
 
 \begin{document}
 
@@ -30,7 +43,7 @@ The collection of images of all points of $V$ is called the {\it range} of $f$. 
 \end{definition}
 
 
-In algebra and calculus you worked with functions $f:\RR\rightarrow\RR$ whose domain and codomain were each the set of all real numbers.  In linear algebra, we call our functions {\it transformations}.  The domain and codomain of a transformation are sets of vectors.  A typical transformation $T$ will map vectors of $\RR^n$ into $\RR^m$.
+In algebra and calculus you worked with functions $f:\RR\rightarrow\RR$ whose domain and codomain were each the set of all real numbers.  In linear algebra, we call our functions {\it transformations}.  The domain and codomain of a transformation are vector spaces.  A typical transformation $T$ will map vectors of $\RR^n$ into $\RR^m$.
 
 \begin{initprob}\label{init:lintransintro} In this exercise we will introduce a very special type of transformation by contrasting the effects of two transformations on vectors of $\RR^2$.  We will see that some transformations have ``nice" properties, while others do not.  Define $T_1$ and $T_2$ as follows:
 $$T_1:\RR^2\rightarrow\RR^2$$
@@ -49,7 +62,6 @@ y
 -x+y+1\\
 y-2
 \end{bmatrix}$$
-\end{initprob}
 
 Each of these transformations takes a vector in $\RR^2$, and {\it{transforms}} it to another vector in $\RR^2$.  To see if you understand how these transformations are defined, see if you can determine what these transformations do to the vector $\begin{bmatrix}
 4\\
@@ -131,42 +143,20 @@ You should try to verify that this property does not hold for transformation $T_
 
 
 
-There is nothing special about the number 7, and it is not hard to prove that for any scalar $k$ and vector $\vec{u}$ of $\RR^2$,
-
-% \begin{align*}
-% T_1(k\vec{u})&=T_1\left(k\begin{bmatrix}
-% u_1\\
-% u_2
-% \end{bmatrix}\right)=T_1\left(\begin{bmatrix}
-% ku_1\\
-% ku_2
-% \end{bmatrix}\right)=\begin{bmatrix}
-% ku_1-ku_2\\
-% ku_1
-% \end{bmatrix}=k\begin{bmatrix}
-% u_1-u_2\\
-% u_1
-% \end{bmatrix}=kT_1\left(\begin{bmatrix}
-% u_1\\
-% u_2
-% \end{bmatrix}\right)=kT_1(\vec{u})
-% \end{align*}
+There is nothing special about the number 7, and it is not hard to prove that for any scalar $k$ and vector $\vec{u}$ of $\RR^2$, $T_1$ satisfies
 \begin{align}\label{lin1} kT_1(\vec{u})= T_1(k\vec{u}).\end{align}
 
-
-
-Transformation $T_1$ satisfies another important property. For all vectors $\vec{u}$ and $\vec{v}$ of $\RR^2$ we have:
+In addition, $T_1$ satisfies another important property. For all vectors $\vec{u}$ and $\vec{v}$ of $\RR^2$ we have:
 \begin{align}\label{lin2} T_1(\vec{u}+\vec{v}) = T_1(\vec{u})+T_1(\vec{v})\end{align}
-We leave it to the reader to illustrate this property with a specific example (see Practice Problem \ref{sum}).  
+We leave it to the reader to illustrate this property with a specific example (see Practice Problem \ref{prob:sum}), and show that $T_1$ satisfies (\ref{lin2}) in general.
 
-We will show that $T_1$ satisfies (\ref{lin2}) in general.
 Let $\vec{u}=\begin{bmatrix}
 u_1\\
 u_2
 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix}
 v_1\\
 v_2
-\end{bmatrix}$.
+\end{bmatrix}$, then
 \begin{align*}
 T_1(\vec{u}+\vec{v})&=T_1\left(\begin{bmatrix}
 u_1\\
@@ -180,7 +170,8 @@ u_2+v_2
 \end{bmatrix}\right)=\begin{bmatrix}
 u_1+v_1-u_2-v_2\\
 u_1+v_1
-\end{bmatrix}=\\&=\begin{bmatrix}
+\end{bmatrix}\\
+&=\begin{bmatrix}
 u_1-u_2\\
 u_1
 \end{bmatrix}+\begin{bmatrix}
@@ -192,21 +183,16 @@ u_2
 \end{bmatrix}\right)+T_1\left(\begin{bmatrix}
 v_1\\
 v_2
-\end{bmatrix}\right)=T_1(\vec{u})+T_1(\vec{v})
+\end{bmatrix}\right)\\
+&=T_1(\vec{u})+T_1(\vec{v})
 \end{align*}
-
-
-
-
-
 It turns out that $T_2$ fails to satisfy this condition.  
 Can you prove that this is the case?  Remember that to prove that a property DOES NOT hold, it suffices to come up with a counter-example.  See if you can find vectors $\vec{u}$ and $\vec{v}$ such that 
 \begin{align}\label{t2}T_2(\vec{u}+\vec{v}) \neq T_2(\vec{u})+T_2(\vec{v}).\end{align}
-(See Practice Problem \ref{prob2}.) 
+(See Practice Problem \ref{prob:prob2}.) 
 
-\begin{general} Transformations like $T_1$ belong to a special category of transformations called {\it linear transformations}.
-\end{general}
-
+Transformations like $T_1$ belong to a special category of transformations called {\it linear transformations}.
+\end{initprob}
 
   \begin{definition} \label{def:lin}
   
@@ -264,7 +250,7 @@ $$\begin{bmatrix}
 -1\\
 0
 \end{bmatrix}$$
-Assuming that $T$ is linear, we get $$T\left(\begin{bmatrix}
+If $T$ were a linear transformation, then $$T\left(\begin{bmatrix}
 -1\\
 1
 \end{bmatrix}\right)=T\left(\begin{bmatrix}
@@ -283,7 +269,7 @@ Assuming that $T$ is linear, we get $$T\left(\begin{bmatrix}
 6\\
 5
 \end{bmatrix}$$
-But according to the given information
+But according to the given,
 $$T\left(\begin{bmatrix}-1\\1\end{bmatrix}\right)=\begin{bmatrix}2\\-4\end{bmatrix}$$
 Since $\begin{bmatrix}
 6\\
@@ -328,34 +314,34 @@ Because $T_2(\vec{0})\neq\vec{0}$, we conclude that $T_2$ is not linear.
 \end{example}
 
 
-We conclude this section by introducing two simple but important linear transformations.
+We conclude this section by introducing two simple but important transformations.
 
 \begin{definition}\label{def:idtrans}
-The identity transformation is a transformation that maps each element of the domain to itself. 
+The identity transformation on $V$, denoted by $\id_V$, is a transformation that maps each element of the domain to itself.
 
-Using transformation notation, $\id_{\RR^n}:\RR^n\rightarrow\RR^n$ is a transformation such that $\id_{\RR^n}(\vec{v})=\vec{v}$
-for all $\vec{v}$ in $\RR^n$.
+In other words,
+$$\id_{V}:V\rightarrow V$$ is a transformation such that $$\id_{V}(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in V$$
 \end{definition}
 
 \begin{definition}\label{def:zerotrans}
-The zero transformation maps every element of the domain to zero.
+The zero transformation, $Z$, maps every element of the domain to zero.
 
-Using transformation notation, $Z:\RR^n\rightarrow\RR^m$ is a transformation such that $Z(\vec{v})=\vec{0}$
-for all $\vec{v}$ in $\RR^n$.
+In other words,
+$$Z:V\rightarrow W$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in V$$
 \end{definition}
 
 \begin{theorem}\label{th:idlintrans}
 The identity transformation is linear.
 \end{theorem}
 \begin{proof}
-Left to the reader.
+Left to the reader. (See Practice Problem \ref{prob:idtrans})
 \end{proof}
 
 \begin{theorem}\label{th:zerolintrans}
 The zero transformation is linear.
 \end{theorem}
 \begin{proof}
-Left to the reader.
+Left to the reader.  (See Practice Problem \ref{prob:zerotrans})
 \end{proof}
 
 \section*{Linear Transformations Induced by Matrices}
@@ -385,8 +371,8 @@ $$T\left(\begin{bmatrix}
 
 
 
-\begin{general} A transformation induced by a matrix, like the transformation in Exploration Problem \ref{init:matrixtrans}, is sometimes called a \dfn{matrix transformation}.  In general, an $m\times n$ matrix induces a transformation from $\RR^n$ into $\RR^m$.  We will see that all matrix transformations are linear.
-\end{general}
+We say that the transformation $T$ in Exploration Problem \ref{init:matrixtrans} is \dfn{induced} by matrix $A$.  Such transformations are often called \dfn{matrix transformations}.  In general, an $m\times n$ matrix induces a transformation from $\RR^n$ into $\RR^m$.  We will see that all matrix transformations are linear.
+
 
   \begin{theorem}\label{th:matrixtran} Let $A$ be an $m\times n$ matrix.  Define $T:\RR^n\rightarrow\RR^m$ by $T(\vec{v})=A\vec{v}$.  Then $T$ is a linear transformation.
 \end{theorem}
@@ -484,7 +470,7 @@ The image of $\vec{v}$ is given by
 
 This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\begin{bmatrix}1\\-2\end{bmatrix}$.  This means that the image of $T$ is a line in $\RR^2$.
 
-\begin{center}
+\begin{image}[3in]
 \begin{tikzpicture}[scale=.7]
 
   \draw[->] (0,0)--(3,0);
@@ -496,11 +482,11 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
   \draw[<->] (5,-1)--(5,3);
   \draw[line width=2pt,blue](4.5,3)--(6.5,-1) node[above=5mm, right=-1mm]{Image of $T$};
   
-  \draw [->,line width=1pt,-stealth]  (2,-1) to[out=-60, in=-90] (4.5, -1)node[above=-8mm, left=5mm]{$T$};
+  \draw [->,line width=1pt,-stealth]  (2,-1) to[out=-60, in=240] (4.5, -1)node[above=-8mm, left=5mm]{$T$};
  % to[out=-20,in=-70] original command
 
 \end{tikzpicture}
-\end{center}
+\end{image}
 \end{explanation}
 \end{example}
 
@@ -509,22 +495,22 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
 
 
 \section*{Practice Problems}
-\begin{problem}\label{sum}
+\begin{problem}\label{prob:sum}
 
 Show that (\ref{lin2}) of Exploration Problem \ref{init:lintransintro} holds for vectors $\begin{bmatrix}3\\4\end{bmatrix}$ and $\begin{bmatrix}-2\\1\end{bmatrix}$.
 \end{problem}
 
-\begin{problem}\label{prob2}
+\begin{problem}\label{prob:prob2}
 Use a counter-example to prove (\ref{t2}) of Exploration Problem \ref{init:lintransintro}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:imageoflincomb}
 Suppose $T:\RR^{10}\rightarrow\RR^2$ is a linear transformation such that $T(\vec{u})=\begin{bmatrix}2\\-1\end{bmatrix}$ and $T(\vec{v})=\begin{bmatrix}-5\\3\end{bmatrix}$.  Find the image of $3\vec{u}-\vec{v}$.
 \end{problem}
 
 
-\begin{problem} (Adopted from Kuttler, Exercise 5.1.3)
-Let $\vec{u}$ be a fixed vector.  Define $T_{\vec{u}}:\RR^2\rightarrow\RR^2$, by $T_{\vec{u}}=\vec{u}+\vec{v}$.
+\begin{problem}\label{prob:notlinear} (Adopted from Kuttler, Exercise 5.1.3)
+Let $\vec{u}$ be a fixed vector.  Define $T_{\vec{u}}:\RR^2\rightarrow\RR^2$, by $T_{\vec{u}}(\vec{x})=\vec{u}+\vec{x}$.
   \begin{enumerate}
   \item 
   Describe the effect of this transformation by sketching ${\bf x}$ and $T_{\vec{u}}({\bf x})$ for at least four vectors ${\bf x}$ and a fixed vector $\vec{u}$ of your choice.
@@ -533,7 +519,7 @@ Let $\vec{u}$ be a fixed vector.  Define $T_{\vec{u}}:\RR^2\rightarrow\RR^2$, by
   \end{enumerate}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:projectiontrans}
 Define $P_{xy}:\RR^3\rightarrow\RR^2$, by $P_{xy}\left(\begin{bmatrix}
 x\\
 y\\
@@ -545,22 +531,22 @@ y\\
 \end{bmatrix}$.  This transformation is called an {\it{orthogonal projection}} onto the $xy$-plane.  Show that $P_{xy}$ is a linear transformation.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:imagesofijk}
 Suppose a linear transformation $T:\RR^3\rightarrow\RR^3$ maps ${\bf i}$ to $\begin{bmatrix}2\\-1\\0\end{bmatrix}$, ${\bf j}$ to $\begin{bmatrix}-2\\4\\1\end{bmatrix}$, and ${\bf k}$ to $\begin{bmatrix}3\\0\\-5\end{bmatrix}$.  Find the image of $\begin{bmatrix}1\\1\\-2\end{bmatrix}$ under $T$.
 
 $$T\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}\right)=\begin{bmatrix}\answer{-6}\\\answer{3}\\\answer{11}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem} Prove Theorem \ref{th:idlintrans}\end{problem}
+\begin{problem}\label{prob:idtrans} Prove Theorem \ref{th:idlintrans}\end{problem}
 
-\begin{problem} Prove Theorem \ref{th:zerolintrans}\end{problem}
+\begin{problem}\label{prob:zerotrans} Prove Theorem \ref{th:zerolintrans}\end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:domaincodomain}
 For each matrix $A$ below, find the domain and the codomain of the linear transformation $T$ induced by $A$; find and draw the image of $T$. (Hint: See Example \ref{ex:lineartrans3}.)
-  \begin{problem}
+  \begin{problem}\label{prob:domaincodomain1}
   $$A=\begin{bmatrix}0&0\\1&1\\2&0\end{bmatrix}$$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:domaincodomain2}
   $$A=\begin{bmatrix}3&-1\\-3&1\end{bmatrix}$$
    \end{problem}
 \end{problem}

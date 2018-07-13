@@ -1,0 +1,432 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Elementary Row Operations and the Determinant} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We examine the effect of elementary row operations on the determinant and use row reduction algorithm to compute the determinant.
+\end{abstract}
+\maketitle
+
+When we first introduced the determinant we motivated its definition for a $2\times 2$ matrix by the fact that the value of the determinant is zero if and only if the matrix is singular.  We will soon be able to generalize this result to larger matrices, and will eventually establish a formula for the inverse of a nonsingular matrix in terms of determinants.  
+
+Recall that we can find the inverse of a matrix or establish that the inverse does not exist by using elementary row operations to carry the given matrix to its reduced row-echelon form.  In order to start relating determinants to inverses we need to find out what elementary row operations do to the determinant of a matrix.  
+
+\section*{The Effects of Elementary Row Operations on the Determinant}
+Recall that there are three elementary row operations:
+\begin{enumerate}
+\item Switching the order of two rows
+\item Multiplying a row by a non-zero constant
+\item Adding a multiple of one row to another
+\end{enumerate}
+
+Elementary row operations are used to carry a matrix to its reduced row-echelon form.  In {\color{red} reference} we established that elementary row operations are reversible.  In other words if we know what elementary row operations   carried $A$ to $\text{rref}(A)$, we can undo each operation with another elementary row operation to carry $\text{rref}(A)$ back to $A$.  This will prove useful for computing the determinant.  Computing the determinant of $\text{rref}(A)$ is easy. (Why?)  If we know what elementary row operations carry $\text{rref}(A)$ back to $A$, and what effect each of these operations has on the determinant of $\text{rref}(A)$, we could find the determinant of $A$.  
+
+\begin{initprob}\label{init:rowswap}
+Let $$A=\begin{bmatrix}3&-1&-1\\3&1&-2\\-1&4&2\end{bmatrix}$$
+Use your favorite definition to find $\det{A}$.
+$$\det{A}=\answer{21}$$
+Construct matrix $B$ by switching the first and the third rows of $A$.
+$$B=\begin{bmatrix}-1&4&2\\3&1&-2\\3&-1&-1\end{bmatrix}$$
+Find $\det{B}$.
+$$\det{B}=\answer{-21}$$
+Next, let's try switching consecutive rows.  Construct matrix $B'$ by interchanging the second and third rows of $A$.
+$$B'=\begin{bmatrix}3&-1&-1\\-1&4&2\\3&1&-2\end{bmatrix}$$
+Find $\det{B'}$.
+$$\det{B'}=\answer{-21}$$
+It appears that switching any two rows of a matrix produces a determinant that is negative of the determinant of the original matrix.
+
+Next, construct matrix $C$ by multiplying the last row of $A$ by $k$.
+$$C=\begin{bmatrix}3&-1&-1\\3&1&-2\\-k&4k&2k\end{bmatrix}$$
+Find $\det{C}$.
+$$\det{C}=\answer{21}k$$
+It turns out multiplying the first or the second row of $A$ by $k$ yields exactly  the same result as this.
+% You can repeat this problem two more times, multiplying the first and then the second row of $A$ by $k$, the result will still be the same.
+
+Finally, construct matrix $D$ by  adding twice row 3 to row 1.
+$$D=\begin{bmatrix}1&7&3\\3&1&-2\\-1&4&2\end{bmatrix}$$
+Find $\det{D}$.
+$$\det{D}=\answer{21}$$
+This result is particularly surprising.  Try a few more variations of this example to convince yourself that adding a multiple of one row to another row does not appear to affect the determinant.
+\end{initprob}
+
+We are now ready to state and prove a general result.
+
+\begin{theorem}\label{th:elemrowopsanddet}
+Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  
+\begin{enumerate}
+\item\label{item:rowswapanddet}
+If $B$ is obtained from $A$ by interchanging two different rows, then $$\det{B}=-\det{A}$$
+\item \label{item:rowconstantmultanddet}
+If $B$ is obtained from $A$ by multiplying one of the rows of $A$ by a non-zero constant $k$.  Then $$\det{B}=k\det{A}$$
+\item \label{item:addmultotherrowdet}
+If $B$ is obtained from $A$ by adding a multiple of one row of $A$ to another row, then
+$$\det{B}=\det{A}$$
+\end{enumerate}
+\end{theorem}
+\begin{proof}[Proof of Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet}] We will start by showing that the result holds if two consecutive rows are interchanged.  Suppose $B$ is obtained from $A$ by swapping rows $p$ and $p+1$ of $A$. 
+
+We proceed by induction on $n$.  The result is not applicable for $n=1$.  You will be asked to verify that the result holds for $2\times 2$ matrices. (See {\color{red} reference})  Suppose that the result holds for $(n-1)\times (n-1)$ matrices.  We need to show that it holds for $n\times n$ matrices.
+You may find the following diagram useful throughout the proof.
+\begin{center}
+\begin{tikzpicture}
+  \matrix (mA)[
+    matrix of math nodes,
+    nodes in empty cells,
+    left delimiter={[},right delimiter={]},minimum width=width("a22")] {
+    a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   a_{(p+1)1} & a_{(p+1)2} & \dots  & a_{(p+1)n}\\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\\
+  } ;
+  
+  \matrix (mB)[
+    matrix of math nodes,
+    nodes in empty cells,
+    left delimiter={[},right delimiter={]},minimum width=width("a22")] at ($(mA.east)+(4,0)$)
+    {
+    a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+      a_{(p+1)1} & a_{(p+1)2} & \dots  & a_{(p+1)n}\\
+      a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\\
+  } ;
+\draw [->](mA-3-4.east) -- (mB-4-1.west);
+\draw [->](mA-4-4.east) -- (mB-3-1.west);
+ \end{tikzpicture}
+ \end{center} 
+ Observe that for $i\neq p, p+1$ we have: $$b_{ij}=a_{ij}$$ Because $B_{ij}$ is obtained from $A_{ij}$ by switching two rows of $A_{ij}$, our induction hypothesis give us:
+ $$\det{B_{ij}}=-\det{A_{ij}}$$
+ 
+ For $i=p$ and $i=p+1$ we have:
+ $$b_{p1}=a_{(p+1)1}\quad\text{and}\quad b_{(p+1)1}=a_{p1}$$
+ $$B_{p1}=A_{(p+1)1}\quad\text{and}\quad B_{(p+1)1}=A_{p1}$$
+ 
+ We compute the determinant of $B$ by cofactor expansion along the first column.
+ \begin{align*}
+ \det{B}&=b_{11}(-1)^{1+1}\det{B_{11}}+\ldots +b_{i1}(-1)^{i+1}\det{B_{i1}}+\ldots\\
+ &+b_{p1}(-1)^{p+1}\det{B_{p1}}+b_{(p+1)1}(-1)^{(p+1)+1}\det{B_{(p+1)1}}+\ldots\\
+ &+b_{n1}(-1)^{n+1}\det{B_{n1}}\\
+ \\
+ &=a_{11}(-1)^{1+1}(-1)\det{A_{11}}+\ldots +a_{i1}(-1)^{i+1}(-1)\det{A}_{i1})+\ldots\\
+ &+a_{(p+1)1}(-1)^{p+1}\det{A_{(p+1)1}}+a_{p1}(-1)^{(p+1)+1}\det{A_{p1}}+\ldots\\
+ &+a_{n1}(-1)^{n+1}(-1)\det{A_{n1}}\\
+ \\
+ &=a_{11}(-1)^{1+1}(-1)\det{A_{11}}+\ldots +a_{i1}(-1)^{i+1}(-1)\det{A_{i1}}+\ldots\\
+ &+a_{(p+1)1}(-1)^{(p+1)+1}(-1)\det{A_{(p+1)1}}+a_{p1}(-1)^{p+1}(-1)\det{A_{p1}}+\ldots\\
+ &+a_{n1}(-1)^{n+1}(-1)\det{A_{n1}}\\
+ \\
+ &=(-1)\Big(a_{11}(-1)^{1+1}\det{A_{11}}+\ldots +a_{i1}(-1)^{i+1}\det{A_{i1}}+\ldots\\
+ &+a_{(p+1)1}(-1)^{(p+1)+1}\det{A_{(p+1)1}}+a_{p1}(-1)^{p+1}\det{A_{p1}}+\ldots\\
+ &+a_{n1}(-1)^{n+1}\det{A_{n1}}\Big)\\
+ \\
+ &=-\det{A}
+ \end{align*}
+ 
+ If two non-adjacent rows are switched, then the switch can be carried out by performing an odd number of adjacent row interchanges (See {\color{red} reference}), so the result still holds.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{th:elemrowopsanddet}\ref{item:rowconstantmultanddet}]
+We proceed by induction on $n$.  Clearly the statement is true for $n=1$.  Just for fun, you might want to verify directly that it holds for $2\times 2$ matrices.  Now suppose the statement is true for all $(n-1)\times (n-1)$ matrices. We will show that it holds for $n\times n$ matrices.
+
+Suppose $B$ is obtained from $A$ by multiplying the $p$'s row of $A$ by $k$.  
+
+$$A=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}\quad
+   B=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   ka_{p1} & ka_{p2} &\dots  & ka_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}$$
+   
+   We compute the determinant of $B$ by cofactor expansion along the first column.
+   \begin{align*}
+   \det B &=a_{11}(-1)^{1+1}\det B_{11}+\ldots +ka_{p1}(-1)^{p+1}\det B_{p1}+\ldots \\
+   &+ a_{n1}(-1)^{n+1}\det B_{n1}\\
+   \\
+   &=ka_{11}(-1)^{1+1}\det A_{11}+\ldots +ka_{p1}(-1)^{p+1}\det A_{p1}+\ldots \\
+   &+ ka_{n1}(-1)^{n+1}\det A_{n1}\\
+   \\
+   &=k\Big(a_{11}(-1)^{1+1}\det A_{11}+\ldots +a_{p1}(-1)^{p+1}\det A_{p1}+\ldots \\
+   &+ a_{n1}(-1)^{n+1}\det A_{n1}\Big)\\
+   \\
+   &=k\det A
+   \end{align*}
+\end{proof}
+
+Before we tackle the proof of Part \ref{item:addmultotherrowdet} of Theorem \ref{th:elemrowopsanddet} we will need to prove the following two lemmas.
+
+\begin{lemma}\label{lemma:det0lemma}
+Let $A$ be an $n\times n$ matrix.  
+\begin{enumerate}
+\item \label{item:det0lemma3} If $A$ has a row of zeros, then $\det{A}=0$.
+\item \label{item:det0lemma1} If two rows of $A$ are the same, then $\det{A}=0$.
+\item \label{item:det0lemma2} If one row of $A$ is a scalar multiple of another row, then $\det{A}=0$.
+\end{enumerate}
+\end{lemma}
+We will prove Part \ref{item:det0lemma1}.  Parts  \ref{item:det0lemma3} and \ref{item:det0lemma2} are left as exercises.
+\begin{proof}[Proof of Part \ref{item:det0lemma1}]
+Suppose rows $p$ and $q$ of $A$ are the same.  Let $B$ be a matrix obtained from $A$ by switching $p$ and $q$.  By Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet} we know that $\det{B}=-\det{A}$. But $p$ and $q$ are the same, so $A=B$.  But then
+$\det{A}=-\det{A}$.
+We conclude that $\det{A}=0$.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:arowsumofbc}
+Let $A$, $B$ and $C$ be $n\times n$ matrices. Suppose $A$, $B$ and $C$ are identical, except for the $p^{th}$ row.  If the $p^{th}$ row of $C$ is the sum of the $p^{th}$ rows of $A$ and $B$, then
+$$\det{C}=\det{A}+\det{B}$$
+\end{lemma}
+\begin{proof}
+We will proceed by induction on $n$.  You will be asked to verify cases $n=1, 2$ in {\color{red}reference}.  We will assume that the statement holds for all $(n-1)\times (n-1)$ matrices and show that it holds for $n\times n$ matrices.
+
+You may find the following representations of $A$, $B$ and $C$ helpful.  Identical entries in $A$, $B$ and $C$ are labeled $d_{ij}$.
+
+$$A=\begin{bmatrix} d_{11} & d_{12} & \dots  & d_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   d_{n1} & d_{n2} & \dots  & d_{nn}\end{bmatrix}\quad
+   B=\begin{bmatrix} d_{11} & d_{12} & \dots  & d_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   b_{p1} & b_{p2} &\dots  & b_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   d_{n1} & d_{n2} & \dots  & d_{nn}\end{bmatrix}$$
+   $$C=\begin{bmatrix} d_{11} & d_{12} & \dots  & d_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1}+b_{p1} & a_{p2}+b_{p2} &\dots  & a_{pn}+b_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   d_{n1} & d_{n2} & \dots  & d_{nn}\end{bmatrix}$$
+Observe that $$A_{p1}=B_{p1}=C_{p1}$$  For $i\neq p$, the induction hypothesis gives us
+$$\det{C_{i1}}=\det{A_{i1}}+\det{B_{i1}}$$
+   
+We now compute the determinant of $C$ by cofactor expansion along the first column.
+\begin{align*}
+\det{C}&=d_{11}(-1)^{1+1}\det{C_{11}}+\ldots +(a_{p1}+b_{p1})(-1)^{p+1}\det{C_{p1}}+\ldots\\
+&+d_{n1}(-1)^{n+1}\det{C_{n1}}\\
+\\
+&=d_{11}(-1)^{1+1}\Big(\det{A_{11}}+\det{B_{11}}\Big)+\ldots\\
+&+a_{p1}(-1)^{p+1}\det{C_{p1}}+b_{p1}(-1)^{p+1}\det{C_{p1}}+\ldots\\
+&+d_{n1}(-1)^{n+1}\Big(\det{A_{n1}}+\det{B_{n1}}\Big)\\
+\\
+&=d_{11}(-1)^{1+1}\det{A_{11}}+d_{11}(-1)^{1+1}\det{B_{11}}+\ldots\\
+&+a_{p1}(-1)^{p+1}\det{A_{p1}}+b_{p1}(-1)^{p+1}\det{B_{p1}}+\ldots\\
+&+d_{n1}(-1)^{n+1}\det{A_{n1}}+d_{n1}(-1)^{n+1}\det{B_{n1}}\\
+\\
+&=\det{A}+\det{B}
+\end{align*}
+\end{proof}
+
+We are now ready to finish the proof of Theorem \ref{th:elemrowopsanddet}
+\begin{proof}[Proof of Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}]
+Suppose $B$ is obtained from $A$ by adding $k$ times row $p$ to row $q$.  ($p\neq q$ and $k\neq 0$)  You may find the following representations of $A$ and $B$ useful.
+$$A=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{q1} & a_{q2} &\dots  & a_{qn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}\quad
+   B=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} & \dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{q1}+ka_{p1} & a_{q2}+ka_{p2} &\dots  & a_{qn}+ka_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}$$
+We will form another matrix $A'$ by replacing the $q^{th}$ row of $A$ with $k$ times the $p^{th}$ row.
+$$A'=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
+   \vdots & \vdots &  & \vdots \\
+   a_{p1} & a_{p2} &\dots  & a_{pn}  \\
+   \vdots & \vdots &  & \vdots \\
+   ka_{p1} & ka_{p2} &\dots  & ka_{pn}  \\
+   \vdots & \vdots &  & \vdots  \\
+   a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}$$
+Observe that matrices $A$, $A'$ and $B$ are identical except for the $q^{th}$ row, and the $q^{th}$ row of matrix $B$ is the sum of the $q^{th}$ rows of $A$ and $A'$.  Thus, by Lemma \ref{lemma:arowsumofbc}, we have:
+$$\det{B}=\det{A}+\det{A'}$$
+But, by Lemma \ref{lemma:det0lemma}\ref{item:det0lemma2}, 
+$\det{A'}=0$. Therefore 
+$\det{B}=\det{A}$.
+   
+\end{proof}
+
+\section*{Computing the Determinant Using Elementary Row Operations}
+What we discovered about the effects of elementary row operations on the determinant will allow us to compute determinants without using the cumbersome process of cofactor expansion.
+
+\begin{example} Suppose that a $6\times 6$ matrix $A$ is carried to the identity matrix by a sequence of elementary row operations listed below.  Find $\det{A}$.
+$$A\xrightarrow{R_2-2R_4}A_1\xrightarrow{R_1\leftrightarrow R_3}A_2\xrightarrow{\frac{1}{2}R_6}A_3\xrightarrow{R_5+R_6}I$$
+\begin{explanation}
+Let's take a look at what happens to the determinant of $A$ one step at a time.  
+$$\det{A_1}=\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}}$$
+$$\det{A_2}=-\det{A_1}=-\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet}}$$
+$$\det{A_3}=\frac{1}{2}\det{A_2}=-\frac{1}{2}\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:rowconstantmultanddet}}$$
+$$\det{I}=\det{A_3}=-\frac{1}{2}\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}}$$
+
+Recall that $\det{I}=1$ (Lemma \ref{lemma:detofid}).  This gives us
+$$-\frac{1}{2}\det{A}=1$$
+Therefore $\det{A}=-2$.
+
+\end{explanation}
+\end{example}
+
+\begin{example}
+Let $$A=\begin{bmatrix}3&0&-9\\10&5&2\\8&4&2 \end{bmatrix}$$
+Find $\det{A}$ by applying elementary row operations to reduce $A$ to its row-echelon form.
+
+\begin{explanation}
+\begin{align}A=&\left[\begin{array}{ccc}  
+ 3&0&-9\\10&5&2\\8&4&2
+ \end{array}\right]\nonumber\\
+ \begin{array}{c}
+ \xrightarrow{(1/3)R_1}\\
+ \\
+\\
+ \end{array}
+ &\left[\begin{array}{ccc}  
+ 1&0&-3\\10&5&2\\8&4&2
+ \end{array}\right]\label{eq:refstep1}\\
+ \begin{array}{c}
+ \\
+ \\
+\xrightarrow{(1/2)R_3}
+\end{array}
+&\left[\begin{array}{ccc}  
+ 1&0&-3\\10&5&2\\4&2&1
+ \end{array}\right]\label{eq:refstep2}\\
+ \begin{array}{c}
+ \\
+ \xrightarrow{R_2-10R_1}\\
+\xrightarrow{R_3-4R_1}
+\end{array}&\left[\begin{array}{ccc}  
+ 1&0&-3\\0&5&32\\0&2&13
+ \end{array}\right]\label{eq:refstep3}\\
+ \begin{array}{c}
+ \\
+ \xrightarrow{(1/5)R_2}\\
+ \\
+\end{array}
+&\left[\begin{array}{ccc}  
+ 1&0&-3\\0&1&32/5\\0&2&13
+ \end{array}\right]\label{eq:refstep4}\\
+  \begin{array}{c}
+  \\
+\\
+\xrightarrow{R_3-2R_2}\\
+\end{array}&\left[\begin{array}{ccc}  
+ 1&0&-3\\0&1&32/5\\0&0&1/5
+ \end{array}\right]=\textnormal{ref}(A)\nonumber
+% \begin{array}{c}
+ %\\
+ %\\
+ %\xrightarrow{5R_3}
+%\end{array}
+%&\left[\begin{array}{ccc}  
+% 1&0&-3\\0&1&32/5\\0&0&1
+% \end{array}\right]
+\end{align}
+We stop at the row-echelon form of $A$ because its determinant is easy to compute by multiplying its diagonal entries ({\color{red}Problem set DET-M-0020}):
+\begin{align}\label{eq:detofrefa}\det{\big(\textnormal{ref}(A)\big)}=\frac{1}{5}\end{align}
+
+The following table summarizes the effect of each elementary row operation on the determinant.
+
+$$\begin{array}{|c|c|}  
+ \hline \text{Matrix}&\text{Determinant}\\ \hline A&  \det{A}\\ \hline (1) & \frac{1}{3}\det{A}\\
+ \hline (2) &\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
+ \hline (3) &\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
+ \hline (4)&\frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
+ \hline \textnormal{ref}(A)& \frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A} \\ \hline
+ \end{array}$$
+ Combining (\ref{eq:detofrefa}) with the information from the table, we get
+ $$\frac{1}{5}=\frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A}$$
+ Thus
+ $$\det{A}=6$$
+ You should verify this result by direct computation using cofactors.
+\end{explanation}
+\end{example}
+
+
+
+\section*{Practice Problems}
+
+\begin{problem}
+Prove Lemma \ref{lemma:det0lemma}\ref{item:det0lemma3}.
+\end{problem}
+
+\begin{problem}
+Let $p$ and $q$ be two rows of a matrix, with $p<q$.  Show that the switch of $p$ and $q$ requires $2(q-p)-1$ adjacent row interchanges.
+\end{problem}
+
+\begin{problem}Let $A$ be an $n\times n$ matrix.  Show that 
+$$\det{kA}=k^n\det{A}$$
+\end{problem}
+
+\begin{problem}
+Prove Lemma \ref{lemma:det0lemma}\ref{item:det0lemma2}.
+\begin{hint}Use Lemma \ref{lemma:det0lemma}\ref{item:det0lemma1}.
+\end{hint}
+\end{problem}
+
+\begin{problem}
+Prove that if one row of a matrix is a linear combination of two other rows of the matrix, then the determinant of the matrix is 0.
+\end{problem}
+
+\begin{problem}
+Find $\det{A}$ using elementary row operations.
+
+\begin{problem}
+$$A=\begin{bmatrix}3&1&-3\\12&5&-5\\4&2&1\end{bmatrix}$$
+Answer:
+$$\det{A}=\answer{1}$$
+\end{problem}
+
+\begin{problem}
+$$A=\begin{bmatrix}3&2&2\\2&3&3\\1&1&1\end{bmatrix}$$
+Answer:
+$$\det{A}=\answer{0}$$
+\end{problem}
+
+\end{problem}
+
+\begin{problem}
+Each of the following matrices is an elementary matrix. 
+\begin{hint}
+{\color{red}Reference to definition}
+\end{hint}
+  \begin{enumerate}
+  \item What elementary row operation does this matrix perform?
+  \item Compute the determinant of the matrix in two different ways:
+    \begin{enumerate}
+    \item By cofactor expansion.
+    \item By thinking about how the given matrix was obtained from the identity matrix.
+    \end{enumerate}
+  \end{enumerate}
+  
+  \begin{problem}
+  $$E_1=\begin{bmatrix}1&0&0\\0&2&0\\0&0&1\end{bmatrix}$$
+   Answer: $$\det{E_1}=\answer{2}$$
+  \end{problem}
+  
+  \begin{problem}
+  $$E_2=\begin{bmatrix}1&0&4\\0&1&0\\0&0&1\end{bmatrix}$$
+   Answer: $$\det{E_2}=\answer{1}$$
+  \end{problem}
+  
+  \begin{problem}
+  $$E_3=\begin{bmatrix}0&0&1\\0&1&0\\1&0&0\end{bmatrix}$$
+   Answer: $$\det{E_3}=\answer{-1}$$
+  \end{problem}
+  
+\end{problem}
+
+\end{document} 

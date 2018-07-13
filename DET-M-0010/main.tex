@@ -15,7 +15,7 @@
 
 In this module we will define a function that assigns to each square matrix $A$ a scalar output called the \dfn{determinant of $A$}.  For matrices with real number entries, the outputs of the determinant function will be real numbers.  We will denote the determinant of $A$ by $\det{A}$.  
 
-The significance of the determinant lies in its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.
+One important property of the determinant is its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.
 
 \section*{Determinants of Square Matrices ($n=1,2,3$)}
 To start from the beginning, lets define the determinant of a $1\times 1$ matrix.
@@ -215,7 +215,7 @@ We conclude this section with a simple, but useful lemma.
 \begin{lemma}\label{lemma:detofid} Let $I$ be the identity matrix, then
 $$\det{I}=1$$
 \end{lemma}
-\begin{proof} See {\color{red}reference}.
+\begin{proof} Left to the reader.
 \end{proof}
 
 %\begin{lemma}\label{lemma:triangulardet}
@@ -255,6 +255,13 @@ Make a conjecture about what happens to the determinant of a matrix if two rows 
 
 \begin{problem}
 Make a conjecture about what happens to the determinant of a matrix if one of the rows is multiplied by a constant.  Prove your conjecture for a $2\times 2$ matrix.
+\end{problem}
+
+\begin{problem}Let $B'$ be a matrix obtained from $B$ of Problem {\color{red} reference} by multiplying $B$ by $2$.  Compute the determinant of $B'$.  What do you observe?
+\end{problem}
+
+\begin{problem}
+Make a conjecture about what happens to the determinant of a matrix if the matrix is multiplied by a constant.  Prove your conjecture for a $2\times 2$ matrix.
 \end{problem}
 
 \begin{problem}

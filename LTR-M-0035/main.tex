@@ -13,8 +13,7 @@
 \usepackage{tikz-cd}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows}
-%\pgfplotsset{compat=1.14}
-\input{preamble.tex}
+\pgfplotsset{compat=1.14}
 
 
 
@@ -31,18 +30,22 @@
 
 In Exploration Problem \ref{ep:inverse} we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
  \begin{center}
+ \begin{tikzpicture}
+\node{
 \begin{tikzcd}[column sep=9em, row sep=huge]
 \vec{v} \arrow[r,bend left, "T\,\text{doubles each input}", shift left, mapsto] \arrow[r,bend right, "S\, \text{halves each input}"',shift right, mapsfrom] & 2\vec{v}
 \end{tikzcd}
+};
+\end{tikzpicture}
 \end{center}
 
 This gives us a way of thinking about an inverse of $T$ as a transformation that ``undoes" the action of $T$ by ``reversing" the mapping arrows.  We will now use these intuitive ideas to understand which linear transformations are invertible and which are not.
 
 Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arrows"
- may not always result in a transformation. Recall that transformations are functions.  Figures \ref{fig:notonetoone} and \ref{fig:notonto} show two ways in which our attempt to ``reverse" $T$ may fail to produce a function.
+ may not always result in a transformation. Recall that transformations are functions.  The figures below show two ways in which our attempt to ``reverse" $T$ may fail to produce a function.
  
-First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$ in $W$, then reversing the arrows gives us a mapping that is clearly not a function. (See Figure \ref{fig:notonetoone}) %
-
+ First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$ in $W$, then reversing the arrows gives us a mapping that is clearly not a function. %(See Figure \ref{fig:notonetoone}) 
+ 
 %\begin{image}
 \begin{center}
 \begin{tikzcd}
@@ -76,6 +79,8 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
   \label{fig:notonto} 
 %\end{figure}
 \end{center}
+
+
 
 We now illustrate these potential issues with specific examples.
 \begin{example}\label{ex:notonetoone} Let $T:\RR^2\rightarrow \RR^2$ be a linear transformation whose standard matrix is
