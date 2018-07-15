@@ -3,12 +3,13 @@ sudo: required
 dist: trusty
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-core texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures
-- wget https://github.com/XimeraProject/xake/releases/download/v0.9.2/xake_0.9.2_amd64.deb
-- sudo dpkg -i xake_0.9.2_amd64.deb
-- mkdir ~/texmf
-- mkdir ~/texmf/tex
-- mkdir ~/texmf/tex/latex
+#- wget https://github.com/XimeraProject/xake/releases/download/v0.9.2/xake_0.9.2_amd64.deb
+#- sudo dpkg -i xake_0.9.2_amd64.deb
+- mkdir -p ~/texmf/tex/latex
 - (cd ~/texmf/tex/latex ; git clone https://github.com/XimeraProject/ximeraLatex.git )
+- mkdir -p ~/go/src/github.com/ximeraproject
+- export GOPATH=$HOME/go
+- ( cd ~/go/src/github.com/ximeraproject; git clone https://github.com/XimeraProject/xake.git; cd xake; go get .; go build .; ) 
 script:
-- xake bake
-- xake frost
+- ~/go/bin/xake bake
+- ~/go/bin/xake frost
