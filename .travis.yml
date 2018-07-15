@@ -9,5 +9,4 @@ before_install:
 - (cd ~/texmf/tex/latex ; git clone https://github.com/XimeraProject/ximeraLatex.git )
 script:
 - xake bake
-- cat LTR-M-0010/main.log
 - xake frost
