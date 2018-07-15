@@ -7,13 +7,19 @@ before_install:
 #- sudo dpkg -i xake_0.9.2_amd64.deb
 - mkdir -p ~/texmf/tex/latex
 - (cd ~/texmf/tex/latex ; git clone https://github.com/XimeraProject/ximeraLatex.git )
-- mkdir -p ~/go/src/github.com/ximeraproject
 - export GOPATH=$HOME/go
+- export PKG_CONFIG_PATH=$HOME/go/src/github.com/libgit2/git2go/vendor/libgit2/build
+- export CGO_CFLAGS=-I$HOME/go/src/github.com/libgit2/git2go/vendor/libgit2/include
+- mkdir -p ~/go/src/github.com/ximeraproject
 - pushd ~/go/src/github.com/ximeraproject
 - git clone https://github.com/XimeraProject/xake.git
+- go get -d github.com/libgit2/git2go
+- pushd ~/go/src/github.com/libgit2/git2go
+- git submodule update --init
+- make install-static
+- popd
 - cd xake
-- go get .
-- go build .
+- go get -tags static .
 - popd 
 script:
 - ~/go/bin/xake bake
