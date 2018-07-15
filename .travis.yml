@@ -8,5 +8,5 @@ before_install:
 - mkdir -p ~/texmf/tex/latex
 - (cd ~/texmf/tex/latex ; git clone https://github.com/XimeraProject/ximeraLatex.git )
 script:
-- xake bake
+- xake -d bake
 - xake frost
