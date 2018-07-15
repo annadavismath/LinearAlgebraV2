@@ -2,25 +2,7 @@
 
 \author{Anna Davis \and Paul Zachlin} \title{Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
 
-\renewcommand{\vec}[1]{{\bf #1}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\dfn}{\textit}
-\newcommand{\dotp}{\cdot}
-\newcommand{\id}{\text{id}}
-
-\newtheorem{general}{Generalization}
-\newtheorem{initprob}{Exploration Problem}
-\usepackage{tikz-cd}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{arrows}
-<<<<<<< HEAD
-\pgfplotsset{compat=1.14}
-=======
-%\pgfplotsset{compat=1.14}
 \input{../preamble.tex}
->>>>>>> b50e98e4796c192db922de766f09f3f9c2a21b48
-
-
 
 \begin{document}
 \begin{abstract}
@@ -53,6 +35,7 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  
 %\begin{image}
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
 \vec{v}_1 \arrow[rd, mapsto]  & \\
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
@@ -63,6 +46,7 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
 \vec{v}_2 \arrow[ru, mapsfrom]  &
 \end{tikzcd}
+\end{tikzpicture}
 \end{center}
 %\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
 %  \label{fig:notonetoone} 
@@ -72,6 +56,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 
 %\begin{figure}[h]
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -80,6 +65,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}\quad
+\end{tikzpicture}
 %\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
   \label{fig:notonto} 
 %\end{figure}
