@@ -2,7 +2,7 @@
 sudo: required
 dist: trusty
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures libgit2
 #- wget https://github.com/XimeraProject/xake/releases/download/v0.9.2/xake_0.9.2_amd64.deb
 #- sudo dpkg -i xake_0.9.2_amd64.deb
 - mkdir -p ~/texmf/tex/latex
@@ -13,13 +13,15 @@ before_install:
 - mkdir -p ~/go/src/github.com/ximeraproject
 - pushd ~/go/src/github.com/ximeraproject
 - git clone https://github.com/XimeraProject/xake.git
-- go get -d github.com/libgit2/git2go
-- pushd ~/go/src/github.com/libgit2/git2go
-- git submodule update --init
-- make install-static
-- popd
+- #go get -d github.com/libgit2/git2go
+- #pushd ~/go/src/github.com/libgit2/git2go
+- #git submodule update --init
+- #make install-static
+- #popd
 - cd xake
-- go get -tags static .
+- #go get -tags static .
+- go get .
+- go build .
 - popd 
 script:
 - ~/go/bin/xake bake
