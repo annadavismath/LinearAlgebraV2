@@ -3,17 +3,10 @@ sudo: required
 dist: trusty
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
+- curl https://github.com/XimeraProject/xake/releases/download/v0.9.2/xake_0.9.2_amd64.deb
+- sudo dpkg -i xake_0.9.2_amd64.deb
+- mkdir ~/texmf/tex/latex
+- (cd ~/texmf/tex/latex ; git clone https://github.com/XimeraProject/ximeraLatex.git )
 script:
-- mkdir _build
-- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build tex/your_file_1.tex
-- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build tex/your_file_2.tex
-deploy:
-  provider: releases
-  api_key:
-    secure: [YOUR KEY]
-  file:
-  - _build/your_file_1.pdf
-  - _build/your_file_2.pdf
-  skip_cleanup: true
-  on:
-    tags: true
+- xake bake
+- xake frost
