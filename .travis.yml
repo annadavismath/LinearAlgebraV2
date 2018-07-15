@@ -13,15 +13,15 @@ before_install:
 - mkdir -p ~/go/src/github.com/ximeraproject
 - pushd ~/go/src/github.com/ximeraproject
 - git clone https://github.com/XimeraProject/xake.git
-- #go get -d github.com/libgit2/git2go
-- #pushd ~/go/src/github.com/libgit2/git2go
-- #git submodule update --init
-- #make install-static
-- #popd
+- go get -d github.com/libgit2/git2go
+- pushd ~/go/src/github.com/libgit2/git2go
+- git submodule update --init
+- make install-static
+- popd
 - cd xake
-- #go get -tags static .
-- go get .
-- go build .
+- go get -tags static .
+- #go get .
+- #go build .
 - popd 
 script:
 - ~/go/bin/xake bake
