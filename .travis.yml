@@ -1,6 +1,7 @@
 # initially copied from https://github.com/harshjv/travis-ci-latex-pdf/blob/master/.travis.yml
 sudo: required
-dist: trusty
+#dist: trusty
+dist: xenial
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures libgit2* 
 - wget https://github.com/XimeraProject/xake/releases/download/v0.9.4/xake_0.9.4_amd64.deb
