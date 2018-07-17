@@ -1,6 +1,8 @@
 %% You can put user macros here
 %% However, you cannot make new environments
 
+\listfiles
+
 \graphicspath{{./}{firstExample/}{secondExample/}}
 
 \usepackage{tikz}
@@ -10,7 +12,7 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows}
 \usepackage{tikz-3dplot}
-\pgfplotsset{compat=1.13} % prevents compile error.
+\pgfplotsset{compat=1.9} % prevents compile error.
 
 \renewcommand{\vec}[1]{{\bf #1}}
 \newcommand{\RR}{\mathbb{R}}
@@ -22,3 +24,4 @@
 \newtheorem{initprob}{Exploration Problem}
 
 \tikzstyle geometryDiagrams=[ultra thick,color=blue!50!black]
+
