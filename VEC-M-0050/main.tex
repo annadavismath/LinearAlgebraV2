@@ -1,0 +1,198 @@
+\documentclass{ximera}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{Dot Product and its Properties} \license{CC-BY 4.0}
+
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\pgfplotsset{compat=1.14}
+
+\begin{document}
+\begin{abstract}
+  We define the dot product and prove its algebraic properties.
+\end{abstract}
+\maketitle
+
+\section*{Definition of the Dot Product}
+
+\begin{definition}
+  Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$.  The \dfn{dot
+    product} of $\vec{u}$ and $\vec{v}$, denoted by
+  $\vec{u}\dotp \vec{v}$, is given by
+  \begin{align*}
+    \vec{u}\dotp\vec{v}=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\dotp\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}=u_1v_1+u_2v_2+\ldots+u_nv_n.
+  \end{align*}
+\end{definition}
+
+\begin{example}\label{dotex}
+  Find $\vec{u}\dotp \vec{v}$ if
+  $\vec{u}=\begin{bmatrix}-2\\0\\1\end{bmatrix}$ and
+  $\vec{v}=\begin{bmatrix}3\\2\\-4\end{bmatrix}$.
+
+  \begin{explanation}
+    $$\vec{u}\dotp\vec{v}=\begin{bmatrix}-2\\0\\1\end{bmatrix}\dotp\begin{bmatrix}3\\2\\-4\end{bmatrix}=(-2)(3)+(0)(2)+(1)(-4)=-6-4=-10$$
+  \end{explanation}
+\end{example}
+
+Note that the dot product of two vectors is a scalar.  For this reason, the dot product is sometimes called a \dfn{scalar product}.
+
+\section*{Properties of the Dot Product}
+
+A quick examination of Example~\ref{dotex} will convince you that the dot product is \dfn{commutative}. In other words, $\vec{u}\dotp\vec{v}=\vec{v}\dotp\vec{u}$.  This and other properties of the dot product are stated below.
+
+\begin{theorem}\label{th:dotproductproperties} The following properties hold for
+  vectors $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $\RR^n$ and scalar
+  $k$.
+  \begin{enumerate}
+  \item\label{item:commutative}
+    $\vec{u}\dotp\vec{v}=\vec{v}\dotp\vec{u}$
+   
+  \item\label{item:distributive} $(\vec{u}+\vec{v})\dotp \vec{w}=\vec{u}\dotp \vec{w}+\vec{v}\dotp \vec{w}$
+   
+  \item\label{item:distributive-again} $\vec{u}\dotp (\vec{v}+\vec{w})=\vec{u}\dotp\vec{v}+\vec{u}\dotp \vec{w}$
+   
+  \item\label{item:scalar} $(k\vec{u})\dotp \vec{v}=k(\vec{u}\dotp\vec{v})=\vec{u}\dotp (k\vec{v})$
+   
+  \item \label{item:positive} $\vec{u}\dotp\vec{u}\geq 0$, and $\vec{u}\dotp\vec{u}=0$ if and only if $\vec{u}={\bf 0}$.
+   
+  \item \label{item:norm}
+    $\norm{\vec{u}}^2=\vec{u}\dotp\vec{u}$
+  \end{enumerate}
+\end{theorem}
+
+We will prove Property ~\ref{item:distributive}.  The remaining properties are left as exercises.
+
+\begin{proof}[Proof of Property~\ref{item:distributive}:]
+
+\begin{align*}
+\left(\vec{u}+\vec{v}\right)\dotp \vec{w}&=\left(\begin{bmatrix} u_1\\ u_2\\ \vdots\\ u_n \end{bmatrix}+\begin{bmatrix} v_1\\ v_2\\ \vdots\\ v_n \end{bmatrix}\right)\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}=\begin{bmatrix}
+u_1+v_1\\
+u_2+v_2\\
+\vdots\\
+u_n+v_n
+\end{bmatrix}\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}\\
+&=(u_1+v_1)w_1+
+(u_2+v_2)w_2+
+\ldots+
+(u_n+v_n)w_n\\
+&=u_1w_1+v_1w_1+
+u_2w_2+v_2w_2+
+\ldots+
+u_nw_n+v_nw_n\\
+&=(u_1w_1+
+u_2w_2\ldots+u_nw_n)+(v_1w_1+v_2w_2+
+\ldots
++v_nw_n)\\
+&=\begin{bmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_n
+\end{bmatrix}\dotp\begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}+\begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix}\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}
+=\vec{u}\dotp\vec{w}+\vec{v}\dotp\vec{w}
+\end{align*}
+\end{proof}
+
+%\youtube{858cSuHqF-Q}
+
+We will illustrate Property~\ref{item:norm} with an example.
+\begin{example}\label{ex:exprop6}
+  Let $\vec{u}=\begin{bmatrix}-2\\3\end{bmatrix}$.  Use $\vec{u}$ to illustrate Property~\ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+  \begin{explanation}
+  
+  $$\norm{\vec{u}}^2=(-2)^2+3^2=(-2)(-2)+(3)(3)=\vec{u}\dotp\vec{u}$$
+  \end{explanation}
+\end{example}
+
+\subsection*{Practice Problems}
+
+\begin{problem}
+Find the dot product of $\vec{u}$ and $\vec{v}$ if
+  $$\vec{u}=\begin{bmatrix}-1\\-2\\5\\4\end{bmatrix},\quad \vec{v}=\begin{bmatrix}2\\-2\\-3\\1\end{bmatrix}$$
+  Answer:
+  $$\vec{u} \dotp \vec{v} = \answer{-9}$$
+\end{problem}
+
+\begin{problem}
+Find the dot product of $\vec{u}$ and $\vec{v}$ if 
+  $$\vec{u}=\begin{bmatrix}1\\1/2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$$
+  Answer:
+  
+  $$\vec{u} \dotp \vec{v} = \answer{0}$$
+\end{problem}
+
+\begin{problem}
+  Use vector $\vec{u}=\begin{bmatrix}2\\5\\-7\end{bmatrix}$ to
+  illustrate Property~\ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+\end{problem}
+
+\begin{problem}
+  Prove Properties~\ref{item:commutative}, \ref{item:distributive-again}, \ref{item:scalar}, \ref{item:positive} and \ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+\end{problem}
+
+\begin{problem}
+From the given list of vector pairs, identify pairs of vectors that lie on perpendicular lines.
+\begin{selectAll}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+  \choice{$\vec{u}=\begin{bmatrix}-1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}1\\-2\end{bmatrix}$}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}-1\\-\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+\end{selectAll}
+Compute $\vec{u}\dotp\vec{v}$ for each pair.  What do you observe? 
+\end{problem}
+
+\begin{problem}
+ For each part below
+ \begin{enumerate}
+ \item 
+ Find the value of $x$ that will make vectors $\vec{u}$ and $\vec{v}$ perpendicular. 
+  \begin{hint} Think of the $x$-component as the ``run" and the $y$-component as the ``rise", then use what you know about slopes of perpendicular lines.
+  \end{hint}
+  \item Find $\vec{u}\dotp\vec{v}$.
+  \end{enumerate}
+  
+ 
+  \begin{problem}
+    $$\vec{u} = \begin{bmatrix}1\\2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}2\\x\end{bmatrix}$$
+    
+    Answer:  
+    $$x = \answer{-1}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
+
+  \begin{problem}
+    $$\vec{u} = \begin{bmatrix}5\\2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}x\\-4\end{bmatrix}$$
+    Answer:
+    $$x = \answer{8/5}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
+
+  \begin{problem}
+    $$\vec{u} = \begin{bmatrix} 4\\-3\end{bmatrix},\quad \vec{v} =\begin{bmatrix}6\\x\end{bmatrix}$$ 
+    Answer:
+    $$x = \answer{8}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
+\end{problem}
+
+\begin{problem}
+  \begin{enumerate}
+    \item Vector $\vec{u}$ that lies on the line $y=mx$, has the form $\vec{u}=k\begin{bmatrix}1\\m\end{bmatrix}$.  Assuming that $m\neq 0$, find the general form for a vector $\vec{v}$ that lies on a line perpendicular to $y=mx$.
+      \begin{hint}
+        What do you know about the slopes of perpendicular
+        lines?
+      \end{hint}
+    \item Find $\vec{u}\dotp \vec{v}$.
+    \item Formulate a conjecture about the dot product of perpendicular vectors.
+  \end{enumerate}
+\end{problem}
+
+
+\end{document}
