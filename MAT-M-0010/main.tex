@@ -1,0 +1,284 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Matrix Addition and Scalar Multiplication} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+  We introduce matrices, define matrix addition and scalar and prove properties of those operations.
+\end{abstract}
+\maketitle
+
+
+
+\section*{Introduction to Matrices}
+
+{\color{red} This section was adopted from Kuttler matricesMatrixArithmetic.tex need hyperlink ref.}
+
+A \dfn{matrix} is a rectangular array of numbers. The plural form of \dfn{matrix} is \dfn{matrices}. For example, here is a matrix.
+
+$$M=\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+5 & 2 & 8 & 7 \\
+6 & -9 & 1 & 2
+\end{bmatrix}$$
+
+The size, or dimension, of a matrix is defined as $m\times n$ where $m$ is the
+number of rows and $n$ is the number of columns. The above matrix is a 
+$3\times 4$ matrix because there are three rows and four columns.  
+
+The familiar \dfn{column vector} in $\RR^n$ is an an $n\times 1$ matrix.  Sometimes we find it convenient to talk about \dfn{row vectors}.  A row vector in $\RR^n$ is a $1\times n$ matrix.  
+
+The individual \dfn{entries} in the matrix are identified according to their position. The $( i, j)$-entry of a matrix is the entry 
+in the $i^{th}$ row and $j^{th}$ column. For example, in matrix $M$ above,  $8$ is called the $(2,3)$-entry because it is in the second row and the third column. 
+
+We denote the entry in the $i^{th}$ row  and the $j^{th}$ column of matrix $A$ by $a_{ij}$, and write $A$ in terms of its entries
+as $$A= \begin{bmatrix} a_{ij} \end{bmatrix}=\begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1j}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots&a_{2j}&\dots &a_{2n}\\
+		\vdots & \vdots&&\vdots&&\vdots\\
+        a_{i1}&a_{i2}&\dots &a_{ij}&\dots &a_{in}\\
+        \vdots & \vdots&&\vdots&&\vdots\\
+		a_{m1}&a_{m2}&\dots &a_{mj}&\dots &a_{mn}
+         \end{bmatrix}$$. 
+
+We denote the $j^{th}$ column of a matrix $A$ 
+by $A_{j}$ and write
+$$A=\begin{bmatrix}|&|&&|\\A_1& A_2 &\ldots & A_n\\|&|&&|\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}A_1& A_2 &\ldots & A_n\end{bmatrix}$$
+
+A matrix $B=\begin{bmatrix}b_{ij}\end{bmatrix}$ which has size $n \times n$ is called a \dfn{square matrix}. 
+In other words, $B$ is a square matrix if it has the same number of rows and columns.  In a square matrix, entries of the form $b_{ii}$ are said to lie on the \dfn{main diagonal}.  For example, if $$B=\begin{bmatrix}1&2&3\\4&5&6\\7&4&9\end{bmatrix}$$
+then the main diagonal consists of entries $b_{11}=1$, $b_{22}=5$ and $b_{33}=9$.
+
+There are various operations which are done on matrices of appropriate 
+sizes. Matrices can be added to and subtracted from other matrices,
+multiplied by a scalar, and multiplied by other matrices. We will
+never divide a matrix by another matrix, but we will see later how matrix inverses play a similar role. 
+
+In doing arithmetic with matrices, we often define the action by what
+happens in terms of the entries (or components) of the
+matrices. Before looking at these operations in depth, consider a few
+general definitions.
+
+\begin{definition}[The Zero Matrix]\label{def:zeromatrix}
+The \dfn{$m\times n$ zero matrix} is the $m\times n$ matrix
+having every entry equal to zero. The zero matrix is
+denoted by ${\bf 0}$.
+\end{definition}
+
+\begin{definition}[Equality of Matrices]\label{def:equalityofmatrices}
+ Let $A=\begin{bmatrix} a_{ij}\end{bmatrix}$ and $B=\begin{bmatrix} b_{ij}\end{bmatrix}$ be two $m \times n$ matrices. Then $A=B$ means
+that $a_{ij}=b_{ij}$ for all $1\leq i\leq m$ and 
+$1\leq j\leq n$.
+\end{definition}
+
+\section*{Addition of Matrices}
+
+{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticAddition.tex hyperlink ref needed}
+
+Given two matrices of the same dimensions, we can add them together by adding their corresponding entries.
+\begin{definition}[Addition of Matrices]\label{def:additionofmatrices}
+Let $A=\begin{bmatrix} a_{ij}\end{bmatrix} $ and $B=\begin{bmatrix} b_{ij}\end{bmatrix}$ be two
+$m\times n$ matrices. Then $A+B$  is an $m \times n$
+matrix  given by 
+$$A+B=\begin{bmatrix}a_{ij}+b_{ij}\end{bmatrix}$$
+
+\end{definition}
+
+\begin{example}\label{ex:samesizematrixaddition}
+Find the sum of $A$ and $B$, if possible.
+\begin{equation*}
+A = \begin{bmatrix}
+1 & 2 & 3 \\
+1 & 0 & 4
+\end{bmatrix},
+B = \begin{bmatrix}
+5 & 2 & 3 \\
+-6 & 2 & 1
+\end{bmatrix}
+\end{equation*}
+\begin{explanation}
+Notice that both $A$ and $B$ are of size $2 \times 3$. 
+Since $A$ and $B$ are of the same size, addition is possible. 
+\begin{align*}
+A + B &= \begin{bmatrix}
+1 & 2 & 3 \\
+1 & 0 & 4
+\end{bmatrix}
++
+\begin{bmatrix}
+5 & 2 & 3 \\
+-6 & 2 & 1
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+1+5 & 2+2 & 3+3 \\
+1+ -6 & 0+2 & 4+1
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+6 & 4 & 6 \\
+-5 & 2 & 5
+\end{bmatrix}
+\end{align*}
+\end{explanation}
+\end{example}
+
+Going forward, whenever we write $A+B$ it will be assumed that the two matrices are of equal size and addition is possible.
+
+\begin{theorem}[Properties of Matrix Addition]\label{th:propertiesofaddition}
+Let $A,B$ and $C$ be matrices. Then, the following properties  hold. 
+
+\begin{enumerate}
+\item\label{item:mataddcomm} Commutative Law of Addition
+
+$$A+B=B+A$$  
+
+
+\item \label{item:mataddass} Associative Law of Addition
+
+$$\left( A+B\right) +C=A+\left( B+C\right) $$
+
+
+\item\label{item:mataddid} Additive Identity
+\begin{center}
+There exists a zero matrix such that
+\end{center}
+$$A+{\bf 0}=A$$
+
+
+\item\label{item:mataddinv} Additive Inverse
+\begin{center}
+There exists a matrix, $-A$, such that
+\end{center}
+$$A+\left( -A\right) ={\bf 0} $$
+
+\end{enumerate}
+\end{theorem}
+We will prove Properties \ref{item:mataddcomm} and \ref{item:mataddinv}.  The remaining properties are left as exercises.
+\begin{proof}[Proof of Property~\ref{item:mataddcomm}:]
+The $(i,j)$-entry of $A+B$ is given by
+
+$$a_{ij}+b_{ij}$$
+
+The $(i,j)$-entry of $B+A$ is given by
+$$b_{ij}+a_{ij}$$
+
+Since $a_{ij}+b_{ij}=b_{ij}+a_{ij}$, for all $i$, $j$, we conclude that $A+B=B+A$.
+\end{proof}
+
+\begin{proof}[Proof of Property~\ref{item:mataddinv}:]
+Let $-A$ be defined by
+$$-A=\begin{bmatrix}-a_{ij}\end{bmatrix}$$
+Then $A+(-A)={\bf 0}$.
+\end{proof}
+
+You will recognize the zero matrix of Theorem \ref{th:propertiesofaddition}\ref{item:mataddid} as the zero matrix of Definition \ref{def:zeromatrix}. 
+
+\section*{Scalar Multiplication of Matrices}
+
+{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticScalarMultiplication.tex hyperlink ref needed}
+
+When a matrix is multiplied by a scalar, the new matrix is obtained by multiplying every entry of the original matrix
+by the given scalar. 
+
+\begin{definition}[Scalar Multiplication of Matrices]\label{def:scalarmultofmatrices}
+If $A=\begin{bmatrix} a_{ij}\end{bmatrix} $ and $k$ is a scalar,
+then $kA=\begin{bmatrix} ka_{ij}\end{bmatrix}$. 
+\end{definition}
+
+\begin{example}\label{ex:effectofscalarmult}
+Find $7A$ if
+
+$$A=\begin{bmatrix}
+2 & 0 \\
+1 & -4
+
+\end{bmatrix}$$
+
+
+
+\begin{explanation}
+By Definition \ref{def:scalarmultofmatrices}, we multiply each entry of $A$ by $7$.
+Therefore,
+$$
+7A = 
+7\begin{bmatrix}
+
+2 & 0 \\
+1 & -4
+
+\end{bmatrix} =
+\begin{bmatrix}
+
+7(2) & 7(0) \\
+7(1) & 7(-4)
+
+\end{bmatrix} =
+\begin{bmatrix}
+
+14 & 0 \\
+7 & -28
+
+\end{bmatrix}
+$$
+\end{explanation}
+\end{example}
+
+
+\begin{theorem}[Properties of Scalar Multiplication]\label{th:propertiesscalarmult}
+Let $A, B$ be matrices, and $k, p$ be scalars. Then, the following properties properties of scalar multiplication hold.
+\begin{enumerate}
+\item\label{item:scalardistmatadd} Distributive Law over Matrix Addition
+\begin{equation*}
+k \left( A+B\right) =k A+ kB  
+\end{equation*}
+
+\item \label{item:matdistscalaradd}Distributive Law over Scalar Addition
+\begin{equation*}
+\left( k +p \right) A= k A+p A
+\end{equation*}
+
+\item \label{item:scalarmatmultass}Associative Law for Scalar Multiplication
+\begin{equation*}
+k \left( p A\right) = \left( k p \right) A 
+\end{equation*}
+
+\item\label{item:matmult1} Multiplication by $1$
+\begin{equation*}
+1A=A  
+\end{equation*}
+\end{enumerate}
+
+\end{theorem}
+
+The proof of this theorem is similar to the proof of Theorem \ref{th:propertiesofaddition} and is left as an exercise. 
+
+
+\section*{Practice Problems}
+
+\begin{problem} If 
+$$A=\begin{bmatrix}2&-1\\3&4\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}3&0\\-2&1\end{bmatrix}$$
+then $$2(A+B)=\begin{bmatrix}\answer{10}&\answer{-2}\\\answer{2}&\answer{10}\end{bmatrix}$$
+
+$$3A-2B=\begin{bmatrix}\answer{0}&\answer{-3}\\\answer{13}&\answer{10}\end{bmatrix}$$
+\end{problem}
+
+
+
+
+
+\begin{problem}
+Prove properties \ref{item:mataddass} and  \ref{item:mataddid} of Theorem \ref{th:propertiesofaddition}.
+\end{problem}
+
+\begin{problem}
+Prove Theorem \ref{th:propertiesscalarmult}.
+\end{problem}
+
+
+\end{document} 

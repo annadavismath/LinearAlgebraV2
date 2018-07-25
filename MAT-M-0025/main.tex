@@ -1,0 +1,228 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Paul Zachlin} \title{Transpose of a Matrix} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+  We define the transpose of a matrix and state several properties of the transpose.  We introduce symmetric, skew symmetric and diagonal matrices.
+\end{abstract}
+\maketitle
+
+
+
+
+
+
+{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticTranspose.tex hyperlink ref needed}
+
+Another important operation on matrices is that of taking the \dfn{transpose}. For a matrix $A$, we denote the
+\dfn{transpose of $A$} by $A^T$. Before formally defining the transpose, we explore this
+operation on the following matrix.
+\begin{equation*}
+\begin{bmatrix}
+1 & 4 \\
+3 & 1 \\
+2 & 6
+\end{bmatrix}^{T}=
+\begin{bmatrix}
+1 & 3 & 2 \\
+4 & 1 & 6
+\end{bmatrix}
+\end{equation*}
+
+What happened? The first column became the first row and the second column
+became the second row. Thus the $3\times 2$ matrix became a $2\times 3$
+matrix. The number $4$ was in the first row and the second column and it
+ended up in the second row and first column. 
+
+The definition of the transpose is as follows.
+
+\begin{definition}[The Transpose of a Matrix]\label{def:matrixtranspose}
+Let $A=\begin{bmatrix} a _{ij}\end{bmatrix}$ be an $m\times n$ matrix. Then the \dfn{transpose of $A$}, denoted by $A^{T}$, is the $n\times m$
+matrix given by 
+\begin{equation*}
+A^{T} = \begin{bmatrix} a _{ij}\end{bmatrix}^{T}= \begin{bmatrix} a_{ji} \end{bmatrix}
+\end{equation*}
+\end{definition}
+
+The $( i, j)$-entry of $A$ becomes the 
+$( j,i)$-entry of $A^T$. 
+
+
+
+\begin{example}\label{ex:transposematrix}
+Calculate $A^T$ for the following matrix
+\begin{equation*}
+A =
+\begin{bmatrix}
+1 & 2 & -6 \\
+3 & 5 & 4
+\end{bmatrix}
+\end{equation*}
+\begin{explanation}
+
+\begin{equation*}
+A^T = 
+\begin{bmatrix}
+1 & 3 \\
+2 & 5 \\
+-6 & 4
+\end{bmatrix}
+\end{equation*}
+
+Note that $A$ is a $2 \times 3$ matrix, while $A^T$ is a $3 \times 2$ matrix. The columns of $A$ are the rows of $A^T$, and the rows of $A$ are the columns of $A^T$.
+\end{explanation}
+\end{example}
+
+\begin{theorem}[Properties of the Transpose of a Matrix]\label{th:transposeproperties}
+Let $A$ be an $m\times n$ matrix, $B$ an $n\times p$ matrix, and $k$ a scalar. Then
+\begin{enumerate}
+\item\label{item:transoftrans}
+$\left(A^{T}\right)^{T} = A$
+\item\label{item:matrixtranspose1}
+$\left( AB\right) ^{T}=B^{T}A^{T} $ 
+\item\label{item:matrixtranspose2}
+$\left( A+ B\right) ^{T}=A^{T}+ B^{T}$  
+\item\label{item:matrixtranspose3}
+$\left(kA\right)^T=kA^T$
+\end{enumerate}
+\end{theorem}
+We will prove Property \ref{item:matrixtranspose1}.  The remaining properties are left as exercises.
+\begin{proof}[Proof of Property~\ref{item:matrixtranspose1}:]
+Note that $A$ and $B$ have compatible dimensions, so that $AB$ is defined and has dimensions $m\times p$.  Thus, $(AB)^T$ has dimensions $p\times m$.  On the right side of the equality, $A^T$ has dimensions $n\times m$, and $B^T$ has dimensions $p\times n$.  Therefore $B^TA^T$ is defined and has dimensions $p\times m$.  Now we know that $(AB)^T$ and $B^TA^T$ have the same dimensions.
+
+To show that $(AB)^T=B^TA^T$ we need to show that their corresponding entries are equal. 
+Recall that the $(i,j)$-entry of $AB$ is given by
+the dot product of the $i^{th}$ row of $A$ and the $j^{th}$ column of $B$.  
+The same dot product is also the $(j,i)$-entry of $(AB)^T$.  
+
+The $(j,i)$-entry of $B^TA^T$ is given by the dot product of the $j^{th}$ row of $B^T$ and the $i^{th}$ column of $A^T$.  But the $j^{th}$ row of $B^T$ is has the same entries as the $j^{th}$ column of $B$, and   the $i^{th}$ column of $A^T$ has the same entries as the $i^{th}$ row of $A$.  Therefore the $(j,i)$-entry of $B^TA^T$ is also equal to the $(i,j)$-entry of $AB$.
+
+Thus, the corresponding components of $(AB)^T$ are equal and we conclude that $(AB)^T=B^TA^T$.
+\end{proof}
+
+The transpose of a matrix is related to other important topics. Consider the following definition.  
+
+\begin{definition}[Symmetric and Skew Symmetric Matrices]\label{def:symmetricandskewsymmetric}
+An $n\times n$ matrix $A$ is said to be
+\dfn{symmetric} if $A=A^{T}.$ It is said to be
+\dfn{skew symmetric} if $A=-A^{T}.$
+\end{definition}
+
+We will explore these definitions in the following examples.
+
+\begin{example}\label{ex:symmetricmatrix}
+Let
+\begin{equation*}
+A=
+\begin{bmatrix}
+2 & 1 & 3 \\
+1 & 5 & -3 \\
+3 & -3 & 7
+\end{bmatrix}
+\end{equation*}
+Show that $A$ is symmetric. 
+\begin{explanation}
+\begin{equation*}
+A^{T} =
+\begin{bmatrix}
+2 & 1 & 3 \\
+1 & 5 & -3 \\
+3 & -3 & 7
+\end{bmatrix}
+\end{equation*}
+Hence, $A = A^{T}$, so $A$ is symmetric.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:skewsymmetricmatrix}
+Let
+\begin{equation*}
+A=
+\begin{bmatrix}
+0 & 1 & 3 \\
+-1 & 0 & 2 \\
+-3 & -2 & 0
+\end{bmatrix}
+\end{equation*}
+Show that $A$ is skew symmetric.
+\begin{explanation} 
+\begin{equation*}
+A^{T} = 
+\begin{bmatrix}
+0 & -1 & -3\\
+1 &  0 & -2\\
+3 &  2 &  0
+\end{bmatrix}
+\end{equation*}
+
+Each entry of $A^T$ is equal to $-1$ times the same entry of $A$. 
+Hence, $A^{T} = - A$ and so by Definition \ref{def:symmetricandskewsymmetric}, $A$ is skew symmetric. 
+\end{explanation}
+\end{example}
+
+A special case of a symmetric matrix is a \dfn{diagonal matrix}.  A diagonal matrix is a square matrix whose entries outside of the main diagonal are all zero.  The identity matrix $I$ is a diagonal matrix.  Here is another example.
+$$\begin{bmatrix}2&0&0&0\\0&-3&0&0\\0&0&1&0\\0&0&0&4\end{bmatrix}$$
+
+\section*{Practice Problems}
+
+
+\begin{problem} Prove Properties \ref{item:transoftrans}, \ref{item:matrixtranspose2} and \ref{item:matrixtranspose3} of Theorem \ref{th:transposeproperties}.
+\end{problem}
+
+\begin{problem} Let $A$ be an arbitrary matrix.  What can you say about the dimensions of the product $A^TA$?
+\end{problem}
+
+\begin{problem}
+Classify each matrix as symmetric, skew symmetric, or neither.
+\begin{problem}
+$$\begin{bmatrix}
+0 & -1 & -3\\
+1 & -1 & -2\\
+3 &  2 &  0
+\end{bmatrix}$$
+\begin{multipleChoice}
+ \choice{Symmetric}
+ \choice{Skew symmetric}
+     \choice[correct]{Neither}
+   \end{multipleChoice}
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}
+0 & 1 & -3\\
+-1 & 0 & -2\\
+3 &  2 &  0
+\end{bmatrix}$$
+\begin{multipleChoice}
+ \choice{Symmetric}
+ \choice[correct]{Skew symmetric}
+     \choice{Neither}
+   \end{multipleChoice}
+
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}
+1 & 1 & 3\\
+1 & -1 & 2\\
+3 &  2 &  4
+\end{bmatrix}$$
+\begin{multipleChoice}
+ \choice[correct]{Symmetric}
+ \choice{Skew symmetric}
+     \choice{Neither}
+   \end{multipleChoice}
+\end{problem}
+\end{problem}
+
+\begin{problem}Give your own example of a $4\times 4$ skew symmetric matrix.
+\end{problem}
+
+\begin{problem} Make a conjecture about the main diagonal entries of a skew symmetric matrix.  Prove your conjecture.
+\end{problem}
+
+\end{document} 

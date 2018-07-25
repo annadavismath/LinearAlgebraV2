@@ -1,0 +1,276 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+\author{Anna Davis \and Paul Zachlin} \title{Linear Systems as Matrix and Linear Combination Equations} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+  We interpret linear systems as matrix equations and as equations involving linear combinations of vectors.
+\end{abstract}
+\maketitle
+
+
+\section*{A Linear System as a Matrix Equation}
+
+\begin{initprob}
+Consider the linear system
+$$\begin{array}{ccccccccc}
+      3x_1 &- &2x_2&+&4x_3&+&x_4&= &5 \\
+	 -x_1& &&+&5x_3&-&2x_4&=&1\\
+     2x_1& +&x_2&-&x_3&+&3x_4&=&-4   
+    \end{array}$$
+Let's construct the coefficient matrix $A$ and multiply it by $\vec{x}=\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}$ on the right.  
+$$A\vec{x}=\begin{bmatrix}3&-2&4&1\\-1&0&5&-2\\2&1&-1&3\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}3x_1-2x_2+4x_3+x_4\\-x_1+5x_3-2x_4\\2x_1+x_2-x_3+3x_4\end{bmatrix}$$
+Observe that each component of the product vector corresponds to one of the equations in the system.  Let $\vec{b}=\begin{bmatrix}5\\1\\-4\end{bmatrix}$.  Then 
+$$A\vec{x}=\vec{b}$$
+$$\begin{bmatrix}3&-2&4&1\\-1&0&5&-2\\2&1&-1&3\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}5\\1\\-4\end{bmatrix}$$
+is a matrix equation that corresponds to our system of equations.
+
+\end{initprob}
+
+
+\begin{general} A system of linear equations
+
+$$\begin{array}{ccccccccc}
+      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
+	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
+     &&&&\vdots&&&& \\
+     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
+    \end{array}$$
+
+Can be written as a matrix equation as follows:
+
+$$
+ \begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+		\vdots & \vdots&\ddots &\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}
+		\begin{bmatrix}
+           x_1\\
+           x_2\\
+		\vdots \\
+		x_n
+         \end{bmatrix} = \begin{bmatrix}
+           b_1\\
+           b_2\\
+		\vdots \\
+		b_m
+        \end{bmatrix}
+$$
+Solving this matrix equation (or showing that a solution does not exist) amounts to finding the reduced row-echelon form  of the augmented matrix
+
+$$\left[\begin{array}{cccc|c}  
+ a_{11} & a_{12}&\dots&a_{1n}&b_1\\
+           a_{21}&a_{22} &\dots &a_{2n}&b_2\\
+		\vdots & \vdots&\ddots &\vdots&\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}&b_m
+ \end{array}\right]$$
+
+\end{general}
+
+\begin{example} Given a linear system
+$$\begin{array}{ccccc}
+      x& +&2y&=&0\\
+      -x & +&y&= &-3\\
+      & &y&=&-1\\
+      x& &&=&2
+    \end{array}$$
+    \begin{enumerate}
+    \item\label{ex:linsysmatrix1a}
+    Write the system as a matrix equation
+    \item\label{ex:linsysmatrix1b}
+    Solve the system and the matrix equation
+    \end{enumerate}
+    \begin{explanation}
+    \ref{ex:linsysmatrix1a} 
+    The matrix equation that corresponds to the system is
+    $$\begin{bmatrix}\answer{1}&\answer{2}\\\answer{-1}&\answer{1}\\\answer{0}&\answer{1}\\\answer{1}&\answer{0}\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}\answer{0}\\\answer{-3}\\\answer{-1}\\\answer{2}\end{bmatrix}$$
+    
+    \ref{ex:linsysmatrix1b}
+    The augmented matrix that corresponds to the original system and its reduced row-echelon form are
+    
+    $$\left[\begin{array}{cc|c}  
+ 1&2&0\\-1&1&-3\\0&1&-1\\1&0&2
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{cc|c}  
+ 1&0&2\\0&1&-1\\0&0&0\\0&0&0
+ \end{array}\right]$$
+ 
+ This shows that the ordered pair $(2, -1)$ is a solution to the system.  We conclude that $\vec{x}=\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}$ is a solution to the matrix equation in \ref{ex:linsysmatrix1a}.  A quick verification confirms this
+ $$\begin{bmatrix}1&2\\-1&1\\0&1\\1&0\end{bmatrix}\begin{bmatrix}2\\-1\end{bmatrix}=\begin{bmatrix}0\\-3\\-1\\2\end{bmatrix}$$
+    \end{explanation}
+\end{example}
+
+\begin{example}
+Let $$A=\begin{bmatrix}2&1&-1&2\\1&1&0&3\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}0\\-2\end{bmatrix} $$
+Solve $A\vec{x}=\vec{b}$.
+\begin{explanation}
+We write the equation $A\vec{x}=\vec{b}$ in augmented matrix form and apply elementary row operations to find its reduced row-echelon form.
+$$\left[\begin{array}{cccc|c}  
+ 2&1&-1&2&0\\1&1&0&3&-2
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{cccc|c}  
+ 1&0&-1&-1&2\\0&1&1&4&-4
+ \end{array}\right]$$
+ 
+One way to obtain a solution is to convert this to a system of equations.  It is not necessary to write the system down, but it helps to think about it as you write out your solution vector. 
+
+$$\begin{array}{ccccccccc}
+      x_1 & &&-&x_3&-&x_4&= &2 \\
+	 & &x_2&+&x_3&+&4x_4&=&-4
+        \end{array}$$
+        
+        We see that $x_1$ and $x_2$ are leading variables because they correspond to leading 1s in the reduced row-echelon form , while $x_3$ and $x_4$ are free variables.  We start by assigning parameters $s$ and $t$ to $x_3$ and $x_4$, respectively, then solve for $x_1$ and $x_2$.
+\begin{align*}x_1&=2+s+t\\
+        x_2&=-4-s-4t\\
+        x_3&=s\\
+        x_4&=t
+        \end{align*}
+       We can now write the solution vector as follows
+       \begin{equation}\label{eq:generalvsparticular}\vec{x}=\begin{bmatrix}2+s+t\\-4-s-4t\\s\\t\end{bmatrix}=\begin{bmatrix}2\\-4\\0\\0\end{bmatrix}+\begin{bmatrix}1\\-1\\1\\0\end{bmatrix}s+\begin{bmatrix}1\\-4\\0\\1\end{bmatrix}t\end{equation}
+\end{explanation}
+\end{example}
+
+The solution given in (\ref{eq:generalvsparticular}) is an example of a \dfn{general solution} because it accounts for all of the solutions to the system.  Letting $s$ and $t$ take on specific values produces \dfn{particular solutions}.  For example, $\begin{bmatrix}2\\-1\\1\\-1\end{bmatrix}$ is a particular solution that corresponds to $s=1$, $t=-1$.
+\section*{A Linear System as a Linear Combination Equation}
+
+Recall that the product of a matrix and a vector can be interpreted as a linear combination of the columns of the matrix.  For example,
+$$\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=x_1\begin{bmatrix}1\\5\end{bmatrix}+x_2\begin{bmatrix}2\\6\end{bmatrix}+x_3\begin{bmatrix}3\\7\end{bmatrix}+x_4\begin{bmatrix}4\\8\end{bmatrix}$$
+
+\begin{example}\label{ex:linearcombofcols2}For each given matrix $A$ and vector $\vec{b}$, determine whether $\vec{b}$ is a linear combination of the columns of $A$.  If possible, express $\vec{b}$ as a linear combination of the columns of $A$.
+
+  \begin{enumerate}
+\item \label{item:linearcombofcols2a}
+$$A=\begin{bmatrix}
+3&1&-2\\
+1&0&3\\
+-2&1&1
+\end{bmatrix},\,\,\,\vec{b}=\begin{bmatrix} -2\\7\\-1\end{bmatrix}$$
+
+\item \label{item:linearcombofcols2b}
+$$A=\begin{bmatrix}
+1&-1&3\\
+2&-1&1\\
+0&1&-5
+\end{bmatrix},\,\,\,\vec{b}=\begin{bmatrix} 4\\-1\\2\end{bmatrix}$$
+\end{enumerate}
+
+\begin{explanation} \ref{item:linearcombofcols2a}
+ We are looking for $x_1, x_2, x_3$ such that
+$$x_1\begin{bmatrix}3\\1\\-2\end{bmatrix}+x_2\begin{bmatrix}1\\0\\1\end{bmatrix}+x_3\begin{bmatrix}-2\\3\\1\end{bmatrix}=\begin{bmatrix}-2\\7\\-1\end{bmatrix}$$
+Solving this equation amounts to finding $\vec{x}=\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}$ such that $A\vec{x}=\vec{b}$.  The augmented matrix corresponding to this equation, together with its reduced row-echelon form are
+$$\left[\begin{array}{ccc|c}  
+ 3&1&-2&-2\\1&0&3&7\\-2&1&1&-1
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&0&1\\0&1&0&-1\\0&0&1&2
+ \end{array}\right]$$
+
+So, $\vec{x}=\begin{bmatrix} 1\\-1\\2\end{bmatrix}$ is a solution to the matrix equation.  We conclude that $\vec{b}$ is a linear combination of the columns of $A$, and write
+$$\vec{b}=\begin{bmatrix} -2\\7\\-1\end{bmatrix}=\begin{bmatrix} 3\\1\\-2\end{bmatrix}-\begin{bmatrix} 1\\0\\1\end{bmatrix}+2\begin{bmatrix} -2\\3\\1\end{bmatrix}$$
+
+\ref{item:linearcombofcols2b}   We begin by attempting to solve the matrix equation  $A\vec{x}=\vec{b}$.  The augmented matrix corresponding to this equation, together with its reduced row-echelon form are
+$$\left[\begin{array}{ccc|c}  
+ 1&-1&3&4\\2&-1&1&-1\\0&1&-5&2
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&-2&0\\0&1&-5&0\\0&0&0&1
+ \end{array}\right]$$
+
+This shows that this matrix equation has no solutions.  We conclude that $\vec{b}$ is not a linear combination of the columns of $A$. 
+
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+ \begin{problem}
+Given a system of linear equations, write (a) the corresponding matrix equation, and (b) the corresponding linear combination equation.  DO NOT SOLVE.
+\begin{center}
+$\begin{array}{ccccccc}
+       3x&- &y &- &2z&= &4 \\
+     -x& & &+ &z&= &-1 \\
+     & &-y &+ &5z&=&0
+
+    \end{array}$
+\end{center}
+\end{problem}
+\begin{problem}
+Use an augmented matrix and elementary row operations to find coefficients $x_1$ and $x_2$ that make the expression true, or demonstrate that such coefficients do not exist.
+ \begin{problem}
+
+    $$ x_1\begin{bmatrix}
+           1\\
+           -2
+         \end{bmatrix}+ x_2\begin{bmatrix}
+           1\\
+           3
+         \end{bmatrix}=\begin{bmatrix}
+           1\\
+           8
+         \end{bmatrix}$$
+         \end{problem}
+
+
+
+\begin{problem}
+
+ $$ x_1\begin{bmatrix}
+           4\\
+           -1
+         \end{bmatrix}+ x_2\begin{bmatrix}
+           -8\\
+           2
+         \end{bmatrix}=\begin{bmatrix}
+           0\\
+           3
+         \end{bmatrix}$$
+
+  \end{problem}
+
+\end{problem}
+ 
+ \begin{problem}
+ In each problem below determine whether vector $\vec{b}$ is in the span of the given set of vectors.
+ \begin{problem}
+ $\vec{b}=\begin{bmatrix}2\\14\\7\end{bmatrix}$ and $\left\{\begin{bmatrix}2\\-1\\1\end{bmatrix}, \begin{bmatrix}-3\\4\\1\end{bmatrix}, \begin{bmatrix}1\\-3\\-2\end{bmatrix}\right\}$
+ \begin{multipleChoice}
+ \choice{$\vec{b}$ is in the span of the vectors.}
+ \choice[correct]{$\vec{b}$ is NOT in the span of the vectors.}
+ \end{multipleChoice}
+ \end{problem}
+ 
+ \begin{problem}
+ $\vec{b}=\begin{bmatrix}5\\2\\4\end{bmatrix}$ and $\left\{\begin{bmatrix}4\\2\\4\end{bmatrix}, \begin{bmatrix}4\\5\\1\end{bmatrix}, \begin{bmatrix}3\\2\\2\end{bmatrix}, \begin{bmatrix}1\\0\\2\end{bmatrix}\right\}$
+ \begin{multipleChoice}
+ \choice[correct]{$\vec{b}$ is in the span of the vectors.}
+ \choice {$\vec{b}$ is NOT in the span of the vectors.}
+ \end{multipleChoice}
+ \end{problem}
+ 
+ \begin{problem}
+ $\vec{b}=\begin{bmatrix}2\\4\\-7\\-5\end{bmatrix}$ and $\left\{\begin{bmatrix}1\\-1\\2\\3\end{bmatrix}, \begin{bmatrix}4\\1\\-3\\1\end{bmatrix}\right\}$
+ \begin{multipleChoice}
+ \choice[correct]{$\vec{b}$ is in the span of the vectors.}
+ \choice{$\vec{b}$ is NOT in the span of the vectors.}
+ \end{multipleChoice}
+ \end{problem}
+ 
+ \end{problem}
+
+
+\end{document} 
