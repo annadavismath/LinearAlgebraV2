@@ -1,0 +1,296 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Matrix Multiplication} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+  We introduce matrix-vector and matrix-matrix multiplication, and interpret matrix-vector multiplication as linear combination of the columns of the matrix.
+\end{abstract}
+\maketitle
+
+
+We will introduce matrix multiplication by first considering the spacial case of a matrix-vector product.
+
+\section*{Matrix-Vector Multiplication}
+
+
+\begin{definition}\label{def:matrixvectormult}
+Let $A$ be an $m\times n$ matrix, and let $\vec{b}$ be an $n\times 1$ vector.  The product $A\vec{b}$ is given by:
+$$A\vec{b}=\begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+		\vdots & \vdots&\ddots &\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=\begin{bmatrix}a_{11}b_1+a_{12}b_2+\ldots +a_{1n}b_n\\a_{21}b_1+a_{22}b_2+\ldots +a_{2n}b_n\\\vdots\\a_{m1}b_1+a_{m2}b_2+\ldots +a_{mn}b_n\end{bmatrix}$$
+\end{definition}
+The following example illustrates the pattern of matrix-vector multiplication.
+\begin{example}Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{b}$.
+\begin{explanation}
+$$A\vec{b}=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$
+We will compute the product one entry at a time.  First, let's focus on the first row of $A$.
+$$\begin{bmatrix}{\color{red}2}&{\color{blue}-1}&{\color{orange}3}&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}{\color{red}(2)( 3)}+{\color{blue}(-1)(-1)}+{\color{orange}(3)(4)}+(2)(1)\\ \\ \\\end{bmatrix}=\begin{bmatrix}21\\ \\ \\\end{bmatrix}
+$$
+Next, let's look a the second row of $A$.
+$$\begin{bmatrix}2&-1&3&2\\{\color{red}0}&{\color{blue}3}&{\color{orange}-2}&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}21\\{\color{red}(0)( 3)}+{\color{blue}(3)(-1)}+{\color{orange}(-2)(4)}+(1)(1)\\ \\ \end{bmatrix}=\begin{bmatrix}21\\-10 \\ \\\end{bmatrix}
+$$
+Finally, let's do the third row of $A$.
+$$\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\{\color{red}-2}&{\color{blue}4}&{\color{orange}1}&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}21\\-10\\{\color{red}(-2)( 3)}+{\color{blue}(4)(-1)}+{\color{orange}(1)(4)}+(0)(1) \end{bmatrix}=\begin{bmatrix}21\\-10 \\ -6\end{bmatrix}
+$$
+
+The three steps above would typically be combined into one step.
+$$\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}=\begin{bmatrix}(2)(3)+(-1)(-1)+(3)(4)+(2)(1)\\(0)(3)+(3)(-1)+(-2)(4)+(1)(1)\\(-2)( 3)+(4)(-1)+(1)(4)+(0)(1) \end{bmatrix}=\begin{bmatrix}21\\-10 \\ -6\end{bmatrix}
+$$
+
+\end{explanation}
+\end{example}
+We can now make a couple of observations about the matrix-vector product.  The first observation is part of the definition, but it is still worth pointing out.
+\begin{observation}
+In order for the product $A\vec{b}$ to exist, $A$ and $\vec{b}$ must have compatible dimensions.  In particular, vector $\vec{b}$ must have as many components as the number of columns of $A$.  So, if $A$ is an $m\times n$ matrix, $\vec{b}$ must be an $n\times 1$ vector.  If we write these dimensions next to each other, we will notice that the inner dimensions ($n$) must match, while the outer dimensions, $m$ and $1$, give us the dimensions of the product.
+$$\begin{array}{ccccc}
+A& & \vec{b} &=& A\vec{b}\\
+(m\times n) & &(n\times 1) & &(m\times 1)
+\end{array}$$
+\end{observation}
+
+\begin{observation} If you are familiar with the \dfn{dot product}, you may have noticed that the entries in the product matrix $A\vec{b}$ are dot products of the rows of $A$ with $\vec{b}$.  Thus, if the rows of $A$ are vectors $\vec{v}_1$, $\vec{v}_2,\ldots ,\vec{v}_n$ we can restate Definition \ref{def:matrixvectormult} as follows:
+$$A\vec{b}=\begin{bmatrix}-&\vec{v}_1&-\\-&\vec{v}_2&-\\ &\vdots & \\-&\vec{v}_n &-\end{bmatrix}\vec{b}=\begin{bmatrix}\vec{v}_1\dotp\vec{b}\\\vec{v}_2\dotp\vec{b}\\\vdots\\\vec{v}_n\dotp\vec{b}\end{bmatrix}$$
+\end{observation}
+
+Let's find another matrix-vector product.
+
+\begin{example}
+Let $$A=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}-3\\5\end{bmatrix}
+$$
+Find $A\vec{b}$.
+\begin{explanation}
+Fill in the blanks below.  
+$$A\vec{b}=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\begin{bmatrix}-3\\5\end{bmatrix}=\begin{bmatrix}\answer{-8}\\\answer{9}\\\answer{11}\\\answer{-12}\end{bmatrix}
+$$
+\end{explanation}
+\end{example}
+
+\section*{Matrix-Matrix Multiplication}
+
+Matrix-matrix multiplication is simply an extension of the idea of matrix-vector multiplication.  In order for the product definition to work, matrix dimensions must be compatible.  Let $A$ be an $m\times n$ matrix, and let $B$ be an $n\times p$ matrix, then the product $AB$ will be an $m\times p$ matrix.
+$$\begin{array}{ccccc}
+A& & B &=& AB\\
+(m\times n) & &(n\times p) & &(m\times p)
+\end{array}$$
+Just like with vector products, the inner dimensions must be the same, while the outer dimensions, $m$ and $p$, give us the dimensions of the product.
+
+\begin{definition}\label{def:matmatproduct} Let $A$ be an $m\times n$ matrix whose rows are vectors $\vec{v}_1$, $\vec{v}_2,\ldots ,\vec{v}_n$.  Let $B$ be an $n\times p$ matrix with columns $B_1, B_2, \ldots, B_p$.  Then the product $AB$ is given by
+\begin{align*}AB&=\begin{bmatrix}-&\vec{v}_1&-\\-&\vec{v}_2&-\\ &\vdots & \\-&\vec{v}_i &-\\ &\vdots& \\-&\vec{v}_m&-\end{bmatrix}\begin{bmatrix}|&|&&|&&|\\B_1& B_2 &\ldots  & B_j&\ldots& B_p\\|&|&&|&&|\end{bmatrix}\\ &=\begin{bmatrix}\vec{v}_1\dotp B_1&\vec{v}_1\dotp B_2&\ldots&\vec{v}_1\dotp B_j&\ldots &\vec{v}_1\dotp B_p\\\vec{v}_2\dotp B_1&\vec{v}_2\dotp B_2&\ldots&\vec{v}_2\dotp B_j&\ldots &\vec{v}_2\dotp B_p\\\vdots&\vdots&&\vdots&&\vdots\\\vec{v}_i\dotp B_1&\vec{v}_i\dotp B_2&\ldots&\vec{v}_i\dotp B_j&\ldots &\vec{v}_i\dotp B_p\\\vdots&\vdots&&\vdots&&\vdots\\\vec{v}_m\dotp B_1&\vec{v}_m\dotp B_2&\ldots&\vec{v}_m\dotp B_j&\ldots &\vec{v}_m\dotp B_p\end{bmatrix}
+\end{align*}
+\end{definition}
+
+It is worth pointing out that the $(i,j)$-entry of $AB$ is the dot product of the $i^{th}$ row of $A$ and the $j^{th}$ column of $B$.  
+
+In terms of components, if the $i^{th}$ row of $A$ is $$\begin{bmatrix}a_{i1}& a_{i2} &\ldots &a_{in}\end{bmatrix}$$ and the $j^{th}$ column of $B$ is 
+$$\begin{bmatrix}b_{1j}\\b_{2j}\\\vdots\\b_{nj}\end{bmatrix}$$
+then the $(i,j)$-entry of $AB$ is given by
+\begin{equation}\label{eq:ijentrymatrixproduct}a_{i1}b_{1j}+a_{i2}b_{2j}+\dots +a_{in}b_{nj}=\sum_{k=1}^na_{ik}b_{kj}
+\end{equation}
+
+\begin{example}
+Let $$A=\begin{bmatrix}3 & 2 & -1 & 1\\0 & 3 & 1 & 1\\1 & 4 & -1 & 0\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}1 & -2 \\-1 & 4 \\2 & 3 \\2 & 0\end{bmatrix}$$
+Find $AB$.
+
+\begin{explanation}
+Observe that $A$ is a $3\times 4$ matrix and $B$ is a $4\times 2$ matrix.  So, we expect the product $AB$ to be a $3\times 2$ matrix.
+\begin{align*}
+AB&=\begin{bmatrix}3 & 2 & -1 & 1\\0 & 3 & 1 & 1\\1 & 4 & -1 & 0\end{bmatrix}\begin{bmatrix}1 & -2 \\-1 & 4 \\2 & 3 \\2 & 0\end{bmatrix}\\
+&=\begin{bmatrix}(3)(1)+(2)(-1)+(-1)(2)+(1)(2) & (3)(-2)+(2)(4)+(-1)(3)+(1)(0)\\(0)(1)+(3)(-1)+(1)(2)+(1)(2) & (0)(-2)+(3)(4)+(1)(3)+(1)(0)\\(1)(1)+(4)(-1)+(-1)(2)+(0)(2) & (1)(-2)+(4)(4)+(-1)(3)+(0)(0) \end{bmatrix}\\
+&=\begin{bmatrix}1 & -1 \\ 1 & 15\\ -5 & 11\end{bmatrix}
+\end{align*}
+\end{explanation}
+\end{example}
+
+\begin{example} Let
+$$A=\begin{bmatrix}-2 & 1\\3 & 0\\1 & -3\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}4 & -2 & 3 & -2 &2\\1 & -3 & 1 & 1 &0\end{bmatrix}$$
+Find $AB$
+\begin{explanation}
+Fill in the blanks below.  
+$$AB=\begin{bmatrix}-2 & 1\\3 & 0\\1 & -3\end{bmatrix}\begin{bmatrix}4 & -2 & 3 & -2 &2\\1 & -3 & 1 & 1 &0\end{bmatrix}=\begin{bmatrix}\answer{-7} &\answer{1} & \answer{-5} & \answer{5} & \answer{-4}\\\answer{12} & \answer{-6} & \answer{9} & \answer{-6} & \answer{6}\\\answer{1} & \answer{7} & \answer{0} & \answer{-5} & \answer{2}\end{bmatrix}$$
+
+\end{explanation}
+\end{example}
+
+\section*{Properties of Matrix Multiplication}
+{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticMultiplicationProperties.tex hyperlink ref needed}
+\begin{initprob}Let $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}5&6\\7&8\end{bmatrix}$$
+Observe that both $AB$ and $BA$ are defined, and both products are $2\times 2$ matrices.  Let's compute the two products
+$$AB=\begin{bmatrix}19&22\\43&50\end{bmatrix}\quad\text{and}\quad BA=\begin{bmatrix}23&34\\31&46\end{bmatrix}$$
+Clearly $AB\neq BA$. We say that $A$ and $B$ \dfn{do not commute}.
+\end{initprob}
+While it is possible to find specific matrices that commute, matrix multiplication is not commutative in general.
+\begin{warning}Matrix multiplication is not commutative.
+\end{warning}
+
+One example of an $n\times n$ square matrix that commutes with all $n\times n$ matrices is the matrix $I_n$ defined by
+$$I_n=\begin{bmatrix}1&0&\ldots &0\\0&1&\ldots &0\\\vdots &\vdots &\ddots &\vdots \\0 &0 &\ldots & 1\end{bmatrix}$$
+$I_n$ has 1's along the main diagonal and 0's everywhere else.  It is often useful to think of $I_n$ as a matrix whose $j^{th}$ column (and $j^{th}$ row) is $\vec{e}_j$, the $j^{th}$ standard unit vector of $\RR^n$.  When the dimensions of $I_n$ are clear from the context, or irrelevant, we will omit the subscript $n$ and simply refer to this matrix as $I$.
+
+You can easily convince yourself that $I$ commutes with all square matrices of appropriate dimensions.  Let $$A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}\quad\text{and}\quad I=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$$
+Verify that $AI=A$ and $IA=A$.  
+
+Because $I$ acts like the multiplicative identity $1$ in regular multiplication, $I$ (or $I_n$) is called the \dfn{identity matrix}.
+
+Next we list several important properties of matrix multiplication. These properties hold only when matrix sizes are such that the products are defined. 
+
+\begin{theorem}[Properties of Matrix Multiplication]\label{th:propertiesofmatrixmultiplication}
+The following hold for matrices $A,B,$ and $C$ and for scalar $k$,
+\begin{enumerate}
+\item \label{item:matrixproperties1} Left Distributive Property
+$$A\left( B+C\right) =AB +AC$$
+\item\label{item:matrixproperties2} Right Distributive Property
+$$\left( B+C\right) A=BA+CA$$
+\item \label{item:matrixproperties3} Associativity
+$$A\left( BC\right) =\left( AB\right) C$$
+\item\label{item:matrixproperties4}
+$$k(AB)=(kA)B=A(kB)$$
+\item \label{item:identitymatrix} Multiplicative Identity
+$$AI=IA=A$$
+\end{enumerate}
+\end{theorem}
+We will prove Properties \ref{item:matrixproperties1} and \ref{item:identitymatrix}.  The remaining properties are left to the reader.
+\begin{proof}[Proof of Property~\ref{item:matrixproperties1}:]
+We will prove this statement using expression in (\ref{eq:ijentrymatrixproduct}) for the $(i,j)$-entry of a matrix product. The $(i,j)$-entry of $A(B+C)$ is given by
+
+$$
+\sum_{k}a_{ik}( b_{kj}+c_{kj})=\sum_{k}a_{ik}b_{kj}+\sum_{k}a_{ik}c_{kj}
+$$
+We recognize the right hand side as the $(i,j)$-entry of $AB+AC$.
+Thus $A(B+C) =AB+AC$. 
+\end{proof}
+\begin{proof}[Proof of Property~\ref{item:identitymatrix}:]
+The $(i,j)$-entry of the product $AI$ is given by the dot product of the $i^{th}$ row of $A$ with the standard unit vector $\vec{e}_j$.  Clearly, this dot product is $a_{ij}$.  Because the $(i,j)$-entry of the product $AI$ is equal to the $(i,j)$-entry $A$, we conclude that $AI=A$.  The proof that $IA=A$ is similar.
+\end{proof}
+
+\section*{Matrix-Vector Product as a Linear Combination of the Columns of the Matrix}
+
+\begin{initprob}
+Consider the product:
+$$\vec{v}=\begin{bmatrix}
+1&-1\\
+2&7
+\end{bmatrix}\begin{bmatrix} a\\b\end{bmatrix}$$
+We can rewrite this product as follows:
+
+$$\vec{v}=\begin{bmatrix}
+1&-1\\
+2&7
+\end{bmatrix}\begin{bmatrix} a\\b\end{bmatrix}=\begin{bmatrix} a-b\\2a+7b\end{bmatrix}=\begin{bmatrix} a\\2a\end{bmatrix}+\begin{bmatrix} -b\\7b\end{bmatrix}=a\begin{bmatrix} 1\\2\end{bmatrix}+b\begin{bmatrix} -1\\7\end{bmatrix}$$
+Thus, we have expressed $\vec{v}$ as a linear combination of the columns of $\begin{bmatrix}
+1&-1\\
+2&7
+\end{bmatrix}$. 
+
+\end{initprob}
+
+
+\begin{general} Given a matrix $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ and a vector $\vec{b}$, the product $A\vec{b}$ can be expressed as follows:
+
+\begin{equation*} \label{eq:matrixvectorproductlincombcols}
+ \begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+		\vdots & \vdots&\ddots &\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}
+		\begin{bmatrix}
+           b_1\\
+           b_2\\
+		\vdots \\
+		b_n
+         \end{bmatrix} = b_1\begin{bmatrix}
+           a_{11}\\
+           a_{21}\\
+		\vdots \\
+		a_{m1}
+         \end{bmatrix}+b_2\begin{bmatrix}
+           a_{12}\\
+           a_{22}\\
+		\vdots \\
+		a_{m2}
+         \end{bmatrix}+\dots+b_n\begin{bmatrix}
+           a_{1n}\\
+           a_{2n}\\
+		\vdots \\
+		a_{mn}
+         \end{bmatrix}
+\end{equation*}
+\end{general}
+
+\begin{example}\label{ex:linearcombofcols1}
+Suppose that we know that $\vec{x}=\begin{bmatrix} -2\\5\end{bmatrix}$ satisfies
+$$\begin{bmatrix}
+-2&3\\
+4&-1
+\end{bmatrix}\vec{x}=\begin{bmatrix} 19\\-13\end{bmatrix}$$
+Use this information to express $\begin{bmatrix} 19\\-13\end{bmatrix}$ as a linear combination of the columns of $\begin{bmatrix}
+-2&3\\
+4&-1
+\end{bmatrix}$.
+\begin{explanation}
+$$-2\begin{bmatrix} -2\\4\end{bmatrix}+5\begin{bmatrix} 3\\-1\end{bmatrix}=\begin{bmatrix} 19\\-13\end{bmatrix}$$
+\end{explanation}
+
+\end{example}
+
+
+
+
+
+
+\section*{Practice Problems}
+
+\begin{problem} Explain why the following product is not defined.
+$$\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}\begin{bmatrix}1\\2\\3\\4\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+Predict the dimensions of each product.
+\begin{problem}
+$$\begin{bmatrix}1&2&3\end{bmatrix}\begin{bmatrix}4\\5\\6\end{bmatrix}$$
+Dimensions of product: $\answer{1}\times \answer{1}$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}$$
+Dimensions of product: $\answer{3}\times \answer{4}$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Find each product.
+\begin{problem}
+$$\begin{bmatrix}1&3&-2&1\\-2&1&0&4\end{bmatrix}\begin{bmatrix}4\\-2\\1\\1\end{bmatrix}=\begin{bmatrix}\answer{-3}\\\answer{-6}\end{bmatrix}$$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}1&2&3\end{bmatrix}\begin{bmatrix}-1&2&-3&1\\1&1&-1&-2\\0&1&2&1\end{bmatrix}=\begin{bmatrix}\answer{1}&\answer{7}&\answer{1}&\answer{0}\end{bmatrix}$$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}1&2\\-1&0\\2&3\\-4&-1\end{bmatrix}\begin{bmatrix}-1&1\\2&-3\end{bmatrix}=\begin{bmatrix}\answer{3}&\answer{-5}\\\answer{1}&\answer{-1}\\\answer{4}&\answer{-7}\\\answer{2}&\answer{-1}\end{bmatrix}
+$$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Prove Properties \ref{item:matrixproperties2} and \ref{item:matrixproperties4} of Theorem \ref{th:propertiesofmatrixmultiplication}.
+\end{problem}
+
+\begin{problem}
+Prove Property \ref{item:matrixproperties3} of Theorem \ref{th:propertiesofmatrixmultiplication}.  This proof can be done by comparing the $(i,j)$-entries on both sides of the equal sign.  An alternative proof will be presented later in Theorem \ref{th:associativematrixmult}.
+\end{problem}
+
+\begin{problem}
+Express the given product as a linear combination of the columns of the matrix.
+$$\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}\begin{bmatrix}-2\\3\\-5\\7\end{bmatrix}=\answer{-2}\begin{bmatrix}1\\5\end{bmatrix}+\answer{3}\begin{bmatrix}2\\6\end{bmatrix}+\answer{-5}\begin{bmatrix}3\\7\end{bmatrix}+\answer{7}\begin{bmatrix}4\\8\end{bmatrix}$$
+\end{problem}
+
+
+\end{document} 
