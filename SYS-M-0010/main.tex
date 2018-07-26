@@ -1,5 +1,5 @@
 \documentclass{ximera}
-\usepackage{OERLinearAlgebra}
+\input{../preamble.tex}
 
 \usepackage{mathtools}
 
@@ -257,12 +257,14 @@ Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1,
     
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.5]
+
 \draw[thin,gray!40] (-4,-4) grid (4,5);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,5);
 
  \draw[line width=2pt,blue](-4, -4)--(0.5,5) node[below right]{$2x-y=-4$};
  \draw[line width=2pt,red](3, -4)--(-3,5) node[below left]{$3x+2y=1$};
+
 \end{tikzpicture}
 \end{image}
 
@@ -276,7 +278,7 @@ Given a system of two equations with two unknowns, there are three possible geom
 
  \draw[line width=1pt](-4, -3)--(4,2);
  \draw[line width=1pt](3, -4)--(1,4);
-    
+
 \end{tikzpicture}
 \end{image}
 Second, the two lines may have no points in common.  If this is the case, the system has no solutions.  We say that the system is \dfn{inconsistent}.  
@@ -288,7 +290,7 @@ Second, the two lines may have no points in common.  If this is the case, the sy
 
  \draw[line width=1pt](-4, -4)--(4,1);
  \draw[line width=1pt](-4, -2)--(4,3);
-    
+
 \end{tikzpicture}
 \end{image}
 Finally, the two lines may coincide.  In this case, there are infinitely many points that satisfy both equations simultaneously.  We say that the system is consistent and has infinitely many solutions.
@@ -299,8 +301,7 @@ Finally, the two lines may coincide.  In this case, there are infinitely many po
   \draw[<->] (0,-4)--(0,4);
 
  \draw[line width=2pt](-4, -3)--(4,2);
- 
-    
+
 \end{tikzpicture}
 \end{image}
 
@@ -319,13 +320,14 @@ $$\begin{array}{ccccc}
 It is clear, however, that there are no values of $x$ and $y$ that would satisfy the second equation.  We conclude that the system is inconsistent.  Plotting the two lines in the same coordinate plane shows that the two lines are parallel.  
     \begin{image}[2in]
 \begin{tikzpicture}[scale=.5]
+
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,4);
 
  \draw[line width=2pt,blue](-3.5, -4)--(0.5,4) node[below left=3mm]{$-2x+y=3$};
  \draw[line width=2pt,red](-0.75, -4)--(3.25,4) node[below right]{$4x-2y=5$};
-    
+
 \end{tikzpicture}
 \end{image}
 \end{explanation}
@@ -352,14 +354,14 @@ When we plot the two equations of the original system, we find that the two line
 
     \begin{image}[2.5in]
 \begin{tikzpicture}[scale=.5]
+
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,4);  
 
  \draw[line width=1pt,red](-2.5, 4)node[below left]{$x +\frac{3}{4}y=\frac{1}{2}$}--(3.5,-4);
  \draw[line width=1pt,blue](-2.5, 4.1)--(3.5,-3.9) node[above right]{$4x+3y=2$};
- 
-    
+
 \end{tikzpicture}
 \end{image}
 \end{explanation}
@@ -376,7 +378,7 @@ Given a linear system in two variables and more than two equations, we have a va
  \draw[line width=1pt](-2, 4)--(4,1);
  \draw[line width=1pt](3, 4)--(-1,-4);
  \draw[line width=1pt](1, 4)--(4,-2);
-    
+
 \end{tikzpicture}
 \end{image}
 
@@ -391,7 +393,7 @@ Second, it is possible for the graphs to have no points in common.
  \draw[line width=1pt](-4, -3)--(4,4);
  \draw[line width=1pt](3, -4)--(1,4);
  \draw[line width=1pt](3, -1)--(-4,3);
-    
+
 \end{tikzpicture}\quad\quad
 \begin{tikzpicture}[scale=.5]
 
@@ -401,7 +403,7 @@ Second, it is possible for the graphs to have no points in common.
  \draw[line width=1pt](-2, -3)--(3,3);
  \draw[line width=1pt](-2, -2)--(3,4);
  \draw[line width=1pt](-2, -4)--(3,2);
-    
+
 \end{tikzpicture}
 \end{image}
 If this is the case, the system is inconsistent.
@@ -417,6 +419,7 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
 \begin{image}[2.5in]   
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
+
 	\draw[->](-1,0,0)--(4,0,0) ;
     \draw[->](0,-4,0)--(0,2,0) ;
     \draw[->](0,0,-1)--(0,0,4) ;
@@ -429,7 +432,7 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
     \draw[](2,-1,1)--(47/13,2,7/13) ;
     \draw[](2,-1,1)--(2/7,-3,27/7) ;
     \fill[] (2,-1,1)node[right]{$(1,2,-1)$} circle (0.1cm);
-    
+
 \end{tikzpicture}
 \end{image}
 
@@ -439,34 +442,45 @@ First, the three planes could intersect at a single point, giving us a unique so
 \begin{image}[1.5in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}
+
 \filldraw[blue, opacity=0.3](0,0,0)--(2,0,0)--(2,2,0)--(0,2,0)--cycle;
 \filldraw[red, opacity=0.3] (0,0,0)--(0,0,2)--(0,2,2)--(0,2,0)--cycle;
 \filldraw[gray, opacity=0.5] (0,0,0)--(0,0,2)--(2,0,2)--(2,0,0)--cycle;
 \fill[] (0,0,0) circle (0.1cm);
+
     \end{tikzpicture}
-    \end{image}
+\end{image}
+
     Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
-    \begin{image}[2in]
+
+\begin{image}[2in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
+
 \filldraw[blue, opacity=0.3](0,-2,2)--(0,2,2)--(0,2,-2)--(0,-2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[gray, opacity=0.5] (2,1,2)--(2,1,-2)--(-2,-1,-2)--(-2,-1,2)--cycle;
 \draw[-](0,0,-2)--(0,0,2) ;
-     \end{tikzpicture}
-     \end{image}
+     
+\end{tikzpicture}
+\end{image}
      Finally, the three planes can coincide.  If this is the case, there are infinitely many solutions.
      \begin{image}[1.8in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
+
 \filldraw[gray, opacity=0.5] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (1.5,0,1.5)--(-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--cycle;
-\filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;    	\end{tikzpicture}
+\filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;
+
+\end{tikzpicture}
 \end{image}
+
 There are four ways for a system to be inconsistent.  They are depicted below.
 \begin{image}[4in]
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
+
    \filldraw[blue, opacity=0.3](0,0,2)--(0,2,2)--(0,2,-2)--(0,0,-2)--cycle;
    \filldraw[red, opacity=0.3] (2,0,2)--(0,0,2)--(0,0,-2)--(2,0,-2)--cycle;
    \filldraw[gray, opacity=0.5] (0,2,2)--(0,2,-2)--(2,0,-2)--(2,0,2)--cycle;
@@ -477,9 +491,11 @@ There are four ways for a system to be inconsistent.  They are depicted below.
 \filldraw[gray, opacity=0.5] (2,1,2)--(-2,1,2)--(-2,1,-2)--(2,1,-2)--cycle;
 \draw[-](-2/3,0,-2)--(-2/3,0,2) ;
 \draw[-](-1/3,1,-2)--(-1/3,1,2) ;
+
      \end{tikzpicture}
      
      \begin{tikzpicture}[scale=0.8]
+
 \filldraw[gray, opacity=0.5] (2,1.2,2)--(-2,1.2,2)--(-2,1.2,-2)--(2,1.2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--(1.5,0,1.5)--cycle;
@@ -489,6 +505,7 @@ There are four ways for a system to be inconsistent.  They are depicted below.
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (2,-1.2,2)--(-2,-1.2,2)--(-2,-1.2,-2)--(2,-1.2,-2)--cycle;
 	\end{tikzpicture}
+
     \end{image}     
 
 \section*{Equivalent Systems and Elementary Row Operations}
@@ -723,24 +740,26 @@ $$\begin{array}{ccccc}
 \begin{problem}
 The following figures show a geometric depiction of two equivalent systems.  (The systems are equivalent because they have the same solution set.)  Can the first system be transformed into the second system by elementary row operations?  If so, how?
 
- \begin{image}[4in]
+\begin{image}[4in]
 \begin{tikzpicture}[scale=.5]
+
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
  \draw[line width=2pt,blue](-2, 6)node[below=8mm, right=12mm]{$x+y=4$}--(6,-2) ;
  \draw[line width=2pt,red](-2,3.5)node[below=12mm, right=-2mm]{$x+2y=5$}--(6,-0.5) ;
-    
+
 \end{tikzpicture}\quad\quad
 \begin{tikzpicture}[scale=.5]
+
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
  \draw[line width=2pt,blue](1.5, -2)--(5.5,6) node[below=4mm, right=-2mm]{$2x-y=5$};
  \draw[line width=2pt,red](2, -2)--(14/3,6) node[below=2mm, left=2mm]{$3x-y=8$};
-    
+
 \end{tikzpicture}
 \end{image}
 
