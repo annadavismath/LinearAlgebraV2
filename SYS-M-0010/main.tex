@@ -452,9 +452,11 @@ First, the three planes could intersect at a single point, giving us a unique so
     \end{tikzpicture}
     \end{image}
     Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
-    \begin{image}[2in]
+
+\begin{image}[2in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
+\node{
 \filldraw[blue, opacity=0.3](0,-2,2)--(0,2,2)--(0,2,-2)--(0,-2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[gray, opacity=0.5] (2,1,2)--(2,1,-2)--(-2,-1,-2)--(-2,-1,2)--cycle;
@@ -473,6 +475,7 @@ First, the three planes could intersect at a single point, giving us a unique so
 };
 \end{tikzpicture}
 \end{image}
+
 There are four ways for a system to be inconsistent.  They are depicted below.
 \begin{image}[4in]
 \tdplotsetmaincoords{70}{130}
