@@ -257,12 +257,14 @@ Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1,
     
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.5]
+\node{
 \draw[thin,gray!40] (-4,-4) grid (4,5);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,5);
 
  \draw[line width=2pt,blue](-4, -4)--(0.5,5) node[below right]{$2x-y=-4$};
  \draw[line width=2pt,red](3, -4)--(-3,5) node[below left]{$3x+2y=1$};
+};
 \end{tikzpicture}
 \end{image}
 
@@ -725,22 +727,24 @@ The following figures show a geometric depiction of two equivalent systems.  (Th
 
  \begin{image}[4in]
 \begin{tikzpicture}[scale=.5]
+\node{
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
  \draw[line width=2pt,blue](-2, 6)node[below=8mm, right=12mm]{$x+y=4$}--(6,-2) ;
  \draw[line width=2pt,red](-2,3.5)node[below=12mm, right=-2mm]{$x+2y=5$}--(6,-0.5) ;
-    
+};    
 \end{tikzpicture}\quad\quad
 \begin{tikzpicture}[scale=.5]
+\node{
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
  \draw[line width=2pt,blue](1.5, -2)--(5.5,6) node[below=4mm, right=-2mm]{$2x-y=5$};
  \draw[line width=2pt,red](2, -2)--(14/3,6) node[below=2mm, left=2mm]{$3x-y=8$};
-    
+};
 \end{tikzpicture}
 \end{image}
 
