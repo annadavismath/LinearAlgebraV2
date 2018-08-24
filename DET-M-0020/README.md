@@ -1,1 +1,0 @@
-Geometric interpretation of determinants
