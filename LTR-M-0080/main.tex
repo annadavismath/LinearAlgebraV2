@@ -2,7 +2,18 @@
 
 \author{Anna Davis \and Paul Zachlin} \title{Matrix of a Linear Transformation with Respect to Arbitrary Bases} \license{CC-BY 4.0}
 
-\input{../preamble.tex}
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+
+
+\newtheorem{general}{Generalization}
+\newtheorem{initprob}{Exploration Problem}
+\usepackage{tikz-cd}
+\pgfplotsset{compat=1.14}
+
+
 
 \begin{document}
 \begin{abstract}
@@ -17,7 +28,7 @@ Let
 $$\vec{v}_1=\begin{bmatrix}1\\2\\0\end{bmatrix}\quad\text{and}\quad\vec{v}_2=\begin{bmatrix}0\\1\\1\end{bmatrix}$$
 $$\vec{w}_1=\begin{bmatrix}1\\0\\1\end{bmatrix}\quad\text{and}\quad\vec{w}_2=\begin{bmatrix}1\\0\\0\end{bmatrix}$$
 
-In Example \ref{ex:subtosub1} we defined $V$ and $W$ as follows:
+In Example \ref{ex:subtosub1} of LTR-M-0025 we defined $V$ and $W$ as follows:
 
 $$V=\text{span}(\vec{v}_1, \vec{v}_2)\quad\text{and}\quad W=\text{span}(\vec{w}_1, \vec{w}_2)$$
 
@@ -38,12 +49,12 @@ $$0\vec{v}_1+1\vec{v}_2\mapsto -1\vec{w}_1+4\vec{w}_2$$
 Because the bases vectors $\vec{v}_1$, $\vec{v}_2$, $\vec{w}_1$ and $\vec{w}_2$ are permanent fixtures in this set-up what we are really looking for is to capture what happens to the coefficients of $\vec{v}_1$, $\vec{v}_2$, $\vec{w}_1$ and $\vec{w}_2$.   Diagrammatically, we have:
 $$\begin{bmatrix}1\\0\end{bmatrix}\mapsto\begin{bmatrix}2\\-3\end{bmatrix}$$
 $$\begin{bmatrix}0\\1\end{bmatrix}\mapsto\begin{bmatrix}-1\\4\end{bmatrix}$$
-Vectors $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ are said to be \dfn{coordinate vectors} of $\vec{v}_1$ and $\vec{v}_2$, while $\begin{bmatrix}2\\-3\end{bmatrix}$ and $\begin{bmatrix}-1\\4\end{bmatrix}$ are the \dfn{coordinate vectors} of the images of $\vec{v}_1$ and $\vec{v}_2$. We will refer to this as a ``mapping of coordinate vectors".  But this mapping is induced by 
+Vectors $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ are said to be \dfn{coordinate vectors} of $\vec{v}_1$ and $\vec{v}_2$ with respect to $\mathcal{B}$, while $\begin{bmatrix}2\\-3\end{bmatrix}$ and $\begin{bmatrix}-1\\4\end{bmatrix}$ are the \dfn{coordinate vectors} of the images of $\vec{v}_1$ and $\vec{v}_2$ with respect to  $\mathcal{C}$. For now, we will refer to this mapping as a ``mapping of coordinate vectors".  But this mapping is induced by 
 $$A=\begin{bmatrix}2&-1\\-3&4\end{bmatrix}$$
 Let's take a look at what this matrix can do for us.
 
-Recall that in Example \ref{ex:subtosub1} we found that the image of $\vec{v}=2\vec{v}_1+\vec{v}_2$ is $$T(\vec{v})=T(2\vec{v}_1+\vec{v}_2)=3\vec{w}_1-2\vec{w}_2$$
-Utilizing our ``mapping of coordinate vectors", we can express this as 
+Recall that in Example \ref{ex:subtosub1} of LTR-M-0025 we found that the image of $\vec{v}=2\vec{v}_1+\vec{v}_2$ is $$T(\vec{v})=T(2\vec{v}_1+\vec{v}_2)=3\vec{w}_1-2\vec{w}_2$$
+Utilizing our ``mapping of coordinate vectors" notation, we can express this as 
 $$\begin{bmatrix}2\\1\end{bmatrix}\mapsto\begin{bmatrix}3\\-2\end{bmatrix}$$
 Note that this result can be obtained by finding the product $A\begin{bmatrix}2\\1\end{bmatrix}$.
 $$\begin{bmatrix}2&-1\\-3&4\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}3\\-2\end{bmatrix}$$
@@ -120,14 +131,14 @@ In this section we will formalize the process for finding the matrix of a linear
 
 Let $V$ and $W$ be vector spaces with bases $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_n\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_m\}$, respectively.   Suppose $T:V\rightarrow W$ is a linear transformation.  Our goal is to represent this transformation as a matrix transformation.
 
-Observe that $\text{dim}(V)=n=\text{dim}(\RR^n)$ and $\text{dim}(W)=m=\text{dim}(\RR^m)$. Define a linear transformation $R:V\rightarrow \RR^n$ by $R(\vec{v}_i)=\vec{e}_i$ for $1\leq i\leq n$.  In Practice Problem \ref{prob:coordinatemappingisanisom} you will be asked to show that $R$ is one-to-one and onto.  This means that $R$ is an isomorphism.  
+Observe that $\text{dim}(V)=n=\text{dim}(\RR^n)$ and $\text{dim}(W)=m=\text{dim}(\RR^m)$. Define a linear transformation $R:V\rightarrow \RR^n$ by $R(\vec{v}_i)=\vec{e}_i$ for $1\leq i\leq n$.  In Practice Problem \ref{prob:coordinatemappingisanisom} you will be asked to show that $R$ is one-to-one and onto.  This means that $R$ is an isomorphism.  (Compare this to Exploration Problem \ref{init:coordmapping} of LTR-M-0060)
 
 Suppose $\vec{v}$ is an element of $V$, then $\vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n$.  The image of $\vec{v}$ is given by
 \begin{align*}
 R(\vec{v})&=R(a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n)\\&=a_1R(\vec{v}_1)+a_2R(\vec{v}_2)+\ldots +a_nR(\vec{v}_n)=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}
 \end{align*}
 
-Thus, the image of $\vec{v}$ is a vector of coordinate vectors with respect to the basis $\mathcal{B}$.  We will call this vector of coordinate vectors the \dfn{coordinate vector of $\vec{v}$ with respect to $\mathcal{B}$}, and denote it by $[\vec{v}]_{\mathcal{B}}$.
+Thus, the image of $\vec{v}$ is the \dfn{coordinate vector of $\vec{v}$ with respect to $\mathcal{B}$}. We will denote it by $[\vec{v}]_{\mathcal{B}}$.
 
 Similarly, we can define an isomorphism $S:W\rightarrow \RR^m$ by $R(\vec{w}_i)=\vec{e}_i$ for $1\leq i\leq m$. Thus, the image of a vector $\vec{w}=b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m$ in $W$ is given by
 
@@ -137,7 +148,7 @@ S(\vec{w})&=S(b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m)\\&=b_1S(\vec{w}_1)
 
 This is the coordinate vector of $\vec{w}$ with respect to $\mathcal{C}$.
 
-We know that $R$ is an isomorphism.  Therefore, by Theorem \ref{th:isomeansinvert}, $R^{-1}$ exists. Consider the transformation
+We know that $R$ is an isomorphism.  Therefore, by Theorem \ref{th:isomeansinvert} of LTR-M-0035, $R^{-1}$ exists. Consider the transformation
 $$S\circ T\circ R^{-1}:\RR^n\rightarrow \RR^m$$
 
 \begin{center}
@@ -163,7 +174,7 @@ $$\vec{e}_i=[\vec{v}_i]_{\mathcal{B}}\mapsto \vec{v}_i \mapsto T(\vec{v}_i)\maps
 We summarize this discussion in as a theorem.
 
 \begin{theorem}\label{th:matlintransgeneral}
-Let $V$ and $W$ be finite-dimensional vector spaces withe bases $\mathcal{B}=\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}$ and $\mathcal{C}$, respectively.  Suppose $T:V\rightarrow W$ is a linear transformation.  
+Let $V$ and $W$ be finite-dimensional vector spaces with bases $\mathcal{B}=\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}$ and $\mathcal{C}$, respectively.  Suppose $T:V\rightarrow W$ is a linear transformation.  
 $$\text{Let}\quad A=\begin{bmatrix}
            | & |& &|\\
 		[T(\vec{v}_1)]_{\mathcal{C}} & [T(\vec{v}_2)]_{\mathcal{C}}&\dots &[T(\vec{v}_n)]_{\mathcal{C}}\\
@@ -198,13 +209,13 @@ V  \arrow[d, "R" black, shift left=0.5ex] \arrow[r,red, "T"' black, shift right=
 Suppose $A$ of  is  the matrix of $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$.  We leave it as an exercise to show that $A^{-1}$ is the matrix of $T^{-1}$ with respect to $\mathcal{C}$ and $\mathcal{B}$.
 
 \begin{example}\label{ex:inversematrixoftransform}
-In Exploration Problem \ref{init:subtosub}, we introduced the following set up.
+In Exploration Problem \ref{init:subtosub} of LTR-M-0030, we introduced the following set up.
 
 Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
 
-In Example \ref{ex:subtosub}, we proved that $T$ is invertible.  Find the matrix of $T^{-1}$ with respect to bases $\mathcal{C}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right\}$ and $\mathcal{B}=\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$
+In Example \ref{ex:subtosubinvert} of LTR-M-0035, we proved that $T$ is invertible.  Find the matrix of $T^{-1}$ with respect to bases $\mathcal{C}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right\}$ and $\mathcal{B}=\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$
 \begin{explanation}
 Observe that 
 $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}=\begin{bmatrix}1\\0\end{bmatrix}+\begin{bmatrix}0\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
