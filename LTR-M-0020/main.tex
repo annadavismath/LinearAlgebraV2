@@ -1,8 +1,17 @@
 \documentclass{ximera}
 
-\author{Anna Davis \and Paul Zachlin} \title{Standard Matrix of a Linear Transformation} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin} \title{Standard Matrix of a Linear Transformation, Part I} \license{CC-BY 4.0}
 
-\input{../preamble.tex}
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dfn}{\textit}
+\newcommand{\dotp}{\cdot}
+
+
+\newtheorem{general}{Generalization}
+\newtheorem{initprob}{Exploration Problem}
+\usepackage{tikz-cd}
+\pgfplotsset{compat=1.14}
 
 \begin{document}
 \begin{abstract}
@@ -18,8 +27,8 @@
 $$A=\begin{bmatrix}1&-2&4\\0&3&5\end{bmatrix}$$
 We will examine the effect of $T$ on the standard unit vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$.
 
-$$T(\vec{i})=A\vec{i}=\begin{bmatrix}1\\0\end{bmatrix},\quad T(\vec{j})=A\vec{j}=\begin{bmatrix}-2\\3\end{bmatrix}, \quad
-T(\vec{k})=A\vec{k}=\begin{bmatrix}4\\5\end{bmatrix}$$
+$$T(\vec{i})=A\vec{i}=\begin{bmatrix}\answer{1}\\\answer{0}\end{bmatrix},\quad T(\vec{j})=A\vec{j}=\begin{bmatrix}\answer{-2}\\\answer{3}\end{bmatrix}, \quad
+T(\vec{k})=A\vec{k}=\begin{bmatrix}\answer{4}\\\answer{5}\end{bmatrix}$$
 
 It turns out that the image of $\vec{i}$ is the first column of $A$, the image of $\vec{j}$ is the second column of $A$, and the image of $\vec{k}$ is the third column.
 \end{initprob}
@@ -27,8 +36,7 @@ It turns out that the image of $\vec{i}$ is the first column of $A$, the image o
 
 \begin{general} The linear transformation $T$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
 
-  Suppose $T:\RR^n\rightarrow\RR^m$ is a linear transformation induced by the matrix $A$.  Then
-\begin{equation*} \label{eq:matlintrans}
+  \begin{equation*} \label{eq:matlintrans}
  A=\begin{bmatrix}
            a_{11} & a_{12}&\dots&a_{1n}\\
            a_{21}&a_{22} &\dots &a_{2n}\\
@@ -42,12 +50,12 @@ It turns out that the image of $\vec{i}$ is the first column of $A$, the image o
 		|&| & &|
          \end{bmatrix}
 \end{equation*}
-{\color{red}Video}
+%{\color{red}Video}
 \end{general}
 
 \section*{Linear Transformations of $\RR^n$ as Matrix Transformations}
 
-We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of {\it all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
+We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of \dfn{all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
 
 \begin{example}  
 Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{b}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
@@ -60,7 +68,7 @@ Because of properties of linear transformations, the information about the image
 \end{explanation}
 \end{example}
 
-\begin{general} Every vector $\vec{x}$ of $\RR^n$ can be written as a linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1)\ldots T(\vec{e}_n)$ allows us to construct a matrix $A$ that induces the desired linear transformation.  We formalize this idea in a theorem.
+\begin{general} Every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1)\ldots T(\vec{e}_n)$ allows us to construct a matrix $A$ that induces the desired linear transformation.  We formalize this idea in a theorem.
 \end{general}
 
 
@@ -91,17 +99,17 @@ T(\vec{x})&=T(x_1\vec{e}_1+x_2\vec{e}_2+\dots+x_n\vec{e}_n)=x_1T(\vec{e}_1)+x_2T
 Thus, for every $\vec{x}$ in $\RR^n$, we have $T(\vec{x})=A\vec{x}$. 
 \end{proof}
 
-We will see in Module {\color{red}LTR-M-0080 (use a ref later)} that the matrix used to represent a linear transformation depends on a choice of basis.  Since $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$ is known as the {\it standard basis} for $\RR^n$, it is natural to denote the matrix in Theorem \ref{th:matlin} in a similar way.
+The above discussion relies on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in Module {\color{red}LTR-M-0080 (use a ref later)} that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
 
 
 \begin{definition} 
   
-The matrix in Theorem \ref{matlintrans} is known as the {\it standard matrix of the linear transformation} $T$.
+The matrix in Theorem \ref{matlintrans} is known as the \dfn{standard matrix of the linear transformation} $T$.
   
 \end{definition}
 
 
-In Theorem \ref{th:matrixtran} we showed that every transformation induced by a matrix is linear.  Theorem \ref{th:matlin} states that every linear transformation from $\RR^n$ into $\RR^m$ is induced by a matrix.  We combine these results in a corollary.
+In Theorem \ref{th:matrixtran} of LTR-M-0010 we showed that every transformation induced by a matrix is linear.  Theorem \ref{th:matlin} states that every linear transformation from $\RR^n$ into $\RR^m$ is induced by a matrix.  We combine these results in a corollary.
 
 
   \begin{corollary}\label{cor} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.

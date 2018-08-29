@@ -1,1 +1,0 @@
-Parametric Equations of Lines

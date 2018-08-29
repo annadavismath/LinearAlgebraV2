@@ -1,0 +1,170 @@
+\documentclass{ximera}
+\usepackage{OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Homogeneous and Nonhomogeneous Linear Systems} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+  We define a homogeneous linear system and express a solution to a system of equations as a sum of a particular solution and the general solution to the associated homogeneous system.
+  \end{abstract}
+\maketitle
+
+\section*{Homogeneous Systems}
+
+\begin{definition}
+A system of linear equations is called homogeneous if the system can be written in the form
+$$\begin{array}{ccccccccc}
+      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &0 \\
+	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &0 \\
+     &&&&\vdots&&&& \\
+     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &0
+    \end{array}$$
+\end{definition}
+
+A homogeneous linear system is always consistent because $x_1=0, x_2=0, \ldots ,x_n=0$ is a solution.  This solution is called the \dfn{trivial solution}.  Geometrically, a homogeneous system can be interpreted as a collection of lines or planes (or hyperplanes) passing through the origin.  Thus, they will always have the origin in common, but may have other points in common as well.
+
+If $A$ is the coefficient matrix for a homogeneous system, then the system can be written as a matrix equation $A\vec{x}=\vec{0}$. The augmented matrix that represents the system looks like this
+$$\left[\begin{array}{c|c}  
+ A&0
+ \end{array}\right]$$
+As we perform elementary row operations, the entries to the right of the vertical bar remain $0$.  It is customary to omit writing them down and apply elementary row operations to the coefficient matrix only.
+\begin{example}
+Determine whether the following vectors are linearly independent.
+$$\begin{bmatrix}4\\-2\\1\\3\end{bmatrix}, \begin{bmatrix}5\\8\\-4\\-6\end{bmatrix}, \begin{bmatrix}-1\\4\\-2\\-4\end{bmatrix}$$
+
+\begin{explanation} We need to determine whether there exist coefficients $x_1, x_2, x_3$, not all zero, such that 
+$$x_1\begin{bmatrix}4\\-2\\1\\3\end{bmatrix}+ x_2\begin{bmatrix}5\\8\\-4\\-6\end{bmatrix}+ x_3\begin{bmatrix}-1\\4\\-2\\-4\end{bmatrix}=\vec{0}$$
+Solving this linear combination equation amounts to solving the homogeneous system
+$$\begin{bmatrix}4&5&-1\\-2&8&4\\1&-4&-2\\3&-6&-4\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\vec{0}$$
+We will proceed to find the reduced row-echelon form of the matrix as usual, but will omit writing the zeros to the right of the vertical bar.
+$$\begin{bmatrix}4&5&-1\\-2&8&4\\1&-4&-2\\3&-6&-4\end{bmatrix}\rightsquigarrow \begin{bmatrix}1&0&2\\0&1&3\\0&0&0\\0&0&0\end{bmatrix}$$
+$x_1$ and $x_2$ are leading variables, and $x_3$ is a free variable.  We let $x_3=t$ and solve for $x_1$ and $x_2$.
+\begin{align*}x_1&=-2t\\
+x_2&=-3t\\
+x_3&=t
+\end{align*}
+There are infinitely many non-trivial solutions to the system and we conclude that the given vectors are linearly dependent.
+\end{explanation}
+\end{example}
+\section*{General and Particular Solutions}
+
+\begin{definition} Given any linear system $A\vec{x}=\vec{b}$, the system $A\vec{x}=\vec{0}$ is called the \dfn{associated homogeneous system}.
+\end{definition}
+
+It turns out that there is a relationship between solutions of $A\vec{x}=\vec{b}$ and solutions of the associated homogeneous system.
+
+\begin{initprob}\label{init:generalplusparticular}
+Let $$A=\begin{bmatrix}1&2&4\\3&-7&-1\\-1&4&2\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}-2\\7\\-4\end{bmatrix}$$
+Consider the matrix equation $A\vec{x}=\vec{b}$.  Row reduction produces the following.
+$$\left[\begin{array}{ccc|c}  
+ 1&2&4&-2\\3&-7&-1&7\\-1&4&2&-4
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&2&0\\0&1&1&-1\\0&0&0&0
+ \end{array}\right]$$
+ We conclude that $\vec{x}=\begin{bmatrix}-2t\\-1-t\\t\end{bmatrix}$.  
+ 
+ Let's take a more careful look at $\vec{x}$.
+ $$\vec{x}=\begin{bmatrix}-2t\\-1-t\\t\end{bmatrix}=\begin{bmatrix}0\\-1\\0\end{bmatrix}+\begin{bmatrix}-2\\-1\\1\end{bmatrix}t$$
+ We now see that the solution vector $\vec{x}$ is made up of two distinct parts: 
+ \begin{itemize}
+ \item
+ one specific vector $\begin{bmatrix}0\\-1\\0\end{bmatrix}$
+ \item
+ infinitely many scalar multiples of $\begin{bmatrix}-2\\-1\\1\end{bmatrix}$.  
+ \end{itemize}
+ 
+ The vector $\begin{bmatrix}0\\-1\\0\end{bmatrix}$ is an example of a \dfn{particular solution}.  This particular ``particular solution" corresponds to $t=0$.  We can find any number of particular solutions by letting $t$ assume different values.  For example, the particular solution that corresponds to $t=1$ is $\begin{bmatrix}-2\\-2\\1\end{bmatrix}$.  Let $\vec{x}_p$ be any particular solution of $A\vec{x}=\vec{b}$.  It turns out that all vectors of the form $$\vec{x}=\vec{x}_p+\begin{bmatrix}-2\\-1\\1\end{bmatrix}t$$ are solutions of $A\vec{x}=\vec{b}$.  We can verify this as follows
+ $$A\vec{x}=A\left(\vec{x}_p+\begin{bmatrix}-2\\-1\\1\end{bmatrix}t\right)=A\vec{x}_p+\begin{bmatrix}1&2&4\\3&-7&-1\\-1&4&2\end{bmatrix}\begin{bmatrix}-2\\-1\\1\end{bmatrix}t=A\vec{x}_p+\vec{0}=\vec{b}$$
+ This shows that the specific vector $\begin{bmatrix}0\\-1\\0\end{bmatrix}$ is not very special, as any solution of $A\vec{x}=\vec{b}$ can be used in its place.  
+ 
+ The vector $\begin{bmatrix}-2\\-1\\1\end{bmatrix}$, however, is special.  
+ Note that
+ $$A\begin{bmatrix}-2\\-1\\1\end{bmatrix}=\begin{bmatrix}1&2&4\\3&-7&-1\\-1&4&2\end{bmatrix}\begin{bmatrix}-2\\-1\\1\end{bmatrix}=\vec{0}$$
+ So $\begin{bmatrix}-2\\-1\\1\end{bmatrix}$ and all of its scalar multiples are solutions to the associated homogeneous system.  
+\end{initprob}
+
+In Exploration Problem \ref{init:generalplusparticular} we found that the general solution of the equation $A\vec{x}=\vec{b}$ has the form:
+ $$\vec{x}=(\text{Any Particular Solution of}\,A\vec{x}=\vec{b}) + (\text{General Solution of}\,A\vec{x}=\vec{0})$$
+It turns out that the general solution of any linear system can be written in this format.  Theorem \ref{th:homogeneous} formalizes this result.
+
+\begin{theorem}\label{th:homogeneous}Suppose $\vec{x}_p$ is a particular solution of $A\vec{x}=\vec{b}$.
+  \begin{enumerate}
+  \item\label{item:homogeneous1} If $\vec{x}_h$ is a solution of the associated homogeneous system, then $\vec{x}_p+\vec{x}_h$ is a solution of $A\vec{x}=\vec{b}$. 
+  \item \label{item:homogeneous2}If $\vec{x}_1$ is a solution of $A\vec{x}=\vec{b}$, then there exists a solution of the associated homogeneous system, $\vec{x}_h$, such that  $\vec{x}_1=\vec{x}_p+\vec{x}_h$.
+  \end{enumerate}
+\end{theorem}
+We will prove part \ref{item:homogeneous2}.  The proof of part \ref{item:homogeneous1} is left to the reader.
+\begin{proof}[Proof of \ref{item:homogeneous2}]
+Let $\vec{x}_h=\vec{x}_1-\vec{x}_p$, then 
+$$A\vec{x}_h=A(\vec{x}_1-\vec{x}_p)=A\vec{x}_1-A\vec{x}_p=\vec{b}-\vec{b}=\vec{0}$$
+and
+$$\vec{x}_1=\vec{x}_p+\vec{x}_h$$
+\end{proof}
+\begin{example}
+Let $$A=\begin{bmatrix}2&-4&-2\\1&-2&-1\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}8\\4\end{bmatrix}$$
+If possible, find a solution of $A\vec{x}=\vec{b}$ and express it as a sum of a particular solution and the general solution of the associated homogeneous system. ($\vec{x}=\vec{x}_p+\vec{x}_h$)
+\begin{explanation}
+First, we obtain the reduced row-echelon form
+$$\left[\begin{array}{ccc|c}  
+ 2&-4&-2&8\\1&-2&-1&4
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&-2&-1&4\\0&0&0&0
+ \end{array}\right]$$
+ 
+ So $$\vec{x}=\begin{bmatrix}4+2s+t\\s\\t\end{bmatrix}=\begin{bmatrix}4\\0\\0\end{bmatrix}+\begin{bmatrix}2\\1\\0\end{bmatrix}s+\begin{bmatrix}1\\0\\1\end{bmatrix}t$$
+ In this case $$\vec{x}_p=\begin{bmatrix}4\\0\\0\end{bmatrix}$$
+ $$\vec{x}_h=\begin{bmatrix}2\\1\\0\end{bmatrix}s+\begin{bmatrix}1\\0\\1\end{bmatrix}t$$
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+
+\begin{problem}
+For each matrix $A$ and vector $\vec{b}$ below, find a solution to $A\vec{x}=\vec{b}$ and  express your solution as a sum of a particular solution and a general solution to the associated homogeneous system.
+
+\begin{problem}
+$$A=\begin{bmatrix}1&1&3&1\\3&4&2&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}6\\1\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$A=\begin{bmatrix}3&2&1\\1&-1&1\\4&1&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}10\\2\\12\end{bmatrix}$$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Are the following vectors linearly independent?
+$$\begin{bmatrix}2\\1\\-1\end{bmatrix}, \begin{bmatrix}-2\\-2\\3\end{bmatrix}, \begin{bmatrix}3\\1\\3\end{bmatrix} $$
+\end{problem}
+
+\begin{problem}Prove that a consistent system has infinitely many solutions if and only if the associated homogeneous system has infinitely many solutions.
+\end{problem}
+
+\begin{problem} If possible, construct an example of each of the following.  If not possible, explain why.
+  \begin{problem}
+  An inconsistent system with an associated homogeneous system that has infinitely many solutions.
+  \end{problem}
+  \begin{problem}
+  An inconsistent system with an associated homogeneous system that has a unique (trivial) solution.
+  \end{problem}
+\end{problem}
+
+\begin{problem}
+Prove that a linear combination of any number of solutions of a homogeneous equation is a solution of the same equation.
+\end{problem}
+
+\begin{problem} Prove Part \ref{item:homogeneous1} of Theorem \ref{th:homogeneous}.
+\end{problem}
+
+\end{document} 
