@@ -61,7 +61,7 @@ Even though $S$ is defined on all of $\RR^2$, we are only interested in the acti
 The actions of individual transformations, as well as the composite transformation are shown below.
 
 \begin{image}[3.5in]\label{fig:actionofst} 
-\centering
+
 \begin{tikzpicture}[scale=.7]
 
 \fill[blue!40] (-1,-1) rectangle (3,3);
@@ -113,7 +113,9 @@ U\rar{T}\arrow[black, bend right]{rrr}[black,swap]{R\circ S\circ T}  & V \rar{S}
 \end{tikzcd}
 };
 \end{tikzpicture}
+
 \end{center}
+
 We have $(R\circ S)\circ T=R\circ (S\circ T)$.
 \end{theorem}
 \begin{proof} For all $\vec{u}$ in $U$ we have:
@@ -148,7 +150,7 @@ $$\begin{bmatrix}3&-1\\-3&1\end{bmatrix}\begin{bmatrix}1&1\\3&3\end{bmatrix}=\be
 \end{explanation}
 \end{example}
 
-We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication}).  We are now in a position to prove this result with ease.  
+We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication} of MAT-M-0020).  We are now in a position to prove this result with ease.  
 
 Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since transformation composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
 
@@ -204,7 +206,7 @@ Definition \ref{def:inverse} does not specifically require an inverse $S$ of a l
 
 \subsection*{Linear Transformations of $\RR^n$ and the Standard Matrix of the Inverse Transformation}
 
-Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{matlin})  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n}$ and $M_TM_S=I_{m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
+Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{th:matlin} of LTR-M-0020)  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n}$ and $M_TM_S=I_{m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
 
 Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices, and $n=m$. 
 
@@ -215,7 +217,7 @@ Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices,
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-Part \ref{item:exists} follows directly from the preceding discussion.  Part \ref{item:unique} follows from uniqueness of matrix inverses. (Theorem \ref{th:matinverseunique})
+Part \ref{item:exists} follows directly from the preceding discussion.  Part \ref{item:unique} follows from uniqueness of matrix inverses. (Theorem \ref{th:matinverseunique} of MAT-M-0050)
 \end{proof}
 
 %Theorem \ref{th:existunique} may be a little misleading because it appears to imply that the question of existence of an inverse can be settled entirely by finding (or not finding) the inverse of the standard matrix of a linear transformation.  So, why look at anything else?  Consider the following set up.
@@ -233,9 +235,9 @@ and our condition that $T$ is linear determines the image of $\vec{v}$ as follow
 Geometrically speaking, the domain of $T$ is a plane in $\RR^3$ and its codomain is $\RR^2$.  Does $T$ have an inverse?  
 
 We are not in a position to answer this question right now because Theorem \ref{th:existunique} does not apply to this situation. 
-
-This problem highlights the necessity of a further discussion of inverses.  In Example \ref{ex:subtosub}, we will prove that $T$ has an inverse, and in Example \ref{ex:inversematrixoftransform} we will relate the existence of an inverse of $T$ to a matrix associated with $T$.
 \end{initprob}
+This Exploration Problem highlights the necessity of a further discussion of inverses.  In Example \ref{ex:subtosub} of LTR-M-0035, we will prove that $T$ has an inverse, and in Example \ref{ex:inversematrixoftransform} of LTR-M-0080 we will relate the existence of an inverse of $T$ to a matrix associated with $T$.
+
 
 \section*{Practice Problems}
 \begin{problem}

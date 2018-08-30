@@ -1,0 +1,432 @@
+\documentclass{ximera}
+
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Zachlin} \title{The Inverse of a Matrix} \license{CC-BY 4.0}
+
+\input{../preamble.tex}
+
+\begin{document}
+\begin{abstract}
+ We develop an method for finding the inverse of a square matrix, discuss when the inverse does not exist, and use matrix inverses to solve matrix equations.
+\end{abstract}
+\maketitle
+
+\section*{Definition and Properties of Matrix Inverses}
+Consider the equation $2x=6$.  It takes little time to recognize that the solution to this equation is $x=3$.  In fact, the solution is so obvious that we do not think about the algebraic steps necessary to find it.  Let's take a look at these steps in detail.
+$$2x=6$$
+$$\frac{1}{2}\times (2x)=\frac{1}{2}\times 6$$
+$$(\frac{1}{2}\times 2)x=3$$
+$$1x=3$$
+$$x=3$$
+This process utilizes many properties of real-number multiplication.  In particular, we make use of the existence of \dfn{multiplicative inverses}.  Every non-zero real number $a$  has a multiplicative inverse $a^{-1}=\frac{1}{a}$ with the property that $\frac{1}{a}\times a=a\times \frac{1}{a}=1$.  We say that $1$ is the \dfn{multiplicative identity} because $a\times 1=1\times a=a$.
+
+Given a matrix equation $A\vec{x}=\vec{b}$, we would like follow a process similar to the one above to solve this matrix equation for $\vec{x}$.  
+
+Given the set of all $n\times n$ matrices, with standard matrix multiplication, the role of the multiplicative identity is filled by $I_n$ because $AI_n=I_nA=A$. 
+
+Given an $n\times n$ matrix $A$, a multiplicative inverse of $A$ would have to be some $n\times n$ matrix $B$ that satisfies the following property:
+$$BA=AB=I_n$$
+
+Assuming that such an inverse $B$ exists, this is what the process of solving the equation $A\vec{x}=\vec{b}$ would look like:
+$$A\vec{x}=\vec{b}$$
+$$B(A\vec{x})=B\vec{b}$$
+$$(BA)\vec{x}=B\vec{b}$$
+$$I\vec{x}=B\vec{b}$$
+$$\vec{x}=B\vec{b}$$
+
+\begin{definition}\label{def:matinverse}
+Let $A$ be an $n\times n$ matrix.  An $n\times n$ matrix $B$ is called an inverse of $A$ if 
+$$AB=BA=I$$
+where $I$ is an $n\times n$ identity matrix.  If such an inverse matrix exists, we say that $A$ is invertible.  If an inverse does not exist, we say that $A$ is non-invertible.
+\end{definition}
+It follows directly from the way the definition is stated that if $B$ is an inverse of $A$, then $A$ is an inverse of $B$. We say that $A$ and $B$ are inverses of each other.
+
+The following theorem shows that matrix inverses are unique.
+
+\begin{theorem}\label{th:matinverseunique} Suppose $A$ is an invertible matrix, and $B$ is an inverse of $A$.  Then $B$ is unique.
+\end{theorem}
+\begin{proof}
+Because $B$ is an inverse of $A$, we have:
+$$AB=BA=I$$
+Suppose there exists another $n\times n$ matrix $C$ such that 
+$$AC=CA=I$$
+Then
+$$C(AB)=CI$$
+$$(CA)B=C$$
+$$IB=C$$
+$$B=C$$
+\end{proof}
+Now that we know that a matrix $A$ cannot have more than one inverse, we can safely refer to the inverse of $A$ as $A^{-1}$.
+
+\begin{example}\label{ex:inverse1} Let $$A=\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}-2/3 & -1/3\\-5/3 & -1/3\end{bmatrix}$$ Verify that $A$ and $B$ are inverses of each other.
+\begin{explanation} We will show that $AB=BA=I$.
+
+$$
+AB=\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}\begin{bmatrix}-2/3 & -1/3\\-5/3 & -1/3\end{bmatrix}
+=\begin{bmatrix}-2/3+5/3 & -1/3+1/3\\10/3-10/3 & 5/3-2/3\end{bmatrix}=\begin{bmatrix}1 & 0\\0 & 1\end{bmatrix}
+$$
+
+$$
+BA=\begin{bmatrix}-2/3 & -1/3\\-5/3 & -1/3\end{bmatrix}\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}
+=\begin{bmatrix}-2/3+5/3 & 2/3-2/3\\-5/3+5/3 & 5/3-2/3\end{bmatrix}=\begin{bmatrix}1 & 0\\0 & 1\end{bmatrix}
+$$
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:inverse2} Use what we found in Example \ref{ex:inverse1} to solve the matrix equation:
+$$\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}\vec{x}=\begin{bmatrix}-3\\1\end{bmatrix}$$
+\begin{explanation}
+We multiply both sides of the equation by the inverse of $\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}$.
+$$\begin{bmatrix}-2/3 & -1/3\\-5/3 & -1/3\end{bmatrix}\begin{bmatrix}1 & -1\\-5 & 2\end{bmatrix}\vec{x}=\begin{bmatrix}-2/3 & -1/3\\-5/3 & -1/3\end{bmatrix}\begin{bmatrix}-3\\1\end{bmatrix}$$
+$$\vec{x}=\begin{bmatrix}5/3\\14/3\end{bmatrix}$$
+\end{explanation}
+\end{example}
+
+% \begin{example}\label{ex:detinverseformula}
+% Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$.  Show that $$A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
+% whenever $ad-bc\neq 0$.
+% \begin{explanation}
+% We will compute two products.
+% $$\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\begin{bmatrix}a&b\\c&d\end{bmatrix}=\frac{1}{ad-bc}\begin{bmatrix}ad-bc&bd-bd\\-ac+ac&-bc+ad\end{bmatrix}=\begin{bmatrix}1&0\\0&1\end{bmatrix}=I$$
+% \begin{align*}
+% &\begin{bmatrix}a&b\\c&d\end{bmatrix}\left(\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\right)=\frac{1}{ad-bc}\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\\
+% &=\frac{1}{ad-bc}\begin{bmatrix}ad-bc&-ab+ab\\cd-cd&-bc+ad\end{bmatrix}=\begin{bmatrix}1&0\\0&1\end{bmatrix}=I
+% \end{align*}
+% \end{explanation}
+% \end{example}
+% The result in Example \ref{ex:detinverseformula} is significant enough to be set aside as a formula.
+
+We now prove several useful properties of matrix inverses.
+
+\begin{theorem}\label{th:invprop} The following properties are stated for square matrices of appropriate sizes.
+\begin{enumerate}
+\item \label{item:inverseofid} $I^{-1}=I$
+\item \label{item:inverseofinverse} For an invertible matrix $A$, $(A^{-1})^{-1}=A$.
+\item \label{item:inverseofproduct} If $A$ and $B$ are invertible matrices, then $(AB)$ is invertible and $(AB)^{-1}=B^{-1}A^{-1}$.
+\item \label{item:inversekA} If $A$ is an invertible matrix and $k$ is a non-zero number, then $(kA)^{-1}=\frac{1}{k}A^{-1}$.
+\item \label{item:inversetranspose} If $A$ is an invertible matrix, then $A^T$ is also invertible, and $(A^T)^{-1}=(A^{-1})^T$.
+\end{enumerate}
+\end{theorem}
+We will prove \ref{item:inverseofproduct}.  The remaining properties are left as exercises.
+\begin{proof}[Proof of Property~\ref{item:inverseofproduct}:]
+We will check to see if $B^{-1}A^{-1}$ is the inverse of $AB$.
+$$(B^{-1}A^{-1})(AB)=B^{-1}(A^{-1}A)B=B^{-1}IB=B^{-1}B=I$$
+$$(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=AA^{-1}=I$$
+Thus $(AB)$ is invertible and $(AB)^{-1}=B^{-1}A^{-1}$.
+\end{proof}
+
+%\section*{Row-reduction Method for Computing Matrix Inverses}
+
+\section*{Row-reduction Method for Computing Inverses}
+We now turn to the question of how to find the inverse of a square matrix, or determine that the inverse does not exist.  
+
+Given a square matrix $A$, we are looking for a square matrix $B$ such that $$AB=I\quad\text{and}\quad BA=I$$
+We will start by attempting to satisfy $AB=I$.
+Let $\vec{v}_1,\ldots,\vec{v}_n$ be the columns of $B$, then
+$$A\begin{bmatrix}
+           | & |& &|\\
+		\vec{v}_1 & \vec{v}_2 &\dots &\vec{v}_n\\
+		|&| & &|
+         \end{bmatrix}=\begin{bmatrix}
+           | & |& &|\\
+		\vec{e}_1 & \vec{e}_2 &\dots &\vec{e}_n\\
+		|&| & &|
+         \end{bmatrix}$$
+where each $\vec{e}_i$ is a standard unit vector of $\RR^n$.   This gives us a system of equations $A\vec{v}_i=\vec{e}_i$ for each $1\leq i\leq n$.  If each $A\vec{v}_i=\vec{e}_i$ has a unique solution, then finding these solutions will give us the columns of the desired matrix $B$.  
+
+First, suppose that $\textnormal{rref}(A)=I$, then we can use elementary row operations to carry each $[A|\vec{e}_i]$ to its reduced row-echelon form.
+$$[A|\vec{e}_i]\rightsquigarrow [I|\vec{v}_i]$$
+Observe that the row operations that carry $A$ to $I$ will be the same for each $A\vec{v}_i=\vec{e}_i$.  We can, therefore, combine the process of solving $n$ systems of equations into a single process
+$$[A|I]\rightsquigarrow [I|B]$$
+Each $\vec{v}_i$ is a unique solution of $A\vec{v}_i=\vec{e}_i$, and we conclude that $$B=\begin{bmatrix}
+           | & |& &|\\
+		\vec{v}_1 & \vec{v}_2 &\dots &\vec{v}_n\\
+		|&| & &|
+         \end{bmatrix}$$ is a solution to $AB=I$.  
+ 
+Now we make a key observation: the fact that any elementary row operation can be reversed, as shown in \ref{}.  We can reverse the elementary row operations to obtain
+$$[I|B]\rightsquigarrow [A|I]$$
+But the same row operations would also give us
+$$[B|I]\rightsquigarrow [I|A]$$
+We conclude that $BA=I$, and $B=A^{-1}$.
+         
+Next, suppose that $\textnormal{rref}(A)\neq I$.  Then $\textnormal{rref}(A)$ must contain a row of zeros.  Because one of the rows of $A$ was completely wiped out by elementary row operations, one of the rows of $A$ must be a linear combination of the other rows.  Suppose row $p$ is a linear combination of the other rows.  Then row $p$ can be carried to a row of zeros. But then the system $A\vec{v}_p=\vec{e}_p$ is inconsistent.  This is because $\vec{e}_p$ has a $1$ as the $p^{th}$ entry and zeros everywhere else.  The $1$ in the $p^{th}$ spot will not be affected by elementary row operations, and the $p^{th}$ row will eventually look like this
+$$[0\ldots 0|1]$$
+This shows that a matrix $B$ such that $AB=I$ does not exist, and $A$ does not have an inverse.
+
+We have just proved the following theorem.
+
+\begin{theorem}[Row-reduction Method for Computing the Inverse of a Matrix]\label{th:matrixinverse}
+Let $A$ be a square matrix.  If it is possible to use elementary row operations to carry the augmented matrix $[A|I]$ to $[I|B]$, then $B=A^{-1}$.  If such a reduction is not possible, then $A$ does not have an inverse.
+\end{theorem}
+
+\begin{corollary}
+A square matrix $A$ has an inverse if and only if $\textnormal{rref}(A)=I$.
+\end{corollary}
+
+\begin{example}\label{ex:inverse3} Find $A^{-1}$ or demonstrate that $A^{-1}$ does not exist.
+$$A=\begin{bmatrix}1&-1&2\\1&1&1\\1&3&-1\end{bmatrix}$$
+\begin{explanation}
+We start with the augmented matrix
+$$\left[\begin{array}{ccc|ccc}  
+ 1&-1&2&1&0&0\\1&1&1&0&1&0\\1&3&-1&0&0&1
+ \end{array}\right]
+  \begin{array}{c}
+ \\
+ \xrightarrow{R_2-R_1}\\
+ \xrightarrow{R_3-R_1}
+ \end{array}$$
+ 
+  $$\left[\begin{array}{ccc|ccc}  
+ 1&-1&2&1&0&0\\0&2&-1&-1&1&0\\0&4&-3&-1&0&1
+ \end{array}\right]
+  \begin{array}{c}
+ \\
+ \\
+ \xrightarrow{R_3-2R_2}
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&-1&2&1&0&0\\0&2&-1&-1&1&0\\0&0&-1&1&-2&1
+ \end{array}\right]
+ \begin{array}{c}
+ \\
+ \\
+ \xrightarrow{(-1)R_3}
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&-1&2&1&0&0\\0&2&-1&-1&1&0\\0&0&1&-1&2&-1
+ \end{array}\right]
+ \begin{array}{c}
+ \xrightarrow{R_1-2R_3}\\
+ \xrightarrow{R_2+R_3}\\
+\\
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&-1&0&3&-4&2\\0&2&0&-2&3&-1\\0&0&1&-1&2&-1
+ \end{array}\right]
+  \begin{array}{c}
+ \\
+ \xrightarrow{\frac{1}{2}R_2}\\
+\\
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&-1&0&3&-4&2\\0&1&0&-1&3/2&-1/2\\0&0&1&-1&2&-1
+ \end{array}\right]
+ \begin{array}{c}
+ \xrightarrow{R_1+R_2}\\
+ \\
+\\
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&0&0&2&-5/2&3/2\\0&1&0&-1&3/2&-1/2\\0&0&1&-1&2&-1
+ \end{array}\right]$$
+ 
+ We conclude that
+ 
+$$A^{-1}=\begin{bmatrix}2&-5/2&3/2\\-1&3/2&-1/2\\-1&2&-1\end{bmatrix}$$
+\end{explanation}
+
+\end{example}
+
+\begin{example}Find $A^{-1}$ or demonstrate that $A$ is not invertible.
+$$A=\begin{bmatrix}2&3&-1\\0&2&1\\4&4&-3\end{bmatrix}$$
+\begin{explanation}
+We start with the augmented matrix
+$$\left[\begin{array}{ccc|ccc}  
+ 2&3&-1&1&0&0\\0&2&1&0&1&0\\4&4&-3&0&0&1
+ \end{array}\right]
+ \begin{array}{c}
+ \xrightarrow{\frac{1}{2}R_1}\\
+ \xrightarrow{\frac{1}{2}R_2}\\
+\\
+ \end{array}$$
+
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&3/2&-1/2&1/2&0&0\\0&1&1/2&0&1/2&0\\4&4&-3&0&0&1
+ \end{array}\right]
+ \begin{array}{c}
+ \\
+ \\
+\xrightarrow{R_3-4R_1}
+ \end{array}$$
+
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&3/2&-1/2&1/2&0&0\\0&1&1/2&0&1/2&0\\0&-2&-1&-2&0&1
+ \end{array}\right]
+ \begin{array}{c}
+ \\
+ \\
+\xrightarrow{R_3+2R_2}
+ \end{array}$$
+ 
+ $$\left[\begin{array}{ccc|ccc}  
+ 1&3/2&-1/2&1/2&0&0\\0&1&1/2&0&1/2&0\\0&0&0&-2&1&1
+ \end{array}\right]$$
+ At this point we see that the left-hand side cannot be turned into $I$ through elementary row operations. We conclude that $A^{-1}$ does not exist.
+\end{explanation}
+\end{example}
+
+We will conclude this section by discussing the inverse of a nonsingular $2\times 2$ matrix.   
+Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ be a non-singular matrix.  We can find $A^{-1}$ by using the row reduction method described above, that is, by computing the reduced row-echelon form of $[A|I]$.  Row reduction yields the following:
+
+$$\left[\begin{array}{cc|cc}  
+ a&b&1&0\\c&d&0&1
+ \end{array}\right]\rightsquigarrow\left[\begin{array}{cc|cc}  
+ 1&0&d/(ad-bc)&-b/(ad-bc)\\0&1&-c/(ad-bc)&a/(ad-bc)
+ \end{array}\right]$$
+ Note that the denominator of each term in the inverse matrix is the same.  Factoring it out, gives us the following formula for $A^{-1}$.
+
+\begin{formula}\label{form:detinverse}
+$$A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
+\end{formula}
+
+Clearly, the expression for $A^{-1}$ is defined, if and only if $ad-bc\neq 0$.  So, what happens when $ad-bc=0$?  In Practice Problem \ref{prob:inverseformula} you will be asked to fill in the steps of the row reduction procedure that produces this formula, and show that if $ad-bc=0$ then $A$ does not have an inverse. 
+
+
+\section*{Practice Problems}
+
+\begin{problem}
+Verify that the matrix $\begin{bmatrix} 2 & -1\\3 & -2\end{bmatrix}$ is its own inverse.
+\end{problem}
+
+\begin{problem}
+Use the row-reduction method for computing matrix inverses to explain why the given matrix does not have an inverse.
+$$\begin{bmatrix}1&1&1\\2&2&2\\3&3&3\end{bmatrix}$$
+\end{problem}
+
+\begin{problem} Let $$A=\begin{bmatrix}1&-1&2\\2&1&1\\-3&1&0\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}-1/12&1/6&-1/4\\-1/4&1/2&1/4\\5/12&1/6&1/4\end{bmatrix}$$ Are $A$ and $B$ inverses of each other?
+
+\begin{multipleChoice}
+  \choice[correct]{Yes, $A$ and $B$ are inverses.}
+  \choice{No, $A$ and $B$ are not inverses.}
+\end{multipleChoice}
+\end{problem}
+
+
+
+\begin{problem}
+Prove Properties \ref{item:inverseofid} and \ref{item:inverseofinverse} of Theorem \ref{th:invprop}.
+\end{problem}
+
+\begin{problem}
+Prove Properties \ref{item:inversekA} and \ref{item:inversetranspose} of Theorem \ref{th:invprop}.
+\end{problem}
+
+\begin{problem} Use the following invertible matrices to illustrate Properties \ref{item:inverseofinverse}, \ref{item:inverseofproduct}, \ref{item:inversekA} and \ref{item:inversetranspose} of Theorem \ref{th:invprop}.
+$$A=\begin{bmatrix}2&0\\4&-3\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}2&-1\\1&5\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+In Example \ref{ex:inverse3} we found the inverse of $$A=\begin{bmatrix}1&-1&2\\1&1&1\\1&3&-1\end{bmatrix}$$
+
+Use $A^{-1}$ to solve the equation
+$$A\vec{x}=\begin{bmatrix}3\\-2\\4\end{bmatrix}$$
+Answer:
+$$\vec{x}=\begin{bmatrix}\answer{17}\\\answer{-8}\\\answer{-11}\end{bmatrix}$$
+
+\end{problem}
+
+\begin{problem}
+If possible, find the inverse of each matrix by using the row-reduction procedure.  If you find that $A$ does not have an inverse, leave the answer matrix blank.
+  \begin{problem}
+  $$A=\begin{bmatrix}1&-1&2\\-1&0&0\\1&-2&3\end{bmatrix}$$
+  $$A^{-1}=\begin{bmatrix}\answer{0} & \answer{-1} & \answer{0} \\ \answer{3} & \answer{1} & \answer{-2}\\ \answer{2} & \answer{1} & \answer{-1}\end{bmatrix}$$
+  
+ 
+ \begin{multipleChoice}
+  \choice[correct]{$A$ is invertible}
+  \choice{$A$ is not invertible}
+\end{multipleChoice}
+  \end{problem}
+  
+
+  \begin{problem}
+  $$A=\begin{bmatrix}1&3&5\\-2&5&1\\1&-1&1\end{bmatrix}$$
+  $$A^{-1}=\begin{bmatrix}\answer{} &\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\end{bmatrix}$$
+  
+ 
+ \begin{multipleChoice}
+  \choice{$A$ is invertible}
+  \choice[correct]{$A$ is not invertible}
+\end{multipleChoice}
+  \end{problem}  
+  
+\begin{problem}
+  $$A=\begin{bmatrix}2&-1&-2\\1&1&-1\\1&1&1\end{bmatrix}$$
+  $$A^{-1}=\begin{bmatrix}\answer{1/3} & \answer{-1/6} & \answer{1/2} \\  \answer{-1/3} & \answer{2/3} & \answer{0}\\\answer{0} & \answer{-1/2} & \answer{1/2}\end{bmatrix}$$
+  
+ 
+ 
+ \begin{multipleChoice}
+  \choice[correct]{$A$ is invertible}
+  \choice{$A$ is not invertible}
+\end{multipleChoice}
+  \end{problem}   
+  
+\end{problem}
+
+
+\begin{problem}\label{prob:inverseformula}
+Use the row-reduction method to prove Formula \ref{form:detinverse} for a nonsingular matrix.  Show that if $ad-bc=0$ then $A$ does not have an inverse.
+\begin{hint}After going through the row reduction, try it again, considering the possibility that $a=0$.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}
+Use Formula \ref{form:detinverse} to find the inverse of $$A=\begin{bmatrix}2&-3\\1&5\end{bmatrix}$$
+Use $A^{-1}$ to solve the equation
+$$A\vec{x}=\begin{bmatrix}-3\\2\end{bmatrix}$$
+Answer:
+$$\vec{x}=\begin{bmatrix}\answer{-9/13}\\\answer{7/13}\end{bmatrix}$$
+
+\end{problem}
+
+\begin{problem}
+For each matrix below refer to  Formula \ref{form:detinverse} to find the value of $x$ for which the matrix is not invertible.  
+\begin{problem}
+$$\begin{bmatrix}1&2\\4&x\end{bmatrix}$$
+Answer: $x=\answer{8}$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}3&2\\3&x\end{bmatrix}$$
+Answer: $x=\answer{2}$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}5&4\\-5&x\end{bmatrix}$$
+Answer: $x=\answer{-4}$
+\end{problem}
+\end{problem}
+
+% The following exercises are from Kuttler, Problems 2.1.32-2.1.34.
+
+% {\color{blue}These are pretty standard, I don't think we need to quote Kuttler.  I added two more problems. 17, 18}
+
+\begin{problem}
+Suppose $AB=AC$ and $A$ is an invertible $n\times n$ matrix. Does it
+follow that $B=C?$ Explain why or why not.
+\end{problem}
+
+\begin{problem}
+Suppose $AB=AC$ and $A$ is a non-invertible $n\times n$ matrix. Does it
+follow that $B=C?$ Explain why or why not.
+\end{problem}
+
+
+\begin{problem}
+Give an example of a matrix $A$ such that $A^{2}=I$ and yet $A\neq I$
+and $A\neq -I.$
+\end{problem}
+
+\begin{problem}
+Suppose $A$ is a symmetric, invertible matrix.  Does it follow that $A^{-1}$ is symmetric?  What if we change ``symmetric" to ``skew symmetric"?  (See Definition \ref{def:symmetricandskewsymmetric} of Module MAT-M-0025.)
+\end{problem}
+
+\begin{problem} Suppose $A$ and $B$ are invertible $n\times n$ matrices.  Does it follow that $(A+B)$ is invertible?
+\end{problem}
+
+\end{document}

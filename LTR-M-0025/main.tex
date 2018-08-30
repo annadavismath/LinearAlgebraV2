@@ -1,6 +1,6 @@
 \documentclass{ximera}
 
-\author{Anna Davis \and Paul Zachlin} \title{Linear Transformations and Basis} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin} \title{Linear Transformations and Bases} \license{CC-BY 4.0}
 
 \input{../preamble.tex}
 
@@ -36,7 +36,9 @@ T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
 
 \begin{initprob}\label{init:tij}  Suppose we want to define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $$T(\vec{i})=\begin{bmatrix}3\\-2\end{bmatrix}\quad\text{and}\quad T(\vec{j})=\begin{bmatrix}-1\\2\end{bmatrix}$$  
 Is this information sufficient to define $T$?  
-To answer this question we will try to determine what $T$ does to an arbitrary vector of $\RR^2$.  If $\vec{v}$ is a vector in $\RR^2$, then $\vec{v}$ can be uniquely expressed as a linear combination of $\vec{i}$ and $\vec{j}$
+To answer this question we will try to determine what $T$ does to an arbitrary vector of $\RR^2$.  
+
+If $\vec{v}$ is a vector in $\RR^2$, then $\vec{v}$ can be uniquely expressed as a linear combination of $\vec{i}$ and $\vec{j}$
 $$\vec{v}=a\vec{i}+b\vec{j}$$  By linearity of $T$ we have $$T(\vec{v})=T(a\vec{i}+b\vec{j})=aT(\vec{i})+bT(\vec{j})=a\begin{bmatrix}3\\-2\end{bmatrix}+b\begin{bmatrix}-1\\2\end{bmatrix}$$
 This shows that the image of any vector of $\RR^2$ under $T$ is completely determined by the action of $T$ on the standard unit vectors $\vec{i}$ and $\vec{j}$.  
 
