@@ -36,7 +36,6 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
 
 \begin{center}
 \begin{tikzpicture}
-\node{
 \begin{tikzcd}
 \vec{v}_1 \arrow[rd, mapsto]  & \\
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
@@ -47,7 +46,6 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
 \vec{v}_2 \arrow[ru, mapsfrom]  &
 \end{tikzcd}
-};
 \end{tikzpicture}
 \end{center}
 %\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
@@ -58,6 +56,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 
 %\begin{figure}[h]
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -66,6 +65,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}\quad
+\end{tikzpicture}
 %\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
   \label{fig:notonto} 
 %\end{figure}
@@ -136,6 +136,7 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 \end{center}
 
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -144,6 +145,7 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}
+\end{tikzpicture}
 \end{center}
 
 
