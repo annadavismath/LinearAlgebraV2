@@ -1,0 +1,268 @@
+\documentclass{ximera}
+\usepackage{..\OERLinearAlgebra}
+
+
+\usepackage{mathtools}
+
+\author{Paul Zachlin \and Anna Davis} \title{Elementary Matrices} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We introduce elementary matrices and demonstrate how multiplication of a matrix by an elementary matrix is equivalent to to performing an elementary row operation on the matrix.
+\end{abstract}
+\maketitle
+
+\section*{Definition of an Elementary Matrix}
+
+\begin{initprob}\label{init:elementarymat2}
+Consider the matrices
+$$B = \begin{bmatrix}  
+ 1&0&0\\0&5&0\\0&0&1
+ \end{bmatrix}
+ \quad \text{and}\quad
+ C = \begin{bmatrix}  
+ 1&0&0\\0&1&0\\0&0&-2
+ \end{bmatrix}
+$$
+The two matrices have something in common.  Can you figure out what it is?  (The answer will be given later in the problem.)
+
+$$\text{Let}\quad A = \begin{bmatrix}  
+ 1&2&3\\4&5&6\\7&8&9
+ \end{bmatrix}$$
+Let's compute $BA$ and $CA$.
+
+$$BA=\begin{bmatrix}\answer{1} & \answer{2} & \answer{3} \\ \answer{20} & \answer{25} & \answer{30}\\ \answer{7} & \answer{8} & \answer{9}\end{bmatrix}
+\quad
+\text{and}
+\quad
+CA=\begin{bmatrix}\answer{1} & \answer{2} & \answer{3} \\ \answer{4} & \answer{5} & \answer{6}\\ \answer{-14} & \answer{-16} & \answer{-18}\end{bmatrix}$$
+
+Observe that multiplying $A$ by $B$ on the left results in multiplying the second row of $A$ by $5$, while multiplying $A$ by $C$ on the left results in multiplying the third row of $A$ by $-2$.
+
+Now we need to return to the question of what $B$ and $C$ have in common.  Both matrices were obtained from the identity matrix by multiplying one row of the identity by a non-zero constant.  Matrices $B$ and $C$ were obtained from $I$ by multiplying one row of $I$ by $5$ and $-2$ respectively.  Multiplying $A$ by $B$ (or $C$) on the left affects $A$ in the same way.
+
+Matrix $A$ does not have to be a square matrix.  Try finding $BA'$ and $CA'$ for 
+$$A'=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}$$
+
+$$BA'=\begin{bmatrix}\answer{1}&\answer{2}\\\answer{15}&\answer{20}\\\answer{5}&\answer{6}\end{bmatrix}\quad\text{and}\quad CA'=\begin{bmatrix}\answer{1}&\answer{2}\\\answer{3}&\answer{4}\\\answer{-10}&\answer{-12}\end{bmatrix}$$
+
+Observe that $B$ and $C$ have the same effect on $A'$ as they did on $A$.
+
+%$$AB=\begin{bmatrix}\answer{1} & \answer{10} & \answer{3} \\ \answer{4} & \answer{25} & \answer{6}\\ \answer{7} & \answer{40} & \answer{9}\end{bmatrix}
+%\quad
+%\text{and}
+%\quad
+%AC=\begin{bmatrix}\answer{1} & \answer{2} & \answer{-6} \\ \answer{4} & \answer{5} & \answer{-12}\\ \answer{7} & \answer{8} & \answer{-18}\end{bmatrix}$$
+
+ \end{initprob}
+ 
+ \begin{general} If a square matrix $E$ is obtained from the identity matrix $I$ by multiplying row $j$ of $I$ by a non-zero constant $k$, then multiplying an appropriately sized matrix $A$ on the left by $E$ results in row $j$ of $A$ being multiplied by $k$.  
+ 
+ Recall that multiplication of a row of a matrix by a non-zero constant is one of three \dfn{elementary row operations}.  Applying such an elementary row operation to $I$ in order to produce $E$, results in applying the same elementary row operation to $A$ when $A$ is multiplied by $E$ on the left.
+ \end{general}
+
+
+\begin{initprob}\label{init:elementarymat1}
+Consider the matrices
+$$
+D = \begin{bmatrix}  
+ 1&0&1\\0&1&0\\0&0&1
+ \end{bmatrix},
+ \quad \text{and}\quad
+F =  \begin{bmatrix}  
+ 1&0&0\\-2&1&0\\0&0&1
+ \end{bmatrix}
+$$
+As in the previous Exploration Problem, the two matrices have something in common.  Both $D$ and $F$ were obtained from the identity matrix by adding a multiple of one row to another row.  Can you guess what will happen if we multiply a matrix $A$ by $D$ and $F$ on the left?
+
+$$\text{Let}\quad A = \begin{bmatrix}  
+ 1&2&3\\4&5&6\\7&8&9
+ \end{bmatrix}$$
+Let's compute $DA$ and $FA$.
+
+$$DA=\begin{bmatrix}\answer{8} & \answer{10} & \answer{12} \\ \answer{4} & \answer{5} & \answer{6}\\ \answer{7} & \answer{8} & \answer{9}\end{bmatrix}
+\quad
+\text{and}
+\quad
+FA=\begin{bmatrix}\answer{1} & \answer{2} & \answer{3} \\ \answer{2} & \answer{1} & \answer{0}\\ \answer{7} & \answer{8} & \answer{9}\end{bmatrix}$$
+As you had probably guessed, multiplication by $D$ resulted in the third row of $A$ being added to the first, and multiplication by $F$ produced a matrix by adding $-2$ times the first row to the second row of $A$.  The elementary row operations performed on $A$ mimic the elementary row operations performed on $I$ in order to obtain $D$ and $F$.
+ \end{initprob}
+
+\begin{general} If a square matrix $E$ is obtained from the identity matrix $I$ by adding $k$ times row $j$ of $I$ to row $i$,  then multiplying an appropriately sized matrix $A$ on the left by $E$ results in $k$ times row $j$ of $A$ being added to row $i$ of $A$.  
+ 
+ Recall that adding a scalar multiple of one row to another row of a matrix is one of three \dfn{elementary row operations}.  Applying such an elementary row operation to $I$ in order to produce $E$, results in applying the same elementary row operation to $A$ when $A$ is multiplied by $E$ on the left.
+ \end{general}
+
+ 
+\begin{initprob}\label{init:elementarymat3}
+ The matrices $B,C,D,F$ above are special because when we multiply them by any appropriately sized matrix $A$, we are performing row operations on $A$.  Can you construct a matrix $G$ such that $GA$ is the same as $A$ except that its first and third rows are switched?
+ 
+ $$G=\begin{bmatrix}\answer{0} & \answer{0} & \answer{1} \\ \answer{0} & \answer{1} & \answer{0}\\ \answer{1} & \answer{0} & \answer{0}\end{bmatrix}$$
+
+\end{initprob}
+
+
+The matrices $B,C,D, F, G$ of Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} are known as \dfn{elementary matrices} because they perform elementary row operations on appropriately sized matrices.
+
+\begin{definition} 
+  
+An \dfn{elementary matrix} is a square matrix formed by applying a single elementary row operation to the identity matrix.
+  
+\end{definition}
+
+Suppose $A$ is an $m \times n$ matrix.  If $E$ is an $m \times m$ elementary matrix formed by performing a certain row operation on the $m \times m$ identity matrix, then multiplying any matrix $A$ on the left by $E$ is equivalent to performing that same row operation on $A$.  As there are three types of elementary row operations, there are three types of elementary matrices.
+
+Elementary matrices give us a new way of looking at Gauss-Jordan elimination.  Suppose it takes $j$ elementary row operations to transform $A$ into $R$, its reduced row-echelon form.  Then we can represent this reduced row-echelon form as
+$$R = E_j \cdots E_2 E_1 A$$
+where each $E_i$ is the elementary matrix corresponding to the $i$th row operation performed on $A$.  
+
+\section*{Inverses of Elementary Matrices}
+
+It is easy to see that any elementary matrix $E$ is invertible, because if $E$ is formed by applying a certain row operation to the identity matrix $I$, then there is a single row operation that may be applied to $E$ to get $I$ back.  For example, in Initial Problem \ref{init:elementarymat1}, $F$ is formed by adding $-2$ times the first row of the identity to the second row of the identity.  It follows that $F^{-1}$ should be the matrix formed by adding $2$ times the first row of the identity to the second row of the identity, i.e.
+ $$F^{-1} =  \begin{bmatrix}  
+ 1&0&0\\2&1&0\\0&0&1
+ \end{bmatrix}.
+$$
+
+And indeed we can check $$F F^{-1} = \begin{bmatrix}  
+ 1&0&0\\-2&1&0\\0&0&1
+ \end{bmatrix} \begin{bmatrix}  
+ 1&0&0\\2&1&0\\0&0&1
+ \end{bmatrix} = \begin{bmatrix}  
+ 1&0&0\\0&1&0\\0&0&1
+ \end{bmatrix}$$
+ and also $ F^{-1} F = I$.
+
+As part of the Practice Problem set you are asked to find the inverse of each of the other elementary matrices in Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.  Once we have accounted for each of the three types of elementary matrices, we will have proven the following theorem.  
+
+\begin{theorem}\label{th:elemmatricesinvertible}
+Elementary matrices are invertible, and the inverse of an elementary matrix is an elementary matrix.
+\end{theorem}
+
+\begin{proof}
+Suppose $E$ is obtained from $I$ by switching rows $i$ and $j$.  To find the inverse of $E$, we need to find a matrix $F$ such that $FE=I$.  To get from $E$ back to $I$, rows $i$ and $j$ of $E$ must be switched.  This can be accomplished by multiplying $E$ by itself on the left.  So, $E$ is its own inverse.
+
+We can use the same line of reasoning to show that the other two types of elementary matrices are also invertible, and their inverses are also elementary matrices.  The details are left to the reader. 
+\end{proof}
+
+
+% Recall that an elementary matrix is any matrix obtained from the identity matrix by performing one elementary row operation.  There are three types of elementary row operations, so there are three types of elementary matrices.  
+
+% Recall also that if an $n\times n$ matrix $E$ is an elementary matrix obtained from $I$ by performing some elementary row operation, and the same elementary row operation is applied to an $n\times m$ matrix $A$, then the resulting matrix is equal to $EA$.  We will use this idea to find the inverse for each type of elementary matrix without going through the row reduction procedure.
+ 
+ 
+\section*{Elementary Matrices and Nonsingular Matrices} 
+
+Recall that a square matrix $A$ is called \dfn{nonsingular} provided that $\textnormal{rref}(A)=I$.
+
+\begin{theorem}
+The following statements are equivalent for an $n\times n$ matrix $A$.
+\begin{enumerate}
+\item\label{item:anonsingular2} $A$ is nonsingular
+\item\label{item:aproductofelemmatrices} $A$ is a product of elementary matrices
+\item\label{item:ainvertible} $A$ is invertible
+\end{enumerate}
+\end{theorem}
+We will prove equivalence of the three statements by showing that
+\begin{center}
+\ref{item:anonsingular2}$\Rightarrow$\ref{item:aproductofelemmatrices}$\Rightarrow$\ref{item:ainvertible}$\Rightarrow$\ref{item:anonsingular2}
+\end{center}
+\begin{proof}[Proof of \ref{item:anonsingular2}$\Rightarrow$\ref{item:aproductofelemmatrices}]
+Suppose $\textnormal{rref}(A)=I$.  Then $A$ can be carried to the identity by elementary row operations.  So, there exist elementary matrices $E_1, E_2, \ldots ,E_k$ such that 
+$$E_k\ldots E_2E_1A=I$$
+By Theorem \ref{th:elemmatricesinvertible} of MAT-M-0050, elementary matrices are invertible and their inverses are also elementary matrices.  Thus, we can write $A$ as a product of elementary matrices as follows:
+$$A=E_1^{-1}E_2^{-1}\ldots E_k^{-1}$$
+\end{proof}
+\begin{proof}[Proof of \ref{item:aproductofelemmatrices}$\Rightarrow$\ref{item:ainvertible}]
+Suppose $A=E_1E_2\ldots E_k$, where $E_1, E_2, \ldots , E_k$ are elementary matrices.  In Theorem \ref{th:elemmatricesinvertible}(\ref{item:inverseofproduct}) of MAT-M-0050 we proved that $(BC)^{-1} = C^{-1} B^{-1}$.  By repeated applications of this theorem we have
+$$(E_1E_2\ldots E_k)^{-1}=E_k^{-1}\ldots E_2^{-1}E_1^{-1}=A^{-1}$$
+We conclude that $A$ is invertible.
+\end{proof}
+\begin{proof}[Proof of \ref{item:ainvertible}$\Rightarrow$\ref{item:anonsingular2}]
+See the corollary to Theorem \ref{th:matrixinverse} of MAT-M-0050.
+\end{proof}
+
+
+
+
+\section*{Practice Problems}
+
+
+\begin{problem}
+For each elementary matrix $E$ below, determine the elementary row operation that results from multiplying a $3\times n$ matrix $A$ by $E$ on the left.  Write down $E^{-1}$ without going through the row-reduction procedure.
+\begin{hint}
+Think of an elementary row operation that would undo the row operation caused by $E$.
+\end{hint}
+
+\begin{problem}
+$$E=\begin{bmatrix}0&1&0\\1&0&0\\0&0&1\end{bmatrix}$$
+Answer:
+$$E^{-1}=\begin{bmatrix}\answer{0}&\answer{1}&\answer{0}\\\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{0}&\answer{1}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$E=\begin{bmatrix}1&0&0\\0&1&0\\0&0&5\end{bmatrix}$$
+Answer:
+$$E^{-1}=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{0}&\answer{1/5}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$E=\begin{bmatrix}1&0&0\\0&1&0\\0&4&1\end{bmatrix}$$
+Answer:
+$$E^{-1}=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{-4}&\answer{1}\end{bmatrix}$$
+\end{problem}
+
+\end{problem}
+
+\begin{problem}\label{prob:elem_mat_inv}
+Find the inverse of each of the following elementary matrices from Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.
+$$
+ B = \begin{bmatrix}  
+ 1&0&0\\0&5&0\\0&0&1
+ \end{bmatrix}\quad
+ C = \begin{bmatrix}  
+ 1&0&0\\0&1&0\\0&0&-2
+ \end{bmatrix}
+ \quad
+ D = \begin{bmatrix}  
+ 1&0&1\\0&1&0\\0&0&1
+ \end{bmatrix}\quad 
+ G =  \begin{bmatrix}  
+ 0&0&1\\0&1&0\\1&0&0
+ \end{bmatrix}
+ $$
+\end{problem}
+
+\begin{problem}
+Finish the proof of Theorem \ref{th:elemmatricesinvertible}.
+\end{problem}
+
+\begin{problem}
+Express $A$ as a product of elementary matrices.
+$$A=\begin{bmatrix}1&2&0\\-1&0&1\\0&4&0\end{bmatrix}$$
+\begin{hint}
+Row-reduce $A$ to find $\textnormal{rref}(A)$.  Record the elementary row operations as you perform row reduction.  You will be able to conclude that $E_j\cdots E_2E_1A=I$.  Find the inverse of each $E_i$ and multiply by the inverses on the left.
+\end{hint}
+Is this representation unique?  Prove your claim.
+\end{problem}
+
+\begin{problem}In Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} we performed elementary row operations on $A$ by multiplying $A$ by elementary matrices $B, C, D, F, G$ on the left.  Compute $AB, AC, AD, AF$ and $AG$.  Summarize your findings.
+
+Answer:
+$$AB=\begin{bmatrix}\answer{1} & \answer{10} & \answer{3} \\ \answer{4} & \answer{25} & \answer{6}\\ \answer{7} & \answer{40} & \answer{9}\end{bmatrix}
+\quad
+AC=\begin{bmatrix}\answer{1} & \answer{2} & \answer{-6} \\ \answer{4} & \answer{5} & \answer{-12}\\ \answer{7} & \answer{8} & \answer{-18}\end{bmatrix}$$
+$$AD=\begin{bmatrix}\answer{1} & \answer{2} & \answer{4} \\ \answer{4} & \answer{5} & \answer{11}\\ \answer{7} & \answer{8} & \answer{16}\end{bmatrix}
+\quad
+AF=\begin{bmatrix}\answer{-3} & \answer{2} & \answer{3} \\ \answer{-6} & \answer{5} & \answer{6}\\ \answer{-9} & \answer{8} & \answer{9}\end{bmatrix}$$
+$$AG=\begin{bmatrix}\answer{3} & \answer{2} & \answer{1} \\ \answer{6} & \answer{5} & \answer{4}\\ \answer{9} & \answer{8} & \answer{7}\end{bmatrix}
+$$
+\end{problem}
+
+
+\begin{problem}If possible, express 
+$$A=\begin{bmatrix}1&4&7\\2&5&8\\3&6&9\end{bmatrix}$$
+as a product of elementary matrices.
+\end{problem}
+\end{document} 
