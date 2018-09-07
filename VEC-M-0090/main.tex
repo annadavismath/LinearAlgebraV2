@@ -124,12 +124,12 @@ The following video takes another look at Example \ref{ex:spanintro} using our n
 \section*{Definition of Span}
 
 \begin{definition}\label{def:span} Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors in $\RR^n$.  The set $S$ of all linear combinations of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ is called the span of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  We write 
-$$S=\textnormal{span}(\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p)$$
+$$S=\mbox{span}(\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p)$$
 and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ span $S$.  Any vector in $S$ is said to be in the span of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  The set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is called the \dfn{spanning set} for $S$.
 \end{definition}
 
 \begin{example}
-Describe $\textnormal{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}\right)$.
+Describe $\mbox{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}\right)$.
 \begin{explanation}
 The span of $\begin{bmatrix}-3\\1\end{bmatrix}$ is the set of all linear combinations of $\begin{bmatrix}-3\\1\end{bmatrix}$.  Since we are looking for linear combinations of only one vector, we are really looking for all of its scalar multiples.  So, the span will be the set of all vectors of the form $\vec{v}=a\begin{bmatrix}-3\\1\end{bmatrix}$.  All such vectors lie on the line determined by $\begin{bmatrix}-3\\1\end{bmatrix}$.
 
@@ -156,7 +156,7 @@ The span of $\begin{bmatrix}-3\\1\end{bmatrix}$ is the set of all linear combina
 \end{example}
 
 \begin{example}
-Describe $\textnormal{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)$.
+Describe $\mbox{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)$.
 \begin{explanation}
 First, observe that $\begin{bmatrix}2\\2\end{bmatrix}$ and $\begin{bmatrix}-1\\0\end{bmatrix}$ are not scalar multiples of each other, so they do not lie on the same line.  
 
@@ -173,7 +173,7 @@ First, observe that $\begin{bmatrix}2\\2\end{bmatrix}$ and $\begin{bmatrix}-1\\0
 \end{image}
 
 
-%If $\vec{w}$ is a scalar multiple of one of $\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}$, then $\vec{w}$ is in $\textnormal{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)$.  
+%If $\vec{w}$ is a scalar multiple of one of $\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}$, then $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)$.  
 Geometrically, we can use Procedure \ref{pro:lincombgeo} of VEC-M-0040 to express any vector of $\RR^2$ as a linear combination of $\begin{bmatrix}2\\2\end{bmatrix}$ and  $\begin{bmatrix}-1\\0\end{bmatrix}$.  
 
 To verify this claim algebraically we will show that an arbitrary vector $\begin{bmatrix}s\\t\end{bmatrix}$ of $\RR^2$ can be written as a linear combination of $\begin{bmatrix}2\\2\end{bmatrix}$ and  $\begin{bmatrix}-1\\0\end{bmatrix}$.  
@@ -197,12 +197,12 @@ This shows that every vector of $\RR^2$ can be written as a linear combination o
 
 $$(t/2)\begin{bmatrix}2\\2\end{bmatrix}+(t-s)\begin{bmatrix}-1\\0\end{bmatrix}=\begin{bmatrix}s\\t\end{bmatrix}$$
 
-We conclude that $$\textnormal{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)=\RR^2$$
+We conclude that $$\mbox{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)=\RR^2$$
 \end{explanation}
 \end{example}
 
 \begin{example}\label{ex:spanoftwovectors}
-Describe $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$.
+Describe $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$.
 \begin{explanation}
 First, observe that $\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}$ are not scalar multiples of each other, so they do not lie on the same line.  
 
@@ -238,7 +238,7 @@ Geometrically, we can interpret all such linear combinations as diagonals of par
 
 Because Procedure \ref{pro:lincombgeo} of VEC-M-0040 can be applied to vectors that lie in $p$ just as easily as it can be applied to vectors of $\RR^2$, we conclude that every vector in $p$ can be expressed as a linear combination of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and  $\begin{bmatrix}0\\4\\2\end{bmatrix}$.  Thus, 
 
-$$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)=p$$
+$$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)=p$$
 
 \end{explanation}
 \end{example}
@@ -250,14 +250,14 @@ We will now revisit Example \ref{ex:spanoftwovectors} and explore what happens w
 
 \begin{enumerate}
 \item \label{item:redundantvectors1}
-Describe $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$.
+Describe $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$.
 \item \label{item:redundantvectors2}
-Describe $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)$.
+Describe $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)$.
 \end{enumerate}
 \begin{explanation}
 \ref{item:redundantvectors1} From Example \ref{ex:spanoftwovectors}, we know that the first two vectors span a plane in $\RR^3$.  What we have to find out is what, if anything, is accomplished by adding $\begin{bmatrix}5\\4\\6\end{bmatrix}$ to the list.  
 
-By Definition \ref{def:span}, given any vector $\vec{v}$ in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$, we can write $\vec{v}$ as a linear combination of the three vectors in the spanning set
+By Definition \ref{def:span}, given any vector $\vec{v}$ in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$, we can write $\vec{v}$ as a linear combination of the three vectors in the spanning set
 $$\vec{v}=a_1\begin{bmatrix}5\\0\\4\end{bmatrix}+ a_2\begin{bmatrix}0\\4\\2\end{bmatrix}+a_3\begin{bmatrix}5\\4\\6\end{bmatrix}$$
 
 Observe that the third vector is a linear combination of the the first two: $$\begin{bmatrix}5\\4\\6\end{bmatrix}=\begin{bmatrix}5\\0\\4\end{bmatrix}+\begin{bmatrix}0\\4\\2\end{bmatrix}$$
@@ -268,13 +268,13 @@ By substitution we obtain
 &=a_1\begin{bmatrix}5\\0\\4\end{bmatrix}+ a_2\begin{bmatrix}0\\4\\2\end{bmatrix}+a_3\left(\begin{bmatrix}5\\0\\4\end{bmatrix}+\begin{bmatrix}0\\4\\2\end{bmatrix}\right)\\
 &=(a_1+a_3)\begin{bmatrix}5\\0\\4\end{bmatrix}+ (a_2+a_3)\begin{bmatrix}0\\4\\2\end{bmatrix}
 \end{align*} 
-Thus, $\vec{v}$ is in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$. 
+Thus, $\vec{v}$ is in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$. 
 
-We conclude that all vectors in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$ are also in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$.  
+We conclude that all vectors in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$ are also in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$.  
 
-Moreover, every vector in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$ is clearly in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$.
+Moreover, every vector in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$ is clearly in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$.
 Thus,
-$$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)=\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$$
+$$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$$
 
 Geometrically, $\begin{bmatrix}5\\4\\6\end{bmatrix}$ is the diagonal of a parallelogram determined by $\begin{bmatrix}0\\4\\2\end{bmatrix}$ and  $\begin{bmatrix}5\\0\\4\end{bmatrix}$, and lies in the plane spanned by these vectors. This relationship is illustrated by the diagram below.
 
@@ -293,7 +293,7 @@ Geometrically, $\begin{bmatrix}5\\4\\6\end{bmatrix}$ is the diagonal of a parall
 \end{tikzpicture}
 \end{image}
 
-Every vector in $\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$ lies in this plane.
+Every vector in $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)$ lies in this plane.
 
 \ref{item:redundantvectors2}
 We will consider this problem from the geometric standpoint first.  The three vectors are shown in the diagram below together with the plane that is the span of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and $\begin{bmatrix}0\\4\\2\end{bmatrix}$.
@@ -311,10 +311,10 @@ We will consider this problem from the geometric standpoint first.  The three ve
 \end{tikzpicture}
 \end{image}
 Considering that the three vectors lie in three different coordinate planes (why?), it is easy to see that they do not lie in the same plane.  This shows that 
-$$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)\neq\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$$
+$$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)\neq\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$$
 
 We will now show that 
-$$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)=\RR^3$$
+$$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)=\RR^3$$
 
 To do this, consider an arbitrary vector $\vec{u}=\begin{bmatrix}s\\t\\r\end{bmatrix}$ in $\RR^3$.  We need to show that $\vec{u}$ is a linear combination of 
 
@@ -330,14 +330,14 @@ This vector equation corresponds to a linear system that can be written in augme
  \end{array}\right]\end{align}
  
  While we chose not to keep track of the entries on the right-hand side, it is clear that these entries will be real numbers. (You will be asked to fill in the details in Practice Problem {\color{red} reference}.)  We conclude that every vector of $\RR^3$ can be written as a linear combination of the three vectors.  Therefore 
- $$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)=\RR^3$$
+ $$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}4\\5\\0\end{bmatrix}\right)=\RR^3$$
 \end{explanation}
 \end{example}
 
 In part \ref{item:redundantvectors1} of Example \ref{ex:redundantvectors} we saw that adding $\begin{bmatrix}5\\4\\6\end{bmatrix}$ to the spanning set does not change the span.  We observed that this phenomenon is due to the fact that $\begin{bmatrix}5\\4\\6\end{bmatrix}$ is a linear combination of the other two vectors in the spanning set.
 
 Because
-$\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)=\textnormal{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$,
+$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix},\begin{bmatrix}5\\4\\6\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)$,
 we say that $\begin{bmatrix}5\\4\\6\end{bmatrix}$ is \dfn{redundant}.  
 
 %In fact, each vector in the spanning set
@@ -365,7 +365,7 @@ $$0\begin{bmatrix}1\\-3\end{bmatrix}+\left(-\frac{1}{2}\right)\begin{bmatrix}0\\
 \begin{problem}
 Choose the best description for each set below.
   \begin{problem}
-  $$\textnormal{span}\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}, \begin{bmatrix}2\\2\\-4\end{bmatrix}\right)$$
+  $$\mbox{span}\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}, \begin{bmatrix}2\\2\\-4\end{bmatrix}\right)$$
   
   \begin{multipleChoice}
  \choice{Plane in $\RR^3$}
@@ -377,7 +377,7 @@ Choose the best description for each set below.
   \end{problem}
   
   \begin{problem}
-  $$\textnormal{span}\left(\begin{bmatrix}1\\-2\end{bmatrix}, \begin{bmatrix}1\\0\end{bmatrix}\right)$$
+  $$\mbox{span}\left(\begin{bmatrix}1\\-2\end{bmatrix}, \begin{bmatrix}1\\0\end{bmatrix}\right)$$
   
    \begin{multipleChoice}
  \choice{Plane in $\RR^3$}
@@ -389,7 +389,7 @@ Choose the best description for each set below.
 \end{multipleChoice}
   \end{problem}
   \begin{problem}
-  $$\textnormal{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}, \begin{bmatrix}6\\-2\end{bmatrix}, \begin{bmatrix}3\\-1\end{bmatrix}\right)$$
+  $$\mbox{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}, \begin{bmatrix}6\\-2\end{bmatrix}, \begin{bmatrix}3\\-1\end{bmatrix}\right)$$
   
   \begin{multipleChoice}
  \choice{Plane in $\RR^3$}
@@ -406,15 +406,15 @@ Choose the best description for each set below.
 Which of the following pairs of sets are equal?  
 
 \begin{selectAll}
-  \choice[correct]{$V=\textnormal{span}\left(\begin{bmatrix}5\\0\\0\end{bmatrix},\begin{bmatrix}10\\0\\0\end{bmatrix},\begin{bmatrix}0\\0\\-4\end{bmatrix}\right)\quad\text{and}\quad W=\textnormal{span}\left(\begin{bmatrix}-2\\0\\0\end{bmatrix},\begin{bmatrix}0\\0\\1\end{bmatrix}\right)$}
- \choice[correct]{$V=\textnormal{span}\left(\begin{bmatrix}5\\3\end{bmatrix},\begin{bmatrix}10\\-1\end{bmatrix},\begin{bmatrix}0\\2\end{bmatrix}\right)\quad\text{and}\quad W=\textnormal{span}\left(\begin{bmatrix}-2\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right)$}
- \choice{$V=\textnormal{span}\left(\begin{bmatrix}1\\-2\\4\end{bmatrix}\right)\quad\text{and}\quad W=\textnormal{span}\left(\begin{bmatrix}-1\\2\\-4\end{bmatrix},\begin{bmatrix}0\\0\\1\end{bmatrix}\right)$}
- \choice[correct]{$V=\textnormal{span}\left(\begin{bmatrix}5\\0\end{bmatrix}\right)\quad\text{and}\quad W=\textnormal{span}\left(\begin{bmatrix}-2\\0\end{bmatrix},\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}-4\\0\end{bmatrix},\begin{bmatrix}0\\0\end{bmatrix}\right)$}
+  \choice[correct]{$V=\mbox{span}\left(\begin{bmatrix}5\\0\\0\end{bmatrix},\begin{bmatrix}10\\0\\0\end{bmatrix},\begin{bmatrix}0\\0\\-4\end{bmatrix}\right)\quad\text{and}\quad W=\mbox{span}\left(\begin{bmatrix}-2\\0\\0\end{bmatrix},\begin{bmatrix}0\\0\\1\end{bmatrix}\right)$}
+ \choice[correct]{$V=\mbox{span}\left(\begin{bmatrix}5\\3\end{bmatrix},\begin{bmatrix}10\\-1\end{bmatrix},\begin{bmatrix}0\\2\end{bmatrix}\right)\quad\text{and}\quad W=\mbox{span}\left(\begin{bmatrix}-2\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right)$}
+ \choice{$V=\mbox{span}\left(\begin{bmatrix}1\\-2\\4\end{bmatrix}\right)\quad\text{and}\quad W=\mbox{span}\left(\begin{bmatrix}-1\\2\\-4\end{bmatrix},\begin{bmatrix}0\\0\\1\end{bmatrix}\right)$}
+ \choice[correct]{$V=\mbox{span}\left(\begin{bmatrix}5\\0\end{bmatrix}\right)\quad\text{and}\quad W=\mbox{span}\left(\begin{bmatrix}-2\\0\end{bmatrix},\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}-4\\0\end{bmatrix},\begin{bmatrix}0\\0\end{bmatrix}\right)$}
 \end{selectAll}
 \end{problem}
 
 \begin{problem}
-Let $\vec{v}=\begin{bmatrix}3\\4\\5\end{bmatrix}$.  Give an example of at least one vector $\vec{w}$ such that $\vec{v}$, $\vec{w}$ do NOT span a plane in $\RR^3$.  Describe $\textnormal{span}(\vec{v}, \vec{w})$.
+Let $\vec{v}=\begin{bmatrix}3\\4\\5\end{bmatrix}$.  Give an example of at least one vector $\vec{w}$ such that $\vec{v}$, $\vec{w}$ do NOT span a plane in $\RR^3$.  Describe $\mbox{span}(\vec{v}, \vec{w})$.
 \end{problem}
 
 \begin{problem}Does the given set contain redundant vectors?  If so, express one of the vectors in the set as a linear combination of the others.
@@ -441,7 +441,7 @@ Let $\vec{v}=\begin{bmatrix}3\\4\\5\end{bmatrix}$.  Give an example of at least 
 
 \begin{problem}
 Let $\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_p$ be vectors of $\RR^n$.  Prove that for any collection of scalars $a_1, a_2,\ldots ,a_p$ 
-$$\textnormal{span}(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_p)=\textnormal{span}(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_p,a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p)$$
+$$\mbox{span}(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_p)=\mbox{span}(\vec{v}_1,\vec{v}_2,\ldots ,\vec{v}_p,a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p)$$
 In other words, show that adding a linear combination of vectors in a spanning set to the spanning set does not change the span.
 \end{problem}
 
