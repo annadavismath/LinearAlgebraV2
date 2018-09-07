@@ -66,17 +66,17 @@ Recall that we first introduced determinants in the context of invertibility of 
 A square matrix is singular if and only if $\det{A}=0$.
 \end{theorem}
 \begin{proof}
-Let $A$ be a square matrix.  To determine whether $A$ is singular we need to find $\textnormal{rref}(A)$.  By {\color{red}reference from MAT-M-0040} there exist elementary matrices $E_1,\ldots ,E_k$ such that 
-$$E_k\ldots E_2E_1A=\textnormal{rref}(A)$$
+Let $A$ be a square matrix.  To determine whether $A$ is singular we need to find $\mbox{rref}(A)$.  By {\color{red}reference from MAT-M-0040} there exist elementary matrices $E_1,\ldots ,E_k$ such that 
+$$E_k\ldots E_2E_1A=\mbox{rref}(A)$$
 so
-$$\det{(E_k\ldots E_2E_1A)}=\det{\big(\textnormal{rref}(A)\big)}$$
+$$\det{(E_k\ldots E_2E_1A)}=\det{\big(\mbox{rref}(A)\big)}$$
 By repeated application of Lemma \ref{lemma:detelemproduct}, we find that 
-$$\det{E_k}\ldots \det{E_2}\det{E_1}\det{A}=\det{\big(\textnormal{rref}(A)\big)}$$
-Suppose that $A$ is singular, then $\textnormal{rref}(A)$ contains a row of zeros. {\color{red}reference} Therefore $\det{\big(\textnormal{rref}(A)\big)}=0$. (Lemma \ref{lemma:det0lemma}\ref{item:det0lemma3})  Since determinants of elementary matrices are non-zero, we conclude that $\det{A}=0$.
+$$\det{E_k}\ldots \det{E_2}\det{E_1}\det{A}=\det{\big(\mbox{rref}(A)\big)}$$
+Suppose that $A$ is singular, then $\mbox{rref}(A)$ contains a row of zeros. {\color{red}reference} Therefore $\det{\big(\mbox{rref}(A)\big)}=0$. (Lemma \ref{lemma:det0lemma}\ref{item:det0lemma3})  Since determinants of elementary matrices are non-zero, we conclude that $\det{A}=0$.
 
 Conversely, suppose $\det{A}=0$, then
-$$\det{\big(\textnormal{rref}(A)\big)}=\det{E_k}\ldots \det{E_2}\det{E_1}\det{A}=0$$
-But then $\textnormal{rref}(A)\neq I$, so $A$ is singular.
+$$\det{\big(\mbox{rref}(A)\big)}=\det{E_k}\ldots \det{E_2}\det{E_1}\det{A}=0$$
+But then $\mbox{rref}(A)\neq I$, so $A$ is singular.
 \end{proof}
 \begin{example} Determine whether $A$ is an invertible matrix without using elementary row operations.
 

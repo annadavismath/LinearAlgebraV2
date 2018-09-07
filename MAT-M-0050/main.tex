@@ -133,7 +133,7 @@ $$A\begin{bmatrix}
          \end{bmatrix}$$
 where each $\vec{e}_i$ is a standard unit vector of $\RR^n$.   This gives us a system of equations $A\vec{v}_i=\vec{e}_i$ for each $1\leq i\leq n$.  If each $A\vec{v}_i=\vec{e}_i$ has a unique solution, then finding these solutions will give us the columns of the desired matrix $B$.  
 
-First, suppose that $\textnormal{rref}(A)=I$, then we can use elementary row operations to carry each $[A|\vec{e}_i]$ to its reduced row-echelon form.
+First, suppose that $\mbox{rref}(A)=I$, then we can use elementary row operations to carry each $[A|\vec{e}_i]$ to its reduced row-echelon form.
 $$[A|\vec{e}_i]\rightsquigarrow [I|\vec{v}_i]$$
 Observe that the row operations that carry $A$ to $I$ will be the same for each $A\vec{v}_i=\vec{e}_i$.  We can, therefore, combine the process of solving $n$ systems of equations into a single process
 $$[A|I]\rightsquigarrow [I|B]$$
@@ -149,7 +149,7 @@ But the same row operations would also give us
 $$[B|I]\rightsquigarrow [I|A]$$
 We conclude that $BA=I$, and $B=A^{-1}$.
          
-Next, suppose that $\textnormal{rref}(A)\neq I$.  Then $\textnormal{rref}(A)$ must contain a row of zeros.  Because one of the rows of $A$ was completely wiped out by elementary row operations, one of the rows of $A$ must be a linear combination of the other rows.  Suppose row $p$ is a linear combination of the other rows.  Then row $p$ can be carried to a row of zeros. But then the system $A\vec{v}_p=\vec{e}_p$ is inconsistent.  This is because $\vec{e}_p$ has a $1$ as the $p^{th}$ entry and zeros everywhere else.  The $1$ in the $p^{th}$ spot will not be affected by elementary row operations, and the $p^{th}$ row will eventually look like this
+Next, suppose that $\mbox{rref}(A)\neq I$.  Then $\mbox{rref}(A)$ must contain a row of zeros.  Because one of the rows of $A$ was completely wiped out by elementary row operations, one of the rows of $A$ must be a linear combination of the other rows.  Suppose row $p$ is a linear combination of the other rows.  Then row $p$ can be carried to a row of zeros. But then the system $A\vec{v}_p=\vec{e}_p$ is inconsistent.  This is because $\vec{e}_p$ has a $1$ as the $p^{th}$ entry and zeros everywhere else.  The $1$ in the $p^{th}$ spot will not be affected by elementary row operations, and the $p^{th}$ row will eventually look like this
 $$[0\ldots 0|1]$$
 This shows that a matrix $B$ such that $AB=I$ does not exist, and $A$ does not have an inverse.
 
@@ -160,7 +160,7 @@ Let $A$ be a square matrix.  If it is possible to use elementary row operations 
 \end{theorem}
 
 \begin{corollary}
-A square matrix $A$ has an inverse if and only if $\textnormal{rref}(A)=I$.
+A square matrix $A$ has an inverse if and only if $\mbox{rref}(A)=I$.
 \end{corollary}
 
 \begin{example}\label{ex:inverse3} Find $A^{-1}$ or demonstrate that $A^{-1}$ does not exist.
