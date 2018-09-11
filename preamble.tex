@@ -5,7 +5,6 @@
 
 \graphicspath{{./}{firstExample/}{secondExample/}}
 
-\usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usepackage{tikz-3dplot}
@@ -15,7 +14,7 @@
 \usetkzobj{all}
 \pgfplotsset{compat=1.13} % prevents compile error.
 
-\renewcommand{\vec}[1]{{\bf #1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\dfn}{\textit}
 \newcommand{\dotp}{\cdot}
@@ -27,3 +26,4 @@
 
 \tikzstyle geometryDiagrams=[ultra thick,color=blue!50!black]
 
+\usepackage{mathtools}
