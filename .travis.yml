@@ -16,4 +16,4 @@ script:
 - xake bake
 - xake frost
 after_success:
-- if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] ; then git push ximera HEAD:master ; xake serve ; fi
+- if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] ; then git push ximera pushrepo; xake serve ; fi
