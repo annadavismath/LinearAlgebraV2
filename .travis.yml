@@ -5,7 +5,7 @@ dist: xenial
 before_install:
 # on a merge commit, we are going to push to ximera.
 - if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] ; then git checkout master ; fi
-- git remote add ximera ${token}
+- git remote add ximera "${token}"
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures libgit2* 
 - wget https://github.com/XimeraProject/xake/releases/download/v0.9.4/xake_0.9.4_amd64.deb
 - sudo dpkg -i xake_0.9.4_amd64.deb
