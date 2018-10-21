@@ -5,8 +5,7 @@ dist: xenial
 before_install:
 # on a merge commit, we are going to push to ximera.
 - if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] ; then git checkout master ; fi
-- echo "[http \"https://ximera.osu.edu/\"]" >> .git/config
-- echo "        extraheader = Authorization: ${token}" >> .git/config
+- git config --add http.https://ximera.osu.edu/.extraheader=Authorization: Bearer ${token}
 - git remote add ximera "https://xake:${token}@ximera.osu.edu/la.git"
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended texlive-pictures libgit2* 
 - wget https://github.com/XimeraProject/xake/releases/download/v0.9.4/xake_0.9.4_amd64.deb
