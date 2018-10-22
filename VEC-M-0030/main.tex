@@ -1,12 +1,9 @@
 \documentclass{ximera}
-\usepackage{OERLinearAlgebra}
 
 
-\usepackage{mathtools}
-\usepackage{tikz-3dplot}
-\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0030:  Vector Arithmetic} \license{CC-BY 4.0}
 
-\author{Anna Davis \and Rosemarie Emanuele} \title{Vector Arithmetic} \license{CC-BY 4.0}
+\input{../preamble.tex}
 
 \begin{document}
 
@@ -15,9 +12,9 @@
 \end{abstract}
 \maketitle
 
+\section*{VEC-0030:  Vector Arithmetic}
 
-
-\section*{Geometry of Scalar Multiplication} The product of vector $\vec{u}$ with a positive scalar $k$, is a vector $k\vec{u}$ that points in the same direction as $\vec{u}$, and whose length  is equal to the length of $\vec{u}$ multiplied by $k$. For example, the figure below shows vectors $\vec{u}$ and $2\vec{u}$.  The vectors point in the same direction but the magnitude of $2\vec{u}$ is twice the magnitude of $\vec{u}$.
+\subsection*{Geometry of Scalar Multiplication} The product of vector $\vec{u}$ with a positive scalar $k$, is a vector $k\vec{u}$ that points in the same direction as $\vec{u}$, and whose length  is equal to the length of $\vec{u}$ multiplied by $k$. For example, the figure below shows vectors $\vec{u}$ and $2\vec{u}$.  The vectors point in the same direction but the magnitude of $2\vec{u}$ is twice the magnitude of $\vec{u}$.
 
 \begin{image}[1.5in]
 \begin{tikzpicture}
@@ -38,10 +35,10 @@ If a vector $\vec{u}$ is multiplied by $-1$, the resulting vector is denoted by 
 
 
 
-\section*{Algebra of Scalar Multiplication}
+\subsection*{Algebra of Scalar Multiplication}
 We know what scalar multiplication accomplishes geometrically.  Our goal now is to translate this idea to an algebraic operation.  
 
-\begin{initprob}\label{init:scalarmult} Consider vector $\vec{u}=\begin{bmatrix}4\\2\end{bmatrix}$.  We will find an algebraic approach for multiplying $\vec{u}$ by $\frac{1}{2}$. 
+\begin{exploration}\label{init:scalarmult} Consider vector $\vec{u}=\begin{bmatrix}4\\2\end{bmatrix}$.  We will find an algebraic approach for multiplying $\vec{u}$ by $\frac{1}{2}$. 
 
 \begin{image}[2.5in]
 \begin{tikzpicture}[scale=1]
@@ -50,7 +47,6 @@ We know what scalar multiplication accomplishes geometrically.  Our goal now is 
   \draw[<->] (0,-1)--(0,3);
   
  \draw[line width=1pt,-stealth](0,0)--(4,2)node[above left]{$\vec{u}$};
-%  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above left]{$[2,1]$};
  \end{tikzpicture}
 \end{image}
 
@@ -96,9 +92,9 @@ From geometry we know that if we drop perpendiculars from the midpoint of the hy
 \end{image}
 This tells us that to find $x$ and $y$ components of $\frac{1}{2}\vec{u}$ we must multiply each component of $\vec{u}$ by $\frac{1}{2}$.
 $$\frac{1}{2}\vec{u}=(1/2)\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}(1/2)(4)\\(1/2)(2)\end{bmatrix}=\begin{bmatrix}2\\1\end{bmatrix}$$
-\end{initprob}
+\end{exploration}
 
-\begin{initprob}\label{init:negscalarmult} Consider vector $\vec{v}=\begin{bmatrix}3\\1\end{bmatrix}$
+\begin{exploration}\label{init:negscalarmult} Consider vector $\vec{v}=\begin{bmatrix}3\\1\end{bmatrix}$
 It is clear that multiplying the components of $\vec{v}$ by $-1$ reverses the direction of $\vec{v}$ while preserving its magnitude.
 
 \begin{image}[3in]
@@ -112,12 +108,12 @@ It is clear that multiplying the components of $\vec{v}$ by $-1$ reverses the di
  \end{tikzpicture}
 \end{image}
 
-\end{initprob}
+\end{exploration}
 
-Exploration Problems  \ref{init:scalarmult} and \ref{init:negscalarmult} give rise to the following definition of scalar multiplication.
+Explorations  \ref{init:scalarmult} and \ref{init:negscalarmult} give rise to the following definition of scalar multiplication.
 
 
-  \begin{definition} 
+  \begin{definition}\label{def:scalarmult} 
   
 Let $\vec{u}=\begin{bmatrix}
 u_1\\
@@ -139,9 +135,9 @@ ku_n
   \end{definition}
 If $\vec{v}=k\vec{u}$ ($k\neq 0$), then $\vec{u}=\frac{1}{k}\vec{v}$, and we say that $\vec{v}$ and $\vec{u}$ are \dfn{scalar multiples of each other}.
 
-\section*{Geometry of Vector Addition} 
+\subsection*{Geometry of Vector Addition} 
 There are two ways to add vectors geometrically.  
-\subsection*{``Head-to-Tail" Addition Method}
+\subsubsection*{``Head-to-Tail" Addition Method}
 Given vectors $\vec{v}$ and $\vec{u}$, we can find the sum $\vec{v}+\vec{u}$ by sliding $\vec{u}$ so as to place its tail at the head of vector $\vec{v}$.  The vector connecting the tail of $\vec{v}$ with the head of $\vec{u}$ is the sum $\vec{v}+\vec{u}$, as shown in the figure below.    
 \begin{image}[4in]
 \begin{tikzpicture}
@@ -162,8 +158,8 @@ Given vectors $\vec{v}$ and $\vec{u}$, we can find the sum $\vec{v}+\vec{u}$ by 
 This sum can be interpreted as the total displacement that occurs when traveling along the two vectors starting at the tail of $\vec{v}$ and finishing at the head of $\vec{u}$.
 
 Note that if we place the tail of $\vec{v}$ at the head of $\vec{u}$ instead, the sum vector $\vec{u}+\vec{v}$ will be the same as $\vec{v}+\vec{u}$.  Thus, addition of vectors is commutative.
-\subsection*{Parallelogram Addition Method}
-Most of the time we deal with vectors in standard position.  So all vector tails are located at the origin.  This motivates the {\it parallelogram} method for adding vectors.  
+\subsubsection*{Parallelogram Addition Method}
+Most of the time we deal with vectors in standard position.  So all vector tails are located at the origin.  This motivates the \dfn{parallelogram method} for adding vectors.  
 
 Observe that if we slide vectors $\vec{u}$ and $\vec{v}$ so that their tails are together, the two vectors determine a parallelogram.  
 
@@ -248,11 +244,11 @@ Applying the ``head-to-tail" addition method shows that the sum $\vec{v}+\vec{u}
 
 
 
-\section*{Algebra of Vector Addition}
+\subsection*{Algebra of Vector Addition}
 
 We now know how to add vectors geometrically.  Our next goal is to translate this idea to an algebraic operation.  
 
-\begin{initprob}\label{init:vectoradd} In this problem we will find the sum of $\vec{u}=\begin{bmatrix}5\\1\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
+\begin{exploration}\label{init:vectoradd} In this problem we will find the sum of $\vec{u}=\begin{bmatrix}5\\1\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
 
 
 \begin{image}[3.5in]
@@ -313,9 +309,9 @@ The sum $\vec{u}+\vec{v}$ is shown below.
 \end{image}
 We see that the components of $\vec{v}+\vec{u}$ can be found by adding the components of $\vec{v}$ and $\vec{u}$.
 $$\vec{v}+\vec{u}=\begin{bmatrix}2\\3\end{bmatrix}+\begin{bmatrix}5\\1\end{bmatrix}=\begin{bmatrix}7\\4\end{bmatrix}$$
-\end{initprob}
+\end{exploration}
 
-Exploration Problem \ref{init:vectoradd} motivates the following definition.
+Exploration \ref{init:vectoradd} motivates the following definition.
   \begin{definition}\label{def:vectoradd} 
   Let $\vec{u}=\begin{bmatrix}
 u_1\\
@@ -347,7 +343,7 @@ u_n+v_n
   
 \end{definition}
 
-\section*{Vector Subtraction}
+\subsection*{Vector Subtraction}
 We can find the difference of two vectors by interpreting subtraction as ``addition of the opposite".  Thus,
 $$\vec{v}-\vec{u}=\vec{v}+(-\vec{u})$$
 Vector subtraction has an interesting geometric interpretation.  As shown in the figure below, if $\vec{v}+\vec{u}$ is a diagonal of the parallelogram determined by $\vec{v}$ and $\vec{u}$, the difference $\vec{v}-\vec{u}$ is the other diagonal of the same parallelogram.
@@ -379,7 +375,7 @@ Vector subtraction has an interesting geometric interpretation.  As shown in the
   \node[black] at (3.4, 1.5)   (a) {$\vec{v}+(-\vec{u})$};
  \end{tikzpicture}
 \end{image}
-\section*{Properties of Vector Addition and Scalar Multiplication}
+\subsection*{Properties of Vector Addition and Scalar Multiplication}
   \begin{theorem}\label{th:vecproperties} The following properties hold for vectors $\vec{u}$, $\vec{v}$ and ${\bf w}$ in $\RR^n$ and scalars $k$ and $p$.
   \begin{enumerate}
   \item \label{item:commvectoradd}
@@ -389,10 +385,10 @@ Vector subtraction has an interesting geometric interpretation.  As shown in the
   Associative Property of Addition
   $$(\vec{u}+\vec{v})+{\bf w}=\vec{u}+(\vec{v}+{\bf w})$$
   \item \label{item:identityvectoradd}
-  Existence of Additive Identity
+  Existence of Additive Identity: There exists a vector $\vec{0}$ such that
   $$\vec{u}+\vec{0}=\vec{u}$$
   \item \label{item:inversevectoradd}
-  Existence of Additive Inverse
+  Existence of Additive Inverse: For every vector $\vec{u}$, there exists a vector $-\vec{u}$ such that
   $$\vec{u}+(-\vec{u})=\vec{0}$$
   \item\label{item:distvectoradd}
   Distributive Property over Vector Addition
@@ -409,10 +405,24 @@ Vector subtraction has an interesting geometric interpretation.  As shown in the
   \end{enumerate}
 \end{theorem}
 
-We will prove Property \ref{item:distvectoradd}.  Proofs of the remaining properties are left to the reader.
+We will prove Properties \ref{item:inversevectoradd} and \ref{item:distvectoradd}.  Proofs of the remaining properties are left to the reader.
+\begin{proof}[Proof of Property \ref{item:inversevectoradd}]
+For any vector $\vec{u}=\begin{bmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_n
+\end{bmatrix}$ in $\RR^n$, let $$-\vec{u}=(-1)\vec{u}=\begin{bmatrix}
+-u_1\\
+-u_2\\
+\vdots\\
+-u_n
+\end{bmatrix}$$
+Then $\vec{u}+(-\vec{u})=\vec{0}$.
+\end{proof}
 \begin{proof}[Proof of Property \ref{item:distvectoradd}]
 $$
-k(\vec{u}+\vec{v})=k\Bigg(\begin{bmatrix}
+k(\vec{u}+\vec{v})=k\left(\begin{bmatrix}
 u_1\\
 u_2\\
 \vdots\\
@@ -422,7 +432,7 @@ v_1\\
 v_2\\
 \vdots\\
 v_n
-\end{bmatrix}\Bigg)=k\begin{bmatrix}
+\end{bmatrix}\right)=k\begin{bmatrix}
 u_1+v_1\\
 u_2+v_2\\
 \vdots\\
@@ -466,7 +476,7 @@ v_n
 
 \section*{Practice Problems}
  
- \begin{problem}
+ \begin{problem}\label{prob:sketchsumdiff}
 The figure below shows vectors $\vec{u}$ and $\vec{v}$.  Sketch each of the following in the same coordinate plane.
  
 \begin{image}[2.5in]
@@ -492,21 +502,21 @@ The figure below shows vectors $\vec{u}$ and $\vec{v}$.  Sketch each of the foll
   \end{enumerate}
 \end{problem}
 
-\begin{problem} Let $$\vec{u}=\begin{bmatrix}-2\\1\\4\end{bmatrix},\quad\vec{v}\begin{bmatrix}3\\-1\\0\end{bmatrix}$$
+\begin{problem}\label{prob:evaluatevectsumdiff} Let $$\vec{u}=\begin{bmatrix}-2\\1\\4\end{bmatrix},\quad\vec{v}\begin{bmatrix}3\\-1\\0\end{bmatrix}$$
 Find each of the following
-\begin{problem}
+\begin{problem}\label{prob:evaluatevectsumdiff1}
 $$2\vec{u}-\vec{v}=\begin{bmatrix}\answer{-7}\\\answer{3}\\\answer{8}\end{bmatrix}$$
 \end{problem}
-\begin{problem} The additive inverse of $\vec{v}$ is
+\begin{problem} \label{prob:evaluatevectsumdiff2}The additive inverse of $\vec{v}$ is
 $$\begin{bmatrix}\answer{-3}\\\answer{1}\\\answer{0}\end{bmatrix}$$
 \end{problem}
 \end{problem}
 
-\begin{problem}
-Prove Properties \ref{item:commvectoradd}-\ref{item:inversevectoradd} of Theorem \ref{th:vecproperties}.
+\begin{problem}\label{prob:vecpropproof1}
+Prove Properties \ref{item:commvectoradd}-\ref{item:identityvectoradd} of Theorem \ref{th:vecproperties}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:vecpropproof2}
 Prove Properties \ref{item:distvectoradd2}-\ref{item:onevectorscalarmult} of Theorem \ref{th:vecproperties}.
 \end{problem}
  
