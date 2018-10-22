@@ -1,8 +1,6 @@
 \documentclass{ximera}
-\usepackage{..\OERLinearAlgebra}
 
-
-\usepackage{mathtools}
+\input{../preamble.tex}
 
 \author{Paul Zachlin \and Anna Davis} \title{Elementary Matrices} \license{CC-BY 4.0}
 
@@ -154,7 +152,7 @@ We can use the same line of reasoning to show that the other two types of elemen
  
 \section*{Elementary Matrices and Nonsingular Matrices} 
 
-Recall that a square matrix $A$ is called \dfn{nonsingular} provided that $\textnormal{rref}(A)=I$.
+Recall that a square matrix $A$ is called \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.
 
 \begin{theorem}
 The following statements are equivalent for an $n\times n$ matrix $A$.
@@ -169,7 +167,7 @@ We will prove equivalence of the three statements by showing that
 \ref{item:anonsingular2}$\Rightarrow$\ref{item:aproductofelemmatrices}$\Rightarrow$\ref{item:ainvertible}$\Rightarrow$\ref{item:anonsingular2}
 \end{center}
 \begin{proof}[Proof of \ref{item:anonsingular2}$\Rightarrow$\ref{item:aproductofelemmatrices}]
-Suppose $\textnormal{rref}(A)=I$.  Then $A$ can be carried to the identity by elementary row operations.  So, there exist elementary matrices $E_1, E_2, \ldots ,E_k$ such that 
+Suppose $\mbox{rref}(A)=I$.  Then $A$ can be carried to the identity by elementary row operations.  So, there exist elementary matrices $E_1, E_2, \ldots ,E_k$ such that 
 $$E_k\ldots E_2E_1A=I$$
 By Theorem \ref{th:elemmatricesinvertible} of MAT-M-0050, elementary matrices are invertible and their inverses are also elementary matrices.  Thus, we can write $A$ as a product of elementary matrices as follows:
 $$A=E_1^{-1}E_2^{-1}\ldots E_k^{-1}$$
@@ -242,7 +240,7 @@ Finish the proof of Theorem \ref{th:elemmatricesinvertible}.
 Express $A$ as a product of elementary matrices.
 $$A=\begin{bmatrix}1&2&0\\-1&0&1\\0&4&0\end{bmatrix}$$
 \begin{hint}
-Row-reduce $A$ to find $\textnormal{rref}(A)$.  Record the elementary row operations as you perform row reduction.  You will be able to conclude that $E_j\cdots E_2E_1A=I$.  Find the inverse of each $E_i$ and multiply by the inverses on the left.
+Row-reduce $A$ to find $\mbox{rref}(A)$.  Record the elementary row operations as you perform row reduction.  You will be able to conclude that $E_j\cdots E_2E_1A=I$.  Find the inverse of each $E_i$ and multiply by the inverses on the left.
 \end{hint}
 Is this representation unique?  Prove your claim.
 \end{problem}
