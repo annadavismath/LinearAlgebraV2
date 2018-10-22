@@ -1,0 +1,89 @@
+\documentclass{ximera}
+
+
+\author{Anna Davis \and Paul Zachlin} \title{VEC-M-0110: Linear Independence and Matrices} \license{CC-BY 4.0}
+\input{..\preamble.tex}
+\begin{document}
+
+\begin{abstract}
+We prove several results concerning linear independence of rows and columns of a matrix.
+\end{abstract}
+\maketitle
+
+
+\section*{VEC-M-0110: Linear Independence and Matrices}
+\subsection{Results Concerning Row-Echelon Forms of a Matrix}
+
+Recall that a matrix (or augmented matrix) is in \dfn{row-echelon form} if:
+\begin{itemize}
+\item All entries {\it below} each leading entry are $0$.
+\item Each leading entry is in a column to the right of the leading entries in the rows above it.
+\item All rows of zeros, if there are any, are located below non-zero rows.
+\end{itemize}
+
+A matrix in row-echelon form is said to be in \dfn{reduced row-echelon form} if it has the following additional properties
+\begin{itemize}
+\item Each leading entry is a $1$
+\item All entries {\it above} each leading $1$ are $0$
+\end{itemize}
+
+Every matrix can be brought to reduced row-echelon form using the Gauss-Jordan Algorithm (See Module SYS-M-0030).
+
+\begin{theorem}\label{th:rowsrreflinind}
+Let $A$ be a matrix.  The nonzero rows of $\mbox{rref}(A)$ are linearly independent.
+\end{theorem}
+\begin{proof}
+Every nonzero row of $\mbox{rref}(A)$ contains a leading $1$.  All entries above and below the leading $1's$ are $0$.  Thus, no nonzero row of $\mbox{rref}(A)$ can be written as a linear combination of the other rows.  Therefore, by Theorem \ref{th:redundantifflindep} of VEC-M-0100, the nonzero rows of $\mbox{rref}(A)$ are linearly independent.
+\end{proof}
+
+\begin{theorem}\label{th:rowsofreflinind}
+Let $A$ be a matrix.  The nonzero rows of a row-echelon form of $A$ are linearly independent.
+\end{theorem}
+\begin{proof}
+See Practice Problem \ref{prob:proofofrowsofreflinind}
+\end{proof}
+
+\begin{theorem}\label{th:pivotcolslinind}
+Pivot columns of a matrix in row-echelon form are linearly independent.
+\end{theorem}
+\begin{proof}
+See Practice Problem \ref{prob:proofofpivotcolslinind}.
+\end{proof}
+
+\begin{theorem}\label{th:linindandrank}
+Let $A$ be an $m\times n$ matrix.
+\begin{enumerate}
+    \item Columns of $A$ are linearly independent if and only if $\mbox{rank}(A)=n$.
+    \item Rows of $A$ are linearly independent if and only if  $\mbox{rank}(A)=m$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+See Practice Problem \ref{prob:proofoflinindandrank}
+\end{proof}
+
+
+\subsection{Results Concerning Nonsingular Matrices}
+Recall that a square matrix is said to be \dfn{nonsingular} provided that its reduced row-echelon form is equal to the identity matrix.  In MAT-M-0050 we showed that a square matrix is nonsingular if and only if it is invertible. (See Corollary \ref{cor:rrefI} of MAT-M-0050)
+
+\begin{theorem}\label{th:linindcolsnonsingular}
+An $n\times n$ matrix $A$ is nonsingular if and only if the columns (rows) of $A$ are linearly independent.
+\end{theorem}
+\begin{proof}
+By Theorem \ref{th:linindandrank}, a square matrix has linearly independent columns and linearly independent rows if and only if its rank is equal to the number of columns (rows).  This means that a square matrix has linearly independent columns and linearly independent rows if and only if the matrix is nonsingular.
+\end{proof}
+
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:proofofrowsofreflinind}
+Prove Theorem \ref{th:rowsofreflinind}.
+\end{problem}
+
+\begin{problem}\label{prob:proofofpivotcolslinind}
+Prove Theorem \ref{th:pivotcolslinind}.
+\end{problem}
+
+\begin{problem}\label{prob:proofoflinindandrank}
+Prove Theorem \ref{th:linindandrank}.
+\end{problem}
+
+\end{document} 

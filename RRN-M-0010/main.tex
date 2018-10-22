@@ -1,8 +1,7 @@
 \documentclass{ximera}
 
+\author{Anna Davis \and Rosemarie Emanuele} \title{RRN-0010: A Brief Introduction to $\RR^n$} \license{CC-BY 4.0}
 \input{../preamble.tex}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{A Brief Introduction to $\RR^n$} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,8 +10,8 @@
 \end{abstract}
 \maketitle
 
-
-The set of all real numbers is denoted by $\RR$.  It is convenient to associate real numbers with points on a line, called the {\it real number line}.   
+\section*{RRN-0010:  A Brief Introduction to $\RR^n$}
+The set of all real numbers is denoted by $\RR$.  It is convenient to associate real numbers with points on a line, called the \dfn{real number line}.   
 
 \begin{image}
 \begin{tikzpicture}
@@ -26,7 +25,7 @@ The set of all real numbers is denoted by $\RR$.  It is convenient to associate 
 \end{image}
 
 The set of all ordered pairs $(x, y)$, where $x$ and $y$ are real numbers is called $\RR^2$.  Using set notation we write:  
-$$\RR^2=\{(x, y)|x,y\in \RR\}$$
+$$\RR^2=\{(x, y):x,y\in \RR\}$$
 Geometrically speaking, $\RR^2$ can be associated with a coordinate plane in which we refer to each point by its $x$ and $y$ coordinates.
 \begin{image}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
@@ -45,7 +44,7 @@ ytick={-3,-2,...,3},]
 \end{tikzpicture}
 \end{image}
 The set of all ordered triples $(x, y, z)$, where $x$, $y$ and $z$ are real numbers,  is called $\RR^3$.  
-$$\RR^3=\{(x, y, z)|x,y, z\in \RR\}$$
+$$\RR^3=\{(x, y, z):x,y, z\in \RR\}$$
 Geometrically, points of $\RR^3$ are associated with points of a three-dimensional space whose position is given by their $x$, $y$ and $z$ coordinates.
 
 \begin{image}[2in]
@@ -58,7 +57,7 @@ Geometrically, points of $\RR^3$ are associated with points of a three-dimension
    \end{tikzpicture}
 \end{image}
 
-\begin{example} The following points are shown plotted in $\RR^3$.
+\begin{example}\label{ex:plotpointsr3} The following points are shown plotted in $\RR^3$.
 
   \begin{enumerate}
 \item
@@ -133,7 +132,7 @@ $R(-3, 9, -10)$
 \end{image}
 \end{example}
 
-Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are called {\it coordinate planes}.  Each coordinate plane is named after the axes that determine it.  Thus, we have the $xy$-plane, $xz$-plane, and $yz$-plane.  Coordinate planes intersect at the point $(0, 0, 0)$, called the \dfn{origin}, and subdivide $\RR^3$ into eight regions, called {\it octants}. 
+Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are called \dfn{coordinate planes}.  Each coordinate plane is named after the axes that determine it.  Thus, we have the $xy$-plane, $xz$-plane, and $yz$-plane.  Coordinate planes intersect at the point $(0, 0, 0)$, called the \dfn{origin}, and subdivide $\RR^3$ into eight regions, called \dfn{octants}. 
 
 \begin{image}[4in]
 \tdplotsetmaincoords{70}{130}
@@ -157,13 +156,13 @@ Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are 
 
 The set of all ordered $n$-tuples $(x_1, x_2, \ldots, x_n)$, where $x_i$ is a real number for $1\leq i\leq n$ is called $\RR^n$.
 $$\RR^n=\{(x_1, x_2,\ldots,x_n)|x_i\in \RR\, \text{for}\, 1\leq i\leq n\}$$
-The point $(0,0,\ldots, 0)$ in $\RR^n$ is called the {\it origin}. 
+The point $(0,0,\ldots, 0)$ in $\RR^n$ is called the \dfn{origin}. 
 
 $\RR^n$ cannot be visualized for $n>3$, but many familiar ideas, such as the distance formula, can be generalized to $\RR^n$. 
  
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:plotpointsr3}
 Find the coordinates of each point.
 
   \begin{image}[4.5in]
@@ -236,7 +235,7 @@ Answer:
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lengthprojr3}
 Imagine that a midday sun is shining directly down on the line segment connecting the origin with the point $(3,4,7)$. What is the length of the shadow (projection) that is formed in the $(x,y)$ plane?
 
 Answer: The length of the shadow is

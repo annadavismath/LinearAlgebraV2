@@ -1,22 +1,23 @@
 \documentclass{ximera}
 
-\author{Anna Davis \and Rosemarie Emanuele} \title{Introduction to Vectors} \license{CC-BY 4.0}
-
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0010: Introduction to Vectors} \license{CC-BY 4.0}
 \input{../preamble.tex}
 
 \begin{document}
 
 \begin{abstract}
- We introduce vectors, and notation associated with vectors in standard position.
+ We introduce vectors and notation associated with vectors in standard position.
 \end{abstract}
 \maketitle
 
 
+\section*{VEC-0010: Introduction to Vectors}
 
+\subsection*{What is a Vector?}
 
-\section*{What is a Vector?}
+A \dfn{scalar} is a quantity that has size, often called  magnitude, but no direction.  For example, temperature, mass and speed are scalars.  In this course, scalars will typically be real numbers, but we will also see complex numbers on a few occasions.  
 
-A \dfn{scalar} is a quantity that has size, often called  magnitude, but no direction.  For example, temperature, mass and speed are scalars.  A \dfn{vector} has magnitude and direction.  For example, velocity is a vector because it tells us how fast the object is traveling and also the direction of travel.  
+A \dfn{vector} has magnitude and direction.  For example, velocity is a vector because it tells us how fast the object is traveling and also the direction of travel.  
 
 If an object is traveling along a number line, the direction of travel is given by the sign of its velocity (positive or negative), while the speed is given by the absolute value of the velocity.  If the object is traveling in a plane or in space, direction of travel can be described by an arrow, while the speed can be represented by the length of the arrow.  Graphically speaking, vectors in $\RR^2$ and $\RR^3$ look like this: 
 
@@ -57,7 +58,7 @@ Sometimes it is convenient to refer to a vector by naming  the endpoints of the 
 \end{image}
 We refer to this vector as $\overrightarrow{AB}$.
 
-\section*{Vectors in Standard Position}
+\subsection*{Vectors in Standard Position}
 Vectors that point in the same direction and have the same length are said to be \dfn{equivalent}.  For example, vectors  $\vec{u}$, $\vec{v}$ and $\vec{w}$ in the figure below are equivalent.  We write $\vec{u}=\vec{v}=\vec{w}$.
 
  \begin{image}[2.5in]
@@ -73,7 +74,7 @@ Vectors that point in the same direction and have the same length are said to be
  \end{tikzpicture}
 \end{image}
  
-For the purpose of developing standard, convenient notation, we observe that every vector is equivalent to some vector whose tail is at the origin.  Vectors with tails at the origin are said to be in \dfn{ standard position}.  We will refer to each vector in standard position by the coordinates of its head.   For example, a vector in standard position whose head is located at the point $(2, 1)$ will be referred to as $[2, 1]$.  
+For the purpose of developing standard, convenient notation, we observe that every vector is equivalent to some vector whose tail is at the origin.  Vectors with tails at the origin are said to be in \dfn{ standard position}.  We will refer to each vector in standard position by the coordinates of its head.   For example, a vector in standard position whose head is located at the point $(2, 1)$ will be referred to as $\begin{bmatrix}2\\1\end{bmatrix}$.  
 
 \begin{image}[2.5in]
 \begin{tikzpicture}[scale=0.8]
@@ -84,23 +85,20 @@ For the purpose of developing standard, convenient notation, we observe that eve
  \draw[line width=1pt,-stealth](3,0)--(5,1)node[above left]{$\vec{u}$};
  \draw[line width=1pt,-stealth](4,2)--(6,3)node[above left]{$\vec{v}$};
  \draw[line width=1pt,-stealth](1,2)--(3,3)node[above left]{$\vec{w}$};
-  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above left]{$[2,1]$};
+  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above right]{$\begin{bmatrix}2\\1\end{bmatrix}$};
  \end{tikzpicture}
 \end{image}
 
 
 
-Vectors $\vec{u}, \vec{v}$ and $\vec{w}$ in the figure are equivalent to vector $[2,1]$.  We write $\vec{u}=\vec{v}=\vec{w}=[2,1]$.  Number $2$ is called the \dfn{first component} of the vector (or the $x$-component) while number $1$ is the \dfn{second component} (or the $y$-component).  The form $[2, 1]$ is called the \dfn{component form}.  
+Vectors $\vec{u}, \vec{v}$ and $\vec{w}$ in the figure are equivalent to vector $\begin{bmatrix}2\\1\end{bmatrix}$.  We write $\vec{u}=\vec{v}=\vec{w}=\begin{bmatrix}2\\1\end{bmatrix}$.  Number $2$ is called the \dfn{first component} of the vector (or the $x$-component) while number $1$ is the \dfn{second component} (or the $y$-component).  The form $\begin{bmatrix}2\\1\end{bmatrix}$ is called the \dfn{component form}.  
 
-Vector $[2, 1]$ is an example of a \dfn{row vector}.  Later we will find that representing this vector as a \dfn{column vector} $\begin{bmatrix}
-2\\
-1
- \end{bmatrix}$ is often more convenient.
+Vector $\begin{bmatrix}2\\1\end{bmatrix}$ is an example of a \dfn{column vector}.  Occasionally, we will find that representing this vector as a \dfn{row vector} $[2, 1]$ is more convenient.
 
 Column (or row) representation of vectors in component form allows us to go beyond the physical and geometric definition, and think of vectors more abstractly as arrays of numbers.
 
 Our next goal is to find a process for writing any vector in the coordinate plane in component form.  
-\begin{initprob}\label{init:headminustail}
+\begin{example}\label{init:headminustail}
 Consider vector $\vec{v}$ shown below.  We will express $\vec{v}$ in component form.
 
 \begin{image}[2in]
@@ -110,11 +108,9 @@ Consider vector $\vec{v}$ shown below.  We will express $\vec{v}$ in component f
   \draw[<->] (0,-2)--(0,4);
   
  \draw[line width=1pt,-stealth](2, -1)--(4, 2)node[above left]{$\vec{v}$};
- 
-%  \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$[2,3]$};
  \end{tikzpicture}
 \end{image}
-
+\begin{explanation}
 Note that the vector has a ``run" of $2$ and a ``rise" of $3$.  If we construct a vector with tail at the origin, a ``run" of $2$ and a ``rise" of $3$, we will have a vector in standard position equivalent to vector $\vec{v}$.
 \begin{image}[2in]
 \begin{tikzpicture}[scale=0.8]
@@ -124,14 +120,15 @@ Note that the vector has a ``run" of $2$ and a ``rise" of $3$.  If we construct 
   
  \draw[line width=1pt,-stealth](2, -1)--(4, 2)node[above left]{$\vec{v}$};
  
- \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$[2,3]$};
+ \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$\begin{bmatrix}2\\3\end{bmatrix}$};
  \end{tikzpicture}
 \end{image}
-The component form for the vector we constructed is $[2,3]$.  This gives us $\vec{v}=[2,3]$.
+The component form for the vector we constructed is $\begin{bmatrix}2\\3\end{bmatrix}$.  This gives us $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
+\end{explanation}
+\end{example}
+The approach we used in Example \ref{init:headminustail} is applicable to specific vectors that can easily be visualized.  What we need now is an algebraic approach that can be generalized to higher dimensions and more abstract situations.  
 
-The approach we used is applicable to specific vectors that can easily be visualized.  What we need is an algebraic approach that can be generalized to higher dimensions and more abstract situations.  
-
-Suppose we were to slide vector $\vec{v}$ into standard position. Consider what would happen to the tail of $\vec{v}$ as we do so.
+Let's return to vector $\vec{v}$ of Example \ref{init:headminustail}. Suppose we were to slide vector $\vec{v}$ into standard position. Consider what would happen to the tail of $\vec{v}$ as we do so.
 \begin{image}[2in]
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-2) grid (5,4);
@@ -182,18 +179,13 @@ What happens to the tail of the vector has to happen to the head
  \end{tikzpicture}
 \end{image}
 
-We subtracted $2$ from the $x$-coordinate and added $1$ to the $y$-coordinate of the tail. To find the new location of the head we subtract $2$ from the $x$-coordinate of the head, and add $1$ to the $y$-coordinate of the head.  This gives us  $(4-2, 2+1)$.  So, the new location of the head is $(2, 3)$, and $\vec{v}=[2, 3]$.
+We subtracted $2$ from the $x$-coordinate and added $1$ to the $y$-coordinate of the tail. To find the new location of the head we subtract $2$ from the $x$-coordinate of the head, and add $1$ to the $y$-coordinate of the head.  This gives us  $(4-2, 2+1)$.  So, the new location of the head is $(2, 3)$, and $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
 
 If you look back at what we did you will find that the components of $\vec{v}$ were computed by subtracting the coordinates of the tail from the coordinates of the head
-$$\vec{v}=[4-2, 2-(-1)]=[2, 3]$$
-\end{initprob}
+$$\vec{v}=\begin{bmatrix}4-2\\ 2-(-1)\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatrix}$$
 
-\begin{general}
-The following diagram summarizes and generalizes our findings in Exploration Problem \ref{init:headminustail}.
 
-Let $\overrightarrow{AB}$ be a vector in $\RR^2$, with tail at point $A(a_1, a_2)$ and head at point $B(b_1, b_2)$.
-
-As we slide $\overrightarrow{AB}$ into standard position by moving point $A$ to the origin, point $B$ travels along with point $A$ by undergoing the same horizontal and vertical shifts. 
+The following diagram summarizes and generalizes our findings.
 
 \begin{image}[2.5in]
 \begin{tikzpicture}[scale=0.8]
@@ -220,15 +212,13 @@ As we slide $\overrightarrow{AB}$ into standard position by moving point $A$ to 
  %\draw[line width=2pt,red,-stealth](0,0)--(2,3);
  \end{tikzpicture}
 \end{image}
-We now have an equivalent vector $\overrightarrow{A'B'}$ in standard position.
-$$\overrightarrow{A'B'}=\overrightarrow{AB}=[b_1-a_1, b_2-a_2]$$ 
-\end{general}
-
+Let $\overrightarrow{AB}$ be a vector in $\RR^2$, with tail at point $A(a_1, a_2)$ and head at point $B(b_1, b_2)$.
+As we slide $\overrightarrow{AB}$ into standard position by moving point $A$ to the origin, point $B$ travels along with point $A$ by undergoing the same horizontal and vertical shifts.  We now have an equivalent vector $\overrightarrow{A'B'}$ in standard position.  The diagram suggests the following formula.
 \begin{formula}
   [``Head - Tail'' Formula in $\RR^2$]\label{form:headminustailr2}
 Suppose a vector's tail is at point $A(a_1, a_2)$ and the vector's head is at $B(b_1, b_2)$, then 
 \begin{equation}\label{headtailr2}
-\overrightarrow{AB}=[b_1-a_1, b_2-a_2]
+\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\end{bmatrix}
 \end{equation}
 \end{formula}
 
@@ -236,8 +226,8 @@ Suppose a vector's tail is at point $A(a_1, a_2)$ and the vector's head is at $B
 
 
 
-\section*{Vectors in $\RR^3$}
-Definitions of standard position and component form for vectors in $\RR^3$ are analogous to their counterparts for vectors in $\RR^2$.  For example, vector $\overrightarrow{OP}$ in the figure below, is in standard position and can be written in component form as $\overrightarrow{OP}=[6,10,7]$.
+\subsection*{Vectors in $\RR^3$}
+Definitions of standard position and component form for vectors in $\RR^3$ are analogous to their counterparts for vectors in $\RR^2$.  For example, vector $\overrightarrow{OP}$ in the figure below, is in standard position and can be written in component form as $\overrightarrow{OP}=\begin{bmatrix}6\\10\\7\end{bmatrix}$.
 
  \begin{image}[4in]
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
@@ -280,47 +270,46 @@ If a vector is not in standard position but the location of its head and tail ar
   [``Head - Tail'' Formula in $\RR^3$]\label{form:headminustailr3}
 Suppose a vector's tail is at point $A(a_1, a_2, a_3)$ and the vector's head is at $B(b_1, b_2, b_3)$, then 
 \begin{equation}\label{headtailr3}
-\overrightarrow{AB}=[b_1-a_1, b_2-a_2,b_3-a_3]
+\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\b_3-a_3\end{bmatrix}
 \end{equation}
 \end{formula}
 
-\section*{Vectors in $\RR^n$}
-We cannot see $\RR^n$ for $n>3$, but we can conceptualize it by generalizing what we know about $\RR^2$ and $\RR^3$.  A vector $\vec{v}$ in standard position whose head is located at $(v_1, v_2, \ldots ,v_n)$ can be written in component form as $\vec{v}=[v_1, v_2, \ldots ,v_n]$.  If the location of the head and the tail of the vector are given, then we can find the component form by using the generalized ``Head -  Tail" formula.
+\subsection*{Vectors in $\RR^n$}
+We cannot see $\RR^n$ for $n>3$, but we can conceptualize it by generalizing what we know about $\RR^2$ and $\RR^3$.  A vector $\vec{v}$ in standard position whose head is located at $(v_1, v_2, \ldots ,v_n)$ can be written in component form as $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$.  
+
+The vector all of whose components are $0$ is called the \dfn{zero vector} and is denoted by $\vec{0}$.  The zero vector has zero magnitude and no direction.
+In standard position, the zero vector is a point at the origin.
+
+We conclude this section by stating the generalized ``Head -  Tail" formula.
 
 \begin{formula}
   [``Head - Tail'' Formula in $\RR^n$]\label{form:headminustailrn}
 Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's head is at $B(b_1, b_2, \ldots ,b_n)$, then 
 \begin{equation}\label{form:headtailrn}
-\overrightarrow{AB}=[b_1-a_1, b_2-a_2, \ldots ,b_n-a_n]
+\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\ \vdots \\b_n-a_n\end{bmatrix}
 \end{equation}
 \end{formula}
 
-
-
-
-
 \section*{Practice Problems}
 
-\begin{problem}
+\begin{problem}\label{prob:componentform}
 Sketch each pair of vectors described below.  Express each vector in component form. 
-  \begin{problem}
+  \begin{problem}\label{prob:componentform1}
 Vector $\vec{v}$ has a tail at $(-2,4)$ and a head at $(4,5)$. Vector $\vec{w}$ has a tail at $(8,-5)$ and a head at $(6,7)$.
 
 Answer:
-$$\vec{v}=[\answer{6}, \answer{1}]$$
-$$\vec{w}=[\answer{-2}, \answer{12}]$$
+$$\vec{v}=\begin{bmatrix}\answer{6}\\ \answer{1}\end{bmatrix},\quad\vec{w}=\begin{bmatrix}\answer{-2}\\ \answer{12}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:componentform2}
  Vector $\vec{v}$ has a tail at $(2,4,5)$ and a head at $(-2,4,8)$. Vector $\vec{w}$ has a tail at $(-3,4,5)$ and a head at $(7,7,8)$.
  
  Answer:
- $$\vec{v}=[\answer{-4},\answer{0},\answer{3}]$$
- $$\vec{w}=[\answer{10},\answer{3},\answer{3}]$$
+ $$\vec{v}=\begin{bmatrix}\answer{-4}\\\answer{0}\\\answer{3}\end{bmatrix},\quad\vec{w}=\begin{bmatrix}\answer{10}\\\answer{3}\\\answer{3}\end{bmatrix}$$
  \end{problem}
   \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:compformgivenlength}
 Express vector $\vec{v}$ shown in the figure  in component form if the magnitude (length) of $\vec{v}$ is $5$.
 
 \begin{image}[2in]
@@ -338,10 +327,10 @@ Express vector $\vec{v}$ shown in the figure  in component form if the magnitude
 \end{image}
 
 Answer:
-$$\vec{v}=[\answer{4},\answer{3}]$$
+$$\vec{v}=\begin{bmatrix}\answer{4}\\\answer{3}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem} Let $A(-2, 3)$, $B(3, 1)$ and $C(-1, -1)$.  Find point $D$ such that $\overrightarrow{AB}=\overrightarrow{CD}$.
+\begin{problem}\label{prob:compformpractice} Let $A(-2, 3)$, $B(3, 1)$ and $C(-1, -1)$.  Find point $D$ such that $\overrightarrow{AB}=\overrightarrow{CD}$.
 
 Answer:
 $$D(\answer{4}, \answer{-3})$$
