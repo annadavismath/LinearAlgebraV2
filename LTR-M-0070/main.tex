@@ -1,21 +1,7 @@
 \documentclass{ximera}
+\input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{Geometric Transformations of the Plane} \license{CC-BY 4.0}
-
-\renewcommand{\vec}[1]{{\bf #1}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\dfn}{\textit}
-\newcommand{\dotp}{\cdot}
-\newcommand{\id}{\text{id}}
-
-\newtheorem{general}{Generalization}
-\newtheorem{initprob}{Exploration Problem}
-\usepackage{tikz-cd}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{arrows}
-\pgfplotsset{compat=1.14}
-
-
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0070: Geometric Transformations of the Plane} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -23,7 +9,7 @@
 \end{abstract}
 \maketitle
 
-\section*{Introduction}
+\section*{LTR-0070: Geometric Transformations of the Plane}
 Digital image manipulation apps continue to increase in popularity.  To manipulate a digital image, we treat every pixel of the image as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of a non-linear transformation.
 
 \begin{image}
@@ -42,17 +28,18 @@ y
          \includegraphics[height=1.5in]{twobuildings.jpg}
 \end{image}
 
-\section*{Special Transformations of the Plane}
+
 We now consider several basic linear transformations and the standard matrices associated with them.  The key concept is that if we want to understand what a linear transformation does, it is enough to understand what it does to basis vectors, such as standard basis vectors $\vec{i}$ and $\vec{j}$.  Caution: we can get into trouble if we try to construct a standard matrix for a non-linear transformation by tracking images of $\vec{i}$ and $\vec{j}$, as you will see in one of the Practice Problems!  %However, the examples in this section are all linear transformations. 
 
 \subsection*{Horizontal and Vertical Scaling} 
 
 % \begin{initprob} We will attempt to find the standard matrix $M$ of a linear transformation $T$ that stretches the image in Figure \ref{fig:vstretch} vertically by a factor of 2.  The difficulty here is that we are not sure at this point whether this kind of transformation is linear.  So, what we will do is construct a candidate for the standard matrix, and then test it to see whether it accomplishes the stretch.
 
-\begin{initprob} Let us attempt to find the standard matrix $M$ of a transformation $T$ that stretches the image in Figure \ref{fig:vstretch} vertically by a factor of 2.  Assuming that this transformation is linear, we need to find what the transformation does to the standard basis vectors.  Once we have a candidate for the standard matrix, we will test it to make sure it accomplishes the stretch.
+\begin{exploration}\label{init:vertstretch} Let us attempt to find the standard matrix $M$ of a transformation $T$ that stretches an image vertically by a factor of 2, as shown in the figure below.  
 
 %\begin{figure}[h]
-\begin{image}[4in]   
+%\begin{image}[4in]   
+\begin{center}
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (6.25mm,0)
   {\includegraphics[width=25mm]{gulls.jpg}};
@@ -66,35 +53,38 @@ We now consider several basic linear transformations and the standard matrices a
 \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,2);
     \end{tikzpicture}
-\end{image}
-%\caption{The original photo of seagulls was stretched vertically by a factor of 2.}
-  \label{fig:vstretch} 
+    \end{center}
+%\end{image}
 %\end{figure}
 
+Assuming that this transformation is linear, we need to find what the transformation does to the standard basis vectors.  Once we have a candidate for the standard matrix, we will test it to make sure it accomplishes the stretch.
 
-%\begin{figure}[h]
-\begin{image}[4in]
+
+%\begin{image}[4in]
+\begin{center}
 \begin{tikzpicture}[scale=1.5]
 
   \draw[<->] (-0.5,0)--(2.5,0);
   \draw[<->] (0,-0.5)--(0,2.5);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=4mm]{$\vec{i}$}--(1,0);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=6mm, left=0mm]{$\vec{j}$}--(0,1);
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0);
+   \node[red] at (0.5, -0.2)   (a) {$\vec{i}$};
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,1);
+    \node[blue] at (-0.2, 0.5)   (b) {$\vec{j}$};
   \end{tikzpicture}
   \quad\quad
     \begin{tikzpicture}[scale=1.5]
-
 \draw[<->] (-0.5,0)--(2.5,0);
   \draw[<->] (0,-0.5)--(0,2.5);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=3mm]{$T(\vec{i})$}--(1,0);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=12mm, left=0mm]{$T(\vec{j})$}--(0,2);
+  \node[red] at (0.5, -0.2)   (a) {$T(\vec{i})$};
+  \node[blue] at (-0.3, 1)   (b) {$T(\vec{j})$};
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,2);
     
  \end{tikzpicture}
-\end{image}
-%\caption{Images of $\vec{i}$ and $\vec{j}$ under a vertical stretch.}
-  \label{fig:vstretchvectors} 
-%\end{figure}
-Consider what this transformation does to the standard unit vectors (see Figure \ref{fig:vstretchvectors}).  We observe that $T(\vec{i})=\vec{i}$ and $T(\vec{j})=2\vec{j}$.  This allows us to construct a candidate for the standard matrix $M$, by making the images of $\vec{i}$ and $\vec{j}$ the columns of $M$.  Thus, 
+ \end{center}
+%\end{image}
+
+Consider what this transformation does to the standard unit vectors.  We observe that $T(\vec{i})=\vec{i}$ and $T(\vec{j})=2\vec{j}$.  This allows us to construct a candidate for the standard matrix $M$, by making the images of $\vec{i}$ and $\vec{j}$ the columns of $M$.  Thus, 
 $$M=\begin{bmatrix}
 1 & 0\\
 0 & 2
@@ -106,15 +96,15 @@ $$M=\begin{bmatrix}
 0 & 2
 \end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}a\\2b\end{bmatrix}$$
  Thus, this transformation takes point $(a, b)$ to point $(a, 2b)$.  So, the proposed transformation doubles all $y$-coordinates resulting in a vertical stretch by a factor of 2.
-\end{initprob}
+\end{exploration}
 
 
 
 
 
 
-\begin{general} A vertical stretch (or compression) leaves $\vec{i}$ unchanged, and scales the vector $\vec{j}$ while preserving its vertical direction.  Thus, a vertical stretch (or compression) maps $\vec{i}$ to $\vec{i}$, and maps $\vec{j}$ to $k\vec{j}$ for some positive number $k$.  Similarly, a horizontal stretch (or compression) maps $\vec{i}$ to $k\vec{i}$, and maps $\vec{j}$ to $\vec{j}$.
-\end{general}
+ In general, a vertical stretch (or compression) leaves $\vec{i}$ unchanged, and scales the vector $\vec{j}$ while preserving its vertical direction.  Thus, a vertical stretch (or compression) maps $\vec{i}$ to $\vec{i}$, and maps $\vec{j}$ to $k\vec{j}$ for some positive number $k$.  Similarly, a horizontal stretch (or compression) maps $\vec{i}$ to $k\vec{i}$, and maps $\vec{j}$ to $\vec{j}$.
+
 
 \begin{formula}[Horizontal and Vertical Scaling] \label{form:horvertscaling}
   
@@ -140,7 +130,8 @@ In stating the above formula we stipulated that $k>0$.  If we were to allow $k$ 
 A \dfn{horizontal shear} is a transformation that takes an arbitrary point $(a, b)$ and maps it to the point $(a+kb, b)$.  The effect of this transformation is that all points along a fixed horizontal line slide to the left or to the right by a fixed amount.  Note that the higher the point $(a, b)$ is above the $x$-axis, the greater is the magnitude of $kb$, resulting in a greater amount of horizontal slide.
 
 %\begin{figure}[h]
-\begin{image}[4in]
+%\begin{image}[4in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 
   \draw[<->] (-2,0)--(4,0);
@@ -204,10 +195,8 @@ A \dfn{horizontal shear} is a transformation that takes an arbitrary point $(a, 
   \fill[orange] (3.5,3) circle (0.1cm);
  
  \end{tikzpicture}
-\end{image}
-%\caption{The action of a horizontal shear transformation $(k>0)$ on a sample of points in $\RR^2$.}
-  \label{fig:verticalshearex} 
-%\end{figure}
+%\end{image}
+\end{center}
 
 Adding a scalar multiple of the $y$ component to the $x$ component can be accomplished by matrix multiplication.  Observe that 
 $$\begin{bmatrix}
@@ -241,11 +230,11 @@ k & 1
 \end{equation}
 \end{formula}
 
-\begin{example} Find the standard matrix $M_{vs}$ of a linear transformation $T$ that {\it shears} the image of a seagull as shown in the figure below. %\ref{fig:vshears}. 
+\begin{example}\label{ex:vertshear1} Find the standard matrix $M_{vs}$ of a linear transformation $T$ that {\it shears} the image of a seagull as shown in the figure below. 
 
 %\begin{figure}[h]
-\begin{image}[4in]
-   
+%\begin{image}[4in]
+  \begin{center} 
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (6.25mm,0)
   {\includegraphics[width=25mm]{gull.jpg}};
@@ -257,43 +246,45 @@ k & 1
  \node[inner sep=0pt, anchor=base]  (stretchedgulls) at (6.25mm,0)
   {\includegraphics[width=25mm]{shearedgull.jpg}};
   
-  \draw (0.5,0)node[above=3mm, right=0mm]{$30^{\circ}$} arc (0:30:0.5) ;
+  \draw (0.5,0) arc (0:30:0.5);
+  \node[] at (0.75, 0.2)   (a) {$30^{\circ}$};
 
 \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,2);
     
  \end{tikzpicture}
-\end{image}
-%\caption{The original photo was sheared vertically.}
-  \label{fig:vshears} 
-%\end{figure}
+%\end{image}
+\end{center}
 
 \begin{explanation}
-Consider what this transformation does to the standard unit vectors. %(See Figure \ref{fig:verticalshearex})
+Consider what this transformation does to the standard unit vectors.
 
 %\begin{figure}[h]
 
-\begin{image}[4in]
+%\begin{image}[4in]
+\begin{center}
 \begin{tikzpicture}[scale=2]
 
   \draw[<->] (-0.5,0)--(1.5,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=6mm]{$\vec{i}$}--(1,0);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=0mm]{$\vec{j}$}--(0,1);
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,1);
+    \node[red] at (0.5, -0.1)   (a) {$\vec{i}$};
+  \node[blue] at (-0.1, 0.5)   (b) {$\vec{j}$};
   \end{tikzpicture}
    \quad\quad
 \begin{tikzpicture}[scale=2]
 
 \draw[<->] (-0.5,0)--(1.5,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-  \fill[] (1,0.58)node[above=1mm]{$(1,\tan 30^{\circ})$} circle (0.03cm);   
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=8mm]{$T(\vec{i})$}--(1,0.58);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=0mm]{$T(\vec{j})$}--(0,1);
+  \fill[] (1,0.58)node[above]{$(1,\tan 30^{\circ})$} circle (0.03cm);   
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0.58);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,1);
+    \node[red] at (0.65, 0.15)   (a) {$T(\vec{i})$};
+  \node[blue] at (-0.2, 0.5)   (b) {$T(\vec{j})$};
   \end{tikzpicture}
-  \end{image}
-%\caption{The action of a vertical shear transformation on the standard unit vectors.}
-  \label{fig:verticalshearex} 
-%\end{figure}
+%  \end{image}
+\end{center}
 
 The tip of the vector $\vec{i}$ slides up a vertical line and its $x$-component remains the same.  Vector $\vec{j}$ stays fixed.  We observe that $T(\vec{i})=\begin{bmatrix}
 1 \\
@@ -309,44 +300,6 @@ $$M_{vs}=\begin{bmatrix}
 \end{explanation}
 \end{example}
 
-%\begin{figure}[h]
-%\centering
-
-
-%\begin{tikzpicture}[scale=2]
-
-%\draw[<->] (-0.5,0)--(1.5,0);
- % \draw[<->] (0,-0.5)--(0,1.5);
- % \fill[] (1,0.58)node[above=1mm,right=1mm]{$(1,\tan \alpha)$} circle (0.03cm);   
-  % \draw[->,line width=1pt,red,-stealth](0,0)node[above=10mm, right=4mm]{$T(\vec{i})$}--(1,0.58);
-   % \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=0mm]{$T(\vec{j})$}--(0,1);
-    %\draw (0.5,0)node[above=3mm, right=0mm]{$\alpha$} arc (0:30:0.5) ;
- 
- %\end{tikzpicture}
-%\quad\quad
-%\begin{tikzpicture}[scale=2]
-
-%\draw[<->] (-0.5,0)--(1.5,0);
- % \draw[<->] (0,-0.5)--(0,1.5);
- % \fill[] (0.58,1)node[above=1mm,right=1mm]{$(\tan \beta ,1)$} circle (0.03cm);   
-  % \draw[->,line width=1pt,red,-stealth](0,0)node[below=3mm, right=6mm]{$T(\vec{i})$}--(1,0);
-   % \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm,right=6mm]{$T(\vec{j})$}--(0.58,1);
- %\draw (0.25,0.43)node[above=4mm, left=0mm]{$\beta$} arc (60:90:0.5) ;
- %\end{tikzpicture}
-
-%\caption{Graphical illustration of non-commutativity of matrix multiplication.}
- % \label{fig:verthorshears} 
-%\end{figure}
-
-
-
-%\begin{general} There are vertical and horizontal shears.  Figure \ref{fig:shear} shows the effect of shears on vectors $\vec{i}$ and $\vec{j}$.
-%\end{general}
-
-
-
-%A vertical shear leaves $\vec{j}$ fixed and maps $\vec{i}$ to $\begin{bmatrix}1\\\tan\alpha\end{bmatrix}$.  A horizontal shear fixes $\vec{i}$ and maps $\vec{j}$ to $\begin{bmatrix}\tan\beta\\1\end{bmatrix}$.  If we treat $\tan\alpha$ and $\tan\beta$ as simple constants, we get the following matrices that induce shears.
-
 
 
 \subsection*{Rotations about the Origin}
@@ -360,47 +313,50 @@ We are used to going through this verification algebraically.  In some situation
 The figure below illustrates the left-hand side of Equation \ref{eq:rotlintrans}.  Scalar multiples of $\vec{u}$ and $\vec{v}$ are added in the domain, then the sum is rotated through angle $\theta$ by $R_{\theta}$.
 
 %\begin{figure}[h]
-%\begin{center}
-\begin{image}[4.5in]
+\begin{center}
+%\begin{image}[4.5in]
 \begin{tikzpicture}[scale=0.8]
 
   \draw[<->] (-1,0)--(5,0);
   \draw[<->] (0,-1)--(0,5);
   \filldraw[blue, opacity=0.3](0,0)--(3,1)--(4.5,4)--(1.5,3)--cycle;
-  \draw[->,line width=1pt,-stealth, dashed](0,0)node[above=3mm, right=15mm]{$k_1\vec{u}$}--(3,1);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=0mm, right=6mm]{$\vec{u}$}--(1.5,0.5);
-   \draw[->,line width=1pt,-stealth, dashed](0,0)node[above=20mm, left=-8mm]{$k_2\vec{v}$}--(1.5,3);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=-4mm]{$\vec{v}$}--(1,2);
-    \draw[->,line width=1pt,-stealth](0,0)node[above=15mm, right=18mm]{$k_1\vec{u}+k_2\vec{v}$}--(4.5,4);
-  \end{tikzpicture}
+  \draw[->,line width=1pt,-stealth, dashed](0,0)--(3,1);
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1.5,0.5);
+   \draw[->,line width=1pt,-stealth, dashed](0,0)--(1.5,3);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(1,2);
+    \draw[->,line width=1pt,-stealth](0,0)--(4.5,4);
+    \node[red] at (1.2, 0.2)   (u) {$\vec{u}$};
+    \node[] at (3, 0.5)   (k1u) {$k_1\vec{u}$};
+    \node[] at (1, 3)   (k2v) {$k_2\vec{v}$};
+    \node[blue] at (0.5, 1.5)   (v) {$\vec{v}$};
+    \node[] at (3, 4)   (k1uk2v) {$k_1\vec{u}+k_2\vec{v}$};
+    \end{tikzpicture}
    \quad
 \begin{tikzpicture}[scale=0.8]
-\draw[->,line width=1pt,-stealth](0,0)node[above=15mm, left=18mm]{$R_{\theta}(k_1\vec{u}+k_2\vec{v})$}--(-4,4.5);
 \draw[<->] (-5,0)--(1,0);
   \draw[<->] (0,-1)--(0,5);
-  
+\draw[->,line width=1pt,-stealth](0,0)--(-4,4.5);
+\node[] at (-2, 4)   (tk1uk2v) {$R_{\theta}(k_1\vec{u}+k_2\vec{v})$};
   \end{tikzpicture}
- \end{image}
- % \end{center}
-%\caption{Vectors $k_1\vec{u}$ and $k_2\vec{v}$ are added in the domain, then $R_{\theta}$ is applied to the sum.}
-  \label{fig:rotlintransleft} 
-%\end{figure}
+% \end{image}
+\end{center} 
 
 The next figure  illustrates the right-hand side of Equation \ref{eq:rotlintrans}.  First, vectors $\vec{u}$ and $\vec{v}$ are rotated through angle $\theta$, then their images are scaled and added together.  
 
 
 %\begin{figure}[h]
 
-\begin{image}[4.5in]\label{fig:rotlintransright} 
+%\begin{image}[4.5in]\label{fig:rotlintransright} 
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 
   \draw[<->] (-1,0)--(5,0);
   \draw[<->] (0,-1)--(0,5);
+  \node[red] at (1.2, 0.2)   (u) {$\vec{u}$};
+    \node[blue] at (0.5, 1.5)   (v) {$\vec{v}$};
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1.5,0.5);
   
-  
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=0mm, right=6mm]{$\vec{u}$}--(1.5,0.5);
-  
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=-4mm]{$\vec{v}$}--(1,2);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(1,2);
    
   \end{tikzpicture}
    \quad
@@ -408,77 +364,74 @@ The next figure  illustrates the right-hand side of Equation \ref{eq:rotlintrans
 \draw[<->] (-5,0)--(1,0);
   \draw[<->] (0,-1)--(0,5);
   \filldraw[blue, opacity=0.3](0,0)--(-1,3)--(-4,4.5)--(-3,1.5)--cycle;
-  \draw[->,line width=1pt,-stealth, dashed](0,0)node[above=6mm, left=18mm]{$k_2R_{\theta}(\vec{v})$}--(-1,3);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=5mm, right=0mm]{$R_{\theta}(\vec{u})$}--(-0.5,1.5);
-   \draw[->,line width=1pt,-stealth, dashed](0,0)node[above=20mm, left=-8mm]{$k_1R_{\theta}(\vec{u})$}--(-3,1.5);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=3mm, left=8mm]{$R_{\theta}(\vec{v})$}--(-2,1);
-    \draw[->,line width=1pt,-stealth](0,0)node[above=20mm, left=20mm]{$k_1R_{\theta}(\vec{u})+k_2R_{\theta}(\vec{v})$}--(-4,4.5);
-  
+  \draw[->,line width=1pt,-stealth, dashed](0,0)--(-1,3);
+   \draw[->,line width=1pt,red,-stealth](0,0)--(-0.5,1.5);
+   \draw[->,line width=1pt,-stealth, dashed](0,0)--(-3,1.5);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(-2,1);
+    \draw[->,line width=1pt,-stealth](0,0)--(-4,4.5);
+  \node[] at (-2, 4.6)   (tk1uk2v) {$k_1R_{\theta}(\vec{u})+k_2R_{\theta}(\vec{v})$};
+  \node[blue] at (-2, 0.4)   (tv) {$R_{\theta}(\vec{v})$};
+  \node[red] at (0.5, 1)   (tu) {$R_{\theta}(\vec{u})$};
+  \node[] at (-0.8, 3.2)   (ktu) {$k_1R_{\theta}(\vec{u})$};
+  \node[] at (-3.4, 2)   (ktv) {$k_2R_{\theta}(\vec{v})$};
   \end{tikzpicture}
-  \end{image}
+  \end{center}
+  %\end{image}
   
   Because the diagonal of a parallelogram rotates with the parallelogram, it is clear that 
 $$R_{\theta}(k_1\vec{u}+k_2\vec{v})=k_1R_{\theta}(\vec{u})+k_2R_{\theta}(\vec{v})$$
 So, intuition tells us that $R_{\theta}$ is linear.
  
-%\caption{Vectors $\vec{u}$ and $\vec{v}$ are rotated individually, then scalar multiples of their images, $k_1R_{\theta}(\vec{u})$ and $k_2R_{\theta}(\vec{v})$, are added together.}
-  
-%\end{figure}
-
 Before we consider the general standard matrix of $R_{\theta}$, let's take a look at a specific example.
 
-\begin{example} Find the standard matrix $M_{\theta}$ of a linear transformation $R_{\theta}$ that rotates the image  by $45^{\circ}$ counterclockwise.
+\begin{example}\label{ex: rotate45} Find the standard matrix $M_{\theta}$ of a linear transformation $R_{\theta}$ that rotates the image  by $45^{\circ}$ counterclockwise.
 
-
-%\begin{figure}[h]
-
-\begin{image}[4in]
-    
+%\begin{image}[4in]
+ \begin{center}   
 		\begin{tikzpicture}[scale=1.3]
 \node[inner sep=0pt] (tower) at (0,0)
   {\includegraphics[width=45mm]{tower.jpg}};
   \draw[<->] (-2,0)--(2,0);
   \draw[<->] (0,-2)--(0,2);
-       \end{tikzpicture}
+       \end{tikzpicture}\quad
 \begin{tikzpicture}[scale=1.3]
 \node[inner sep=0pt] (tower) at (0,0)
   {\includegraphics[width=50mm]{rotatedtower.jpg}};
   \draw[<->] (-2,0)--(2,0);
   \draw[<->] (0,-2)--(0,2);
        \end{tikzpicture}
-\end{image}
+%\end{image}
+\end{center}
 
-%\caption{The original photo was rotated about the origin.}
-  \label{fig:rotationofpic} 
-%\end{figure}
+\begin{explanation}  Consider the action of $R_{\theta}$ on the standard unit vectors. 
 
-\begin{explanation}  Consider the action of $R_{\theta}$ on the standard unit vectors. %(See Figure \ref{fig:rotationex})
-
-%\begin{figure}[h]
-
-\begin{image}[4.5in]     
-\begin{tikzpicture}[scale=3]
-
+%\begin{image}[4.5in]   
+\begin{center}
+\begin{tikzpicture}[scale=2.2]
+    \node[red] at (0.5, -0.1)   (a) {$\vec{i}$};
+    \node[blue] at (-0.1, 0.5)   (b) {$\vec{j}$};
   \draw[<->] (-0.5,0)--(1.5,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=6mm]{$\vec{i}$}--(1,0);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=0mm]{$\vec{j}$}--(0,1);
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,1);
   \end{tikzpicture}
+  \quad
   \begin{tikzpicture}[scale=2.2]
-
-\draw[<->] (-1,0)--(1,0);
+\node[red] at (0.5, 0.2)   (a) {$T(\vec{i})$};
+    \node[blue] at (-0.5, 0.2)   (b) {$T(\vec{j})$};
+     \node[] at (-0.7, 0.9)   (c) {$(-\sin 45^{\circ}, \cos 45^{\circ})$};
+      \node[] at (0.7, 0.9)   (c) {$(\cos 45^{\circ}, \sin 45^{\circ})$};
   \draw[<->] (0,-0.5)--(0,1.5);
-  \fill[] (0.71,0.71)node[above=3mm, right=-10mm]{$(\cos 45^{\circ},\sin 45^{\circ})$} circle (0.03cm); 
-  \fill[] (-0.71,0.71)node[above=3mm,left=-10mm]{$(-\cos 45^{\circ}, \sin 45^{\circ})$} circle (0.03cm); 
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=4mm, right=6mm]{$T(\vec{i})$}--(0.71,0.71);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=4mm, left=6mm]{$T(\vec{j})$}--(-0.71,0.71);
+  \draw[<->] (-1,0)--(1,0);
+  \fill[] (0.71,0.71) circle (0.03cm); 
+  \fill[] (-0.71,0.71) circle (0.03cm); 
+   \draw[->,line width=1pt,red,-stealth](0,0)--(0.71,0.71);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(-0.71,0.71);
  
  \end{tikzpicture}
- \end{image}
+ %\end{image}
+\end{center}
 
-%\caption{The action of $R_{\theta}$ on the standard unit vectors.}
-  \label{fig:rotationex} 
-%\end{figure}
 
 
 We observe that $R_{\theta}(\vec{i})=\begin{bmatrix}
@@ -501,37 +454,45 @@ $$M_{\theta}=\begin{bmatrix}
 \end{explanation}
 \end{example}
 
-\begin{general} We find the standard rotation matrix by determining the images of vectors $\vec{i}$ and $\vec{j}$.
+In general, we find the standard rotation matrix by determining the images of vectors $\vec{i}$ and $\vec{j}$.
 
 
 
 %\begin{figure}[h]
-\begin{image}[4.5in]
+%\begin{image}[4.5in]
+\begin{center}
 \begin{tikzpicture}[scale=2.5]
   \draw[<->] (-0.5,0)--(1.5,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=3mm, right=6mm]{$\vec{i}$}--(1,0);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=8mm, left=0mm]{$\vec{j}$}--(0,1);
+  \node[red] at (0.5, -0.1)   (a) {$\vec{i}$};
+    \node[blue] at (-0.1, 0.5)   (b) {$\vec{j}$};
+   \draw[->,line width=1pt,red,-stealth](0,0)--(1,0);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(0,1);
   \end{tikzpicture}
+  \quad
 \begin{tikzpicture}[scale=2.5]
+\node[blue] at (-0.5, 0.5)   (a) {$R_{\theta}(\vec{j})$};
+\node[red] at (0.4, 0.4)   (b) {$R_{\theta}(\vec{i})$};
+
+\node[] at (0.9, 0.6)   (c) {$(\cos \theta,\sin \theta)$};
+\node[] at (-0.5, 1)   (d) {$(-\sin \theta, \cos \theta)$};
+
+\node[] at (-0.15, 0.55)   (a) {$\theta$};
+\node[] at (0.55, 0.15)   (b) {$\theta$};
 \draw[<->] (-1,0)--(1,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-  \fill[] (0.87,0.5)node[above=3mm, right=-10mm]{$(\cos \theta,\sin \theta)$} circle (0.03cm); 
-  \fill[] (-0.5, 0.87)node[above=3mm,left=-10mm]{$(-\sin \theta, \cos \theta)$} circle (0.03cm); 
-   \draw[->,line width=1pt,red,-stealth](0,0)node[above=9mm, right=2mm]{$R_{\theta}(\vec{i})$}--(0.87,0.5);
-    \draw[->,line width=1pt,blue,-stealth](0,0)node[above=6mm, left=4mm]{$R_{\theta}(\vec{j})$}--(-0.5, 0.87);
- \draw (0.5,0)node[above=3mm, right=0mm]{$\theta$} arc (0:30:0.5) ;
-  \draw (0,0.5)node[above=3mm, left=0mm]{$\theta$} arc (90:120:0.5) ;
+  \fill[] (0.87,0.5) circle (0.03cm); 
+  \fill[] (-0.5, 0.87) circle (0.03cm); 
+   \draw[->,line width=1pt,red,-stealth](0,0)--(0.87,0.5);
+    \draw[->,line width=1pt,blue,-stealth](0,0)--(-0.5, 0.87);
+ \draw (0.5,0) arc (0:30:0.5) ;
+  \draw (0,0.5) arc (90:120:0.5) ;
  \end{tikzpicture}
-\end{image}
-%\caption{Images of $\vec{i}$ and $\vec{j}$ under a counter-clockwise rotation about the origin.}
- % \label{fig:rotationij} 
-%\end{figure}
-\end{general}
+ \end{center}
+%\end{image}
 
-\begin{formula}[Counterclockwise Rotation]
-  
-  A linear transformation that rotates the plane counterclockwise through angle $\theta$ about the origin is induced by
+\begin{formula}[Counterclockwise Rotation]\label{form:rotation}
+    A linear transformation that rotates the plane counterclockwise through angle $\theta$ about the origin is induced by
 \begin{equation} \label{eq:rotation}
 M_{\theta}=\begin{bmatrix}
 \cos\theta & -\sin\theta\\
@@ -546,24 +507,23 @@ When a point is reflected about a line, its image is located on the opposite sid
 For example, the figure below shows the reflection of point $A$ about line $l$.  Note that the reflection lies on a line through $A$ perpendicular to $l$.
 
 %\begin{figure}[h]
-\begin{image}[2in]  
+%\begin{image}[2in]  
+\begin{center}
 \begin{tikzpicture}[scale=1.2]
 
-   \draw[line width=1pt](-1,2)node[below=2mm, left=1mm]{$l$}--(1,-2);
-  \draw[thin, dashed](-2,-1.5)node[below=2mm]{}--(2,0.5);
+   \draw[line width=1pt](-1,2)node[below, left]{$l$}--(1,-2);
+  \draw[thin, dashed](-2,-1.5)--(2,0.5);
   
-  \fill[red](1,0) circle (0.08)node[above=4mm, right=-1mm]{$A$};
-  \fill[](-0.6,-0.8) circle (0.08)node[above=5mm, left=-2mm]{};
+  \fill[red](1,0) circle (0.08)node[above]{$A$};
+  \fill[](-0.6,-0.8) circle (0.08);
     \end{tikzpicture}
-    \end{image}
-  % \caption{Reflection of point $A$ about line $l$.}
-   %     \label{fig:reflectdefinition}
-    %\end{figure}
-    
+    \end{center}
+ %   \end{image}
+ 
     Arguing in a manner similar to our discussion of linearity of rotations, we can see that reflections are also linear.  Our task is to find the matrix of a reflection of the plane about an arbitrary line through the origin.
   
 
-\begin{initprob}\label{init:reflectionxyaxes}
+\begin{exploration}\label{init:reflectionxyaxes}
 In this problem we will find the standard matrix for the reflection about the $x$ and $y$ axes.  You can easily do this on your own by finding the images of vectors $\vec{i}$ and $\vec{j}$.  
   
   We will start with the reflection about the $x$-axis.
@@ -582,30 +542,31 @@ $$\vec{i}=\begin{bmatrix}1\\0\end{bmatrix}\quad\text{maps to}\quad\begin{bmatrix
   Thus, the standard matrix that induces the reflection about the $y$-axis is
   $$\begin{bmatrix}\answer{-1}&\answer{0}\\\answer{0}&\answer{1}\end{bmatrix}$$
   
-  \end{initprob}
+  \end{exploration}
   
   Now we will turn our attention to transformations that reflect the plane about the line $y=mx$.  We will assume that $m\neq 0$.
   
   Consider the vector $\vec{i}$ and its reflection. 
 %\begin{figure}[h]
-\begin{image}[2.2in]
+%\begin{image}[2.2in]
+\begin{center}
 \begin{tikzpicture}[scale=1.2]
 
   \draw[<->] (-2,0)--(2,0);
   \draw[<->] (0,-2)--(0,2);
 
-  \draw[line width=1pt](-1,2)node[below=2mm, left=1mm]{$y=mx$}--(1,-2);
-  \draw[thin, dashed](-2,-1.5)node[below=2mm]{$y=-\frac{1}{m}x+\frac{1}{m}$}--(2,0.5);
-  
-  \draw[->,line width=1pt, -stealth, red](0,0)--(1,0)node[above=3mm, left=3mm]{$\vec{i}$};
-  \draw[->,line width=1pt, -stealth](0,0)--(-0.6,-0.8)node[above=5mm, left=-2mm]{$T(\vec{i})$};
+  \draw[line width=1pt](-1,2)node[below, left]{$y=mx$}--(1,-2);
+  \draw[thin, dashed](-2,-1.5)node[below]{$y=-\frac{1}{m}x+\frac{1}{m}$}--(2,0.5);
+  \node[red] at (0.5, 0.2)   (a) {$\vec{i}$};
+  \node[] at (-0.5, -0.2)   (b) {$T(\vec{i})$};
+  \draw[->,line width=1pt, -stealth, red](0,0)--(1,0);
+  \draw[->,line width=1pt, -stealth](0,0)--(-0.6,-0.8);
   \draw[dashed] (0,0) circle (1);
  
   \end{tikzpicture}
-  \end{image}
-%   \caption{Image of $\vec{i}$ under  $T$.}
- %       \label{fig:t1}
-  %  \end{figure}
+  \end{center}
+  %\end{image}
+
    
    
    
@@ -635,24 +596,24 @@ $$\vec{i}=\begin{bmatrix}1\\0\end{bmatrix}\quad\text{maps to}\quad\begin{bmatrix
    
 Next we need to find the image of $\vec{j}$. The head of $T(\vec{j})$ is located at one of the intersections of line $y=-\frac{1}{m}x+1$ and the circle $x^2+y^2=1$.  
    
-%    \begin{figure}[h]
- \begin{image}[2.2in]
+
+% \begin{image}[2.2in]
+\begin{center}
 \begin{tikzpicture}[scale=1.2]
 
   \draw[<->] (-2,0)--(2,0);
   \draw[<->] (0,-2)--(0,2);
  
-  \draw[line width=1pt](-1,2)--(1,-2)node[above=2mm, right=1mm]{$y=mx$};
-  \draw[thin, dashed](-2,0)--(2,2)node[below=4mm]{$y=-\frac{1}{m}x+1$};
-  
-  \draw[->,line width=1pt, -stealth, blue](0,0)--(0,1)node[below=6mm, right=1mm]{$\vec{j}$};
-  \draw[->,line width=1pt, -stealth](0,0)--(-0.8,0.6)node[above=2mm, left=1mm]{$T(\vec{j})$};
+  \draw[line width=1pt](-1,2)--(1,-2)node[above, right]{$y=mx$};
+  \draw[thin, dashed](-2,0)--(2,2)node[below,right]{$y=-\frac{1}{m}x+1$};
+  \node[blue] at (0.15, 0.5)   (a) {$\vec{j}$};
+  \draw[->,line width=1pt, -stealth, blue](0,0)--(0,1);
+  \draw[->,line width=1pt, -stealth](0,0)--(-0.8,0.6)node[above, left]{$T(\vec{j})$};
   \draw[dashed] (0,0) circle (1);
   \end{tikzpicture}
-  \end{image}
-%\caption{Image of $\vec{j}$ under $T$.}
- %       \label{fig:t2}
-  %  \end{figure}
+  \end{center}
+ % \end{image}
+
 
 We leave it to the reader to verify that
 \begin{equation}\label{eq:imageofj} T(\vec{j})=\begin{bmatrix}\frac{2m}{m^2+1}\\\frac{m^2-1}{m^2+1}\end{bmatrix}\end{equation}
@@ -681,30 +642,33 @@ M_{y=mx}=\frac{1}{1+m^2}\begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 \end{formula}
-Note that when $m=0$, expression (\ref{eq:reflectionymx}) is consistent with the reflection matrix you found in Exploration Problem \ref{init:reflectionxyaxes}
+Note that when $m=0$, expression (\ref{eq:reflectionymx}) is consistent with the reflection matrix you found in Exploration \ref{init:reflectionxyaxes}
 
 \begin{example}\label{ex:reflectedduck} Find the standard matrix $M$ of a linear transformation that reflects the image of the duck about the line $y=\frac{3}{5}x$.
 
 %\begin{figure}[h]
-\begin{image}[4in]
+%\begin{image}[4in]
+\begin{center}
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (6.25mm,0)
   {\includegraphics[width=25mm]{duck.jpg}};
   \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-  \draw[red,thick] (0,0)--(2,1.2)node[above=2mm, left=1mm]{$y=\frac{3}{5}x$};
+  \draw[red,thick] (0,0)--(2,1.2);
+  \node[red] at (1.5, 1.3)   (a) {$y=\frac{3}{5}x$};
        \end{tikzpicture}
-   \quad\quad
+   \quad
 \begin{tikzpicture}[scale=2]
  \node[inner sep=0pt, anchor=base]  (stretchedgulls) at (6.875mm,-4.2mm)
   {\includegraphics[width=27.5mm]{reflectedduck.jpg}};
-  
-\draw[red,thick] (0,0)--(2,1.2)node[above=2mm, left=1mm]{$y=\frac{3}{5}x$};
+  \node[red] at (1.5, 1.3)   (a) {$y=\frac{3}{5}x$};
+\draw[red,thick] (0,0)--(2,1.2);
 \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,1.5);
     
  \end{tikzpicture}
- \end{image}
+ \end{center}
+% \end{image}
 % \caption{The original photo of the duck was reflected about he line $y=\frac{3}{5}x$.}
 %  \label{fig:reflectedduck} 
 %\end{figure}
@@ -731,7 +695,7 @@ If a linear transformation is followed by another linear transformation, the res
 
 Remember that matrix multiplication is not commutative, so the order in which the matrices are multiplied is of utmost importance.
 
-\begin{initprob}\label{init:reflectioncomp}  In this problem we will consider compositions of two reflections and use geometry to illustrate non-commutativity of matrix multiplication.  
+\begin{exploration}\label{init:reflectioncomp}  In this problem we will consider compositions of two reflections and use geometry to illustrate non-commutativity of matrix multiplication.  
 Let $$T_{y=-2x}:\RR^2\rightarrow \RR^2$$ be a reflection about the line $y=-2x$.  Let $$T_{y=x}:\RR^2\rightarrow \RR^2$$ be a reflection about the line $y=x$. We will denote the standard matrices for these transformations by $M_{y=-2x}$ and $M_{y=x}$, and
 %$$M_{y=-2x}=\begin{bmatrix}
 %-3/5 & -4/5 \\
@@ -750,7 +714,8 @@ The figure on the left illustrates the action of $T_1$ on a single point $A$.  F
 The figure on the right shows the action of $T_2$ on the same point $A$.  The point is first reflected about the line $y=x$, followed by a reflection about the line $y=-2x$.  The final images of point $A$ under $T_1$ and $T_2$ are clearly different.
 
 %\begin{figure}[h]
-\begin{image}[4.5in]
+%\begin{image}[4.5in]
+\begin{center}
 \begin{tikzpicture}[scale=.3]
 \draw[thin,gray!40] (-8,-8) grid (8,8);
   \draw[<->] (-8,0)--(8,0);
@@ -779,14 +744,12 @@ The figure on the right shows the action of $T_2$ on the same point $A$.  The po
   \draw[line width=1pt,blue](-8,-8)--(8,8)node[below=4mm]{$y=x$} ;
   \draw[line width=1pt,red](-4,8)--(4,-8)node[above=2mm, right=1mm]{$y=-2x$} ;
  \end{tikzpicture}
-\end{image}
-%\caption{A graphical illustration of non-commutativity of matrix multiplication.}
-%  \label{fig:reflectioncomp} 
-%\end{figure}
+%\end{image}
+\end{center}
 
 Since $T_1\neq T_2$, we conclude that $M_{y=x}M_{y=-2x}\neq M_{y=-2x}M_{y=x}$.
 
-\end{initprob}
+\end{exploration}
 
 \begin{example}\label{ex:rotationscommute}
 Some pairs of matrices do commute.  For example, geometry makes it is easy to see that two rotation matrices commute.
@@ -819,11 +782,9 @@ $$M=\begin{bmatrix}\answer{2} & \answer{0}\\\answer{0} & \answer{3}\end{bmatrix}
 \end{problem}
 
 \begin{problem}\label{prob:shearedsheep}
-(Sheared Sheep) Find the standard matrix of the linear transformation shown in the figure. %\ref{fig:shearedsheep}.
-
-%\begin{figure}[h]
-\begin{image}[4in]
-   
+(Sheared Sheep) Find the standard matrix of the linear transformation shown in the figure. 
+%\begin{image}[4in]
+   \begin{center}
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (8.75mm,0)
   {\includegraphics[width=35mm]{sheep.jpg}};
@@ -835,17 +796,16 @@ $$M=\begin{bmatrix}\answer{2} & \answer{0}\\\answer{0} & \answer{3}\end{bmatrix}
  
  \node[inner sep=0pt, anchor=base]  (stretchedgulls) at (12.35mm,0)
   {\includegraphics[width=49.4mm]{shearedsheep.jpg}};
-  
- \draw (22.3mm,0)node[above=6mm, right=0mm]{$60^{\circ}$} arc (0:60:0.5) ;
+  \node[] at (2.4, 0.25)   (a) {$60^{\circ}$};
+ \draw (22.3mm,0) arc (0:60:0.5) ;
 
 \draw[<->] (-0.25,0)--(3,0);
   \draw[<->] (0,-0.25)--(0,1.8);
     
  \end{tikzpicture}
-\end{image}
-%\caption{Fill in the blank:  A sheep and a \rule{2cm}{0.5pt} sheep.}
-%  \label{fig:shearedsheep} 
-%\end{figure}
+ \end{center}
+%\end{image}
+
 \end{problem}
 
 \begin{problem}\label{prob:linestolines}
@@ -854,9 +814,9 @@ In the beginning of this module we claimed that linear transformations leave the
 
 \begin{problem}\label{prob:translation_does_not_work}
 
-Suppose a 1 by 1 photo of a chipmunk was shifted as shown in the figure. %\ref{fig:translation_does_not_work}.
-%\begin{figure}[h]
-\begin{image}[4.2in]  
+Suppose a 1 by 1 photo of a chipmunk was shifted as shown in the figure. 
+%\begin{image}[4.2in]  
+\begin{center}
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (6.25mm,0)
   {\includegraphics[width=25mm]{chipmunk.jpg}};
@@ -874,10 +834,8 @@ Suppose a 1 by 1 photo of a chipmunk was shifted as shown in the figure. %\ref{f
   \draw[->,red, line width=1mm, -stealth] (0mm,0mm)--(17.5mm,5mm)node[below right]{$(1.4, 0.4)$};
   \draw[->,blue, line width=1mm, -stealth] (0mm,0mm)--(5mm,17.5mm)node[above right]{$(0.4, 1.4)$};
     \end{tikzpicture}
-\end{image}
-%\caption{The chipmunk photo was shifted 0.4 units to the right and 0.4 units up.}
- % \label{fig:translation_does_not_work}
-%\end{figure}
+    \end{center}
+%\end{image}
 
 Suppose we tried to construct a standard matrix $M$ for this transformation by making the images of $\vec{i}$ and $\vec{j}$ the columns of $M$.  We would obtain
 $$M=\begin{bmatrix}1.4 & 0.4\\0.4 & 1.4\end{bmatrix}$$
@@ -909,7 +867,8 @@ The figure below shows a sequence of two linear transformations that accomplishe
   {\includegraphics[width=25mm]{duck.jpg}};
   \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,1.5);
-  \draw[red,thick] (0,0)--(2,1.2)node[above=2mm, left=1mm]{$y=\frac{3}{5}x$};
+  \draw[red,thick] (0,0)--(2,1.2);
+  \node[red] at (1.5, 1.3)   (a) {$y=\frac{3}{5}x$};
        \end{tikzpicture}
 \end{image}  
     
@@ -919,7 +878,8 @@ The figure below shows a sequence of two linear transformations that accomplishe
   {\includegraphics[width=25mm]{upsidedownduck.jpg}};
   \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-1.5)--(0,1.5);
-  \draw[red,thick] (0,0)--(2,1.2)node[above=2mm, left=1mm]{$y=\frac{3}{5}x$};
+  \draw[red,thick] (0,0)--(2,1.2);
+  \node[red] at (1.5, 1.3)   (a) {$y=\frac{3}{5}x$};
   \draw[dashed] (0,0)--(0.8,1.5)node[above=2mm, left=1mm]{};
        \end{tikzpicture}
  \end{image}  
@@ -930,37 +890,33 @@ The figure below shows a sequence of two linear transformations that accomplishe
   {\includegraphics[width=27.5mm]{reflectedduck.jpg}};
   
   
-\draw[red,thick] (0,0)--(2,1.2)node[above=2mm, left=1mm]{$y=\frac{3}{5}x$};
+\draw[red,thick] (0,0)--(2,1.2);
+\node[red] at (1.5, 1.3)   (a) {$y=\frac{3}{5}x$};
 \draw[<->] (-0.5,0)--(2,0);
   \draw[<->] (0,-0.5)--(0,1.5);
    \draw[dashed] (0,0)--(0.8,1.5)node[above=2mm, left=1mm]{}; 
  \end{tikzpicture}
 \end{image}
-%\caption{The photo was first reflected about the $x$-axis, then rotated about the origin.}
-%  \label{fig:duckcomp}
-%\end{figure}
- 
  \end{problem}
 
 
-%\section*{Photo Credits}
-%The following images are courtesy of \href{https://commons.wikimedia.org/wiki/Main_Page}
-%{Wikimedia Commons}
-%\vskip 10pt
-%\noindent Adrian Pingstone (Figures \ref{fig:reflect}, \ref{fig:duckcomp}), {\it A male Mandarin Duck at Slimbridge Wildfowl and Wetlands Centre, Gloucestershire, England.} Public Domain
-%\vskip 10pt
-%\noindent Ansgar Koreng (Figure \ref{fig:building}), {\it Facade of ARD-Hauptstadtstudio in Berlin-Mitte.} CC-BY 4.0
-%\vskip 10pt
-%\noindent Christoph Braun (Figure \ref{fig:rotation}), {\it Reflection of St. Michaelis Church in a window of St. Ansgar in Hamburg, Germany.} Public Domain.
-%\vskip 10pt
-%\noindent Daniel Gammert (Figure \ref{fig:vstretch}), {\it Red-billed Gulls Chroicocephalus novaehollandiae scopulinus. Brighton Beach, New Zealand.} Public Domain
-%\vskip 10pt
-%\noindent I, Tony Wills (Figure \ref{fig:vshear}), {\it Red billed gull in Wellington Harbour, Wellington, New Zealand.}  CC-BY
-%\vskip 10pt
-%\noindent Jackhynes (Figure \ref{fig:sheep}), {\it Lleyn sheep taken with a Sony Digital Camera at 3.2 megapixels in Devon, UK.} Public Domain
-%\vskip 10pt
+\section*{Photo Credits}
+The following images are courtesy of \href{https://commons.wikimedia.org/wiki/Main_Page}
+{Wikimedia Commons}
 
-%\noindent Thomas Bresson from Belfort, France (Figure \ref{fig:butterfly}), {\it Old World Swallowtail.} CC-BY
+Adrian Pingstone, {\it A male Mandarin Duck at Slimbridge Wildfowl and Wetlands Centre, Gloucestershire, England.} Public Domain
+
+Ansgar Koreng, {\it Facade of ARD-Hauptstadtstudio in Berlin-Mitte.} CC-BY 4.0
+
+Christoph Braun, {\it Reflection of St. Michaelis Church in a window of St. Ansgar in Hamburg, Germany.} Public Domain.
+
+Daniel Gammert, {\it Red-billed Gulls Chroicocephalus novaehollandiae scopulinus. Brighton Beach, New Zealand.} Public Domain
+
+ I, Tony Wills, {\it Red billed gull in Wellington Harbour, Wellington, New Zealand.}  CC-BY
+
+Jackhynes, {\it Lleyn sheep taken with a Sony Digital Camera at 3.2 megapixels in Devon, UK.} Public Domain
+
+Thomas Bresson from Belfort, France, {\it Old World Swallowtail.} CC-BY
 
 
 
