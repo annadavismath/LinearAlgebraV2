@@ -2,20 +2,7 @@
 
 \author{Anna Davis \and Paul Zachlin} \title{Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
 
-\renewcommand{\vec}[1]{{\bf #1}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\dfn}{\textit}
-\newcommand{\dotp}{\cdot}
-\newcommand{\id}{\text{id}}
-
-\newtheorem{general}{Generalization}
-\newtheorem{initprob}{Exploration Problem}
-\usepackage{tikz-cd}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{arrows}
-\pgfplotsset{compat=1.14}
-
-
+\input{../preamble.tex}
 
 \begin{document}
 \begin{abstract}
@@ -49,7 +36,6 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
 
 \begin{center}
 \begin{tikzpicture}
-\node{
 \begin{tikzcd}
 \vec{v}_1 \arrow[rd, mapsto]  & \\
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
@@ -60,7 +46,6 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
 & T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
 \vec{v}_2 \arrow[ru, mapsfrom]  &
 \end{tikzcd}
-};
 \end{tikzpicture}
 \end{center}
 %\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
@@ -71,6 +56,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 
 %\begin{figure}[h]
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -79,6 +65,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}\quad
+\end{tikzpicture}
 %\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
   \label{fig:notonto} 
 %\end{figure}
@@ -149,6 +136,7 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 \end{center}
 
 \begin{center}
+\begin{tikzpicture}
 \begin{tikzcd}
   & \vec{b} \\
 \vec{v} \arrow[r, mapsto] & T(\vec{v})
@@ -157,6 +145,7 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 ? \arrow[r, mapsfrom] & \vec{b} \\
 \vec{v} \arrow[r, mapsfrom] & T(\vec{v})
 \end{tikzcd}
+\end{tikzpicture}
 \end{center}
 
 
@@ -233,7 +222,7 @@ Observe that $A$ is invertible, and $$A^{-1}=\begin{bmatrix}1&0\\-2&1\end{bmatri
 
 Let $\vec{b}$ be an element of $\RR^2$.  We need to show that there exists $\vec{x}$ in $\RR^3$ such that $T(\vec{x})=A\vec{x}=\vec{b}$. 
 Observe that
- $$\textnormal{rref}(A)=\begin{bmatrix}1 & 0 & -2\\0 & 1 & 1\end{bmatrix}$$
+ $$\mbox{rref}(A)=\begin{bmatrix}1 & 0 & -2\\0 & 1 & 1\end{bmatrix}$$
  This means that $A\vec{x}=\vec{b}$ has a solution (in fact, it has infinitely many solutions).  Therefore $\vec{b}$ is an image of some $\vec{x}$ in $\RR^3$. We conclude that $T$ is onto. 
  
  

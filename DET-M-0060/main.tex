@@ -1,10 +1,8 @@
 \documentclass{ximera}
-\usepackage{../OERLinearAlgebra}
-
-
-\usepackage{mathtools}
 
 \author{Anna Davis \and Rosemarie Emanuele} \title{Determinants and Inverses of Nonsingular Matrices} \license{CC-BY 4.0}
+
+\input{../preamble.tex}
 
 \begin{document}
 
@@ -219,7 +217,7 @@ We summarize our result as a theorem
 
 \begin{theorem}\label{th:adjointinverseformula}
 Let $A$ be a nonsingular square matrix, then
-$$A^{-1}=\frac{1}{\det{A}}\textnormal{adj}(A)$$
+$$A^{-1}=\frac{1}{\det{A}}\mbox{adj}(A)$$
 \end{theorem}
 
 \begin{example}
@@ -228,15 +226,15 @@ $$A=\begin{bmatrix}1&-1&2\\1&1&1\\1&3&-1\end{bmatrix}$$
 \begin{explanation}
 We begin by finding $\det{A}$
 $$\det{A}=\answer{-2}$$
-The first column of $\textnormal{adj}(A)$ has entries $C_{11}$, $C_{12}$ and $C_{13}$.
+The first column of $\mbox{adj}(A)$ has entries $C_{11}$, $C_{12}$ and $C_{13}$.
 $$C_{11}=(-1)^{1+1}\begin{vmatrix}1&1\\3&-1\end{vmatrix}=\answer{-4}$$
 $$C_{12}=(-1)^{1+2}\begin{vmatrix}1&1\\1&-1\end{vmatrix}=\answer{2}$$
 $$C_{13}=(-1)^{1+3}\begin{vmatrix}1&1\\1&3\end{vmatrix}=\answer{2}$$
-The second column of $\textnormal{adj}(A)$ has entries $C_{21}$, $C_{22}$ and $C_{23}$.
+The second column of $\mbox{adj}(A)$ has entries $C_{21}$, $C_{22}$ and $C_{23}$.
 $$C_{21}=(-1)^{2+1}\begin{vmatrix}\answer{-1}&\answer{2}\\\answer{3}&\answer{-1}\end{vmatrix}=\answer{5}$$
 $$C_{22}=(-1)^{2+2}\begin{vmatrix}\answer{1}&\answer{2}\\\answer{1}&\answer{-1}\end{vmatrix}=\answer{-3}$$
 $$C_{23}=(-1)^{2+3}\begin{vmatrix}\answer{1}&\answer{-1}\\\answer{1}&\answer{3}\end{vmatrix}=\answer{-4}$$
-Now we compute the third column of $\textnormal{adj}(A)$.
+Now we compute the third column of $\mbox{adj}(A)$.
 $$C_{31}=\answer{-3}$$
 $$C_{32}=\answer{1}$$
 $$C_{33}=\answer{2}$$
@@ -295,6 +293,6 @@ Use Theorem \ref{th:adjointinverseformula} to find the inverse of each of the fo
 
 \begin{problem}
 Show that the formula in (\ref{eq:twobytwoinverse}) is a special case of the formula in Theorem \ref{th:adjointinverseformula} by showing that 
-$$\textnormal{adj}\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
+$$\mbox{adj}\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
 \end{problem}
 \end{document} 

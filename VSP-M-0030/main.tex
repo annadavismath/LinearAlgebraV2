@@ -1,12 +1,6 @@
 \documentclass{ximera}
 
-\usepackage{..\OERLinearAlgebra}
-
-
-\usepackage{mathtools}
-\usepackage{tikz-3dplot}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{arrows}
+\input{../preamble.tex}
 
 \author{Anna Davis \and Paul Zachlin} \title{Introduction to Bases} \license{CC-BY 4.0}
 
@@ -24,14 +18,13 @@ $$\vec{u}=2\begin{bmatrix}1\\0\end{bmatrix}+5\begin{bmatrix}0\\1\end{bmatrix}=2\
 In fact, any vector $\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}$ of $\RR^2$ can be written as a linear combination of $\vec{i}$ and $\vec{j}$:
 $$\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}=a\vec{i}+b\vec{j}$$
 This gives us an alternative way of interpreting the component notation:
+
 $$\left[\begin{array}{c}  
  a\\b
  \end{array}\right]
  \begin{array}{c}
- 
  \longleftarrow\\
  \longleftarrow
-
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of $\vec{i}$}\\\mbox{coefficient in front of $\vec{j}$}
@@ -45,10 +38,8 @@ $$\left[\begin{array}{c}
  5\\2
  \end{array}\right]
  \begin{array}{c}
- 
  \longleftarrow\\
  \longleftarrow
-
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}
@@ -101,10 +92,8 @@ $$\left[\begin{array}{c}
  2\\1
  \end{array}\right]
  \begin{array}{c}
- 
  \longleftarrow\\
  \longleftarrow
-
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}

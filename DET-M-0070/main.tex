@@ -1,9 +1,6 @@
 \documentclass{ximera}
-\usepackage{..\OERLinearAlgebra}
 
-\newcommand\norm[1]{\left\lVert#1\right\rVert}
-\usepackage{mathtools}
-\usepackage{tikz-3dplot}
+\input{../preamble.tex}
 
 \author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Determinants as Areas and Volumes} \license{CC-BY 4.0}
 
@@ -101,11 +98,11 @@ As shown in the diagram below, the length of the base is the magnitude of $\vec{
 \end{tikzpicture}
 \end{image}
 Using the area of a parallelogram formula together with Theorem \ref{th:crossproductsin} we get
-$$\textnormal{Area}=(\text{base})(\text{height})=\norm{\vec{u}}h=\norm{\vec{u}}\norm{\vec{v}}\sin\theta=\norm{\vec{u}\times\vec{v}}$$
+$$\mbox{Area}=(\text{base})(\text{height})=\norm{\vec{u}}h=\norm{\vec{u}}\norm{\vec{v}}\sin\theta=\norm{\vec{u}\times\vec{v}}$$
 We have established the following formula.
 
 \begin{formula}\label{form:areaofparallelogram} The area of a parallelogram determined by vectors $\vec{u}$ and $\vec{v}$ in $\RR^3$ is given by
-$$\textnormal{Area}=\norm{\vec{u}\times\vec{v}}$$
+$$\mbox{Area}=\norm{\vec{u}\times\vec{v}}$$
 \end{formula}
 
 \begin{example}\label{ex:areaofparallelogram}
@@ -131,7 +128,7 @@ $$\begin{bmatrix}4\\2\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}-2\\2\end{b
 The problem we run into is that these vectors are in $\RR^2$, whereas the cross product is defined only for vectors in $\RR^3$.  We will get around this difficulty by ``padding" our vectors with zeros on the bottom.  In other words, we will consider them as vectors sitting in the $xy$-coordinate plane in $\RR^3$.  This allows us to compute the cross product 
 $$\begin{bmatrix}4\\2\\0\end{bmatrix}\times\begin{bmatrix}-2\\2\\0\end{bmatrix}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\4&2&0\\-2&2&0\end{vmatrix}=\vec{k}\Big((4)(2)-(2)(-2)\Big)=12\vec{k}=\begin{bmatrix}0\\0\\12\end{bmatrix}$$
 The area of the parallelogram is then given by
-$$\textnormal{Area}=\norm{\begin{bmatrix}0\\0\\12\end{bmatrix}}=12$$
+$$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\12\end{bmatrix}}=12$$
 \end{explanation}
 \end{example}
 \begin{general}
@@ -140,12 +137,12 @@ $$\begin{bmatrix}a\\b\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}c\\d\end{bm
 then the area of the parallelogram can be computed as follows:
 $$\begin{bmatrix}a\\b\\0\end{bmatrix}\times\begin{bmatrix}c\\d\\0\end{bmatrix}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\a&b&0\\c&d&0\end{vmatrix}=\vec{k}\begin{vmatrix}a&b\\c&d\end{vmatrix}=\vec{k}\Big((a)(d)-(b)(c)\Big)=\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}$$
 
-$$\textnormal{Area}=\norm{\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}}=|ad-bc|=\Big|\det\begin{bmatrix}a&b\\c&d\end{bmatrix}\Big|$$
+$$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}}=|ad-bc|=\Big|\det\begin{bmatrix}a&b\\c&d\end{bmatrix}\Big|$$
 
 So the area of the parallelogram turns out to be the absolute value of the determinant of the matrix whose rows are the two vectors that determine the parallelogram. 
 The following formula summarizes our discussion.
 \begin{formula}\label{form:areaofparallelogramdeterminant} Let $\vec{u}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}c\\d\end{bmatrix}$ be vectors of $\RR^2$.  The area of the parallelogram determined by $\vec{u}$ and $\vec{v}$ is given by
-$$\textnormal{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|$$
+$$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|$$
 \end{formula}
 \end{general}
 
@@ -207,9 +204,9 @@ Consider a parallelepiped determined by vectors $\vec{u}$, $\vec{v}$ and $\vec{w
 \end{image}
 
 The volume of a parallelepiped is given by 
-$$\textnormal{Volume}=(\text{area of base})(\text{height})$$
+$$\mbox{Volume}=(\text{area of base})(\text{height})$$
 We will consider the parallelogram determined by $\vec{u}$ and $\vec{v}$ to be the base of the parallelepiped.  Thus, the area of the base is given by 
-$$\textnormal{Area of Base}=\norm{\vec{u}\times\vec{v}}$$
+$$\mbox{Area of Base}=\norm{\vec{u}\times\vec{v}}$$
 \begin{image}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
@@ -240,12 +237,12 @@ $$\textnormal{Area of Base}=\norm{\vec{u}\times\vec{v}}$$
 The height of the parallelepiped is measured along a line perpendicular to the base.  By Theorem \ref{th:crossproductorthtouandv}, $\vec{u}\times\vec{v}$ lies on such a line.  Let $\theta$ be the angle between $\vec{w}$ and $\vec{u}\times\vec{v}$, $0\leq \theta\leq\pi$.  Then the height, $h$, of the parallelepiped is given by 
 $$h=\norm{\vec{w}}|\cos\theta |$$
 This gives us the following formula for the volume of the parallelepiped
-$$\textnormal{Volume}=\norm{\vec{u}\times\vec{v}}\norm{\vec{w}}|\cos\theta |=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
+$$\mbox{Volume}=\norm{\vec{u}\times\vec{v}}\norm{\vec{w}}|\cos\theta |=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
 
 We have established the following formula.
 \begin{formula}
 The volume of a parallelepiped determined by vectors $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $\RR^3$ is given by\\
-$$\textnormal{Volume}=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
+$$\mbox{Volume}=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
 \end{formula}
 
 Our next goal is to show that this expression for the volume is equal to the determinant of a $3\times 3$ matrix whose rows are the vectors that determine the parallelepiped.
@@ -259,7 +256,7 @@ The expression in (\ref{eq:boxproduct}) is sometimes referred to as the \dfn{box
 
 \begin{formula}
 Let $\vec{u}=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix},\quad\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix},\quad\vec{w}=\begin{bmatrix}w_1\\w_2\\w_3\end{bmatrix}$ be vectors in $\RR^3$.  Then the volume of the parallelepiped determined by $\vec{u}$, $\vec{v}$ and $\vec{w}$ is given by 
-$$\textnormal{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{bmatrix}\Big|$$
+$$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{bmatrix}\Big|$$
 \end{formula}
 
 \section*{Practice Problems}
@@ -276,7 +273,7 @@ Supply the intermediate steps in (\ref{eq:boxproduct}).
 \begin{problem}
 Find the volume of a parallelepiped determined by 
 $$\begin{bmatrix}0\\5\\4\end{bmatrix}\quad\begin{bmatrix}3\\1\\2\end{bmatrix}\quad\begin{bmatrix}1\\1\\6\end{bmatrix}$$
-Answer: $\textnormal{Volume}=\answer{72}$
+Answer: $\mbox{Volume}=\answer{72}$
 \end{problem}
 
 \begin{problem}
@@ -284,7 +281,7 @@ Find the volume of a parallelepiped determined by
 $$\begin{bmatrix}1\\4\\-1\end{bmatrix}\quad\begin{bmatrix}3\\-2\\4\end{bmatrix}\quad\begin{bmatrix}5\\6\\2\end{bmatrix}$$
 Explain your result geometrically.
 
-Answer: $\textnormal{Volume}=\answer{0}$
+Answer: $\mbox{Volume}=\answer{0}$
 \end{problem}
 
 
