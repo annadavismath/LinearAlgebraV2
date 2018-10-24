@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0035: Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -10,67 +9,76 @@
 \end{abstract}
 \maketitle
 
-%Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
+{\bf Note to Student:}  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
-
-\section*{Existence of Inverses}
+\section{LTR-0035: Existence of the Inverse of a Linear Transformation}
 
 In Exploration Problem \ref{ep:inverse} of LTR-M-0030 we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
- \begin{center}
- \begin{tikzpicture}
-\node{
-\begin{tikzcd}[column sep=9em, row sep=huge]
-\vec{v} \arrow[r,bend left, "T\,\text{doubles each input}", shift left, mapsto] \arrow[r,bend right, "S\, \text{halves each input}"',shift right, mapsfrom] & 2\vec{v}
-\end{tikzcd}
-};
-\end{tikzpicture}
-\end{center}
+ 
+\begin{center}
+\begin{tikzpicture}
+ \node[] at (0, -1.2)  (top)    {$T$ doubles each input};
+ \node[] at (-3, -2.5)  (left1)    {$\vec{v}$};
+ \node[] at (3, -2.5)  (right1)    {$2\vec{v}$};
+ \node[] at (0, -3.7)  (bottom)    {$S$ halves each input};
+  \draw [->,line width=0.5pt,-stealth]  (left1.north east)to[out=30, in=150](right1.north west);
+ \draw [->,line width=0.5pt,-stealth]  (right1.south west)to[out=210, in=330](left1.east);
+ \end{tikzpicture}
+ \end{center} 
 
 This gives us a way of thinking about an inverse of $T$ as a transformation that ``undoes" the action of $T$ by ``reversing" the mapping arrows.  We will now use these intuitive ideas to understand which linear transformations are invertible and which are not.
 
 Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arrows"
  may not always result in a transformation. Recall that transformations are functions.  The figures below show two ways in which our attempt to ``reverse" $T$ may fail to produce a function.
  
- First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$ in $W$, then reversing the arrows gives us a mapping that is clearly not a function. %(See Figure \ref{fig:notonetoone}) 
+ First, if two distinct vectors $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$ in $W$, then reversing the arrows gives us a mapping that is clearly not a function. 
  
 
 \begin{center}
 \begin{tikzpicture}
-\begin{tikzcd}
-\vec{v}_1 \arrow[rd, mapsto]  & \\
-& T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
-\vec{v}_2 \arrow[ru, mapsto]  &
-\end{tikzcd}\quad
-\begin{tikzcd}
-\vec{v}_1 \arrow[rd, mapsfrom]  & \\
-& T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
-\vec{v}_2 \arrow[ru, mapsfrom]  &
-\end{tikzcd}
-\end{tikzpicture}
-\end{center}
-%\caption{One input, $\vec{w}$, produces two outputs, $\vec{v}_1$ and $\vec{v}_2$.}
-%  \label{fig:notonetoone} 
+ \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+ \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+   \draw [->,line width=0.5pt,-stealth]  (topleft.east) to (cleft1.north west);
+  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.south west);
+ \end{tikzpicture}
+ \end{center} 
+ 
+ \begin{center}
+\begin{tikzpicture}
+ \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+ \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+   \draw [->,line width=0.5pt,-stealth]  (cleft1.north west) to (topleft.east);
+  \draw [->,line width=0.5pt,-stealth]  (cleft1.south west) to (bottomleft.east);
+ \end{tikzpicture}
+ \end{center} 
   
 
-Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, LTR-M-0030)  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. %(See Figure \ref{fig:notonto}.)
+Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, LTR-M-0030)  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. 
 
-%\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
-\begin{tikzcd}
-  & \vec{b} \\
-\vec{v} \arrow[r, mapsto] & T(\vec{v})
-\end{tikzcd}\quad\quad
-\begin{tikzcd}
-? \arrow[r, mapsfrom] & \vec{b} \\
-\vec{v} \arrow[r, mapsfrom] & T(\vec{v})
-\end{tikzcd}\quad
-\end{tikzpicture}
-%\caption{$\vec{b}$ is in $W$, but cannot be in the domain of an inverse of $T$.}
-  \label{fig:notonto} 
-%\end{figure}
-\end{center}
-
+ \node[] at (0, 1)  (topleft)    {$\vec{b}$};
+ \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+  \node[gray] at (2, 1)  (comment)    {(Nothing maps to $\vec{b}$)};
+  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.west);
+ \end{tikzpicture}
+ \end{center}
+ 
+ \begin{center}
+\begin{tikzpicture}
+ \node[] at (0, 1)  (topright)    {$\vec{b}$};
+ \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+ \node[] at (-2, 1)  (topleft)    {?};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+ \node[gray] at (-6, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
+  
+  \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
+  \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
+ \end{tikzpicture}
+ \end{center}
 
 
 We now illustrate these potential issues with specific examples.
@@ -120,38 +128,54 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 
 \begin{center}
 \begin{tikzpicture}
-\node{
-\begin{tikzcd}
-\vec{v}_1 \arrow[rd, mapsto]  & \\
-& T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
-\vec{v}_2 \arrow[ru, mapsto]  &
-\end{tikzcd}\quad
-\begin{tikzcd}
-\vec{v}_1 \arrow[rd, mapsfrom]  & \\
-& T(\vec{v}_1)=T(\vec{v}_1)=\vec{w}\\
-\vec{v}_2 \arrow[ru, mapsfrom]  &
-\end{tikzcd}
-};
-\end{tikzpicture}
-\end{center}
+ \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+ \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+ 
+ \node[gray] at (-5, 0)  (comment)    {(Two distinct elements map to $\vec{w}$)};
+   \draw [->,line width=0.5pt,-stealth]  (topleft.east) to (cleft1.north west);
+  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.south west);
+ \end{tikzpicture}
+ \end{center} 
+ 
+ \begin{center}
+\begin{tikzpicture}
+ \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+ \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+ \node[gray] at (-6, 0)  (comment)    {(Reversing the arrows does not produce a function)};
+   \draw [->,line width=0.5pt,-stealth]  (cleft1.north west) to (topleft.east);
+  \draw [->,line width=0.5pt,-stealth]  (cleft1.south west) to (bottomleft.east);
+ \end{tikzpicture}
+ \end{center} 
+  
 
 \begin{center}
 \begin{tikzpicture}
-\begin{tikzcd}
-  & \vec{b} \\
-\vec{v} \arrow[r, mapsto] & T(\vec{v})
-\end{tikzcd}\quad\quad
-\begin{tikzcd}
-? \arrow[r, mapsfrom] & \vec{b} \\
-\vec{v} \arrow[r, mapsfrom] & T(\vec{v})
-\end{tikzcd}
-\end{tikzpicture}
-\end{center}
-
+ \node[] at (0, 1)  (topleft)    {$\vec{b}$};
+ \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+  \node[gray] at (2, 1)  (comment)    {(Nothing maps to $\vec{b}$)};
+  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.west);
+ \end{tikzpicture}
+ \end{center}
+ 
+ \begin{center}
+\begin{tikzpicture}
+ \node[] at (0, 1)  (topright)    {$\vec{b}$};
+ \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+ \node[] at (-2, 1)  (topleft)    {?};
+ \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+ \node[gray] at (-6, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
+  
+  \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
+  \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
+ \end{tikzpicture}
+ \end{center}
 
 \subsection*{One-to-one Linear Transformations}
 
-\begin{definition}[One-to-One]\label{def:onetoone} A linear transformation $T:V\rightarrow W$ is one-to-one if 
+\begin{definition}[One-to-One]\label{def:onetoone} A linear transformation $T:V\rightarrow W$ is \dfn{one-to-one} if 
 $$T(\vec{v}_1)=T(\vec{v}_2)\quad \text{implies that}\quad \vec{v}_1=\vec{v}_2$$
 \end{definition}
 
@@ -181,7 +205,7 @@ At this point we can conjecture that being one-to-one is a necessary, but not a 
 
 \subsection*{``Onto" Linear Transformations}
 
-\begin{definition}[Onto]\label{def:onto} A linear transformation $T:V\rightarrow W$ is onto if for every element $\vec{w}$ of $W$, there exists an element $\vec{v}$ of $V$ such that $T(\vec{v})=\vec{w}$.
+\begin{definition}[Onto]\label{def:onto} A linear transformation $T:V\rightarrow W$ is \dfn{onto} if for every element $\vec{w}$ of $W$, there exists an element $\vec{v}$ of $V$ such that $T(\vec{v})=\vec{w}$.
 \end{definition}
 
 \begin{example}
@@ -236,7 +260,7 @@ Observe that
 \end{proof}
 \end{example}
 
-\section*{Isomorphisms and Existence of Inverses}
+\subsection*{Isomorphisms and Existence of Inverses}
 
 \begin{definition} A linear transformation that is one-to-one and onto is called an isomorphism.
 \end{definition}
@@ -244,7 +268,6 @@ Observe that
 \begin{example}\label{ex:subtosub} Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
-%(Why is it sufficient to specify the images of $\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}$ to define this linear transformation?)  
 Show that $T$ is an isomorphism.
 \begin{proof}
 
