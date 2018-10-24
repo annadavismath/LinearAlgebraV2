@@ -1,8 +1,6 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{Orthogonal Projections} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0070:  Orthogonal Projections} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -10,16 +8,20 @@
 \end{abstract}
 \maketitle
 
-\section*{Vector Projections}
+\section*{VEC-0070:  Orthogonal Projections}
 
 Given a line $l$ and a vector $\vec{v}$ emanating from a point on $l$, it is sometimes convenient to express $\vec{v}$ as the sum of a vector $\vec{v}_{\parallel}$, parallel to $l$, and a vector $\vec{v}_{\perp}$, perpendicular to $l$.
 
-\begin{image}[2in]
- \begin{tikzpicture}[scale=.6]
-  \draw[line width=2pt,red,-stealth](3.6, 0.8)--(2,4) node[below=10mm, right=5mm]{$\vec{v}_{\perp}$};
-   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5)node[below=1mm, right=2]{$l$};
-\draw[line width=2pt,blue,-stealth](-2, -2)node[above=22mm, right=9mm]{$\vec{v}$}--(2,4);
-\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8) node[below=12mm, left=10mm]{$\vec{v}_{\parallel}$};
+\begin{image}[2.5in]
+ \begin{tikzpicture}[scale=.8]
+  \draw[line width=2pt,red,-stealth](3.6, 0.8)--(2,4);
+  \node[red] at (3.5, 2.2)   (a) {$\vec{v}_{\perp}$};
+ \node[red] at (1.5, -0.95)   (b) {$\vec{v}_{\parallel}$};
+  \node[] at (5, 1)   (c) {$l$};
+  \node[blue] at (0.1, 1.9)   (d) {$\vec{v}$};
+   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
+\draw[line width=2pt,blue,-stealth](-2, -2)--(2,4);
+\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8);
 \end{tikzpicture}
 
 \end{image}
@@ -41,11 +43,11 @@ To find $\vec{v}_{\perp}$, observe that $\vec{v}_{\perp}=\vec{v}-\vec{v}_{\paral
 
 
 \begin{definition}\label{def:projection}
-Let $\vec{v}$ be a vector, and let $\vec{d}$ be a non-zero vector.  The projection of $\vec{v}$ onto $\vec{d}$ is given by 
-$$\text{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$
+Let $\vec{v}$ be a vector, and let $\vec{d}$ be a non-zero vector.  The \dfn{projection of $\vec{v}$ onto $\vec{d}$} is given by 
+$$\mbox{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:projection1}
 Find the projection of $\vec{v}$, shown below, onto the line given by $y=\frac{1}{2}x-1$.
 
 \begin{image}[2.5in]
@@ -56,8 +58,10 @@ Find the projection of $\vec{v}$, shown below, onto the line given by $y=\frac{1
   \draw[<->] (0,-3)--(0,5);
   \draw[red, dashed] (2,4)--(3.6, 0.8); 
   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
-\draw[line width=2pt,blue,-stealth](-2, -2)node[above=24mm, right=8mm]{$\vec{v}$}--(2,4);
-\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8) node[below=12mm, left=10mm]{$\vec{v}_{\parallel}$};
+\draw[line width=2pt,blue,-stealth](-2, -2)--(2,4);
+\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8);
+\node[blue] at (-0.5, 1.5)   (a) {$\vec{v}$};
+\node[red] at (1.9, -0.9)   (b) {$\vec{v}_{\parallel}$};
 \end{tikzpicture}
 \end{image}
 
@@ -65,15 +69,15 @@ Find the projection of $\vec{v}$, shown below, onto the line given by $y=\frac{1
 We begin by finding vectors $\vec{v}$ and $\vec{d}$. The tail of $\vec{v}$ is located at $(-2, -2)$, and the head of $\vec{v}$ is at $(2, 4)$.  Using the ``head-tail" formula we get 
 $$\vec{v}=\begin{bmatrix}2-(-2)\\4-(-2)\end{bmatrix}=\begin{bmatrix}4\\6\end{bmatrix}$$ The direction vector for the line $y=\frac{1}{2}x-1$ is $$\vec{d}=\begin{bmatrix}2\\1\end{bmatrix}$$
 We find that $\vec{v}\dotp\vec{d}=14$ and $\norm{\vec{d}}^2=5$.
-Thus $$\text{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}=\frac{14}{5}\begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}28/5\\14/5\end{bmatrix}$$
+Thus $$\mbox{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}=\frac{14}{5}\begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}28/5\\14/5\end{bmatrix}$$
 \end{explanation}
 \end{example}
 
-\section*{Distance from a Point to a Line}
+\subsection*{Distance from a Point to a Line}
 
 The shortest distance from a point to a line is the length of the perpendicular line segment dropped from the point to the line.  Vector projection formula will help us find the length of such a perpendicular.
 
-\begin{example}
+\begin{example}\label{ex:distancefrompttoline}
 Let $A(2, -1, 1)$ be a point in $\RR^3$.  Suppose line $l$ is given by parametric equations $$x=t+3$$
 $$y=-t+1$$
 $$z=t-2$$
@@ -81,9 +85,9 @@ $$z=t-2$$
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.6]
   
-   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5)node[below=1mm, right=2]{$l$};
-   
-\fill (2, 4)node[above=2mm, right=1mm]{$A(2, -1, 1)$} circle (1mm);
+   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
+   \node[] at (5, 0.8)   (a) {$l$};
+\fill (2, 4)node[above, right]{$A(2, -1, 1)$} circle (1mm);
 \end{tikzpicture}
 \end{image}
 
@@ -95,30 +99,35 @@ $$\vec{v}=\overrightarrow{BA}=\begin{bmatrix}2-3\\-1-1\\1-(-2)\end{bmatrix}=\beg
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.6]
   
-   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5)node[below=1mm, right=2]{$l$};
-   
-\draw[line width=2pt,blue,-stealth](-2, -2)node[above=22mm, right=9mm]{$\vec{v}$}--(2,4);
+   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
+    \node[] at (5, 0.8)   (a) {$l$};
+\draw[line width=2pt,blue,-stealth](-2, -2)--(2,4);
 
-\fill (-2, -2) node[below=3mm, right=1mm]{$B(3, 1, -2)$} circle (1mm);
-\fill (2, 4)node[above=2mm, right=1mm]{$A(2, -1, 1)$} circle (1mm);
+\fill (-2, -2) circle (1mm);
+\fill (2, 4)node[below, right]{$A(2, -1, 1)$} circle (1mm);
+\node[] at (-1, -2.5)   (b) {$B(3, 1, -2)$};
+\node[blue] at (0, 2)   (c) {$\vec{v}$};
 \end{tikzpicture}
 \end{image}
 
 The line has a direction vector 
 $$\vec{d}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
 
-We will now find the projection of $\overrightarrow{BA}$ onto $l$  $$\text{proj}_{\vec{d}} \overrightarrow{BA}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}=\frac{4}{3}\begin{bmatrix}1\\-1\\1\end{bmatrix}=\begin{bmatrix}4/3\\-4/3\\4/3\end{bmatrix}$$
+We will now find the projection of $\overrightarrow{BA}$ onto $l$  $$\mbox{proj}_{\vec{d}} \overrightarrow{BA}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}=\frac{4}{3}\begin{bmatrix}1\\-1\\1\end{bmatrix}=\begin{bmatrix}4/3\\-4/3\\4/3\end{bmatrix}$$
 
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.6]
   
-   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5)node[below=1mm, right=2]{$l$};
-   
-\draw[line width=2pt,blue,-stealth](-2, -2)node[above=22mm, right=9mm]{$\vec{v}$}--(2,4);
-\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8) node[below=12mm, left=5mm]{$\text{proj}_{\vec{d}}\overrightarrow{BA}$};
+   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
+   \node[] at (5, 0.8)   (a) {$l$};
+   \node[] at (-1, -2.5)   (b) {$B(3, 1, -2)$};
+\node[blue] at (0, 2)   (c) {$\vec{v}$};
+\node[red] at (1.3, -1.3)   (d) {$\mbox{proj}_{\vec{d}}\overrightarrow{BA}$};
+\draw[line width=2pt,blue,-stealth](-2, -2)--(2,4);
+\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8);
 \draw[red, dashed] (2,4)--(3.6, 0.8); 
-\fill (-2, -2) node[below=3mm, right=1mm]{$B(3, 1, -2)$} circle (1mm);
-\fill (2, 4)node[above=2mm, right=1mm]{$A(2, -1, 1)$} circle (1mm);
+\fill (-2, -2)  circle (1mm);
+\fill (2, 4)node[above, right]{$A(2, -1, 1)$} circle (1mm);
 \end{tikzpicture}
 \end{image}
 
@@ -128,13 +137,18 @@ $$\vec{v}_{\perp}=\vec{v}-\vec{v}_{\parallel}=\begin{bmatrix}-1\\-2\\3\end{bmatr
 
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.6]
-  \draw[line width=2pt,red,-stealth](3.6, 0.8)--(2,4) node[below=10mm, right=5mm]{$\vec{v}_{\perp}$};
-   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5)node[below=1mm, right=2]{$l$};
-   
-\draw[line width=2pt,blue,-stealth](-2, -2)node[above=22mm, right=9mm]{$\vec{v}$}--(2,4);
-\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8) node[below=12mm, left=5mm]{$\text{proj}_{\vec{d}}\overrightarrow{BA}$};
-\fill (-2, -2) node[below=3mm, right=1mm]{$B(3, 1, -2)$} circle (1mm);
-\fill (2, 4)node[above=2mm, right=1mm]{$A(2, -1, 1)$} circle (1mm);
+  \draw[line width=2pt,red,-stealth](3.6, 0.8)--(2,4);
+   \draw [-,line width=1pt]  (-3,-2.5)--(5, 1.5);
+   \node[] at (5, 0.8)   (a) {$l$};
+   \node[] at (-1, -2.5)   (b) {$B(3, 1, -2)$};
+\node[blue] at (0, 2)   (c) {$\vec{v}$};
+\node[red] at (1.3, -1.3)   (d)
+{$\mbox{proj}_{\vec{d}}\overrightarrow{BA}$};
+\node[red] at (3.6, 2.3)   (e) {$\vec{v}_{\perp}$};
+\draw[line width=2pt,blue,-stealth](-2, -2)--(2,4);
+\draw[line width=2pt,red,-stealth](-2, -2)--(3.6, 0.8);
+\fill (-2, -2)  circle (1mm);
+\fill (2, 4)node[above, right]{$A(2, -1, 1)$} circle (1mm);
 \end{tikzpicture}
 \end{image}
 
@@ -145,35 +159,36 @@ $$\norm{\vec{v}_{\perp}}=\frac{1}{3}\sqrt{49+4+25}=\frac{\sqrt{78}}{3}$$
 \end{example}
 
 \section*{Practice Problems}
-\begin{problem}
-Find $\text{proj}_{\vec{d}}\vec{v}$.  Enter your answers in decimal form.
-  \begin{problem}
+\begin{problem}\label{prob:proj1}
+Find $\mbox{proj}_{\vec{d}}\vec{v}$.  Enter your answers in decimal form.
+  \begin{problem}\label{prob:proj1a}
   If $\vec{d}=\begin{bmatrix}-1\\3\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}1\\4\end{bmatrix}$ then
-  $$\text{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{-1.1}\\\answer{3.3}\end{bmatrix}$$
+  $$\mbox{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{-1.1}\\\answer{3.3}\end{bmatrix}$$
     \end{problem}
-    \begin{problem}
+    \begin{problem}\label{prob:proj1b}
     If $\vec{d}=\begin{bmatrix}0\\2\\1\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}-1\\-4\\2\end{bmatrix}$ then
-    $$\text{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{0}\\\answer{-2.4}\\\answer{-1.2}\end{bmatrix}$$
+    $$\mbox{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{0}\\\answer{-2.4}\\\answer{-1.2}\end{bmatrix}$$
     \end{problem}
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:proj2}
 Find the projection of vector $\vec{v}$ onto line $l$.
 
 \begin{image}
-\begin{tikzpicture}[scale=.7]
+\begin{tikzpicture}[scale=.6]
 \draw[thin,gray!40] (-2,-2) grid (9,4);
   \draw[<->] (-2,0)--(9,0);
   \draw[<->] (0,-2)--(0,4);
-  
-  \draw [-,line width=1pt]  (-2,0.8)node[above=1mm, right=-5mm]{$l$}--(9, -1.4);
-\draw[line width=2pt,blue,-stealth](7, -1)node[above=16mm, right=-10mm]{$\vec{v}$}--(4,3);
+  \node[blue] at (6, 1)   (a) {$\vec{v}$};
+  \node[] at (-2.4, 1)   (b) {$l$};
+  \draw [-,line width=1pt]  (-2,0.8)--(9, -1.4);
+\draw[line width=2pt,blue,-stealth](7, -1)--(4,3);
 \end{tikzpicture}
 \end{image}
 
 Answer:
 $$\begin{bmatrix}\answer{-95/26}\\\answer{19/26}\end{bmatrix}$$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:distpttoline}
 Find the distance between point $A$ and line $l$.
 
 \begin{image}
@@ -181,17 +196,18 @@ Find the distance between point $A$ and line $l$.
 \draw[thin,gray!40] (0,-2) grid (9,4);
   \draw[->] (0,0)--(9,0);
   \draw[<->] (0,-2)--(0,4);
-  \fill (7,2)node[above=2mm, right=1mm]{$A$} circle (1mm);
-  \draw [-,line width=1pt]  (3,-2)node[below=2mm, right=-5mm]{$l$}--(6, 4);
+  \fill (7,2)node[above, right]{$A$} circle (1mm);
+  \node[] at (2.6, -2)   (b) {$l$};
+  \draw [-,line width=1pt]  (3,-2)--(6, 4);
 \end{tikzpicture}
 \end{image}
 
 Answer: $\sqrt{\answer{3.2}}$.
 \end{problem}
-\begin{problem}
-Show that $\text{proj}_{\vec{d}}\vec{v}$ does not depend on the length of $\vec{d}$ by proving that $\text{proj}_{\vec{d}}\vec{v}=\text{proj}_{k\vec{d}}\vec{v}$ for $k\neq 0$.  What does this result mean geometrically?  Illustrate your response with a diagram.
+\begin{problem}\label{prob:proj3}
+Show that $\mbox{proj}_{\vec{d}}\vec{v}$ does not depend on the length of $\vec{d}$ by proving that $\mbox{proj}_{\vec{d}}\vec{v}=\mbox{proj}_{k\vec{d}}\vec{v}$ for $k\neq 0$.  What does this result mean geometrically?  Illustrate your response with a diagram.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:circletangenttoline}
 Find the equation of a circle centered at $(4, 2)$ if the line $y=\frac{3}{2}x+3$ is tangent to the circle.
 
 The equation of the circle is:
