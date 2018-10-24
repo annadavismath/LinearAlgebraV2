@@ -2,7 +2,7 @@
 
 \input{../preamble.tex}
 
-\author{Anna Davis \and Rosemarie Emanuele} \title{Standard Unit Vectors in $\RR^n$} \license{CC-BY 4.0}
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0035:  Standard Unit Vectors in $\RR^n$} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,16 +11,16 @@
 \end{abstract}
 \maketitle
 
+\section*{VEC-0035:  Standard Unit Vectors in $\RR^n$}
 
-
-\section*{Standard Unit Vectors in $\RR^2$ and $\RR^3$} 
-A {\it unit vector} is a vector of length 1.  A unit vector in the positive direction of a coordinate axis is called a {\it standard unit vector}.  There are two standard unit vectors in $\RR^2$.  The vector $\vec{i}=\begin{bmatrix}
+\subsection*{Standard Unit Vectors in $\RR^2$ and $\RR^3$} 
+A \dfn{unit vector} is a vector of length 1.  A unit vector in the positive direction of a coordinate axis is called a \dfn{standard unit vector}.  There are two standard unit vectors in $\RR^2$.  The vector $\vec{i}=\begin{bmatrix}
 1\\
 0
-\end{bmatrix}$ is located along the $x$-axis, and the vector $\vec{j}=\begin{bmatrix}
+\end{bmatrix}$ is parallel the $x$-axis, and the vector $\vec{j}=\begin{bmatrix}
 0\\
 1
-\end{bmatrix}$ is located along the $y$-axis.  
+\end{bmatrix}$ is parallel the $y$-axis.  
 
 \begin{image}[1.5in]
 \begin{tikzpicture}[scale=1]
@@ -57,16 +57,17 @@ There are three standard unit vectors in $\RR^3$: $$\vec{i}=\begin{bmatrix}
     \draw[->](0,-1,0)--(0,4,0) node[below left]{$z$};
     \draw[->](0,0,-1)--(0,0,4) node[below left]{$x$};
         
-    \draw[->, line width=1pt,blue, -stealth](0,0,0)--(3,0,0)node[below=0.8cm, right=-0.7cm]{$\vec{j}=\begin{bmatrix}0\\1\\0\end{bmatrix}$};
+    \draw[->, line width=1pt,blue, -stealth](0,0,0)--(3,0,0);
     
-    \draw[->, line width=1pt,red, -stealth](0,0,0)--(0,0,3)node[below=0.5cm, right=-0.1cm]{$\vec{i}=\begin{bmatrix}1\\0\\0\end{bmatrix}$};
-    
-    \draw[->, line width=1pt,cyan, -stealth](0,0,0)--(0,3,0)node[below=0.5cm, right=0.1cm]{$\vec{k}=\begin{bmatrix}0\\0\\1\end{bmatrix}$};
+    \draw[->, line width=1pt,red, -stealth](0,0,0)--(0,0,3);
+    \node[blue] at (3, 0.7)   (b) {$\vec{j}=\begin{bmatrix}0\\1\\0\end{bmatrix}$};
+    \node[red] at (-1.9, -0.5)   (b) {$\vec{i}=\begin{bmatrix}1\\0\\0\end{bmatrix}$};
+    \draw[->, line width=1pt,cyan, -stealth](0,0,0)--(0,3,0)node[below, right]{$\vec{k}=\begin{bmatrix}0\\0\\1\end{bmatrix}$};
    
     \end{tikzpicture}
 \end{image}
 
-\section*{A Vector as a Linear Combination of Standard Unit Vectors} 
+\subsection*{A Vector as a Linear Combination of Standard Unit Vectors} 
 Every vector in $\RR^2$ and $\RR^3$ can be written as a sum of scalar multiples of $\vec{i}$, $\vec{j}$ and $\vec{k}$.  For example, if $\vec{v}=\begin{bmatrix}
 3\\
 -2\\
@@ -102,18 +103,14 @@ $$\vec{v}=\begin{bmatrix}
 1
 \end{bmatrix}=3\vec{i}-2\vec{j}+7\vec{k}$$
 
-The expression $3\vec{i}-2\vec{j}+7\vec{k}$ is called a {\it linear combination} of $\vec{i}$, $\vec{j}$ and $\vec{k}$. 
+The expression $3\vec{i}-2\vec{j}+7\vec{k}$ is called a \dfn{linear combination} of $\vec{i}$, $\vec{j}$ and $\vec{k}$. 
 
-%For an additional example, watch this Firefly Lectures Video:\\
-%\href{https://www.youtube.com/watch?v=gY3hxwhqMhk}{https://www.youtube.com/watch?v=gY3hxwhqMhk}
-
-\section*{Standard Unit Vectors in $\RR^n$}
-When working with vectors in $\RR^n$ for $n>3$, we use different notation to denote the standard unit vectors.
+\subsection*{Standard Unit Vectors in $\RR^n$}
+When working with vectors in $\RR^n$, we often use a different notation to denote the standard unit vectors.
 
 
-  \begin{definition} 
-  
-  Let $\vec{e}_i$ denote a standard unit vector of $\RR^n$ which has 1 as the $i$th component and zeros elsewhere.  In other words, $$\vec{e}_i=\begin{bmatrix}
+  \begin{definition}\label{def:standardunitvecrn} 
+  Let $\vec{e}_i$ denote a vector that has $1$ as the $i^{th}$ component and zeros elsewhere.  In other words, $$\vec{e}_i=\begin{bmatrix}
 0\\
 0\\
 \vdots\\
@@ -121,15 +118,14 @@ When working with vectors in $\RR^n$ for $n>3$, we use different notation to den
 \vdots\\
 0
 \end{bmatrix}$$ 
-  where 1 is in the $i$th position.
+  where $1$ is in the $i^{th}$ position.  We say that  $\vec{e}_i$ is a \dfn{standard unit vector of $\RR^n$}.
 \end{definition}
 
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:lincombijk1}
 Express each of the following vectors as a linear combination of appropriate standard unit vectors.
-  \begin{enumerate}
-  \item 
+  \begin{problem}\label{prob:lincombijk1a}
   $$\vec{u}=\begin{bmatrix}
 0\\
 4\\
@@ -137,15 +133,16 @@ Express each of the following vectors as a linear combination of appropriate sta
 \end{bmatrix}$$
 Answer:
 $$\vec{u}=\answer{0}\vec{i}+\answer{4}\vec{j}+\answer{-3}\vec{k}$$
-
-\item 
+\end{problem}
+\begin{problem}\label{prob:lincombijk1b}
 $$\vec{v}=\begin{bmatrix}
 -1\\
 1
 \end{bmatrix}$$
 Answer:
 $$\vec{u}=\answer{-1}\vec{i}+\answer{1}\vec{j}$$
-\item 
+\end{problem}
+\begin{problem}\label{prob:lincombijk1c}
 $$\vec{w}=\begin{bmatrix}
 5\\
 -3\\
@@ -154,31 +151,32 @@ $$\vec{w}=\begin{bmatrix}
 \end{bmatrix}$$
 Answer:
 $$\vec{u}=\answer{5}\vec{e}_1+\answer{-3}\vec{e}_2+\answer{1}\vec{e}_3+\answer{7}\vec{e}_4$$
-  \end{enumerate}
+  \end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lincombijk2}
 Express each given vector in component form.
-  \begin{enumerate}
-  \item 
+  \begin{problem}\label{prob:lincombijk2a}
   $\vec{u}=\vec{i}+3\vec{j}$ is a vector in $\RR^2$.
   
   Answer:
   $$\vec{u}=\begin{bmatrix}\answer{1}\\\answer{3}\end{bmatrix}$$
-  \item
+  \end{problem}
+  \begin{problem}\label{prob:lincombijk2b}
   $\vec{v}=-\vec{j}+5\vec{k}$ is a vector in $\RR^3$.
   
   Answer:
   $$\vec{v}=\begin{bmatrix}\answer{0}\\\answer{-1}\\\answer{5}\end{bmatrix}$$
-  \item
+  \end{problem}
+  \begin{problem}\label{prob:lincombijk2c}
   $\vec{w}=\vec{e}_1-2\vec{e}_3+4\vec{e}_4$ is a vector in $\RR^4$.
   
   Answer:
   $$\vec{w}=\begin{bmatrix}\answer{1}\\\answer{0}\\\answer{-2}\\\answer{4}\end{bmatrix}$$
-  \end{enumerate}
+  \end{problem}
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:lincombijk3}
   Is it possible to express $\vec{u}=\begin{bmatrix}
 -6\\
 1\\
