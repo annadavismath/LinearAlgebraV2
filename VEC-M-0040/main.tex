@@ -1,19 +1,17 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{Linear Combinations of Vectors} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0040:  Linear Combinations of Vectors} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
-  We define a linear combination of vectors, the span of a set of vectors, and examine linear combinations and span using geometric intuition.
+  We define a linear combination of vectors and examine whether a given vector may be expressed as a linear combination of other vectors, both algebraically and geometrically.
 \end{abstract}
 \maketitle
+\section*{VEC-0040:  Linear Combinations of Vectors}
 
-\section*{Linear Combinations of Vectors}
-
-\begin{definition}
-A vector $\vec{v}$ is said to be a linear combination of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_n$ if 
+\begin{definition}\label{def:lincomb}
+A vector $\vec{v}$ is said to be a \dfn{linear combination} of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_n$ if 
 $$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots + a_n\vec{v}_n$$
 for some scalars $a_1, a_2, \ldots ,a_n$.
 \end{definition}
@@ -24,7 +22,7 @@ $$\begin{bmatrix} -4\\9\\-10\\-1\end{bmatrix}=2\begin{bmatrix} -1\\3\\-3\\0\end{
 In this module we will focus on vectors in $\RR^2$ and $\RR^3$.
 \subsection*{Geometry of Linear Combinations}
 
-\begin{example}
+\begin{example}\label{ex:lincombgeometry1}
 Express $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$.  Interpret your results geometrically.
 \begin{explanation}
 We need to find scalars $a$ and $b$ such that 
@@ -34,7 +32,7 @@ This amounts to solving a system of linear equations
 2a+2b&=2\\
 a-2b&=4
 \end{align*}
-Use your favorite method to solve this system.  You will find that $a=2$ and $b=-1$.  Now we can write $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ as follows:
+Use your favorite method to solve this system. (Hint: adding the second equation to the first will work well for this system.) You will find that $a=2$ and $b=-1$.  Now we can write $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ as follows:
 
 $$\begin{bmatrix}2\\4\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}+(-1)\begin{bmatrix}2\\-2\end{bmatrix}$$
 
@@ -199,13 +197,21 @@ The method we used in Example \ref{ex:lincombparallelogrammethod} to express the
   \draw[<->] (0,-4)--(0,4);
   
  \filldraw[blue, opacity=0.3](0,0)--(1,-3)--(3,-4)--(2,-1)--cycle;
-\draw[line width=2pt,red,-stealth](0,0)node[right=-2mm,above=10mm]{$\vec{u}$}--(-1,3) node[right=2mm,above=2mm]{$L_{\vec{u}}$};
-\draw[line width=1pt,red, dashed](4/3,-4)--(-4/3,4) ;
-\draw[line width=1pt,red, dashed](3,-4)--(1/3,4)node[right=5mm, below=1mm]{$P_{\vec{u}}$} ;
+\draw[line width=2pt,red,-stealth](0,0)--(-1,3);
+\node[red] at (-1.2, 2.5)   (b) {$\vec{u}$};
+\node[red] at (-0.7, 3.5)   (b) {$L_{\vec{u}}$};
 
- \draw[line width=2pt,blue,-stealth](0,0)--(4,-2) node[above=4mm, left=0mm]{$\vec{v}$};
+\draw[line width=1pt,red, dashed](4/3,-4)--(-4/3,4) ;
+\draw[line width=1pt,red, dashed](3,-4)--(1/3,4);
+\node[red] at (0.9, 3.5)   (b) {$P_{\vec{u}}$};
+
+ \draw[line width=2pt,blue,-stealth](0,0)--(4,-2) ;
+ \node[blue] at (3.5, -1.5)   (b) {$\vec{v}$};
+ 
 \draw[line width=1pt,blue, dashed](-4,2)node[above right]{$L_{\vec{v}}$}--(4,-2) ;
-  \draw[line width=1pt,blue, dashed](-4,-0.5)node[below=5mm, right]{$P_{\vec{v}}$}--(3,-4) ;
+  \draw[line width=1pt,blue, dashed](-4,-0.5)--(3,-4) ;
+  \node[blue] at (-3.5, -1.2)   (b) {$P_{\vec{v}}$};
+  
  \draw[line width=2pt,-stealth](0,0)node[below left]{$O$}--(3,-4)node[right]{$\vec{w}$}; 
  
   \fill[red] (1,-3) node[below left]{$B$} circle (0.1cm);
@@ -214,7 +220,7 @@ The method we used in Example \ref{ex:lincombparallelogrammethod} to express the
 \end{image}
 \end{procedure}
 
-\begin{example}
+\begin{example}\label{ex:lincombgeometry2}
 Can the vector $\begin{bmatrix}3\\2\end{bmatrix}$ be written as a linear combination of vectors $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$?
 \begin{explanation}
 We will start with a geometric approach.
@@ -258,7 +264,7 @@ When you try to solve this system using your favorite method, you will find that
 
 \subsection*{Algebra of Linear Combinations}
 
-\begin{example}
+\begin{example}\label{ex:lincombalgebra1}
 If possible, express $\begin{bmatrix}7\\4\\-5\end{bmatrix}$ as a linear combination of $\begin{bmatrix}1\\-2\\1\end{bmatrix}$ and $\begin{bmatrix}3\\0\\-1\end{bmatrix}$.
 \begin{explanation}
 We are looking for coefficients $a$ and $b$ such that 
@@ -276,7 +282,7 @@ $$\begin{bmatrix}7\\4\\-5\end{bmatrix}=\answer{-2}\begin{bmatrix}1\\-2\\1\end{bm
 \end{explanation}
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:lincombalgebra2}
 Set up a system of equations that can be used to express $\begin{bmatrix}2\\-1\\3\\0\end{bmatrix}$ as a linear combination of $\begin{bmatrix}1\\0\\4\\-2\end{bmatrix}$, $\begin{bmatrix}-2\\-1\\1\\-1\end{bmatrix}$, $\begin{bmatrix}0\\4\\-3\\1\end{bmatrix}$ and $\begin{bmatrix}1\\1\\-1\\4\end{bmatrix}$, or to determine that such a combination does not exist.  Do not solve the system.
 \begin{explanation}
 We are looking for $x_1$, $x_2$, $x_3$ and $x_4$ such that 
@@ -297,7 +303,7 @@ $$\begin{array}{ccccccccc}
 
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:lincombtwovectors1}
 Solve a system of linear equations to express $\begin{bmatrix}-1\\7\end{bmatrix}$ as a linear combination of $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}-1\\1\end{bmatrix}$.
 
 System of linear equations:
@@ -315,18 +321,18 @@ $$\begin{array}{ccccc}
 \end{problem}
 
 
-\begin{problem}
+\begin{problem}\label{prob:lincombtwovectors2}
 Use Procedure \ref{pro:lincombgeo} to express $\begin{bmatrix}-3\\0\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\4\end{bmatrix}$ and $\begin{bmatrix}-1\\1\end{bmatrix}$.
 
 Linear Combination:
 $$\begin{bmatrix}-3\\0\end{bmatrix}=\answer{-0.5}\begin{bmatrix}2\\4\end{bmatrix}+\answer{2}\begin{bmatrix}-1\\1\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lincombtwovectors3}
 Use two different approaches (algebraic and geometric) to explain why the vector $\begin{bmatrix}5\\1\end{bmatrix}$ cannot be expressed as a linear combination of vectors $\begin{bmatrix}2\\-1\end{bmatrix}$ and $\begin{bmatrix}-4\\2\end{bmatrix}$.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lincombtwovectors4}
 Set up a system of equations that can be used to express $\begin{bmatrix}1\\2\\-3\end{bmatrix}$ as a linear combination of vectors $\begin{bmatrix}1\\1\\0\end{bmatrix}$, $\begin{bmatrix}3\\-1\\1\end{bmatrix}$ and $\begin{bmatrix}-2\\-1\\0\end{bmatrix}$.
 
 System of Equations:

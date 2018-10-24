@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{Dot Product and the Angle Between Vectors} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0060:  Dot Product and the Angle Between Vectors} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,13 +10,14 @@
 \end{abstract}
 \maketitle
 
+\section*{VEC-0060:  Dot Product and the Angle Between Vectors}
 
-\section*{Angle Between Vectors} 
-Given two vectors $\vec{u}$ and $\vec{v}$, let $\theta$ be the angle between them such that $0\leq\theta\leq \pi$.  We will refer to $\theta$ as the {\it included angle}.
+Given two vectors $\vec{u}$ and $\vec{v}$, let $\theta$ be the angle between them such that $0\leq\theta\leq \pi$.  We will refer to $\theta$ as the \dfn{included angle}.
 
 \begin{image}[2in]
 \begin{tikzpicture}
-\draw (0.5,0)node[above=2mm, right=0mm]{$\theta$} arc (0:30:0.5) ;
+\node[] at (0.8, 0.2)   (a) {$\theta$};
+\draw (0.5,0) arc (0:30:0.5) ;
 \draw[line width=1pt,-stealth,red](0,0)--(2.5,0)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth, blue](0,0)--(3.46,2)node[above right]{$\vec{v}$};
  \end{tikzpicture}
@@ -27,7 +27,7 @@ The following theorem establishes a relationship between the dot product and the
 
   \begin{theorem}\label{th:dotproductcosine} Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$, and let $\theta$ be the included angle.  Then
   \begin{equation*} \label{matlintrans}
- \vec{u}\cdot\vec{v}=\norm{\vec{u}}\norm{\vec{v}}\cos \theta
+ \vec{u}\dotp\vec{v}=\norm{\vec{u}}\norm{\vec{v}}\cos \theta
 \end{equation*}
 \end{theorem}
 
@@ -36,10 +36,12 @@ The following theorem establishes a relationship between the dot product and the
 
 \begin{image}[2in]
 \begin{tikzpicture}
-\draw (0.5,0)node[above=2mm, right=0mm]{$\theta$} arc (0:30:0.5) ;
+\node[] at (0.8, 0.2)   (a) {$\theta$};
+\draw (0.5,0) arc (0:30:0.5) ;
 \draw[line width=1pt,-stealth,red](0,0)--(2.5,0)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth, blue](0,0)--(3.46,2)node[above right]{$\vec{v}$};
-\draw[line width=1pt,-stealth](3.46,2)--(2.5,0)node[above=0.9cm, right=0.5cm]{$\vec{u}-\vec{v}$};
+\draw[line width=1pt,-stealth](3.46,2)--(2.5,0);
+\node[] at (3.5, 0.9)   (a) {$\vec{u}-\vec{v}$};
  \end{tikzpicture}
 \end{image}
 
@@ -47,22 +49,22 @@ By the Law of Cosines we have:
 \begin{align*}
 \norm{\vec{u}-\vec{v}}^2=\norm{\vec{u}}^2+\norm{\vec{v}}^2-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
 \end{align*}
-By Theorem \ref{th:dotproductproperties}\ref{item:norm}
+By Theorem \ref{th:dotproductproperties}\ref{item:norm} of VEC-0050
 \begin{align*}
-(\vec{u}-\vec{v})\cdot (\vec{u}-\vec{v})=&\vec{u}\cdot \vec{u}+\vec{v}\cdot \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
+(\vec{u}-\vec{v})\dotp (\vec{u}-\vec{v})=&\vec{u}\dotp \vec{u}+\vec{v}\dotp \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
 \end{align*}
-By Theorem \ref{th:dotproductproperties}\ref{item:distributive-again}
+By Theorem \ref{th:dotproductproperties}\ref{item:distributive-again} of VEC-0050
 \begin{align*}
-(\vec{u}-\vec{v})\cdot \vec{u}-(\vec{u}-\vec{v})\cdot \vec{v}=&\vec{u}\cdot \vec{u}+\vec{v}\cdot \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
+(\vec{u}-\vec{v})\dotp \vec{u}-(\vec{u}-\vec{v})\dotp \vec{v}=&\vec{u}\dotp \vec{u}+\vec{v}\dotp \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
 \end{align*}
-By Theorem \ref{th:dotproductpropert ies}\ref{item:distributive}
+By Theorem \ref{th:dotproductpropert ies}\ref{item:distributive} of VEC-0050
 \begin{align*}
-\vec{u}\cdot \vec{u}-\vec{v}\cdot\vec{u}-\vec{u}\cdot\vec{v}+\vec{v}\cdot \vec{v}=&\vec{u}\cdot \vec{u}+\vec{v}\cdot \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
+\vec{u}\dotp \vec{u}-\vec{v}\dotp\vec{u}-\vec{u}\dotp\vec{v}+\vec{v}\dotp \vec{v}=&\vec{u}\dotp \vec{u}+\vec{v}\dotp \vec{v}-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta
 \end{align*}
-By Theorem \ref{th:dotproductpropert ies}\ref{item:commutative}
+By Theorem \ref{th:dotproductpropert ies}\ref{item:commutative} of VEC-0050
 \begin{align*}
--2(\vec{u}\cdot \vec{v})=&-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta\\
-\vec{u}\cdot \vec{v}=&\norm{\vec{u}}\norm{\vec{v}}\cos\theta
+-2(\vec{u}\dotp \vec{v})=&-2\norm{\vec{u}}\norm{\vec{v}}\cos\theta\\
+\vec{u}\dotp \vec{v}=&\norm{\vec{u}}\norm{\vec{v}}\cos\theta
 \end{align*}
 \end{proof}
 
@@ -70,8 +72,8 @@ By Theorem \ref{th:dotproductpropert ies}\ref{item:commutative}
 Find the included angle between vectors $\vec{u}=\begin{bmatrix}2\\-1\\4\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}1\\2\\-3\end{bmatrix}$.
 
 \begin{explanation}
-By Theorem \ref{th:dotproductcosine}, $\cos \theta=\frac{\vec{u}\cdot \vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}$.  
-$$\vec{u}\cdot\vec{v}=2-2-12=-12$$
+By Theorem \ref{th:dotproductcosine}, $\cos \theta=\frac{\vec{u}\dotp \vec{v}}{\norm{\vec{u}}\norm{\vec{v}}}$.  
+$$\vec{u}\dotp\vec{v}=2-2-12=-12$$
 $$\norm{\vec{u}}=\sqrt{4+1+16}=\sqrt{21}$$
 $$\norm{\vec{v}}=\sqrt{1+4+9}=\sqrt{14}$$
 $$\cos\theta =\frac{-12}{\sqrt{21}\sqrt{14}}$$
@@ -79,45 +81,45 @@ $$\theta \approx 134.4^{\circ}  $$
 \end{explanation}
 \end{example}
 
-\section*{Orthogonal Vectors}
+\subsection*{Orthogonal Vectors}
 
 Two non-zero vectors are said to be \dfn{perpendicular} or \dfn{orthogonal} if the included angle is a right angle.
 
 
-  \begin{theorem}\label{th:orth} Let $\vec{u}$ and $\vec{v}$ be non-zero vectors in $\RR^n$. Then $\vec{u}\cdot \vec{v}=0$ if and only if $\vec{u}$ and $\vec{v}$ are orthogonal.
+  \begin{theorem}\label{th:orth} Let $\vec{u}$ and $\vec{v}$ be non-zero vectors in $\RR^n$. Then $\vec{u}\dotp \vec{v}=0$ if and only if $\vec{u}$ and $\vec{v}$ are orthogonal.
 \end{theorem}
 
 
 \begin{proof} Recall that to prove an ``if and only if" statement, we must prove two statements.  In this particular case, we will need to show the following
 \begin{itemize}
-\item If $\vec{u}\cdot \vec{v}=0$, then $\vec{u}$ and $\vec{v}$ are orthogonal.
-\item If $\vec{u}$ and $\vec{v}$ are orthogonal, then $\vec{u}\cdot \vec{v}=0$.
+\item If $\vec{u}\dotp \vec{v}=0$, then $\vec{u}$ and $\vec{v}$ are orthogonal.
+\item If $\vec{u}$ and $\vec{v}$ are orthogonal, then $\vec{u}\dotp \vec{v}=0$.
 \end{itemize}
 We leave the details of the proof to the reader.
 \end{proof}
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:anglebetweenvectors}
 Find the degree measure of the included angle, $\theta$ for each pair of vectors.  Round your answers to the nearest tenth.
-  \begin{problem}
+  \begin{problem}\label{prob:anglebetweenvectors1}
   $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}-3\\-1\end{bmatrix}$.
   
   Answer: $\theta=\answer{135}^\circ$
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:anglebetweenvectors2}
   $\begin{bmatrix}-1\\2\\4\end{bmatrix}$ and $\begin{bmatrix}-2\\1\\-1\end{bmatrix}$
   
    Answer: $\theta=\answer{90}^\circ$
   \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:anglebetweenvectors3}
   $\begin{bmatrix}0\\-3\\1\end{bmatrix}$ and $\begin{bmatrix}-5\\-2\\4\end{bmatrix}$
   
    Answer: $\theta=\answer{61.9}^\circ$
   \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:anglebetweenvectors4}
   $\begin{bmatrix}1\\1\\-1\\2\end{bmatrix}$ and $\begin{bmatrix}-2\\0\\-3\\1\end{bmatrix}$
   
    Answer: $\theta=\answer{72.4}^\circ$
@@ -125,17 +127,17 @@ Find the degree measure of the included angle, $\theta$ for each pair of vectors
   
   \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:dotproductsign}
 What does the sign of the dot product tell us about the included angle?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:orthvectorsdot}
 Find all values of $a$ so that $\begin{bmatrix}a^2\\2a\\1\end{bmatrix}$ is orthogonal to $\begin{bmatrix}1\\2\\3\end{bmatrix}$.  List your answers in increasing order.
 
 Answer: $\answer{-3}, \answer{-1}$.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:parallelvectdot}
 Find the value of $x$ for which the vector $\begin{bmatrix}x\\-4\end{bmatrix}$ is parallel to the vector $\begin{bmatrix}3\\2\end{bmatrix}$. What is the measure of the included angle, $\theta$? Find the measure of the included angle using Theorem \ref{ex:anglebetweenvectors}.  Do the two results agree?
 
 Answer: 
@@ -143,15 +145,15 @@ $$x=\answer{-6}$$
 $$\theta=\answer{180}^\circ$$
 \end{problem}
 
-\begin{problem}
-Prove that if $\vec{u}$ is a unit vector, then $\vec{u}\cdot \vec{u}=1$.
+\begin{problem}\label{prob:unitvectordot}
+Prove that if $\vec{u}$ is a unit vector, then $\vec{u}\dotp \vec{u}=1$.
 \end{problem}
 
-\begin{problem}
- Prove that if $\vec{u}_1$ and $\vec{u}_2$ are unit vectors, then $-1\leq\vec{u}_1\cdot \vec{u}_2\leq 1$.  In what cases are the extreme values of 1 and $-1$ attained?
+\begin{problem}\label{prob:unitvectordot1}
+ Prove that if $\vec{u}_1$ and $\vec{u}_2$ are unit vectors, then $-1\leq\vec{u}_1\dotp \vec{u}_2\leq 1$.  In what cases are the extreme values of 1 and $-1$ attained?
 \end{problem} 
 
-\begin{problem}
+\begin{problem}\label{prob:clockproblem}
  Imagine a clock with hands represented by vectors $\vec{m}$ and $\vec{h}$, as shown below.
 At what whole hour will $\vec{m}\dotp\vec{h}$ attain its maximum value?  At what whole hour will $\vec{m}\dotp\vec{h}$ be as small as possible?
 
@@ -163,7 +165,7 @@ Answer:$$\vec{m}\dotp\vec{h}\text{ is greatest at }\answer{12}:00 \text{ o'clock
 $$\vec{m}\dotp\vec{h}\text{ is smallest at }\answer{6}:00 \text{ o'clock}$$
 \end{problem}
 
-\begin{problem} 
+\begin{problem} \label{prob:righttriangleincircle}
 Let $O$ be a circle of radius $r$.  Suppose $A$ and $B$ are the endpoints of a diameter of $O$, and $C$ is a point on $O$ distinct from $A$ and $B$. Show that vectors $\overrightarrow{AC}$ and $\overrightarrow{BC}$ are orthogonal.  
 
 \begin{hint}
@@ -188,17 +190,17 @@ Position the circle in the coordinate plane with center at the origin and segmen
 \end{image}
 \end{problem}
 
-\begin{problem} A rhombus is a quadrilateral with four congruent sides.  Use vectors to prove that a parallelogram is a rhombus if and only if its diagonals are perpendicular.
+\begin{problem}\label{prob:rhombusdot} A rhombus is a quadrilateral with four congruent sides.  Use vectors to prove that a parallelogram is a rhombus if and only if its diagonals are perpendicular.
 \begin{hint}
 See the section on vector subtraction in Module VEC-M-0030.
 \end{hint}
 \end{problem}
 
-%\section*{Photo Credits}
-%The following images are courtesy of \href{https://commons.wikimedia.org/wiki/Main_Page}
-%{Wikimedia Commons}
+\section*{Photo Credits}
+The following images are courtesy of \href{https://commons.wikimedia.org/wiki/Main_Page}
+{Wikimedia Commons}
 
-%\noindent Hannes Grobe (Figures \ref{fig:clock}), {\it Wall clock manufactured by Telefonbau \& Normalzeit.} CC-BY 3.0
+\noindent Hannes Grobe, {\it Wall clock manufactured by Telefonbau \& Normalzeit.} CC-BY 3.0
 
 
 
