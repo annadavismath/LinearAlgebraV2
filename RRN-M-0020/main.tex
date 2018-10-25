@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{Parametric Equations of Lines} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{RRN-0020:  Parametric Equations of Lines} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,10 +10,12 @@
 \end{abstract}
 \maketitle
 
+\section*{RRN-0020:  Parametric Equations of Lines}
+
 At this point you should be very familiar with graphing linear equations of the form $y=mx+b$, where $m$ is the slope of the line and $b$ is the $y$-intercept.  Unfortunately, there is no equivalent way of representing lines in $\RR^3$, or better yet, $\RR^n$.  In this module we will develop an alternative way of representing lines.
 
-\section*{Parametric Lines in $\RR^2$}
-\begin{initprob}\label{init:paramline2d}
+\subsection*{Parametric Lines in $\RR^2$}
+\begin{exploration}\label{init:paramline2d}
 Imagine a ladybug crawling around a plane.  At every instant in time, the ladybug's position in the plane can be described by an ordered pair $(x, y)$.  Coordinates $x$ and $y$ are functions of time.  Suppose the position of the ladybug at time $t$ is given by:
 \begin{align*}
 x&=2t-1\\
@@ -48,9 +49,9 @@ The point $(x, y)$, corresponding to each value of $t$ is the location of the la
 \end{image}
 
 It appears that the points corresponding to $t=0, 1, 2, 3$ lie on a line with slope $-\frac{3}{2}$.  In the next problem we will find the equation of the line that contains the path of the ladybug.
-\end{initprob}
+\end{exploration}
 
-\begin{initprob}\label{init:paramline2dpart2}
+\begin{exploration}\label{init:paramline2dpart2}
 In Exploration Problem \ref{init:paramline2d} we considered equations
 \begin{align*}
 x&=2t-1\\
@@ -83,7 +84,7 @@ Plotting the line $y=-\frac{3}{2}x+\frac{9}{2}$ together with the path we plotte
 \end{image}
 
 If we do not restrict $t$ to values between 0 and 3, we can get every point on the line $y=-\frac{3}{2}x+\frac{9}{2}$.  
-\end{initprob}
+\end{exploration}
 
 Equations such as
 \begin{align*}
@@ -95,7 +96,7 @@ are called \dfn{parametric equations}, and $t$ is called a \dfn{parameter}.
 When given an equation of the form $y=mx+b$, we recognize it as an equation whose graph is a line and we don't need to make a table of values to sketch the graph of the equation.  We should be able to do the same for parametric equations of lines.  In the next Exploration Problem we will examine our equations carefully to see if we can discern any patterns that would help us plot the line without making a table of values.  
 
 
-\begin{initprob}\label{init:paramline2dpart3}
+\begin{exploration}\label{init:paramline2dpart3}
 Let's return to parametric equations from the previous problem.
 \begin{align*}
 x&=2t-1\\
@@ -126,7 +127,7 @@ We will capture the ``rise" and ``run" aspect of the line by using vector $\vec{
   
 \draw[line width=1pt,blue](-11/3,10)node[below=5mm, left=0mm]{$y=-\frac{3}{2}x+\frac{9}{2}$}--(7,-6) ;
 
-\draw[line width=1pt,red, -stealth](0,0)--(2,-3)node[below=0.4cm, right=-0.2cm]{$\vec{v}=\begin{bmatrix}2\\-3\end{bmatrix}$} ;
+\draw[line width=1pt,red, -stealth](0,0)--(2,-3)node[below]{$\vec{v}=\begin{bmatrix}2\\-3\end{bmatrix}$} ;
 
  \end{tikzpicture}
 \end{image}
@@ -145,7 +146,7 @@ x&=2t+1\\
 y&=-3t+3
 \end{align*}
 describe the same line.  Thus, parametric representations are not unique.
-\end{initprob}
+\end{exploration}
 
 We can generalize our observations in Exploration Problem \ref{init:paramline2dpart3} as follows.
 
@@ -172,9 +173,9 @@ y&=-8t-5
 \end{explanation}
 \end{example}
 
-\section*{Parametric Lines in $\RR^3$}
+\subsection*{Parametric Lines in $\RR^3$}
 
-\begin{initprob}\label{init:paramline3d}
+\begin{exploration}\label{init:paramline3d}
 Consider the following set of parametric equations
 \begin{align*}
 x&=4t+1\\
@@ -246,7 +247,7 @@ y&=8t+({\color{red}-3})\\
 z&=5t+{\color{red}1}
 \end{align*}
 As before, the point $(1, -3, 1)$ may be replaced with any other point on the line to produce a different set of parametric equations describing the same line.
-\end{initprob}
+\end{exploration}
 
 We can generalize our observations in Exploration Problem \ref{init:paramline3d} as follows.
 
@@ -273,7 +274,7 @@ z&=-3t+4
 \end{explanation}
 \end{example}
 
-\section*{Parametric Lines in $\RR^n$}
+\subsection*{Parametric Lines in $\RR^n$}
 After working with parametric equations of lines in $\RR^2$ and $\RR^3$, it should be easy to surmise what parametric equations of lines look like for lines in $\RR^n$.
 \begin{formula}\label{form:paramlinend}
 Let $\vec{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}$ be a direction vector for line $l$ in $\RR^n$, and let $(a_1, a_2,\ldots , a_n)$ be an arbitrary point on $l$.  Then the following parametric equations describe $l$:
