@@ -1,20 +1,20 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Linear Systems as Matrix and Linear Combination Equations} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{MAT-0030: Linear Systems as Matrix and Linear Combination Equations} \license{CC-BY 4.0}
 
 \begin{document}
 
 \begin{abstract}
-  We interpret linear systems as matrix equations and as equations involving linear combinations of vectors.
+  We interpret linear systems as matrix equations and as equations involving linear combinations of vectors.  We define singular and nonsingular matrices.
 \end{abstract}
 \maketitle
 
+\section*{MAT-0030: Linear Systems as Matrix and Linear Combination Equations}
 
-\section*{A Linear System as a Matrix Equation}
+\subsection*{A Linear System as a Matrix Equation}
 
-\begin{initprob}
+\begin{exploration}
 Consider the linear system
 $$\begin{array}{ccccccccc}
       3x_1 &- &2x_2&+&4x_3&+&x_4&= &5 \\
@@ -28,10 +28,10 @@ $$A\vec{x}=\vec{b}$$
 $$\begin{bmatrix}3&-2&4&1\\-1&0&5&-2\\2&1&-1&3\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}5\\1\\-4\end{bmatrix}$$
 is a matrix equation that corresponds to our system of equations.
 
-\end{initprob}
+\end{exploration}
 
 
-\begin{general} A system of linear equations
+In general, a system of linear equations
 
 $$\begin{array}{ccccccccc}
       a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
@@ -40,7 +40,7 @@ $$\begin{array}{ccccccccc}
      a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
     \end{array}$$
 
-Can be written as a matrix equation as follows:
+can be written as a matrix equation as follows:
 
 $$
  \begin{bmatrix}
@@ -69,8 +69,6 @@ $$\left[\begin{array}{cccc|c}
 		\vdots & \vdots&\ddots &\vdots&\vdots\\
 		a_{m1}&\dots &\dots &a_{mn}&b_m
  \end{array}\right]$$
-
-\end{general}
 
 \begin{example} Given a linear system
 $$\begin{array}{ccccc}
@@ -142,7 +140,114 @@ $$\begin{array}{ccccccccc}
 \end{example}
 
 The solution given in (\ref{eq:generalvsparticular}) is an example of a \dfn{general solution} because it accounts for all of the solutions to the system.  Letting $s$ and $t$ take on specific values produces \dfn{particular solutions}.  For example, $\begin{bmatrix}2\\-1\\1\\-1\end{bmatrix}$ is a particular solution that corresponds to $s=1$, $t=-1$.
-\section*{A Linear System as a Linear Combination Equation}
+
+\subsection*{Singular and Nonsingular Matrices}
+Our examples so far involved non-square matrices.  Square matrices, however, play a very important role in linear algebra.  This section will focus on square matrices.
+
+\begin{example}\label{ex:nonsingularintro}
+Let $$A=\begin{bmatrix}3&-1&1\\0&1&2\\1&2&2\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}2\\1\\0\end{bmatrix}$$
+Solve $A\vec{x}=\vec{b}$.
+\begin{explanation}
+ We apply elementary row operations to bring the augmented matrix to its reduced row-echelon form.
+ $$\left[\begin{array}{ccc|c}  
+ 3&-1&1&2\\0&1&2&1\\1&2&2&0
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&0&0\\0&1&0&-1\\0&0&1&1
+ \end{array}\right]$$
+ 
+ We can immediately see that the solution vector is
+ $$\vec{x}=\begin{bmatrix}0\\-1\\1\end{bmatrix}$$
+ \end{explanation}
+\end{example}
+
+
+
+Observe that the left-hand side of the augmented matrix in Example \ref{ex:nonsingularintro} is the identity matrix $I$.  This means that $\mbox{rref}(A)=I$.  
+
+The elementary row operations that carried $A$ to $I$ were not dependent on the vector $\vec{b}$.  In fact, the same row reduction process can be applied to the matrix equation $A\vec{x}=\vec{b}$ for {\it any} vector $\vec{b}$ to obtain a unique solution.
+$$\left[\begin{array}{ccc|c}  
+ 3&-1&1&a\\0&1&2&b\\1&2&2&c
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&0&a^*\\0&1&0&b^*\\0&0&1&c^*
+ \end{array}\right]$$
+ $$\vec{x}=\begin{bmatrix}a^*\\b^*\\c^*\end{bmatrix}$$
+Given a matrix $A$ such that $\mbox{rref}(A)=I$, the system $A\vec{x}=\vec{b}$ will never be inconsistent because we will never have a row like this: $\left[\begin{array}{cccc|c}  
+ 0&0&\ldots&0&1
+ \end{array}\right]$.  Neither will we have infinitely many solutions because there will never be free variables.  Matrices such as $A$ deserve special attention.
+
+\begin{definition}\label{def:nonsingularmatrix}
+A square matrix $A$ is said to be \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.  Otherwise we say that $A$ is \dfn{singular}.
+\end{definition}
+
+Non-singular matrices have many useful properties.
+
+\begin{theorem}\label{th:nonsingularequivalency1} The following statements are equivalent for an $n\times n$ matrix $A$.
+\begin{enumerate}
+\item\label{item:asingular} $A$ is nonsingular
+\item\label{item:uniquesolution} $A\vec{x}=\vec{b}$ has a unique solution
+\item\label{item:onlytrivialsolution} $A\vec{x}=\vec{0}$ has only the trivial solution $\vec{x}=\vec{0}$
+\end{enumerate}
+\end{theorem}
+We will prove equivalence of the three statements by showing that
+\begin{center}
+\ref{item:asingular}$\Rightarrow$\ref{item:uniquesolution}$\Rightarrow$\ref{item:onlytrivialsolution}$\Rightarrow$\ref{item:asingular}
+\end{center}
+\begin{proof}[Proof of \ref{item:asingular}$\Rightarrow$\ref{item:uniquesolution}]
+Suppose $\mbox{rref}(A)=I$.  Given any vector $\vec{b}$ in $\RR^n$, the augmented matrix $[A|\vec{b}]$ can be carried to its reduced row-echelon form $[I|\vec{b}^*]$.  Uniqueness of the reduced row-echelon form guarantees that $\vec{b}^*$ is the unique solution of $A\vec{x}=\vec{b}$. 
+\end{proof}
+\begin{proof}[Proof of \ref{item:uniquesolution}$\Rightarrow$\ref{item:onlytrivialsolution}]
+Suppose $A\vec{x}=\vec{b}$ has a unique solution for all vectors $\vec{b}$.  Then $A\vec{x}=\vec{0}$ has a unique solution.  But $\vec{x}=\vec{0}$ is always a solution to $A\vec{x}=\vec{0}$.  Therefore $\vec{x}=\vec{0}$ is the only solution.
+\end{proof}
+\begin{proof}[Proof of \ref{item:onlytrivialsolution}$\Rightarrow$\ref{item:asingular}]
+Suppose $A\vec{x}=\vec{0}$ has only the trivial solution.  This means that $x_1=0, x_2=0,\dots ,x_n=0$ is the only solution of $A\vec{x}=\vec{0}$.  But then, we know that the augmented matrix $[A|\vec{0}]$ can be reduced to $[I|\vec{0}]$.  The same row operations will carry $A$ to $I$.
+\end{proof}
+
+Not all square matrices are nonsingular.  For example,
+$$\mbox{rref}\left(\begin{bmatrix}2&-1&1\\1&1&1\\3&0&2\end{bmatrix}\right)=\begin{bmatrix}1&0&2/3\\0&1&1/3\\0&0&0\end{bmatrix}\neq I$$
+By Theorem \ref{th:nonsingularequivalency1}, a matrix equation $A\vec{x}=\vec{b}$ involving a singular matrix $A$ cannot have a unique solution. The following example illustrates the two scenarios that arise when solving equations that involve singular matrices.
+\begin{example}\label{ex:infinfeasible}
+Let $$A=\begin{bmatrix}2&-1&1\\1&1&1\\3&0&2\end{bmatrix}$$  Solve the equation $A\vec{x}=\vec{b}$ or show that the equation is inconsistent.
+\begin{enumerate}
+    \item \label{item:infmany} $$\vec{b}=\begin{bmatrix}4\\-1\\3\end{bmatrix}$$
+    \item \label{item:infeasible}
+    $$\vec{b}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
+\end{enumerate}
+\begin{explanation}
+ \ref{item:infmany}  Row reduction gives us
+ $$\left[\begin{array}{ccc|c}  
+ 2&-1&1&4\\1&1&1&-1\\3&0&2&3
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&2/3&1\\0&1&1/3&-2\\0&0&0&0
+ \end{array}\right]$$
+ There are infinitely many solutions.
+ $$\vec{x}=\begin{bmatrix}1-(2/3)t\\-2-(1/3)t\\t\end{bmatrix}=\begin{bmatrix}1\\-2\\0\end{bmatrix}+\begin{bmatrix}-2/3\\-1/3\\1\end{bmatrix}t$$
+ 
+ \ref{item:infeasible} When the vector $\vec{b}$ is changed, the row operations that take $A$ to its reduced row-echelon form produce a $1$ in the last row of the vector on the right, showing that the system inconsistent.
+ $$\left[\begin{array}{ccc|c}  
+ 2&-1&1&4\\1&1&1&-1\\3&0&2&3
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&2/3&0\\0&1&1/3&0\\0&0&0&1
+ \end{array}\right]$$
+\end{explanation}
+\end{example}
+
+\subsection*{A Linear System as a Linear Combination Equation}
 
 Recall that the product of a matrix and a vector can be interpreted as a linear combination of the columns of the matrix.  For example,
 $$\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=x_1\begin{bmatrix}1\\5\end{bmatrix}+x_2\begin{bmatrix}2\\6\end{bmatrix}+x_3\begin{bmatrix}3\\7\end{bmatrix}+x_4\begin{bmatrix}4\\8\end{bmatrix}$$
@@ -206,7 +311,6 @@ $\begin{array}{ccccccc}
        3x&- &y &- &2z&= &4 \\
      -x& & &+ &z&= &-1 \\
      & &-y &+ &5z&=&0
-
     \end{array}$
 \end{center}
 \end{problem}
