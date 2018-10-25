@@ -1,0 +1,525 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{VSP-0040: Subspaces of $\RR^n$ Associated with Matrices} \license{CC-BY 4.0}
+
+
+
+\begin{document}
+\begin{abstract}
+We define the row space, the column space, and the null space of a matrix, and we prove the Rank-Nullity Theorem.
+\end{abstract}
+\maketitle
+\section*{VSP-0040: Subspaces of $\RR^n$ Associated with Matrices}
+\subsection*{Row Space of a Matrix}
+Recall that in SYS-M-0030, we claimed that every row-echelon form of a given matrix has the same number of nonzero rows.  This result suggests that there are certain characteristics associated with the rows of a matrix that are not affected by elementary row operations.  We are now in the position to examine this question and to supply the proof we omitted earlier.
+\begin{definition}\label{def:rowspace} Let $A$ be an $m\times n$ matrix.  The \dfn{row space} of $A$, denoted by $\mbox{row}(A)$, is the subspace of $\RR^n$ spanned by the rows of $A$.
+\end{definition}
+
+\begin{exploration}\label{init:rowspace}
+Consider the matrix
+$$A=\begin{bmatrix}-2&2&1\\4&-2&1\end{bmatrix}$$
+Let $\vec{r}_1$ and $\vec{r}_2$ be the rows of $A$: 
+$$\vec{r}_1=\begin{bmatrix}-2&2&1\end{bmatrix},\quad \vec{r}_2=\begin{bmatrix}4&-2&1\end{bmatrix}$$
+
+Then 
+$\mbox{row}(A)=\mbox{span}(\vec{r}_1, \vec{r}_2)$
+is a plane through the origin containing $\vec{r}_1$ and  $\vec{r}_2$.  
+
+\begin{image}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}[rotate around x=0]
+	\draw[->](-2,0,0)--(3,0,0) node[below left]{$y$};
+    \draw[->](0,-1,0)--(0,3,0) node[below left]{$z$};
+    \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
+    \filldraw[blue, opacity=0.3] (0,0,0)--(2,1,-2)--(0,2,2)--(-2,1,4)--cycle;
+    
+    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(2,1,-2)node[below right]{$\vec{r}_1$};
+      
+    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(-2,1,4)node[below left]{$\vec{r}_2$};
+    \end{tikzpicture}
+\end{image}
+
+We will use elementary row operations to reduce $A$ to $\mbox{rref}(A)$.
+$$\begin{bmatrix}-2&2&1\\4&-2&1\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&1\\0&1&3/2\end{bmatrix}$$
+Let $\vec{\rho}_1$ and $\vec{\rho}_2$ be the rows of $\mbox{rref}(A)$:
+$$\vec{\rho}_1=\begin{bmatrix}1&0&1\end{bmatrix},\quad \vec{\rho}_2=\begin{bmatrix}0&1&3/2\end{bmatrix}$$
+What do you think $\mbox{span}(\vec{\rho}_1, \vec{\rho}_2)$ looks like?  
+
+The following video will help us visualize $\mbox{span}(\vec{\rho}_1, \vec{\rho}_2)$ and compare it to $\mbox{span}(\vec{r}_1, \vec{r}_2)$.
+
+\youtube{6wz-5G14jo8}
+
+Based on what we observed in the video, we may conjecture that 
+$$\mbox{span}(\vec{\rho}_1, \vec{\rho}_2)=\mbox{span}(\vec{r}_1, \vec{r}_2)$$
+
+\begin{image}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}[rotate around x=0]
+	\draw[->](-2,0,0)--(3,0,0) node[below left]{$y$};
+    \draw[->](0,-1,0)--(0,3,0) node[below left]{$z$};
+    \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
+    \filldraw[blue, opacity=0.3] (0,0,0)--(2,1,-2)--(0,2,2)--(-2,1,4)--cycle;
+    
+    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(2,1,-2)node[below right]{$\vec{r}_1$};
+      
+    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(-2,1,4)node[below left]{$\vec{r}_2$};
+    
+    \draw[->, line width=2pt,red, -stealth](0,0,0)--(0,1,1)node[above left]{$\vec{\rho}_1$};
+      
+    \draw[->, line width=2pt,red, -stealth](0,0,0)--(1,3/2,0)node[above right]{$\vec{\rho}_2$};
+    
+    \end{tikzpicture}
+\end{image}
+But why does this make sense?  Vectors $\vec{\rho}_1$ and $\vec{\rho}_2$ were obtained from $\vec{r}_1$ and $\vec{r}_2$ by repeated applications of elementary row operations.  At every stage of the row reduction process, the rows of the matrix are linear combinations of $\vec{r}_1$ and $\vec{r}_2$.  Thus, at every stage of the row reduction process, the rows of the matrix lie in the span of $\vec{r}_1$ and $\vec{r}_2$.  Our next video shows a step-by-step row reduction process accompanied by sketches of vectors.
+
+\youtube{KpoeWUQ3wkY}
+
+\end{exploration}
+
+Exploration Problem \ref{init:rowspace} makes a convincing case for the following theorem.
+
+\begin{theorem}\label{th:rowBrowA} If matrix $B$ was obtained from matrix $A$ by applying an elementary row operation to $A$ then
+$$\mbox{row}(B)=\mbox{row}(A)$$
+\end{theorem}
+\begin{proof}
+Let $\vec{r}_1,\ldots ,\vec{r}_m$ be the rows of $A$. 
+
+There are three elementary row operations.  Clearly, switching the order of vectors in $\mbox{span}(\vec{r}_1,\ldots  ,\vec{r}_m)$ will not affect the span.  
+
+Suppose that $B$ was obtained from $A$ by multiplying the $i^{th}$ row of $A$ by a non-zero constant $k$.  We need to show that 
+$$\mbox{span}(\vec{r}_1,\ldots ,k\vec{r}_i,\ldots ,\vec{r}_m)=\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$$
+
+To do this we will assume that some vector $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,k\vec{r}_i,\ldots ,\vec{r}_m)$, and show that $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$.  We will then assume that some vector $\vec{w}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$ and show that $\vec{w}$ must be in $\mbox{span}(\vec{r}_1,\ldots ,k\vec{r}_i,\ldots ,\vec{r}_m)$.
+
+Suppose that $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,k\vec{r}_i,\ldots ,\vec{r}_m)$.  Then 
+$$\vec{v}=a_1\vec{r}_1+\ldots +a_i(k\vec{r}_i)+\ldots +a_m\vec{r}_m$$
+But then 
+$$\vec{v}=a_1\vec{r}_1+\ldots +(a_ik)\vec{r}_i+\ldots +a_m\vec{r}_m$$
+So $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$.
+
+Now suppose $\vec{w}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$, then
+$$\vec{w}=b_1\vec{r}_1+\ldots +b_i\vec{r}_i+\ldots +b_m\vec{r}_m$$
+But because $k\neq 0$, we can do the following:
+$$\vec{w}=b_1\vec{r}_1+\ldots +\frac{b_i}{k}(k\vec{r}_i)+\ldots +b_m\vec{r}_m$$
+So $\vec{w}$ is in $\mbox{span}(\vec{r}_1,\ldots ,k\vec{r}_i,\ldots ,\vec{r}_m)$.
+  
+We leave it to the reader to verify that adding a multiple of one row of $A$ to another does not change the row space.  (See Practice Problem {\color{red}reference}.)  
+%  Now suppose that $B$ was obtained from $A$ by adding $k$ times row $j$ to row $i$.  We need to show that 
+%  $$\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i+k\vec{r}_j,\ldots ,\vec{r}_m)=\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$$
+  
+%  To do this, we will assume that some vector $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i+k\vec{r}_j,\ldots ,\vec{r}_m)$ and show that $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$.  We will then assume that some vector $\vec{w}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$, and show that $\vec{w}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i+k\vec{r}_j,\ldots ,\vec{r}_m)$.
+  
+ % Suppose $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i+k\vec{r}_j,\ldots ,\vec{r}_m)$.  Then
+
+%$$\vec{v}=a_1\vec{r}_1+\ldots +a_i(\vec{r}_i+k\vec{r}_j)+\ldots +a_j\vec{r}_j+\ldots +a_m\vec{r}_m$$
+%But then
+%$$\vec{v}=a_1\vec{r}_1+\ldots +a_i\vec{r}_i+\ldots +(a_ik+a_j)\vec{r}_j+\ldots +a_m\vec{r}_m$$
+%Thus $\vec{v}$ is in $\mbox{span}(\vec{r}_1,\ldots ,\vec{r}_i,\ldots ,\vec{r}_m)$
+
+\end{proof}
+
+\begin{corollary}\label{cor:rowequiv}
+If matrix $B$ was obtained from matrix $A$ by applying a sequence of elementary row operations to $A$ then
+$$\mbox{row}(B)=\mbox{row}(A)$$
+\end{corollary}
+\begin{proof}
+This follows from repeated applications of Theorem \ref{th:rowBrowA}.
+\end{proof}
+\begin{corollary}\label{cor:rowArowrrefA}
+$$\mbox{row}(A)=\mbox{row}(\mbox{rref}(A))$$
+\end{corollary}
+
+\begin{example}\label{ex:basisrowspace}
+Let
+$$A=\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}$$
+Find two distinct bases for $\mbox{row}(A)$.
+\begin{explanation}
+By Corollary \ref{cor:rowArowrrefA} a basis for $\mbox{row}(\mbox{rref}(A))$ will also be a basis for $\mbox{row}(A)$. Row reduction gives us:
+$$\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&3&0&-9\\0&1&5&0&-31\\0&0&0&1&3\\0&0&0&0&0\end{bmatrix}=\mbox{rref}(A)$$
+
+Since the zero row contributes nothing to the span, we conclude that the nonzero rows of $\mbox{rref}(A)$ span $\mbox{row}(\mbox{rref}(A))$.  Therefore
+$$\mbox{row}(A)=\mbox{span}\Big(\begin{bmatrix}1&0&3&0&-9\end{bmatrix},
+\begin{bmatrix}0&1&5&0&-31\end{bmatrix},
+\begin{bmatrix}0&0&0&1&3\end{bmatrix}\Big)$$
+By Theorem \ref{th:rowsrreflinind} of VEC-M-0110, the nonzero rows of $\mbox{rref}(A)$ are linearly independent.
+%Observe that the leading $1's$ have $0's$ above and below them.  Thus, the non-zero rows of $\mbox{rref}(A)$ are linearly independent.
+It follows that the nonzero rows of $\mbox{rref}(A)$ form a basis for $\mbox{row}(A)$.
+
+To find a second basis for $\mbox{row}(A)$, observe that by Corollary \ref{cor:rowequiv} the row space of {\it any} row-echelon form of $A$ will be equal to $\mbox{row}(A)$.  Matrix $A$ has many row-echelon forms.  Here is one of them:
+$$B=\begin{bmatrix}1&0&3&3&0\\0&-1&-5&-10&1\\0&0&0&1&3\\0&0&0&0&0 \end{bmatrix}$$
+The nonzero rows of $B$ span $\mbox{row}(A)$.  By Theorem \ref{th:rowsofreflinind} of VEC-M-0110 the nonzero rows of $B$ are linearly independent.  Thus the nonzero rows of $B$ form a basis for $\mbox{row}(A)$.
+\end{explanation}
+\end{example}
+
+Our observations in Example \ref{ex:basisrowspace} can be generalized to all matrices.  Given any matrix $A$,
+\begin{enumerate}
+    \item The nonzero rows of $\mbox{rref}(A)$ are linearly independent and span $\mbox{row}(A)$.  (Theorem \ref{th:rowsrreflinind} of VEC-M-0110, and Corollary \ref{cor:rowArowrrefA})
+    \item The nonzero rows of any row-echelon form of $A$ are linearly independent and span $\mbox{row}(A)$.  (Theorem \ref{th:rowsreflinind} of VEC-M-0110, and Corollary \ref{cor:rowequiv})
+\end{enumerate}
+Therefore nonzero rows of $\mbox{rref}(A)$ or the nonzero rows of any row-echelon form of $A$ constitute a basis of $\mbox{row}(A)$.  Since all bases for $\mbox{row}(A)$ must have the same number of elements ({\color{red}reference}), we have just proved the following theorem.
+
+\begin{theorem}\label{th:samenumberofnonzerorows}
+All row-echelon forms of a given matrix have the same number of nonzero rows.
+\end{theorem}
+
+This result was first introduced without proof in SYS-M-0030 where we used it to define the \dfn{rank} of a matrix as the number of nonzero rows in its row-echelon forms.
+
+\begin{theorem}\label{th:dimofrowA}
+Let $A$ be a matrix.  
+%\begin{enumerate}
+%\item The non-zero rows of $\mbox{rref}(A)$ form a basis of $\mbox{row}(A)$.
+%\item 
+$\mbox{dim}\Big(\mbox{row}(A)\Big)=\mbox{rank}(A)$.
+%\end{enumerate}
+\end{theorem}
+
+
+\subsection*{Column Space of a Matrix}
+\begin{definition}\label{def:colspace} Let $A$ be an $m\times n$ matrix.  The \dfn{column space} of $A$, denoted by $\mbox{col}(A)$, is the subspace of $\RR^m$ spanned by the columns of $A$.
+\end{definition}
+
+\begin{exploration}\label{init:colspace}
+Let
+$$B=\begin{bmatrix}2&-1&3&1\\1&-1&2&2\\1&3&-2&-3\end{bmatrix}$$
+Our goal is to find a basis for $\mbox{col}(B)$.  To do this we need to find a linearly independent subset of the columns of $B$ that spans $\mbox{col}(B)$.
+
+Consider the linear relation:
+\begin{equation}\label{eq:init:colspaceB} a_1\begin{bmatrix}2\\1\\1\end{bmatrix}+a_2\begin{bmatrix}-1\\-1\\3\end{bmatrix}+a_3\begin{bmatrix}3\\2\\-2\end{bmatrix}+a_4\begin{bmatrix}1\\2\\-3\end{bmatrix}=\vec{0}\end{equation}
+
+Solving this homogeneous equation amounts to finding $\mbox{rref}(B)$.
+$$\begin{bmatrix}2&-1&3&1\\1&-1&2&2\\1&3&-2&-3\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&1&0\\0&1&-1&0\\0&0&0&1\end{bmatrix}=\mbox{rref}(B)$$
+We now see that (\ref{eq:init:colspaceB}) has infinitely many solutions.  
+
+Observe that the homogeneous equation
+
+\begin{equation}\label{eq:init:colspaceR} a_1\begin{bmatrix}1\\0\\0\end{bmatrix}+a_2\begin{bmatrix}0\\1\\0\end{bmatrix}+a_3\begin{bmatrix}1\\-1\\0\end{bmatrix}+a_4\begin{bmatrix}0\\0\\1\end{bmatrix}=\vec{0}\end{equation}
+
+has the same solution set as (\ref{eq:init:colspaceB}).  In particular, $a_1=1$, $a_2=-1$, $a_3=-1$, $a_4=0$ is a non-trivial solution of (\ref{eq:init:colspaceB}) and (\ref{eq:init:colspaceR}).  This means that the third column of $B$ and the third column of $\mbox{rref}(B)$ can be expressed as the first column minus the second column of their respective matrices.  We conclude that the third column of $B$ can be eliminated from the spanning set for $\mbox{col}(B)$ and 
+$$\mbox{col}(B)=\mbox{span}\left(\begin{bmatrix}2\\1\\1\end{bmatrix},\begin{bmatrix}-1\\-1\\3\end{bmatrix}, \begin{bmatrix}3\\2\\-2\end{bmatrix}, \begin{bmatrix}1\\2\\-3\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\1\\1\end{bmatrix},\begin{bmatrix}-1\\-1\\3\end{bmatrix}, \begin{bmatrix}1\\2\\-3\end{bmatrix}\right)$$
+Having gotten rid of one of the vectors, we need to determine whether the remaining three vectors are linearly independent.  To do this we need to find all solutions of 
+
+\begin{equation}\label{eq:init:colspaceB2} b_1\begin{bmatrix}2\\1\\1\end{bmatrix}+b_2\begin{bmatrix}-1\\-1\\3\end{bmatrix}+b_3\begin{bmatrix}1\\2\\-3\end{bmatrix}=\vec{0}\end{equation}
+Fortunately, we do not have to start from scratch.  Observe that crossing out the third column in the previous row reduction process yields the desired reduced row-echelon form.
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m)[
+    matrix of math nodes,
+    nodes in empty cells,
+    left delimiter={[},right delimiter={]}] {
+    2    & -1  & 3 & 1 \\
+    1 & -1   & 2  & 2  \\
+    1   & 3    & -2 & -3     \\
+  } ;
+  
+  \matrix (s)[
+    matrix of math nodes,
+    nodes in empty cells,
+    ] at ($(m.east)+(0.5,0)$)
+    {
+     \\
+    \rightsquigarrow \\
+    \\
+  } ;
+  
+  \matrix (r)[
+    matrix of math nodes,
+    nodes in empty cells,
+    left delimiter={[},right delimiter={]}] at ($(m.east)+(2.2,0)$)
+    {
+     1&0&1&0\\
+    0&1&-1&0 \\
+    0&0&0&1\\
+  } ;
+  
+  \draw[blue](m-1-3.north) -- (m-3-3.south);
+   \draw[blue](r-1-3.north) -- (r-3-3.south);
+ \end{tikzpicture}
+ \end{center} 
+ This time the reduced row-echelon form tells us that (\ref{eq:init:colspaceB2}) has only the trivial solution.  We conclude that the three vectors are linearly independent and 
+ $$\left\{\begin{bmatrix}2\\1\\1\end{bmatrix},\begin{bmatrix}-1\\-1\\3\end{bmatrix}, \begin{bmatrix}1\\2\\-3\end{bmatrix}\right\}$$
+ is a basis for $\mbox{col}(B)$.
+\end{exploration}
+
+The approach we took to find a basis for $\mbox{col}(B)$ in Exploration Problem \ref{init:colspace} uses the reduced row-echelon form of $B$. It is true, however, that {\it any} row-echelon form of $B$ could have been used in place of $\mbox{rref}(B)$.  (Why?). We generalize the steps as follows:
+\begin{procedure}\label{proc:colspace}
+Given a matrix $B$, a basis for $\mbox{col}(B)$ can be found as follows:
+\begin{enumerate}
+\item Find $\mbox{rref}(B)$ (or any row-echelon form $B'$ of $B$.)
+\item Identify the pivot columns of $\mbox{rref}(B)$ (or $B'$).
+\item The columns of $B$ corresponding to the pivot columns of $\mbox{rref}(B)$ (or $B'$) form a basis for $\mbox{col}(B)$.
+\end{enumerate}
+\begin{proof}  Let $\vec{b}_1,\ldots ,\vec{b}_n$ be the columns of $B$, and let $\vec{b}'_1,\ldots ,\vec{b}'_n$ be the columns of $\mbox{rref}(B)$ (or $B'$).
+Observe that the equations
+\begin{equation}a_1\vec{b}_1+\ldots +a_n\vec{b}_n=\vec{0}\end{equation}
+\begin{equation}a_1\vec{b}'_1+\ldots +a_n\vec{b}'_n=\vec{0}\end{equation}
+have the same solution set.  This means that any non-trivial relation among the columns of $\mbox{rref}(B)$ (or $B'$) translates into a non-trivial relation among the columns of $B$.  Likewise, any collection of linearly independent columns of $\mbox{rref}(B)$ (or $B'$) corresponds to linearly independent columns of $B$.
+
+%Because the leading $1's$ are the only non-zero entries in the pivot columns of $\mbox{rref}(B)$ and because no two leading $1's$ appears in the same row, it is easy to see that the pivot columns of $\mbox{rref}(B)$ are linearly independent.  
+By Theorems \ref{th:rowsrreflinind} and \ref{th:rowsofreflinind} of VEC-M-0110, the pivot columns of $\mbox{rref}(B)$ (or $B'$) are linearly independent.  Therefore the corresponding columns of $B$ are linearly independent.  Non-pivot columns can be expressed as linear combinations of the pivot columns, therefore they contribute nothing to the span and can be removed from the spanning set. 
+\end{proof}
+\end{procedure}
+
+The proof of Procedure \ref{proc:colspace} shows that the number of basis elements for the column space of a matrix is equal to the number of pivot columns.  But the number of pivot columns is the same as the number of pivots in a row-echelon form, which is equal to the number of nonzero rows and the rank of the matrix.  This gives us the following important result.
+\begin{theorem}
+Let $A$ be a matrix.
+$$\mbox{dim}\Big(\mbox{row}(A)\Big)=\mbox{rank}(A)=\mbox{dim}\Big(\mbox{col}(A)\Big)$$
+\end{theorem}
+
+\begin{example}\label{ex:basiscolspace}
+We will return to matrix $A$ of Example \ref{ex:basisrowspace} and find a basis for $\mbox{col}(A)$.
+\begin{explanation}
+We begin by finding $\mbox{rref}(A)$.
+$$\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&3&0&-9\\0&1&5&0&-31\\0&0&0&1&3\\0&0&0&0&0\end{bmatrix}=\mbox{rref}(A)$$
+Columns $1$, $2$ and $4$ of $\mbox{rref}(A)$ contain leading $1's$.  Therefore columns $1$, $2$ and $4$ of $A$ form a basis for $\mbox{col}(A)$.
+\end{explanation}
+
+\end{example}
+
+\subsection*{The Null Space}
+\begin{definition}\label{def:nullspace} Let $A$ be an $m\times n$ matrix.  The \dfn{null space} of $A$, denoted by $\mbox{null}(A)$, is the set of all vectors $\vec{x}$ in $\RR^n$ such that $A\vec{x}=\vec{0}$.
+\end{definition}
+
+\begin{example}\label{ex:nullintro}Find $\mbox{null}(A)$ if
+$$A=\begin{bmatrix}3&-1\\-6&2\end{bmatrix}$$
+\begin{explanation}We need to solve the equation $A\vec{x}=\vec{0}$.  Row reduction gives us
+$$\begin{bmatrix}3&-1\\-6&2\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&-1/3\\0&0\end{bmatrix}=\mbox{rref}(A)$$
+We conclude that $\vec{x}=\begin{bmatrix}1/3\\1\end{bmatrix}t$.  Thus $\mbox{null}(A)$ consists of all vectors of the form $\begin{bmatrix}1/3\\1\end{bmatrix}t$.  We might write
+$$\mbox{null}(A)=\left\{\begin{bmatrix}1/3\\1\end{bmatrix}t\right\}$$ or
+$$\mbox{null}(A)=\mbox{span}\left(\begin{bmatrix}1/3\\1\end{bmatrix}\right)$$
+\end{explanation}
+\end{example}
+Example \ref{ex:nullintro} allows us to make an important observation. Note that every scalar multiple of $\begin{bmatrix}1/3\\1\end{bmatrix}$ is contained in $\mbox{null}(A)$.  This means that $\mbox{null}(A)$ is closed under vector addition and scalar multiplication.  Recall that this property makes $\mbox{null}(A)$ a \dfn{subspace} of $\RR^n$.  This result was first presented as Practice Problem {\color{red}reference} in VSP-M-0020. We now formalize it as a theorem.
+
+\begin{theorem} Let $A$ be an $m\times n$ matrix.  Then $\mbox{null}(A)$ is a subspace of $\RR^n$.
+\end{theorem}
+\begin{proof}To show that $\mbox{null}(A)$ is closed under vector addition and scalar multiplication we will show that a linear combination of any two elements of $\mbox{null}(A)$ is contained in $\mbox{null}(A)$.
+
+Suppose $\vec{x}_1$ and $\vec{x}_2$ are in $\mbox{null}(A)$.  Then $A\vec{x}_1=\vec{0}$ and $A\vec{x}_2=\vec{0}$.  But then
+$$A(a_1\vec{x}_1+a_2\vec{x}_2)=a_1A\vec{x}_1+a_2A\vec{x}_2=\vec{0}$$
+We conclude that $a_1\vec{x}_1+a_2\vec{x}_2$ is also in $\mbox{null}(A)$.
+\end{proof}
+
+\begin{example}\label{ex:dimnull} Find a basis for $\mbox{null}(A)$, where $A$ is the matrix in Example \ref{ex:basisrowspace}.
+% \begin{example}\label{ex:dimnull} We will return to matrix $A$ of Example \ref{ex:basisrowspace} and find $\mbox{null}(A)$, a basis for $\mbox{null}(A)$, and $\mbox{dim}\Big(\mbox{null}(A)\Big)$.
+\begin{explanation}
+Elements in the null space of $A$ are solutions to the equation
+$$\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}\vec{x}=\vec{0}$$
+Row reduction yields $\mbox{rref}(A)$
+$$\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&3&0&-9\\0&1&5&0&-31\\0&0&0&1&3\\0&0&0&0&0\end{bmatrix}$$
+Therefore, elements of $\mbox{null}(A)$ are of the form
+$$\vec{x}=\begin{bmatrix}9t-3s\\31t-5s\\s\\-3t\\t\end{bmatrix}=\begin{bmatrix}-3\\-5\\1\\0\\0\end{bmatrix}s+\begin{bmatrix}9\\31\\0\\-3\\1\end{bmatrix}t$$
+Thus
+$$\mbox{null}(A)=\mbox{span}\left( \begin{bmatrix}-3\\-5\\1\\0\\0\end{bmatrix}, \begin{bmatrix}9\\31\\0\\-3\\1\end{bmatrix}\right)$$
+
+Now we need to find a basis for $\mbox{null}(A)$ we need to find linearly independent vectors that span $\mbox{null}(A)$.  Take a closer look at the vectors
+$$\begin{bmatrix}-3\\-5\\{\color{red}\fbox{$1$}}\\0\\{\color{blue}\fbox{$0$}}\end{bmatrix}, \begin{bmatrix}9\\31\\{\color{red}\fbox{$0$}}\\-3\\{\color{blue}\fbox{$1$}}\end{bmatrix}$$
+Because of the locations of $1's$ and $0's$, it is clear that one vector is not a scalar multiple of the other.  Therefore the two vectors are linearly independent.  We conclude that 
+$$\left\{\begin{bmatrix}-3\\-5\\1\\0\\0\end{bmatrix}, \begin{bmatrix}9\\31\\0\\-3\\1\end{bmatrix}\right\}$$
+is a basis of $\mbox{null}(A)$, and $\mbox{dim}\Big(\mbox{null}(A)\Big)=2$.
+\end{explanation}
+\end{example}
+It is not a coincidence that the steps we used in Example \ref{ex:dimnull} produced linearly independent vectors, and it is worth while to try to understand why this procedure will always produce linearly independent vectors.
+
+Take a closer look at the elements of the null space:
+$$\vec{x}=\begin{bmatrix}9t-3s\\31t-5s\\{\color{red}\fbox{$s$}}\\-3t\\{\color{blue}\fbox{$t$}}\end{bmatrix}=\begin{bmatrix}-3\\-5\\{\color{red}\fbox{$1$}}\\0\\{\color{blue}\fbox{$0$}}\end{bmatrix}s+\begin{bmatrix}9\\31\\{\color{red}\fbox{$0$}}\\-3\\{\color{blue}\fbox{$1$}}\end{bmatrix}t$$
+The parameter $s$ in the third component of $\vec{x}$ produces a $1$ in the third component of the first vector and a $0$ in the third component of the second vector, while parameter $t$ in the fifth component of $\vec{x}$ produces a $1$ in the fifth component of the second vector and a $0$ in the fifth component of the first vector. This makes it clear that the two vectors are linearly independent.  
+
+This pattern will hold for any number of parameters, each parameter producing a $1$ in exactly one vector and $0's$ in the corresponding components of the other vectors.
+
+$$\begin{bmatrix}\vdots \\t_1\\\vdots\\t_2\\\vdots\\t_3\\\vdots\\t_n\\\vdots \end{bmatrix}=\begin{bmatrix}\vdots \\1\\\vdots\\0\\\vdots\\0\\\vdots\\0\\\vdots \end{bmatrix}t_1+\ldots +\begin{bmatrix}\vdots \\0\\\vdots\\1\\\vdots\\0\\\vdots\\0\\\vdots \end{bmatrix}t_2+\ldots+\begin{bmatrix}\vdots \\0\\\vdots\\0\\\vdots\\1\\\vdots\\0\\\vdots \end{bmatrix}t_3+\ldots+\begin{bmatrix}\vdots \\0\\\vdots\\0\\\vdots\\0\\\vdots\\1\\\vdots \end{bmatrix}t_n$$
+Therefore, vectors obtained in this way will always be linearly independent.
+
+%Each free variable corresponds to a separate parameter, therefore the dimension of any matrix (number of elements in a basis) is equal to the number of free variables in the solution of the homogeneous equation associated with the matrix.
+
+
+\subsection*{Rank and Nullity Theorem}
+\begin{definition}\label{def:matrixnullity}
+Let $A$ be a matrix.  The dimension of the null space of $A$ is called the \dfn{nullity} of $A$.
+$$\mbox{dim}\Big(\mbox{null}(A)\Big)=\mbox{nullity}(A)$$
+\end{definition}
+
+We know that the dimension of the row space and the dimension of the column space of a matrix are the same and are equal to the rank of the matrix (or the number of nonzero rows in any row-echelon form of the matrix).
+
+As we observed in Example \ref{ex:dimnull}, the dimension of the null space of a matrix is equal to the number of free variables in the solution vector of the homogeneous system associated with the matrix.  Since the number of pivots and the number of free variables add up to the number of columns in a matrix ({\color{red}reference}) we have the following significant result.
+
+\begin{theorem}\label{th:matrixranknullity} Let $A$ be an $m\times n$ matrix.  Then 
+$$\mbox{rank}(A)+\mbox{nullity}(A)=n$$
+\end{theorem}
+We will see the geometric implications of this theorem when we study linear transformations.
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:colrowmatrixA}
+Let
+$$A=\begin{bmatrix}2&0&2&4\\1&3&-2&-1\\-1&-2&1&0\end{bmatrix}$$
+
+\begin{problem}
+Find $\mbox{rref}(A)$.
+$$\mbox{rref}(A)=\begin{bmatrix}\answer{1}&\answer{0}&\answer{1}&\answer{2}\\\answer{0}&\answer{1}&\answer{-1}&\answer{-1}\\\answer{0}&\answer{0}&\answer{0}&\answer{0}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$\mbox{rank}(A)=\mbox{dim}(\mbox{row}(A))=\mbox{dim}(\mbox{col}(A))=\answer{2}$$
+\end{problem}
+
+\begin{problem}
+Use $\mbox{rref}(A)$ and the procedure outlined in Example \ref{ex:basisrowspace} to find a basis for $\mbox{row}(A)$.
+
+Basis for $\mbox{row}(A):\quad
+\left\{\begin{bmatrix}\answer{1}& \answer{0}& \answer{1} & \answer{2}\end{bmatrix},\begin{bmatrix}\answer{0} & \answer{1}& \answer{-1} &\answer{-1}\end{bmatrix} \right\}$
+\end{problem}
+
+\begin{problem}
+Use Procedure \ref{proc:colspace} to find a basis for $\mbox{col}(A)$.
+
+Basis for $\mbox{col}(A):\quad
+\left\{ \begin{bmatrix}\answer{2}\\\answer{1}\\\answer{-1}\end{bmatrix}, \begin{bmatrix}\answer{0}\\\answer{3}\\\answer{-2}\end{bmatrix}\right\}$
+\end{problem}
+
+\end{problem}
+
+\begin{problem} \label{prob:colrowmatrixB}
+Let
+$$B=\begin{bmatrix}1&2&3\\-1&1&3\\2&0&-2\\1&-2&-5\\0&1&2\end{bmatrix}$$
+
+\begin{problem}
+Find $\mbox{rref}(B)$.
+$$\mbox{rref}(B)=\begin{bmatrix}\answer{1}&\answer{0}&\answer{-1}\\\answer{0}&\answer{1}&\answer{2}\\\answer{0}&\answer{0}&\answer{0}\\\answer{0}&\answer{0}&\answer{0}\\\answer{0}&\answer{0}&\answer{0}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$\mbox{rank}(B)=\mbox{dim}(\mbox{row}(B))=\mbox{dim}(\mbox{col}(B))=\answer{2}$$
+\end{problem}
+
+\begin{problem}
+Use $\mbox{rref}(B)$ and the procedure outlined in Example \ref{ex:basisrowspace} to find a basis for $\mbox{row}(B)$.
+
+Basis for $\mbox{row}(B):\quad
+\left\{\begin{bmatrix}\answer{1}& \answer{0}& \answer{-1}\end{bmatrix},\begin{bmatrix}\answer{0} & \answer{1}& \answer{2}\end{bmatrix} \right\}$
+\end{problem}
+
+\begin{problem}
+Use Procedure \ref{proc:colspace} to find a basis for $\mbox{col}(B)$.
+
+Basis for $\mbox{col}(B):\quad
+\left\{ \begin{bmatrix}\answer{1}\\\answer{-1}\\\answer{2}\\\answer{1}\\\answer{0}\end{bmatrix}, \begin{bmatrix}\answer{2}\\\answer{1}\\\answer{0}\\\answer{-2}\\\answer{1}\end{bmatrix}\right\}$
+\end{problem}
+
+\end{problem}
+
+
+
+\begin{problem}\label{prob:colrowmatrixC}
+Let
+$$C=\begin{bmatrix}-2&0&1&1\\-1&3&2&2\\0&2&1&1\\3&3&0&1\end{bmatrix}$$ 
+
+\begin{problem}
+Find $\mbox{rref}(C)$.
+$$\mbox{rref}(C)=\begin{bmatrix}\answer{1}&\answer{0}&\answer{-1/2}&\answer{0}\\\answer{0}&\answer{1}&\answer{1/2}&\answer{0}\\\answer{0}&\answer{0}&\answer{0}&\answer{1}\\\answer{0}&\answer{0}&\answer{0}&\answer{0}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$\mbox{rank}(C)=\mbox{dim}(\mbox{row}(C))=\mbox{dim}(\mbox{col}(C))=\answer{3}$$
+\end{problem}
+
+\begin{problem}
+Use $\mbox{rref}(C)$ and the procedure outlined in Example \ref{ex:basisrowspace} to find a basis for $\mbox{row}(C)$.
+
+Basis for $\mbox{row}(C):$
+$$\left\{\begin{bmatrix}\answer{1}& \answer{0}& \answer{-1/2}&\answer{0}\end{bmatrix},\begin{bmatrix}\answer{0} & \answer{1}& \answer{1/2}&\answer{0}\end{bmatrix}, \begin{bmatrix}\answer{0}&\answer{0}&\answer{0}&\answer{1}\end{bmatrix} \right\}$$
+\end{problem}
+
+\begin{problem}
+Use Procedure \ref{proc:colspace} to find a basis for $\mbox{col}(C)$.
+
+Basis for $\mbox{col}(C):\quad
+\left\{ \begin{bmatrix}\answer{-2}\\\answer{-1}\\\answer{0}\\\answer{3}\end{bmatrix}, \begin{bmatrix}\answer{0}\\\answer{3}\\\answer{2}\\\answer{3}\end{bmatrix}, \begin{bmatrix}\answer{1}\\\answer{2}\\\answer{1}\\\answer{1}\end{bmatrix}\right\}$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Prove that $\mbox{rank}(A)=\mbox{rank}(A^T)$
+\end{problem}
+
+\begin{problem}
+Find a basis for $V$ if 
+$$V=\mbox{span}\left( \begin{bmatrix}1\\0\\2\end{bmatrix}, \begin{bmatrix}-1\\2\\-1\end{bmatrix}, \begin{bmatrix}1\\2\\3\end{bmatrix}, \begin{bmatrix}3\\-1\\0\end{bmatrix}, \begin{bmatrix}3\\1\\1\end{bmatrix}\right)$$
+\begin{hint}
+Find a basis for the column space of a matrix whose columns are the given vectors.
+\end{hint}
+\end{problem}
+
+\begin{problem}
+This problem will refer to matrices $A$, $B$ and $C$ of Problems \ref{prob:colrowmatrixA}, \ref{prob:colrowmatrixB} and \ref{prob:colrowmatrixC}.
+
+\begin{problem}
+Find a basis for $\mbox{null}(A)$.
+
+Basis for $\mbox{null}(A):\quad \left\{ \begin{bmatrix}\answer{-1}\\\answer{1}\\1\\0\end{bmatrix}, \begin{bmatrix}\answer{-2}\\\answer{1}\\0\\1\end{bmatrix}\right\}$
+
+Demonstrate that the Rank-Nullity Theorem (Theorem \ref{th:matrixranknullity}) holds for $A$.
+
+Explain how you can quickly tell that the two vectors you selected for your basis are linearly independent.
+\end{problem}
+
+\begin{problem}
+Find a basis for $\mbox{null}(B)$.
+
+Basis for $\mbox{null}(B):\quad \left\{ \begin{bmatrix}\answer{1}\\\answer{-2}\\1\end{bmatrix}\right\}$
+
+Demonstrate that the Rank-Nullity Theorem (Theorem \ref{th:matrixranknullity}) holds for $B$.
+\end{problem}
+
+\begin{problem}
+Find a basis for $\mbox{null}(C)$.
+
+Basis for $\mbox{null}(C):\quad \left\{ \begin{bmatrix}\answer{1/2}\\\answer{-1/2}\\1\\\answer{0}\end{bmatrix}\right\}$
+
+Demonstrate that the Rank-Nullity Theorem (Theorem \ref{th:matrixranknullity}) holds for $C$.
+\end{problem}
+
+\end{problem}
+
+
+\begin{problem}
+Suppose matrix $M$ is such that 
+$$\mbox{rref}(M)=\begin{bmatrix}1&0&2&0&3&1\\0&1&-1&0&1&-2\\0&0&0&1&-2&1\\0&0&0&0&0&0\end{bmatrix}$$
+
+\begin{problem}
+Follow the process used in Example \ref{ex:dimnull} to find a basis for $\mbox{null}(M)$.  Explain why the basis elements obtained in this way are linearly independent.
+
+Basis of $\mbox{null}(M):\quad\left\{\begin{bmatrix}\answer{-2}\\\answer{1}\\1\\\answer{0}\\0\\0\end{bmatrix}, \begin{bmatrix}\answer{-3}\\\answer{-1}\\0\\\answer{2}\\1\\0\end{bmatrix}, \begin{bmatrix}\answer{-1}\\\answer{2}\\0\\\answer{-1}\\0\\1\end{bmatrix} \right\}$
+\end{problem}
+
+\begin{problem}
+Let $\vec{v}_1,\ldots,\vec{v}_6$ denote the columns of $M$.  Express $\vec{v}_3$ as a linear combination of $\vec{v}_1$ and $\vec{v}_2$.
+
+Answer:
+$$\vec{v}_3=\answer{2}\vec{v}_1+\answer{-1}\vec{v}_2$$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Suppose $A$ is a $3\times 5$ matrix.  Which of the following statements could be true?
+\begin{selectAll}
+ \choice{$\mbox{dim}(\mbox{col}(A))=5$}
+ \choice[correct]{$\mbox{dim}(\mbox{row}(A))=3$}
+ \choice{$\mbox{dim}(\mbox{null}(A))=1$}
+ \choice[correct]{$\mbox{dim}(\mbox{null}(A))=2$}
+ \choice[correct]{$\mbox{dim}(\mbox{null}(A))=3$}
+ \end{selectAll}
+\end{problem}
+
+\begin{problem}
+Suppose $A$ is a $7\times 3$ matrix.  Which of the following statements could be true?
+\begin{selectAll}
+ \choice[correct]{$\mbox{dim}(\mbox{col}(A))=3$}
+ \choice[correct]{$\mbox{dim}(\mbox{row}(A))=3$}
+ \choice{$\mbox{dim}(\mbox{row}(A))=7$}
+ \choice[correct]{$\mbox{dim}(\mbox{null}(A))=0$}
+ \choice{$\mbox{dim}(\mbox{null}(A))=4$}
+ \end{selectAll}
+\end{problem}
+
+\end{document}

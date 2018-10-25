@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Cross Product and its Properties} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{VEC-0080:  Cross Product and its Properties} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -10,16 +9,16 @@
  We define the cross product and prove several algebraic and geometric properties.
 \end{abstract}
 \maketitle
-
+\section*{VEC-0080:  Cross Product and its Properties}
 In Module VEC-M-0050 we introduced the \dfn{dot product}, one of two important products for vectors.  We will now introduce the second type of product, called the \dfn{cross product}.  There are several important distinctions to keep in mind.  First, the dot product is defined for two vectors of $\RR^n$, for any  natural number $n$; the cross-product will only be defined for vectors of $\RR^3$.  Second, the dot product is a scalar; the cross product of two vectors will be a vector.  Finally, we will find that unlike the dot product, the cross product is not commutative.  
 
 The cross product has many applications in physics and engineering.  It also has important geometric properties which will be addressed in this module and in DET-M-0070.
 
-\section*{Preliminaries}
+\subsection*{Preliminaries}
 In order to define the cross product in a convenient way we need to define $2\times 2$ and $3\times 3$ determinants.  If you know how to find such determinants you may skip this section and proceed directly to the definition.
 
 \begin{definition}[$2\times 2$ Determinat]
-A $2\times 2$ determinant is a number associated with a $2\times 2$ matrix
+A $2\times 2$ \dfn{determinant} is a number associated with a $2\times 2$ matrix
 
 $$\det{\begin{bmatrix}
 a & b\\
@@ -39,7 +38,7 @@ $$\begin{vmatrix}
 \end{example}
 
 \begin{definition}[$3\times 3$ Determinat]
-A $3\times 3$ determinant is a number associated with a $3\times 3$ matrix
+A $3\times 3$ \dfn{determinant} is a number associated with a $3\times 3$ matrix
 $$\det{\begin{bmatrix}
 a_1 & a_2 & a_3\\
 b_1 & b_2 &b_3\\
@@ -90,7 +89,7 @@ $$
 \end{align*}
 \end{example}
 
-\section*{Definition of the Cross Product}
+\subsection*{Definition of the Cross Product}
 
 \begin{definition}\label{def:crossproduct} Let $\vec{u=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix}}$ and $\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}$ be vectors in $\RR^3$.  The \dfn{cross product} of $\vec{u}$ and $\vec{v}$, denoted by $\vec{u}\times\vec{v}$, is given by
 \begin{align*}
@@ -131,11 +130,11 @@ Find the cross product of $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$ and 
 \end{explanation}
 \end{example}
 
-\section*{Properties of the Cross Product}
+\subsection*{Properties of the Cross Product}
 
 % In the next example, we will use vectors $\vec{u}$ and $\vec{v}$ of Example \ref{ex:crossproduct}, and compute $\vec{v}\times\vec{u}$ to illustrate that the cross product is not commutative and to find a relationship between $\vec{u}\times\vec{v}$ and $\vec{v}\times \vec{u}$.  If you have already studied the effect that switching two rows of a matrix has on its determinant, you should be able to guess the outcome of the upcoming computation.
 
-\begin{initprob}\label{init:crossproduct2}
+\begin{exploration}\label{init:crossproduct2}
 What would happen if we took the cross product of the vectors in Example \ref{ex:crossproduct} but reversed the order?
 
 Let $\vec{v}=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}$ and $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$.
@@ -165,7 +164,7 @@ Recall that $\vec{u}\times\vec{v}=\begin{bmatrix}-78\\-25\\-8\end{bmatrix}$.  We
 \end{align*}
 
 This computation shows that the cross product is an operation that is not commutative. It also suggests that switching the order of the vectors changes the sign of the result.
-\end{initprob}
+\end{exploration}
 
 \begin{warning}The Cross Product is not a commutative operation.
 \end{warning}
@@ -191,7 +190,7 @@ $$\vec{u}\times (\vec{v}+\vec{w})=\vec{u}\times \vec{v}+\vec{u}\times \vec{w}$$
 
 The cross product has several important geometric properties. The following problems give us a glimpse of these properties.
 
-\begin{initprob}\label{init:ijkcrossproducts}
+\begin{exploration}\label{init:ijkcrossproducts}
 Compute the following products:
 $$\vec{i}\times\vec{j}=\begin{bmatrix}\answer{0}\\\answer{0}\\\answer{1}\end{bmatrix},\quad\vec{j}\times\vec{k}=\begin{bmatrix}\answer{1}\\\answer{0}\\\answer{0}\end{bmatrix}$$
 
@@ -200,27 +199,12 @@ For the two vectors in each product, sketch the vectors together with the produc
 $\vec{i}\times\vec{j}=\vec{k}$.  Vector $\vec{k}$ is orthogonal to both $\vec{i}$ and $\vec{j}$.  
 \end{hint}
 
-%So in the problems above we learned that $\vec{i}\times\vec{j}=\vec{k}$ and that $\vec{j}\times\vec{k}=\vec{i}$.  Because of Theorem \ref{th:corssuvnegcrossvu}, we also know that $\vec{j}\times\vec{i}=-\vec{k}$ and $\vec{k}\times\vec{j}=-\vec{i}$.  And the sketches you did hint at the orthogonality properties of the cross product, which are some of the more important properties and will be studied in the next section.
-
-% \begin{initprob}
-% Compute the following product: $$\quad\vec{i}\times\vec{i}=\begin{bmatrix}\answer{0}\\\answer{0}\\\answer{0}\end{bmatrix}$$
-% \end{initprob}
-
-% This problem leads to the following generalization. 
-% \begin{theorem}
-% Let $\vec{v}$ be any vector in $\RR^3$.  Then $\vec{v} \times \vec{v}$ is the zero vector.
-% \end{theorem}
-% (see Practice Problem \ref{prob:crossself}).
 
 
-\end{initprob}
-%In this section we will find that for vectors $\vec{u}$ and $\vec{v}$
-%\begin{itemize}
-%\item $\vec{u}\times\vec{v}$ is orthogonal to both $\vec{u}$ and $\vec{v}$.
-%\item $\norm{\vec{u}\times\vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin\theta$, where $\theta$ is the angle between $\vec{u}$ and $\vec{v}$.
-%\end{itemize}
-\subsection*{Orthogonality Property}
-\begin{initprob}\label{init:orthofcorssproduct}
+\end{exploration}
+
+\subsubsection*{Orthogonality Property}
+\begin{exploration}\label{init:orthofcorssproduct}
 In this problem we will return to vectors of $\vec{v}=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}$ and $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$ of Example \ref{ex:crossproduct} and Exploration Problem \ref{init:crossproduct2}.  We know that 
 $$\vec{u}\times\vec{v}=\begin{bmatrix}-78\\-25\\-8\end{bmatrix}\quad\text{and}\quad\vec{v}\times\vec{u}=\begin{bmatrix}78\\25\\8\end{bmatrix}$$
 We will now compute the dot product of $\vec{v}\times\vec{u}$ with each of the original vectors $\vec{u}$ and $\vec{v}$.
@@ -229,7 +213,7 @@ $$\vec{v}\dotp(\vec{v}\times\vec{u})=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}\dotp
 It is also easy to verify that $\vec{u}\dotp(\vec{u}\times\vec{v})=0$ and $\vec{v}\dotp(\vec{u}\times\vec{v})=0$.  Recall that the dot product of two vectors is $0$ if and only if the two vectors are orthogonal. (Theorem \ref{th:orth})
 We conclude that, at least in this case, the cross product of two vectors is orthogonal to each of the vectors.  
 
-\end{initprob}
+\end{exploration}
 
 It turns out that the orthogonality property illustrated by Exploration Problems \ref{init:ijkcrossproducts} and \ref{init:orthofcorssproduct}  holds in general.  We state it as a theorem.
 
@@ -239,7 +223,7 @@ Let $\vec{u}$ and $\vec{v}$ be vectors of $\RR^3$, then $\vec{u}\times\vec{v}$ i
 \begin{proof}This proof can be done by direct computation and is left to the reader.  (See Practice Problem \ref{prob:crossproductorthtouandv})
 \end{proof}
 
-\subsection*{Cross Product and the Angle between Vectors}
+\subsubsection*{Cross Product and the Angle between Vectors}
 Recall that the dot product of $\vec{u}$ and $\vec{v}$ is related to the angle $\theta$ between $\vec{u}$ and $\vec{v}$ by the following formula
 \begin{align}\label{eq:dotproductformula}\vec{u}\dotp\vec{v}=\norm{\vec{u}}\norm{\vec{v}}\cos\theta\end{align}
 We will derive an analogous result for the cross product.  To do so, we will need the following Lemma.

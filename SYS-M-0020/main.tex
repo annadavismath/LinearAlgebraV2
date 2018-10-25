@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Augmented Matrix Notation and Elementary Row Operations} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{SYS-0020:  Augmented Matrix Notation and Elementary Row Operations} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,12 +10,12 @@
 \end{abstract}
 \maketitle
 
+\section*{SYS-0020:  Augmented Matrix Notation and Elementary Row Operations}
 
-
-\section*{Augmented Matrix Notation}
+\subsection*{Augmented Matrix Notation}
 
 \begin{definition}[Elementary Row Operations]\label{def:elemrowops2}
-The following three operations performed on a linear system are called elementary row operations
+The following three operations performed on a linear system are called \dfn{elementary row operations}
 \begin{enumerate}
 \item\label{item:rowswap2} Switching the order of two equations
 \item\label{item:constantmult2} Multiplying both sides of an equation by the same non-zero constant
@@ -28,8 +27,8 @@ In Module SYS-M-0010 we discussed why applying elementary row operations to a li
 
 In this module we seek an efficient method for recording our computations and arriving at a solution using elementary row operations. 
 
-\begin{initprob}\label{init:augmentedmatrix1}[Hefferon, Ex. 1.11, page 6]
-Consider the linear system
+\begin{exploration}\label{init:augmentedmatrix1}
+[Hefferon] Consider the linear system
 \begin{equation}\label{ex:originalsystem1}
 \begin{array}{ccccccccc}
       x &- &y&&&&&= &0 \\
@@ -83,7 +82,6 @@ $$\begin{array}{c}
 \\
  \\
 \xrightarrow{R_4-2R_2}\\
-
  \end{array}
 \begin{array}{ccccccccc}
       x &+ &0y&+&0z&+&w&= &0 \\
@@ -124,8 +122,7 @@ $$
 
 \begin{equation}\label{ex:rref1}
 \begin{array}{c}
-
- \\
+\\
 \xrightarrow{R_2\leftrightarrow R_3}\\
 \\
  \end{array}
@@ -213,9 +210,9 @@ $$\left[\begin{array}{cccc|c}
  \end{array}\right]\end{equation}
  
  The last augmented matrix corresponds to systems in (\ref{ex:rref1}) and (\ref{ex:rrefnozeros}), and we can easily see the solution.   
-\end{initprob}
+\end{exploration}
 
-Exploration Problem \ref{init:augmentedmatrix1} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
+Exploration \ref{init:augmentedmatrix1} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
 $$\begin{array}{ccccccccc}
       a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
 	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
@@ -234,14 +231,14 @@ $$\left[\begin{array}{c|c}
  A & \vec{b}\\
  \end{array}\right]$$
 
-\begin{initprob}
+\begin{exploration}\label{init:backsub}
 Consider the system
 $$\begin{array}{ccccccc}
       x_1 &- &x_2&-&3x_3&= &1 \\
    4x_1& -&2x_2&-&7x_3&=&1\\
    -x_1& +&x_2&+&4x_3&=&1
     \end{array}$$
-Recall that in Exploration Problem \ref{init:augmentedmatrix1} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
+Recall that in Exploration \ref{init:augmentedmatrix1} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
 
 \begin{align}&\left[\begin{array}{ccc|c}  
  1&-1&-3&1\\4&-2&-7&1\\-1&1&4&1
@@ -298,26 +295,26 @@ While the augmented matrix in (\ref{eq:reducedrowechelon}) was certainly ``conve
         \end{array}
     \end{equation*}
 Substituting $x_3=2$ into the second equation and solving for $x_2$ gives us $$x_2=\frac{-3-5(2)}{2}=-\frac{13}{2}$$  Now substituting $x_3=2$ and $x_2=-\frac{13}{2}$ into the first equation results in $$x_1=1+\left(-\frac{13}{2}\right)+3(2)=\frac{1}{2}$$  This process is called \dfn{back substitution} and it produces the same solution as we obtained earlier.
-\end{initprob}
+\end{exploration}
 
 Observe that the coefficient matrices in (\ref{eq:rref}) and (\ref{eq:reducedrowechelon}) have the same format: 1's along the diagonal, zeros above and below the 1's.  The other ``convenient" format, exhibited by the coefficient matrix in (\ref{eq:rowechelon}),  also has zeros below the diagonal, but not all of the diagonal entries are 1's and some of the entries above the diagonal are not zero.  Each of these formats gives rise to a definition.  These definitions are the topic of the next section.
 
 
-\section*{Row-Echelon and Reduced Row-Echelon Forms}
+\subsection*{Row-Echelon and Reduced Row-Echelon Forms}
 
-\begin{definition}The first non-zero entry in a row of a matrix (when read from left to right) is called the leading entry.  When the leading entry is 1, we refer to it as a leading 1.
+\begin{definition}\label{def:leadentry} The first non-zero entry in a row of a matrix (when read from left to right) is called the \dfn{leading entry}.  When the leading entry is 1, we refer to it as a \dfn{leading 1}.
 \end{definition}
 
 \begin{definition}[Row-Echelon Form]\label{def:ref}
-A matrix is said to be in row-echelon form if:
+A matrix is said to be in \dfn{row-echelon form} if:
 \begin{enumerate}
 \item All entries below each leading entry are 0.
-\item Each leading entry is in a column to the right of the leading entry above it.
+\item Each leading entry is in a column to the right of the leading entries in the rows above it.
 \item All rows of zeros, if there are any, are located below non-zero rows.
 \end{enumerate}
 \end{definition}
 
-The term row-echelon form can be applied to augmented matrices (matrices with the vertical bar) as well as coefficient matrices (or simply matrices). The coefficient matrix, as well as the augmented matrix, in (\ref{eq:rowechelon}) are in row-echelon form.  Note that the leading entries form a staircase pattern. All entries below the leading entries are zero, but the entries above the leading entries are not all zero.
+The term row-echelon form can be applied to matrices whether or not they are augmented matrices (matrices with the vertical bar). For example, both the coefficient matrix and the augmented matrix in (\ref{eq:rowechelon}) are in row-echelon form.  Note that the leading entries form a staircase pattern. All entries below the leading entries are zero, but the entries above the leading entries are not all zero.
 
 Below are two more examples of matrices in row-echelon form.  The leading entries of each matrix are boxed.
 $$\begin{bmatrix} 
@@ -331,16 +328,13 @@ $$\begin{bmatrix}
 The difference between the coefficient matrix in  (\ref{eq:rowechelon}) and the coefficient matrix in (\ref{eq:reducedrowechelon}) is that the leading entries of the  matrix in (\ref{eq:reducedrowechelon}) are all 1's, and the matrix has zeros above each leading 1.  This motivates our next definition.
 
 \begin{definition}[Reduced Row-Echelon Form]\label{def:rref}
-A matrix is said to be in reduced row-echelon form if:
+A matrix that is already in \dfn{row-echelon} form is said to be in \dfn{reduced row-echelon form} if:
 \begin{enumerate}
-
-\item Each leading entry of a row is $1$
-\item All entries above and below each leading $1$ are $0$
-\item Each leading $1$ is in a column to the right of the leading $1$'s above it
-\item All rows of zeros, if there are any, are located below non-zero rows
+\item Each leading entry is $1$
+\item All entries {\it above} and below each leading $1$ are $0$
 \end{enumerate}
 \end{definition}
-The following two matrices are in reduced row-echelon form.  Note that there are $0$'
+The following two matrices are in \dfn{reduced row-echelon form}.  Note that there are $0$'
 s below and above each leading $1$.
 
 $$\begin{bmatrix}  
@@ -351,7 +345,7 @@ $$\begin{bmatrix}
  
  
 
-When solving linear systems using elementary row operations and the augmented matrix notation, our goal will be to transform the initial coefficient matrix $A$ (and the augmented matrix) into its row-echelon or reduced row-echelon form.  The row-echelon form of $A$ and the reduced row-echelon form of $A$ are denoted by 
+When solving linear systems using elementary row operations and the augmented matrix notation, our goal will be to transform the initial coefficient matrix $A$ into its row-echelon or reduced row-echelon form.  The row-echelon form of $A$ and the reduced row-echelon form of $A$ are denoted by 
 $$\mbox{ref}(A)\quad\text{and}\quad\mbox{rref}(A)$$
 respectively.
 
@@ -423,9 +417,9 @@ $$\left[\begin{array}{cccc|c}
 	 & &y&&&&&=&1-(2/3)w\\
      & &&&z&&&=&7-3w 
     \end{array}$$
- Now we see that we can assign any value to $w$, then compute $x$, $y$ and $z$ to obtain a solution to the system.  For example, let $w=0$, then $x=-3$, $y=1$ and $z=7$, so $(-3, 1, 7, 0)$ is a solution.  If we let $w=3$, then $x=2$, $y=-1$ and $z=-2$, so $(2, -1, -2, 3)$ is also a solution.   To capture all possibilities, we will let $w=t$.   Variable $w$ is an example of a \dfn{free variable}, and $t$ is called a \dfn{parameter}.  These terms will be defined formally in Module SYS-M-0030.
+ Now we see that we can assign any value to $w$, then compute $x$, $y$ and $z$ to obtain a solution to the system.  For example, let $w=0$, then $x=-3$, $y=1$ and $z=7$, so $(-3, 1, 7, 0)$ is a solution.  If we let $w=3$, then $x=2$, $y=-1$ and $z=-2$, so $(2, -1, -2, 3)$ is also a solution.   To capture all possibilities, we will let $w=t$, where $t$ is an arbitrary \dfn{parameter}.   
  
- We can think of the solution set in two different ways.  First, the solution set is the set of all points of the form$$\left(-3+\frac{5}{3}t, 1-\frac{2}{3}t, 7-3t, t\right)$$ 
+  We can think of the solution set in two different ways.  First, the solution set is the set of all points of the form$$\left(-3+\frac{5}{3}t, 1-\frac{2}{3}t, 7-3t, t\right)$$ 
  
  We can also think of the solution set in geometric terms by observing that 
  \begin{align*}
@@ -438,6 +432,8 @@ $$\left[\begin{array}{cccc|c}
 
 \end{explanation}
 \end{example}
+
+Observe that in Example \ref{ex:freevar1}, variables $x$, $y$ and $z$ correspond to the leading $1's$ in the reduced row-echelon.  We say that $x$, $y$ and $z$ are the \dfn{leading variables}.  Variable $w$ is not a leading variable; we refer to it as a \dfn{free variable} and assign a \dfn{parameter} $t$ to it.
 
 \begin{example}\label{ex:nosolutionssys}
 Solve the system of equations or determine that the system is inconsistent.
@@ -472,7 +468,7 @@ $$\begin{array}{ccccccc}
     
 \end{example}
 
-\begin{observation} Note that the last row of the reduced row-echelon form in (\ref{eq:nosolutionsys}) looks like this
+\begin{observation}\label{ob:inconsistent} Note that the last row of the reduced row-echelon form in (\ref{eq:nosolutionsys}) looks like this
 $$\left[\begin{array}{ccc|c}  
  0&0&0&1
  \end{array}\right]$$
@@ -521,11 +517,11 @@ $$\begin{array}{ccccccc}
       x & &&= &-9/4-(5/4)z \\
 	 & &y&=&-7/4-(3/4)z\\
     \end{array}$$
-  Since $z$ can assume any value, $z$ is a free variable.  We let $z=t$.  Solutions to this system are points of the form
-  $$\left(\frac{9}{4}-\frac{5}{4}t, -\frac{7}{4}-\frac{3}{4}t, t\right)$$
+Variables $x$ and $y$ correspond to leading $1's$ in the reduced row-echelon form.  So, $x$ and $y$ are the leading variables.    Variable $z$ is a free variable.  We let $z=t$.  Solutions to this system are points of the form
+  $$\left(-\frac{9}{4}-\frac{5}{4}t, -\frac{7}{4}-\frac{3}{4}t, t\right)$$
   We can also interpret the solutions as lying on a line in $\RR^3$ given by parametric equations
   \begin{align*}
-  x&=\frac{9}{4}-\frac{5}{4}t\\
+  x&=-\frac{9}{4}-\frac{5}{4}t\\
   y&=-\frac{7}{4}-\frac{3}{4}t\\
   z&=t\\
   \end{align*}
@@ -537,7 +533,7 @@ $$\begin{array}{ccccccc}
 \section*{Practice Problems}
 \begin{problem}
 Determine whether each augmented matrix shown below is in reduced row-echelon form.
-  \begin{problem}
+  \begin{problem}\label{prob:rrefmultchoice1}
   $$\left[\begin{array}{cccc|c}  
  0&1&1&0&2\\1&-3&0&1&4\\0&0&1&0&-1
  \end{array}\right]$$
@@ -547,7 +543,7 @@ Determine whether each augmented matrix shown below is in reduced row-echelon fo
  \end{multipleChoice}
   \end{problem}
   
-   \begin{problem}
+   \begin{problem}\label{prob:rrefmultchoice2}
   $$\left[\begin{array}{cc|c}  
  1&1&1\\0&1&0\\0&0&0
  \end{array}\right]$$
@@ -557,7 +553,7 @@ Determine whether each augmented matrix shown below is in reduced row-echelon fo
  \end{multipleChoice}
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:rrefmultchoice3}
   $$\left[\begin{array}{cc|c}  
  1&0&1\\0&1&0\\0&0&0
  \end{array}\right]$$
@@ -567,7 +563,7 @@ Determine whether each augmented matrix shown below is in reduced row-echelon fo
  \end{multipleChoice}
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:rrefmultchoice4}
   $$\left[\begin{array}{ccc|c}  
  1&0&1&0\\0&1&0&0\\0&0&0&1
  \end{array}\right]$$
@@ -577,17 +573,28 @@ Determine whether each augmented matrix shown below is in reduced row-echelon fo
  \end{multipleChoice}
   \end{problem}
   
+   \begin{problem}\label{prob:rrefmultchoice5}
+  $$\left[\begin{array}{ccc|c}  
+ 1&1&0&2\\0&1&0&9\\0&0&1&-1
+ \end{array}\right]$$
+ \begin{multipleChoice}
+ \choice{Yes}
+ \choice[correct]{No}
+ \end{multipleChoice}
+  \end{problem}
+  
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:rrefnosolutionssys}
 Fill in the steps that lead to the reduced row-echelon form in Example \ref{ex:nosolutionssys}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:rreffinfmanysolutionsys}
 Fill in the steps that lead to the reduced row-echelon form in Example \ref{ex:rrefinfmanysolutionssys}.
 \end{problem}
 
-\begin{problem} Suppose a system of equations has the following reduced row-echelon form
+\begin{problem} \label{prob:numberofsolutionsmultch}
+Suppose a system of equations has the following reduced row-echelon form
   $$\left[\begin{array}{ccc|c}  
  1&0&0&4\\0&1&-3&-6\\0&0&0&1
  \end{array}\right]$$
@@ -601,7 +608,7 @@ Fill in the steps that lead to the reduced row-echelon form in Example \ref{ex:r
   \end{problem}
 \begin{problem}
 Solve each system of equations
-\begin{problem}
+\begin{problem}\label{prob:solvesys1}
 $$\begin{array}{ccccccc}
       x & +&3y&-&2z&= &-11 \\
 	 2x& +&y&+&4z&=&12\\
@@ -612,7 +619,7 @@ $$\begin{array}{ccccccc}
     $$(\answer{1}, \answer{-2}, \answer{3})$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:solvesys2}
 $$\begin{array}{ccccccc}
       3x & -&y&+&z&= &-5 \\
 	 x& +&2y&-&z&=&-3\\
@@ -623,5 +630,11 @@ $$\begin{array}{ccccccc}
     $$\left(\answer{-13/7}-\answer{1/7}t, \answer{-4/7}+\answer{4/7}t, t\right)$$
 \end{problem}
 \end{problem}
+
+\section*{Example Source} 
+
+Linear system in Exploration \ref{init:augmentedmatrix1} comes from Jim Hefferon's \href{http://joshua.smcvt.edu/linearalgebra/#current_version}{\it Linear Algebra}.
+
+Jim Hefferon, {\it Linear Algebra}, 3rd edition, page 6.
 
 \end{document} 
