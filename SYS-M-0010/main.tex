@@ -1,8 +1,9 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Introduction to Systems of Linear Equations} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{SYS-0010:  Introduction to Systems of Linear Equations} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -10,11 +11,11 @@
  We solve systems of equations in two and three variables and interpret the results geometrically.
 \end{abstract}
 \maketitle
-
+\section*{SYS-0010:  Introduction to Systems of Linear Equations}
 You have certainly studied linear equations for many years now.  Perhaps the easiest way to characterize linear equations is that they are polynomial equations where each term is either a constant or has degree 1.
 
 \begin{definition}
-A linear equation in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
+A \dfn{linear equation} in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
 $$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
 where $a_1,\ldots ,a_n$ and $b$ are constants.
 \end{definition}
@@ -39,11 +40,11 @@ $$\begin{array}{ccccccccc}
 A \dfn{solution to a system} of linear equations in $n$ variables is an $n$-tuple that satisfies every equation in  the system.  All solutions to a system of equations, taken together, form a \dfn{solution set}.
 We will focus on algebraic methods for finding solution sets, but we will also consider the geometric aspect of systems to gain additional insights.
 
-\section*{Algebra of Linear Systems}
+\subsection*{Algebra of Linear Systems}
 
-You are probably familiar with two algebraic methods for solving systems of linear equations.  One method requires us to solve for one variable in terms of the other(s), then substitute.  The second method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  The second method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Initial Problem \ref{init:systwoeqs1} illustrates how the second method works.
+You are probably familiar with two algebraic methods for solving systems of linear equations.  One method requires us to solve for one variable in terms of the other(s), then substitute.  The second method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  The second method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration Problem \ref{init:systwoeqs1} illustrates how the second method works.
 
-\begin{initprob}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
+\begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
 \begin{equation}\label{eq:step1}
 \begin{array}{ccccc}
       2x& -&y&=&-4\\
@@ -109,7 +110,7 @@ Finally, we can switch the order of equations in order to display $x$ in the top
     \end{array}
 \end{equation}    
 This solution can be written as an ordered pair $(-1, 2)$.  
-\end{initprob}
+\end{exploration}
 
 To obtain the solution to Exploration Problem \ref{init:systwoeqs1} we utilized three \dfn{elementary row operations}.  These operations are:
 \begin{itemize}
@@ -243,7 +244,7 @@ $$\begin{array}{ccccccc}
     \end{array}$$
 The short answer to this question is no.  The existence of an equivalent system of this form implies that the original system has a unique solution.  However, it is possible for a system to have no solutions or to have infinitely many solutions.  We will study these different possibilities from an algebraic perspective in subsequent modules.  For now, we will attempt to gain insight into existence and uniqueness of solutions through geometry.     
 
-\section*{Geometry of Linear Systems in Two Variables}
+\subsection*{Geometry of Linear Systems in Two Variables}
 Exploration Problem \ref{init:systwoeqs1} offers an example of a linear system of two equations and two unknowns with a unique solution.  
 
 $$\begin{array}{ccccc}
@@ -256,14 +257,12 @@ Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1,
     
 \begin{image}[2in]
 \begin{tikzpicture}[scale=.5]
-
 \draw[thin,gray!40] (-4,-4) grid (4,5);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,5);
 
  \draw[line width=2pt,blue](-4, -4)--(0.5,5) node[below right]{$2x-y=-4$};
  \draw[line width=2pt,red](3, -4)--(-3,5) node[below left]{$3x+2y=1$};
-
 \end{tikzpicture}
 \end{image}
 
@@ -277,7 +276,7 @@ Given a system of two equations with two unknowns, there are three possible geom
 
  \draw[line width=1pt](-4, -3)--(4,2);
  \draw[line width=1pt](3, -4)--(1,4);
-
+    
 \end{tikzpicture}
 \end{image}
 Second, the two lines may have no points in common.  If this is the case, the system has no solutions.  We say that the system is \dfn{inconsistent}.  
@@ -289,7 +288,7 @@ Second, the two lines may have no points in common.  If this is the case, the sy
 
  \draw[line width=1pt](-4, -4)--(4,1);
  \draw[line width=1pt](-4, -2)--(4,3);
-
+    
 \end{tikzpicture}
 \end{image}
 Finally, the two lines may coincide.  In this case, there are infinitely many points that satisfy both equations simultaneously.  We say that the system is consistent and has infinitely many solutions.
@@ -300,7 +299,8 @@ Finally, the two lines may coincide.  In this case, there are infinitely many po
   \draw[<->] (0,-4)--(0,4);
 
  \draw[line width=2pt](-4, -3)--(4,2);
-
+ 
+    
 \end{tikzpicture}
 \end{image}
 
@@ -319,14 +319,13 @@ $$\begin{array}{ccccc}
 It is clear, however, that there are no values of $x$ and $y$ that would satisfy the second equation.  We conclude that the system is inconsistent.  Plotting the two lines in the same coordinate plane shows that the two lines are parallel.  
     \begin{image}[2in]
 \begin{tikzpicture}[scale=.5]
-
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,4);
 
  \draw[line width=2pt,blue](-3.5, -4)--(0.5,4) node[below left=3mm]{$-2x+y=3$};
  \draw[line width=2pt,red](-0.75, -4)--(3.25,4) node[below right]{$4x-2y=5$};
-
+    
 \end{tikzpicture}
 \end{image}
 \end{explanation}
@@ -353,14 +352,14 @@ When we plot the two equations of the original system, we find that the two line
 
     \begin{image}[2.5in]
 \begin{tikzpicture}[scale=.5]
-
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,4);  
 
  \draw[line width=1pt,red](-2.5, 4)node[below left]{$x +\frac{3}{4}y=\frac{1}{2}$}--(3.5,-4);
  \draw[line width=1pt,blue](-2.5, 4.1)--(3.5,-3.9) node[above right]{$4x+3y=2$};
-
+ 
+    
 \end{tikzpicture}
 \end{image}
 \end{explanation}
@@ -377,13 +376,14 @@ Given a linear system in two variables and more than two equations, we have a va
  \draw[line width=1pt](-2, 4)--(4,1);
  \draw[line width=1pt](3, 4)--(-1,-4);
  \draw[line width=1pt](1, 4)--(4,-2);
-
+    
 \end{tikzpicture}
 \end{image}
 
 Second, it is possible for the graphs to have no points in common.
 
-\begin{image}[3in]
+%\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 
   \draw[<->] (-4,0)--(4,0);
@@ -392,7 +392,7 @@ Second, it is possible for the graphs to have no points in common.
  \draw[line width=1pt](-4, -3)--(4,4);
  \draw[line width=1pt](3, -4)--(1,4);
  \draw[line width=1pt](3, -1)--(-4,3);
-
+    
 \end{tikzpicture}\quad\quad
 \begin{tikzpicture}[scale=.5]
 
@@ -402,11 +402,12 @@ Second, it is possible for the graphs to have no points in common.
  \draw[line width=1pt](-2, -3)--(3,3);
  \draw[line width=1pt](-2, -2)--(3,4);
  \draw[line width=1pt](-2, -4)--(3,2);
-
+    
 \end{tikzpicture}
-\end{image}
+\end{center}
+%\end{image}
 If this is the case, the system is inconsistent.
-\section*{Geometry of Linear Systems in Three Variables}
+\subsection*{Geometry of Linear Systems in Three Variables}
 In Example \ref{ex:threeeqthreevars1} we solved the following linear system of three equations and three unknowns
 $$\begin{array}{ccccccc}
       3x & -&y&+&z&= &0 \\
@@ -418,7 +419,6 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
 \begin{image}[2.5in]   
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
-
 	\draw[->](-1,0,0)--(4,0,0) ;
     \draw[->](0,-4,0)--(0,2,0) ;
     \draw[->](0,0,-1)--(0,0,4) ;
@@ -431,8 +431,9 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
     \draw[](2,-1,1)--(47/13,2,7/13) ;
     \draw[](2,-1,1)--(2/7,-3,27/7) ;
     \fill[] (2,-1,1)node[right]{$(1,2,-1)$} circle (0.1cm);
-
+    
 \end{tikzpicture}
+
 \end{image}
 
 
@@ -441,78 +442,64 @@ First, the three planes could intersect at a single point, giving us a unique so
 \begin{image}[1.5in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}
-
 \filldraw[blue, opacity=0.3](0,0,0)--(2,0,0)--(2,2,0)--(0,2,0)--cycle;
 \filldraw[red, opacity=0.3] (0,0,0)--(0,0,2)--(0,2,2)--(0,2,0)--cycle;
 \filldraw[gray, opacity=0.5] (0,0,0)--(0,0,2)--(2,0,2)--(2,0,0)--cycle;
 \fill[] (0,0,0) circle (0.1cm);
-
     \end{tikzpicture}
-\end{image}
-
+    \end{image}
     Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
-
-\begin{image}[2in]
+    \begin{image}[2in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
-
 \filldraw[blue, opacity=0.3](0,-2,2)--(0,2,2)--(0,2,-2)--(0,-2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[gray, opacity=0.5] (2,1,2)--(2,1,-2)--(-2,-1,-2)--(-2,-1,2)--cycle;
 \draw[-](0,0,-2)--(0,0,2) ;
-     
-\end{tikzpicture}
-\end{image}
+     \end{tikzpicture}
+     \end{image}
      Finally, the three planes can coincide.  If this is the case, there are infinitely many solutions.
      \begin{image}[1.8in]
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
-
 \filldraw[gray, opacity=0.5] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (1.5,0,1.5)--(-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--cycle;
-\filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;
-
-\end{tikzpicture}
+\filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;    	\end{tikzpicture}
 \end{image}
-
 There are four ways for a system to be inconsistent.  They are depicted below.
-\begin{image}[4in]
+%\begin{image}[4in]
+\begin{center}
 \tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}[scale=0.8]
-
+\begin{tikzpicture}[scale=0.5]
    \filldraw[blue, opacity=0.3](0,0,2)--(0,2,2)--(0,2,-2)--(0,0,-2)--cycle;
    \filldraw[red, opacity=0.3] (2,0,2)--(0,0,2)--(0,0,-2)--(2,0,-2)--cycle;
    \filldraw[gray, opacity=0.5] (0,2,2)--(0,2,-2)--(2,0,-2)--(2,0,2)--cycle;
 \end{tikzpicture}\quad
-	\begin{tikzpicture}[scale=0.8]
+	\begin{tikzpicture}[scale=0.5]
 \filldraw[blue, opacity=0.3](-1,-1,2)--(0,2,2)--(0,2,-2)--(-1,-1,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[gray, opacity=0.5] (2,1,2)--(-2,1,2)--(-2,1,-2)--(2,1,-2)--cycle;
 \draw[-](-2/3,0,-2)--(-2/3,0,2) ;
 \draw[-](-1/3,1,-2)--(-1/3,1,2) ;
-
-     \end{tikzpicture}
-     
-     \begin{tikzpicture}[scale=0.8]
-
+     \end{tikzpicture}\quad
+         \begin{tikzpicture}[scale=0.5]
 \filldraw[gray, opacity=0.5] (2,1.2,2)--(-2,1.2,2)--(-2,1.2,-2)--(2,1.2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--(1.5,0,1.5)--cycle;
 	\end{tikzpicture}\quad
-	\begin{tikzpicture}[scale=0.8]
+	\begin{tikzpicture}[scale=0.5]
 \filldraw[gray, opacity=0.5] (2,1.2,2)--(-2,1.2,2)--(-2,1.2,-2)--(2,1.2,-2)--cycle;
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (2,-1.2,2)--(-2,-1.2,2)--(-2,-1.2,-2)--(2,-1.2,-2)--cycle;
 	\end{tikzpicture}
-
-    \end{image}     
-
-\section*{Equivalent Systems and Elementary Row Operations}
+%    \end{image}     
+\end{center}
+\subsection*{Equivalent Systems and Elementary Row Operations}
 
 In Exploration Problem \ref{init:systwoeqs1} we introduced elementary row operations and equivalent systems. We now make these definitions formal.
 
 \begin{definition}[Elementary Row Operations]\label{def:elemrowops}
-The following three operations performed on a linear system are called elementary row operations
+The following three operations performed on a linear system are called \dfn{elementary row operations}
 \begin{enumerate}
 \item\label{item:rowswap} Switching the order of two equations
 \item\label{item:constantmult} Multiplying both sides of an equation by the same non-zero constant
@@ -739,28 +726,31 @@ $$\begin{array}{ccccc}
 \begin{problem}
 The following figures show a geometric depiction of two equivalent systems.  (The systems are equivalent because they have the same solution set.)  Can the first system be transformed into the second system by elementary row operations?  If so, how?
 
-\begin{image}[4in]
+ %\begin{image}[4in]
+ \begin{center}
 \begin{tikzpicture}[scale=.5]
-
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
- \draw[line width=2pt,blue](-2, 6)node[below=8mm, right=12mm]{$x+y=4$}--(6,-2) ;
- \draw[line width=2pt,red](-2,3.5)node[below=12mm, right=-2mm]{$x+2y=5$}--(6,-0.5) ;
-
+ \draw[line width=2pt,blue](-2, 6)--(6,-2);
+  \node[blue] at (3.5, -2)   (b) {$x+y=4$};
+ \draw[line width=2pt,red](-2,3.5)--(6,-0.5) ;
+    \node[red] at (5.2, 1)   (b) {$x+2y=5$};
 \end{tikzpicture}\quad\quad
 \begin{tikzpicture}[scale=.5]
-
 \draw[thin,gray!40] (-2,-2) grid (6,6);
   \draw[<->] (-2,0)--(6,0);
   \draw[<->] (0,-2)--(0,6);
 
- \draw[line width=2pt,blue](1.5, -2)--(5.5,6) node[below=4mm, right=-2mm]{$2x-y=5$};
- \draw[line width=2pt,red](2, -2)--(14/3,6) node[below=2mm, left=2mm]{$3x-y=8$};
-
+ \draw[line width=2pt,blue](1.5, -2)--(5.5,6);
+ \node[blue] at (6.5, 4)   (b) {$2x-y=5$};
+ \draw[line width=2pt,red](2, -2)--(14/3,6);
+  \node[red] at (2.4, 5)   (b) {$3x-y=8$};
+    
 \end{tikzpicture}
-\end{image}
+\end{center}
+%\end{image}
 
 \begin{hint}
 Begin by carrying the first system to 
@@ -785,13 +775,13 @@ If $(x'', y'')$ is a solution of $(B)$, then $(x'', y'')$ is a solution of $(A)$
 
 Show that  if system $(B)$ is obtained from system $(A)$ using elementary row operation \ref{item:constantmult} or elementary row operation \ref{item:addrow}, then $(B)$ and $(A)$ are equivalent.
 \end{problem}
-% \begin{problem}
-% Demonstrate that elementary row operations are reversible by answering the following questions.  Be specific about the elementary row operation that you would use.
-% \begin{enumerate}
-% \item We obtained system (\ref{eq:equivsystem2}) from system (\ref{eq:equivsystem1}) by swapping the two equations. How would we obtain system (\ref{eq:equivsystem1}) from system (\ref{eq:equivsystem2})?
-% \item We obtained system (\ref{eq:equivsystem3}) from system (\ref{eq:equivsystem1}) by multiplying one of the equations by a non-zero constant $k$.  How would we obtain system (\ref{eq:equivsystem1}) from system (\ref{eq:equivsystem3})?
-% \item We obtained system (\ref{eq:equivsystem4}) from system (\ref{eq:equivsystem1}) by adding a multiple of one of the equations to the other.  How would we obtain system (\ref{eq:equivsystem1}) from system (\ref{eq:equivsystem4})?
-% \end{enumerate}
-% \end{problem}
+ \begin{problem}\label{prob:elemrowopsreverse}
+ Demonstrate that elementary row operations are reversible by answering the following questions.  Be specific about the elementary row operation that you would use.
+\begin{enumerate}
+ \item Suppose we obtained system (B) from system (A) by swapping two equations. How would we obtain system (A) from system (B)?
+ \item Suppose we obtained system (B) from system (A) by multiplying one of the equations of (A) by a non-zero constant $k$.  How would we obtain system (A) from system (B)?
+ \item Suppose we obtained system (B) from system (A) by adding a multiple of one of the equations of (A) to  another.  How would we obtain system (A) from system (B)?
+ \end{enumerate}
+ \end{problem}
 
 \end{document} 
