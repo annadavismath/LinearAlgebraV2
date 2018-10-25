@@ -1,0 +1,408 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{VSP-0060: Bases and Dimension for Abstract Vector Spaces} \license{CC-BY 4.0}
+\begin{document}
+
+\begin{abstract}
+We revisit the definitions of linear independence, bases, and dimension in the context of abstract vector spaces.
+\end{abstract}
+\maketitle
+
+
+\section*{VSP-0060: Bases and Dimension for Abstract Vector Spaces}
+When working with $\RR^n$ and subspaces of $\RR^n$ we developed several fundamental ideas including \dfn{span}, \dfn{linear independence}, \dfn{bases} and \dfn{dimension}.  We will find that these concepts generalize easily to abstract vector spaces and that analogous results hold in these new settings.
+\subsection*{Linear Independence}
+\begin{definition}[Linear Independence]\label{def:linearindependenceabstract}
+Let $V$ be a vector space.  Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors of $V$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is \dfn{linearly independent} if the only solution to 
+$$a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}$$
+is the \dfn{trivial solution} $a_1=a_2=\ldots =a_p=0$.
+
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_p$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is \dfn{linearly dependent}.
+\end{definition}
+
+\begin{example}\label{ex:polyindset} 
+Show that $P=\{1 + x, 3x + x^{2}, 2 + x - x^{2}\}$ is independent in $\mathbb{P}^{2}$.
+
+\begin{explanation}
+Consider the linear combination equation
+\begin{align*}
+a(1 + x) + b(3x + x^2) + c(2 + x - x^2) &= 0\\
+a+ax+3bx+bx^2+2c+cx-cx^2&=0\\
+(a+2c)+(a+3b+c)x+(b-c)x^2&=0
+\end{align*}
+The constant term, as well as the coefficients in front of $x$ and $x^2$, must be equal to $0$.  This gives us the following system of equations.
+\begin{equation*}
+\begin{array}{rlrlrcr}
+	a & + &      & + & 2c & = & 0 \\
+	a & + & 3b & + &  c & = & 0 \\
+	    &   &  b & - &  c & = & 0 \\
+\end{array}
+\end{equation*}
+The only solution is $a = b = c = 0$.  We conclude that $P$ is linearly independent in $\mathbb{P}^2$.
+\end{explanation}
+\end{example}
+
+\subsection*{Bases and Dimension}
+
+Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition \ref{def:basis} we gave in VSP-M-0030 generalizes to abstract vector spaces as follows.
+
+\begin{definition}\label{def:basisabstract}
+Let $V$ be a vector space.  A set $\mathcal{B}$ of vectors of $V$ is called a \dfn{basis} of $V$  provided that $\mathcal{B}$
+\begin{enumerate}
+\item \label{item:defbasis1abstract}
+Spans $V$
+\item \label{item:defbasis2abstract}
+Is linearly independent
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}\label{th:uniquerep}
+Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n\}$ be a basis for $V$.  Then every element $\vec{v}$ of $V$ has a unique representation as linear combination of the elements of $\mathcal{B}$.
+\end{theorem}
+\begin{proof}
+By the definition of a basis, we know that $\vec{v}$ can be written as a linear combination of $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$.  Suppose there are two such representations.  Then,
+$$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n$$
+$$\vec{v}=b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n$$
+But then we have:
+\begin{align*}
+a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n&=b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n\\
+a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n-(b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n)&=\vec{0}\\
+(a_1-b_1)\vec{v}_1+ (a_2-b_2)\vec{v}_2+\ldots+(a_n-b_n)\vec{v}_n&=\vec{0}
+\end{align*}
+Because $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$ are linearly independent, we have $a_i-b_i=0$ for $1\leq i\leq n$. Consequently $a_i=b_i$ for $1\leq i\leq n$.
+\end{proof}
+
+In VSP-M-0035 we defined the dimension of a subspace of $\RR^n$ to be the number of elements in a basis. (Definition \ref{def:dimension})  We will adopt this definition for abstract vector spaces.  As before, to ensure that \dfn{dimension} is well-defined we need to establish that this definition is independent of our choice of a basis.  The proof of the following theorem is identical to the proof of its counterpart in $\RR^n$.  (Theorem \ref{th:dimwelldefined})
+
+\begin{theorem}\label{th:dimwelldefinedabstract}
+Let $V$ be a vector space.  Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $V$.  Then $s=t$.
+\end{theorem}
+Now we can state the definition.
+\begin{definition}\label{def:dimensionabstract}
+Let $V$ be a subspace of $\RR^n$.  The \dfn{dimension} of $V$ is the number, $m$, of elements in any basis of $V$.  We write
+$$\mbox{dim}(V)=m$$
+\end{definition}
+
+In our discussion to this point we have always assumed that a basis is nonempty and hence that the dimension of the space is at least $1$. However, the zero space $\{\vec{0}\}$ has {\it no} basis (see Practice Problem \ref{prob:nobasis}).  To accommodate for this, we will say that the zero vector space $\{\vec{0}\}$ is defined to have dimension $0$:
+\begin{equation*}
+\mbox{dim }\{\vec{0}\} = 0
+\end{equation*}
+
+Our insistence that $\mbox{dim}\{\vec{0}\} = 0$ amounts to saying that the empty set of vectors is a basis of $\{\vec{0}\}$. Thus the statement that ``the dimension of a vector space is the number of vectors in any basis'' holds even for the zero space. [Nicholson]
+
+\begin{example}\label{ex:dimofM}
+Recall that the vector space $\mathbb{M}_{m,n}$ consists of all $m\times n$ matrices. (See Example \ref{ex:MLexamplesofvectspaces} of VSP-M-0050).  Find a basis and the dimension of $\mathbb{M}_{m,n}$.
+\begin{explanation}
+Let $\mathcal{B}$ consist of $m\times n$ matrices 
+ with exactly one entry equal to $1$ and all other entries equal to $0$. It is clear that every $m\times n$ matrix can be written as a linear combination of elements of $\mathcal{B}$.  It is also easy to see that the elements of $\matthcal{B}$ are linearly independent.  Thus $\mathcal{B}$ is a basis for $\mathbb{M}_{m,n}$.  The set $\mathcal{B}$ contains $mn$ elements, so $\mbox{dim}(\mathbb{M}_{m,n})=mn$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:dimofP}
+Recall that $\mathbb{P}^n$ is the set of all polynomials of degree $n$ or less.  (See Example \ref{ex:pnisavectorspace} of VSP-M-0050) Show that $\mbox{dim}( \mathbb{P}^{n}) = n + 1$ and that $\{1, x, x^{2}, \dots, x^{n}\}$ is a basis of $\vectspace{P}^{n}$.
+
+\begin{explanation}
+Each polynomial $p(x) = a_{0} + a_{1}x + \ldots + a_{n}x^{n}$ in $\mathbb{P}^{n}$ is clearly a linear combination of $1, x, \dots, x^{n}$, so $\mathbb{P}^{n} = \mbox{span}\{1, x, \dots, x^{n}\}$. 
+
+Suppose $a_{0}1 + a_{1}x + \dots + a_{n}x^{n} = 0$, then $a_{0} = a_{1} = \ldots = a_{n} = 0$. So $\{1, x, \dots, x^{n}\}$ is linearly independent and hence is a basis containing $n + 1$ vectors. Thus, $\mbox{dim}(\mathbb{P}^{n}) = n + 1$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:CAbasis}
+Consider the subset
+\begin{equation*}
+C_A = \{X \mbox{ in } \mathbb{M}_{2,2} : AX = XA \}
+\end{equation*}
+of $\mathbb{M}_{2,2}$. 
+
+It was shown in Example \ref{ex:centralizerofA} of VSP-M-0050 that $C_A$ is a subspace for any choice of the matrix $A$.
+
+Let $A = 
+\begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix}$.
+Show that $\mbox{dim}(C_A) = 2$ and find a basis of $C_A$.
+
+\begin{explanation}
+ Suppose $X = 
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$
+ is in $C_A$.  
+ Then
+ $$\begin{bmatrix}1&1\\0&0\end{bmatrix}\begin{bmatrix}a&b\\c&d\end{bmatrix}=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}1&1\\0&0\end{bmatrix}$$
+ $$\begin{bmatrix}a+c&b+d\\0&0\end{bmatrix}=\begin{bmatrix}a&a\\c&c\end{bmatrix}$$
+ This gives us two relationships:  
+ $$b+d=a\quad\text{and}\quad c=0$$
+ We can now express a generic element $X$ of $C_A$ as
+ $$X=\begin{bmatrix}a&b\\c&d\end{bmatrix}=\begin{bmatrix}b+d&b\\0&d\end{bmatrix}=\begin{bmatrix}b&b\\0&0\end{bmatrix}+\begin{bmatrix}d&0\\0&d\end{bmatrix}=b\begin{bmatrix}1&1\\0&0\end{bmatrix}+d\begin{bmatrix}1&0\\0&1\end{bmatrix}$$
+ 
+Let 
+$$\mathcal{B}=\left\{\begin{bmatrix}1&1\\0&0\end{bmatrix},\begin{bmatrix}1&0\\0&1\end{bmatrix}\right\}$$
+
+The set $\mathcal{B}$ is linearly independent. (See Practice Problem \ref{prob:CABlinind}) Every element $X$ of $C_A$ can be written as a linear combination of elements of $\mathcal{B}$.  Thus $C_A=\mbox{span}\mathcal{B}$
+ So $\mathcal{B}$ is a basis of $C_A$ and $\mbox{dim}(C_A) = 2$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:symmetricmatsubspace} 
+In Practice Problem \ref{prob:symmetricsubspace} of VSP-M-0050 you demonstrated that the set of all symmetric $n\times n$ matrices is a subspace of $\mathbb{M}_{n,n}$.
+
+Let $V$ be a subspace of $\mathbb{M}_{2,2}$ consisting of all $2\times 2$ symmetric matrices.  Find the dimension of $V$.
+
+\begin{explanation}
+A matrix $A$ is symmetric if $A^{T} = A$. In other words, a matrix $A$ is symmetric when entries directly across the main diagonal are equal, so each $2 \times 2$ symmetric matrix has the form
+$$
+\begin{bmatrix}
+a & c \\
+c & b
+\end{bmatrix}
+= a\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}
++ b\begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}
++ c\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+$$
+Hence the set 
+$\mathcal{B} = \left\{
+\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}, \begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}, \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\right\}$
+ spans $V$. The reader can verify that $\mathcal{B}$ is linearly independent. Thus $\mathcal{B}$ is a basis of $V$, so $\mbox{dim}(V) = 3$.
+\end{explanation}
+\end{example}
+
+\subsection*{Finite-Dimensional Vector Spaces}
+Our definition of dimension of a vector space depends on the vector space having a basis.  In this section we will establish that any vector space spanned by finitely many vectors has a basis.
+
+\begin{definition}
+A vector space is said to be \dfn{finite-dimensional} if it is spanned by finitely many vectors.
+\end{definition}
+
+Given a finite-dimensional vector space $V$ we will find a basis for $V$ by starting with a linearly independent subset of $V$ and expanding it to a basis.  The following results are more general versions of Lemmas \ref{lemma:atmostnlinindinrn} and \ref{lemma:expandinglinindset}, and Theorem \ref{th:dimwelldefined} of VSP-M-0035.  The proofs are identical and we will omit them.
+\begin{lemma}\label{lemma:atmostnlinindinabstract}
+Let $V$ be a vector space spanned by $n$ vectors.  If a linearly independent subset $S$ of $V$ contains $m$ vectors, then $m\leq n$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:expandinglinindsetabstract}
+Let $V$ be a vector space.  Let $\{\vec{v}_1,\ldots ,\vec{v}_k\}$ be a linearly independent subset of $V$.  If $\vec{u}$ is not in $\mbox{span}(\vec{v}_1,\ldots ,\vec{v}_k)$, then $\{\vec{u},\vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent.
+\end{lemma}
+
+\begin{theorem}\label{th:expandtobasisabstract}
+Let $V$ be a finite-dimensional vector space.  Any linearly independent subset of $V$ can be expanded to a basis of $V$.
+\end{theorem}
+
+\subsection*{Coordinate Vectors}
+
+Recall that in the context of $\RR^n$ (and subspaces of $\RR^n$) the requirement that elements of a basis be linearly independent guarantees that every element of the vector space has a {\it unique} representation in terms of the elements of the basis.  (See Theorem \ref{th:linindbasis} of VSP-M-0030)  We proved the same property for abstract vector spaces in Theorem \ref{th:uniquerep}.
+
+Uniqueness of representation in terms of the elements of a basis allows us to associate every element of a vector space $V$ with a unique \dfn{coordinate vector} with respect to a given basis.  Coordinate vectors were first introduced in VSP-M-0030.  We now give a formal definition.
+
+\begin{definition}\label{def:coordvector}
+Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ be a basis for $V$.  If $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$, then the vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$}.  We denote the coordinate vector by $[\vec{v}]_{\mathcal{B}}$ and write:
+$$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}a_1\\\vdots \\a_n\end{bmatrix}$$
+\end{definition}
+
+\begin{example}
+The coordinate vector for $p(x)=4-3x^2+5x^3$ in $\mathbb{P}^4$ with respect to $\mathcal{B}=\{1, x, x^2, x^3, x^4\}$ is 
+$$[p(x)]_{\mathcal{B}}=\begin{bmatrix}4\\0\\-3\\5\\0\end{bmatrix}$$
+\end{example}
+
+\begin{example}
+Show that the set $\mathcal{B}=\{x, 1+x, x+x^2\}$ is a basis for $\mathbb{P}^2$, and find the coordinate vector for $p(x)=4-x+3x^2$ with respect to $\mathcal{B}$.
+\begin{explanation}
+We will begin by showing that the elements of $\mathcal{B}$ are linearly independent.  Suppose 
+$$ax+b(1+x)+c(x+x^2)=0$$
+then
+$$b+(a+b+c)x+cx^2=0$$
+This gives us the following system of equations:
+$$\begin{array}{ccccccc}
+     & &b&&&=&0\\
+     a & +&b&+&c&= &0 \\
+	 & &&&c&=&0
+     \end{array}$$
+This gives us a unique solution $a=b=c=0$.  We conclude that $\mathcal{B}$ is linearly independent.
+
+Next, we need to show that $\mathcal{B}$ spans $\mathbb{P}^2$.  To this end, we will consider a generic element $p(x)=\alpha+\beta x+\gamma x^2$ of $\mathbb{P}^2$ and attempt to express it as a linear combination of the elements of $\mathcal{B}$.
+$$ax+b(1+x)+c(x+x^2)=\alpha+\beta x+\gamma x^2$$
+then
+$$b+(a+b+c)x+cx^2=\alpha+\beta x+\gamma x^2$$
+Setting the coefficients of like terms equal to each other gives us
+$$\begin{array}{ccccccc}
+     & &b&&&=&\alpha\\
+     a & +&b&+&c&= &\beta \\
+	 & &&&c&=&\gamma
+     \end{array}$$
+Solving this linear system of $a$, $b$ and $c$ gives us
+$$a=\beta-\alpha-\gamma,\quad b=\alpha,\quad c=\gamma$$
+(You need to verify this)  This shows that every element of $\mathbb{P}^2$ can be written as a linear combination of elements of $\mathcal{B}$.  Therefore $\mathcal{B}$ is a basis for $\mathbb{P}^2$.
+
+To find the coordinate vector for $p(x)=4-x+3x^2$ with respect to $\mathcal{B}$ we need to express $p(x)$ as a linear combination of the elements of $\mathcal{B}$.  Fortunately, we have already done all the necessary work.  For $p(x)$, $\alpha=4$, $\beta=-1$ and $\gamma=3$.  This gives us the coefficients of the linear combination: $a=\beta-\alpha-\gamma=-8$, $b=\alpha=4$, $c=\gamma=3$.  We now write $p(x)$ as a linear combination
+$$p(x)=-8(x)+4(1+x)+3(x+x^2)$$
+The coordinate vector for $p(x)$ with respect to $\mathcal{B}$ is
+$$[p(x)]_{\mathcal{B}}=\begin{bmatrix}-8\\4\\3\end{bmatrix}$$
+\end{explanation}
+\end{example}
+
+\begin{example}
+Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $\mathbb{M}_{2,2}$.  In Example \ref{ex:symmetricmatsubspace} we demonstrated that $\mathcal{B} = \left\{
+\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}, \begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}, \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\right\}$ is a basis for $V$.  Find the coordinate vector with respect to $\mathcal{B}$ for 
+$$A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}$$
+\begin{explanation}
+We write $A$ as a linear combination of the elements of $\mathcal{B}$.
+$$A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}=2\begin{bmatrix}1&0\\0&0\end{bmatrix}+\begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}-3\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}$$
+Thus, the coordinate vector is
+$$[A]_{\mathcal{B}}=\begin{bmatrix}2\\1\\-3\end{bmatrix}$$
+\end{explanation}
+\end{example}
+
+
+Coordinate vectors will play a vital role in establishing one of the most fundamental results in linear algebra, that all $n$-dimensional vector spaces have the same structure as $\RR^n$.  In Example \ref{ex:p2isor3} of LTR-M-0060, for instance, we will show that $\mathbb{P}^2$ is essentially the same as $\RR^3$.  
+
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:CABlinind}
+Prove that set $\mathcal{B}=\left\{\begin{bmatrix}1&1\\0&0\end{bmatrix},\begin{bmatrix}1&0\\0&1\end{bmatrix}\right\}$ of Example \ref{ex:CAbasis} is linearly independent.
+\end{problem}
+
+\begin{problem}\label{prob:linindabstractvsp}
+{\color{red}Nicholson} Show that each of the following sets of vectors is linearly independent.
+
+\begin{problem}\label{prob:linindabstractvsp1}
+$$\{1 + x, 1 - x, x + x^{2}\}$$ in $\mathbb{P}^{2}$
+\end{problem}
+
+\begin{problem}\label{prob:linindabstractvsp2}
+$$\{x^{2}, x + 1, 1 - x - x^{2}\}$$ in $\mathbb{P}^{2}$
+\end{problem}
+
+\begin{problem}\label{prob:linindabstractvsp3}
+$$
+\left\{
+\begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix}
+, 
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix}
+, 
+\begin{bmatrix}
+0 & 0 \\
+1 & -1
+\end{bmatrix}
+,\
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}$$ 
+
+in $\mathbb{M}_{2,2}$
+\end{problem}
+
+\end{problem}
+
+\begin{problem}
+Show that each set in Practice Problem \ref{prob:linindabstractvsp} is a basis for its respective vector space.
+\end{problem}
+
+\begin{problem}
+Find the coordinate vector for $p(x)=6-2x+4x^2$ with respect to the given basis $\mathcal{B}$.
+
+\begin{problem}
+$$\mathcal{B}=\{1 + x, 1 - x, x + x^{2}\}$$
+Answer:
+$$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{0}\\\answer{6}\\\answer{4}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+$$\mathcal{B}=\{x^{2}, x + 1, 1 - x - x^{2}\}$$
+Answer:
+$$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{8}\\\answer{2}\\\answer{4}\end{bmatrix}$$
+\end{problem}
+\end{problem}
+\begin{problem}
+Find the coordinate vector for $A=\begin{bmatrix}4&-3\\1&2\end{bmatrix}$ with respect to the basis
+$$\mathcal{B}=
+\left\{
+\begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix}
+, 
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix}
+, 
+\begin{bmatrix}
+0 & 0 \\
+1 & -1
+\end{bmatrix}
+,\
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}$$ 
+Answer:
+$$[A]_{\mathcal{B}}=\begin{bmatrix}\answer{-1}\\\answer{5}\\\answer{-4}\\\answer{-2}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}
+Let $V$ be a vector space of dimension $3$.  Suppose $S=\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ is linearly independent in $V$.  Show that $S$ is a basis for $V$.
+\end{problem}
+
+\section*{Text Source} The discussion of the zero space was adapted from Section 6.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 349 
+
+\section*{Example Source}
+Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
+
+\section*{Exercise Source}
+Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
+
+
+\end{document} 
