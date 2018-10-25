@@ -1,0 +1,146 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{VSP-0035: Bases and Dimension} \license{CC-BY 4.0}
+
+
+
+\begin{document}
+\begin{abstract}
+We discuss existence of bases of $\RR^n$ and subspaces of $\RR^n$, and define dimension.
+\end{abstract}
+\maketitle
+
+\section*{VSP-0035: Bases and Dimension}
+Recall that a \dfn{basis} of a subspace $V$ of $\RR^n$ is a subset of $V$ that is linearly independent and spans $V$.  A basis allows us to uniquely express every element of $V$ as a linear combination of the elements of the basis.  Several questions may come to mind at this time.  Does every subspace of $\RR^n$ have a basis?  We know that bases are not unique.  If there is more than one basis, what, if anything, do they have in common?
+
+\subsection*{Exploring Dimension}
+\begin{exploration}\label{init:dimensionintro}
+How would you describe 
+$$V=\mbox{span}\left(\begin{bmatrix}1\\-2\\3\end{bmatrix}, \begin{bmatrix}-2\\4\\-6\end{bmatrix}\right)?$$
+If you answered that $V$ is a line in $\RR^3$, you are correct.  While the two vectors span the line, it is not necessary to have both of them in the spanning set to describe the line. 
+
+What is the minimum number of vectors needed to span a line?  
+
+Answer: $\answer{1}$.
+
+Observe also that the vectors in the given spanning set are not linearly independent, so they do not form a basis for $V$.  How many vectors would a basis for $V$ have?
+
+Answer: $\answer{1}$.
+
+Now consider another subspace of $\RR^3$:
+$$W=\mbox{span}\left(\begin{bmatrix}1\\0\\2\end{bmatrix}, \begin{bmatrix}0\\-3\\0\end{bmatrix}\right)$$
+Geometrically, $W$ is a plane in $\RR^3$.  Note that the vectors in the spanning set are linearly independent.  Can we remove one of the vectors and have the remaining vector span the plane?  
+
+What is the minimum number of vectors needed to span a plane?
+
+Answer: $\answer{2}$.
+
+How many vectors would a basis for a plane have?
+
+Answer: $\answer{2}$.
+\end{exploration}
+
+Our observations in Exploration Problem \ref{init:dimensionintro} hint at the idea of dimension.  We know that a line is a one-dimensional object, a plane is a two-dimensional object, and the space we reside in is three-dimensional.  
+
+Based on our observations in Exploration Problem \ref{init:dimensionintro}, it makes sense for us to define dimension of a vector space (or a subspace) as the minimum number of vectors required to span the space (subspace).  In other words, we would like to define dimension as the number of elements in a basis.
+
+We have to proceed carefully because we don't want the dimension to depend on our choice of a basis.  So, before we state our definition, we need to make sure that every basis for a given vector space (or subspace) has the same number of elements.
+
+\begin{theorem}\label{th:dimwelldefined}
+Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $\RR^n$ (or a subspace $V$ of $\RR^n$).  Then $s=t$.
+\end{theorem}
+\begin{proof}
+Suppose $s\neq t$.  Without loss of generality, assume that $t<s$.  Because $\mathcal{B}$ spans $V$, every $\vec{w}_i$ of $\mathcal{C}$ can be written as a linear combination of elements of $\mathcal{B}$:
+$$\vec{w}_i=a_{1i}\vec{v}_1+a_{2i}\vec{v}_{2}+\ldots +a_{ti}\vec{v}_t$$
+
+Consider the vector equation
+\begin{align}\label{eq:sizeofbases}
+b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_s\vec{w}_s=\vec{0}
+\end{align}
+
+By substitution, we have:
+\begin{align*}
+    &b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_s\vec{w}_s=\\ \\
+     =&b_1(a_{11}\vec{v}_1+a_{21}\vec{v}_{2}+\ldots +a_{t1}\vec{v}_t)+b_2(a_{12}\vec{v}_1+a_{22}\vec{v}_{2}+\ldots +a_{t2}\vec{v}_t)+\ldots\\
+     &+b_s(a_{1s}\vec{v}_1+a_{2s}\vec{v}_{2}+\ldots +a_{ts}\vec{v}_t)\\ \\
+     =&(b_1a_{11}+b_2a_{12}+\ldots +b_sa_{1s})\vec{v}_1
++(b_1a_{21}+b_2a_{22}+\ldots +b_sa_{2s})\vec{v}_2+
+\ldots \\
+&+(b_1a_{t1}+b_2a_{t2}+\ldots +b_sa_{ts})\vec{v}_t\\ \\
+=&\vec{0}
+\end{align*}
+
+Because $\vec{v}_j$'s are linearly independent, we must have
+$$b_1a_{j1}+b_2a_{j2}+\ldots +b_sa_{js}=0$$
+For all $1\leq j\leq t$.
+This gives us a system of $t$ equations and $s$ unknowns.  We can write the system as a matrix equation.
+$$\begin{bmatrix}a_{11}&a_{12}&\ldots &a_{1s}\\a_{21}&a_{22}&\ldots &a_{2s}\\\vdots&\vdots&\ddots&\vdots\\a_{t1}&a_{t2}&\ldots&a_{ts}\end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_s\end{bmatrix}=\vec{0}$$
+
+Recall our assumption that $s<t$.  By Theorem \ref{th:rankandsolutions} of SYS-M-0030 we know that the system has infinitely many solutions.  This shows that equation (\ref{eq:sizeofbases}) has a nontrivial solution.  But this shows that $\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ is linearly dependent and contradicts our assumption that $\mathcal{C}$ is a basis of $V$.  We conclude that $s=t$.
+\end{proof}
+
+
+\begin{definition}\label{def:dimension}
+Let $V$ be a subspace of $\RR^n$.  The \dfn{dimension} of $V$ is the number, $m$, of elements in any basis of $V$.  We write
+$$\mbox{dim}(V)=m$$
+\end{definition}
+
+\begin{example}
+We know that vectors $\vec{e}_1, \ldots ,\vec{e}_n$ form a basis of $\RR^n$.  Therefore $\mbox{dim}(\RR^n)=n$.
+\end{example}
+
+The following section will guarantee that dimension is defined for every subspace of $\RR^n$.
+
+\subsection*{Every Subspace of $\RR^n$ has a Basis}
+%We know that $\RR^n$ has a standard basis with $n$ elements.  Therefore all bases of $\RR^n$ have $n$ elements.  Now we turn our attention to subspaces of $\RR^n$.  
+
+\begin{lemma}\label{lemma:atmostnlinindinrn}
+If a linearly independent subset of $\RR^n$ contains $m$ vectors, then $m\leq n$.
+\end{lemma}
+\begin{proof}
+See Practice Problem {\color{red}reference}.
+\end{proof}
+
+\begin{lemma}\label{lemma:expandinglinindset}
+Let $\{\vec{v}_1,\ldots ,\vec{v}_k\}$ be a linearly independent subset of $\RR^n$.  If $\vec{u}$ is not in $\mbox{span}(\vec{v}_1,\ldots ,\vec{v}_k)$, then $\{\vec{u},\vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent.
+\end{lemma}
+\begin{proof}
+Consider the equation
+\begin{align}\label{eq:expandinglinindset}a\vec{u}+a_1\vec{v}_1+\ldots +a_k\vec{v}_k=\vec{0}\end{align}
+We need to show that $a=a_1=\ldots =a_k=0$.  Suppose $a\neq 0$, then $\vec{u}=\frac{-a_1}{a}\vec{v}_1+\ldots +\frac{-a_k}{a}\vec{v}_k$.  But this contradicts the assumption that $\vec{u}$ is not in the span of $\vec{v}_1,\ldots ,\vec{v}_k$.  So, $a=0$.  But $a_1=\ldots =a_k=0$ because $\vec{v}_1,\ldots ,\vec{v}_k$ are linearly independent.
+
+This means that (\ref{eq:expandinglinindset}) has only the trivial solution, and $\{\vec{u},\vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent.
+\end{proof}
+
+\begin{theorem}\label{th:expandtobasis}
+Let $V$ be a subspace of $\RR^n$.  Any linearly independent subset of $V$ can be expanded to a basis of $V$.
+\end{theorem}
+\begin{proof}
+Suppose that $I=\{\vec{v}_1,\ldots ,\vec{v}_k\}$ is a linearly independent subset of $V$. If $\mbox{span}(I) = V$ then $I$ is already a basis of $V$. If $\mbox{span}(I) \neq V$, choose $\vec{u}_1$ in $V$ such that $\vec{u}_1$ is not in $\mbox{span}(I)$. The set $\{\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent by Lemma \ref{lemma:expandinglinindset}. 
+
+If $\mbox{span}(\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k) = V$ we are done; otherwise choose $\vec{u}_{2} \in V$ such that $\vec{u}_{2}$ is not in $\mbox{span}(\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k)$. Then $\{\vec{u}_1,\vec{u}_2, \vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent, and the process continues. We claim that a basis of $V$ will be reached eventually. If no basis of $V$ is ever reached, the process creates arbitrarily large independent sets in $\RR^n$. But this is impossible by Lemma \ref{lemma:atmostnlinindinrn}.
+\end{proof}
+
+\section*{Practice Problems}
+\begin{problem}
+Prove Lemma \ref{lemma:atmostnlinindinrn}.
+\begin{hint}
+Look at the proof of Theorem \ref{th:dimwelldefined}.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:matrixtimesbasisvectors} 
+Let $\mathcal{B}=\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ be a basis of $\RR^3$.  Suppose $A$ is a nonsingular $3\times 3 $ matrix.  Show that $\mathcal{C}=\{A\vec{v}_1, A\vec{v}_2, A\vec{v}_3\}$ is also a basis of $\RR^3$. [Nicholson]
+\begin{hint}
+To show that $\mathcal{C}$ spans $\RR^3$, express $A^{-1}\vec{v}$ as a linear combination of $\vec{v}_1$, $\vec{v}_2$ and $\vec{v}_3$.
+\end{hint}
+
+\end{problem}
+
+\section*{Exercise Source}
+Practice Problem \ref{prob:matrixtimesbasisvectors} is adopted from Keith Nicholson's Example 5.2.12  \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p 277.
+
+\end{document}
