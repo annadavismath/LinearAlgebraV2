@@ -1,0 +1,355 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{EIG-0020: Finding Eigenvalues and Eigenvectors} \license{CC-BY 4.0}
+
+
+\begin{document}
+\begin{abstract}
+We explore the theory behind finding the eigenvalues and associated eigenvectors of a square matrix.  
+\end{abstract}
+\maketitle
+\section*{EIG-0020: Finding Eigenvalues and Eigenvectors}
+Let $A$ be an $n \times n$ matrix.  In Module EIG-M-0010 we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
+\begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
+We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this module we will focus on the process.
+
+If a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then it also satisfies the following equations.
+\begin{align*}
+A\vec{x}-\lambda \vec{x} &= \vec{0} \\
+A\vec{x}-\lambda I\vec{x} &= \vec{0} \\
+(A-\lambda I)\vec{x} &= \vec{0}
+\end{align*}
+
+This shows that any eigenvector $\vec{x}$ of $A$ is in the null space of the related matrix, $A-\lambda I$.  Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)<n$.
+
+If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, Theorem \ref{th:detofsingularmatrix} implies that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
+
+\subsection{Eigenvalues}
+In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
+
+\begin{definition}
+Equation (\ref{eqn:chareqn}) is called the \dfn{characteristic equation} of $A$.  The left-hand side of Equation (\ref{eqn:chareqn}) is called the \dfn{characteristic polynomial} of $A$.
+\end{definition}
+
+\begin{example}\label{ex:2x2eig}
+Let $A=\begin{bmatrix} 2& 1\\ 1&2
+\end{bmatrix}$.  Compute the eigenvalues of this matrix using the characteristic equation.
+
+
+\begin{explanation}
+\begin{align*}\det(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}&=(2-\lambda)^2-1\\
+&=\lambda^2-4\lambda+3\\
+&=(\lambda-1)(\lambda-3)
+\end{align*}
+The characteristic equation $(\lambda-1)(\lambda-3)=0$ has solutions $\lambda_1=1$ and $\lambda_2=3$.  These are the eigenvalues of $A$.
+\end{explanation}
+\end{example}
+
+\begin{example}\label{ex:2x2eig2}
+Let $B=\begin{bmatrix} 2& 1\\ 4&2
+\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation.
+
+$\lambda_1=\answer{0}$ and $\lambda_2=\answer{4}$
+\end{example}
+
+\begin{example}\label{ex:3x3eig}
+Let $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$.  Compute the eigenvalues of $C$ using the characteristic equation.
+\begin{explanation}
+\begin{align*}\det(C-\lambda I)&=\begin{vmatrix}2-\lambda & 1 & 1\\ 1 & 2-\lambda & 1\\ 1 & 1 & 2-\lambda\end{vmatrix}\\
+&=(2-\lambda)\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}-1\begin{vmatrix}1&1\\1&2-\lambda\end{vmatrix}+1\begin{vmatrix}1&2-\lambda\\1&1\end{vmatrix}\\
+&=(2-\lambda)^3-(2-\lambda)-((2-\lambda)-1)+1-(2-\lambda)\\
+&=8-12\lambda+6\lambda^2-\lambda^3-2+\lambda-2+\lambda+1+1-2+\lambda\\
+&=4-9\lambda+6\lambda^2-\lambda^3\\
+&=-(\lambda-4)(\lambda-1)^2
+\end{align*}
+Matrix $C$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.
+\end{explanation}
+\end{example}
+
+In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice in the characteristic polynomial.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
+
+The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
+
+\begin{example}\label{ex:3x3_complex_eig}
+Let $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.  Compute the eigenvalues of this matrix.
+
+\begin{explanation}
+\begin{align*}\det(D-\lambda I)&=\begin{vmatrix} -\lambda&0&0\\ 0 &1-\lambda&1\\ 0 & -1&1-\lambda\end{vmatrix}\\
+&=-\lambda\begin{vmatrix}1-\lambda&1\\-1&1-\lambda\end{vmatrix}\\
+&=-\lambda((1-\lambda)^2+1)\\
+&=-\lambda(\lambda^2-2\lambda+2)
+\end{align*}
+So one of the eigenvalues of $D$ is $\lambda=0$.  To get the other eigenvalues we must solve $\lambda^2-2\lambda+2=0$.  Using the quadratic formula, we compute that $\lambda_1=1+i$ and $\lambda_2=1-i$ are also eigenvalues of $D$.
+\end{explanation}
+\end{example}
+
+\begin{exploration}\label{init:3x3tri}
+Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.
+
+$$\lambda_1=\answer{1},\quad\lambda_2=\answer{5},\quad\text{and}\quad\lambda_3=\answer{9}$$
+
+What do you observe about the eigenvalues?
+\begin{hint}
+The eigenvalues are the diagonal entries of the matrix.
+\end{hint}
+
+What property of the matrix makes this ``coincidence" possible?
+
+\begin{hint}
+$T$ is a triangular matrix.
+\end{hint}
+\end{exploration}
+
+The matrix in Exploration Problem \ref{init:3x3tri} is a triangular matrix, and the property you observed holds in general.
+
+\begin{theorem}\label{th:eigtri}
+Let $T$ be a triangular matrix.  Then the eigenvalues of $T$ are the entries on the main diagonal.
+\end{theorem}
+
+\begin{proof}
+See Practice Problem \ref{prob:eigtri}.
+\end{proof}
+
+\begin{corollary}\label{th:eigdiag}
+Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on the main diagonal.
+\end{corollary}
+
+One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  %We will explore some of these methods in Module EIG-M-0070.
+
+\subsection{Eigenvectors}
+Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
+\begin{align}\label{eqn:nullspace}
+ (A-\lambda I) \vec{x}=\vec{0}   
+\end{align} 
+For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problem \ref{prob:eigenspace})  This motivates the following definition.
+
+\begin{definition}
+The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
+\end{definition}
+
+So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module VSP-M-0040.
+
+Let's return to the examples we did in the first section of this module.
+
+\begin{example} (Finding eigenvectors for Example \ref{ex:2x2eig} ) 
+
+Recall that $A=\begin{bmatrix} 2& 1\\ 1&2
+\end{bmatrix}$ has eigenvalues $\lambda_1=1$ and $\lambda_2=3$.  Compute a basis for the eigenspace associated with each of these eigenvalues.
+\begin{explanation}
+Eigenvectors associated with the eigenvalue $\lambda_1=1$ are in the null space of $A-I$.  So we seek a basis for $\mbox{null}(A-I)$.  We compute:
+\begin{align*}\mbox{rref}(A-I)=\mbox{rref}\left(\begin{bmatrix}1&1\\1&1\end{bmatrix}\right)&=\begin{bmatrix}1&1\\0&0\end{bmatrix},
+\end{align*}
+From this we see that the eigenspace $\mathcal{S}_1$ associated with $\lambda_1=1$ consists of vectors of the form $\begin{bmatrix}-1\\1\end{bmatrix}t$.
+%for any eigenvector $\begin{bmatrix}x_1\\x_2\end{bmatrix}$, we have $x_1+x_2=0$, so that $x_1=-x_2$  
+This means that $\left\{\begin{bmatrix}-1\\1\end{bmatrix}\right\}$ is one possible basis for $\mathcal{S}_1$.
+
+In a similar way, we compute a basis for $\mathcal{S}_3$, the subspace of all eigenvectors associated with the eigenvalue $\lambda_2=3$.  Now we compute:
+\begin{align*}\mbox{rref}(A-3I)=\mbox{rref}\left(\begin{bmatrix}-1&1\\1&-1\end{bmatrix}\right)&=\begin{bmatrix}1&-1\\0&0\end{bmatrix},
+\end{align*}
+Vectors in the null space have the form $\begin{bmatrix}1\\1\end{bmatrix}t$ This means that $\left\{\begin{bmatrix}1\\1\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_3$.
+\end{explanation}
+\end{example}
+
+\begin{example} (Finding eigenvectors for Example \ref{ex:2x2eig2}) 
+We know from Example \ref{ex:2x2eig2} that $B=\begin{bmatrix} 2& 1\\ 4&2
+\end{bmatrix}$ has eigenvalues $\lambda_1=0$ and $\lambda_2=4$.  Compute a basis for the eigenspace associated with each of these eigenvalues.
+\begin{explanation}
+Let's begin by finding a basis for the eigenspace $\mathcal{S}_0$, which is the subspace of $\RR^n$ consisting of eigenvectors corresponding to the eigenvalue $\lambda_1=0$.  We need to compute a basis for $\mbox{null}(B-0I) = \mbox{null}(B)$.  We compute:
+\begin{align*}\mbox{rref}(B)=\mbox{rref}\left(\begin{bmatrix}2&1\\4&2\end{bmatrix}\right)&=\begin{bmatrix}1&\frac{1}{2}\\0&0\end{bmatrix},
+\end{align*}
+From this we see that an eigenvector in $\mathcal{S}_0$ has the form $\begin{bmatrix}-1/2\\1\end{bmatrix}t$. %$\begin{bmatrix}x_1\\x_2\end{bmatrix}$ in $\mathcal{S}_0$ satisfies $x_1+\frac{1}{2} x_2=0$, so that $2x_1=-x_2$. 
+This means that $\left\{\begin{bmatrix}-1/2\\1\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_0$.  By letting $t=-2$, we obtain an arguably nicer-looking basis: $\left\{\begin{bmatrix}1\\-2\end{bmatrix}\right\}$. 
+
+To compute a basis for $\mathcal{S}_4$, the subspace of all eigenvectors associated to the eigenvalue $\lambda_2=4$, we compute:
+\begin{align*}\mbox{rref}(B-4I)=\mbox{rref}\left(\begin{bmatrix}-2&1\\4&-2\end{bmatrix}\right)&=\begin{bmatrix}1&-\frac{1}{2}\\0&0\end{bmatrix},
+\end{align*}
+From this we find that $\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_4$.
+\end{explanation}
+\end{example}
+
+\begin{example} (Finding eigenvectors for Example \ref{ex:3x3eig})
+We know from Example \ref{ex:3x3eig} that $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.  Compute a basis for the eigenspace associated to each of these eigenvalues.
+\end{example}
+
+\begin{explanation}
+We first find a basis for the eigenspace $\mathcal{S}_1$.  We need to compute a basis for $\mbox{null}(C-I)$.  We compute:
+\begin{align*}\mbox{rref}(C-I)=\mbox{rref}\left(\begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1\end{bmatrix}\right)&=\begin{bmatrix} 1 & 1 & 1\\ 0 & 0 & 0\\ 0 & 0 & 0\end{bmatrix},
+\end{align*}
+%From this we see for any eigenvector $\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}$ in $\mathcal{S}_1$ satisfies $x_1+x_2+x_3=0$.  
+Notice that there are two free variables.  %Let $x_2=s$ and $x_3=t$.
+The eigenvectors in $\mathcal{S}_1$ have the form
+$$\begin{bmatrix}-s-t\\s\\t\end{bmatrix} = s\begin{bmatrix}-1\\1\\0\end{bmatrix} + t\begin{bmatrix}-1\\0\\1\end{bmatrix}$$
+
+So one possible basis for the eigenspace $\mathcal{S}_1$ is given by $\left\{\begin{bmatrix}-1\\1\\0\end{bmatrix}, \begin{bmatrix}-1\\0\\1\end{bmatrix}\right\}$.
+
+Next we find a basis for the eigenspace $\mathcal{S}_4$.  We need to compute a basis for $\mbox{null}(C-4I)$.  We compute:
+\begin{align*}\mbox{rref}(C-4I)=\mbox{rref}\left(\begin{bmatrix} -2 & 1 & 1\\ 1 & -2 & 1\\ 1 & 1 & -2\end{bmatrix}\right)&=\begin{bmatrix} 1 & 0 & -1\\ 0 & 1 & -1\\ 0 & 0 & 0\end{bmatrix}
+\end{align*}
+This time there is one free variable.  %Setting $x_3=t$, we also get $x_1=t$ and $x_2=t$.  From this we see
+The eigenvectors in $\mathcal{S}_4$ have the form $\begin{bmatrix}t\\t\\t\end{bmatrix}$, so a possible basis for the eigenspace $\mathcal{S}_4$ is given by $\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$.
+\end{explanation}
+
+\begin{example}\label{ex:3x3_complex_ev} (Finding eigenvectors for Example \ref{ex:3x3_complex_eig})
+We know from Example \ref{ex:3x3_complex_eig} that $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$ has eigenvalues $\lambda=0$, $\lambda_1=1+i$, and $\lambda_2=1-i$.  Compute a basis for the eigenspace associated with each eigenvalue.
+\begin{explanation}
+We first find a basis for the eigenspace $\mathcal{S}_0$.  We need to compute a basis for $\mbox{null}(D-0I)=\mbox{null}(D)$.  We compute:
+\begin{align*}\mbox{rref}(D)=\mbox{rref}\left(\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}\right)&=\begin{bmatrix} 0 & 1 & 1\\ 0 & 0 & 1\\ 0 & 0 & 0\end{bmatrix},
+\end{align*}
+From this we see that for any eigenvector $\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}$ in $\mathcal{S}_0$ we have $x_2=0$ and $x_3=0$, but $x_1$ is a free variable. 
+So one possible basis for the eigenspace $\mathcal{S}_0$ is given by $$\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}\right\}$$
+Next we find a basis for the eigenspace $\mathcal{S}_{1+i}$.  We need to compute a basis for $\mbox{null}(D-(1+i)I)$.  We compute:
+\begin{align*}\mbox{rref}(D-(1+i)I)&=\mbox{rref}\left(\begin{bmatrix} -(1+i)&0&0\\ 0 &1-(1+i)&1\\ 0 & -1&1-(1+i)\end{bmatrix}\right) \\
+&=\begin{bmatrix} 1 & 0 &0\\ 0 & 1 & -i\\ 0 & 0 & 0\end{bmatrix}
+\end{align*}
+There is one free variable.  Setting $x_3=t$, we get $x_1=0$ and $x_2=ti$.  From this we see that eigenvectors in $\mathcal{S}_4$ have the form $\begin{bmatrix}0\\i\\1\end{bmatrix}t$, so a possible basis for the eigenspace $\mathcal{S}_{1+i}$ is given by $\left\{\begin{bmatrix}0\\i\\1\end{bmatrix}\right\}$.
+We ask you in Practice Problem \ref{prob:3x3_complex_eig} to show that $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$ is a basis for $\mathcal{S}_{1-i}$.
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:eigenspace}
+In this exercise we will prove that the eigenvectors associated with an eigenvalue $\lambda$ of an $n \times n$ matrix $A$ form a subspace of $\RR^n$.
+\begin{problem}
+Let $\vec{x}$ and $\vec{y}$ be eigenvectors of $A$ associated with $\lambda$.  Show that $\vec{x}+\vec{y}$ is also an eigenvector of $A$ associated with $\lambda$.  (This shows that the set of eigenvectors of $A$ associated with $\lambda$ is closed under addition).
+\end{problem}
+\begin{problem}
+Show that the set of eigenvectors of $A$ associated with $\lambda$ is closed under scalar multiplication.
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Compute the eigenvalues of the given matrix and find the corresponding eigenspaces.
+\begin{problem}
+$$\begin{bmatrix}4&1\\8&-3\end{bmatrix}$$
+Answer:
+(List the eigenvalues in an increasing order.)
+$$\lambda_1=\answer{-4},\quad\lambda_2=\answer{5}$$
+
+A basis for $\lambda_1$ is $\left\{\begin{bmatrix}\answer{-1/8}\\1\end{bmatrix}\right\}$.  A basis for $\lambda_2$ is $\left\{\begin{bmatrix}\answer{1}\\1\end{bmatrix}\right\}$.
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}1&-2\\2&1\end{bmatrix}$$
+Answer:
+
+$$\lambda_1=\answer{1}+\answer{2}i,\quad\lambda_2=\answer{1}-\answer{2}i$$
+
+A basis for $\lambda_1$ is $\left\{\begin{bmatrix}i\\\answer{1}\end{bmatrix}\right\}$.  A basis for $\lambda_2$ is $\left\{\begin{bmatrix}-i\\\answer{1}\end{bmatrix}\right\}$.
+\end{problem}
+\end{problem}
+
+\begin{problem}\label{prob:3x3tri_ev}
+Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute a basis for each of the eigenspaces of this matrix, $\mathcal{S}_1$, $\mathcal{S}_5$, and $\mathcal{S}_9$.
+\end{problem}
+
+\begin{problem}\label{prob:3x3 from Kuttler}
+Let $A=\begin{bmatrix} 9 & 2 & 8\\ 2 & -6 & -2\\ -8 & 2 & -5\end{bmatrix}$.  
+\begin{problem}
+Compute the eigenvalues of this matrix. 
+\begin{hint}
+One of the eigenvalues of $A$ is -3.
+\end{hint}
+
+Answer:
+
+(List your answers in an increasing order.)
+$$\lambda_1 = \answer{-3},\quad \lambda_2 = \answer{-1},\quad \lambda_3 = \answer{2}$$
+\end{problem}
+\begin{problem}
+Compute a basis for each of the eigenspaces of this matrix,  $\mathcal{S}_{\lambda_1}$, $\mathcal{S}_{\lambda_2}$, and $\mathcal{S}_{\lambda_3}$.
+
+Answer:
+A basis for $\mathcal{S}_{\lambda_1}$ is $\left\{\begin{bmatrix}1\\\answer{2}\\\answer{-2}\end{bmatrix}\right\}$, 
+a basis for $\mathcal{S}_{\lambda_2}$ is $\left\{\begin{bmatrix}-2\\\answer{-2}\\\answer{3}\end{bmatrix}\right\}$,
+
+and a basis for $\mathcal{S}_{\lambda_3}$ is $\left\{\begin{bmatrix}2\\\answer{3}\\\answer{-2}\end{bmatrix}\right\}$.
+\end{problem}
+\end{problem}
+
+\begin{problem}\label{prob:3x3_complex_ev}
+Complete Example \ref{ex:3x3_complex_ev} by showing that a basis for $\mathcal{S}_{1-i}$ is given by $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$, where  $\mathcal{S}_{1-i}$ is the eigenspace associated with the eigenvalue $\lambda=1-i$ of the matrix $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.
+\end{problem}
+
+
+\begin{problem}\label{prob:eigtri}
+Prove Theorem \ref{th:eigtri}.  (HINT:  Proceed by induction on the dimension n.  For the inductive step, compute $\det(A-\lambda I)$ by expanding along the first column (or row) if $T$ is upper (lower) triangular.)
+\end{problem}
+
+\begin{problem}
+The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use EIG-M-0010 and LTR-M-0070 for reference.
+\begin{problem}
+Recall that a vertical stretch/compression of the plane is a linear transformation whose standard matrix is $$M_v=\begin{bmatrix}1&0\\0&k\end{bmatrix}$$
+Find the eigenvalues of $M_v$.  Find a basis for the eigenspace corresponding to each eigenvalue.
+
+Answer:  A basis for $\mathcal{S}_1$ is $\left\{\begin{bmatrix}1\\\answer{0}\end{bmatrix}\right\}$
+and a basis for $\mathcal{S}_k$ is $\left\{\begin{bmatrix}\answer{0}\\1\end{bmatrix}\right\}$
+
+Sketch several vectors in each eigenspace and use geometry to explain why the eigenvectors you sketched make sense.
+\end{problem}
+
+\begin{problem}
+Recall that a horizontal shear of the plane is a linear transformation whose standard matrix is $$M_{hs}=\begin{bmatrix}1&k\\0&1\end{bmatrix}$$
+Find the eigenvalue of $M_{hs}$.  
+
+Answer: $\lambda=\answer{1}$
+
+Find a basis for the eigenspace corresponding to $\lambda$.
+
+Answer:  A basis for $\mathcal{S}$ is $\left\{\begin{bmatrix}1\\\answer{0}\end{bmatrix}\right\}$
+
+Sketch several vectors in the eigenspace and use geometry to explain why the eigenvectors you sketched make sense.
+\end{problem}
+
+\begin{problem}\label{prob:rotmatrixrealeig2}
+Recall that a counterclockwise rotation of the plane through angle $\theta$ is a linear transformation whose standard matrix is $$M_{\theta}=\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}$$
+Verify that the eigenvalues of $M_{\theta}$ are
+$$\lambda=\cos\theta\pm\sqrt{\cos^2\theta-1}$$
+Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of EIG-M-0010.)
+
+Suppose $\theta$ is a muliple of $\pi$.  Then the eigenspaces corresponding to the two eigenvalues are the same.  Which of the following describes the eigenspace?
+\begin{multipleChoice}
+    \choice[correct]{All vectors in $\RR^2$.}
+    \choice{All vectors along the $x$-axis.}
+    \choice{All vectors along the $y$-axis.}
+    \choice{All vectors along the line $y=x$.}
+\end{multipleChoice}
+
+\end{problem}
+
+\begin{problem}
+Recall that a reflection of the plane about the line $y=mx$ is a linear transformation whose standard matrix is
+$$M_{y=mx}=\frac{1}{1+m^2}\begin{bmatrix}
+1-m^2 & 2m \\
+2m & m^2-1
+\end{bmatrix}$$
+Verify that the eigenvalues of $M_{y=mx}$ are
+$$\lambda_1=m^2+1\quad\text{and}\quad\lambda_2=-m^2-1$$
+Find a basis for eigenspaces $\mathcal{S}_{\lambda_1}$ and $\mathcal{S}_{\lambda_2}$.  (For simplicity, assume that $m\neq 0$.)
+
+Answer:  A basis for $\mathcal{S}_{\lambda_1}$ is $\left\{\begin{bmatrix}1/m\\\answer{1}\end{bmatrix}\right\}$
+and a basis for $\mathcal{S}_{\lambda_2}$ is $\left\{\begin{bmatrix}-m\\\answer{1}\end{bmatrix}\right\}$
+
+Choose the best description of $\mathcal{S}_{\lambda_1}$.
+\begin{multipleChoice}
+    \choice{All vectors in $\RR^2$.}
+    \choice[correct]{All vectors with ``slope" $m$.}
+    \choice{All vectors with ``slope" $1/m$.}
+    \choice{All vectors with ``slope" $-1/m$.}
+\end{multipleChoice}
+
+Choose the best description of $\mathcal{S}_{\lambda_2}$.
+\begin{multipleChoice}
+    \choice{All vectors along the line $y=mx$.}
+    \choice{All vectors parallel to the $x$-axis.}
+    \choice{All vectors parallel to the $y$-axis.}
+    \choice[correct]{All vectors perpendicular to the line $y=mx$.}
+\end{multipleChoice}
+
+Use geometry to explain why the eigenspaces you found make sense.
+
+\end{problem}
+\end{problem}
+
+
+\end{document}
