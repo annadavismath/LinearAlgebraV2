@@ -1,16 +1,15 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele \and Paul Zachlin} \title{The Inverse of a Matrix} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Zachlin} \title{MAT-0050:  The Inverse of a Matrix} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
  We develop an method for finding the inverse of a square matrix, discuss when the inverse does not exist, and use matrix inverses to solve matrix equations.
 \end{abstract}
 \maketitle
-
-\section*{Definition and Properties of Matrix Inverses}
+\section*{MAT-0050:  The Inverse of a Matrix}
+\subsection*{Definition and Properties of Matrix Inverses}
 Consider the equation $2x=6$.  It takes little time to recognize that the solution to this equation is $x=3$.  In fact, the solution is so obvious that we do not think about the algebraic steps necessary to find it.  Let's take a look at these steps in detail.
 $$2x=6$$
 $$\frac{1}{2}\times (2x)=\frac{1}{2}\times 6$$
@@ -34,9 +33,9 @@ $$I\vec{x}=B\vec{b}$$
 $$\vec{x}=B\vec{b}$$
 
 \begin{definition}\label{def:matinverse}
-Let $A$ be an $n\times n$ matrix.  An $n\times n$ matrix $B$ is called an inverse of $A$ if 
+Let $A$ be an $n\times n$ matrix.  An $n\times n$ matrix $B$ is called an \dfn{inverse} of $A$ if 
 $$AB=BA=I$$
-where $I$ is an $n\times n$ identity matrix.  If such an inverse matrix exists, we say that $A$ is invertible.  If an inverse does not exist, we say that $A$ is non-invertible.
+where $I$ is an $n\times n$ identity matrix.  If such an inverse matrix exists, we say that $A$ is \dfn{invertible}.  If an inverse does not exist, we say that $A$ is not invertible.
 \end{definition}
 It follows directly from the way the definition is stated that if $B$ is an inverse of $A$, then $A$ is an inverse of $B$. We say that $A$ and $B$ are inverses of each other.
 
@@ -114,9 +113,7 @@ $$(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=AA^{-1}=I$$
 Thus $(AB)$ is invertible and $(AB)^{-1}=B^{-1}A^{-1}$.
 \end{proof}
 
-%\section*{Row-reduction Method for Computing Matrix Inverses}
-
-\section*{Row-reduction Method for Computing Inverses}
+\subsection*{Computing the Inverse}
 We now turn to the question of how to find the inverse of a square matrix, or determine that the inverse does not exist.  
 
 Given a square matrix $A$, we are looking for a square matrix $B$ such that $$AB=I\quad\text{and}\quad BA=I$$
@@ -159,7 +156,7 @@ We have just proved the following theorem.
 Let $A$ be a square matrix.  If it is possible to use elementary row operations to carry the augmented matrix $[A|I]$ to $[I|B]$, then $B=A^{-1}$.  If such a reduction is not possible, then $A$ does not have an inverse.
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}\label{cor:rrefI}
 A square matrix $A$ has an inverse if and only if $\mbox{rref}(A)=I$.
 \end{corollary}
 
@@ -269,7 +266,12 @@ $$\left[\begin{array}{ccc|ccc}
  At this point we see that the left-hand side cannot be turned into $I$ through elementary row operations. We conclude that $A^{-1}$ does not exist.
 \end{explanation}
 \end{example}
+\begin{remark}
+Recall that a square matrix whose reduced row-echelon form is the identity matrix is called \dfn{nonsingular}. (Definition \ref{def:nonsingularmatrix} of SYS-M-0030)
+According to Corollary \ref{cor:rrefI}, a matrix is invertible if and only if it is nonsingular.  For this reason many linear algebra texts use the terms \dfn{invertible} and \dfn{nonsingular} as synonyms.
+\end{remark}
 
+\subsection*{Inverse of a $2\times 2$ Matrix}
 We will conclude this section by discussing the inverse of a nonsingular $2\times 2$ matrix.   
 Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ be a non-singular matrix.  We can find $A^{-1}$ by using the row reduction method described above, that is, by computing the reduced row-echelon form of $[A|I]$.  Row reduction yields the following:
 

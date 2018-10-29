@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Paul Zachlin \and Anna Davis} \title{$\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$.} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{VSP-0020:  $\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -10,27 +9,17 @@ We define closure under addition and scalar multiplication, and we demonstrate h
 \end{abstract}
 
 \maketitle
+\section*{VSP-0020:  $\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$}
+\subsection*{Closure}
 
-\section*{Closure}
-% {\color{red}do we need this first paragraph?}
-% In the module VSP-M-0003 we examined how to graphically represent the vectors in $\RR^n$ for $n=1, 2,$ or 3.  We were also introduced to thinking of elements of $\RR^n$ as ordered $n$-tuples $(x_1, x_2, \ldots, x_n)$, and later as $n \times 1$ matrices.  These representations are particularly important for $n>3$ when we are unable to represent vectors graphically.
-
-% %In later modules, we learned about two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication.  We also learned that these operations satisfy many nice properties.  In fact, these properties are what make $\RR^n$ a \emph{vector space}, as we will study in module VSP-M-0050.
-% {\color{red}this is a pretty good opener...}
-We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties. (See Theorem \ref{th:vecproperties}) These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Before we can give a formal definition of a vector space we need to introduce the concept of \dfn{closure} under an operation.
-
-%In this module, we study subsets of $\RR^n$ that are also vector spaces.  Such a subset of $\RR^n$ is called a \emph{subspace}.  In order to discuss subspaces, it is helpful to understand the concept of \emph{closure} of an operation.
-
+We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties. (See Theorem \ref{th:vecproperties} of VEC-M-0030) These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Before we can give a formal definition of a vector space we need to introduce the concept of \dfn{closure} under an operation.
 
  \begin{definition} 
-  A set $V$ is said to be \emph{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
+  A set $V$ is said to be \dfn{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
 \end{definition}
 
-% {\color{red}Can we change the last part to read, "the sum u+v is also in V"?  (sweep existence and uniqueness of the sum under the rug)  When we prove closure later we don't want to have to prove that the sum is unique... Same comment for the next definition.}   GOOD CORRECTIONS!
-
-
   \begin{definition} 
-  A set $V$ is said to be \emph{closed under scalar multiplication} if for each element $\vec{v} \in V$  and for each scalar $c$ the product $c\vec{v}$ is also in $V$.
+  A set $V$ is said to be \emph{closed under scalar multiplication} if for each element $\vec{v} \in V$  and for each scalar $k$ the product $k\vec{v}$ is also in $V$.
 \end{definition}
 
 
@@ -91,65 +80,69 @@ The figure below helps us see that the sum of any two vectors in $X_1$ also lies
 Let $X_1$ be as in Example \ref{ex:Q1}.  Let $X_3=\left\{\begin{bmatrix} x_1\\x_2\end{bmatrix} \in \mathbb{R}^2 : x_1 \le 0, x_2 \le 0 \right\}$.
 In other words, $X_3$ is the set of vectors in $\RR^2$ in the third quadrant (or on an axis on the boundary of the third quadrant).  Now let 
 $$Y = X_1 \bigcup X_3,$$ 
-i.e., $Y$ is the set of vectors in $\RR^2$ that are either in the first quadrant, the third quadrant, or lie along one of the axes.  Then $Y$ is closed under scalar multiplication, but $Y$ is not closed under addition.
-\begin{explanation} See if you can verify this claim on your own.  If not, watch the following video:
-
-\end{explanation}
+In other words, $Y$ is the set of vectors in $\RR^2$ that are either in the first quadrant, the third quadrant, or lie along one of the axes.  Then $Y$ is closed under scalar multiplication, but $Y$ is not closed under addition.
+%\begin{explanation} See if you can verify this claim on your own.  If not, watch the following video:
+%\end{explanation}
 
 \end{example}
 
 %See if you can verify the claims made in Examples \ref{ex:Q1} and \ref{ex:Q1-3} above.  If not, watch the following video:
 
  
-\section*{$\RR^n$ as a Vector Space}
+\subsection*{$\RR^n$ as a Vector Space}
 
-In module VEC-M-0030 we learned that vector addition and scalar multiplication in $\RR^n$ satisfy the following eight properties:
-
-\begin{theorem}\label{th:vecproperties} The following properties hold for vectors ${\bf u}$, ${\bf v}$ and ${\bf w}$ in $\mathbb{R}^n$ and scalars $k$ and $p$.
+In Theorem \ref{th:vecproperties} of VEC-M-0030 we learned that vector addition and scalar multiplication in $\RR^n$ satisfy the following eight properties:
 \begin{enumerate}
-  \item 
-  Commutative Property of Addition:
+ \item 
+  Commutative Property of Addition:\quad
   $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
   \item 
-  Associative Property of Addition:
+  Associative Property of Addition:\quad
   $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$
   \item 
-  Existence of Additive Identity:
+  Existence of Additive Identity:\quad
   $\vec{u}+\vec{0}=\vec{u}$
   \item 
-  Existence of Additive Inverse:
+  Existence of Additive Inverse:\quad
   $\vec{u}+(-\vec{u})=\vec{0}$
   \item
-  Distributive Property over Vector Addition:
+  Distributive Property over Vector Addition:\quad
   $k(\vec{u}+\vec{v})=k\vec{u}+k\vec{v}$
   \item
-  Distributive Property over Scalar Addition:
+  Distributive Property over Scalar Addition:\quad
   $(k+p)\vec{u}=k\vec{u}+p\vec{u}$
   \item 
-  Associative Property for Scalar Multiplication:
+  Associative Property for Scalar Multiplication:\quad
   $k(p\vec{u})=(kp)\vec{u}$
   \item 
-  Multiplication by 1:
+  Multiplication by $1$:\quad
   $1\vec{u}=\vec{u}$
   \end{enumerate}
-\end{theorem}
+
 
   
-  In addition, observe that $\RR^n$ is closed under addition and scalar multiplication.  (Why?)  The eight properties of vector operations, together with closure, constitute the criteria for a set with two operations to be considered a \dfn{vector space}.  $\RR^n$ is a vector space.  We will encounter other vector spaces later. Any vector space must be closed under both operations, and must satisfy the other eight properties in the list above.  We will see (in module VSP-M-0050, for instance) that there is a wide variety of sets, with a wide variety of operations, that are vector spaces (which is one of the reasons we study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
+  In addition, observe that  
+  \begin{itemize}
+      \item[]  $\RR^n$ is closed under addition (Why?)
+      \item[] $\RR^n$ is closed under scalar multiplication (Why?)
+\end{itemize}      
+      The eight properties of vector operations, together with closure, constitute the criteria for a set with two operations to be considered a \dfn{vector space}. So, $\RR^n$ is a vector space.  
+      
+      We will encounter other vector spaces later. Any vector space must be closed under both operations, and must satisfy the other eight properties in the list above.  We will see (in module VSP-M-0050, for instance) that there is a wide variety of sets, with a wide variety of operations, that are vector spaces (which is one of the reasons we study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the elements under the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
 
 
-\section*{Subspaces of $\RR^n$}
+\subsection*{Subspaces of $\RR^n$}
 
-Now that we understand what it means for a set to be closed under addition and scalar multiplication, we are ready for the main definition of this module.
+Now that we understand what it means for a set to be closed under addition and scalar multiplication, we are ready for the main definition.
 
 % {\color{blue} We now turn our attention to subsets of $\RR^n$ that are also vector spaces.  Such a subset of $\RR^n$ is called a \dfn{subspace}.  To prove that a subset of $\RR^n$ is a subspace, we would have to prove that the subset is a vector space in its own right.  This can be done by verifying the eight properties of vector addition and multiplication, and checking closure.  Fortunately, checking every property turns out to be unnecessary.  We will later prove that if a subset is closed under addition and scalar multiplication, then the eight properties of vector addition and scalar multiplication will automatically be satisfied by virtue of closure and the fact that the given set is a subset of $\RR^n$.  While we don't yet have the proof of this, we present this idea as a definition.}
 
 % \begin{definition}[Two-part Subspace Test]\label{def:subspacetest} Suppose that $V$ is a subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
 % \end{definition} 
 
-\begin{definition}\label{def:subspace} Suppose that $V$ is a subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
+\begin{definition}\label{def:subspace} Suppose that $V$ is a nonempty subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
 \end{definition}
-We use the term \dfn{subspace} because it turns out that any subset of a vector space which is closed under both addition and scalar multiplication is also a vector space.  In other words, in addition to satisfying the properties of closure, a subspace will automatically satisfy the eight other vector space properties listed in \ref{th:vecproperties}.  We will prove this in VSP-M-0050.
+We use the term \dfn{subspace} because it turns out that any subset of $\RR^n$ closed under both addition and scalar multiplication is also a vector space in its own right.  In other words, by satisfying the properties of closure, a subset of $\RR^n$ will automatically satisfy the eight vector space properties listed above.  We will prove this in VSP-M-0050.
 
 \begin{example} \label{y-axis_subspace}
 Let $V$ be the set of vectors in $\RR^3$ on the $y-$axis.  Then $V$ is a subspace of $\RR^3$.  
@@ -160,10 +153,10 @@ To verify this, note that any vector in $V$ is of the form $\begin{bmatrix}0\\y\
 \end{example}
 
 %In module  we defined 
-Recall that the \dfn{span} of a set of vectors is the set of all linear combinations of those vectors. (See Definition \ref{def:span} in VEC-M-0040)  It is easy to see from this definition, that the span of any set of vectors in $\RR^n$ must be closed under both addition and scalar multiplication, and therefore the span of those vectors is a subspace of $\RR^n$.  This argument proves the following result, giving us a countless supply of examples of subspaces:
+Recall that the \dfn{span} of a set of vectors is the set of all linear combinations of those vectors. (See Definition \ref{def:span} in VEC-M-0090)  It is easy to see from this definition, that the span of any set of vectors in $\RR^n$ must be closed under both addition and scalar multiplication, and therefore the span of those vectors is a subspace of $\RR^n$.  This argument proves the following result, giving us an abundance of examples of subspaces:
 
 \begin{theorem} \label{th:span_is_subspace}
-Let $S$ be any set of vectors in $\RR^n$.  Then $\text{span}(S)$ is a subspace of $\RR^n$.
+Let $S$ be any set of vectors in $\RR^n$.  Then $\mbox{span}(S)$ is a subspace of $\RR^n$.
 \end{theorem}
 
 In particular, if we take $S$ to be the single vector $\vec{v}$, we have that $\text{span}(\vec{v})$ is a subspace of $\RR^n$.  Geometrically, this subspace is a line in the direction of the vector $\vec{v}$.  Similarly, the span of two vectors is a subspace of $\RR^n$.  If the two vectors are linearly independent, then the subspace is a plane in $\RR^n$. 
@@ -190,7 +183,7 @@ If $V$ is a subspace of $\RR^n$, then for any vector $\vec{v} \in V$, the opposi
 
 The proof is similar to what was done for the previous theorem and is left as an exercise.
 
-In the last two theorems, we established two properties that hold for any subspace $V$, because subspaces are \emph{vector spaces}.  We will study vector spaces more in module VSP-M-0050.
+%In the last two theorems, we established two properties that hold for any subspace $V$, because subspaces are \emph{vector spaces}.  We will study vector spaces more in module VSP-M-0050.
 
 
 

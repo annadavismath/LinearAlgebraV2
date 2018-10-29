@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Linear Transformations and Bases} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0025: Linear Transformations and Bases} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -10,9 +9,9 @@ We define linear transformation for vector spaces, and  establish that a linear 
 \end{abstract}
 \maketitle
 
-\section*{Linear Transformations and Bases}
+\section*{LTR-0025: Linear Transformations and Bases}
 
-Recall that a transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is called a {\it linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $\mathbb{R}^n$, and scalars $k$.
+Recall that a transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is called a \dfn{linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $\mathbb{R}^n$, and scalars $k$.
 \begin{equation*}
 T(k{\bf u})= kT({\bf u})
 \end{equation*}
@@ -23,7 +22,7 @@ T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
 We generalize this definition as follows.
 
 \begin{definition}\label{def:lintransgeneral}
-Let $V$ and $W$ be vector spaces. A transformation $T:V\rightarrow W$ is called a {\it linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $V$, and scalars $k$.
+Let $V$ and $W$ be vector spaces. A transformation $T:V\rightarrow W$ is called a \dfn{linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $V$, and scalars $k$.
 \begin{equation*}
 T(k{\bf u})= kT({\bf u})
 \end{equation*}
@@ -34,7 +33,7 @@ T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
 
 
 
-\begin{initprob}\label{init:tij}  Suppose we want to define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $$T(\vec{i})=\begin{bmatrix}3\\-2\end{bmatrix}\quad\text{and}\quad T(\vec{j})=\begin{bmatrix}-1\\2\end{bmatrix}$$  
+\begin{exploration}\label{init:tij}  Suppose we want to define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $$T(\vec{i})=\begin{bmatrix}3\\-2\end{bmatrix}\quad\text{and}\quad T(\vec{j})=\begin{bmatrix}-1\\2\end{bmatrix}$$  
 Is this information sufficient to define $T$?  
 To answer this question we will try to determine what $T$ does to an arbitrary vector of $\RR^2$.  
 
@@ -53,37 +52,19 @@ $$S(\vec{v})=S\left(a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}2\\-1\end{
 
 Again, we see how a linear transformation is completely determined by its action on a basis.
 
-\end{initprob}
+\end{exploration}
 
 
 
-Our discussion thus far hinged on the fact that the representation of a vector in terms of the given basis elements is unique.  Imagine what would happen if this were not the case.  In Exploration Problem \ref{init:tij}, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have potentially resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  Fortunately, Theorem ({\color{red} reference}) assures us that in $\RR^n$, vector representation in terms of the elements of a basis is unique.  
-Lemma \ref{lemma:uniquerep} duplicates this result for all vector spaces.
+Our discussion thus far hinged on the fact that the representation of a vector in terms of the given basis elements is unique.  Imagine what would happen if this were not the case.  In Exploration Problem \ref{init:tij}, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have potentially resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  Fortunately, Theorem \ref{th:linindbasis} of VSP-M-0030 assures us that in $\RR^n$, vector representation in terms of the elements of a basis is unique.  
+Theorem \ref{th:uniquerep} of VSP-M-0060 duplicates this result for abstract vector spaces.
 
-\begin{lemma}\label{lemma:uniquerep}
-Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n\}$ be a basis for $V$.  Then every element $\vec{v}$ of $V$ has a unique representation as linear combination of the elements of $\mathcal{B}$.
-\end{lemma}
-\begin{proof}
-By the definition of a basis, we know that $\vec{v}$ can be written as a linear combination of $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$.  Suppose there are two such representations.  Then,
-$$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n$$
-$$\vec{v}=b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n$$
-But then we have:
-\begin{align*}
-a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n&=b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n\\
-a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n-(b_1\vec{v}_1+ b_2\vec{v}_2+\ldots+b_n\vec{v}_n)&=\vec{0}\\
-(a_1-b_1)\vec{v}_1+ (a_2-b_2)\vec{v}_2+\ldots+(a_n-b_n)\vec{v}_n&=\vec{0}
-\end{align*}
-Because $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$ are linearly independent, we have $a_i-b_i=0$ for $1\leq i\leq n$. Consequently $a_i=b_i$ for $1\leq i\leq n$.
-\end{proof}
-
-\begin{general}
 Suppose we want to define a linear transformation $T:V\rightarrow W$.  Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of $V$.  Would it be sufficient to specify the image of each $\vec{v}_i$ in order to define $T$?
 Given any vector $\vec{v}$ of $V$, we can uniquely express $\vec{v}$ as a linear combination of $\vec{v}_1,\ldots,\vec{v}_p$.  Thus,
 $$\vec{v}=a_1\vec{v}_1+\ldots+a_p\vec{v}_p$$ for some scalar coefficients $a_1,\ldots,a_p$.
 We find $T(\vec{v})$ as follows:
 $$T(\vec{v})=T(a_1\vec{v}_1+\ldots+a_p\vec{v}_p)=a_1T(\vec{v}_1)+\ldots+a_pT(\vec{v}_p)$$
-%Each element of $V$ has a unique representation (up to the order) in terms of the elements of $\mathcal{B}$.  (Why?)  Thus, the image of each vector $\vec{v}$ of $V$ is determined by the images of the elements of the basis.  So, $T$ is determined by its action on a basis.
-\end{general}
+
 
 In our final example, we will consider $T$ in the context of a basis of the codomain, as well as a basis of the domain.  This will later help us tackle the question of the matrix of $T$ associated with bases other than the standard basis of $\RR^n$.
 

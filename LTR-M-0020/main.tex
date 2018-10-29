@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Standard Matrix of a Linear Transformation, Part I} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0020: Standard Matrix of a Linear Transformation, Part I} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -11,21 +10,21 @@
 \maketitle
 
 
+\section*{LTR-0020: Standard Matrix of a Linear Transformation, Part I}
+\subsection*{Columns of a Matrix as Images of Standard Unit Vectors}
 
-\section*{Columns as Images of Standard Unit Vectors}
-
-\begin{initprob} Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
+\begin{exploration} Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
 $$A=\begin{bmatrix}1&-2&4\\0&3&5\end{bmatrix}$$
 We will examine the effect of $T$ on the standard unit vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$.
 
 $$T(\vec{i})=A\vec{i}=\begin{bmatrix}\answer{1}\\\answer{0}\end{bmatrix},\quad T(\vec{j})=A\vec{j}=\begin{bmatrix}\answer{-2}\\\answer{3}\end{bmatrix}, \quad
 T(\vec{k})=A\vec{k}=\begin{bmatrix}\answer{4}\\\answer{5}\end{bmatrix}$$
 
-It turns out that the image of $\vec{i}$ is the first column of $A$, the image of $\vec{j}$ is the second column of $A$, and the image of $\vec{k}$ is the third column.
-\end{initprob}
+Observe that the image of $\vec{i}$ is the first column of $A$, the image of $\vec{j}$ is the second column of $A$, and the image of $\vec{k}$ is the third column.
+\end{exploration}
 
 
-\begin{general} The linear transformation $T$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
+In general, the linear transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
 
   \begin{equation*} \label{eq:matlintrans}
  A=\begin{bmatrix}
@@ -41,10 +40,9 @@ It turns out that the image of $\vec{i}$ is the first column of $A$, the image o
 		|&| & &|
          \end{bmatrix}
 \end{equation*}
-%{\color{red}Video}
-\end{general}
 
-\section*{Linear Transformations of $\RR^n$ as Matrix Transformations}
+
+\subsection*{Linear Transformations of $\RR^n$ as Matrix Transformations}
 
 We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of \dfn{all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
 
@@ -59,8 +57,8 @@ Because of properties of linear transformations, the information about the image
 \end{explanation}
 \end{example}
 
-\begin{general} Every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1)\ldots T(\vec{e}_n)$ allows us to construct a matrix $A$ that induces the desired linear transformation.  We formalize this idea in a theorem.
-\end{general}
+In general, every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1)\ldots T(\vec{e}_n)$ allows us to construct a matrix $A$ that induces the desired linear transformation.  We formalize this idea in a theorem.
+
 
 
   \begin{theorem}\label{th:matlin} Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation.  Then 
@@ -95,7 +93,7 @@ The above discussion relies on the fact that every vector of $\RR^n$ can be writ
 
 \begin{definition} 
   
-The matrix in Theorem \ref{matlintrans} is known as the \dfn{standard matrix of the linear transformation} $T$.
+The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
   
 \end{definition}
 

@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Elementary Matrices} \license{CC-BY 4.0}
+\author{Paul Zachlin \and Anna Davis} \title{MAT-0060: Elementary Matrices} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,9 +10,10 @@
 \end{abstract}
 \maketitle
 
-\section*{Definition of an Elementary Matrix}
+\section*{MAT-0060: Elementary Matrices}
+\subsection*{Definition and Examples}
 
-\begin{initprob}\label{init:elementarymat2}
+\begin{exploration}\label{init:elementarymat2}
 Consider the matrices
 $$B = \begin{bmatrix}  
  1&0&0\\0&5&0\\0&0&1
@@ -53,15 +53,14 @@ Observe that $B$ and $C$ have the same effect on $A'$ as they did on $A$.
 %\quad
 %AC=\begin{bmatrix}\answer{1} & \answer{2} & \answer{-6} \\ \answer{4} & \answer{5} & \answer{-12}\\ \answer{7} & \answer{8} & \answer{-18}\end{bmatrix}$$
 
- \end{initprob}
+ \end{exploration}
  
- \begin{general} If a square matrix $E$ is obtained from the identity matrix $I$ by multiplying row $j$ of $I$ by a non-zero constant $k$, then multiplying an appropriately sized matrix $A$ on the left by $E$ results in row $j$ of $A$ being multiplied by $k$.  
+ In general, if a square matrix $E$ is obtained from the identity matrix $I$ by multiplying row $j$ of $I$ by a non-zero constant $k$, then multiplying an appropriately sized matrix $A$ on the left by $E$ results in row $j$ of $A$ being multiplied by $k$.  
  
  Recall that multiplication of a row of a matrix by a non-zero constant is one of three \dfn{elementary row operations}.  Applying such an elementary row operation to $I$ in order to produce $E$, results in applying the same elementary row operation to $A$ when $A$ is multiplied by $E$ on the left.
- \end{general}
 
 
-\begin{initprob}\label{init:elementarymat1}
+\begin{exploration}\label{init:elementarymat1}
 Consider the matrices
 $$
 D = \begin{bmatrix}  
@@ -85,25 +84,24 @@ $$DA=\begin{bmatrix}\answer{8} & \answer{10} & \answer{12} \\ \answer{4} & \answ
 \quad
 FA=\begin{bmatrix}\answer{1} & \answer{2} & \answer{3} \\ \answer{2} & \answer{1} & \answer{0}\\ \answer{7} & \answer{8} & \answer{9}\end{bmatrix}$$
 As you had probably guessed, multiplication by $D$ resulted in the third row of $A$ being added to the first, and multiplication by $F$ produced a matrix by adding $-2$ times the first row to the second row of $A$.  The elementary row operations performed on $A$ mimic the elementary row operations performed on $I$ in order to obtain $D$ and $F$.
- \end{initprob}
+ \end{exploration}
 
-\begin{general} If a square matrix $E$ is obtained from the identity matrix $I$ by adding $k$ times row $j$ of $I$ to row $i$,  then multiplying an appropriately sized matrix $A$ on the left by $E$ results in $k$ times row $j$ of $A$ being added to row $i$ of $A$.  
+In general, if a square matrix $E$ is obtained from the identity matrix $I$ by adding $k$ times row $j$ of $I$ to row $i$,  then multiplying an appropriately sized matrix $A$ on the left by $E$ results in $k$ times row $j$ of $A$ being added to row $i$ of $A$.  
  
  Recall that adding a scalar multiple of one row to another row of a matrix is one of three \dfn{elementary row operations}.  Applying such an elementary row operation to $I$ in order to produce $E$, results in applying the same elementary row operation to $A$ when $A$ is multiplied by $E$ on the left.
- \end{general}
 
  
-\begin{initprob}\label{init:elementarymat3}
+\begin{exploration}\label{init:elementarymat3}
  The matrices $B,C,D,F$ above are special because when we multiply them by any appropriately sized matrix $A$, we are performing row operations on $A$.  Can you construct a matrix $G$ such that $GA$ is the same as $A$ except that its first and third rows are switched?
  
  $$G=\begin{bmatrix}\answer{0} & \answer{0} & \answer{1} \\ \answer{0} & \answer{1} & \answer{0}\\ \answer{1} & \answer{0} & \answer{0}\end{bmatrix}$$
 
-\end{initprob}
+\end{exploration}
 
 
 The matrices $B,C,D, F, G$ of Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} are known as \dfn{elementary matrices} because they perform elementary row operations on appropriately sized matrices.
 
-\begin{definition} 
+\begin{definition} \label{def:elemmatrix}
   
 An \dfn{elementary matrix} is a square matrix formed by applying a single elementary row operation to the identity matrix.
   
@@ -115,9 +113,9 @@ Elementary matrices give us a new way of looking at Gauss-Jordan elimination.  S
 $$R = E_j \cdots E_2 E_1 A$$
 where each $E_i$ is the elementary matrix corresponding to the $i$th row operation performed on $A$.  
 
-\section*{Inverses of Elementary Matrices}
+\subsection*{Inverses of Elementary Matrices}
 
-It is easy to see that any elementary matrix $E$ is invertible, because if $E$ is formed by applying a certain row operation to the identity matrix $I$, then there is a single row operation that may be applied to $E$ to get $I$ back.  For example, in Initial Problem \ref{init:elementarymat1}, $F$ is formed by adding $-2$ times the first row of the identity to the second row of the identity.  It follows that $F^{-1}$ should be the matrix formed by adding $2$ times the first row of the identity to the second row of the identity, i.e.
+It is easy to see that any elementary matrix $E$ is invertible, because if $E$ is formed by applying a certain row operation to the identity matrix $I$, then there is a single row operation that may be applied to $E$ to get $I$ back.  For example, in Exploration \ref{init:elementarymat1}, $F$ is formed by adding $-2$ times the first row of the identity to the second row of the identity.  It follows that $F^{-1}$ should be the matrix formed by adding $2$ times the first row of the identity to the second row of the identity, i.e.
  $$F^{-1} =  \begin{bmatrix}  
  1&0&0\\2&1&0\\0&0&1
  \end{bmatrix}.
@@ -150,11 +148,11 @@ We can use the same line of reasoning to show that the other two types of elemen
 % Recall also that if an $n\times n$ matrix $E$ is an elementary matrix obtained from $I$ by performing some elementary row operation, and the same elementary row operation is applied to an $n\times m$ matrix $A$, then the resulting matrix is equal to $EA$.  We will use this idea to find the inverse for each type of elementary matrix without going through the row reduction procedure.
  
  
-\section*{Elementary Matrices and Nonsingular Matrices} 
+\subsection*{Elementary Matrices and Nonsingular Matrices} 
 
 Recall that a square matrix $A$ is called \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.
 
-\begin{theorem}
+\begin{theorem}\label{th:elemmatrices}
 The following statements are equivalent for an $n\times n$ matrix $A$.
 \begin{enumerate}
 \item\label{item:anonsingular2} $A$ is nonsingular

@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{Introduction to Bases} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin} \title{VSP-0030:  Introduction to Bases} \license{CC-BY 4.0}
 
 
 
@@ -12,19 +11,21 @@ We define bases and consider examples of bases of $\RR^n$ and subspaces of $\RR^
 \end{abstract}
 \maketitle
 
-\section*{Coordinate Vectors}
+\section*{VSP-0030:  Introduction to Bases}
+\subsection*{Coordinate Vectors}
 When we first introduced vectors we learned to represent them using component notation.  If $\vec{u}=\begin{bmatrix}2\\5\end{bmatrix}$ we know that the head of $\vec{u}$ is located at the point $(2, 5)$.  But there is another way to look at the component form.  Observe that $\vec{u}$ can be expressed as a linear combination of the standard unit vectors $\vec{i}$ and $\vec{j}$:
 $$\vec{u}=2\begin{bmatrix}1\\0\end{bmatrix}+5\begin{bmatrix}0\\1\end{bmatrix}=2\vec{i}+5\vec{j}$$
 In fact, any vector $\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}$ of $\RR^2$ can be written as a linear combination of $\vec{i}$ and $\vec{j}$:
 $$\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}=a\vec{i}+b\vec{j}$$
 This gives us an alternative way of interpreting the component notation:
-
 $$\left[\begin{array}{c}  
  a\\b
  \end{array}\right]
  \begin{array}{c}
+ 
  \longleftarrow\\
  \longleftarrow
+
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of $\vec{i}$}\\\mbox{coefficient in front of $\vec{j}$}
@@ -38,8 +39,10 @@ $$\left[\begin{array}{c}
  5\\2
  \end{array}\right]
  \begin{array}{c}
+ 
  \longleftarrow\\
  \longleftarrow
+
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}
@@ -47,7 +50,7 @@ $$\left[\begin{array}{c}
  
  Clearly, standard unit vectors $\vec{i}$ and $\vec{j}$ are very convenient, but other vectors can also be used in place of $\vec{i}$ and $\vec{j}$ to represent $\vec{u}$.
  
- \begin{initprob}
+ \begin{exploration}
  The diagram below shows $\vec{u}$ together with vectors $\vec{w}_1$ and $\vec{w}_2$.
  
  
@@ -92,15 +95,17 @@ $$\left[\begin{array}{c}
  2\\1
  \end{array}\right]
  \begin{array}{c}
+ 
  \longleftarrow\\
  \longleftarrow
+
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}
  \end{array}$$
-\end{initprob}
+\end{exploration}
 
-\section*{What Constitutes a Basis?}
+\subsection*{What Constitutes a Basis?}
 
 In the previous section we had used the term \dfn{basis} without defining it.  Now is the time to pause and think about what we {\it want} a basis to do.  Let's focus on $\RR^n$ and subspaces of $\RR^n$.  What we establish here will easily generalize to other vector spaces.  
 
@@ -137,7 +142,7 @@ Our second requirement is that for a fixed basis of $\RR^n$ (or $V$), the coordi
 The following theorem shows that the uniqueness requirement is equivalent to the requirement that the basis vectors be linearly independent.  %In other words, a basis may not contain redundant vectors.
 
 \begin{theorem}\label{th:linindbasis}
-Let $V=\mbox{span}(\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p)$ be a subspace of $\RR^n$.  Then every element $\vec{v}$ of $V$ has a unique representation as a linear combination of  $\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p$ if and only if the vectors $\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p$ are linearly independent.
+Suppose $\{\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p\}$ is a spanning set for a subspace $V$ of $\RR^n$.  Then every element $\vec{v}$ of $V$ has a unique representation as a linear combination of  $\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p$ if and only if the vectors $\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p$ are linearly independent.
 \end{theorem}
 \begin{proof}
 Suppose that every $\vec{v}$ in $V$ can be expressed as a unique linear combination of $\vec{w}_1, \vec{w}_2,\ldots,\vec{w}_p$.
@@ -162,56 +167,62 @@ This proves the representation of $\vec{v}$ in terms of $\vec{w}_1, \vec{w}_2,\l
 
 \end{proof}
 
-
 \begin{example}
-Let $V=\mbox{span} (\mathcal{S}$) where $\mathcal{S}=\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$.  Show that $\mathcal{S}$ cannot be a basis of $V$.
-% by expressing $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of  $\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}$ in two different ways.
-% \begin{explanation}\label{rref} 
-% By observation,
-% $$\begin{bmatrix}1\\1\\3\end{bmatrix}=\begin{bmatrix}5\\2\\4\end{bmatrix}+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix} \quad
-% and 
-% \quad \begin{bmatrix}1\\1\\3\end{bmatrix}=0\begin{bmatrix}5\\2\\4\end{bmatrix}+ \begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}$$
-% This shows that if we had mistakingly used $\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$ as a basis for $V$, the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$ would have at least two coordinate vectors with respect to the proposed basis:
-% $$\begin{bmatrix}1\\-1\\0\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{1}\end{bmatrix}$$
-
-% In conclusion, we observe that the set $\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$ is not linearly independent.
-% \end{explanation}
-
-\begin{explanation}\label{rref} 
-Perhaps you noticed there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$.  For example, 
-\begin{equation}\begin{bmatrix}1\\1\\3\end{bmatrix}=\begin{bmatrix}5\\2\\4\end{bmatrix}+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix} \quad
-and 
-\quad \begin{bmatrix}1\\1\\3\end{bmatrix}=0\begin{bmatrix}5\\2\\4\end{bmatrix}+ \begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}\end{equation}\label{two_ways}
-This shows that if we had mistakingly used $\mathcal{S}$ as a basis for $V$, the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$ would not have a unique coordinate vector with respect to the proposed basis.  Indeed, from the equations in \ref{two_ways}, we may arrive at these coordinate vectors with respect to $\mathcal{S}$:
-$$\begin{bmatrix}1\\-1\\0\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{1}\end{bmatrix}$$
-
-Since it is difficult to expect that we will ``notice'' that there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$, the better way to proceed is to make use of Theorem \ref{th:linindbasis}.  We will check to see whether or not the set $\mathcal{S}$ is linearly independent.  To this end, we write the vectors in $\mathcal{S}$ as the columns of a matrix $A$, and apply our row operations until it is in reduced row-echelon form.
-
-$$A=\left[\begin{array}{ccc}  
- 5&4&-3\\2&1&0\\4&1&2
- \end{array}\right], \quad \mbox{rref}(A) = \left[\begin{array}{ccc}  
+Use $V=\mbox{span}(\mathcal{S})$, where $\mathcal{S}=\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$ to illustrate why a set of linearly dependent vectors cannot be used as a basis for a subspace by showing that linearly dependent vectors fail to ensure uniqueness of coordinate vectors  for vectors in $V$.
+\begin{explanation}
+We will first show that the elements of $\mathcal{S}$ are linearly dependent.  Let $A$ be a matrix whose columns are the vectors in $\mathcal{S}$.
+$$A=\begin{bmatrix}5&4&-3\\2&1&0\\4&1&2\end{bmatrix}$$
+We find that 
+$$\mbox{rref}(A) = \begin{bmatrix}  
  1&0&1\\0&1&-2\\0&0&0
- \end{array}\right]
-$$
+ \end{bmatrix}$$
+Therefore the matrix equation  $A\vec{x}=\vec{0}$ has infinitely many solutions:
+$$\vec{x}=\begin{bmatrix}-1\\2\\1\end{bmatrix}t$$
+This tells us that there are infinitely many nontrivial linear relations among the elements of $\mathcal{S}$.  Letting $t=1$ gives us one such nontrivial relation.
+$$-\begin{bmatrix}5\\2\\4\end{bmatrix}+2\begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}=\vec{0}$$
 
-When we studied linear independence in Module {\color{red} reference}, we learned that such a calculation shows that the vectors in $\mathcal{S}$ are linearly dependent.  Therefore, by Theorem \ref{th:linindbasis}, there is not a unique representation of $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of the vectors in $\mathcal{S}$.
-
-% From these calculations, we can see that there are in fact infinitely many ways to represent $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of the vectors in $\mathcal{S}$. Observe the following.
-% $$B=\left[\begin{array}{ccc|c}  
-%  5&4&-3&1\\2&1&0&1\\4&1&2&3
-%  \end{array}\right], \quad \mbox{rref}(B) = \left[\begin{array}{ccc|c}  
-%  1&0&1&*\\0&1&-2&*\\0&0&0&*
-%  \end{array}\right]
-% $$
-% Our calculations indicate that the system of equations represented by the augmented matrix $B$ has either zero or infinitely many solutions, so we will not have a \underline{unique} way of representing $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of the vectors in $\mathcal{S}$.
-
-% !!! SHORT VIDEO HERE NOW MAY HELP!!!
-
+Now let's pick an arbitrary vector $\vec{v}$ in $V$.  Any vector will do, so let 
+$$\vec{v}=\begin{bmatrix}5\\2\\4\end{bmatrix}+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix}$$
+Based on this representation of $\vec{v}$, the coordinate vector for $\vec{v}$ with respect to $\mathcal{S}$ is 
+$$\begin{bmatrix}\answer{1}\\\answer{-1}\\\answer{0}\end{bmatrix}$$
+But 
+$$\begin{bmatrix}5\\2\\4\end{bmatrix}=2\begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}$$
+So, by substitution, we have:
+$$\vec{v}=\left(2\begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}\right)+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix}=0\begin{bmatrix}5\\2\\4\end{bmatrix}+ 1\begin{bmatrix}4\\1\\1\end{bmatrix}+1\begin{bmatrix}-3\\0\\2\end{bmatrix}$$
+Based on this representation, the coordinate vector for $\vec{v}$ with respect to $\mathcal{S}$ is
+$$\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{1}\end{bmatrix}$$
+The set $\mathcal{S}$ is linearly dependent.  As a result, coordinate vectors for elements of $V$ are not unique and we do not want to use $\mathcal{S}$ as a basis for $V$.
 \end{explanation}
 \end{example}
 
+%\begin{example}
+%Let $V=\mbox{span} (\mathcal{S}$) where $\mathcal{S}=\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$.  Show that $\mathcal{S}$ cannot be a basis of $V$.
 
-\section*{Definition of a Basis}
+
+%\begin{explanation}\label{rref} 
+%Perhaps you noticed there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$.  For example, 
+%\begin{equation}\begin{bmatrix}1\\1\\3\end{bmatrix}=\begin{bmatrix}5\\2\\4\end{bmatrix}+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix} \quad
+%and 
+%\quad \begin{bmatrix}1\\1\\3\end{bmatrix}=0\begin{bmatrix}5\\2\\4\end{bmatrix}+ \begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}\end{equation}\label{two_ways}
+%This shows that if we had mistakenly used $\mathcal{S}$ as a basis for $V$, the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$ would not have a unique coordinate vector with respect to the proposed basis.  Indeed, from the equations in \ref{two_ways}, we may arrive at these coordinate vectors with respect to $\mathcal{S}$:
+%$$\begin{bmatrix}1\\-1\\0\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{1}\end{bmatrix}$$
+
+%Since it is difficult to expect that we will ``notice'' that there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$, the better way to proceed is to make use of Theorem \ref{th:linindbasis}.  We will check to see whether or not the set $\mathcal{S}$ is linearly independent.  To this end, we write the vectors in $\mathcal{S}$ as the columns of a matrix $A$, and apply our row operations until it is in reduced row-echelon form.
+
+%$$A=\left[\begin{array}{ccc}  
+% 5&4&-3\\2&1&0\\4&1&2
+% \end{array}\right], \quad \mbox{rref}(A) = \left[\begin{array}{ccc}  
+% 1&0&1\\0&1&-2\\0&0&0
+% \end{array}\right]
+%$$
+
+%When we studied linear independence in Module {\color{red} reference}, we learned that such a calculation shows that the vectors in $\mathcal{S}$ are linearly dependent.  Therefore, by Theorem \ref{th:linindbasis}, there is not a unique representation of $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of the vectors in $\mathcal{S}$.
+
+%\end{explanation}
+%\end{example}
+
+
+\subsection*{Definition of a Basis}
 
 \begin{definition}\label{def:basis}
 A set $\mathcal{S}$ of vectors is called a \dfn{basis} of $\RR^n$ (or a basis of a subspace $V$ of $\RR^n$) provided that $\mathcal{S}$
@@ -230,6 +241,12 @@ The standard unit vectors $\vec{e}_1, \ldots ,\vec{e}_n$ are linearly independen
 \begin{definition} The set $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is called the \dfn{standard basis} of $\RR^n$.
 \end{definition}
 
+Bases are not unique.  For example, we know that vectors $\vec{i}$ and $\vec{j}$ form the standard basis of $\RR^2$.  But, as we discussed in Example \ref{ex:spanr2} of VEC-M-0090, vectors 
+$$\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}$$
+are linearly independent vectors that span $\RR^2$.  Therefore $$\left\{\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right\}$$
+is also a basis for $\RR^2$.
+
+Any linearly independent spanning set in $\RR^n$ (or a subspace of $\RR^n$) is a basis of $\RR^n$ (or the subspace).  The plural form of the word \dfn{basis} is \dfn{bases}.  It is easy to see that $\RR^n$ and its subspaces each has infinitely many bases.
 % \begin{example}
 % Let $V=\mbox{span}\left(\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right)$.  Prove that $\mathcal{B}=\left\{\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right\}$ is a basis for $V$ and find the coordinate vector for $\vec{v}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$ with respect to $\mathcal{B}$.
 % \begin{explanation}
@@ -260,7 +277,7 @@ The standard unit vectors $\vec{e}_1, \ldots ,\vec{e}_n$ are linearly independen
 % \end{example}
 
 \begin{example}
-Let $V=\mbox{span}\left(\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right)$.  It is easy to see that $$\mathcal{B}=\left\{\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right\}$$ is a basis for $V$ because the two vectors in $\mathcal{B}$ are linearly independent and span $V$.  Find the coordinate vector for $\vec{v}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$ with respect to $\mathcal{B}$.
+Let $V=\mbox{span}\left(\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right)$.  The set $$\mathcal{B}=\left\{\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right\}$$ is a basis for $V$ because the two vectors in $\mathcal{B}$ are linearly independent and span $V$.  Find the coordinate vector for $\vec{v}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$ with respect to $\mathcal{B}$.
 \begin{explanation}
 We need to express $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ as a linear combination of the elements of $\mathcal{B}$.  To this end, we need to solve the vector equation:
  $$a_1\begin{bmatrix}-2\\1\\3\end{bmatrix}+a_2\begin{bmatrix}2\\-4\\1\end{bmatrix}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$$
@@ -274,7 +291,7 @@ We need to express $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ as a linear combinati
  $$2\begin{bmatrix}-2\\1\\3\end{bmatrix}+3\begin{bmatrix}2\\-4\\1\end{bmatrix}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$$
  The coefficient in front of the first basis vector is $2$, the coefficient in front of the second basis vector is $3$.  This means that the coordinate vector for $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ with respect to $\mathcal{B}$ is $\begin{bmatrix}2\\3\end{bmatrix}$.
  
- It may seem strange to you that the coordinate vector for a vector in $\RR^3$ only has two components.  But remember that subspace $V$ is a plane.  When viewed as a vector in the plane $V$, it  makes sense that the coordinate vector for $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ only requires two components.  This issue is related to the question of dimension, which will be addressed in a subsequent module.
+ It may seem strange to you that the coordinate vector for a vector in $\RR^3$ only has two components.  But remember that subspace $V$ is a plane.  When viewed as a vector in the plane, it  makes sense that the coordinate vector for $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ only requires two components.  This issue is related to the question of dimension, which will be addressed in a subsequent module.
 \end{explanation}
 \end{example}
 

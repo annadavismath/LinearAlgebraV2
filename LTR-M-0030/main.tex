@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Composition and Inverses of Linear Transformations} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0030:  Composition and Inverses of Linear Transformations} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -32,10 +31,10 @@
 %\end{equation*}
 %\end{definition}
 
-\section*{Composition of Linear Transformations}
+\section*{LTR-0030:  Composition and Inverses of Linear Transformations}
 
-\subsection*{Definition and Properties}
-\begin{definition} Let $U$, $V$ and $W$ be vector spaces, and let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations.  The composition of $S$ and $T$ is the transformation $S\circ T:U\rightarrow W$ given by
+\subsection*{Composition of Linear Transformations}
+\begin{definition} Let $U$, $V$ and $W$ be vector spaces, and let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations.  The \dfn{composition} of $S$ and $T$ is the transformation $S\circ T:U\rightarrow W$ given by
 $$(S\circ T)(\vec{u})=S(T(\vec{u}))$$
 \end{definition}
 
@@ -77,13 +76,16 @@ The actions of individual transformations, as well as the composite transformati
   \draw[thin,gray!40] (9,-1) grid (13,3);
   \draw[<->] (9,0)--(13,0);
   \draw[<->] (10,-1)--(10,3);
-  %\draw[line width=2pt,red,-stealth](0,0)--(-1,-1) node[anchor=north east]{$-\vec{u}$};
+  
   \fill[blue!40!white] (10,0) circle (0.2cm);
-  \draw [->,line width=1pt,-stealth]  (2,1)to[out=60, in=120](4.5, 1)node[above=7mm, left=6mm]{$T$};
-\draw [->,line width=1pt,-stealth] (7,1)to[out=60, in=120](9.5, 1)node[above=7mm, left=6mm]{$S$};
-\draw [->,line width=1pt,-stealth] (2,3.5)to[out=30, in=150](11, 3.5)node[above=12mm, left=25mm]{$S\circ T$};
+  \draw [->,line width=1pt,-stealth]  (2,1)to[out=60, in=120](4.5, 1);
+   \node[] at (3.4, 2)   (b) {$T$};
+\draw [->,line width=1pt,-stealth] (7,1)to[out=60, in=120](9.5, 1);
+\node[] at (8.4, 2)   (b) {$S$};
+\draw [->,line width=1pt,-stealth] (2,3.5)to[out=30, in=150](11, 3.5);
+\node[] at (6.5, 5.3)   (b) {$S\circ T$};
 \end{tikzpicture}
-%\caption{The action of $T$, $S$ and $S\circ T$.}
+
   
 \end{image}
 
@@ -158,17 +160,17 @@ Every matrix induces a linear transformation.  The product of two matrices can b
 $$ABC=(AB)C=A(BC)$$
 \end{theorem}
 
-\section*{Inverses of Linear Transformations}
+\subsection*{Inverses of Linear Transformations}
 
-\begin{initprob}\label{ep:inverse} Define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $T(\vec{v})=2\vec{v}$.  In other words, $T$ doubles every vector in $\RR^2$.  Now define $S:\RR^2\rightarrow \RR^2$ by $S(\vec{v})=\frac{1}{2}\vec{v}$.  What happens when we compose these two transformations?
+\begin{exploration}\label{ep:inverse} Define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $T(\vec{v})=2\vec{v}$.  In other words, $T$ doubles every vector in $\RR^2$.  Now define $S:\RR^2\rightarrow \RR^2$ by $S(\vec{v})=\frac{1}{2}\vec{v}$.  What happens when we compose these two transformations?
 $$(S\circ T)(\vec{v})=S(T(\vec{v}))=S(2\vec{v})=\left(\frac{1}{2}\right)(2)\vec{v}=\vec{v}$$
 $$(T\circ S)(\vec{v})=T(S(\vec{v}))=T(\frac{1}{2}\vec{v})=(2)\left(\frac{1}{2}\right)\vec{v}=\vec{v}$$
 Both composite transformations return the original vector $\vec{v}$.  In other words, $S\circ T=\id_{\RR^2}$ and $T\circ S=\id_{\RR^2}$.  We say that $S$ is an \dfn{inverse} of $T$, and $T$ is an inverse of $S$.
-\end{initprob}
+\end{exploration}
 
 % \subsection*{Definition of an Inverse Transformation}
 % {\color{green} Paul, In Definition 2, do we need to require that T is linear? If we don't, we would have a more general definition of an inverse.  Later we have a theorem that says that an inverse of a linear transformation is linear.}
-\begin{definition}\label{def:inverse} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an inverse of $T$. If $T$ has an inverse, $T$ is called invertible.
+\begin{definition}\label{def:inverse} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
 \end{definition}
 
 \begin{example}\label{ex:inverseverify} Let $T:\RR^2\rightarrow \RR^2$ be a transformation defined by $T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+y\\x-y\end{bmatrix}$. (How would you verify that $T$ is linear?)  Show that $S:\RR^2\rightarrow \RR^2$ given by $S\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}0.5x+0.5y\\0.5x-0.5y\end{bmatrix}$ is an inverse of $T$.
@@ -226,7 +228,7 @@ Part \ref{item:exists} follows directly from the preceding discussion.  Part \re
 
 Please note that Theorem \ref{th:existunique} is only applicable in the context of linear transformations of $\RR^n$ and their standard matrices.  The following example provides us with motivation to investigate inverses further, which we will do in another module.
 
-\begin{initprob}\label{init:subtosub}
+\begin{exploration}\label{init:subtosub}
 Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
@@ -235,7 +237,7 @@ and our condition that $T$ is linear determines the image of $\vec{v}$ as follow
 Geometrically speaking, the domain of $T$ is a plane in $\RR^3$ and its codomain is $\RR^2$.  Does $T$ have an inverse?  
 
 We are not in a position to answer this question right now because Theorem \ref{th:existunique} does not apply to this situation. 
-\end{initprob}
+\end{exploration}
 This Exploration Problem highlights the necessity of a further discussion of inverses.  In Example \ref{ex:subtosub} of LTR-M-0035, we will prove that $T$ has an inverse, and in Example \ref{ex:inversematrixoftransform} of LTR-M-0080 we will relate the existence of an inverse of $T$ to a matrix associated with $T$.
 
 
