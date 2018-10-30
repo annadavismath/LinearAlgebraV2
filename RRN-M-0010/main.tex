@@ -1,7 +1,7 @@
 \documentclass{ximera}
+\input{../preamble.tex}
 
 \author{Anna Davis \and Rosemarie Emanuele} \title{RRN-0010: A Brief Introduction to $\RR^n$} \license{CC-BY 4.0}
-\input{../preamble.tex}
 
 \begin{document}
 
@@ -13,7 +13,7 @@
 \section*{RRN-0010:  A Brief Introduction to $\RR^n$}
 The set of all real numbers is denoted by $\RR$.  It is convenient to associate real numbers with points on a line, called the \dfn{real number line}.   
 
-\begin{image}
+\begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
 \foreach \x in  {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
@@ -22,12 +22,12 @@ The set of all real numbers is denoted by $\RR$.  It is convenient to associate 
 \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] 
 {$\x$};
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 The set of all ordered pairs $(x, y)$, where $x$ and $y$ are real numbers is called $\RR^2$.  Using set notation we write:  
 $$\RR^2=\{(x, y):x,y\in \RR\}$$
 Geometrically speaking, $\RR^2$ can be associated with a coordinate plane in which we refer to each point by its $x$ and $y$ coordinates.
-\begin{image}
+\begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
 \begin{axis}[
 x=1cm,y=1cm,
@@ -42,12 +42,12 @@ xtick={-4,-3,...,4},
 ytick={-3,-2,...,3},]
 \end{axis}
 \end{tikzpicture}
-\end{image}
+\end{center}
 The set of all ordered triples $(x, y, z)$, where $x$, $y$ and $z$ are real numbers,  is called $\RR^3$.  
 $$\RR^3=\{(x, y, z):x,y, z\in \RR\}$$
 Geometrically, points of $\RR^3$ are associated with points of a three-dimensional space whose position is given by their $x$, $y$ and $z$ coordinates.
 
-\begin{image}[2in]
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
@@ -55,7 +55,7 @@ Geometrically, points of $\RR^3$ are associated with points of a three-dimension
     \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
     
    \end{tikzpicture}
-\end{image}
+\end{center}
 
 \begin{example}\label{ex:plotpointsr3} The following points are shown plotted in $\RR^3$.
 
@@ -69,7 +69,7 @@ $R(-3, 9, -10)$
   \end{enumerate}
   
   
-  \begin{image}[4.5in]
+  \begin{center}
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
 % The axes
 \draw[->] (xyz cs:x=-13.5) -- (xyz cs:x=13.5) node[above] {$y$};
@@ -129,12 +129,12 @@ $R(-3, 9, -10)$
 \node[fill,circle,inner sep=1.5pt,label={right:$R(-3,9,-10)$}] at (v2) {};
 
 \end{tikzpicture}
-\end{image}
+\end{center}
 \end{example}
 
 Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are called \dfn{coordinate planes}.  Each coordinate plane is named after the axes that determine it.  Thus, we have the $xy$-plane, $xz$-plane, and $yz$-plane.  Coordinate planes intersect at the point $(0, 0, 0)$, called the \dfn{origin}, and subdivide $\RR^3$ into eight regions, called \dfn{octants}. 
 
-\begin{image}[4in]
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-3,0,0)--(5,0,0) node[below left]{$y$};
@@ -150,7 +150,7 @@ Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are 
      
      \node[fill,circle,inner sep=1.5pt,label={right:$(0,0,0)$}] at (0,0,0) {};
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 
@@ -165,7 +165,7 @@ $\RR^n$ cannot be visualized for $n>3$, but many familiar ideas, such as the dis
 \begin{problem}\label{prob:plotpointsr3}
 Find the coordinates of each point.
 
-  \begin{image}[4.5in]
+  \begin{center}
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
 % The axes
 \draw[->] (xyz cs:x=-13.5) -- (xyz cs:x=13.5) node[above] {$y$};
@@ -225,7 +225,7 @@ Find the coordinates of each point.
 \node[fill,circle,inner sep=1.5pt,label={left:$R$}] at (v2) {};
 
 \end{tikzpicture}
-\end{image}
+\end{center}
 Answer:
   $$P(\answer{5}, \answer{5}, \answer{10})$$
  
@@ -234,16 +234,5 @@ Answer:
   $$R(\answer{3}, \answer{-5}, \answer{-8})$$
 
 \end{problem}
-
-\begin{problem}\label{prob:lengthprojr3}
-Imagine that a midday sun is shining directly down on the line segment connecting the origin with the point $(3,4,7)$. What is the length of the shadow (projection) that is formed in the $(x,y)$ plane?
-
-Answer: The length of the shadow is
-$$\answer{5}$$
-\end{problem}
-
-
-
-
 
 \end{document} 
