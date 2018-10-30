@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{The Laplace Expansion Theorem} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{DET-0050: The Laplace Expansion Theorem} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -12,9 +11,9 @@ We state and prove the Laplace Expansion Theorem for determinants.
 \maketitle
 
 
-
-\section*{Introduction and Examples}
-We originally defined the determinant of a matrix in terms of cofactor expansion along the top row of the matrix.  We later showed that cofactor expansion along the first column produces the same result.  Surprisingly, it turns out that the value of the determinant can be computed by expanding along any row or column.  This result is known as the Laplace Expansion Theorem.  We begin by generalizing some definitions we first encountered in {\color{red} reference}.
+\section*{DET-0050: The Laplace Expansion Theorem}
+\subsection*{Introduction and Examples}
+We originally defined the determinant of a matrix in terms of cofactor expansion along the top row of the matrix.  We later showed that cofactor expansion along the first column produces the same result.  Surprisingly, it turns out that the value of the determinant can be computed by expanding along any row or column.  This result is known as the Laplace Expansion Theorem.  We begin by generalizing some definitions we first encountered in DET-0010.
 
 Given an $n\times n$ matrix 
 $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \dots & a_{1n}  \\
@@ -50,7 +49,7 @@ $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & 
  \end{center} 
  
  Define the \dfn{$(i,j)$-cofactor} of $A$ by
- $$C_{ij}=(-1)^{i+j}\text{det}(A_{ij})$$
+ $$C_{ij}=(-1)^{i+j}\det(A_{ij})$$
  Note that the sign of $(-1)^{i+j}$ follows a checker board pattern.
  $$\begin{bmatrix}+&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\
  +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
@@ -72,7 +71,7 @@ and
  
  Computation (\ref{eq:laplace1a}) is called the \dfn{cofactor expansion along the $i^{th}$ row}.  Computation (\ref{eq:laplace1b}) is called \dfn{cofactor expansion along the $j^{th}$ column}.  
  
- \begin{example}
+ \begin{example}\label{ex:laplace1}
 Let  
 $$A=\begin{bmatrix}4&-1&2&1\\3&0&1&-2\\
 2&1&5&1\\-2&1&3&-1\end{bmatrix}$$
@@ -91,7 +90,8 @@ This answer is the same as the answer we got using cofactor expansion along the 
  
 It is clear that having zeros as entries in the matrix significantly reduces the number of computations necessary to find the determinant.  The following example demonstrates how Laplace Expansion Theorem allows us to use zeros to our advantage.
 
-\begin{example}Find $\det{A}$ if
+\begin{example}\label{ex:laplace2}
+Find $\det{A}$ if
 $$A=\begin{bmatrix}4&0&0&0&2\\0&-1&1&0&0\\2&0&0&-5&3\\0&1&4&0&-1\\1&1&5&0&0\end{bmatrix}$$
 
 \begin{explanation}
@@ -101,11 +101,11 @@ $$
 Next we will expand along the top row.
 $$\det{A}=5\left(4\begin{vmatrix}-1&1&0\\1&4&-1\\1&5&0\end{vmatrix}-2\begin{vmatrix}0&-1&1\\0&1&4&\\1&1&5\end{vmatrix}\right)$$
 Try the next step on your own.  We suggest that you expand the first matrix along the last column and expand the second matrix along the first column.
-$$\text{det}(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
+$$\det(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
 \end{explanation}
 \end{example}
 
-\section*{Proof of the Laplace Expansion Theorem}
+\subsection*{Proof of the Laplace Expansion Theorem}
 
 We started the topic of determinants by introducing two definitions of the determinant and proving that they produce the same result.  However, if you examine our proofs carefully, you will find that none of the proofs rely on cofactor expansion along the first row.  So, all of our results were derived based exclusively on cofactor expansion along the first column.  Indeed, we did not have to present the first definition at all. Our only motivation for doing so was that both definitions are standard and widely used. 
 
@@ -133,13 +133,13 @@ We are now ready to prove Theorem \ref{th:laplace1}.  For convenience we restate
 
 Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Then
 \begin{align*}
-\text{det}(A)&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\\
+\det(A)&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\\
 &=a_{i1}(-1)^{i+1}\det{A_{i1}}+a_{i2}(-1)^{i+2}\det{A_{i2}}+\ldots +a_{in}(-1)^{i+n}\det{A_{in}}\\
 &=\sum_{j=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
 \end{align*}
 and
 \begin{align*}
-\text{det}(A)&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\\
+\det(A)&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\\
 &=a_{1j}(-1)^{1+j}\det{A_{1j}}+a_{2j}(-1)^{2+j}\det{A_{2j}}+\ldots +a_{nj}(-1)^{n+j}\det{A_{nj}}\\
 &=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
 \end{align*}
@@ -159,11 +159,11 @@ To show that the determinant of $A$ can also be computed by cofactor expansion a
 \end{proof}
 \section*{Practice Problems}
 
-\begin{problem}
-Find $\text{det}(A)$
+\begin{problem}\label{prob:laplace}
+Find $\det(A)$
   $$A=\begin{bmatrix}1&-2&0&0&0\\0&-4&1&1&0\\3&0&-1&0&1\\0&0&4&1&0\\-1&-2&0&0&0\end{bmatrix}$$
   Answer:
-  $$\text{det}(C)=\answer{12}$$
+  $$\det(C)=\answer{12}$$
 \end{problem}
 
 

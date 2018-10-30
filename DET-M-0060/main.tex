@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Rosemarie Emanuele} \title{Determinants and Inverses of Nonsingular Matrices} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Rosemarie Emanuele} \title{DET-0060: Determinants and Inverses of Nonsingular Matrices} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,6 +10,8 @@
 \end{abstract}
 \maketitle
 
+\section*{DET-0060: Determinants and Inverses of Nonsingular Matrices}
+
 Combining results of Theorem \ref{th:detofsingularmatrix} and Theorem {\color{red}ref} shows that the following statements about matrix $A$ are equivalent:
 \begin{itemize}
 \item $A^{-1}$ exists
@@ -18,8 +19,8 @@ Combining results of Theorem \ref{th:detofsingularmatrix} and Theorem {\color{re
 \item $\det{A}\neq 0$
 \end{itemize}
 In this module we will take a closer look at the relationship between the determinant of a nonsingular matrix $A$, solution to the system $A\vec{x}=\vec{b}$, and the inverse of $A$.  
-\section*{Cramer's Rule}
-We begin by establishing a formula that allows us to express the unique solution to the system $A\vec{x}=\vec{b}$ in terms of the determinant of $A$, for a nonsingular matrix $A$.  This formula is called Cramer's rule.
+\subsection*{Cramer's Rule}
+We begin by establishing a formula that allows us to express the unique solution to the system $A\vec{x}=\vec{b}$ in terms of the determinant of $A$, for a nonsingular matrix $A$.  This formula is called \dfn{Cramer's rule}.
 
 Consider the system
 $$\begin{array}{ccccc}
@@ -162,7 +163,7 @@ $$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
 
 Finding the determinant is computationally expensive.  Because Cramer's rule requires finding many determinants, it is not a computationally efficient way of solving a system of equations.  However, Cramer's rule is often used for small systems in applications that arise in economics, natural, and social sciences, particularly when solving for only a subset of the variables.
 
-\section*{Adjoint Formula for the Inverse of a Matrix}
+\subsection*{Adjoint Formula for the Inverse of a Matrix}
 
 In Practice Problem {\color{red} reference} of Module {\color{red} reference} we used the row reduction algorithm to show that if $$A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$$ is nonsingular then 
 
