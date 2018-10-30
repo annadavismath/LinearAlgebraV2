@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Definition of the Determinant: Expansion Along the First Row} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{DET-0010: Definition of the Determinant -- Expansion Along the First Row} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,14 +10,15 @@
 \end{abstract}
 \maketitle
 
+\section*{DET-0010: Definition of the Determinant -- Expansion Along the First Row}
 In this module we will define a function that assigns to each square matrix $A$ a scalar output called the \dfn{determinant of $A$}.  For matrices with real number entries, the outputs of the determinant function will be real numbers.  We will denote the determinant of $A$ by $\det{A}$.  
 
 One important property of the determinant is its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.
 
-\section*{Determinants of Square Matrices ($n=1,2,3$)}
-To start from the beginning, lets define the determinant of a $1\times 1$ matrix.
+\subsection*{Determinants of Square Matrices ($n=1,2,3$)}
+To start from the beginning, let us define the determinant of a $1\times 1$ matrix.
 \begin{definition}\label{def:onebyonedet} Let
-$A=\begin{bmatrix}a\end{bmatrix}$.  Define the determinant of $A$ by $$\det{A}=a$$.  
+$A=\begin{bmatrix}a\end{bmatrix}$.  Define the \dfn{determinant} of $A$ by $\det{A}=a$.
 \end{definition}
 It is important to note that this definition is consistent with our goal of making a connection between determinants and invertibility.  Observe that $A^{-1}=\begin{bmatrix}a^{-1}\end{bmatrix}$ exists if and only if $a\neq 0$.
 
@@ -96,7 +96,7 @@ We are now ready to define the determinant of a $3\times 3$ matrix.
 \begin{definition}\label{def:threebythreedet}
 Let
 $$A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}$$
-The determinant of $A$ is given by
+The \dfn{determinant} of $A$ is given by
 \begin{align*}\det{A}=|A|&=a\begin{vmatrix}e&f\\h&i\end{vmatrix}-b\begin{vmatrix}d&f\\g&i\end{vmatrix}+c\begin{vmatrix}d&e\\g&h\end{vmatrix}\\
 &=a\big(\det{A_{11}}\big)-b\big(\det{A_{12}}\big)+c\big(\det{A_{13}}\big)
 \end{align*}
@@ -149,7 +149,7 @@ $$
 \end{explanation}
 \end{example}
 
-\section*{Definition of the Determinant}
+\subsection*{Definition of the Determinant}
 Let $A$ be an $n\times n$ matrix. 
 $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1j-1} & a_{1j} & a_{1j+1} & \dots & a_{1n}  \\
     a_{21} & a_{22} & \dots & a_{2j-1} & a_{2j} & a_{2j+1} & \dots & a_{2n}  \\
@@ -194,7 +194,7 @@ $$A=\begin{bmatrix}4&-1&2&1\\3&0&1&-2\\
 
 Now we are ready to give the general formula. Pay close attention to how we will use subscripts to capture the alternating sign pattern.
 
-\begin{definition}\label{def:toprowexpansion}  Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Define the determinant of $A$ by
+\begin{definition}\label{def:toprowexpansion}  Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Define the \dfn{determinant} of $A$ by
 \begin{align*}\det{A}=(-1)^{1+1}a_{11}\det{A_{11}}&+(-1)^{1+2}a_{12}\det{A_{12}}+\ldots \\
 \ldots &+(-1)^{1+j}a_{1j}\det{A_{1j}}+\ldots \\
 \ldots &+(-1)^{1+n}a_{1n}\det{A_{1n}}\\

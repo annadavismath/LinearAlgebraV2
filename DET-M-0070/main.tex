@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Determinants as Areas and Volumes} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{DET-0070: Determinants as Areas and Volumes} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -10,6 +9,8 @@
  We interpret a $2\times 2$ determinant as the area of a parallelogram, and a $3\times 3$ determinant as the volume of a parallelepiped.
 \end{abstract}
 \maketitle
+
+\section*{DET-0070: Determinants as Areas and Volumes}
 
 Determinants can be interpreted geometrically as areas and volumes.  This might make intuitive sense if we observe that $\begin{vmatrix}1&0\\0&1\end{vmatrix}=1$ is the area of a parallelogram determined by $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$.    
 
@@ -68,7 +69,7 @@ $$\begin{vmatrix}1&0\\k&1\end{vmatrix}=1$$
 Three-by-three determinants can be interpreted as volumes in a similar way.  We will now proceed to derive the relationship between determinants, area and volume more formally.
 
 
-\section*{$2\times 2$ Determinant and the Area of a Parallelogram}
+\subsection*{$2\times 2$ Determinant and the Area of a Parallelogram}
 
 Consider the parallelogram determined by vectors $\vec{u}$ and $\vec{v}$ in $\RR^3$.
 
@@ -90,11 +91,13 @@ As shown in the diagram below, the length of the base is the magnitude of $\vec{
 
   \filldraw[blue, opacity=0.3](0,0)--(4,2)--(5,4)--(1,2)--cycle;
 
-\draw[line width=0.5pt, dashed](1,2)--(1.6,0.8) node[above=1cm, right=-0.4cm]{$h=\norm{\vec{v}}\sin\theta$};
-
-\draw[line width=2pt,red](0,0)--(4,2) node[below=1.5cm, left=1.5cm]{$\norm{\vec{u}}$};
- 
-  \draw[line width=2pt,blue](0,0)node[above=0.45cm, right=0.2cm, black]{$\theta$}--(1,2) node[below=1.1cm, left=0.6cm]{$\norm{\vec{v}}$}; 
+\draw[line width=0.5pt, dashed](1,2)--(1.6,0.8);
+\node[] at (2, 1.6)   (b) {$h=\norm{\vec{v}}\sin\theta$};
+\draw[line width=2pt,red](0,0)--(4,2);
+ \node[red] at (2, 0.6)   (b) {$\norm{\vec{u}}$};
+ \node[blue] at (0.2, 1.2)   (b) {$\norm{\vec{v}}$};
+ \node[] at (0.3, 0.3)   (b) {$\theta$};
+  \draw[line width=2pt,blue](0,0)--(1,2); 
 \end{tikzpicture}
 \end{image}
 Using the area of a parallelogram formula together with Theorem \ref{th:crossproductsin} we get
@@ -131,7 +134,7 @@ The area of the parallelogram is then given by
 $$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\12\end{bmatrix}}=12$$
 \end{explanation}
 \end{example}
-\begin{general}
+
 Example \ref{ex:areaofparallelogram} illustrates an important phenomenon.  Observe that the zeros in the last column of the determinant ensure that the $\vec{i}$ and $\vec{j}$ components of the cross product are zero, while the last component is the determinant of the $2\times 2$ matrix whose rows are the two vectors that determine the parallelogram in $\RR^2$.  In general, if the parallelogram is determined by vectors 
 $$\begin{bmatrix}a\\b\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}c\\d\end{bmatrix}$$
 then the area of the parallelogram can be computed as follows:
@@ -144,9 +147,9 @@ The following formula summarizes our discussion.
 \begin{formula}\label{form:areaofparallelogramdeterminant} Let $\vec{u}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}c\\d\end{bmatrix}$ be vectors of $\RR^2$.  The area of the parallelogram determined by $\vec{u}$ and $\vec{v}$ is given by
 $$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|$$
 \end{formula}
-\end{general}
 
-\section*{$3\times 3$ Determinant and the Volume of a Parallelepiped}
+
+\subsection*{$3\times 3$ Determinant and the Volume of a Parallelepiped}
 
 Our next goal is to find the volume of a three-dimensional figure called a \dfn{parallelepiped}.  A parallelepiped is a six-faced figure whose opposite faces are congruent parallelograms located in parallel planes.  A parallelepiped is a three-dimensional counterpart of a parallelogram, and is determined by three non-coplanar vectors in $\RR^3$.  The figure below shows a parallelepiped determined by three vectors.
 
@@ -226,8 +229,8 @@ $$\mbox{Area of Base}=\norm{\vec{u}\times\vec{v}}$$
     \draw[line width=2pt, gray](10,5,7)--(9,5,2);
     
     \draw[->, line width=2pt,red, -stealth](0,0,0)--(1,0,5)node[below left]{$\vec{u}$};
-    \draw[->, line width=2pt, blue, -stealth](0,0,0)node[above=0.8cm, right=0.1cm]{$\theta$}--(5,5,1)node[above left]{$\vec{w}$} ;
-    
+    \draw[->, line width=2pt, blue, -stealth](0,0,0)--(5,5,1)node[above left]{$\vec{w}$} ;
+    \node[blue] at (0.4, 1.1)   (b) {$\theta$};
     \draw[->, line width=1pt, -stealth](0,0,0)--(0,6,0) node[above]{$\vec{u}\times\vec{v}$};
     \draw[->, gray, line width=0.5pt, -stealth](-0.25,2.5,0)node[left, black]{$h$}--(-0.25,0,0);
     \draw[->, gray, line width=0.5pt, -stealth](-0.25,2.5,0)--(-0.25,5,0);
