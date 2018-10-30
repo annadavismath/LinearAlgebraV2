@@ -2,7 +2,6 @@
 
 \author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0010: Introduction to Vectors} \license{CC-BY 4.0}
 \input{../preamble.tex}
-
 \begin{document}
 
 \begin{abstract}
@@ -21,21 +20,19 @@ A \dfn{vector} has magnitude and direction.  For example, velocity is a vector b
 
 If an object is traveling along a number line, the direction of travel is given by the sign of its velocity (positive or negative), while the speed is given by the absolute value of the velocity.  If the object is traveling in a plane or in space, direction of travel can be described by an arrow, while the speed can be represented by the length of the arrow.  Graphically speaking, vectors in $\RR^2$ and $\RR^3$ look like this: 
 
-\begin{image}[4in]
-\begin{tikzpicture}[scale=0.8]
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
 
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-4)--(0,4);
   
 \draw[line width=2pt,blue,-stealth](1,2)--(-1,3);
- %\draw[line width=2pt,blue,-stealth](-2,-3)--(2,1);
-\end{tikzpicture}
+ \end{tikzpicture}
 \tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.5]
 	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
     \draw[->](0,-2,0)--(0,5,0) node[below left]{$z$};
     \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
-        %\draw[->, line width=2pt,blue, -stealth](-2,3,-2)--(4,3,4);
     \draw[->, line width=2pt,blue, -stealth](2,1,3)--(3,2,-2);
     \draw[dashed](2,1,3)--(2,0,3);
     \draw[dashed](2,0,0)--(2,0,3);
@@ -44,24 +41,24 @@ If an object is traveling along a number line, the direction of travel is given 
     \draw[dashed](3,0,0)--(3,0,-2);
     \draw[dashed](0,0,-2)--(3,0,-2);
     \end{tikzpicture}
-\end{image}
+\end{center}
 
 A vector can be denoted by a lower-case letter with an arrow over the top (like this: $\overrightarrow{u}$ ), or a bold lower-case letter (like this: $\vec{u}$).  
 
 The magnitude, or length, of a vector is denoted by double absolute value brackets.  For example, the magnitude of $\vec{u}$, is denoted by $\norm{\vec{u}}$.  A vector of zero length and no direction is called the \dfn{zero vector.} We denote the zero vector by $\overrightarrow{0}$ or $\vec{0}$.  Going forward, we will use the terms magnitude of a vector and length of a vector interchangeably.
 
 Sometimes it is convenient to refer to a vector by naming  the endpoints of the arrow.  In the figure below, point $A$ is the \dfn{tail}, and point $B$ is the \dfn{head} of the vector.  
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}
 \draw[line width=2pt,-stealth](-1,0)node[below left]{$A$}--(2,1)node[below right]{$B$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 We refer to this vector as $\overrightarrow{AB}$.
 
 \subsection*{Vectors in Standard Position}
 Vectors that point in the same direction and have the same length are said to be \dfn{equivalent}.  For example, vectors  $\vec{u}$, $\vec{v}$ and $\vec{w}$ in the figure below are equivalent.  We write $\vec{u}=\vec{v}=\vec{w}$.
 
- \begin{image}[2.5in]
+ \begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-1) grid (7,4);
   \draw[<->] (-1,0)--(7,0);
@@ -70,13 +67,13 @@ Vectors that point in the same direction and have the same length are said to be
  \draw[line width=1pt,-stealth](3,0)--(5,1)node[above left]{$\vec{u}$};
  \draw[line width=1pt,-stealth](4,2)--(6,3)node[above left]{$\vec{v}$};
  \draw[line width=1pt,-stealth](1,2)--(3,3)node[above left]{$\vec{w}$};
-  %\draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above right]{$[2,1]$};
+  
  \end{tikzpicture}
-\end{image}
+\end{center}
  
 For the purpose of developing standard, convenient notation, we observe that every vector is equivalent to some vector whose tail is at the origin.  Vectors with tails at the origin are said to be in \dfn{ standard position}.  We will refer to each vector in standard position by the coordinates of its head.   For example, a vector in standard position whose head is located at the point $(2, 1)$ will be referred to as $\begin{bmatrix}2\\1\end{bmatrix}$.  
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-1) grid (7,4);
   \draw[<->] (-1,0)--(7,0);
@@ -87,7 +84,7 @@ For the purpose of developing standard, convenient notation, we observe that eve
  \draw[line width=1pt,-stealth](1,2)--(3,3)node[above left]{$\vec{w}$};
   \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above right]{$\begin{bmatrix}2\\1\end{bmatrix}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 
@@ -101,7 +98,7 @@ Our next goal is to find a process for writing any vector in the coordinate plan
 \begin{example}\label{init:headminustail}
 Consider vector $\vec{v}$ shown below.  We will express $\vec{v}$ in component form.
 
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-2) grid (5,4);
   \draw[<->] (-1,0)--(5,0);
@@ -109,10 +106,10 @@ Consider vector $\vec{v}$ shown below.  We will express $\vec{v}$ in component f
   
  \draw[line width=1pt,-stealth](2, -1)--(4, 2)node[above left]{$\vec{v}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 \begin{explanation}
 Note that the vector has a ``run" of $2$ and a ``rise" of $3$.  If we construct a vector with tail at the origin, a ``run" of $2$ and a ``rise" of $3$, we will have a vector in standard position equivalent to vector $\vec{v}$.
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-2) grid (5,4);
   \draw[<->] (-1,0)--(5,0);
@@ -122,14 +119,14 @@ Note that the vector has a ``run" of $2$ and a ``rise" of $3$.  If we construct 
  
  \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$\begin{bmatrix}2\\3\end{bmatrix}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 The component form for the vector we constructed is $\begin{bmatrix}2\\3\end{bmatrix}$.  This gives us $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
 \end{explanation}
 \end{example}
 The approach we used in Example \ref{init:headminustail} is applicable to specific vectors that can easily be visualized.  What we need now is an algebraic approach that can be generalized to higher dimensions and more abstract situations.  
 
 Let's return to vector $\vec{v}$ of Example \ref{init:headminustail}. Suppose we were to slide vector $\vec{v}$ into standard position. Consider what would happen to the tail of $\vec{v}$ as we do so.
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-2) grid (5,4);
   \draw[<->] (-1,0)--(5,0);
@@ -147,12 +144,11 @@ Let's return to vector $\vec{v}$ of Example \ref{init:headminustail}. Suppose we
  
  \fill[red] (0,0)node[above left]{$(0,0)$} circle (0.1cm);
  
-% \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$[2,3]$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 What happens to the tail of the vector has to happen to the head
 
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-1,-2) grid (5,4);
   \draw[<->] (-1,0)--(5,0);
@@ -177,7 +173,7 @@ What happens to the tail of the vector has to happen to the head
  
  \draw[line width=2pt,red,-stealth](0,0)--(2,3);
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 We subtracted $2$ from the $x$-coordinate and added $1$ to the $y$-coordinate of the tail. To find the new location of the head we subtract $2$ from the $x$-coordinate of the head, and add $1$ to the $y$-coordinate of the head.  This gives us  $(4-2, 2+1)$.  So, the new location of the head is $(2, 3)$, and $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
 
@@ -187,12 +183,9 @@ $$\vec{v}=\begin{bmatrix}4-2\\ 2-(-1)\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatr
 
 The following diagram summarizes and generalizes our findings.
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
- % \draw[<->] (-1,0)--(5,0);
-  %\draw[<->] (0,-1)--(0,5);
-  
- \draw[line width=1pt,-stealth](2, 1)--(4, 4);
+  \draw[line width=1pt,-stealth](2, 1)--(4, 4);
  \fill[black] (2,1)node[below right]{$A(a_1, a_2)$} circle (0.1cm);
  \fill[black] (4,4)node[below right]{$B(b_1, b_2)$} circle (0.1cm);
  
@@ -209,9 +202,8 @@ The following diagram summarizes and generalizes our findings.
  \fill[blue] (0,0)node[below left]{$A'(0,0)$} circle (0.1cm);
  \fill[blue] (2,3)node[below left]{$B'(b_1-a_1, b_2-a_2)$} circle (0.1cm);
  
- %\draw[line width=2pt,red,-stealth](0,0)--(2,3);
  \end{tikzpicture}
-\end{image}
+\end{center}
 Let $\overrightarrow{AB}$ be a vector in $\RR^2$, with tail at point $A(a_1, a_2)$ and head at point $B(b_1, b_2)$.
 As we slide $\overrightarrow{AB}$ into standard position by moving point $A$ to the origin, point $B$ travels along with point $A$ by undergoing the same horizontal and vertical shifts.  We now have an equivalent vector $\overrightarrow{A'B'}$ in standard position.  The diagram suggests the following formula.
 \begin{formula}
@@ -222,14 +214,10 @@ Suppose a vector's tail is at point $A(a_1, a_2)$ and the vector's head is at $B
 \end{equation}
 \end{formula}
 
-
-
-
-
 \subsection*{Vectors in $\RR^3$}
 Definitions of standard position and component form for vectors in $\RR^3$ are analogous to their counterparts for vectors in $\RR^2$.  For example, vector $\overrightarrow{OP}$ in the figure below, is in standard position and can be written in component form as $\overrightarrow{OP}=\begin{bmatrix}6\\10\\7\end{bmatrix}$.
 
- \begin{image}[4in]
+ \begin{center}
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
 % The axes
 \draw[->] (xyz cs:x=-13.5) -- (xyz cs:x=13.5) node[above] {$y$};
@@ -261,7 +249,7 @@ Definitions of standard position and component form for vectors in $\RR^3$ are a
 
 \draw[line width=2pt,-stealth, red](0,0,0)--(v);
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 If a vector is not in standard position but the location of its head and tail are known, a three-dimensional version of the ``Head - Tail" formula can be used to express the vector in component form.
 
@@ -277,8 +265,7 @@ Suppose a vector's tail is at point $A(a_1, a_2, a_3)$ and the vector's head is 
 \subsection*{Vectors in $\RR^n$}
 We cannot see $\RR^n$ for $n>3$, but we can conceptualize it by generalizing what we know about $\RR^2$ and $\RR^3$.  A vector $\vec{v}$ in standard position whose head is located at $(v_1, v_2, \ldots ,v_n)$ can be written in component form as $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$.  
 
-The vector all of whose components are $0$ is called the \dfn{zero vector} and is denoted by $\vec{0}$.  The zero vector has zero magnitude and no direction.
-In standard position, the zero vector is a point at the origin.
+Recall that we defined the \dfn{zero vector} as a vector that has length $0$ and no direction.  In component form, the zero vector is a vector all of whose components are $0$. 
 
 We conclude this section by stating the generalized ``Head -  Tail" formula.
 
@@ -312,7 +299,7 @@ $$\vec{v}=\begin{bmatrix}\answer{6}\\ \answer{1}\end{bmatrix},\quad\vec{w}=\begi
 \begin{problem}\label{prob:compformgivenlength}
 Express vector $\vec{v}$ shown in the figure  in component form if the magnitude (length) of $\vec{v}$ is $5$.
 
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 %\draw[thin,gray!40] (-1,-1) grid (4,4);
   \draw[<->] (-1,0)--(5,0);
@@ -324,7 +311,7 @@ Express vector $\vec{v}$ shown in the figure  in component form if the magnitude
  
 %  \draw[line width=2pt,red,-stealth](0,0)--(2,3) node[above left]{$[2,3]$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 Answer:
 $$\vec{v}=\begin{bmatrix}\answer{4}\\\answer{3}\end{bmatrix}$$
