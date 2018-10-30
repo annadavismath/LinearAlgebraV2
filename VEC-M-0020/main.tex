@@ -1,9 +1,8 @@
 \documentclass{ximera}
 
-\input{../preamble.tex}
 
 \author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0020:  Length of a Vector} \license{CC-BY 4.0}
-
+\input{../preamble.tex}
 \begin{document}
 
 \begin{abstract}
@@ -15,12 +14,12 @@
 
 Vector quantities, such as velocity and force, have magnitude and direction.  The magnitude of a vector quantity is the length of the vector.  For example, if a force of 10 Newtons is applied to an object, we would represent the force by a 10-unit-long vector.
 
-\begin{image}[2in]
+ \begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[line width=2pt,-stealth](0,0)--(5,1)node[right]{$\vec{F}$} ;
 \node[] at (2.5, 0.8)   {$10$};
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 The magnitude of a vector is denoted by double absolute value brackets.  In the case of force $\vec{F}$, we write $$\norm{\vec{F}}=10$$
 
@@ -35,14 +34,14 @@ A vector $\vec{v}=\begin{bmatrix}v_1\\ v_2\end{bmatrix}$ has the length of  the 
 \end{equation}
 
 \begin{example}\label{ex:findmaginr2} Find the magnitude of $\vec{u}=\begin{bmatrix}-3\\4\end{bmatrix}$.  
-\begin{image}[1.8in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-4,-1) grid (2,5);
   \draw[<->] (-4,0)--(2,0);
   \draw[<->] (0,-1)--(0,5);
   \draw[line width=1pt,-stealth](0,0)--(-3,4) node[above right]{$\vec{u}=[-3,4]$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 \begin{explanation}
 
  $$
@@ -93,7 +92,7 @@ The magnitude of $\vec{w}=\begin{bmatrix}5\\ -1\\ -2\\ 4\end{bmatrix}$ is given 
 \end{example}
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:magnitude}
+\begin{problem}%\label{prob:magnitude}
 Find the length of the following vectors.  Enter your answers in exact, simplified form. (e.g. $5\sqrt{3}$)
 \begin{problem}\label{prob:magnitude1}
  $$\vec{u}=\begin{bmatrix}1\\3\end{bmatrix}$$ 
