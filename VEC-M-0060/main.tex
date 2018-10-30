@@ -14,14 +14,14 @@
 
 Given two vectors $\vec{u}$ and $\vec{v}$, let $\theta$ be the angle between them such that $0\leq\theta\leq \pi$.  We will refer to $\theta$ as the \dfn{included angle}.
 
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}
 \node[] at (0.8, 0.2)   (a) {$\theta$};
 \draw (0.5,0) arc (0:30:0.5) ;
 \draw[line width=1pt,-stealth,red](0,0)--(2.5,0)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth, blue](0,0)--(3.46,2)node[above right]{$\vec{v}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 The following theorem establishes a relationship between the dot product and the included angle.
 
@@ -34,7 +34,7 @@ The following theorem establishes a relationship between the dot product and the
 
 \begin{proof} Consider the triangle formed by $\vec{u}$, $\vec{v}$ and $\vec{u}-\vec{v}$. 
 
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}
 \node[] at (0.8, 0.2)   (a) {$\theta$};
 \draw (0.5,0) arc (0:30:0.5) ;
@@ -43,7 +43,7 @@ The following theorem establishes a relationship between the dot product and the
 \draw[line width=1pt,-stealth](3.46,2)--(2.5,0);
 \node[] at (3.5, 0.9)   (a) {$\vec{u}-\vec{v}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 By the Law of Cosines we have:
 \begin{align*}
@@ -99,7 +99,7 @@ We leave the details of the proof to the reader.
 \end{proof}
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:anglebetweenvectors}
+\begin{problem}%\label{prob:anglebetweenvectors}
 Find the degree measure of the included angle, $\theta$ for each pair of vectors.  Round your answers to the nearest tenth.
   \begin{problem}\label{prob:anglebetweenvectors1}
   $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}-3\\-1\end{bmatrix}$.
@@ -157,9 +157,9 @@ Prove that if $\vec{u}$ is a unit vector, then $\vec{u}\dotp \vec{u}=1$.
  Imagine a clock with hands represented by vectors $\vec{m}$ and $\vec{h}$, as shown below.
 At what whole hour will $\vec{m}\dotp\vec{h}$ attain its maximum value?  At what whole hour will $\vec{m}\dotp\vec{h}$ be as small as possible?
 
-\begin{image}
+\begin{center}
 \includegraphics[height=3in]{clockvectors.jpg}
-\end{image}
+\end{center}
 
 Answer:$$\vec{m}\dotp\vec{h}\text{ is greatest at }\answer{12}:00 \text{ o'clock}$$
 $$\vec{m}\dotp\vec{h}\text{ is smallest at }\answer{6}:00 \text{ o'clock}$$
@@ -172,7 +172,7 @@ Let $O$ be a circle of radius $r$.  Suppose $A$ and $B$ are the endpoints of a d
 Position the circle in the coordinate plane with center at the origin and segment $AB$ along the $x$-axis, as shown in the figure.
 \end{hint}
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=2]
 
   \draw[] (-1.3,0)--(1.3,0);
@@ -187,7 +187,7 @@ Position the circle in the coordinate plane with center at the origin and segmen
    \fill[] (-1,0)node[above left]{$A$} circle (0.05cm);
    \fill[] (0.5,0.87)node[above right]{$C$} circle (0.05cm);
  \end{tikzpicture}
-\end{image}
+\end{center}
 \end{problem}
 
 \begin{problem}\label{prob:rhombusdot} A rhombus is a quadrilateral with four congruent sides.  Use vectors to prove that a parallelogram is a rhombus if and only if its diagonals are perpendicular.
