@@ -1,8 +1,7 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin} \title{Introduction to Linear Transformations} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0010: Introduction to Linear Transformations} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -12,8 +11,8 @@
 \maketitle
 
 
+\section*{LTR-0010: Introduction to Linear Transformations}
 
-\section*{Linear Transformations}
 We start by reviewing the definition of a function.
 
 \begin{definition} 
@@ -26,14 +25,14 @@ The set $V$ is called the \dfn{domain} of $f$, and the set $W$ is called the \df
 \vskip 10pt
 If $y=f(x)$, we say that $x$ \dfn{maps to} $y$, and $y$ is the \dfn{image} of $x$.
 \vskip 10pt
-The collection of images of all points of $V$ is called the \dfn{ range} of $f$.  More often, we will refer to the range as the \dfn{ image} of $V$ or the \dfn{image} of $f$.
+The collection of images of all points of $V$ is called the \dfn{ range} of $f$.  More often, we will refer to the range as the \dfn{image} of $V$ or the \dfn{image} of $f$.
   
 \end{definition}
 
 
 In algebra and calculus you worked with functions $f:\RR\rightarrow\RR$ whose domain and codomain were each the set of all real numbers.  In linear algebra, we call our functions \dfn{transformations}.  The domain and codomain of a transformation are \dfn{vector spaces}.  A typical transformation $T$ will map vectors of $\RR^n$ into $\RR^m$.
 
-\begin{initprob}\label{init:lintransintro} In this exercise we will introduce a very special type of transformation by contrasting the effects of two transformations on vectors of $\RR^2$.  We will see that some transformations have ``nice" properties, while others do not.  Define $T_1$ and $T_2$ as follows:
+\begin{exploration}\label{init:lintransintro} In this exercise we will introduce a very special type of transformation by contrasting the effects of two transformations on vectors of $\RR^2$.  We will see that some transformations have ``nice" properties, while others do not.  Define $T_1$ and $T_2$ as follows:
 $$T_1:\RR^2\rightarrow\RR^2$$
 $$T_1\left(\begin{bmatrix}
 x\\
@@ -188,7 +187,7 @@ v_2
 It turns out that $T_2$ fails to satisfy this property.  Can you prove that this is the case?  Remember that to prove that a property DOES NOT hold, it suffices to find a counter-example.  See if you can find vectors $\vec{u}$ and $\vec{v}$ such that 
 \begin{align}\label{t2}T_2(\vec{u}+\vec{v}) \neq T_2(\vec{u})+T_2(\vec{v}).\end{align}
 (See Practice Problem \ref{prob:prob2}.) 
-\end{initprob}
+\end{exploration}
 Transformations like $T_1$ belong to a special category of transformations called \dfn{linear transformations}.
 
 
@@ -315,14 +314,14 @@ Since $T_2(\vec{0})\neq\vec{0}$, $T_2$ is not linear.
 We conclude this section by introducing two simple but important transformations.
 
 \begin{definition}\label{def:idtrans}
-The identity transformation on $V$, denoted by $\id_V$, is a transformation that maps each element of the domain to itself.
+The \dfn{identity transformation} on $V$, denoted by $\id_V$, is a transformation that maps each element of the domain to itself.
 
 In other words,
 $$\id_{V}:V\rightarrow V$$ is a transformation such that $$\id_{V}(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in V$$
 \end{definition}
 
 \begin{definition}\label{def:zerotrans}
-The zero transformation, $Z$, maps every element of the domain to the zero vector.
+The \dfn{zero transformation}, $Z$, maps every element of the domain to the zero vector.
 
 In other words,
 $$Z:V\rightarrow W$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in V$$
@@ -342,9 +341,9 @@ The zero transformation is linear.
 Left to the reader.  (See Practice Problem \ref{prob:zerotrans})
 \end{proof}
 
-\section*{Linear Transformations Induced by Matrices}
+\subsection*{Linear Transformations Induced by Matrices}
 
-\begin{initprob}\label{init:matrixtrans}   Let $$A=\begin{bmatrix}
+\begin{exploration}\label{init:matrixtrans}   Let $$A=\begin{bmatrix}
 3&-2&1\\
 1&0&2
 \end{bmatrix}$$
@@ -365,7 +364,7 @@ $$T\left(\begin{bmatrix}
 -4
 \end{bmatrix}$$
 
-\end{initprob}
+\end{exploration}
 
 
 
@@ -478,12 +477,11 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
   
   \draw[<->] (4,2)--(8,2);
   \draw[<->] (5,-1)--(5,3);
-  \draw[line width=2pt,blue](4.5,3)--(6.5,-1) node[above=5mm, right=-1mm]{Image of $T$};
+  \draw[line width=2pt,blue](4.5,3)--(6.5,-1) node[above, right]{Image of $T$};
   
-  \draw [->,line width=1pt,-stealth]  (2,-1) to[out=-60, in=240] (4.5, -1)node[above=-8mm, left=5mm]{$T$};
- % to[out=-20,in=-70] original command
-
-\end{tikzpicture}
+  \draw [->,line width=1pt,-stealth]  (2,-1) to[out=-60, in=240] (4.5, -1);
+   \node[] at (3.25, -1)   (b) {$T$};
+ \end{tikzpicture}
 \end{image}
 \end{explanation}
 \end{example}

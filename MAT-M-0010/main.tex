@@ -1,23 +1,23 @@
 \documentclass{ximera}
-
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{Matrix Addition and Scalar Multiplication} \license{CC-BY 4.0}
-
 \input{../preamble.tex}
+
+
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{MAT-0010:  Addition and Scalar Multiplication of Matrices} \license{CC-BY 4.0}
 
 \begin{document}
 
 \begin{abstract}
-  We introduce matrices, define matrix addition and scalar and prove properties of those operations.
+  We introduce matrices, define matrix addition and scalar multiplication, and prove properties of those operations.
 \end{abstract}
 \maketitle
 
+\section*{MAT-0010:  Addition and Scalar Multiplication of Matrices}
 
+\subsection*{Introduction to Matrices}
 
-\section*{Introduction to Matrices}
+A \dfn{matrix} is a rectangular array of numbers. The plural form of \dfn{matrix} is \dfn{matrices}. You have encountered matrices before in the context of augmented matrices and coefficient matrices associate with linear systems.
 
-{\color{red} This section was adopted from Kuttler matricesMatrixArithmetic.tex need hyperlink ref.}
-
-A \dfn{matrix} is a rectangular array of numbers. The plural form of \dfn{matrix} is \dfn{matrices}. For example, here is a matrix.
+Consider the matrix
 
 $$M=\begin{bmatrix}
 1 & 2 & 3 & 4 \\
@@ -25,11 +25,11 @@ $$M=\begin{bmatrix}
 6 & -9 & 1 & 2
 \end{bmatrix}$$
 
-The size, or dimension, of a matrix is defined as $m\times n$ where $m$ is the
+The \dfn{dimension of a matrix} is defined as $m\times n$ where $m$ is the
 number of rows and $n$ is the number of columns. The above matrix is a 
 $3\times 4$ matrix because there are three rows and four columns.  
 
-The familiar \dfn{column vector} in $\RR^n$ is an an $n\times 1$ matrix.  Sometimes we find it convenient to talk about \dfn{row vectors}.  A row vector in $\RR^n$ is a $1\times n$ matrix.  
+A \dfn{column vector} in $\RR^n$ is an $n\times 1$ matrix.  A \dfn{row vector} in $\RR^n$ is a $1\times n$ matrix.  
 
 The individual \dfn{entries} in the matrix are identified according to their position. The $( i, j)$-entry of a matrix is the entry 
 in the $i^{th}$ row and $j^{th}$ column. For example, in matrix $M$ above,  $8$ is called the $(2,3)$-entry because it is in the second row and the third column. 
@@ -63,9 +63,9 @@ matrices. Before looking at these operations in depth, consider a few
 general definitions.
 
 \begin{definition}[The Zero Matrix]\label{def:zeromatrix}
-The \dfn{$m\times n$ zero matrix} is the $m\times n$ matrix
+The $m\times n$ \dfn{zero matrix} is the $m\times n$ matrix
 having every entry equal to zero. The zero matrix is
-denoted by ${\bf 0}$.
+denoted by $\vec{0}$.
 \end{definition}
 
 \begin{definition}[Equality of Matrices]\label{def:equalityofmatrices}
@@ -74,14 +74,12 @@ that $a_{ij}=b_{ij}$ for all $1\leq i\leq m$ and
 $1\leq j\leq n$.
 \end{definition}
 
-\section*{Addition of Matrices}
-
-{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticAddition.tex hyperlink ref needed}
+\subsection*{Addition of Matrices}
 
 Given two matrices of the same dimensions, we can add them together by adding their corresponding entries.
 \begin{definition}[Addition of Matrices]\label{def:additionofmatrices}
 Let $A=\begin{bmatrix} a_{ij}\end{bmatrix} $ and $B=\begin{bmatrix} b_{ij}\end{bmatrix}$ be two
-$m\times n$ matrices. Then $A+B$  is an $m \times n$
+$m\times n$ matrices. Then the \dfn{sum of matrices} $A$ and $B$, denoted by $A+B$,  is an $m \times n$
 matrix  given by 
 $$A+B=\begin{bmatrix}a_{ij}+b_{ij}\end{bmatrix}$$
 
@@ -177,9 +175,7 @@ Then $A+(-A)={\bf 0}$.
 
 You will recognize the zero matrix of Theorem \ref{th:propertiesofaddition}\ref{item:mataddid} as the zero matrix of Definition \ref{def:zeromatrix}. 
 
-\section*{Scalar Multiplication of Matrices}
-
-{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticScalarMultiplication.tex hyperlink ref needed}
+\subsection*{Scalar Multiplication of Matrices}
 
 When a matrix is multiplied by a scalar, the new matrix is obtained by multiplying every entry of the original matrix
 by the given scalar. 
@@ -259,7 +255,7 @@ The proof of this theorem is similar to the proof of Theorem \ref{th:propertieso
 
 \section*{Practice Problems}
 
-\begin{problem} If 
+\begin{problem}\label{prob:matrixops} If 
 $$A=\begin{bmatrix}2&-1\\3&4\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}3&0\\-2&1\end{bmatrix}$$
 then $$2(A+B)=\begin{bmatrix}\answer{10}&\answer{-2}\\\answer{2}&\answer{10}\end{bmatrix}$$
 
@@ -267,16 +263,17 @@ $$3A-2B=\begin{bmatrix}\answer{0}&\answer{-3}\\\answer{13}&\answer{10}\end{bmatr
 \end{problem}
 
 
-
-
-
-\begin{problem}
+\begin{problem}\label{prob:proofmataddass}
 Prove properties \ref{item:mataddass} and  \ref{item:mataddid} of Theorem \ref{th:propertiesofaddition}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:proofpropertiesscalarmult}
 Prove Theorem \ref{th:propertiesscalarmult}.
 \end{problem}
 
+\section*{Text Source}
+The text in this module is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}.
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 53-58.
 
 \end{document} 
