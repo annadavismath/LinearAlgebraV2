@@ -22,7 +22,7 @@ A \dfn{unit vector} is a vector of length 1.  A unit vector in the positive dire
 1
 \end{bmatrix}$ is parallel the $y$-axis.  
 
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (2,2);
   \draw[<->] (-1,0)--(2,0);
@@ -31,7 +31,7 @@ A \dfn{unit vector} is a vector of length 1.  A unit vector in the positive dire
   
   \draw[line width=1pt,-stealth, blue](0,0)--(0,1) node[above left]{$\vec{j}=\begin{bmatrix}0\\1\end{bmatrix}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 Vector names $\vec{i}$ and $\vec{j}$ are reserved for standard unit vectors in the direction of $x$ and $y$ axes, respectively.  We chose to express $\vec{i}$ and $\vec{j}$ as column vectors, instead of row vectors, because the context in which we will encounter them in the future will require them to be column vectors.  You may see them presented as row vectors in a different course.
 
@@ -50,7 +50,7 @@ There are three standard unit vectors in $\RR^3$: $$\vec{i}=\begin{bmatrix}
 1
 \end{bmatrix}$$
 
-\begin{image}[3in]
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-1,0,0)--(4,0,0) node[below left]{$y$};
@@ -65,7 +65,7 @@ There are three standard unit vectors in $\RR^3$: $$\vec{i}=\begin{bmatrix}
     \draw[->, line width=1pt,cyan, -stealth](0,0,0)--(0,3,0)node[below, right]{$\vec{k}=\begin{bmatrix}0\\0\\1\end{bmatrix}$};
    
     \end{tikzpicture}
-\end{image}
+\end{center}
 
 \subsection*{A Vector as a Linear Combination of Standard Unit Vectors} 
 Every vector in $\RR^2$ and $\RR^3$ can be written as a sum of scalar multiples of $\vec{i}$, $\vec{j}$ and $\vec{k}$.  For example, if $\vec{v}=\begin{bmatrix}
@@ -123,7 +123,7 @@ When working with vectors in $\RR^n$, we often use a different notation to denot
 
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:lincombijk1}
+\begin{problem}%\label{prob:lincombijk1}
 Express each of the following vectors as a linear combination of appropriate standard unit vectors.
   \begin{problem}\label{prob:lincombijk1a}
   $$\vec{u}=\begin{bmatrix}
@@ -154,7 +154,7 @@ $$\vec{u}=\answer{5}\vec{e}_1+\answer{-3}\vec{e}_2+\answer{1}\vec{e}_3+\answer{7
   \end{problem}
 \end{problem}
 
-\begin{problem}\label{prob:lincombijk2}
+\begin{problem}%\label{prob:lincombijk2}
 Express each given vector in component form.
   \begin{problem}\label{prob:lincombijk2a}
   $\vec{u}=\vec{i}+3\vec{j}$ is a vector in $\RR^2$.

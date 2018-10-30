@@ -1,5 +1,6 @@
 \documentclass{ximera}
 
+
 \author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0030:  Vector Arithmetic} \license{CC-BY 4.0}
 
 \input{../preamble.tex}
@@ -15,22 +16,22 @@
 
 \subsection*{Geometry of Scalar Multiplication} The product of vector $\vec{u}$ with a positive scalar $k$, is a vector $k\vec{u}$ that points in the same direction as $\vec{u}$, and whose length  is equal to the length of $\vec{u}$ multiplied by $k$. For example, the figure below shows vectors $\vec{u}$ and $2\vec{u}$.  The vectors point in the same direction but the magnitude of $2\vec{u}$ is twice the magnitude of $\vec{u}$.
 
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}
 \draw[line width=1pt,-stealth](-1,0)--(1,1)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth](-1,-1)--(3,1)node[below right]{$2\vec{u}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 If a vector $\vec{u}$ is multiplied by $-1$, the resulting vector is denoted by $-\vec{u}$.  It has the same length as vector $\vec{u}$, but points in the opposite direction.
 
-\begin{image}[0.8in]
+\begin{center}
 \begin{tikzpicture}
 \draw[line width=1pt,-stealth](-1,0)--(1,1)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth](1,0)--(-1,-1)node[below right]{$-\vec{u}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 
@@ -39,7 +40,7 @@ We know what scalar multiplication accomplishes geometrically.  Our goal now is 
 
 \begin{exploration}\label{init:scalarmult} Consider vector $\vec{u}=\begin{bmatrix}4\\2\end{bmatrix}$.  We will find an algebraic approach for multiplying $\vec{u}$ by $\frac{1}{2}$. 
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (5,3);
   \draw[<->] (-1,0)--(5,0);
@@ -47,11 +48,11 @@ We know what scalar multiplication accomplishes geometrically.  Our goal now is 
   
  \draw[line width=1pt,-stealth](0,0)--(4,2)node[above left]{$\vec{u}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 Consider $\vec{u}$ to be the hypotenuse of a right triangle.  
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (5,3);
   \draw[<->] (-1,0)--(5,0);
@@ -60,11 +61,11 @@ Consider $\vec{u}$ to be the hypotenuse of a right triangle.
  \draw[line width=1pt,-stealth](0,0)--(4,2)node[above left]{$\vec{u}$};
 %  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above left]{$[2,1]$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 The head of $\frac{1}{2}\vec{u}$ should be the midpoint of the hypotenuse.
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (5,3);
   \draw[<->] (-1,0)--(5,0);
@@ -73,11 +74,11 @@ The head of $\frac{1}{2}\vec{u}$ should be the midpoint of the hypotenuse.
  \draw[line width=1pt,-stealth](0,0)--(4,2)node[above left]{$\vec{u}$};
  \draw[line width=2pt,red,-stealth](0,0)--(2,1) node[above left]{$\frac{1}{2}\vec{u}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
-From geometry we know that if we drop perpendiculars from the midpoint of the hypotenuse to the two legs of the triangle, the perpendiculars will bisect the legs.
+From our study of similar triangles in geometry we know that if we drop perpendiculars from the midpoint of the hypotenuse to the two legs of the triangle, the perpendiculars will bisect the legs.
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (5,3);
   \draw[<->] (-1,0)--(5,0);
@@ -88,7 +89,7 @@ From geometry we know that if we drop perpendiculars from the midpoint of the hy
   \draw[line width=1pt,blue, dashed](2,1)--(2,0);
    \draw[line width=1pt,blue, dashed](2,1)--(4,1);
  \end{tikzpicture}
-\end{image}
+\end{center}
 This tells us that to find $x$ and $y$ components of $\frac{1}{2}\vec{u}$ we must multiply each component of $\vec{u}$ by $\frac{1}{2}$.
 $$\frac{1}{2}\vec{u}=(1/2)\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}(1/2)(4)\\(1/2)(2)\end{bmatrix}=\begin{bmatrix}2\\1\end{bmatrix}$$
 \end{exploration}
@@ -96,7 +97,7 @@ $$\frac{1}{2}\vec{u}=(1/2)\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}(1/2)(
 \begin{exploration}\label{init:negscalarmult} Consider vector $\vec{v}=\begin{bmatrix}3\\1\end{bmatrix}$
 It is clear that multiplying the components of $\vec{v}$ by $-1$ reverses the direction of $\vec{v}$ while preserving its magnitude.
 
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-4,-2) grid (4,2);
   \draw[<->] (-4,0)--(4,0);
@@ -105,7 +106,7 @@ It is clear that multiplying the components of $\vec{v}$ by $-1$ reverses the di
  \draw[line width=1pt,-stealth](0,0)--(3,1)node[above right]{$\vec{v}=\begin{bmatrix}3\\1\end{bmatrix}$};
   \draw[line width=2pt,red,-stealth](0,0)--(-3,-1) node[below left]{$-\vec{v}=\begin{bmatrix}-3\\-1\end{bmatrix}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 \end{exploration}
 
@@ -138,7 +139,7 @@ If $\vec{v}=k\vec{u}$ ($k\neq 0$), then $\vec{u}=\frac{1}{k}\vec{v}$, and we say
 There are two ways to add vectors geometrically.  
 \subsubsection*{``Head-to-Tail" Addition Method}
 Given vectors $\vec{v}$ and $\vec{u}$, we can find the sum $\vec{v}+\vec{u}$ by sliding $\vec{u}$ so as to place its tail at the head of vector $\vec{v}$.  The vector connecting the tail of $\vec{v}$ with the head of $\vec{u}$ is the sum $\vec{v}+\vec{u}$, as shown in the figure below.    
-\begin{image}[4in]
+\begin{center}
 \begin{tikzpicture}
 \draw[line width=1pt,-stealth,red](-1,-2)--(2,-3)node[below right]{$\vec{u}$};
 \draw[line width=1pt,-stealth, blue](-1,-1)--(3,1)node[above right]{$\vec{v}$};
@@ -152,7 +153,7 @@ Given vectors $\vec{v}$ and $\vec{u}$, we can find the sum $\vec{v}+\vec{u}$ by 
  \node[red] at (4.5, 2.8)   (a) {$\vec{u}$};
   \node[black] at (2.5, 1.2)   (a) {$\vec{v}+\vec{u}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 This sum can be interpreted as the total displacement that occurs when traveling along the two vectors starting at the tail of $\vec{v}$ and finishing at the head of $\vec{u}$.
 
@@ -162,7 +163,7 @@ Most of the time we deal with vectors in standard position.  So all vector tails
 
 Observe that if we slide vectors $\vec{u}$ and $\vec{v}$ so that their tails are together, the two vectors determine a parallelogram.  
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}
 \filldraw[blue, opacity=0.3](-1,1)--(2,0)--(6,2)--(3,3)--cycle;
  \draw[line width=0.5pt,blue,dashed](6,2)--(2,0);
@@ -177,11 +178,11 @@ Observe that if we slide vectors $\vec{u}$ and $\vec{v}$ so that their tails are
  
   
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 Opposite sides of a parallelogram are congruent and parallel.
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}
 \filldraw[blue, opacity=0.3](-1,1)--(2,0)--(6,2)--(3,3)--cycle;
  \draw[line width=1pt,-stealth, blue](2,0)--(6,2);
@@ -199,11 +200,11 @@ Opposite sides of a parallelogram are congruent and parallel.
  
   
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 Applying the ``head-to-tail" addition method shows that the sum $\vec{v}+\vec{u}$ is the diagonal of the parallelogram determined by $\vec{v}$ and $\vec{u}$.
 
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}
 \filldraw[blue, opacity=0.3](-1,1)--(2,0)--(6,2)--(3,3)--cycle;
 % \draw[line width=1pt,-stealth, blue](2,0)--(6,2);
@@ -219,27 +220,9 @@ Applying the ``head-to-tail" addition method shows that the sum $\vec{v}+\vec{u}
   \node[black] at (2.5, 1.2)   (a) {$\vec{v}+\vec{u}$};
   
  \end{tikzpicture}
-\end{image}
+\end{center}
 
-%\begin{image}[4in]
-%\begin{tikzpicture}
-%\draw[line width=1pt,-stealth,red](-1,-2)--(2,-3)node[below right]{$\vec{u}$};
-%\draw[line width=1pt,-stealth, blue](-1,-1)--(3,1)node[above right]{$\vec{v}$};
-% \end{tikzpicture}
-% \begin{tikzpicture}
-% \draw[line width=0.5pt,blue,dashed](6,2)--(2,0);
-%  \draw[line width=0.5pt,red, dashed](6,2)--(3,3);
- 
-%\draw[line width=1pt,-stealth,red](-1,1)--(2,0);
-%\draw[line width=1pt,-stealth, blue](-1,1)--(3,3);
-%\draw[line width=1pt,-stealth](-1,1)--(6,2);
 
- %\node[blue] at (1, 2.3)   (a) {$\vec{v}$};
- %\node[red] at (0.5, 0.2)   (a) {$\vec{u}$};
-  %\node[black] at (2.5, 1.2)   (a) {$\vec{u}+\vec{v}$};
-  
- %\end{tikzpicture}
-%\end{image}
 
 
 
@@ -250,7 +233,7 @@ We now know how to add vectors geometrically.  Our next goal is to translate thi
 \begin{exploration}\label{init:vectoradd} In this problem we will find the sum of $\vec{u}=\begin{bmatrix}5\\1\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}2\\3\end{bmatrix}$.
 
 
-\begin{image}[3.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (8,5);
   \draw[<->] (-1,0)--(8,0);
@@ -260,11 +243,11 @@ We now know how to add vectors geometrically.  Our next goal is to translate thi
  \draw[line width=1pt,red,-stealth](0,0)--(5,1) node[above left]{$\vec{u}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 To use ``head-to-tail" addition method, or to construct the side of a parallelogram opposite of $\vec{u}$, we want to slide $\vec{u}$ so that its tail is at the point $(2, 3)$. Observe that $\vec{u}$ has a ``run" of $5$ and a ``rise" of $1$.  If we start at $(2, 3)$, go over $5$ then up $1$, we will land on $(7, 4)$.
 
-\begin{image}[3.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (8,5);
   \draw[<->] (-1,0)--(8,0);
@@ -289,11 +272,11 @@ To use ``head-to-tail" addition method, or to construct the side of a parallelog
    \node[red] at (5.5, 0.5)   (b) {$+1$};
    \node[red] at (7.5, 3.5)   (b) {$+1$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 The sum $\vec{u}+\vec{v}$ is shown below.
 
-\begin{image}[3.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-1,-1) grid (8,5);
   \draw[<->] (-1,0)--(8,0);
@@ -305,7 +288,7 @@ The sum $\vec{u}+\vec{v}$ is shown below.
 \draw[line width=1pt,-stealth](0,0)--(7,4) node[above left]{$\vec{v}+\vec{u}=\begin{bmatrix}7\\4\end{bmatrix}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 We see that the components of $\vec{v}+\vec{u}$ can be found by adding the components of $\vec{v}$ and $\vec{u}$.
 $$\vec{v}+\vec{u}=\begin{bmatrix}2\\3\end{bmatrix}+\begin{bmatrix}5\\1\end{bmatrix}=\begin{bmatrix}7\\4\end{bmatrix}$$
 \end{exploration}
@@ -347,7 +330,7 @@ We can find the difference of two vectors by interpreting subtraction as ``addit
 $$\vec{v}-\vec{u}=\vec{v}+(-\vec{u})$$
 Vector subtraction has an interesting geometric interpretation.  As shown in the figure below, if $\vec{v}+\vec{u}$ is a diagonal of the parallelogram determined by $\vec{v}$ and $\vec{u}$, the difference $\vec{v}-\vec{u}$ is the other diagonal of the same parallelogram.
 
-\begin{image}[4.5in]
+\begin{center}
 \begin{tikzpicture}
 \filldraw[blue, opacity=0.3](-1,1)--(2,0)--(6,2)--(3,3)--cycle;
  \draw[line width=0.5pt,blue,dashed](6,2)--(2,0);
@@ -373,7 +356,7 @@ Vector subtraction has an interesting geometric interpretation.  As shown in the
  \node[red] at (0.5, 0.2)   (a) {$-\vec{u}$};
   \node[black] at (3.4, 1.5)   (a) {$\vec{v}+(-\vec{u})$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 \subsection*{Properties of Vector Addition and Scalar Multiplication}
   \begin{theorem}\label{th:vecproperties} The following properties hold for vectors $\vec{u}$, $\vec{v}$ and ${\bf w}$ in $\RR^n$ and scalars $k$ and $p$.
   \begin{enumerate}
@@ -478,7 +461,7 @@ v_n
  \begin{problem}\label{prob:sketchsumdiff}
 The figure below shows vectors $\vec{u}$ and $\vec{v}$.  Sketch each of the following in the same coordinate plane.
  
-\begin{image}[2.5in]
+\begin{center}
 \begin{tikzpicture}[scale=1]
 \draw[thin,gray!40] (-4,-3) grid (2,1);
   \draw[<->] (-4,0)--(2,0);
@@ -488,7 +471,7 @@ The figure below shows vectors $\vec{u}$ and $\vec{v}$.  Sketch each of the foll
  \draw[line width=1pt,red,-stealth](0,0)--(1,-2) node[below right]{$\vec{u}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
  \begin{enumerate}
   \item 
   $\vec{u}+\vec{v}$
@@ -501,7 +484,8 @@ The figure below shows vectors $\vec{u}$ and $\vec{v}$.  Sketch each of the foll
   \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:evaluatevectsumdiff} Let $$\vec{u}=\begin{bmatrix}-2\\1\\4\end{bmatrix},\quad\vec{v}\begin{bmatrix}3\\-1\\0\end{bmatrix}$$
+\begin{problem}%\label{prob:evaluatevectsumdiff} 
+Let $$\vec{u}=\begin{bmatrix}-2\\1\\4\end{bmatrix},\quad\vec{v}\begin{bmatrix}3\\-1\\0\end{bmatrix}$$
 Find each of the following
 \begin{problem}\label{prob:evaluatevectsumdiff1}
 $$2\vec{u}-\vec{v}=\begin{bmatrix}\answer{-7}\\\answer{3}\\\answer{8}\end{bmatrix}$$
