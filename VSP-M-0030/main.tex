@@ -37,10 +37,8 @@ $$\left[\begin{array}{c}
  5\\2
  \end{array}\right]
  \begin{array}{c}
- 
  \longleftarrow\\
  \longleftarrow
-
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}
@@ -48,11 +46,11 @@ $$\left[\begin{array}{c}
  
  Clearly, standard unit vectors $\vec{i}$ and $\vec{j}$ are very convenient, but other vectors can also be used in place of $\vec{i}$ and $\vec{j}$ to represent $\vec{u}$.
  
- \begin{exploration}
+ \begin{exploration}\label{init:altbasis1}
  The diagram below shows $\vec{u}$ together with vectors $\vec{w}_1$ and $\vec{w}_2$.
  
  
- \begin{image}[3in]
+ \begin{center}
 \begin{tikzpicture}[scale=0.6]
 \draw[thin,gray!40] (-6,-2) grid (6,6);
   \draw[<->] (-6,0)--(6,0);
@@ -63,13 +61,13 @@ $$\left[\begin{array}{c}
   \draw[line width=2pt,blue,-stealth](0,0)--(4,1) node[below right]{$\vec{w}_2$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
  
 
-Using Procedure \ref{pro:lincombgeo} of VEC-M-0040, we can determine that 
+Using Procedure \ref{pro:lincombgeo} of VEC-0040, we can determine that 
 $$\vec{u}=2\vec{w}_1+\vec{w}_2$$
 as shown below.
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}[scale=0.6]
 \draw[thin,gray!40] (-6,-2) grid (6,6);
   \draw[<->] (-6,0)--(6,0);
@@ -84,7 +82,7 @@ as shown below.
    \draw[line width=1pt,blue,dashed](0,0)--(-2,4);
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 If, for the sake of argument, we declare $\{\vec{w}_1, \vec{w}_2\}$ to be a basis of $\RR^2$, then we can say that the coordinate vector for $\vec{u}$ with respect to $\{\vec{w}_1, \vec{w}_2\}$ is 
 $\begin{bmatrix}2\\1\end{bmatrix}$ .
@@ -93,10 +91,8 @@ $$\left[\begin{array}{c}
  2\\1
  \end{array}\right]
  \begin{array}{c}
- 
  \longleftarrow\\
  \longleftarrow
-
  \end{array}
 \begin{array}{c}  
  \mbox{coefficient in front of the first basis element }\\\mbox{coefficient in front of the second basis element}
@@ -107,13 +103,11 @@ $$\left[\begin{array}{c}
 
 In the previous section we had used the term \dfn{basis} without defining it.  Now is the time to pause and think about what we {\it want} a basis to do.  Let's focus on $\RR^n$ and subspaces of $\RR^n$.  What we establish here will easily generalize to other vector spaces.  
 
-% I changed "an arbitrary" to "any" to emphasize the need for a basis to span a vector space
-
 Based on our previous discussion, given any vector $\vec{v}$ of $\RR^n$ (or a subspace $V$ of $\RR^n$), we want to be able to write a coordinate vector for $\vec{v}$ with respect to the given basis of $\RR^n$ (or $V$).  Based on this condition, we will require that basis vectors span $\RR^n$ (or $V$).
 
 For example, consider $\vec{w}_1$ and $\vec{w}_2$ shown below.  
 
-\begin{image}
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
@@ -130,7 +124,7 @@ For example, consider $\vec{w}_1$ and $\vec{w}_2$ shown below.
     %\draw[line width=1pt,red, dashed](4,0,0)--(4,2,0);
     %\draw[->, line width=2pt, -stealth](0,0,0)--(4,6,5)node[above left]{$\begin{bmatrix}5\\4\\6\end{bmatrix}$};
     \end{tikzpicture}
-\end{image}
+\end{center}
 The set $\{\vec{w}_1, \vec{w}_2\}$ cannot be a basis for $\RR^3$ because $\vec{w}_1$ and $\vec{w}_2$ span a plane in $\RR^3$, and any vector not in that plane cannot be written as a linear combination of $\vec{w}_1$ and $\vec{w}_2$.
 
 On the other hand, the plane spanned by $\vec{w}_1$ and $\vec{w}_2$ is a subspace of $\RR^3$.  Because every vector in that plane can be written as a linear combination of $\vec{w}_1$ and $\vec{w}_2$, the set $\{\vec{w}_1, \vec{w}_2\}$ can potentially be a basis for the plane, provided that the set satisfies our second requirement.
@@ -165,7 +159,7 @@ This proves the representation of $\vec{v}$ in terms of $\vec{w}_1, \vec{w}_2,\l
 
 \end{proof}
 
-\begin{example}
+\begin{example}\label{ex:lindepandbasis}
 Use $V=\mbox{span}(\mathcal{S})$, where $\mathcal{S}=\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$ to illustrate why a set of linearly dependent vectors cannot be used as a basis for a subspace by showing that linearly dependent vectors fail to ensure uniqueness of coordinate vectors  for vectors in $V$.
 \begin{explanation}
 We will first show that the elements of $\mathcal{S}$ are linearly dependent.  Let $A$ be a matrix whose columns are the vectors in $\mathcal{S}$.
@@ -193,31 +187,7 @@ The set $\mathcal{S}$ is linearly dependent.  As a result, coordinate vectors fo
 \end{explanation}
 \end{example}
 
-%\begin{example}
-%Let $V=\mbox{span} (\mathcal{S}$) where $\mathcal{S}=\left\{\begin{bmatrix}5\\2\\4\end{bmatrix},\begin{bmatrix}4\\1\\1\end{bmatrix},\begin{bmatrix}-3\\0\\2\end{bmatrix}\right\}$.  Show that $\mathcal{S}$ cannot be a basis of $V$.
 
-
-%\begin{explanation}\label{rref} 
-%Perhaps you noticed there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$.  For example, 
-%\begin{equation}\begin{bmatrix}1\\1\\3\end{bmatrix}=\begin{bmatrix}5\\2\\4\end{bmatrix}+ (-1)\begin{bmatrix}4\\1\\1\end{bmatrix}+0\begin{bmatrix}-3\\0\\2\end{bmatrix} \quad
-%and 
-%\quad \begin{bmatrix}1\\1\\3\end{bmatrix}=0\begin{bmatrix}5\\2\\4\end{bmatrix}+ \begin{bmatrix}4\\1\\1\end{bmatrix}+\begin{bmatrix}-3\\0\\2\end{bmatrix}\end{equation}\label{two_ways}
-%This shows that if we had mistakenly used $\mathcal{S}$ as a basis for $V$, the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$ would not have a unique coordinate vector with respect to the proposed basis.  Indeed, from the equations in \ref{two_ways}, we may arrive at these coordinate vectors with respect to $\mathcal{S}$:
-%$$\begin{bmatrix}1\\-1\\0\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{1}\end{bmatrix}$$
-
-%Since it is difficult to expect that we will ``notice'' that there is more than one way to represent the vector $\begin{bmatrix}1\\1\\3\end{bmatrix}$, the better way to proceed is to make use of Theorem \ref{th:linindbasis}.  We will check to see whether or not the set $\mathcal{S}$ is linearly independent.  To this end, we write the vectors in $\mathcal{S}$ as the columns of a matrix $A$, and apply our row operations until it is in reduced row-echelon form.
-
-%$$A=\left[\begin{array}{ccc}  
-% 5&4&-3\\2&1&0\\4&1&2
-% \end{array}\right], \quad \mbox{rref}(A) = \left[\begin{array}{ccc}  
-% 1&0&1\\0&1&-2\\0&0&0
-% \end{array}\right]
-%$$
-
-%When we studied linear independence in Module {\color{red} reference}, we learned that such a calculation shows that the vectors in $\mathcal{S}$ are linearly dependent.  Therefore, by Theorem \ref{th:linindbasis}, there is not a unique representation of $\begin{bmatrix}1\\1\\3\end{bmatrix}$ as a linear combination of the vectors in $\mathcal{S}$.
-
-%\end{explanation}
-%\end{example}
 
 
 \subsection*{Definition of a Basis}
@@ -232,14 +202,14 @@ Is linearly independent
 \end{enumerate}
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:standardbasis}
 The standard unit vectors $\vec{e}_1, \ldots ,\vec{e}_n$ are linearly independent and span $\RR^n$.  Thus $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is a basis of $\RR^n$.
 \end{example}
 
-\begin{definition} The set $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is called the \dfn{standard basis} of $\RR^n$.
+\begin{definition}\label{def:standardbasis} The set $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is called the \dfn{standard basis} of $\RR^n$.
 \end{definition}
 
-Bases are not unique.  For example, we know that vectors $\vec{i}$ and $\vec{j}$ form the standard basis of $\RR^2$.  But, as we discussed in Example \ref{ex:spanr2} of VEC-M-0090, vectors 
+Bases are not unique.  For example, we know that vectors $\vec{i}$ and $\vec{j}$ form the standard basis of $\RR^2$.  But, as we discussed in Example \ref{ex:spanr2} of VEC-0090, vectors 
 $$\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}$$
 are linearly independent vectors that span $\RR^2$.  Therefore $$\left\{\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right\}$$
 is also a basis for $\RR^2$.
@@ -274,7 +244,7 @@ Any linearly independent spanning set in $\RR^n$ (or a subspace of $\RR^n$) is a
 % \end{explanation}
 % \end{example}
 
-\begin{example}
+\begin{example}\label{ex:coordvectorandbasis}
 Let $V=\mbox{span}\left(\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right)$.  The set $$\mathcal{B}=\left\{\begin{bmatrix}-2\\1\\3\end{bmatrix},\begin{bmatrix}2\\-4\\1\end{bmatrix}\right\}$$ is a basis for $V$ because the two vectors in $\mathcal{B}$ are linearly independent and span $V$.  Find the coordinate vector for $\vec{v}=\begin{bmatrix}2\\-10\\9\end{bmatrix}$ with respect to $\mathcal{B}$.
 \begin{explanation}
 We need to express $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ as a linear combination of the elements of $\mathcal{B}$.  To this end, we need to solve the vector equation:
@@ -297,37 +267,37 @@ We need to express $\begin{bmatrix}2\\-10\\9\end{bmatrix}$ as a linear combinati
 \section*{Practice Problems}
 \begin{problem}
 Let $\mathcal{B}=\left\{\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}-1\\2\end{bmatrix}\right\}$ be a basis for $\RR^2$.  (Do a mental verification that $\mathcal{B}$ is a basis.)  For each $\vec{v}$ given below, find the coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$.
-  \begin{problem}
+  \begin{problem}\label{prob:coordvect1}
  Vector $\vec{v}$. 
-  \begin{image}[2in]
+  \begin{center}
 \begin{tikzpicture}[scale=0.6]
 \draw[thin,gray!40] (-4,-2) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
   \draw[<->] (0,-2)--(0,4);
    \draw[line width=2pt,red,-stealth](0,0)--(-3,0) node[above left]{$\vec{v}$};
    \end{tikzpicture}
-\end{image}
+\end{center}
 
 Answer:
 $$\begin{bmatrix}\answer{-2}\\\answer{1}\end{bmatrix}$$
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:coordvect2}
   Vector $\vec{v}$.
-  \begin{image}[1.5in]
+  \begin{center}
 \begin{tikzpicture}[scale=0.6]
 \draw[thin,gray!40] (-1,-1) grid (4,8);
   \draw[<->] (-1,0)--(4,0);
   \draw[<->] (0,-1)--(0,8);
    \draw[line width=2pt,red,-stealth](0,0)--(1,7) node[above left]{$\vec{v}$};
    \end{tikzpicture}
-\end{image}
+\end{center}
 Answer:
 $$\begin{bmatrix}\answer{3}\\\answer{2}\end{bmatrix}$$
   \end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:coordvect3}
 Let $\mathcal{B}=\left\{\begin{bmatrix}1\\-1\\3\end{bmatrix},\begin{bmatrix}2\\1\\-1\end{bmatrix}\right\}$ be a basis for 
 $\mbox{span}\left(\begin{bmatrix}1\\-1\\3\end{bmatrix},\begin{bmatrix}2\\1\\-1\end{bmatrix}\right)$.  Find the coordinate vector for $\begin{bmatrix}-4\\-2\\2\end{bmatrix}$ with respect to $\mathcal{B}$.
 
@@ -335,14 +305,14 @@ Answer:
 $$\begin{bmatrix}\answer{0}\\\answer{-2}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:coordvect4}
 Suppose $\mathcal{B}=\left\{\begin{bmatrix}1\\1\\1\end{bmatrix},\begin{bmatrix}1\\0\\1\end{bmatrix}, \vec{w}\right\}$ is a basis for $\RR^3$.  Find $\vec{w}$ if the coordinate vector for $\begin{bmatrix}-2\\-7\\4\end{bmatrix}$ is $\begin{bmatrix}-1\\2\\-3\end{bmatrix}$.
 
 Answer:
 $$\begin{bmatrix}\answer{1}\\\answer{2}\\\answer{-1}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:basisr2}
 
 Which of the following is a basis for $\RR^2$? 
 
@@ -354,7 +324,7 @@ Which of the following is a basis for $\RR^2$?
   \end{selectAll}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:basisarbitraryspace}
 
 Which of the following is a basis for $V=\mbox{span}\left(\begin{bmatrix}1\\1\\1\end{bmatrix}, \begin{bmatrix}1\\-2\\1\end{bmatrix}\right)$? 
 
