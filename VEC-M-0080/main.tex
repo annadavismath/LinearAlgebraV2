@@ -10,14 +10,14 @@
 \end{abstract}
 \maketitle
 \section*{VEC-0080:  Cross Product and its Properties}
-In Module VEC-M-0050 we introduced the \dfn{dot product}, one of two important products for vectors.  We will now introduce the second type of product, called the \dfn{cross product}.  There are several important distinctions to keep in mind.  First, the dot product is defined for two vectors of $\RR^n$, for any  natural number $n$; the cross-product will only be defined for vectors of $\RR^3$.  Second, the dot product is a scalar; the cross product of two vectors will be a vector.  Finally, we will find that unlike the dot product, the cross product is not commutative.  
+In Module VEC-0050 we introduced the \dfn{dot product}, one of two important products for vectors.  We will now introduce the second type of product, called the \dfn{cross product}.  There are several important distinctions to keep in mind.  First, the dot product is defined for two vectors of $\RR^n$, for any  natural number $n$; the cross-product will only be defined for vectors of $\RR^3$.  Second, the dot product is a scalar; the cross product of two vectors will be a vector.  Finally, we will find that unlike the dot product, the cross product is not commutative.  
 
-The cross product has many applications in physics and engineering.  It also has important geometric properties which will be addressed in this module and in DET-M-0070.
+The cross product has many applications in physics and engineering.  It also has important geometric properties which will be addressed in this module and in DET-0070.
 
 \subsection*{Preliminaries}
 In order to define the cross product in a convenient way we need to define $2\times 2$ and $3\times 3$ determinants.  If you know how to find such determinants you may skip this section and proceed directly to the definition.
 
-\begin{definition}[$2\times 2$ Determinat]
+\begin{definition}[$2\times 2$ Determinat]\label{def:twodetcrossprod}
 A $2\times 2$ \dfn{determinant} is a number associated with a $2\times 2$ matrix
 
 $$\det{\begin{bmatrix}
@@ -30,14 +30,14 @@ c & d
 
 \end{definition}
 
-\begin{example} 
+\begin{example} \label{ex:twodetcrossprod}
 $$\begin{vmatrix}
 2 & 4\\
 -5 & 3
 \end{vmatrix} =(2)(3)-(4)(-5)=6+20=26$$
 \end{example}
 
-\begin{definition}[$3\times 3$ Determinat]
+\begin{definition}[$3\times 3$ Determinat]\label{def:threedetcrossprod}
 A $3\times 3$ \dfn{determinant} is a number associated with a $3\times 3$ matrix
 $$\det{\begin{bmatrix}
 a_1 & a_2 & a_3\\
@@ -64,7 +64,7 @@ c_1 & c_2
 $$
 \end{definition}
 
-\begin{example} 
+\begin{example} \label{ex:threedetcrossprod}
 \begin{align*}
 \begin{vmatrix}
 4 & 2 & 1\\
@@ -256,7 +256,7 @@ $$\norm{\vec{u}\times\vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin\theta$$
 
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:crossik}
 $\vec{i}\times\vec{k}=$
 \begin{multipleChoice}\choice{$\vec{j}$}
   \choice[correct]{$-\vec{j}$ }
@@ -264,7 +264,7 @@ $\vec{i}\times\vec{k}=$
   \end{multipleChoice}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:crosski}
 $\vec{k}\times\vec{i}=$
 \begin{multipleChoice}\choice[correct]{$\vec{j}$}
   \choice{$-\vec{j}$ }
@@ -274,14 +274,14 @@ $\vec{k}\times\vec{i}=$
 
 \begin{problem} Find the cross product $\vec{u}\times\vec{v}$, and verify that $\vec{u}\times\vec{v}$ is orthogonal to both $\vec{u}$ and $\vec{v}$.
 
-\begin{problem}
+\begin{problem}\label{prob:crossuv1}
 $\vec{u}=\begin{bmatrix}2\\-1\\4\end{bmatrix}$, $\vec{v}=\begin{bmatrix}0\\3\\1\end{bmatrix}$.
 
 Answer:
 $$\vec{u}\times\vec{v}=\begin{bmatrix}\answer{-13}\\\answer{-2}\\\answer{6}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:crossuv2}
 $\vec{u}=\begin{bmatrix}-1\\5\\-3\end{bmatrix}$, $\vec{v}=\begin{bmatrix}2\\-1\\-4\end{bmatrix}$.
 
 Answer:
@@ -313,7 +313,7 @@ Prove Theorem \ref{th:crossproductorthtouandv}.
 Prove that the cross product of any vector with itself is the zero vector.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:crossprodzero}
 Suppose that $\vec{u}$ is a non-zero vector.  Let $\vec{v}=k\vec{u}$ for $k\neq 0$.  Argue that $\vec{u}\times \vec{v}=\vec{0}$ in two different ways:
 \begin{enumerate}
 \item
