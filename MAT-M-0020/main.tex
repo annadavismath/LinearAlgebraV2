@@ -27,7 +27,7 @@ $$A\vec{b}=\begin{bmatrix}
          \end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=\begin{bmatrix}a_{11}b_1+a_{12}b_2+\ldots +a_{1n}b_n\\a_{21}b_1+a_{22}b_2+\ldots +a_{2n}b_n\\\vdots\\a_{m1}b_1+a_{m2}b_2+\ldots +a_{mn}b_n\end{bmatrix}$$
 \end{definition}
 The following example illustrates the pattern of matrix-vector multiplication.
-\begin{example}Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{b}$.
+\begin{example}\label{ex:matrixvectormultdef} Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{b}$.
 \begin{explanation}
 $$A\vec{b}=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$
 We will compute the product one entry at a time.  First, let's focus on the first row of $A$.
@@ -61,7 +61,7 @@ $$A\vec{b}=\begin{bmatrix}-&\vec{v}_1&-\\-&\vec{v}_2&-\\ &\vdots & \\-&\vec{v}_n
 
 Let's find another matrix-vector product.
 
-\begin{example}
+\begin{example}\label{ex:matrixvectormultpractice}
 Let $$A=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}-3\\5\end{bmatrix}
 $$
 Find $A\vec{b}$.
@@ -94,7 +94,7 @@ then the $(i,j)$-entry of $AB$ is given by
 \begin{equation}\label{eq:ijentrymatrixproduct}a_{i1}b_{1j}+a_{i2}b_{2j}+\dots +a_{in}b_{nj}=\sum_{k=1}^na_{ik}b_{kj}
 \end{equation}
 
-\begin{example}
+\begin{example}\label{ex:matmatproduct}
 Let $$A=\begin{bmatrix}3 & 2 & -1 & 1\\0 & 3 & 1 & 1\\1 & 4 & -1 & 0\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}1 & -2 \\-1 & 4 \\2 & 3 \\2 & 0\end{bmatrix}$$
 Find $AB$.
 
@@ -108,7 +108,7 @@ AB&=\begin{bmatrix}3 & 2 & -1 & 1\\0 & 3 & 1 & 1\\1 & 4 & -1 & 0\end{bmatrix}\be
 \end{explanation}
 \end{example}
 
-\begin{example} Let
+\begin{example}\label{ex:matmatproduct2} Let
 $$A=\begin{bmatrix}-2 & 1\\3 & 0\\1 & -3\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}4 & -2 & 3 & -2 &2\\1 & -3 & 1 & 1 &0\end{bmatrix}$$
 Find $AB$
 \begin{explanation}
@@ -119,8 +119,9 @@ $$AB=\begin{bmatrix}-2 & 1\\3 & 0\\1 & -3\end{bmatrix}\begin{bmatrix}4 & -2 & 3 
 \end{example}
 
 \subsection*{Properties of Matrix Multiplication}
-{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticMultiplicationProperties.tex hyperlink ref needed}
-\begin{exploration}Let $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}5&6\\7&8\end{bmatrix}$$
+%{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticMultiplicationProperties.tex hyperlink ref needed}
+\begin{exploration}\label{init:matmultnotcomm}
+Let $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}5&6\\7&8\end{bmatrix}$$
 Observe that both $AB$ and $BA$ are defined, and both products are $2\times 2$ matrices.  Let's compute the two products
 $$AB=\begin{bmatrix}19&22\\43&50\end{bmatrix}\quad\text{and}\quad BA=\begin{bmatrix}23&34\\31&46\end{bmatrix}$$
 Clearly $AB\neq BA$. We say that $A$ and $B$ \dfn{do not commute}.
@@ -155,7 +156,7 @@ $$k(AB)=(kA)B=A(kB)$$
 $$AI=IA=A$$
 \end{enumerate}
 \end{theorem}
-We will prove Properties \ref{item:matrixproperties1} and \ref{item:identitymatrix}.  The remaining properties are left to the reader.
+We will prove Properties \ref{item:matrixproperties1} and \ref{item:identitymatrix}.  The remaining properties are left to the reader. See Practice Problems \ref{prob:matrixproperties2} and \ref{prob:matrixproperties3}.
 \begin{proof}[Proof of Property~\ref{item:matrixproperties1}:]
 We will prove this statement using expression in (\ref{eq:ijentrymatrixproduct}) for the $(i,j)$-entry of a matrix product. The $(i,j)$-entry of $A(B+C)$ is given by
 
@@ -249,17 +250,17 @@ $$-2\begin{bmatrix} -2\\4\end{bmatrix}+5\begin{bmatrix} 3\\-1\end{bmatrix}=\begi
 
 \section*{Practice Problems}
 
-\begin{problem} Explain why the following product is not defined.
+\begin{problem}\label{prob:matprodundefined} Explain why the following product is not defined.
 $$\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}\begin{bmatrix}1\\2\\3\\4\end{bmatrix}$$
 \end{problem}
 
 \begin{problem}
 Predict the dimensions of each product.
-\begin{problem}
+\begin{problem}\label{prob:matproddim1}
 $$\begin{bmatrix}1&2&3\end{bmatrix}\begin{bmatrix}4\\5\\6\end{bmatrix}$$
 Dimensions of product: $\answer{1}\times \answer{1}$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:matproddim2}
 $$\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}$$
 Dimensions of product: $\answer{3}\times \answer{4}$
 \end{problem}
@@ -267,33 +268,33 @@ Dimensions of product: $\answer{3}\times \answer{4}$
 
 \begin{problem}
 Find each product.
-\begin{problem}
+\begin{problem}\label{prob:matprod1}
 $$\begin{bmatrix}1&3&-2&1\\-2&1&0&4\end{bmatrix}\begin{bmatrix}4\\-2\\1\\1\end{bmatrix}=\begin{bmatrix}\answer{-3}\\\answer{-6}\end{bmatrix}$$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:matprod2}
 $$\begin{bmatrix}1&2&3\end{bmatrix}\begin{bmatrix}-1&2&-3&1\\1&1&-1&-2\\0&1&2&1\end{bmatrix}=\begin{bmatrix}\answer{1}&\answer{7}&\answer{1}&\answer{0}\end{bmatrix}$$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:matprod3}
 $$\begin{bmatrix}1&2\\-1&0\\2&3\\-4&-1\end{bmatrix}\begin{bmatrix}-1&1\\2&-3\end{bmatrix}=\begin{bmatrix}\answer{3}&\answer{-5}\\\answer{1}&\answer{-1}\\\answer{4}&\answer{-7}\\\answer{2}&\answer{-1}\end{bmatrix}
 $$
 \end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:matrixproperties2}
 Prove Properties \ref{item:matrixproperties2} and \ref{item:matrixproperties4} of Theorem \ref{th:propertiesofmatrixmultiplication}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:matrixproperties3}
 Prove Property \ref{item:matrixproperties3} of Theorem \ref{th:propertiesofmatrixmultiplication}.  This proof can be done by comparing the $(i,j)$-entries on both sides of the equal sign.  (If you find that the notation is a nightmare, an alternative proof will be presented later in Theorem \ref{th:associativematrixmult}.)
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lincombcols}
 Express the given product as a linear combination of the columns of the matrix.
 $$\begin{bmatrix}1&2&3&4\\5&6&7&8\end{bmatrix}\begin{bmatrix}-2\\3\\-5\\7\end{bmatrix}=\answer{-2}\begin{bmatrix}1\\5\end{bmatrix}+\answer{3}\begin{bmatrix}2\\6\end{bmatrix}+\answer{-5}\begin{bmatrix}3\\7\end{bmatrix}+\answer{7}\begin{bmatrix}4\\8\end{bmatrix}$$
 \end{problem}
 
 \section*{Text Source}
-The section on Properties of Matrix Multiplication is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}.
+The section on Properties of Matrix Multiplication is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 67-68.
 
