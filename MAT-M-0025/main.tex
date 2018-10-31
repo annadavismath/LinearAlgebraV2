@@ -15,7 +15,7 @@
 \section*{MAT-0025:  Transpose of a Matrix}
 
 
-{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticTranspose.tex hyperlink ref needed}
+%{\color{red} This section was adopted from Kuttler matricesMatrixArithmeticTranspose.tex}
 
 Another important operation on matrices is that of taking the \dfn{transpose}. For a matrix $A$, we denote the
 \dfn{transpose of $A$} by $A^T$. Before formally defining the transpose, we explore this
@@ -169,15 +169,15 @@ $$\begin{bmatrix}2&0&0&0\\0&-3&0&0\\0&0&1&0\\0&0&0&4\end{bmatrix}$$
 \section*{Practice Problems}
 
 
-\begin{problem} Prove Properties \ref{item:transoftrans}, \ref{item:matrixtranspose2} and \ref{item:matrixtranspose3} of Theorem \ref{th:transposeproperties}.
+\begin{problem}\label{prob:transpropsproofs} Prove Properties \ref{item:transoftrans}, \ref{item:matrixtranspose2} and \ref{item:matrixtranspose3} of Theorem \ref{th:transposeproperties}.
 \end{problem}
 
-\begin{problem} Let $A$ be an arbitrary matrix.  What can you say about the dimensions of the product $A^TA$?
+\begin{problem}\label{prob:ATtimesAdimensions} Let $A$ be an arbitrary matrix.  What can you say about the dimensions of the product $A^TA$?
 \end{problem}
 
 \begin{problem}
 Classify each matrix as symmetric, skew symmetric, or neither.
-\begin{problem}
+\begin{problem}\label{prob:symmetricclassification1}
 $$\begin{bmatrix}
 0 & -1 & -3\\
 1 & -1 & -2\\
@@ -189,7 +189,7 @@ $$\begin{bmatrix}
      \choice[correct]{Neither}
    \end{multipleChoice}
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:symmetricclassification2}
 $$\begin{bmatrix}
 0 & 1 & -3\\
 -1 & 0 & -2\\
@@ -202,7 +202,7 @@ $$\begin{bmatrix}
    \end{multipleChoice}
 
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:symmetricclassification3}
 $$\begin{bmatrix}
 1 & 1 & 3\\
 1 & -1 & 2\\
@@ -216,14 +216,16 @@ $$\begin{bmatrix}
 \end{problem}
 \end{problem}
 
-\begin{problem}Give your own example of a $4\times 4$ skew symmetric matrix.
+\begin{problem}\label{prob:4by4symmetricex}
+Give your own example of a $4\times 4$ skew symmetric matrix.
 \end{problem}
 
-\begin{problem} Make a conjecture about the main diagonal entries of a skew symmetric matrix.  Prove your conjecture.
+\begin{problem} \label{prob:maindiagskewsymm}
+Make a conjecture about the main diagonal entries of a skew symmetric matrix.  Prove your conjecture.
 \end{problem}
 
 \section*{Text Source}
-The text in this module is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}.
+The text in this module is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 68-70.
 
