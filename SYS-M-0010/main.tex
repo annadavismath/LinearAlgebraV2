@@ -14,15 +14,12 @@
 \section*{SYS-0010:  Introduction to Systems of Linear Equations}
 You have certainly studied linear equations for many years now.  Perhaps the easiest way to characterize linear equations is that they are polynomial equations where each term is either a constant or has degree 1.
 
-\begin{definition}
+\begin{definition}\label{def:lineq}
 A \dfn{linear equation} in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
 $$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
 where $a_1,\ldots ,a_n$ and $b$ are constants.
 \end{definition}
 
-
-
-% An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.
 
 An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.  In $\RR^n$ for $n>3$, we say that the graph of a linear equation is a \dfn{hyperplane}. A hyperplane cannot be visualized, but we can still talk about intersections of hyperplanes and their other attributes in algebraic terms.  
 
@@ -255,7 +252,7 @@ $$\begin{array}{ccccc}
 Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1, 2)$ is a solution to both equations, so it must lie on both lines.
   The graph below shows the two lines intersecting at $(-1, 2)$.    
     
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-4,-4) grid (4,5);
   \draw[<->] (-4,0)--(4,0);
@@ -264,11 +261,11 @@ Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1,
  \draw[line width=2pt,blue](-4, -4)--(0.5,5) node[below right]{$2x-y=-4$};
  \draw[line width=2pt,red](3, -4)--(-3,5) node[below left]{$3x+2y=1$};
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 Given a system of two equations with two unknowns, there are three possible geometric outcomes.  First, the graphs of the two equations intersect at a point.  If this is the case, the system has exactly one solution. We say that the system is \dfn{consistent} and has a \dfn{unique solution}.  
 
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 
   \draw[<->] (-4,0)--(4,0);
@@ -278,9 +275,9 @@ Given a system of two equations with two unknowns, there are three possible geom
  \draw[line width=1pt](3, -4)--(1,4);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 Second, the two lines may have no points in common.  If this is the case, the system has no solutions.  We say that the system is \dfn{inconsistent}.  
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 
   \draw[<->] (-4,0)--(4,0);
@@ -290,9 +287,9 @@ Second, the two lines may have no points in common.  If this is the case, the sy
  \draw[line width=1pt](-4, -2)--(4,3);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 Finally, the two lines may coincide.  In this case, there are infinitely many points that satisfy both equations simultaneously.  We say that the system is consistent and has infinitely many solutions.
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 
   \draw[<->] (-4,0)--(4,0);
@@ -302,7 +299,7 @@ Finally, the two lines may coincide.  In this case, there are infinitely many po
  
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 \begin{example}\label{ex:systwoeqs2} Solve the system of equations and interpret your results geometrically.
@@ -317,7 +314,7 @@ $$\begin{array}{ccccc}
 	 0x& -&0y&=&11
     \end{array}$$
 It is clear, however, that there are no values of $x$ and $y$ that would satisfy the second equation.  We conclude that the system is inconsistent.  Plotting the two lines in the same coordinate plane shows that the two lines are parallel.  
-    \begin{image}[2in]
+    \begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
@@ -327,11 +324,11 @@ It is clear, however, that there are no values of $x$ and $y$ that would satisfy
  \draw[line width=2pt,red](-0.75, -4)--(3.25,4) node[below right]{$4x-2y=5$};
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 \end{explanation}
 \end{example}
 
-\begin{example} Solve the system of equations and interpret your results geometrically.
+\begin{example}\label{ex:systwoeqs3infmany} Solve the system of equations and interpret your results geometrically.
 $$\begin{array}{ccccc}
       4x & +&3y&= &2 \\
 	 x& +&\frac{3}{4}y&=&\frac{1}{2}
@@ -350,7 +347,7 @@ Unlike the situation in Example \ref{ex:systwoeqs2}, there are values of $x$ and
 When we plot the two equations of the original system, we find that the two lines coincide.
 
 
-    \begin{image}[2.5in]
+    \begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-4,-4) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
@@ -361,13 +358,13 @@ When we plot the two equations of the original system, we find that the two line
  
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 \end{explanation}
 \end{example}
 
 Given a linear system in two variables and more than two equations, we have a variety of geometric possibilities.  Three of them are depicted below.  First, it is possible for the graphs of all equations in the system to intersect at a single point, giving us a unique solution.  
 
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=.5]
 
   \draw[<->] (-4,0)--(4,0);
@@ -378,11 +375,11 @@ Given a linear system in two variables and more than two equations, we have a va
  \draw[line width=1pt](1, 4)--(4,-2);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 Second, it is possible for the graphs to have no points in common.
 
-%\begin{image}[3in]
+%\begin{center}[3in]
 \begin{center}
 \begin{tikzpicture}[scale=.5]
 
@@ -405,7 +402,7 @@ Second, it is possible for the graphs to have no points in common.
     
 \end{tikzpicture}
 \end{center}
-%\end{image}
+%\end{center}
 If this is the case, the system is inconsistent.
 \subsection*{Geometry of Linear Systems in Three Variables}
 In Example \ref{ex:threeeqthreevars1} we solved the following linear system of three equations and three unknowns
@@ -416,7 +413,7 @@ $$\begin{array}{ccccccc}
     \end{array}$$
 We found that the system has a unique solution $(1, 2, -1)$.  The graph of each equation is a plane.  The three planes intersect at a single point, as shown in the figure.
     
-\begin{image}[2.5in]   
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
 	\draw[->](-1,0,0)--(4,0,0) ;
@@ -434,12 +431,12 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
     
 \end{tikzpicture}
 
-\end{image}
+\end{center}
 
 
 Given a linear system of three equations and three variables, there are three ways in which the system can be consistent.
 First, the three planes could intersect at a single point, giving us a unique solution.
-\begin{image}[1.5in]
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}
 \filldraw[blue, opacity=0.3](0,0,0)--(2,0,0)--(2,2,0)--(0,2,0)--cycle;
@@ -447,9 +444,9 @@ First, the three planes could intersect at a single point, giving us a unique so
 \filldraw[gray, opacity=0.5] (0,0,0)--(0,0,2)--(2,0,2)--(2,0,0)--cycle;
 \fill[] (0,0,0) circle (0.1cm);
     \end{tikzpicture}
-    \end{image}
+    \end{center}
     Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
-    \begin{image}[2in]
+    \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
 \filldraw[blue, opacity=0.3](0,-2,2)--(0,2,2)--(0,2,-2)--(0,-2,-2)--cycle;
@@ -457,17 +454,17 @@ First, the three planes could intersect at a single point, giving us a unique so
 \filldraw[gray, opacity=0.5] (2,1,2)--(2,1,-2)--(-2,-1,-2)--(-2,-1,2)--cycle;
 \draw[-](0,0,-2)--(0,0,2) ;
      \end{tikzpicture}
-     \end{image}
+     \end{center}
      Finally, the three planes can coincide.  If this is the case, there are infinitely many solutions.
-     \begin{image}[1.8in]
+     \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
 \filldraw[gray, opacity=0.5] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (1.5,0,1.5)--(-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--cycle;
 \filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;    	\end{tikzpicture}
-\end{image}
+\end{center}
 There are four ways for a system to be inconsistent.  They are depicted below.
-%\begin{image}[4in]
+%\begin{center}[4in]
 \begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.5]
@@ -492,7 +489,7 @@ There are four ways for a system to be inconsistent.  They are depicted below.
 \filldraw[red, opacity=0.3] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
 \filldraw[blue, opacity=0.3] (2,-1.2,2)--(-2,-1.2,2)--(-2,-1.2,-2)--(2,-1.2,-2)--cycle;
 	\end{tikzpicture}
-%    \end{image}     
+%    \end{center}     
 \end{center}
 \subsection*{Equivalent Systems and Elementary Row Operations}
 
@@ -645,7 +642,7 @@ It is not difficult to see that performing a sequence of elementary row operatio
 
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:sysgraphillustration}
 Give a graphical illustration of each of the following scenarios for a system of three equations and two unknowns:
   \begin{enumerate}
   \item The system of three equations is inconsistent, but a combination of any two of the three equations forms a consistent system.
@@ -657,7 +654,7 @@ Give a graphical illustration of each of the following scenarios for a system of
 
 \begin{problem} 
 Solve each system of linear equations or demonstrate that a solution does not exist, and interpret your results geometrically.
-  \begin{problem}
+  \begin{problem}\label{prob:solvesys1}
   $$\begin{array}{ccccc}
       x & +&3y&= &4 \\
 	 x& -&2y&=&-6
@@ -666,7 +663,7 @@ Solve each system of linear equations or demonstrate that a solution does not ex
     Solution: $$(\answer{-2},\answer{2})$$
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:solvesys2}
   $$\begin{array}{ccccc}
       -3x & +&2y&= &7 \\
 	 6x& -&4y&=&5
@@ -674,7 +671,7 @@ Solve each system of linear equations or demonstrate that a solution does not ex
   \end{problem}
   
   
-  \begin{problem}
+  \begin{problem}\label{prob:solvesys3}
 $$\begin{array}{ccccccc}
       x & -&2y&+&z&= &0 \\
 	 3x& -&2y&+&4z&=&2\\
@@ -691,23 +688,23 @@ Solution:    $$(\answer{4},\answer{1},\answer{-2})$$
       kx & +&8y&= &4 \\
 	 2x& +&ky&=&-2
     \end{array}$$
-     \begin{problem}
+     \begin{problem}\label{prob:sysnosolfindk}
 Find all possible values of k such that this system has no solution.
 
 Solution: $$k=\answer{4}$$
   \end{problem}
-     \begin{problem}
+     \begin{problem}\label{prob:sysinfmanysolfindk}
 Find all possible values of k such that this system has infinitely many solutions.
 
 Solution: $$k=\answer{-4}$$
   \end{problem}
   \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:nonzeroprovision}
 Why is there a non-zero provision in Part \ref{item:constantmult} of Definition \ref{def:elemrowops}?  Why is there not a non-zero provision in Part \ref{item:addrow}?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:reverseelemrowops}
 Suppose the following system was obtained from system $(A)$ by adding twice the second row of $(A)$ to the first row.
 $$\begin{array}{ccccc}
       8x &+ &3y&= &11\\
@@ -723,10 +720,10 @@ $$\begin{array}{ccccc}
     
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:reverserowopsgeometry}
 The following figures show a geometric depiction of two equivalent systems.  (The systems are equivalent because they have the same solution set.)  Can the first system be transformed into the second system by elementary row operations?  If so, how?
 
- %\begin{image}[4in]
+ %\begin{center}[4in]
  \begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-2,-2) grid (6,6);
@@ -750,7 +747,7 @@ The following figures show a geometric depiction of two equivalent systems.  (Th
     
 \end{tikzpicture}
 \end{center}
-%\end{image}
+%\end{center}
 
 \begin{hint}
 Begin by carrying the first system to 
@@ -763,7 +760,7 @@ $$\begin{array}{ccccc}
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:equivsystems1}
 To demonstrate that system $(A)$ is equivalent to system $(B)$ we need to show the following:
 \begin{center}
 If $(x', y')$ is a solution of $(A)$, then $(x', y')$ is a solution of $(B)$.
