@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{SYS-0020:  Augmented Matrix Notation and Elementary Row Operations} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele} \title{SYS-0020:  Augmented Matrix Notation and Elementary Row Operations} \license{CC-BY-NC-SA}
 
 \begin{document}
 
@@ -14,22 +14,21 @@
 
 \subsection*{Augmented Matrix Notation}
 
-\begin{definition}[Elementary Row Operations]\label{def:elemrowops2}
-The following three operations performed on a linear system are called \dfn{elementary row operations}
-\begin{enumerate}
-\item\label{item:rowswap2} Switching the order of two equations
-\item\label{item:constantmult2} Multiplying both sides of an equation by the same non-zero constant
-\item\label{item:addrow2} Adding a multiple of one equation to another
-\end{enumerate}
-\end{definition}
+Recall that the following three operations performed on a linear system are called \dfn{elementary row operations}
+\begin{itemize}
+\item Switching the order of two equations
+\item Multiplying both sides of an equation by the same non-zero constant
+\item Adding a multiple of one equation to another
+\end{itemize}
 
-In Module SYS-M-0010 we discussed why applying elementary row operations to a linear system results in an equivalent system - a linear system with the same solution set.
+
+In SYS-0010 we discussed why applying elementary row operations to a linear system results in an equivalent system - a linear system with the same solution set.
 
 In this module we seek an efficient method for recording our computations and arriving at a solution using elementary row operations. 
 
-\begin{exploration}\label{init:augmentedmatrix1}
-[Hefferon] Consider the linear system
-\begin{equation}\label{ex:originalsystem1}
+\begin{exploration}\label{init:augmentedmatrixex}
+Consider the linear system
+\begin{equation}\label{eq:originalsystem1}
 \begin{array}{ccccccccc}
       x &- &y&&&&&= &0 \\
 	 2x& -&2y&+&z&+&2w&=&4\\
@@ -120,7 +119,7 @@ $$
     \end{array}$$
     
 
-\begin{equation}\label{ex:rref1}
+\begin{equation}\label{eq:rref1}
 \begin{array}{c}
 \\
 \xrightarrow{R_2\leftrightarrow R_3}\\
@@ -134,7 +133,7 @@ $$
     \end{array}
     \end{equation}
     If we drop all of the zero terms, we have:
-    \begin{equation}\label{ex:rrefnozeros}
+    \begin{equation}\label{eq:rrefnozeros}
     \begin{array}{ccccccccc}
       x & &&&&&&= &-1 \\
    & &y&&&&&=&-1\\
@@ -144,7 +143,7 @@ $$
     \end{equation}
 Now we see that $(-1, -1, 2, 1)$ is the solution.
 
-Observe that throughout the entire process, variables $x$, $y$, $z$ and $w$ remained in place; only the coefficients in front of the variables and the entries on the right changed.  Let's try to recreate this process without writing down the variables.  We can capture the original system in (\ref{ex:originalsystem1}) as follows:
+Observe that throughout the entire process, variables $x$, $y$, $z$ and $w$ remained in place; only the coefficients in front of the variables and the entries on the right changed.  Let's try to recreate this process without writing down the variables.  We can capture the original system in (\ref{eq:originalsystem1}) as follows:
 $$\left[\begin{array}{cccc|c}  
  1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
  \end{array}\right]$$
@@ -209,10 +208,10 @@ $$\left[\begin{array}{cccc|c}
  1&0&0&0&-1\\0&1&0&0&-1\\0&0&1&0&2\\0&0&0&1&1
  \end{array}\right]\end{equation}
  
- The last augmented matrix corresponds to systems in (\ref{ex:rref1}) and (\ref{ex:rrefnozeros}), and we can easily see the solution.   
+ The last augmented matrix corresponds to systems in (\ref{eq:rref1}) and (\ref{eq:rrefnozeros}), and we can easily see the solution.   
 \end{exploration}
 
-Exploration \ref{init:augmentedmatrix1} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
+Exploration \ref{init:augmentedmatrixex} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
 $$\begin{array}{ccccccccc}
       a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
 	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
@@ -238,7 +237,7 @@ $$\begin{array}{ccccccc}
    4x_1& -&2x_2&-&7x_3&=&1\\
    -x_1& +&x_2&+&4x_3&=&1
     \end{array}$$
-Recall that in Exploration \ref{init:augmentedmatrix1} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
+Recall that in Exploration \ref{init:augmentedmatrixex} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
 
 \begin{align}&\left[\begin{array}{ccc|c}  
  1&-1&-3&1\\4&-2&-7&1\\-1&1&4&1
@@ -633,7 +632,7 @@ $$\begin{array}{ccccccc}
 
 \section*{Example Source} 
 
-Linear system in Exploration \ref{init:augmentedmatrix1} comes from Jim Hefferon's \href{http://joshua.smcvt.edu/linearalgebra/#current_version}{\it Linear Algebra}.
+Linear system in Exploration \ref{init:augmentedmatrixex} comes from Jim Hefferon's \href{http://joshua.smcvt.edu/linearalgebra/#current_version}{\it Linear Algebra}. (CC-BY-NC-SA)
 
 Jim Hefferon, {\it Linear Algebra}, 3rd edition, page 6.
 
