@@ -102,38 +102,38 @@ See Practice Problem \ref{prob:lindeplincombofother}.
 Theorem \ref{th:lindeplincombofother} gives us a convenient way of looking at linear dependence/independence geometrically.  When looking at two or more vectors, we ask ``can one of the vectors be written as a linear combination of the others?"  If the answer is ``yes", then the vectors are linearly dependent.
 \subsubsection*{A Set of Two Vectors}
 Two vectors are linearly dependent if and only if one is a scalar multiple of the other.  Two nonzero linearly dependent vectors may look like this:
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 % \draw[<->] (-0.5,0)--(2.5,0);
  % \draw[<->] (0,-0.5)--(0,2.5);
     \draw[line width=1pt,blue,-stealth](0,0)--(2,2);
   \draw[line width=1pt,red,-stealth](0,0)--(1,1);
  \end{tikzpicture}
-\end{image}
+\end{center}
 or like this:
-\begin{image}[1in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 %\draw[<->] (-2.5,0)--(2.5,0);
  % \draw[<->] (0,-2.5)--(0,2.5);
     \draw[line width=1pt,blue,-stealth](0,0)--(1,2);
   \draw[line width=1pt,red,-stealth](0,0)--(-0.5,-1);
  \end{tikzpicture}
-\end{image}
+\end{center}
 Two linearly independent vectors will look like this:
-\begin{image}[1in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 %\draw[<->] (-2.5,0)--(2.5,0);
  % \draw[<->] (0,-2.5)--(0,2.5);
     \draw[line width=1pt,blue,-stealth](0,0)--(1,1);
   \draw[line width=1pt,red,-stealth](0,0)--(0.5,-1);
  \end{tikzpicture}
-\end{image}
+\end{center}
 \subsubsection*{A Set of Three Vectors}
 Given a set of three nonzero vectors, we have the following possibilities: 
 \begin{itemize}
 \item (Linearly Dependent Vectors)
 The three vectors are scalar multiples of each other.
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 % \draw[<->] (-0.5,0)--(2.5,0);
  % \draw[<->] (0,-0.5)--(0,2.5);
@@ -141,19 +141,17 @@ The three vectors are scalar multiples of each other.
   \draw[line width=1pt,red,-stealth](0,0)--(1,1);
   \draw[line width=1pt,-stealth](0,0)--(0.5,0.5);
  \end{tikzpicture}
-\end{image}
+\end{center}
 \item (Linearly Dependent Vectors) Two of the vectors are scalar multiples of each other.
-\begin{image}[1.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
-% \draw[<->] (-0.5,0)--(2.5,0);
- % \draw[<->] (0,-0.5)--(0,2.5);
     \draw[line width=1pt,blue,-stealth](0,0)--(2,2);
   \draw[line width=1pt,red,-stealth](0,0)--(1,1);
   \draw[line width=1pt,-stealth](0,0)--(1,0);
  \end{tikzpicture}
-\end{image}
+\end{center}
 \item (Linearly Dependent Vectors) One vector can be viewed as the diagonal of a parallelogram determined by scalar multiples of the other two vectors.  All three vectors lie in the same plane.
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
   \filldraw[blue, opacity=0.3](0,0)--(-2,2)--(2,4)--(4,2)--cycle;
 \draw[line width=1pt,red,-stealth](0,0)--(2,1);
@@ -161,15 +159,16 @@ The three vectors are scalar multiples of each other.
   \draw[line width=1pt,blue,-stealth](0,0)--(-2,2);
   \draw[line width=1pt,-stealth](0,0)--(2,4); 
 \end{tikzpicture}
-\end{image}
+\end{center}
 \item (Linearly Independent Vectors)
 A set of three vectors is linearly independent if the vectors do not lie in the same plane.  For example, vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$ are linearly independent.
 \end{itemize}
+
 \section*{Practice Problems}
 
 \begin{problem} Are the given vectors linearly independent?
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice1}
 $$\begin{bmatrix}-1\\0\end{bmatrix}, \begin{bmatrix}2\\3\end{bmatrix},\begin{bmatrix}4\\-1\end{bmatrix}$$
 
 \begin{multipleChoice}
@@ -178,7 +177,7 @@ $$\begin{bmatrix}-1\\0\end{bmatrix}, \begin{bmatrix}2\\3\end{bmatrix},\begin{bma
  \end{multipleChoice}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice2}
 $$\begin{bmatrix}1\\0\\5\end{bmatrix}, \begin{bmatrix}2\\2\\3\end{bmatrix},\begin{bmatrix}-1\\0\\1\end{bmatrix}$$
 
 \begin{multipleChoice}
@@ -188,7 +187,7 @@ $$\begin{bmatrix}1\\0\\5\end{bmatrix}, \begin{bmatrix}2\\2\\3\end{bmatrix},\begi
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice3}
 $$\begin{bmatrix}3\\0\\5\end{bmatrix}, \begin{bmatrix}2\\0\\2\end{bmatrix},\begin{bmatrix}-1\\0\\-5\end{bmatrix}$$
 
 \begin{multipleChoice}
@@ -197,7 +196,7 @@ $$\begin{bmatrix}3\\0\\5\end{bmatrix}, \begin{bmatrix}2\\0\\2\end{bmatrix},\begi
  \end{multipleChoice}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice4}
 $$\begin{bmatrix}3\\1\\4\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\\1\end{bmatrix}$$
 
 \begin{multipleChoice}
@@ -208,15 +207,15 @@ $$\begin{bmatrix}3\\1\\4\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\\1\end{bmatrix
 
 \end{problem}
 
-\begin{problem} 
-\begin{problem}
+\begin{problem} True or False?
+\begin{problem}\label{prob:TFlinind1}
 Any set containing the zero vector is linearly dependent.
 \begin{multipleChoice}
  \choice[correct]{TRUE}
   \choice{FALSE}
  \end{multipleChoice}
  \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:TFlinind2}
 A set containing exactly one nonzero vector is linearly dependent.
 \begin{multipleChoice}
  \choice{TRUE}
@@ -229,7 +228,7 @@ A set containing exactly one nonzero vector is linearly dependent.
 \begin{problem}
 Each problem below provides information about vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$.  If possible, determine whether the vectors are linearly dependent or independent.
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice5}
 $$0\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
@@ -238,7 +237,7 @@ $$0\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
  \end{multipleChoice}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice6}
 $$3\vec{v}_1+ 4\vec{v}_2- \vec{v}_3=\vec{0}$$
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
@@ -247,7 +246,7 @@ $$3\vec{v}_1+ 4\vec{v}_2- \vec{v}_3=\vec{0}$$
  \end{multipleChoice}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice7}
 $$2\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
@@ -268,13 +267,13 @@ This is an ``if and only if" statement.  First, assume that the set is linearly 
 \begin{problem}
 Each diagram below shows a collection of vectors.  Are the vectors linearly dependent or independent?
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice8}
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
   \choice[correct]{The vectors are linearly dependent }
   \choice{There is not enough information given to make a determination }
  \end{multipleChoice}
-\begin{image}
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(3,0,0) node[below left]{$y$};
@@ -285,16 +284,16 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
     \draw[->, line width=2pt, -stealth](0,0,0)--(0.5,1,0);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice9}
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
   \choice[correct]{The vectors are linearly dependent }
   \choice{There is not enough information given to make a determination }
  \end{multipleChoice}
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
   \draw[<->] (-2,0)--(2,0);
   \draw[<->] (0,-2)--(0,2);
@@ -304,16 +303,16 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
   \draw[line width=2pt,red,-stealth](0,0)--(0,1.5);
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice10}
 \begin{multipleChoice}
  \choice[correct]{The vectors are linearly independent}
   \choice{The vectors are linearly dependent }
   \choice{There is not enough information given to make a determination }
  \end{multipleChoice}
-\begin{image}[2in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
   \draw[<->] (-2.5,0)--(2.5,0);
   \draw[<->] (0,-1)--(0,2.5);
@@ -322,17 +321,17 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
   \draw[line width=2pt,red,-stealth](0,0)--(-1,1);
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 \end{problem}
 
 
-\begin{problem}
+\begin{problem}\label{prob:linindmultchoice11}
 \begin{multipleChoice}
  \choice{The vectors are linearly independent}
   \choice[correct]{The vectors are linearly dependent }
   \choice{There is not enough information given to make a determination }
  \end{multipleChoice}
-\begin{image}
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(2,0,0) node[below left]{$y$};
@@ -343,7 +342,7 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
     \draw[->, line width=2pt,orange, -stealth](0,0,0)--(0,1,0);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 \end{problem}
 
 \end{problem}
