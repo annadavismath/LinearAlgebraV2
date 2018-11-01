@@ -52,7 +52,7 @@ If possible, express the given vector as a linear combination of $$\vec{v}_1=\be
     
   Observe that because vector $\vec{u}$ is a linear combination of $\vec{v}_1$ and $\vec{v}_2$, $\vec{u}$ is the diagonal of a parallelogram whose sides are scalar multiples of $\vec{v}_1$ and $\vec{v}_2$. As such, $\vec{u}$ lies in the same plane as $\vec{v}_1$ and $\vec{v}_2$, as illustrated below.
   
-  \begin{image}
+  \begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.6]
 	\draw[->](-6,0,0)--(6,0,0) node[below left]{$y$};
@@ -65,7 +65,7 @@ If possible, express the given vector as a linear combination of $$\vec{v}_1=\be
     \draw[->, line width=2pt, -stealth](0,0,0)--(3,5,2)node[above]{$\vec{u}=\begin{bmatrix}2\\3\\5\end{bmatrix}$};
     
     \end{tikzpicture}
-\end{image}
+\end{center}
   
   
 %We say that $\vec{u}$ is \dfn{in the span of} $\vec{v}_1$ and $\vec{v}_2$.
@@ -91,7 +91,7 @@ We need to solve the following vector equation:   $$a_1\begin{bmatrix}-2\\-3\\4\
  Geometrically, this means that $\vec{w}$ is not the diagonal of any parallelogram whose sides are scalar multiples of $\vec{v}_1$ and $\vec{v}_2$.  Thus, $\vec{w}$ does not lie in the plane determined by $\vec{v}_1$ and $\vec{v}_2$.  
  %We say that $\vec{w}$ is not \dfn{in the span} of $\vec{v}_1$ and $\vec{v}_2$.
  
-  \begin{image}
+  \begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.6]
 	\draw[->](-6,0,0)--(6,0,0) node[below left]{$y$};
@@ -106,7 +106,7 @@ We need to solve the following vector equation:   $$a_1\begin{bmatrix}-2\\-3\\4\
     \draw[->, line width=2pt, -stealth](0,0,0)--(5,1,5)node[below]{$\vec{w}=\begin{bmatrix}5\\5\\1\end{bmatrix}$};
 
 \end{tikzpicture}
-\end{image}
+\end{center}
   
   \end{explanation}
 \end{example}
@@ -126,12 +126,12 @@ $$S=\mbox{span}(\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p)$$
 and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.  Any vector in $S$ is said to be \dfn{in the span} of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  The set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is called a \dfn{spanning set} for $S$.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:describespan}
 Describe $\mbox{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}\right)$.
 \begin{explanation}
 The span of $\begin{bmatrix}-3\\1\end{bmatrix}$ is the set of all linear combinations of $\begin{bmatrix}-3\\1\end{bmatrix}$.  Since we are looking for linear combinations of only one vector, we are really looking for all of its scalar multiples.  So, the span will be the set of all vectors of the form $\vec{v}=a\begin{bmatrix}-3\\1\end{bmatrix}$.  All such vectors lie on the line determined by $\begin{bmatrix}-3\\1\end{bmatrix}$.
 
-\begin{image}[3.5in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-6,-4) grid (6,4);
   \draw[<->] (-6,0)--(6,0);
@@ -147,7 +147,7 @@ The span of $\begin{bmatrix}-3\\1\end{bmatrix}$ is the set of all linear combina
  \draw[line width=2pt,red,-stealth](0,0)--(-3,1) node[above right]{$\begin{bmatrix}-3\\1\end{bmatrix}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 \end{explanation}
@@ -158,7 +158,7 @@ Describe $\mbox{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\
 \begin{explanation}
 First, observe that $\begin{bmatrix}2\\2\end{bmatrix}$ and $\begin{bmatrix}-1\\0\end{bmatrix}$ are not scalar multiples of each other.  
 
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-4,-1) grid (4,4);
   \draw[<->] (-4,0)--(4,0);
@@ -168,11 +168,11 @@ First, observe that $\begin{bmatrix}2\\2\end{bmatrix}$ and $\begin{bmatrix}-1\\0
   \draw[line width=2pt,red,-stealth](0,0)--(-1,0) node[above left]{$\begin{bmatrix}-1\\0\end{bmatrix}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 %If $\vec{w}$ is a scalar multiple of one of $\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}$, then $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}2\\2\end{bmatrix}, \begin{bmatrix}-1\\0\end{bmatrix}\right)$.  
-Geometrically, we can use Procedure \ref{pro:lincombgeo} of VEC-M-0040 to express any vector of $\RR^2$ as a linear combination of $\begin{bmatrix}2\\2\end{bmatrix}$ and  $\begin{bmatrix}-1\\0\end{bmatrix}$.  So, intuitively it makes sense that the two vectors span all of $\RR^2$.
+Geometrically, we can use Procedure \ref{pro:lincombgeo} of VEC-0040 to express any vector of $\RR^2$ as a linear combination of $\begin{bmatrix}2\\2\end{bmatrix}$ and  $\begin{bmatrix}-1\\0\end{bmatrix}$.  So, intuitively it makes sense that the two vectors span all of $\RR^2$.
 
 To verify this claim algebraically we will show that an arbitrary vector $\begin{bmatrix}s\\t\end{bmatrix}$ of $\RR^2$ can be written as a linear combination of $\begin{bmatrix}2\\2\end{bmatrix}$ and  $\begin{bmatrix}-1\\0\end{bmatrix}$.  
 
@@ -204,7 +204,7 @@ Describe $\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0
 \begin{explanation}
 First, observe that $\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}$ are not scalar multiples of each other.  
 
-\begin{image}
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
@@ -215,13 +215,13 @@ First, observe that $\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2
     \draw[->, line width=2pt,red, -stealth](0,0,0)--(4,2,0)node[above left]{$\begin{bmatrix}0\\4\\2\end{bmatrix}$};
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 The span of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and $\begin{bmatrix}0\\4\\2\end{bmatrix}$ consists of elements of the form
 $$a_1\begin{bmatrix}5\\0\\4\end{bmatrix}+a_2\begin{bmatrix}0\\4\\2\end{bmatrix}$$
 
 Geometrically, we can interpret all such linear combinations as diagonals of parallelograms determined by scalar multiples of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and $\begin{bmatrix}0\\4\\2\end{bmatrix}$.  All such diagonals will lie in the plane determined by $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and $\begin{bmatrix}0\\4\\2\end{bmatrix}$.  Let this plane be called $p$.  A portion of $p$ is shown below.
-\begin{image}
+\begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}
 	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
@@ -232,9 +232,9 @@ Geometrically, we can interpret all such linear combinations as diagonals of par
     \draw[->, line width=2pt,red, -stealth](0,0,0)--(4,2,0);
     
 \end{tikzpicture}
-\end{image}
+\end{center}
 
-Because Procedure \ref{pro:lincombgeo} of VEC-M-0040 can be applied to vectors that lie in $p$ just as easily as it can be applied to vectors of $\RR^2$, we conclude that every vector in $p$ can be expressed as a linear combination of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and  $\begin{bmatrix}0\\4\\2\end{bmatrix}$.  Thus, 
+Because Procedure \ref{pro:lincombgeo} of VEC-0040 can be applied to vectors that lie in $p$ just as easily as it can be applied to vectors of $\RR^2$, we conclude that every vector in $p$ can be expressed as a linear combination of $\begin{bmatrix}5\\0\\4\end{bmatrix}$ and  $\begin{bmatrix}0\\4\\2\end{bmatrix}$.  Thus, 
 
 $$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\end{bmatrix}\right)=p$$
 
@@ -245,7 +245,7 @@ $$\mbox{span}\left(\begin{bmatrix}5\\0\\4\end{bmatrix}, \begin{bmatrix}0\\4\\2\e
 
 \begin{problem}
 Choose the best description for each set below.
-  \begin{problem}
+  \begin{problem}\label{prob:describespan1}
   $$\mbox{span}\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}, \begin{bmatrix}2\\2\\-4\end{bmatrix}\right)$$
   
   \begin{multipleChoice}
@@ -257,7 +257,7 @@ Choose the best description for each set below.
  \end{multipleChoice}
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:describespan2}
   $$\mbox{span}\left(\begin{bmatrix}1\\-2\end{bmatrix}, \begin{bmatrix}1\\0\end{bmatrix}\right)$$
   
    \begin{multipleChoice}
@@ -269,7 +269,7 @@ Choose the best description for each set below.
   
 \end{multipleChoice}
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:describespan3}
   $$\mbox{span}\left(\begin{bmatrix}-3\\1\end{bmatrix}, \begin{bmatrix}6\\-2\end{bmatrix}, \begin{bmatrix}3\\-1\end{bmatrix}\right)$$
   
   \begin{multipleChoice}
@@ -278,12 +278,11 @@ Choose the best description for each set below.
      \choice{Line in $\RR^3$}
  \choice{$\RR^3$}
   \choice{$\RR^2$ }
-  
 \end{multipleChoice}
-  
   \end{problem}
 \end{problem}
-\begin{problem}
+
+\begin{problem}\label{prob:equalsets}
 Which of the following pairs of sets are equal?  
 
 \begin{selectAll}
@@ -294,11 +293,12 @@ Which of the following pairs of sets are equal?
 \end{selectAll}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:notinspan}
 Let $\vec{v}=\begin{bmatrix}3\\4\\5\end{bmatrix}$.  Give an example of at least one vector $\vec{w}$ such that $\vec{v}$, $\vec{w}$ do NOT span a plane in $\RR^3$.  Describe $\mbox{span}(\vec{v}, \vec{w})$.
 \end{problem}
 
-\begin{problem}Prove or disprove.  The zero vector of $\RR^n$ is contained in the span of any collection of vectors of $\RR^n$.
+\begin{problem}\label{prob:zeroinspan}
+Prove or disprove.  The zero vector of $\RR^n$ is contained in the span of any collection of vectors of $\RR^n$.
 \end{problem}
 
 
