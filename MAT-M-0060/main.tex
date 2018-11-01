@@ -71,7 +71,7 @@ F =  \begin{bmatrix}
  1&0&0\\-2&1&0\\0&0&1
  \end{bmatrix}
 $$
-As in the previous Exploration Problem, the two matrices have something in common.  Both $D$ and $F$ were obtained from the identity matrix by adding a multiple of one row to another row.  Can you guess what will happen if we multiply a matrix $A$ by $D$ and $F$ on the left?
+As in the previous Exploration, the two matrices have something in common.  Both $D$ and $F$ were obtained from the identity matrix by adding a multiple of one row to another row.  Can you guess what will happen if we multiply a matrix $A$ by $D$ and $F$ on the left?
 
 $$\text{Let}\quad A = \begin{bmatrix}  
  1&2&3\\4&5&6\\7&8&9
@@ -99,7 +99,7 @@ In general, if a square matrix $E$ is obtained from the identity matrix $I$ by a
 \end{exploration}
 
 
-The matrices $B,C,D, F, G$ of Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} are known as \dfn{elementary matrices} because they perform elementary row operations on appropriately sized matrices.
+The matrices $B,C,D, F, G$ of Explorations \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} are known as \dfn{elementary matrices} because they perform elementary row operations on appropriately sized matrices.
 
 \begin{definition} \label{def:elemmatrix}
   
@@ -130,7 +130,7 @@ And indeed we can check $$F F^{-1} = \begin{bmatrix}
  \end{bmatrix}$$
  and also $ F^{-1} F = I$.
 
-As part of the Practice Problem set you are asked to find the inverse of each of the other elementary matrices in Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.  Once we have accounted for each of the three types of elementary matrices, we will have proven the following theorem.  
+As part of the Practice Problem set you are asked to find the inverse of each of the other elementary matrices in Explorations \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.  Once we have accounted for each of the three types of elementary matrices, we will have proven the following theorem.  
 
 \begin{theorem}\label{th:elemmatricesinvertible}
 Elementary matrices are invertible, and the inverse of an elementary matrix is an elementary matrix.
@@ -143,11 +143,6 @@ We can use the same line of reasoning to show that the other two types of elemen
 \end{proof}
 
 
-% Recall that an elementary matrix is any matrix obtained from the identity matrix by performing one elementary row operation.  There are three types of elementary row operations, so there are three types of elementary matrices.  
-
-% Recall also that if an $n\times n$ matrix $E$ is an elementary matrix obtained from $I$ by performing some elementary row operation, and the same elementary row operation is applied to an $n\times m$ matrix $A$, then the resulting matrix is equal to $EA$.  We will use this idea to find the inverse for each type of elementary matrix without going through the row reduction procedure.
- 
- 
 \subsection*{Elementary Matrices and Nonsingular Matrices} 
 
 Recall that a square matrix $A$ is called \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.
@@ -167,16 +162,16 @@ We will prove equivalence of the three statements by showing that
 \begin{proof}[Proof of \ref{item:anonsingular2}$\Rightarrow$\ref{item:aproductofelemmatrices}]
 Suppose $\mbox{rref}(A)=I$.  Then $A$ can be carried to the identity by elementary row operations.  So, there exist elementary matrices $E_1, E_2, \ldots ,E_k$ such that 
 $$E_k\ldots E_2E_1A=I$$
-By Theorem \ref{th:elemmatricesinvertible} of MAT-M-0050, elementary matrices are invertible and their inverses are also elementary matrices.  Thus, we can write $A$ as a product of elementary matrices as follows:
+By Theorem \ref{th:elemmatricesinvertible}, elementary matrices are invertible and their inverses are also elementary matrices.  Thus, we can write $A$ as a product of elementary matrices as follows:
 $$A=E_1^{-1}E_2^{-1}\ldots E_k^{-1}$$
 \end{proof}
 \begin{proof}[Proof of \ref{item:aproductofelemmatrices}$\Rightarrow$\ref{item:ainvertible}]
-Suppose $A=E_1E_2\ldots E_k$, where $E_1, E_2, \ldots , E_k$ are elementary matrices.  In Theorem \ref{th:elemmatricesinvertible}(\ref{item:inverseofproduct}) of MAT-M-0050 we proved that $(BC)^{-1} = C^{-1} B^{-1}$.  By repeated applications of this theorem we have
+Suppose $A=E_1E_2\ldots E_k$, where $E_1, E_2, \ldots , E_k$ are elementary matrices.  In Theorem \ref{item:inverseofproduct} of MAT-0050 we proved that $(BC)^{-1} = C^{-1} B^{-1}$.  By repeated applications of this theorem we have
 $$(E_1E_2\ldots E_k)^{-1}=E_k^{-1}\ldots E_2^{-1}E_1^{-1}=A^{-1}$$
 We conclude that $A$ is invertible.
 \end{proof}
 \begin{proof}[Proof of \ref{item:ainvertible}$\Rightarrow$\ref{item:anonsingular2}]
-See the corollary to Theorem \ref{th:matrixinverse} of MAT-M-0050.
+See the corollary to Theorem \ref{th:matrixinverse} of MAT-0050.
 \end{proof}
 
 
@@ -191,19 +186,19 @@ For each elementary matrix $E$ below, determine the elementary row operation tha
 Think of an elementary row operation that would undo the row operation caused by $E$.
 \end{hint}
 
-\begin{problem}
+\begin{problem}\label{prob:elemmatrices1}
 $$E=\begin{bmatrix}0&1&0\\1&0&0\\0&0&1\end{bmatrix}$$
 Answer:
 $$E^{-1}=\begin{bmatrix}\answer{0}&\answer{1}&\answer{0}\\\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{0}&\answer{1}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:elemmatrices2}
 $$E=\begin{bmatrix}1&0&0\\0&1&0\\0&0&5\end{bmatrix}$$
 Answer:
 $$E^{-1}=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{0}&\answer{1/5}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:elemmatrices3}
 $$E=\begin{bmatrix}1&0&0\\0&1&0\\0&4&1\end{bmatrix}$$
 Answer:
 $$E^{-1}=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{-4}&\answer{1}\end{bmatrix}$$
@@ -212,7 +207,7 @@ $$E^{-1}=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&
 \end{problem}
 
 \begin{problem}\label{prob:elem_mat_inv}
-Find the inverse of each of the following elementary matrices from Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.
+Find the inverse of each of the following elementary matrices from Explorations \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3}.
 $$
  B = \begin{bmatrix}  
  1&0&0\\0&5&0\\0&0&1
@@ -230,11 +225,11 @@ $$
  $$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:proofofelemmatricesinvert}
 Finish the proof of Theorem \ref{th:elemmatricesinvertible}.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:prodelemmatrices}
 Express $A$ as a product of elementary matrices.
 $$A=\begin{bmatrix}1&2&0\\-1&0&1\\0&4&0\end{bmatrix}$$
 \begin{hint}
@@ -243,7 +238,7 @@ Row-reduce $A$ to find $\mbox{rref}(A)$.  Record the elementary row operations a
 Is this representation unique?  Prove your claim.
 \end{problem}
 
-\begin{problem}In Exploration Problems \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} we performed elementary row operations on $A$ by multiplying $A$ by elementary matrices $B, C, D, F, G$ on the left.  Compute $AB, AC, AD, AF$ and $AG$.  Summarize your findings.
+\begin{problem}\label{prob:explorationelemmat} In Explorations \ref{init:elementarymat2}, \ref{init:elementarymat1} and \ref{init:elementarymat3} we performed elementary row operations on $A$ by multiplying $A$ by elementary matrices $B, C, D, F, G$ on the left.  Compute $AB, AC, AD, AF$ and $AG$.  Summarize your findings.
 
 Answer:
 $$AB=\begin{bmatrix}\answer{1} & \answer{10} & \answer{3} \\ \answer{4} & \answer{25} & \answer{6}\\ \answer{7} & \answer{40} & \answer{9}\end{bmatrix}
@@ -257,7 +252,7 @@ $$
 \end{problem}
 
 
-\begin{problem}If possible, express 
+\begin{problem}\label{prob:expressasprodelemmat} If possible, express 
 $$A=\begin{bmatrix}1&4&7\\2&5&8\\3&6&9\end{bmatrix}$$
 as a product of elementary matrices.
 \end{problem}
