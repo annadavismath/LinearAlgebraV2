@@ -10,7 +10,7 @@ We explore the theory behind finding the eigenvalues and associated eigenvectors
 \end{abstract}
 \maketitle
 \section*{EIG-0020: Finding Eigenvalues and Eigenvectors}
-Let $A$ be an $n \times n$ matrix.  In Module EIG-M-0010 we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
+Let $A$ be an $n \times n$ matrix.  In Module EIG-0010 we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
 We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this module we will focus on the process.
 
@@ -28,15 +28,14 @@ If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singu
 \subsection{Eigenvalues}
 In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
 
-\begin{definition}
-Equation (\ref{eqn:chareqn}) is called the \dfn{characteristic equation} of $A$.  The left-hand side of Equation (\ref{eqn:chareqn}) is called the \dfn{characteristic polynomial} of $A$.
+\begin{definition}\label{def:chareqcharpoly}
+The equation 
+$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
 \end{definition}
 
 \begin{example}\label{ex:2x2eig}
 Let $A=\begin{bmatrix} 2& 1\\ 1&2
 \end{bmatrix}$.  Compute the eigenvalues of this matrix using the characteristic equation.
-
-
 \begin{explanation}
 \begin{align*}\det(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}&=(2-\lambda)^2-1\\
 &=\lambda^2-4\lambda+3\\
@@ -115,7 +114,7 @@ See Practice Problem \ref{prob:eigtri}.
 Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on the main diagonal.
 \end{corollary}
 
-One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  %We will explore some of these methods in Module EIG-M-0070.
+One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
 
 \subsection{Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
@@ -124,15 +123,15 @@ Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the
 \end{align} 
 For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problem \ref{prob:eigenspace})  This motivates the following definition.
 
-\begin{definition}
+\begin{definition}\label{def:eigspace}
 The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
 \end{definition}
 
-So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module VSP-M-0040.
+So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module VSP-0040.
 
 Let's return to the examples we did in the first section of this module.
 
-\begin{example} (Finding eigenvectors for Example \ref{ex:2x2eig} ) 
+\begin{example}\label{ex:eigvect2x2eig} (Finding eigenvectors for Example \ref{ex:2x2eig} ) 
 
 Recall that $A=\begin{bmatrix} 2& 1\\ 1&2
 \end{bmatrix}$ has eigenvalues $\lambda_1=1$ and $\lambda_2=3$.  Compute a basis for the eigenspace associated with each of these eigenvalues.
@@ -151,7 +150,7 @@ Vectors in the null space have the form $\begin{bmatrix}1\\1\end{bmatrix}t$ This
 \end{explanation}
 \end{example}
 
-\begin{example} (Finding eigenvectors for Example \ref{ex:2x2eig2}) 
+\begin{example}\label{ex:eigvectors2x2eig2} (Finding eigenvectors for Example \ref{ex:2x2eig2}) 
 We know from Example \ref{ex:2x2eig2} that $B=\begin{bmatrix} 2& 1\\ 4&2
 \end{bmatrix}$ has eigenvalues $\lambda_1=0$ and $\lambda_2=4$.  Compute a basis for the eigenspace associated with each of these eigenvalues.
 \begin{explanation}
@@ -168,7 +167,7 @@ From this we find that $\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\}$ is one 
 \end{explanation}
 \end{example}
 
-\begin{example} (Finding eigenvectors for Example \ref{ex:3x3eig})
+\begin{example}\label{ex:eigvectors3x3eig} (Finding eigenvectors for Example \ref{ex:3x3eig})
 We know from Example \ref{ex:3x3eig} that $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.  Compute a basis for the eigenspace associated to each of these eigenvalues.
 \end{example}
 
@@ -203,25 +202,25 @@ Next we find a basis for the eigenspace $\mathcal{S}_{1+i}$.  We need to compute
 &=\begin{bmatrix} 1 & 0 &0\\ 0 & 1 & -i\\ 0 & 0 & 0\end{bmatrix}
 \end{align*}
 There is one free variable.  Setting $x_3=t$, we get $x_1=0$ and $x_2=ti$.  From this we see that eigenvectors in $\mathcal{S}_4$ have the form $\begin{bmatrix}0\\i\\1\end{bmatrix}t$, so a possible basis for the eigenspace $\mathcal{S}_{1+i}$ is given by $\left\{\begin{bmatrix}0\\i\\1\end{bmatrix}\right\}$.
-We ask you in Practice Problem \ref{prob:3x3_complex_eig} to show that $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$ is a basis for $\mathcal{S}_{1-i}$.
+We ask you in Practice Problem \ref{prob:3x3_complex_ev} to show that $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$ is a basis for $\mathcal{S}_{1-i}$.
 \end{explanation}
 \end{example}
 
 \section*{Practice Problems}
 
-\begin{problem}\label{prob:eigenspace}
-In this exercise we will prove that the eigenvectors associated with an eigenvalue $\lambda$ of an $n \times n$ matrix $A$ form a subspace of $\RR^n$.
 \begin{problem}
+In this exercise we will prove that the eigenvectors associated with an eigenvalue $\lambda$ of an $n \times n$ matrix $A$ form a subspace of $\RR^n$.
+\begin{problem}\label{prob:eigenspace1}
 Let $\vec{x}$ and $\vec{y}$ be eigenvectors of $A$ associated with $\lambda$.  Show that $\vec{x}+\vec{y}$ is also an eigenvector of $A$ associated with $\lambda$.  (This shows that the set of eigenvectors of $A$ associated with $\lambda$ is closed under addition).
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:eigenspace2}
 Show that the set of eigenvectors of $A$ associated with $\lambda$ is closed under scalar multiplication.
 \end{problem}
 \end{problem}
 
 \begin{problem}
 Compute the eigenvalues of the given matrix and find the corresponding eigenspaces.
-\begin{problem}
+\begin{problem}\label{prob:eigenspace3}
 $$\begin{bmatrix}4&1\\8&-3\end{bmatrix}$$
 Answer:
 (List the eigenvalues in an increasing order.)
@@ -229,7 +228,7 @@ $$\lambda_1=\answer{-4},\quad\lambda_2=\answer{5}$$
 
 A basis for $\lambda_1$ is $\left\{\begin{bmatrix}\answer{-1/8}\\1\end{bmatrix}\right\}$.  A basis for $\lambda_2$ is $\left\{\begin{bmatrix}\answer{1}\\1\end{bmatrix}\right\}$.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:eigenspace4}
 $$\begin{bmatrix}1&-2\\2&1\end{bmatrix}$$
 Answer:
 
@@ -243,9 +242,9 @@ A basis for $\lambda_1$ is $\left\{\begin{bmatrix}i\\\answer{1}\end{bmatrix}\rig
 Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute a basis for each of the eigenspaces of this matrix, $\mathcal{S}_1$, $\mathcal{S}_5$, and $\mathcal{S}_9$.
 \end{problem}
 
-\begin{problem}\label{prob:3x3 from Kuttler}
-Let $A=\begin{bmatrix} 9 & 2 & 8\\ 2 & -6 & -2\\ -8 & 2 & -5\end{bmatrix}$.  
 \begin{problem}
+Let $A=\begin{bmatrix} 9 & 2 & 8\\ 2 & -6 & -2\\ -8 & 2 & -5\end{bmatrix}$.  
+\begin{problem}\label{prob:3x3fromKuttler1}
 Compute the eigenvalues of this matrix. 
 \begin{hint}
 One of the eigenvalues of $A$ is -3.
@@ -256,7 +255,8 @@ Answer:
 (List your answers in an increasing order.)
 $$\lambda_1 = \answer{-3},\quad \lambda_2 = \answer{-1},\quad \lambda_3 = \answer{2}$$
 \end{problem}
-\begin{problem}
+
+\begin{problem}\label{prob:3x3fromKuttler2}
 Compute a basis for each of the eigenspaces of this matrix,  $\mathcal{S}_{\lambda_1}$, $\mathcal{S}_{\lambda_2}$, and $\mathcal{S}_{\lambda_3}$.
 
 Answer:
@@ -277,8 +277,8 @@ Prove Theorem \ref{th:eigtri}.  (HINT:  Proceed by induction on the dimension n.
 \end{problem}
 
 \begin{problem}
-The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use EIG-M-0010 and LTR-M-0070 for reference.
-\begin{problem}
+The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use EIG-0010 and LTR-0070 for reference.
+\begin{problem}\label{prob:eigvectorstransfr2_1}
 Recall that a vertical stretch/compression of the plane is a linear transformation whose standard matrix is $$M_v=\begin{bmatrix}1&0\\0&k\end{bmatrix}$$
 Find the eigenvalues of $M_v$.  Find a basis for the eigenspace corresponding to each eigenvalue.
 
@@ -288,7 +288,7 @@ and a basis for $\mathcal{S}_k$ is $\left\{\begin{bmatrix}\answer{0}\\1\end{bmat
 Sketch several vectors in each eigenspace and use geometry to explain why the eigenvectors you sketched make sense.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:eigvectorstransfr2_2}
 Recall that a horizontal shear of the plane is a linear transformation whose standard matrix is $$M_{hs}=\begin{bmatrix}1&k\\0&1\end{bmatrix}$$
 Find the eigenvalue of $M_{hs}$.  
 
@@ -305,7 +305,7 @@ Sketch several vectors in the eigenspace and use geometry to explain why the eig
 Recall that a counterclockwise rotation of the plane through angle $\theta$ is a linear transformation whose standard matrix is $$M_{\theta}=\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}$$
 Verify that the eigenvalues of $M_{\theta}$ are
 $$\lambda=\cos\theta\pm\sqrt{\cos^2\theta-1}$$
-Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of EIG-M-0010.)
+Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of EIG-0010.)
 
 Suppose $\theta$ is a muliple of $\pi$.  Then the eigenspaces corresponding to the two eigenvalues are the same.  Which of the following describes the eigenspace?
 \begin{multipleChoice}
@@ -317,7 +317,7 @@ Suppose $\theta$ is a muliple of $\pi$.  Then the eigenspaces corresponding to t
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:eigvectorstransfr2_3}
 Recall that a reflection of the plane about the line $y=mx$ is a linear transformation whose standard matrix is
 $$M_{y=mx}=\frac{1}{1+m^2}\begin{bmatrix}
 1-m^2 & 2m \\
@@ -351,5 +351,9 @@ Use geometry to explain why the eigenspaces you found make sense.
 \end{problem}
 \end{problem}
 
+\section*{Exercise Source}
+Practice Problem \ref{prob:3x3fromKuttler1} is adopted from Problem 7.1.11 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 361.
 
 \end{document}
