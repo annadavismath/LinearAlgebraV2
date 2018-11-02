@@ -22,7 +22,7 @@ $A=\begin{bmatrix}a\end{bmatrix}$.  Define the \dfn{determinant} of $A$ by $\det
 \end{definition}
 It is important to note that this definition is consistent with our goal of making a connection between determinants and invertibility.  Observe that $A^{-1}=\begin{bmatrix}a^{-1}\end{bmatrix}$ exists if and only if $a\neq 0$.
 
-Now we proceed to $2\times 2$ matrices.  According to Formula \ref{form:detinverse} of {\color{red} MAT-M-0050}, the inverse of a nonsingular matrix $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is given by
+Now we proceed to $2\times 2$ matrices.  According to Formula \ref{form:detinverse} of MAT-0050, the inverse of a nonsingular matrix $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is given by
 $$A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
 Observe that $A^{-1}$ exists if and only if $ad-bc\neq 0$.  We will call the number $ad-bc$ the \dfn{determinant} of $A$.
 
@@ -32,7 +32,7 @@ Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$.  The determinant of $A$ is defined
 \end{definition}
 Note the distinction between the square bracket notation associated with the matrix $\begin{bmatrix}a&b\\c&d\end{bmatrix}$ and the vertical bar notation $\begin{vmatrix}a&b\\c&d\end{vmatrix}$ used to denote  the determinant in expression (\ref{eq:twobytwodet}).
 
-\begin{example}
+\begin{example}\label{ex:2x2det}
 $$\det{\begin{bmatrix}1&2\\3&4\end{bmatrix}}=\begin{vmatrix}1&2\\3&4\end{vmatrix}=(1)(4)-(2)(3)=-2$$
 \end{example}
 
@@ -138,7 +138,7 @@ $$A=\begin{bmatrix}3&-2&1\\5&-1&2\\1&4&1\end{bmatrix}$$
 \end{explanation}
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:3x3det2}
 Find $\det{A}$ if 
 $$A=\begin{bmatrix}4&3&-2\\1&-5&3\\-4&1&1\end{bmatrix}$$
 \begin{explanation}
@@ -206,7 +206,7 @@ $$C_{1j}=(-1)^{1+j}\det{A_{1j}}$$
 We will refer to $C_{1j}$ as the \dfn{$(1,j)$-cofactor of $A$}.  When we use the cofactor notation, the expression in Definition \ref{def:toprowexpansion} turns into the following:
 $$\det{A}=a_{11}C_{11}+a_{12}C_{12}+\ldots +a_{1n}C_{1n}=\sum_{j=1}^n a_{1j}C_{1j}$$
 
-The process of computing the determinant given by Definition \ref{def:toprowexpansion} is called the \dfn{cofactor expansion along the first row}.  We will later show that we can expand along any row or column of a matrix and obtain the same value.  This surprising result, known as the Laplace Expansion Theorem, will be the subject of {\color{red} DET-M-0050}.
+The process of computing the determinant given by Definition \ref{def:toprowexpansion} is called the \dfn{cofactor expansion along the first row}.  We will later show that we can expand along any row or column of a matrix and obtain the same value.  This surprising result, known as the Laplace Expansion Theorem, will be the subject of DET-0050.
 
 We conclude this section with a simple, but useful lemma.
 
@@ -223,59 +223,60 @@ $$\det{I}=1$$
 
 \begin{problem}
 Find the determinant of each matrix.
-  \begin{problem}
+  \begin{problem}\label{prob:2x2det1}
   $$A=\begin{bmatrix}4&-2\\3&7\end{bmatrix}$$
   Answer:
   $$\det{A}=\answer{34}$$
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:2x2det2}
   $$B=\begin{bmatrix}5&-1&0\\0&3&-2\\1&-1&2\end{bmatrix}$$
   Answer:
   $$\text{det}(B)=\answer{22}$$
   \end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:toprowexp2x2}
 Show that Definition \ref{def:toprowexpansion} is consistent with Definition \ref{def:twobytwodet} by verifying that both produce the same result when applied to a $2\times 2$ matrix.
 \end{problem}
 
-\begin{problem}
-Let $B'$ be a matrix obtained from $B$ of Problem {\color{red} reference} by switching the first and the second row of $B$.  Compute the determinant of $B'$.  What do you observe?
+\begin{problem}\label{prob:detrowswitch}
+Let $B'$ be a matrix obtained from $B$ of Problem \ref{prob:2x2det2} by switching the first and the second row of $B$.  Compute the determinant of $B'$.  What do you observe?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:2x2rowswitchproof}
 Make a conjecture about what happens to the determinant of a matrix if two rows of a matrix are switched.  Prove your conjecture for a $2\times 2$ matrix.
 \end{problem}
 
-\begin{problem}Let $B'$ be a matrix obtained from $B$ of Problem {\color{red} reference} by multiplying the middle row by $-3$.  Compute the determinant of $B'$.  What do you observe?
+\begin{problem}\label{prob:scalarmultrowdet} Let $B'$ be a matrix obtained from $B$ of Problem \ref{prob:2x2det2} by multiplying the middle row by $-3$.  Compute the determinant of $B'$.  What do you observe?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:rowtimesconstant2x2proof}
 Make a conjecture about what happens to the determinant of a matrix if one of the rows is multiplied by a constant.  Prove your conjecture for a $2\times 2$ matrix.
 \end{problem}
 
-\begin{problem}Let $B'$ be a matrix obtained from $B$ of Problem {\color{red} reference} by multiplying $B$ by $2$.  Compute the determinant of $B'$.  What do you observe?
+\begin{problem}\label{prob:matrixtimesconst}
+Let $B'$ be a matrix obtained from $B$ of Problem \ref{prob:2x2det2} by multiplying $B$ by $2$.  Compute the determinant of $B'$.  What do you observe?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:matrixtimesconstant2x2proof}
 Make a conjecture about what happens to the determinant of a matrix if the matrix is multiplied by a constant.  Prove your conjecture for a $2\times 2$ matrix.
 \end{problem}
 
-\begin{problem}
-Let $B'$ be a matrix obtained from $B$ of Problem {\color{red} reference} by adding twice the third row to the first.  Compute the determinant of $B'$.  What do you observe?
+\begin{problem}\label{prob:scalarmultofrow}
+Let $B'$ be a matrix obtained from $B$ of Problem \ref{prob:2x2det2} by adding twice the third row to the first.  Compute the determinant of $B'$.  What do you observe?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:scalarmultofrow2x2}
 Make a conjecture about what happens to the determinant of a matrix if a multiple of one row is added to another row.  Prove your conjecture for a $2\times 2$ matrix.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:detsumsumdetquestion}
 Is it true that 
 $\det{(A+B)}=\det{A}+\det{B}$?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:detIproof}
 Use mathematical induction to prove Lemma \ref{lemma:detofid}.
 \end{problem}
 \end{document} 
