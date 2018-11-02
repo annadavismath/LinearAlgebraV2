@@ -281,7 +281,7 @@ we conclude that transformation $T$ is not linear.
   
   
   
-In Exploration Problem \ref{init:lintransintro} we introduced a transformation $T_2$ which turned out to be non-linear.  It took some work to show that $T_2$ is not linear.  The following theorem would have made our work easier.
+In Exploration \ref{init:lintransintro} we introduced a transformation $T_2$ which turned out to be non-linear.  It took some work to show that $T_2$ is not linear.  The following theorem would have made our work easier.
 
 \begin{theorem}\label{th:zerotozero} Let $T:\RR^n\rightarrow \RR^m$ be a linear transformation.  Then $T(\vec{0})=\vec{0}$.  In other words, linear transformations map the zero vector to the zero vector.
 \end{theorem}
@@ -291,7 +291,7 @@ $$T(\vec{0})=T(\vec{v}-\vec{v})=T(\vec{v})-T(\vec{v})=\vec{0}$$
 \end{proof}
 
 \begin{example}\label{ex:zerotozero}
-Use Theorem \ref{th:zerotozero} to show that transformation $T_2$ of Exploration Problem \ref{init:lintransintro} is not linear.
+Use Theorem \ref{th:zerotozero} to show that transformation $T_2$ of Exploration \ref{init:lintransintro} is not linear.
 \begin{explanation}
 Recall that $T_2:\RR^2\rightarrow\RR^2$ was defined by
 $$T_2\left(\begin{bmatrix}
@@ -313,18 +313,18 @@ Since $T_2(\vec{0})\neq\vec{0}$, $T_2$ is not linear.
 
 We conclude this section by introducing two simple but important transformations.
 
-\begin{definition}\label{def:idtrans}
-The \dfn{identity transformation} on $V$, denoted by $\id_V$, is a transformation that maps each element of the domain to itself.
+\begin{definition}\label{def:idtransonrn}
+The \dfn{identity transformation} on $\RR^n$, denoted by $\id_{\RR^n}$, is a transformation that maps each element of $\RR^n$ to itself.
 
 In other words,
-$$\id_{V}:V\rightarrow V$$ is a transformation such that $$\id_{V}(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in V$$
+$$\id_{\RR^n}:\RR^n\rightarrow \RR^n$$ is a transformation such that $$\id_{\RR^n}(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in \RR^n$$
 \end{definition}
 
-\begin{definition}\label{def:zerotrans}
+\begin{definition}\label{def:zerotransonrn}
 The \dfn{zero transformation}, $Z$, maps every element of the domain to the zero vector.
 
 In other words,
-$$Z:V\rightarrow W$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in V$$
+$$Z:\RR^n\rightarrow \RR^m$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in \RR^n$$
 \end{definition}
 
 \begin{theorem}\label{th:idlintrans}
@@ -368,7 +368,7 @@ $$T\left(\begin{bmatrix}
 
 
 
-We say that the transformation $T$ in Exploration Problem \ref{init:matrixtrans} is \dfn{induced} by matrix $A$.  Such transformations are often called \dfn{matrix transformations}.  In general, an $m\times n$ matrix induces a transformation from $\RR^n$ into $\RR^m$.  We will see that all matrix transformations are linear.
+We say that the transformation $T$ in Exploration \ref{init:matrixtrans} is \dfn{induced} by matrix $A$.  Such transformations are often called \dfn{matrix transformations}.  In general, an $m\times n$ matrix induces a transformation from $\RR^n$ into $\RR^m$.  We will see that all matrix transformations are linear.
 
 
   \begin{theorem}\label{th:matrixtran} Let $A$ be an $m\times n$ matrix.  Define $T:\RR^n\rightarrow\RR^m$ by $T(\vec{v})=A\vec{v}$.  Then $T$ is a linear transformation.
@@ -467,8 +467,8 @@ The image of $\vec{v}$ is given by
 
 This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\begin{bmatrix}1\\-2\end{bmatrix}$.  This means that the image of $T$ is a line in $\RR^2$.
 
-\begin{image}[3in]
-\begin{tikzpicture}[scale=.7]
+\begin{center}
+\begin{tikzpicture}[scale=.8]
 
   \draw[->] (0,0)--(3,0);
   \draw[->] (0,0)--(0,3);
@@ -482,7 +482,7 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
   \draw [->,line width=1pt,-stealth]  (2,-1) to[out=-60, in=240] (4.5, -1);
    \node[] at (3.25, -1)   (b) {$T$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 \end{explanation}
 \end{example}
 
@@ -493,11 +493,11 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
 \section*{Practice Problems}
 \begin{problem}\label{prob:sum}
 
-Show that (\ref{lin2}) of Exploration Problem \ref{init:lintransintro} holds for vectors $\begin{bmatrix}3\\4\end{bmatrix}$ and $\begin{bmatrix}-2\\1\end{bmatrix}$.
+Show that (\ref{lin2}) of Exploration \ref{init:lintransintro} holds for vectors $\begin{bmatrix}3\\4\end{bmatrix}$ and $\begin{bmatrix}-2\\1\end{bmatrix}$.
 \end{problem}
 
 \begin{problem}\label{prob:prob2}
-Use a counter-example to prove (\ref{t2}) of Exploration Problem \ref{init:lintransintro}.
+Use a counter-example to prove (\ref{t2}) of Exploration \ref{init:lintransintro}.
 \end{problem}
 
 \begin{problem}\label{prob:imageoflincomb}
@@ -505,7 +505,7 @@ Suppose $T:\RR^{10}\rightarrow\RR^2$ is a linear transformation such that $T(\ve
 \end{problem}
 
 
-\begin{problem}\label{prob:notlinear} (Adopted from Kuttler, Exercise 5.1.3)
+\begin{problem}\label{prob:notlinear} 
 Let $\vec{u}$ be a fixed vector.  Define $T_{\vec{u}}:\RR^2\rightarrow\RR^2$, by $T_{\vec{u}}(\vec{x})=\vec{u}+\vec{x}$.
   \begin{enumerate}
   \item 
@@ -537,7 +537,7 @@ $$T\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}\right)=\begin{bmatrix}\answer{-6}\
 
 \begin{problem}\label{prob:zerotrans} Prove Theorem \ref{th:zerolintrans}\end{problem}
 
-\begin{problem}\label{prob:domaincodomain}
+\begin{problem}
 For each matrix $A$ below, find the domain and the codomain of the linear transformation $T$ induced by $A$; find and draw the image of $T$. (Hint: See Example \ref{ex:lineartrans3}.)
   \begin{problem}\label{prob:domaincodomain1}
   $$A=\begin{bmatrix}0&0\\1&1\\2&0\end{bmatrix}$$
@@ -547,5 +547,9 @@ For each matrix $A$ below, find the domain and the codomain of the linear transf
    \end{problem}
 \end{problem}
 
+\section*{Exercise Source}
+Practice Problem \ref{prob:notlinear} is adopted from Problem 5.1.3 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 272.
 
 \end{document} 
