@@ -13,7 +13,7 @@
 \section*{LTR-0020: Standard Matrix of a Linear Transformation, Part I}
 \subsection*{Columns of a Matrix as Images of Standard Unit Vectors}
 
-\begin{exploration} Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
+\begin{exploration}\label{init:transinducedbymatrix} Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
 $$A=\begin{bmatrix}1&-2&4\\0&3&5\end{bmatrix}$$
 We will examine the effect of $T$ on the standard unit vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$.
 
@@ -46,7 +46,7 @@ In general, the linear transformation $T:\RR^n\rightarrow\RR^m$, induced by an $
 
 We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of \dfn{all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
 
-\begin{example}  
+\begin{example}\label{ex:imageofatransformation}  
 Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{b}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
 
 \begin{explanation}  Observe that 
@@ -88,20 +88,20 @@ T(\vec{x})&=T(x_1\vec{e}_1+x_2\vec{e}_2+\dots+x_n\vec{e}_n)=x_1T(\vec{e}_1)+x_2T
 Thus, for every $\vec{x}$ in $\RR^n$, we have $T(\vec{x})=A\vec{x}$. 
 \end{proof}
 
-The above discussion relies on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in Module {\color{red}LTR-M-0080 (use a ref later)} that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
+The above discussion relies on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in LTR-0080 that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
 
 
-\begin{definition} 
+\begin{definition} \label{def:standardmatoflintrans}
   
 The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
   
 \end{definition}
 
 
-In Theorem \ref{th:matrixtran} of LTR-M-0010 we showed that every transformation induced by a matrix is linear.  Theorem \ref{th:matlin} states that every linear transformation from $\RR^n$ into $\RR^m$ is induced by a matrix.  We combine these results in a corollary.
+In Theorem \ref{th:matrixtran} of LTR-0010 we showed that every transformation induced by a matrix is linear.  Theorem \ref{th:matlin} states that every linear transformation from $\RR^n$ into $\RR^m$ is induced by a matrix.  We combine these results in a corollary.
 
 
-  \begin{corollary}\label{cor} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.
+  \begin{corollary}\label{cor:lintransmattrans} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.
 \end{corollary}
 
 \begin{example}\label{ex:findmatrix}
@@ -116,24 +116,24 @@ $$\begin{bmatrix}2&0\\0&2\end{bmatrix}$$
  
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:evaluateT}
 Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T(\vec{i})=\begin{bmatrix}-4\\2\\1\end{bmatrix}$ and $T(\vec{j})=\begin{bmatrix}0\\-1\\5\end{bmatrix}$.  Find $T\Big(\begin{bmatrix}4\\-1\end{bmatrix}\Big)$.
 
 $$T\Big(\begin{bmatrix}4\\-1\end{bmatrix}\Big)=\begin{bmatrix}\answer{-16}\\\answer{9}\\\answer{-1}\end{bmatrix}$$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:standardmatrix}
 Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T\Big(\begin{bmatrix}1\\-1\end{bmatrix}\Big)=\begin{bmatrix}1\\4\\-1\end{bmatrix}$ and $T\Big(\begin{bmatrix}2\\0\end{bmatrix}\Big)=\begin{bmatrix}0\\6\\4\end{bmatrix}$.  Find the standard matrix $A$ of $T$.
 
 $$A=\begin{bmatrix}\answer{0}&\answer{-1}\\\answer{3}&\answer{-1}\\\answer{2}&\answer{3}\end{bmatrix}$$
 \end{problem}
 \begin{problem} 
 Find the standard matrix $A$ of each linear transformation $T:\RR^2\rightarrow\RR^2$ described below.
-  \begin{problem}
+  \begin{problem}\label{prob:standardmatrix1}
   $T$ doubles the $x$ component of every vector and triples the $y$ component.
   
   $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{3}\end{bmatrix}$$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:standardmatrix2}
   $T$ reverses the direction of each vector.
   
   $$A=\begin{bmatrix}\answer{-1}&\answer{0}\\\answer{0}&\answer{-1}\end{bmatrix}$$
@@ -143,12 +143,12 @@ Find the standard matrix $A$ of each linear transformation $T:\RR^2\rightarrow\R
   
   $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{2}\end{bmatrix}$$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:standardmatrix3}
   $T$ projects each vector onto the $x$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}4\\0\end{bmatrix}$)
   
   $$A=\begin{bmatrix}\answer{1}&\answer{0}\\\answer{0}&\answer{0}\end{bmatrix}$$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:standardmatrix4}
   $T$ projects each vector onto the $y$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}0\\5\end{bmatrix}$)
   
   $$A=\begin{bmatrix}\answer{0}&\answer{0}\\\answer{0}&\answer{1}\end{bmatrix}$$
