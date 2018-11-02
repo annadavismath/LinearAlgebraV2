@@ -13,7 +13,7 @@
 At several places in this course it has been valuable to restrict ourselves to square matrices, and we do so again when discussing eigenvalues and eigenvectors.  
 
 In Theorem \ref{th:matrixtran} 
-of Module LTR-M-0010, we proved that any $n \times n$  matrix induces a linear transformation from $\RR^n$ to itself.  For our first few examples, let us consider the case $n = 2$. 
+of Module LTR-0010, we proved that any $n \times n$  matrix induces a linear transformation from $\RR^n$ to itself.  For our first few examples, let us consider the case $n = 2$. 
 
 \begin{exploration}\label{init:eignintro}
 Let $A=\begin{bmatrix} 2& 1\\ 1&2
@@ -28,13 +28,9 @@ Given a vector $\vec{x}$ in $\RR^2$, the vector $A\vec{x}$ is also in $\RR^2$.  
 Looking next at the blue vectors (vectors parallel to $\begin{bmatrix}1\\1\end{bmatrix}$), we observe that the magnitudes of the vectors are changed, but the direction in which the blue vectors point is unchanged by this linear transformation.  
 \end{exploration}
 
-In Exploration Problem \ref{init:eignintro} we found that certain vectors do not change direction under the linear transformation induced by matrix $A$.  Such vectors are examples of \dfn{eigenvectors} of $A$. 
+In Exploration \ref{init:eignintro} we found that certain vectors do not change direction under the linear transformation induced by matrix $A$.  Such vectors are examples of \dfn{eigenvectors} of $A$. 
 
 In general, any nonzero vector whose image under a matrix transformation is parallel to the original vector is called an \dfn{eigenvector} of the matrix that induced the transformation.  The following definition captures this idea algebraically.
-
-%Note that we only consider nonzero vectors, because the zero vector has no ``direction''.  Note, too, that any fixed vector of $A$ is an eigenvector of $A$ since it does not change direction.
-
-%An algebraic way of saying that the image vector is parallel to the original vector under a linear transformation induced by the matrix $A$ is to say that $A\vec{x}$ is a scalar multiple of the original vector $\vec{x}$.  This leads us to the following definition.
 
 \begin{definition}\label{def:eigen}
 Let $A$ be an $n \times n$ matrix.  We say that a non-zero vector $\vec{x}$ is an \dfn{eigenvector} of $A$ if $$A\vec{x} = \lambda \vec{x}$$
@@ -42,12 +38,12 @@ for some scalar $\lambda$.
 We say that $\lambda$ is an \dfn{eigenvalue} of $A$ associated with the eigenvector $\vec{x}$. %$lambda$.
 \end{definition}
 
-In Exploration Problem \ref{init:eignintro} we observed visually that vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ were eigenvectors, as they changed length but did not change direction under the linear transformation.  To verify this algebraically, observe that all vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ can be written in the form $\begin{bmatrix} a\\ a \end{bmatrix}$, $(a\neq 0)$.  We compute 
+In Exploration \ref{init:eignintro} we observed visually that vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ were eigenvectors, as they changed length but did not change direction under the linear transformation.  To verify this algebraically, observe that all vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ can be written in the form $\begin{bmatrix} a\\ a \end{bmatrix}$, $(a\neq 0)$.  We compute 
 $$\begin{bmatrix} 2& 1\\ 1&2 \end{bmatrix} \begin{bmatrix} a\\ a \end{bmatrix} =
 \begin{bmatrix} 3a\\ 3a \end{bmatrix}= 3 \begin{bmatrix} a\\ a \end{bmatrix}$$
 This shows that any non-zero scalar multiple of $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ is an eigenvector of $A$ which has a corresponding eigenvalue of 3.
 
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}
 
   \draw[<->] (-4,0)--(4,0);
@@ -64,9 +60,9 @@ This shows that any non-zero scalar multiple of $\begin{bmatrix} 1\\ 1 \end{bmat
   \node[blue] at (3, 3.5)   (a) {$\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}a\\a\end{bmatrix}=3\begin{bmatrix}a\\a\end{bmatrix}$};
 
  \end{tikzpicture}
-\end{image}
+\end{center}
 
-\dfn{Fixed vectors} of Exploration Problem \ref{init:eignintro} are also eigenvectors. 
+\dfn{Fixed vectors} of Exploration \ref{init:eignintro} are also eigenvectors. 
 For example,  
 $$\begin{bmatrix} 2& 1\\ 1&2 \end{bmatrix} \begin{bmatrix} 1\\ -1 \end{bmatrix} =
 \begin{bmatrix} 1\\ -1 \end{bmatrix}= 1 \begin{bmatrix} 1\\ -1 \end{bmatrix}$$
@@ -80,10 +76,10 @@ A couple of finer points of Definition \ref{def:eigen} require clarification.
   \end{itemize}
 
 \begin{example}\label{ex:eigen}
-Let $P=\begin{bmatrix} 1& 0\\ 0&0\end{bmatrix}$.  Note that $P$ takes a vector in $\RR^2$ and projects it onto the $x$-axis, as we learned in Practice Problem \ref{} of Module LTR-M-0020.  Which vectors in $\RR^2$ would be the eigenvectors, and what are the corresponding eigenvalues?
+Let $P=\begin{bmatrix} 1& 0\\ 0&0\end{bmatrix}$.  Note that $P$ takes a vector in $\RR^2$ and projects it onto the $x$-axis, as we learned in Practice Problem \ref{} of Module LTR-0020.  Which vectors in $\RR^2$ would be the eigenvectors, and what are the corresponding eigenvalues?
 \begin{explanation}
 Since $P\vec{x}$ is the projection of $\vec{x}$ onto the $x$-axis, in many cases $P\vec{x}$ and $\vec{x}$ are not parallel.  Notice, however, that all of the red vectors located along the $x$-axis in the diagram are fixed by $P$. So, for any of the red vectors we have $P\vec{x}=\vec{x}=1\vec{x}$, which means that each of the red vectors is an eigenvector of $P$ with the corresponding eigenvalue of $1$.
-\begin{image}[3in]
+\begin{center}
 \begin{tikzpicture}
 
   \draw[<->] (-4,0)--(4,0);
@@ -120,22 +116,22 @@ Since $P\vec{x}$ is the projection of $\vec{x}$ onto the $x$-axis, in many cases
 
  \node[black] at (2.2, -1)   (a) {$\begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}x_1\\0\end{bmatrix}$};
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 The blue vectors along the y-axis are also eigenvectors.  To see this, note that each of the blue vectors is of the form $\vec{x}=\begin{bmatrix}0\\x_2\end{bmatrix}$.  But then $$P\vec{x}=\begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}0\\x_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}=0\begin{bmatrix}0\\x_2\end{bmatrix}=0\vec{x}$$
 So each of the blue vectors is an eigenvector of $P$ with the corresponding eigenvalue of $0$.
 \end{explanation}
 \end{example}
 
-A natural question is this: does every square matrix have eigenvalues and eigenvectors?  We will see in Module EIG-M-0020 that the answer to this question is ``yes", provided that we permit eigenvalues and entries of eigenvectors to be complex numbers.  The next example is one that requires complex numbers.
+A natural question is this: does every square matrix have eigenvalues and eigenvectors?  We will see in Module EIG-0020 that the answer to this question is ``yes", provided that we permit eigenvalues and entries of eigenvectors to be complex numbers.  The next example is one that requires complex numbers.
 
 \begin{example}\label{ex:eigsrotation}
 Let $M=\begin{bmatrix}
 \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}
-\end{bmatrix}$.  Note that $M$ takes any vector $\vec{x}$ in $\RR^2$ and rotates it $45^{\circ}$, as we saw in Example \ref{ex: rotate45} of Module LTR-M-0070.  
+\end{bmatrix}$.  Note that $M$ takes any vector $\vec{x}$ in $\RR^2$ and rotates it $45^{\circ}$, as we saw in Example \ref{ex: rotate45} of Module LTR-0070.  
 
-\begin{image}[4in]
+\begin{center}
 \begin{tikzpicture}
 
   \draw[<->] (-1.5,0)--(1.5,0);
@@ -190,7 +186,7 @@ Let $M=\begin{bmatrix}
 
 \fill[blue] (0.707,0.707) circle (0.06cm);
  \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 
@@ -198,7 +194,7 @@ Let $M=\begin{bmatrix}
 
 Since $M$ rotates every vector in $\RR^2$, \emph{every} nonzero vector changes direction, so there are no eigenvectors in the plane.  But it turns out that $M$ does have eigenvectors and eigenvalues, but in order to find them we need to work with vectors whose entries are complex numbers.  Since these vectors are not in $\RR^2$, we cannot see them.
 
-%\begin{image}[3in]
+%\begin{center}[3in]
 %\begin{tikzpicture}
 
  % \draw[<->] (-4,0)--(4,0);
@@ -207,7 +203,7 @@ Since $M$ rotates every vector in $\RR^2$, \emph{every} nonzero vector changes d
 % \node[blue] at (0, 2)   (a) {Eigenvectors? What eigenvectors?  Nothing to see here...};
 
 % \end{tikzpicture}
-%\end{image}
+%\end{center}
 
 %{\color{blue}I was just being goofy, do we seriously want to keep this?}
 
@@ -232,23 +228,23 @@ The most famous modern example of a large-scale eigenvalue problem is the Google
 
 \section*{Practice Problems}
 
-\begin{problem}Let $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$.  \begin{problem}
+\begin{problem}Let $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$.  \begin{problem}\label{prob:checkeig1}
 Show that $\begin{bmatrix} 1\\1\\1 \end{bmatrix}$ is an eigenvector of $C$.  What is its corresponding eigenvalue?
 $\answer{4}$
 \end{problem}
- \begin{problem}
-Show that $\begin{bmatrix} 1\\-1\\0 \end{bmatrix}$ is an eigenvector of $A$.  What is its corresponding eigenvalue?
+ \begin{problem}\label{prob:checkeig2}
+Show that $\begin{bmatrix} 1\\-1\\0 \end{bmatrix}$ is an eigenvector of $C$.  What is its corresponding eigenvalue?
 $\answer{1}$
 \end{problem}
- \begin{problem}
-Show that $\begin{bmatrix} 1\\1\\-2 \end{bmatrix}$ is an eigenvector of $A$.  What is its corresponding eigenvalue?
+ \begin{problem}\label{prob:checkeig3}
+Show that $\begin{bmatrix} 1\\1\\-2 \end{bmatrix}$ is an eigenvector of $C$.  What is its corresponding eigenvalue?
 $\answer{1}$
 \end{problem}
 \end{problem}
 
 
 
-\begin{problem}Let $Q=\begin{bmatrix} 0& 0\\ 0&1\end{bmatrix}$.  Note that $Q$ takes any vector in $\RR^2$ and projects it onto the $y$-axis, as we learned in Practice Problem \ref{} of Module LTR-M-0020.  Which vectors in $\RR^2$ would be eigenvectors, and what are the corresponding eigenvalues?
+\begin{problem}\label{prob:eigprojmatrix} Let $Q=\begin{bmatrix} 0& 0\\ 0&1\end{bmatrix}$.  Note that $Q$ takes any vector in $\RR^2$ and projects it onto the $y$-axis, as we learned in Practice Problem \ref{} of Module LTR-0020.  Which vectors in $\RR^2$ would be eigenvectors, and what are the corresponding eigenvalues?
 \end{problem}
 
  
@@ -260,9 +256,8 @@ Returning to Example \ref{ex:eigsrotation}, let $M=\begin{bmatrix}
 $\answer{\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i}$
 \end{problem}
 
-%{\color{blue}I added the following problem}
 
-\begin{problem}
+\begin{problem}\label{prob:eigenvalgeometry}
 Arguing geometrically, identify the linear transformation whose standard matrix has eigenvalues $\lambda_1=1$ and $\lambda_2=-1$.
 \begin{multipleChoice}
 \choice{Vertical Shear}
@@ -274,7 +269,7 @@ Arguing geometrically, identify the linear transformation whose standard matrix 
   \end{multipleChoice}
 \end{problem}
 
-\begin{problem}Let $A=\begin{bmatrix} 3&0&0\\0&3&0\\0&0&3\end{bmatrix}$.  Can you find an eigenvector and its corresponding eigenvalue?  Can you find another ``eigenpair''?  Can you find all of the eigenvectors of $A$?
+\begin{problem}\label{prob:eigvalvectorsofdiagmat} Let $A=\begin{bmatrix} 3&0&0\\0&3&0\\0&0&3\end{bmatrix}$.  Can you find an eigenvector and its corresponding eigenvalue?  Can you find another ``eigenpair''?  Can you find all of the eigenvectors of $A$?
 \end{problem}
 
 \begin{problem}\label{prob:rotmatrixrealeig1}The rotation matrix in Example \ref{ex:eigsrotation} has complex eigenvectors and eigenvalues.  Think geometrically to find an example of a (non-identity) rotation matrix with real eigenvectors and eigenvalues.
@@ -282,7 +277,7 @@ Arguing geometrically, identify the linear transformation whose standard matrix 
 Answer:  Rotation through $\answer{180}$ degrees.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:eigenmultchoice}
 Can an eigenvalue have multiple eigenvectors associated with it? 
 \begin{multipleChoice}
   \choice[correct]{Yes}
