@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{VSP-0060: Bases and Dimension for Abstract Vector Spaces} \license{CC-BY 4.0}
+\author{Paul Zachlin \and Anna Davis} \title{VSP-0060: Bases and Dimension for Abstract Vector Spaces} \license{CC-BY-NC-SA}
 \begin{document}
 
 \begin{abstract}
@@ -45,7 +45,7 @@ The only solution is $a = b = c = 0$.  We conclude that $P$ is linearly independ
 
 \subsection*{Bases and Dimension}
 
-Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition \ref{def:basis} we gave in VSP-M-0030 generalizes to abstract vector spaces as follows.
+Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition \ref{def:basis} we gave in VSP-0030 generalizes to abstract vector spaces as follows.
 
 \begin{definition}\label{def:basisabstract}
 Let $V$ be a vector space.  A set $\mathcal{B}$ of vectors of $V$ is called a \dfn{basis} of $V$  provided that $\mathcal{B}$
@@ -73,7 +73,7 @@ a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n-(b_1\vec{v}_1+ b_2\vec{v}_2+\ldot
 Because $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$ are linearly independent, we have $a_i-b_i=0$ for $1\leq i\leq n$. Consequently $a_i=b_i$ for $1\leq i\leq n$.
 \end{proof}
 
-In VSP-M-0035 we defined the dimension of a subspace of $\RR^n$ to be the number of elements in a basis. (Definition \ref{def:dimension})  We will adopt this definition for abstract vector spaces.  As before, to ensure that \dfn{dimension} is well-defined we need to establish that this definition is independent of our choice of a basis.  The proof of the following theorem is identical to the proof of its counterpart in $\RR^n$.  (Theorem \ref{th:dimwelldefined})
+In VSP-0035 we defined the dimension of a subspace of $\RR^n$ to be the number of elements in a basis. (Definition \ref{def:dimension})  We will adopt this definition for abstract vector spaces.  As before, to ensure that \dfn{dimension} is well-defined we need to establish that this definition is independent of our choice of a basis.  The proof of the following theorem is identical to the proof of its counterpart in $\RR^n$.  (Theorem \ref{th:dimwelldefined})
 
 \begin{theorem}\label{th:dimwelldefinedabstract}
 Let $V$ be a vector space.  Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $V$.  Then $s=t$.
@@ -84,7 +84,7 @@ Let $V$ be a subspace of $\RR^n$.  The \dfn{dimension} of $V$ is the number, $m$
 $$\mbox{dim}(V)=m$$
 \end{definition}
 
-In our discussion to this point we have always assumed that a basis is nonempty and hence that the dimension of the space is at least $1$. However, the zero space $\{\vec{0}\}$ has {\it no} basis (see Practice Problem \ref{prob:nobasis}).  To accommodate for this, we will say that the zero vector space $\{\vec{0}\}$ is defined to have dimension $0$:
+In our discussion to this point we have always assumed that a basis is nonempty and hence that the dimension of the space is at least $1$. However, the zero space $\{\vec{0}\}$ has {\it no} basis.  To accommodate for this, we will say that the zero vector space $\{\vec{0}\}$ is defined to have dimension $0$:
 \begin{equation*}
 \mbox{dim }\{\vec{0}\} = 0
 \end{equation*}
@@ -92,7 +92,7 @@ In our discussion to this point we have always assumed that a basis is nonempty 
 Our insistence that $\mbox{dim}\{\vec{0}\} = 0$ amounts to saying that the empty set of vectors is a basis of $\{\vec{0}\}$. Thus the statement that ``the dimension of a vector space is the number of vectors in any basis'' holds even for the zero space. [Nicholson]
 
 \begin{example}\label{ex:dimofM}
-Recall that the vector space $\mathbb{M}_{m,n}$ consists of all $m\times n$ matrices. (See Example \ref{ex:MLexamplesofvectspaces} of VSP-M-0050).  Find a basis and the dimension of $\mathbb{M}_{m,n}$.
+Recall that the vector space $\mathbb{M}_{m,n}$ consists of all $m\times n$ matrices. (See Example \ref{ex:MLexamplesofvectspaces} of VSP-0050).  Find a basis and the dimension of $\mathbb{M}_{m,n}$.
 \begin{explanation}
 Let $\mathcal{B}$ consist of $m\times n$ matrices 
  with exactly one entry equal to $1$ and all other entries equal to $0$. It is clear that every $m\times n$ matrix can be written as a linear combination of elements of $\mathcal{B}$.  It is also easy to see that the elements of $\mathcal{B}$ are linearly independent.  Thus $\mathcal{B}$ is a basis for $\mathbb{M}_{m,n}$.  The set $\mathcal{B}$ contains $mn$ elements, so $\mbox{dim}(\mathbb{M}_{m,n})=mn$.
@@ -100,7 +100,7 @@ Let $\mathcal{B}$ consist of $m\times n$ matrices
 \end{example}
 
 \begin{example}\label{ex:dimofP}
-Recall that $\mathbb{P}^n$ is the set of all polynomials of degree $n$ or less.  (See Example \ref{ex:pnisavectorspace} of VSP-M-0050) Show that $\mbox{dim}( \mathbb{P}^{n}) = n + 1$ and that $\{1, x, x^{2}, \dots, x^{n}\}$ is a basis of $\mathbb{P}^{n}$.
+Recall that $\mathbb{P}^n$ is the set of all polynomials of degree $n$ or less.  (See Example \ref{ex:pnisavectorspace} of VSP-0050) Show that $\mbox{dim}( \mathbb{P}^{n}) = n + 1$ and that $\{1, x, x^{2}, \dots, x^{n}\}$ is a basis of $\mathbb{P}^{n}$.
 
 \begin{explanation}
 Each polynomial $p(x) = a_{0} + a_{1}x + \ldots + a_{n}x^{n}$ in $\mathbb{P}^{n}$ is clearly a linear combination of $1, x, \dots, x^{n}$, so $\mathbb{P}^{n} = \mbox{span}\{1, x, \dots, x^{n}\}$. 
@@ -116,7 +116,7 @@ C_A = \{X \mbox{ in } \mathbb{M}_{2,2} : AX = XA \}
 \end{equation*}
 of $\mathbb{M}_{2,2}$. 
 
-It was shown in Example \ref{ex:centralizerofA} of VSP-M-0050 that $C_A$ is a subspace for any choice of the matrix $A$.
+It was shown in Example \ref{ex:centralizerofA} of VSP-0050 that $C_A$ is a subspace for any choice of the matrix $A$.
 
 Let $A = 
 \begin{bmatrix}
@@ -149,7 +149,7 @@ The set $\mathcal{B}$ is linearly independent. (See Practice Problem \ref{prob:C
 \end{example}
 
 \begin{example}\label{ex:symmetricmatsubspace} 
-In Practice Problem \ref{prob:symmetricsubspace} of VSP-M-0050 you demonstrated that the set of all symmetric $n\times n$ matrices is a subspace of $\mathbb{M}_{n,n}$.
+In Practice Problem \ref{prob:symmetricsubspace} of VSP-0050 you demonstrated that the set of all symmetric $n\times n$ matrices is a subspace of $\mathbb{M}_{n,n}$.
 
 Let $V$ be a subspace of $\mathbb{M}_{2,2}$ consisting of all $2\times 2$ symmetric matrices.  Find the dimension of $V$.
 
@@ -193,11 +193,11 @@ $\mathcal{B} = \left\{
 \subsection*{Finite-Dimensional Vector Spaces}
 Our definition of dimension of a vector space depends on the vector space having a basis.  In this section we will establish that any vector space spanned by finitely many vectors has a basis.
 
-\begin{definition}
+\begin{definition}\label{def:findimvectorspace}
 A vector space is said to be \dfn{finite-dimensional} if it is spanned by finitely many vectors.
 \end{definition}
 
-Given a finite-dimensional vector space $V$ we will find a basis for $V$ by starting with a linearly independent subset of $V$ and expanding it to a basis.  The following results are more general versions of Lemmas \ref{lemma:atmostnlinindinrn} and \ref{lemma:expandinglinindset}, and Theorem \ref{th:dimwelldefined} of VSP-M-0035.  The proofs are identical and we will omit them.
+Given a finite-dimensional vector space $V$ we will find a basis for $V$ by starting with a linearly independent subset of $V$ and expanding it to a basis.  The following results are more general versions of Lemmas \ref{lemma:atmostnlinindinrn} and \ref{lemma:expandinglinindset}, and Theorem \ref{th:dimwelldefined} of VSP-0035.  The proofs are identical and we will omit them.
 \begin{lemma}\label{lemma:atmostnlinindinabstract}
 Let $V$ be a vector space spanned by $n$ vectors.  If a linearly independent subset $S$ of $V$ contains $m$ vectors, then $m\leq n$.
 \end{lemma}
@@ -212,21 +212,21 @@ Let $V$ be a finite-dimensional vector space.  Any linearly independent subset o
 
 \subsection*{Coordinate Vectors}
 
-Recall that in the context of $\RR^n$ (and subspaces of $\RR^n$) the requirement that elements of a basis be linearly independent guarantees that every element of the vector space has a {\it unique} representation in terms of the elements of the basis.  (See Theorem \ref{th:linindbasis} of VSP-M-0030)  We proved the same property for abstract vector spaces in Theorem \ref{th:uniquerep}.
+Recall that in the context of $\RR^n$ (and subspaces of $\RR^n$) the requirement that elements of a basis be linearly independent guarantees that every element of the vector space has a {\it unique} representation in terms of the elements of the basis.  (See Theorem \ref{th:linindbasis} of VSP-0030)  We proved the same property for abstract vector spaces in Theorem \ref{th:uniquerep}.
 
-Uniqueness of representation in terms of the elements of a basis allows us to associate every element of a vector space $V$ with a unique \dfn{coordinate vector} with respect to a given basis.  Coordinate vectors were first introduced in VSP-M-0030.  We now give a formal definition.
+Uniqueness of representation in terms of the elements of a basis allows us to associate every element of a vector space $V$ with a unique \dfn{coordinate vector} with respect to a given basis.  Coordinate vectors were first introduced in VSP-0030.  We now give a formal definition.
 
 \begin{definition}\label{def:coordvector}
 Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ be a basis for $V$.  If $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$, then the vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$}.  We denote the coordinate vector by $[\vec{v}]_{\mathcal{B}}$ and write:
 $$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}a_1\\\vdots \\a_n\end{bmatrix}$$
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:coordvectorinpolyvectspace}
 The coordinate vector for $p(x)=4-3x^2+5x^3$ in $\mathbb{P}^4$ with respect to $\mathcal{B}=\{1, x, x^2, x^3, x^4\}$ is 
 $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}4\\0\\-3\\5\\0\end{bmatrix}$$
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:coordvectorinpolyvectspace2}
 Show that the set $\mathcal{B}=\{x, 1+x, x+x^2\}$ is a basis for $\mathbb{P}^2$, and find the coordinate vector for $p(x)=4-x+3x^2$ with respect to $\mathcal{B}$.
 \begin{explanation}
 We will begin by showing that the elements of $\mathcal{B}$ are linearly independent.  Suppose 
@@ -262,7 +262,7 @@ $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}-8\\4\\3\end{bmatrix}$$
 \end{explanation}
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:symmmatsubspace}
 Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $\mathbb{M}_{2,2}$.  In Example \ref{ex:symmetricmatsubspace} we demonstrated that $\mathcal{B} = \left\{
 \begin{bmatrix}
 1 & 0 \\
@@ -291,7 +291,7 @@ $$[A]_{\mathcal{B}}=\begin{bmatrix}2\\1\\-3\end{bmatrix}$$
 \end{example}
 
 
-Coordinate vectors will play a vital role in establishing one of the most fundamental results in linear algebra, that all $n$-dimensional vector spaces have the same structure as $\RR^n$.  In Example \ref{ex:p2isor3} of LTR-M-0060, for instance, we will show that $\mathbb{P}^2$ is essentially the same as $\RR^3$.  
+Coordinate vectors will play a vital role in establishing one of the most fundamental results in linear algebra, that all $n$-dimensional vector spaces have the same structure as $\RR^n$.  In Example \ref{ex:p2isor3} of LTR-0060, for instance, we will show that $\mathbb{P}^2$ is essentially the same as $\RR^3$.  
 
 
 \section*{Practice Problems}
@@ -299,7 +299,7 @@ Coordinate vectors will play a vital role in establishing one of the most fundam
 Prove that set $\mathcal{B}=\left\{\begin{bmatrix}1&1\\0&0\end{bmatrix},\begin{bmatrix}1&0\\0&1\end{bmatrix}\right\}$ of Example \ref{ex:CAbasis} is linearly independent.
 \end{problem}
 
-\begin{problem}\label{prob:linindabstractvsp}
+\begin{problem}
 {\color{red}Nicholson} Show that each of the following sets of vectors is linearly independent.
 
 \begin{problem}\label{prob:linindabstractvsp1}
@@ -339,26 +339,26 @@ in $\mathbb{M}_{2,2}$
 
 \end{problem}
 
-\begin{problem}
-Show that each set in Practice Problem \ref{prob:linindabstractvsp} is a basis for its respective vector space.
+\begin{problem}\label{prob:linindabstractvsp123}
+Show that each set in Practice Problems \ref{prob:linindabstractvsp1}-\ref{prob:linindabstractvsp3} is a basis for its respective vector space.
 \end{problem}
 
 \begin{problem}
 Find the coordinate vector for $p(x)=6-2x+4x^2$ with respect to the given basis $\mathcal{B}$.
 
-\begin{problem}
+\begin{problem}\label{prob:coordvectors1}
 $$\mathcal{B}=\{1 + x, 1 - x, x + x^{2}\}$$
 Answer:
 $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{0}\\\answer{6}\\\answer{4}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:coordvectors2}
 $$\mathcal{B}=\{x^{2}, x + 1, 1 - x - x^{2}\}$$
 Answer:
 $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{8}\\\answer{2}\\\answer{4}\end{bmatrix}$$
 \end{problem}
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:coordvectors3}
 Find the coordinate vector for $A=\begin{bmatrix}4&-3\\1&2\end{bmatrix}$ with respect to the basis
 $$\mathcal{B}=
 \left\{
@@ -386,21 +386,21 @@ Answer:
 $$[A]_{\mathcal{B}}=\begin{bmatrix}\answer{-1}\\\answer{5}\\\answer{-4}\\\answer{-2}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:basisforabstractvectspace}
 Let $V$ be a vector space of dimension $3$.  Suppose $S=\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ is linearly independent in $V$.  Show that $S$ is a basis for $V$.
 \end{problem}
 
-\section*{Text Source} The discussion of the zero space was adapted from Section 6.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+\section*{Text Source} The discussion of the zero space was adapted from Section 6.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 349 
 
 \section*{Example Source}
-Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
 
 \section*{Exercise Source}
-Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
 
