@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{VSP-0050: Abstract Vector Spaces} \license{CC-BY 4.0}
+\author{Paul Zachlin \and Anna Davis} \title{VSP-0050: Abstract Vector Spaces} \license{CC-BY-NC-SA}
 \begin{document}
 
 \begin{abstract}
@@ -13,7 +13,7 @@ We state the definition of an abstract vector space, and learn how to determine 
 \section*{VSP-0050: Abstract Vector Spaces}
 \subsection*{Properties of Vector Spaces} 
 
-In VSP-M-0020 we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
+In VSP-0020 we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
 In this module we will consider sets other than $\RR^n$ that have two operations and satisfy the same properties.  Such sets, together with the operations of addition and scalar multiplication, will also be called vector spaces.
 
 Recall that $\RR^n$ was said to be a vector space because
@@ -53,7 +53,7 @@ and satisfies the following properties:
 In the next two examples we will explore two sets other than $\RR^n$ endowed with addition and scalar multiplication and satisfying the same properties.
 
 \begin{example}\label{ex:setofmatricesvectorspace}
-Let $\mathbb{M}_{m,n}$ be the set of all $m\times n$ matrices.  Matrix addition and scalar multiplication were defined in MAT-M-0010.
+Let $\mathbb{M}_{m,n}$ be the set of all $m\times n$ matrices.  Matrix addition and scalar multiplication were defined in MAT-0010.
 
 Observe that the sum of two $m\times n$ matrices is also an $m\times n$ matrix. Likewise, a scalar multiple of an $m\times n$ matrix is an $m\times n$ matrix.  Thus 
 \begin{itemize}
@@ -61,7 +61,7 @@ Observe that the sum of two $m\times n$ matrices is also an $m\times n$ matrix. 
     \item[] $\mathbb{M}_{m,n}$ is closed under scalar multiplication
 \end{itemize}
 
-In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalarmult} of MAT-M-0010 give us the following properties of matrix addition and scalar multiplication.  Note that these properties are analogous to the eight vector properties.
+In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalarmult} of MAT-0010 give us the following properties of matrix addition and scalar multiplication.  Note that these properties are analogous to the eight vector properties.
 \begin{enumerate}
   \item 
   Commutative Property of Addition:  $\quad A+B=B+A$
@@ -244,17 +244,17 @@ Let $n$ be a natural number.  Define $\mathbb{P}^n$ to be the set of polynomials
 \end{example}
 
 \subsection*{Subspaces}
-\begin{definition}
+\begin{definition}\label{def:subspaceabstract}
 A nonempty subset $U$ of a vector space $V$ is called a \dfn{subspace} of $V$, provided that $U$ is itself a vector space when given the same addition and scalar multiplication as $V$.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:subspaceabstract1}
 In Example \ref{ex:deg_le_2vectorspace} we demonstrated that $\mathbb{P}^2$ is a vector space.  From Example \ref{ex:pisavectorspace} we know that $\mathbb{P}$ is a vector space. But $\mathbb{P}^2$ is a subset of $\mathbb{P}$, and uses the same operations of polynomial addition and scalar multiplication.  Therefore $\mathbb{P}^2$ is a subspace of $\mathbb{P}$.
 \end{example}
 
 Checking all ten properties to verify that a subset of a vector space is a subspace can be cumbersome.  Fortunately we have the following theorem.
 
-\begin{theorem}[Subspace Test]
+\begin{theorem}[Subspace Test]\label{th:subspacetestabstract}
 Let $U$ be a nonempty subset of a vector space $V$.  If $U$ is closed under the operations of addition and scalar multiplication of $V$, then $U$ is a subspace of $V$.
 \end{theorem}
 \begin{proof}
@@ -366,26 +366,26 @@ See Practice Problem \ref{prob:spanisasubspaceabstract}.
 \section*{Practice Problems}
 \begin{problem}
 (Adapted from Kuttler, Exercises 9.1.1-9.1.4) Is the set of all points in $\mathbb{R}^2$ a vector space under the given definitions of addition and scalar multiplication?    In each case be specific about which vector space properties hold and which properties fail.
-  \begin{problem}
+  \begin{problem}\label{prob:abstractvectspace1}
   Addition: $(a, b)+(c, d)=(a+d, b+c)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:abstractvectspace2}
   Addition: $(a, b)+(c, d)=(0, b+d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:abstractvectspace3}
   Addition: $(a, b)+(c, d)=(a+c, b+d)$\\ Scalar Multiplication: $k(a, b)=(a, kb)$
   \end{problem}
-  \begin{problem}
+  \begin{problem}\label{prob:abstractvectspace4}
   Addition: $(a, b)+(c, d)=(a-c, b-d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
   \end{problem}
   \end{problem}
    
- \begin{problem}
+ \begin{problem}\label{prob:abstractvectspace5}
  Let $\mathcal{F}$ be the set of all real-valued functions whose domain is all real numbers.  Define addition and scalar multiplication as follows:
  $$(f+g)(x)=f(x)+g(x)\quad (cf)(x)=cf(x)$$
  Verify that $\mathcal{F}$ is a vector space.
  \end{problem}
- \begin{problem}
+ \begin{problem}\label{prob:abstractvectspacediffeq}
  A differential equation is an equation that contains derivatives.  Consider the differential equation:
  \begin{align}\label{diffeq} f''+f=0\end{align}
 A solution to such an equation is a function.
@@ -397,23 +397,23 @@ A solution to such an equation is a function.
   \item Let $S$ be the set of all solutions to (\ref{diffeq}).  Prove that $S$ is a vector space.
   \end{enumerate}
   \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspacecomplex}
 In this problem we will check that the set $\mathbb{C}$ of all complex numbers is in fact a vector space.  Let $z_1 = a_1 + b_1 i$ be a complex number where $i=\sqrt{-1}$.  Similarly, let $z_2 = a_2 + b_2 i$ and $z_3 = a_3 + b_3 i$ be complex numbers and let $k$ and $p$ be real number scalars.  Check that complex numbers are closed under addition and multiplication, and that they satisfy each of the vector space properties.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspace6}
 Refer to Example \ref{ex:centralizerofA} and describe all elements of $C_I$, where $I$ is a $3\times 3$ identity matrix.
 \end{problem}
   
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspace7}
 Is the subset of all invertible $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
 \end{problem}
 
 \begin{problem}\label{prob:symmetricsubspace}
-Is the subset of all symmetric (See Definition \ref{def:symmetricandskewsymmetric} of MAT-M-0025) $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
+Is the subset of all symmetric (See Definition \ref{def:symmetricandskewsymmetric} of MAT-0025) $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspace8}
 Let $Z$ be a subset of $\mathbb{M}_{n,n}$ that consists of $n\times n$ matrices that commute with {\it every} matrix in $\mathbb{M}_{n,n}$ under matrix multiplication. In other words,
 $$Z=\{B : BY=YB \mbox{ for all } Y \mbox{ in } \mathbb{M}_{n,n}\}$$
 
@@ -424,11 +424,11 @@ Don't forget to check that $Z$ is not empty!
 \end{hint}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspace9}
 List several elements of $\mbox{span}\left(\begin{bmatrix}1&0\\0&1\end{bmatrix}, \begin{bmatrix}0&1\\1&0\end{bmatrix}\right)$.  Suggest a spanning set for $\mathbb{M}_{2,2}$.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:abstractvectspace10}
 Find $\mbox{span}(1, x, x^2, x^3)$.
 \end{problem}
 
@@ -436,14 +436,18 @@ Find $\mbox{span}(1, x, x^2, x^3)$.
 Prove Theorem \ref{th:spanisasubspaceabstract}.
 \end{problem}
 
-\section*{Text Source} The discussion on polynomials was adapted from Section 6.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+\section*{Text Source} The discussion on polynomials was adapted from Section 6.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 331-332 
 
 \section*{Example Source}
-Examples \ref{ex:root3} and \ref{ex:inthespanpoly} were adapted from Examples 6.2.4 and 6.2.7 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}.
+Examples \ref{ex:root3} and \ref{ex:inthespanpoly} were adapted from Examples 6.2.4 and 6.2.7 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 340-341 
 
+\section*{Exercise Source}
+Practice Problems \ref{prob:abstractvectspace1}-\ref{prob:abstractvectspace4} is adopted from Problems 9.1.1-9.1.4 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 469.
 
 \end{document} 
