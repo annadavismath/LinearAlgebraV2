@@ -31,22 +31,30 @@ $$\left[\begin{array}{c|c}
  A&0
  \end{array}\right]$$
 As we perform elementary row operations, the entries to the right of the vertical bar remain $0$.  It is customary to omit writing them down and apply elementary row operations to the coefficient matrix only.
-\begin{example}
-Determine whether the following vectors are linearly independent.
-$$\begin{bmatrix}4\\-2\\1\\3\end{bmatrix}, \begin{bmatrix}5\\8\\-4\\-6\end{bmatrix}, \begin{bmatrix}-1\\4\\-2\\-4\end{bmatrix}$$
+\begin{example}\label{ex:homogeneoussys} 
+Solve the given homogeneous system and interpret your solution geometrically.
+$$\begin{array}{ccccccc}
+      4x &+ &5y&-&z&= &0 \\
+	 x&- &4y&-&2z&= &0 \\
+    3x &- &6y&-&4z&= &0
+    \end{array}$$
 
-\begin{explanation}\label{ex:homogeneouslinind} We need to determine whether there exist coefficients $x_1, x_2, x_3$, not all zero, such that 
-$$x_1\begin{bmatrix}4\\-2\\1\\3\end{bmatrix}+ x_2\begin{bmatrix}5\\8\\-4\\-6\end{bmatrix}+ x_3\begin{bmatrix}-1\\4\\-2\\-4\end{bmatrix}=\vec{0}$$
-Solving this linear combination equation amounts to solving the homogeneous system
-$$\begin{bmatrix}4&5&-1\\-2&8&4\\1&-4&-2\\3&-6&-4\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\vec{0}$$
+\begin{explanation}
+We start by rewriting this system as a matrix equation
+$$\begin{bmatrix}4&5&-1\\1&-4&-2\\3&-6&-4\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix}=\vec{0}$$
 We will proceed to find the reduced row-echelon form of the matrix as usual, but will omit writing the zeros to the right of the vertical bar.
-$$\begin{bmatrix}4&5&-1\\-2&8&4\\1&-4&-2\\3&-6&-4\end{bmatrix}\rightsquigarrow \begin{bmatrix}1&0&2\\0&1&3\\0&0&0\\0&0&0\end{bmatrix}$$
-$x_1$ and $x_2$ are leading variables, and $x_3$ is a free variable.  We let $x_3=t$ and solve for $x_1$ and $x_2$.
-\begin{align*}x_1&=-2t\\
-x_2&=-3t\\
-x_3&=t
+$$\begin{bmatrix}4&5&-1\\1&-4&-2\\3&-6&-4\end{bmatrix}\rightsquigarrow \begin{bmatrix}1&0&-2/3\\0&1&1/3\\0&0&0\end{bmatrix}$$
+$x$ and $y$ are leading variables, and $z$ is a free variable.  We let $z=t$ and solve for $x$ and $y$.
+\begin{align*}
+x&=\frac{2}{3}t\\
+y&=-\frac{1}{3}t\\
+z&=t
 \end{align*}
-There are infinitely many non-trivial solutions to the system and we conclude that the given vectors are linearly dependent.
+Each of the equations in the original system represents a plane through the origin in $\RR^3$.  The system has infinitely many solutions.  Geometrically, we can interpret these solutions as points lying on the line shared by the three planes.  The above solution is a parametric representation of this line.  Use the GeoGebra demo below to take a better look at the system. 
+\begin{center}
+    \geogebra{gxjnusja}{800}{600} 
+  \end{center}
+
 \end{explanation}
 \end{example}
 \subsection*{General and Particular Solutions}
@@ -140,11 +148,6 @@ $$A=\begin{bmatrix}1&1&3&1\\3&4&2&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\beg
 \begin{problem}\label{prob:hompluspart2}
 $$A=\begin{bmatrix}3&2&1\\1&-1&1\\4&1&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}10\\2\\12\end{bmatrix}$$
 \end{problem}
-\end{problem}
-
-\begin{problem}\label{prob:linindhom}
-Are the following vectors linearly independent?
-$$\begin{bmatrix}2\\1\\-1\end{bmatrix}, \begin{bmatrix}-2\\-2\\3\end{bmatrix}, \begin{bmatrix}3\\1\\3\end{bmatrix} $$
 \end{problem}
 
 \begin{problem}\label{prob:infmanysolutionshom}
