@@ -31,7 +31,7 @@ $$\left[\begin{array}{c|c}
  A&0
  \end{array}\right]$$
 As we perform elementary row operations, the entries to the right of the vertical bar remain $0$.  It is customary to omit writing them down and apply elementary row operations to the coefficient matrix only.
-\begin{example}
+\begin{example}\label{ex:homogeneoussys} 
 Solve the given homogeneous system and interpret your solution geometrically.
 $$\begin{array}{ccccccc}
       4x &+ &5y&-&z&= &0 \\
@@ -39,7 +39,7 @@ $$\begin{array}{ccccccc}
     3x &- &6y&-&4z&= &0
     \end{array}$$
 
-\begin{explanation}\label{ex:homogeneouslinind} 
+\begin{explanation}
 We start by rewriting this system as a matrix equation
 $$\begin{bmatrix}4&5&-1\\1&-4&-2\\3&-6&-4\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix}=\vec{0}$$
 We will proceed to find the reduced row-echelon form of the matrix as usual, but will omit writing the zeros to the right of the vertical bar.
