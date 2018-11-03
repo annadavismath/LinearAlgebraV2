@@ -9,32 +9,12 @@
 \end{abstract}
 \maketitle
 
-%Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
-
-%Recall that a transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is called a {\it linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $\mathbb{R}^n$, and scalars $k$.
-%\begin{equation*}
-%T(k{\bf u})= kT({\bf u})
-%\end{equation*}
-%\begin{equation*}
-%T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
-%\end{equation*}
-
-%We generalize this definition as follows.
-
-%\begin{definition}\label{def:lintransgeneral}
-%A transformation $T:V\rightarrow W$ is called a {\it linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $V$, and scalars $k$.
-%\begin{equation*}
-%T(k{\bf u})= kT({\bf u})
-%\end{equation*}
-%\begin{equation*}
-%T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
-%\end{equation*}
-%\end{definition}
+Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
 \section*{LTR-0030:  Composition and Inverses of Linear Transformations}
 
 \subsection*{Composition of Linear Transformations}
-\begin{definition} Let $U$, $V$ and $W$ be vector spaces, and let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations.  The \dfn{composition} of $S$ and $T$ is the transformation $S\circ T:U\rightarrow W$ given by
+\begin{definition}\label{def:compoflintrans} Let $U$, $V$ and $W$ be vector spaces, and let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations.  The \dfn{composition} of $S$ and $T$ is the transformation $S\circ T:U\rightarrow W$ given by
 $$(S\circ T)(\vec{u})=S(T(\vec{u}))$$
 \end{definition}
 
@@ -59,9 +39,8 @@ Even though $S$ is defined on all of $\RR^2$, we are only interested in the acti
 
 The actions of individual transformations, as well as the composite transformation are shown below.
 
-\begin{image}[3.5in]\label{fig:actionofst} 
-
-\begin{tikzpicture}[scale=.7]
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
 
 \fill[blue!40] (-1,-1) rectangle (3,3);
 \draw[thin,gray!40] (-1,-1) grid (3,3);
@@ -85,9 +64,7 @@ The actions of individual transformations, as well as the composite transformati
 \draw [->,line width=1pt,-stealth] (2,3.5)to[out=30, in=150](11, 3.5);
 \node[] at (6.5, 5.3)   (b) {$S\circ T$};
 \end{tikzpicture}
-
-  
-\end{image}
+\end{center}
 
 \end{explanation}
 \end{example}
@@ -105,7 +82,7 @@ Let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations. We will
 \end{align*}
 \end{proof}
 
-\begin{theorem}Composition of linear transformations is associative.  In other words, for linear transformations  $T$, $S$ and $R$
+\begin{theorem}\label{th:compoflintransass} Composition of linear transformations is associative.  In other words, for linear transformations  $T$, $S$ and $R$
 
 \begin{center}
 \begin{tikzpicture}
@@ -131,7 +108,7 @@ We have $(R\circ S)\circ T=R\circ (S\circ T)$.
 
 In this section we will consider linear transformations of $\RR^n$ and their standard matrices.  
 
-\begin{theorem}
+\begin{theorem}\label{th:standardmatcompoflintrans}
 Let $T:\RR^n\rightarrow \RR^m$ and $S:\RR^m\rightarrow \RR^p$ be linear transformations with standard matrices $M_T$ and $M_S$, respectively.  Then the composite transformation $S\circ T:\RR^n\rightarrow \RR^p$ has a standard matrix given by the product $M_SM_T$.
 \end{theorem}
 \begin{proof}
@@ -139,7 +116,7 @@ For all $\vec{v}$ in $\RR^n$ we have:
 $$(S\circ T)(\vec{v})=S(T(\vec{v}))=S(M_T\vec{v})=M_S(M_T\vec{v})=(M_SM_T)\vec{v}$$
 \end{proof}
 
-\begin{example}
+\begin{example}\label{ex:standardmatofcomp}
 In Example \ref{ex:transcomp}, we discussed a composite transformation $S\circ T:\RR^2\rightarrow \RR^2$
 given by:
 $$T\left(\begin{bmatrix}u_1\\u_2\end{bmatrix}\right)=\begin{bmatrix}u_1+u_2\\3u_1+3u_2\end{bmatrix}\quad \text{and} \quad
@@ -152,7 +129,7 @@ $$\begin{bmatrix}3&-1\\-3&1\end{bmatrix}\begin{bmatrix}1&1\\3&3\end{bmatrix}=\be
 \end{explanation}
 \end{example}
 
-We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication} of MAT-M-0020).  We are now in a position to prove this result with ease.  
+We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$ (See Theorem \ref{th:propertiesofmatrixmultiplication} of MAT-0020).  We are now in a position to prove this result with ease.  
 
 Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since transformation composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
 
@@ -168,9 +145,7 @@ $$(T\circ S)(\vec{v})=T(S(\vec{v}))=T(\frac{1}{2}\vec{v})=(2)\left(\frac{1}{2}\r
 Both composite transformations return the original vector $\vec{v}$.  In other words, $S\circ T=\id_{\RR^2}$ and $T\circ S=\id_{\RR^2}$.  We say that $S$ is an \dfn{inverse} of $T$, and $T$ is an inverse of $S$.
 \end{exploration}
 
-% \subsection*{Definition of an Inverse Transformation}
-% {\color{green} Paul, In Definition 2, do we need to require that T is linear? If we don't, we would have a more general definition of an inverse.  Later we have a theorem that says that an inverse of a linear transformation is linear.}
-\begin{definition}\label{def:inverse} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
+\begin{definition}\label{def:inverseoflintrans} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
 \end{definition}
 
 \begin{example}\label{ex:inverseverify} Let $T:\RR^2\rightarrow \RR^2$ be a transformation defined by $T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+y\\x-y\end{bmatrix}$. (How would you verify that $T$ is linear?)  Show that $S:\RR^2\rightarrow \RR^2$ given by $S\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}0.5x+0.5y\\0.5x-0.5y\end{bmatrix}$ is an inverse of $T$.
@@ -188,7 +163,7 @@ We leave it to the reader to verify that $T\circ S=\id_{\RR^2}$.
 
 \subsection*{Linearity of Inverses of Linear Transformations}
 
-Definition \ref{def:inverse} does not specifically require an inverse $S$ of a linear transformation $T$ to be linear.  This is because the requirement that $S\circ T=\id_V$ and $T\circ S=\id_W$ is sufficient to guarantee that $S$ is linear.  
+Definition \ref{def:inverseoflintrans} does not specifically require an inverse $S$ of a linear transformation $T$ to be linear.  This is because the requirement that $S\circ T=\id_V$ and $T\circ S=\id_W$ is sufficient to guarantee that $S$ is linear.  
 
 \begin{theorem}\label{th:inverseislinear} Suppose $T:V\rightarrow W$ is an invertible linear transformation.  Let $S$ be an inverse of $T$.  Then $S$ is  linear.
 \end{theorem}
@@ -208,7 +183,7 @@ Definition \ref{def:inverse} does not specifically require an inverse $S$ of a l
 
 \subsection*{Linear Transformations of $\RR^n$ and the Standard Matrix of the Inverse Transformation}
 
-Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{th:matlin} of LTR-M-0020)  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n}$ and $M_TM_S=I_{m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
+Every linear transformation $T:\RR^n\rightarrow\RR^m$ is a matrix transformation. (See Theorem \ref{th:matlin} of LTR-0020)  If $T$ has an inverse $S$, then $S$ is also a matrix transformation.  Let  $M_T$ and $M_S$ denote the standard matrices of $T$ and $S$, respectively.  We see that $S\circ T=\id_{\RR^n}$ and $T\circ S=\id_{\RR^m}$ if and only if $M_SM_T=I_{n}$ and $M_TM_S=I_{m}$.  In other words, $T$ and $S$ are inverse transformations if and only if $M_T$ and $M_S$ are matrix inverses.
 
 Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices, and $n=m$. 
 
@@ -219,12 +194,8 @@ Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices,
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-Part \ref{item:exists} follows directly from the preceding discussion.  Part \ref{item:unique} follows from uniqueness of matrix inverses. (Theorem \ref{th:matinverseunique} of MAT-M-0050)
+Part \ref{item:exists} follows directly from the preceding discussion.  Part \ref{item:unique} follows from uniqueness of matrix inverses. (Theorem \ref{th:matinverseunique} of MAT-0050)
 \end{proof}
-
-%Theorem \ref{th:existunique} may be a little misleading because it appears to imply that the question of existence of an inverse can be settled entirely by finding (or not finding) the inverse of the standard matrix of a linear transformation.  So, why look at anything else?  Consider the following set up.
-
-% {\color{green} Paul, please check the blue paragraph.  The old paragraph is commented out, if you'd like to compare.}
 
 Please note that Theorem \ref{th:existunique} is only applicable in the context of linear transformations of $\RR^n$ and their standard matrices.  The following example provides us with motivation to investigate inverses further, which we will do in another module.
 
@@ -238,34 +209,34 @@ Geometrically speaking, the domain of $T$ is a plane in $\RR^3$ and its codomain
 
 We are not in a position to answer this question right now because Theorem \ref{th:existunique} does not apply to this situation. 
 \end{exploration}
-This Exploration Problem highlights the necessity of a further discussion of inverses.  In Example \ref{ex:subtosub} of LTR-M-0035, we will prove that $T$ has an inverse, and in Example \ref{ex:inversematrixoftransform} of LTR-M-0080 we will relate the existence of an inverse of $T$ to a matrix associated with $T$.
+This Exploration highlights the necessity of a further discussion of inverses.  In Example \ref{ex:subtosub} of LTR-0035, we will prove that $T$ has an inverse, and in Example \ref{ex:inversematrixoftransform} of LTR-0080 we will relate the existence of an inverse of $T$ to a matrix associated with $T$.
 
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:geometryoflintrans1}
 Let $T:\RR^2\rightarrow \RR^2$ and $S:\RR^2\rightarrow \RR^2$ be linear transformations with standard matrices 
 $$M_T=\begin{bmatrix}2&-4\\1&2\end{bmatrix}\quad\text{and}\quad M_S=\begin{bmatrix}1&-1\\2&1\end{bmatrix}$$
-respectively.  Describe the actions of $T$, $S$, and $S\circ T$ geometrically, as in Figure \ref{fig:actionofst}.
+respectively.  Describe the actions of $T$, $S$, and $S\circ T$ geometrically, as in Example \ref{ex:transcomp}.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:geometryoflintrans2}
 Let $T:\RR^3\rightarrow \RR^2$ and $S:\RR^2\rightarrow \RR^2$ be linear transformations with standard matrices 
 $$M_T=\begin{bmatrix}1&0&-1\\2&1&0\end{bmatrix}\quad\text{and}\quad M_S=\begin{bmatrix}-1&2\\1&-2\end{bmatrix}$$
-respectively.  Describe the actions of $T$, $S$, and $S\circ T$ geometrically, as in Figure \ref{fig:actionofst}.
+respectively.  Describe the actions of $T$, $S$, and $S\circ T$ geometrically, as in Example \ref{ex:transcomp}.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:completeinverseverify}
 Complete the Explanation of Example \ref{ex:inverseverify} by verifying that $T\circ S=\id_{\RR^2}$.
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:candidateforinv}
 Let $T:\RR^2\rightarrow \RR^2$ be a linear transformation given by 
 $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x-5y\\-x+3y\end{bmatrix}$$
-Propose a candidate for an inverse of $T$ and verify your choice using Definition \ref{def:inverse}.
+Propose a candidate for an inverse of $T$ and verify your choice using Definition \ref{def:inverseoflintrans}.
 \end{problem}
-\begin{problem}Explain why linear transformation $T:\RR^2\rightarrow\RR^2$ given by $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x+2y\\-3x-3y\end{bmatrix}$$ does not have an inverse.
+\begin{problem}\label{prob:noinversetrans}Explain why linear transformation $T:\RR^2\rightarrow\RR^2$ given by $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x+2y\\-3x-3y\end{bmatrix}$$ does not have an inverse.
 \end{problem}
 \begin{problem}\label{prob:inverseislinear}
 Prove Theorem \ref{th:inverseislinear}.  
 \end{problem}
-\begin{problem} Suppose $T:U\rightarrow V$ and $S:V\rightarrow W$ are linear transformations with inverses $T'$ and $S'$ respectively.  Prove that $T'\circ S'$ is an inverse of $S\circ T$.
+\begin{problem}\label{prob:compofinvisinvofcomp} Suppose $T:U\rightarrow V$ and $S:V\rightarrow W$ are linear transformations with inverses $T'$ and $S'$ respectively.  Prove that $T'\circ S'$ is an inverse of $S\circ T$.
 \end{problem}
 
 \end{document}
