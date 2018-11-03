@@ -266,12 +266,17 @@ What we discovered about the effects of elementary row operations on the determi
 $$A\xrightarrow{R_2-2R_4}A_1\xrightarrow{R_1\leftrightarrow R_3}A_2\xrightarrow{\frac{1}{2}R_6}A_3\xrightarrow{R_5+R_6}I$$
 \begin{explanation}
 Let's take a look at what happens to the determinant of $A$ one step at a time.  
-$$\det{A_1}=\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}}$$
-$$\det{A_2}=-\det{A_1}=-\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet}}$$
-$$\det{A_3}=\frac{1}{2}\det{A_2}=-\frac{1}{2}\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:rowconstantmultanddet}}$$
-$$\det{I}=\det{A_3}=-\frac{1}{2}\det{A}\quad\quad \text{by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}}$$
+\begin{center}
+$\det{A_1}=\det{A}\quad\quad$ by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}
 
-Recall that $\det{I}=1$ (Lemma \ref{lemma:detofid}).  This gives us
+$\det{A_2}=-\det{A_1}=-\det{A}\quad\quad$ by Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet}
+
+$\det{A_3}=\frac{1}{2}\det{A_2}=-\frac{1}{2}\det{A}\quad\quad$ by Theorem \ref{th:elemrowopsanddet}\ref{item:rowconstantmultanddet}
+
+$\det{I}=\det{A_3}=-\frac{1}{2}\det{A}\quad\quad$ by Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}
+\end{center}
+
+Recall that $\det{I}=1$ (Lemma \ref{lemma:detofid} of DET-0010).  This gives us
 $$-\frac{1}{2}\det{A}=1$$
 Therefore $\det{A}=-2$.
 
@@ -333,7 +338,7 @@ Find $\det{A}$ by applying elementary row operations to reduce $A$ to its row-ec
 % 1&0&-3\\0&1&32/5\\0&0&1
 % \end{array}\right]
 \end{align}
-We stop at the row-echelon form of $A$ because its determinant is easy to compute by multiplying its diagonal entries (See Practice Problem \ref{prob:detoftrimat} of DET-M-0020).
+We stop at the row-echelon form of $A$ because its determinant is easy to compute by multiplying its diagonal entries (See Practice Problem \ref{prob:detoftrimat} of DET-0020).
 \begin{align}\label{eq:detofrefa}\det{\big(\mbox{ref}(A)\big)}=\frac{1}{5}\end{align}
 
 The following table summarizes the effect of each elementary row operation on the determinant.
@@ -390,7 +395,7 @@ Verify Lemma \ref{lemma:arowsumofbc} for $n=1, 2$.
 Prove that if one row of a matrix is a linear combination of two other rows of the matrix, then the determinant of the matrix is 0.
 \end{problem}
 
-\begin{problem}\label{prob:elemrowopsdet}
+\begin{problem}
 Find $\det{A}$ using elementary row operations.
 
 \begin{problem}\label{prob:elemrowopsdet1}
@@ -407,7 +412,7 @@ $$\det{A}=\answer{0}$$
 
 \end{problem}
 
-\begin{problem}\label{prob:elemmatdet}
+\begin{problem}
 Each of the following matrices is an elementary matrix. 
 \begin{hint}
 See Definition \ref{def:elemmatrix} of MAT-0060.
