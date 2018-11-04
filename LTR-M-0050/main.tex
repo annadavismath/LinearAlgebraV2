@@ -9,7 +9,8 @@
 \end{abstract}
 \maketitle
 
-%Note to Student:  In this module we will often use $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $V$ and $W$ as subspaces of $\RR^n$. 
+Note to Student:  In this module we will often use $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $V$ and $W$ as subspaces of $\RR^n$. 
+
 \section*{LTR-0050: Image and Kernel of a Linear Transformation}
 \subsection*{The Image of a Linear Transformation}
 \begin{definition}\label{def:imageofT}
@@ -46,8 +47,7 @@ So, the image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatr
 
 \ref{item:impart2} The action of $T$ can be illustrated with a sketch.
 
-\begin{image}
-\centering
+\begin{center}
 \begin{tikzpicture}[scale=.7]
 
   \draw[->] (0,0)--(3,0);
@@ -63,36 +63,36 @@ So, the image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatr
  \node[blue] at (7, 2.3)   (b) {$\mbox{im}(T)$};
 
 \end{tikzpicture}
-
-\end{image}
-
-
+\end{center}
 \end{explanation}
 \end{example}
 
 
-In Example \ref{ex:image1} we observed that the image of the linear transformation was equal to the column space of its standard matrix.  In general, it is easy to see that if $T:\RR^n\rightarrow \RR^m$ is a linear transformation with standard matrix $A$ then
+In Example \ref{ex:image1} we observed that the image of the linear transformation was equal to the column space of its standard matrix.  In general, it is easy to see that if $T:\RR^n\rightarrow \RR^m$ is a linear transformation with standard matrix $A$ then the following relationship holds:
 $$\mbox{im}(T)=\mbox{col}(A)$$
+In addition, by Theorem \ref{th:dimroweqdimcoleqrank} of VSP-0040, we know that
+$$\mbox{dim}(\mbox{im}(T))=\mbox{dim}(\mbox{col}(A))=\mbox{rank}(A)$$
+
 
 
 \begin{example}\label{ex:image2}
 Let $T:\RR^5\rightarrow \RR^4$ be a linear transformation with standard matrix $$A=\begin{bmatrix}1 & 2 & 2 &-1 & 0\\-1 & 3 & 1 & 0 & -1\\3 & 0 & 0 & 3 & 6\\ 1 & -1 & 1 & -2 & -1\end{bmatrix}$$
 Find $\mbox{im}(T)$ and $\mbox{dim}(\mbox{im}(T))$.
 \begin{explanation}
-As in Example \ref{ex:image1}, we find that the image of $T$ is given by
+As in Example \ref{ex:image1}, the image of $T$ is given by
 $$\mbox{im}(T)=\mbox{span}\left(\begin{bmatrix}1\\-1\\3\\1\end{bmatrix}, \begin{bmatrix}2\\3\\0\\-1\end{bmatrix}, \begin{bmatrix}2\\1\\0\\1\end{bmatrix}, \begin{bmatrix}-1\\0\\3\\-2\end{bmatrix}, \begin{bmatrix}0\\-1\\6\\-1\end{bmatrix}\right)=\mbox{col}(A)$$
-But this time, it is harder to detect redundant vectors in the spanning set.  We have to rely on the reduced row-echelon form of $A$.
+This time it is harder to detect the vectors that can be eliminated from the spanning set without affecting the span.  We have to rely on the reduced row-echelon form of $A$.
 
 $$\begin{bmatrix}1 & 2 & 2 &-1 & 0\\-1 & 3 & 1 & 0 & -1\\3 & 0 & 0 & 3 & 6\\ 1 & -1 & 1 & -2 & -1\end{bmatrix}  \rightsquigarrow \begin{bmatrix} 1 & 0 & 0 & 1 & 2\\0 & 1 & 0 & 1 & 1\\0 & 0 & 1 & -2 & -2\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
 
-The leading $1$'s are located in the first three columns.  By Theorem {\color{red} reference}, these columns are linearly independent and span $\mbox{col}(A)$.  Therefore,
-$$\mbox{im}(T)=\mbox{span}\left(\begin{bmatrix}1\\-1\\3\\1\end{bmatrix}, \begin{bmatrix}2\\3\\0\\-1\end{bmatrix}, \begin{bmatrix}2\\1\\0\\1\end{bmatrix}\right)=\mbox{col}(A)$$
-We conclude that $\mbox{dim}(\mbox{im}(T))=3$.
+We immediately see that $\mbox{rank}(A)=3$, so $\mbox{dim}(\mbox{im}(T))=3$.  
 
+To identify vectors that span $\mbox{im}(T)$, we turn to Procedure \ref{proc:colspace} of VSP-0040.  We identify the first three columns as pivot columns.  These columns are linearly independent and span $\mbox{col}(A)$.  Therefore,
+$$\mbox{im}(T)=\mbox{col}(A)=\mbox{span}\left(\begin{bmatrix}1\\-1\\3\\1\end{bmatrix}, \begin{bmatrix}2\\3\\0\\-1\end{bmatrix}, \begin{bmatrix}2\\1\\0\\1\end{bmatrix}\right)$$
 \end{explanation}
 \end{example}
 
-By Theorem {\color{red}reference}, we know that for an $m\times n$ matrix $A$, $\mbox{col}(A)$ is a subspace of $\RR^m$.  When vector spaces other than $\RR^m$ are involved, it is not yet clear that $\mbox{im}(T)$ is a subspace of the codomain. The following theorem resolves this issue.
+By Theorem \ref{th:span_is_subspace} and Definition \ref{def:colspace}, we know that for an $m\times n$ matrix $A$, $\mbox{col}(A)$ is a subspace of $\RR^m$.  However, when vector spaces other than $\RR^m$ are involved, it is not yet clear that $\mbox{im}(T)$ is a subspace of the codomain. The following theorem resolves this issue.
 
 \begin{theorem}\label{th:imagesubspace}
 Let $T:V\rightarrow W$ be a linear transformation.  Then $\mbox{im}(T)$ is a subspace of $W$.
@@ -107,7 +107,7 @@ This shows that $\vec{w}_1+\vec{w}_2$ is in $\mbox{im}(T)$.
 For any scalar $a$, we have:
 $$a\vec{w}_1=aT(\vec{v}_1)=T(a\vec{v}_1)$$
 This shows that $a\vec{w}_1$ is in $\mbox{im}(T)$.
-% {\color{red} Depending on the subspaces of $R^n$ module we may need to check for 0 as well}
+
 \end{proof}
 
 We can now define the rank of a linear transformation.
@@ -117,18 +117,24 @@ The \dfn{rank} of a linear transformation $T:V\rightarrow W$, is the dimension o
 $$\mbox{rank}(T)=\mbox{dim}(\mbox{im}(T))$$
 \end{definition}
 
-Notice that since the rank of a matrix $A$ was defined by $\mbox{rank}(A) = \mbox{dim}(\mbox{col}(A))$ ({\color{red} insert reference}), and the image of a linear transformation $T:\RR^n\rightarrow \RR^m$ is the column space of its associated standard matrix, our definitions of rank are in agreement.
+This definition gives us the following relationship between the rank of a linear transformation $T$ and the rank of the standard matrix $A$ associated with it.
+
+\begin{formula}\label{form:rankTrankA}
+$$\mbox{rank}(A) = \mbox{dim}(\mbox{col}(A))=\mbox{dim}(\mbox{im}(T))=\mbox{rank}(T)$$
+\end{formula}
+
+%Note that since  $\mbox{rank}(A) = \mbox{dim}(\mbox{col}(A))=\mbox{dim}(\mbox{im}(T))$, our definitions of the rank of a linear transformation and the rank of its associated standard matrix are in agreement.
 
 \subsection*{The Kernel of a Linear Transformation}
 
-\begin{definition}
+\begin{definition}\label{def:kernel}
 Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  The \dfn{kernel} of $T$, denoted by $\mbox{ker}(T)$, is the set
 $$\mbox{ker}(T)=\{\vec{v}:T(\vec{v})=\vec{0}\}$$
 In other words, the kernel of $T$ consists of all vectors of $V$ that map to $\vec{0}$ in $W$.
 \end{definition}
 It is important to pay attention to the locations of the kernel and the image.  We already proved that $\mbox{im}(T)$ is a subspace of the codomain.  In contrast, $\mbox{ker}(T)$ is located in the domain.  (We will prove shortly that it is a subspace of the domain.)
 
-\begin{image}
+\begin{center}
 \begin{tikzpicture}
 \fill[gray!40] (0,0) ellipse (1.5cm and 2.5cm);
 \fill[blue!40!white] (0,0) ellipse (1cm and 1cm)node[black]{$\mbox{ker}(T)$};
@@ -147,7 +153,7 @@ It is important to pay attention to the locations of the kernel and the image.  
 \draw[blue!40!white, line width=1pt](0.2,-0.9)--(5,0)node[below, right][black]{$\vec{0}$};
 
 \end{tikzpicture}
-\end{image}
+\end{center}
 
 
 \begin{example}\label{ex:kernel} Let $T:\RR^5\rightarrow \RR^4$ be a linear transformation with standard matrix $$A=\begin{bmatrix}1 & 2 & 2 &-1 & 0\\-1 & 3 & 1 & 0 & -1\\3 & 0 & 0 & 3 & 6\\ 1 & -1 & 1 & -2 & -1\end{bmatrix}$$
@@ -170,7 +176,7 @@ $$\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}s+\begin{bmatrix}-2\\-1\\2\\0\\1\en
 We conclude that 
 $$\mbox{ker}(T)=\mbox{span}\left(\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}, \begin{bmatrix}-2\\-1\\2\\0\\1\end{bmatrix}\right)$$
 
-\ref{item:dimkernelT}  Since $\mbox{ker}(T)$ is the span of two vectors of $\RR^5$, we know that $\mbox{ker}(T)$ is a subspace of $\RR^5$ {\color{red} reference}.  Observe that the two vectors in the spanning set are linearly independent. (How can we see this without performing computations?)  Therefore $\mbox{dim}(\mbox{ker}(T))=2$.
+\ref{item:dimkernelT}  Since $\mbox{ker}(T)$ is the span of two vectors of $\RR^5$, we know that $\mbox{ker}(T)$ is a subspace of $\RR^5$ (Theorem \ref{th:span_is_subspace} of VSP-0020).  Observe that the two vectors in the spanning set are linearly independent. (How can we see this without performing computations?)  Therefore $\mbox{dim}(\mbox{ker}(T))=2$.
 \end{explanation}
 \end{example}
 
@@ -178,7 +184,7 @@ $$\mbox{ker}(T)=\mbox{span}\left(\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}, \b
 Recall that the \dfn{null space} of a matrix $A$ is defined to be set of all solutions to the homogeneous equation $A\vec{x}=\vec{0}$. This means that  if $T:\RR^n\rightarrow \RR^m$ is a linear transformation with standard matrix $A$ then
 $$\mbox{ker}(T)=\mbox{null}(A)$$
 
-We know that $\mbox{null}(A)$ of an $m\times n$ matrix is a subspace of $\RR^n$ {\color{red} insert reference}.  We conclude this section by showing that, in general, the kernel of a linear transformation is a subspace of the domain of the transformation.
+We know that $\mbox{null}(A)$ of an $m\times n$ matrix is a subspace of $\RR^n$ (Theorem \ref{th:nullsubspacern} of VSP-0040).  We conclude this section by showing that even when vector spaces other than $\RR^n$ are involved, the kernel of a linear transformation is a subspace of the domain of the transformation.
 \begin{theorem}\label{th:kersubspace} Let $T:V\rightarrow W$ be a linear transformation, then $\mbox{ker}(T)$ is a subspace of $V$.
 \end{theorem}
 \begin{proof}
@@ -202,7 +208,14 @@ The \dfn{nullity} of a linear transformation $T:V\rightarrow W$, is the dimensio
 $$\mbox{nullity}(T)=\mbox{dim}(\mbox{ker}(T))$$
 \end{definition}
 
-Notice that since the nullity of a matrix $A$ was defined as $\mbox{nullity}(A) = \mbox{dim}(\mbox{null}(A))$ (Definition \ref{def:matrixnullity} of VSP-0040), and the kernel of a linear transformation $T:\RR^n\rightarrow \RR^m$ is the null space of its associated standard matrix, our definitions of nullity are in agreement.
+This definition gives us the following relationship between nullity of a linear transformation $T$ and the nullity of the standard matrix $A$ associated with it.
+
+\begin{formula}\label{form:rankTrankA}
+$$\mbox{nullity}(A) = \mbox{dim}(\mbox{null}(A))=\mbox{dim}(\mbox{ker}(T))=\mbox{nullity}(T)$$
+\end{formula}
+
+
+%Notice that since the nullity of a matrix $A$ was defined as $\mbox{nullity}(A) = \mbox{dim}(\mbox{null}(A))$ (Definition \ref{def:matrixnullity} of VSP-0040), and the kernel of a linear transformation $T:\RR^n\rightarrow \RR^m$ is the null space of its associated standard matrix, our definitions of nullity are in agreement.
 
 \subsection*{Rank-Nullity Theorem for Linear Transformations}
 
@@ -221,7 +234,7 @@ $$\mbox{rank}(T)+\mbox{nullity}(T)=3+2=5=\mbox{dim}(\RR^5)$$
 
 The following theorem is a generalization of this result.
 
-\begin{theorem}
+\begin{theorem}\label{th:ranknullityforT}
 Let $T:V\rightarrow W$ be a linear transformation.  Suppose $\mbox{dim}(V)=n$, then
 $$\mbox{rank}(T)+\mbox{nullity}(T)=n$$
 \end{theorem}
@@ -270,7 +283,7 @@ $$\mbox{dim}(\mbox{ker}(T))+\mbox{dim}(\mbox{im}(T))=s+r=n$$
 \section*{Practice Problems}
 \begin{problem}
 Describe the image and find the rank for each linear transformation $T:\RR^n\rightarrow \RR^m$ with standard matrix $A$ given below.
-  \begin{problem}
+  \begin{problem}\label{prob:imagerankoflintrans1}
   $T:\RR^5\rightarrow \RR^2$, $A=\begin{bmatrix}3&2&4&7&1\\-1&-9&7&6&8\end{bmatrix}$.
   
   \begin{multipleChoice}
@@ -284,7 +297,7 @@ Describe the image and find the rank for each linear transformation $T:\RR^n\rig
   $\mbox{rank}(T)=\answer{2}$
   \end{problem}
   
-  \begin{problem}
+  \begin{problem}\label{prob:imagerankoflintrans2}
   $T:\RR^2\rightarrow\RR^3$, $A=\begin{bmatrix}1&1\\1&1\\1&1\end{bmatrix}$
   
   \begin{multipleChoice}
@@ -300,13 +313,13 @@ Describe the image and find the rank for each linear transformation $T:\RR^n\rig
 \end{problem}
 
 
-\begin{problem} Suppose linear transformations $T:\RR^2\rightarrow \RR^2$ and $S:\RR^2\rightarrow \RR^2$ are such that  $\mbox{im}(T)=\mbox{im}(S)=\mbox{span}\left(\begin{bmatrix}1\\-3\end{bmatrix}\right)$.  Does this mean that $T$ and $S$ are the same transformation?  Justify your claim.
+\begin{problem}\label{prob:sametrans} Suppose linear transformations $T:\RR^2\rightarrow \RR^2$ and $S:\RR^2\rightarrow \RR^2$ are such that  $\mbox{im}(T)=\mbox{im}(S)=\mbox{span}\left(\begin{bmatrix}1\\-3\end{bmatrix}\right)$.  Does this mean that $T$ and $S$ are the same transformation?  Justify your claim.
 \end{problem}
 
 \begin{problem}
 Describe the kernel and find the nullity for each linear transformation $T:\RR^n\rightarrow \RR^m$ with standard matrix $A$ given below.
 
-\begin{problem}
+\begin{problem}\label{prob:kerandnullityT1}
 $T:\RR^3\rightarrow \RR^2$, $A=\begin{bmatrix}2&1&0\\-1&1&-3\end{bmatrix}$.
 
 \begin{multipleChoice}
@@ -320,7 +333,7 @@ $T:\RR^3\rightarrow \RR^2$, $A=\begin{bmatrix}2&1&0\\-1&1&-3\end{bmatrix}$.
 $\mbox{nullity}(T)=\answer{1}$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:kerandnullityT2}
 $T:\RR^2\rightarrow \RR^2$, $A=\begin{bmatrix}2&-1\\3&0\end{bmatrix}$.
 
 \begin{multipleChoice}
@@ -332,7 +345,7 @@ $T:\RR^2\rightarrow \RR^2$, $A=\begin{bmatrix}2&-1\\3&0\end{bmatrix}$.
 $\mbox{nullity}(T)=\answer{0}$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:kerandnullityT3}
 $T:\RR^3\rightarrow \RR^5$, $A=\begin{bmatrix}1&2&-1\\1&2&-1\\1&2&-1\\1&2&-1\\1&2&-1\end{bmatrix}$ 
 
 \begin{multipleChoice}
@@ -348,26 +361,26 @@ $\mbox{nullity}(T)=\answer{2}$
 \end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:ranknullityT4}
 Suppose a linear transformation $T:\RR^3\rightarrow \RR^3$ is such that $\mbox{im}(T)$ is a plane in $\RR^3$.  Then
 $$\mbox{rank}(T)=\answer{2}$$ $$\mbox{nullity}(T)=\answer{1}$$
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:ranknullityT5}
 Suppose a linear transformation $T:\RR^5\rightarrow \RR^5$ is such that $T(\vec{v})=\vec{0}$ for all $\vec{v}$ in $\RR^5$.  Then
 $$\mbox{rank}(T)=\answer{0}$$ $$\mbox{nullity}(T)=\answer{5}$$
 \end{problem}
 
-\begin{problem} Let $T:\RR^6\rightarrow \RR^4$ be a linear transformation with standard matrix
+\begin{problem}\label{prob:findimkergivenrref} Let $T:\RR^6\rightarrow \RR^4$ be a linear transformation with standard matrix
 $$A=\begin{bmatrix}2&-1&1&-2&1&1\\1&2&3&6&-4&1\\0&2&2&4&-2&-1\\1&3&2&6&-3&2\end{bmatrix}$$
 Find $\mbox{im}(T)$ and $\mbox{ker}(T)$ if the reduced row-echelon form of $A$ is 
 $$\text{rref}(A)=\begin{bmatrix}1&0&0&1&-1&0\\0&1&0&1&0&0\\0&0&1&1&-1&0\\0&0&0&0&0&1\end{bmatrix}$$
 \end{problem}
-\begin{problem} Let $V=\mbox{span}\left(\begin{bmatrix}1\\1\end{bmatrix}\right)$, and let $T:V\rightarrow \RR^2$ be a linear transformation defined by 
+\begin{problem}\label{prob:findimageandkernellintrans} Let $V=\mbox{span}\left(\begin{bmatrix}1\\1\end{bmatrix}\right)$, and let $T:V\rightarrow \RR^2$ be a linear transformation defined by 
 $T(\vec{v})=2\vec{v}$.  Find $\mbox{im}(T)$ and $\mbox{ker}(T)$.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:ranknullitytrans}
 Suppose a linear transformation $T$ is induced by a $4\times 6$ matrix $A$.  Let $S$ be a linear transformation induced by $A^T$.  Find $\mbox{nullity}(S)$, if $\mbox{nullity}(T)=3$.  Prove your claim.
 \end{problem}
 
