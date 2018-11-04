@@ -5,15 +5,15 @@
 
 \begin{document}
 \begin{abstract}
-  We define  isomorphisms, and prove that a linear transformation has an inverse if and only if the linear transformation is an isomorphism.
+  We prove that a linear transformation has an inverse if and only if the transformation is ``one-to-one" and ``onto".
 \end{abstract}
 \maketitle
 
-{\bf Note to Student:}  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
+Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
 \section{LTR-0035: Existence of the Inverse of a Linear Transformation}
 
-In Exploration Problem \ref{ep:inverse} of LTR-M-0030 we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
+In Exploration \ref{ep:inverse} of LTR-0030 we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
  
 \begin{center}
 \begin{tikzpicture}
@@ -55,7 +55,7 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  \end{center} 
   
 
-Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, LTR-M-0030)  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. 
+Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, LTR-0030)  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. 
 
 \begin{center}
 \begin{tikzpicture}
@@ -179,7 +179,7 @@ Our next goal is to develop some vocabulary that would allow us to discuss issue
 $$T(\vec{v}_1)=T(\vec{v}_2)\quad \text{implies that}\quad \vec{v}_1=\vec{v}_2$$
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:notonetoone2}
 Transformation $T$ in Example \ref{ex:notonetoone} is not one-to-one.
 \begin{explanation}
 We can use any two vectors of the form $\begin{bmatrix}k\\-k\end{bmatrix}$ to make our case.  
@@ -187,7 +187,7 @@ $$T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\vec{0}=T\left(\begin{bmatrix}
 \end{explanation}
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:notontoisonetoone}
 Prove that the transformation in Example \ref{ex:notonto} is one-to-one.
 \begin{proof}
 Suppose
@@ -208,14 +208,14 @@ At this point we can conjecture that being one-to-one is a necessary, but not a 
 \begin{definition}[Onto]\label{def:onto} A linear transformation $T:V\rightarrow W$ is \dfn{onto} if for every element $\vec{w}$ of $W$, there exists an element $\vec{v}$ of $V$ such that $T(\vec{v})=\vec{w}$.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:notonto2}
 The transformation in Example \ref{ex:notonto} is not onto.
 \begin{explanation}
 No element of $\RR^2$ maps to $\begin{bmatrix}1\\1\\1\end{bmatrix}$.
 \end{explanation}
 \end{example}
 
-\begin{example} Prove that the linear transformation $T:\RR^2\rightarrow \RR^2$ whose standard matrix is $$A=\begin{bmatrix}1&0\\2&1\end{bmatrix}$$ is onto.
+\begin{example}\label{ex:onto1} Prove that the linear transformation $T:\RR^2\rightarrow \RR^2$ whose standard matrix is $$A=\begin{bmatrix}1&0\\2&1\end{bmatrix}$$ is onto.
 \begin{proof} Let $\vec{b}$ be an element of the codomain ($\RR^2$).  We need to find $\vec{x}$ in the domain ($\RR^2$) such that $T(\vec{x})=\vec{b}$. 
 Observe that $A$ is invertible, and $$A^{-1}=\begin{bmatrix}1&0\\-2&1\end{bmatrix}$$
  Let $\vec{x}=\begin{bmatrix}1&0\\-2&1\end{bmatrix}\vec{b}$, then 
@@ -223,24 +223,8 @@ Observe that $A$ is invertible, and $$A^{-1}=\begin{bmatrix}1&0\\-2&1\end{bmatri
 \end{proof}
 \end{example}
 
-\begin{example}Prove that the linear transformation $T:\RR^3\rightarrow \RR^2$ induced by $$A=\begin{bmatrix}1&1&-1\\2&3&-1\end{bmatrix}$$ is onto.
-% \begin{proof} Let $\vec{b}$ be an element of the codomain ($\RR^2$).  We need to find $\vec{x}$ in the domain ($\RR^3$) such that $T(\vec{x})=\vec{b}$.   To do this we will solve the equation
-% $$\begin{bmatrix}1&1&-1\\2&3&-1\end{bmatrix}\vec{x}=\vec{b}$$
-% Let $\vec{b}=\begin{bmatrix}b_1\\b_2\end{bmatrix}$. Gauss-Jordan elimination yields:
+\begin{example}\label{ex:onto2} Prove that the linear transformation $T:\RR^3\rightarrow \RR^2$ induced by $$A=\begin{bmatrix}1&1&-1\\2&3&-1\end{bmatrix}$$ is onto.
 
-% {\color{red}(Paul, I don't know why I made the rest of it so specific, we could just claim that there are infinitely many solutions for whatever b we choose.  Is the specificity helpful to students?  Sometimes it's nice to know that not only does the thing exist, but you can actually find it.)}
-
-% $$\left[\begin{array}{ccc|c}  
-%  1 & 1 & -1 & b_1\\  
-%  2 & 3 & -1 & b_2
-% \end{array}\right] \rightsquigarrow \left[\begin{array}{ccc|c} 
-%  1 & 0 & -2 & 3b_1-b_2\\  
-%  0 & 1 & 1 & b_2-2b_1
-% \end{array}\right]$$
-% There are infinitely many solution, but we only need to find one.  
-% Let $\vec{x}=\begin{bmatrix}3b_1-b_2\\ b_2-2b_1\\0\end{bmatrix}$.  Then
-% $$T(\vec{x})=\begin{bmatrix}1&1&-1\\2&3&-1\end{bmatrix}\begin{bmatrix}3b_1-b_2\\ b_2-2b_1\\0\end{bmatrix}=\begin{bmatrix}b_1\\b_2\end{bmatrix}=\vec{b}$$
-% \end{proof}
 
 \begin{proof}
 
@@ -249,29 +233,16 @@ Observe that
  $$\mbox{rref}(A)=\begin{bmatrix}1 & 0 & -2\\0 & 1 & 1\end{bmatrix}$$
  This means that $A\vec{x}=\vec{b}$ has a solution (in fact, it has infinitely many solutions).  Therefore $\vec{b}$ is an image of some $\vec{x}$ in $\RR^3$. We conclude that $T$ is onto. 
  
- 
 
-
-% The two rows of $A$ are clearly linearly independent.  Therefore $rank(A)=2$.  We know $col(A)$ is a subspace of $\RR^2$ {\color{red} reference?}, and since $\text{dim}(\text{col}(A))=\text{rank}(A)=2$, it suffices to take two linearly independent columns as a basis for $col(A)$.  If we take the first two columns of $A$ to be our basis, it is easy to see that any vector $\vec{v} \in \RR^2$ can be written as a linear combination of those columns (do you remember how?):
-% $$\vec{v}= a \begin{bmatrix}1\\2\end{bmatrix} + b \begin{bmatrix}1\\3\end{bmatrix} $$
-% But since $T(\vec{i})=\begin{bmatrix}1\\2\end{bmatrix}$ and $T(\vec{j})=\begin{bmatrix}1\\3\end{bmatrix}$, we can also write
-% $$\vec{v}= T(a \vec{i} + b \vec{j}) .$$
-% {\color{red} is it better to use $\vec{e_1}$ and $\vec{e_2}$ instead of $\vec{i}$ and $\vec{j}$?}{\color{blue} I am neutral on this question, but I've been using i, j, k when talking about $R^2$ and $R^3$, so I would have to go back and redo a bunch of stuff if we switch.}
 \end{proof}
 \end{example}
-
-\subsection*{Isomorphisms and Existence of Inverses}
-
-\begin{definition} A linear transformation that is one-to-one and onto is called an isomorphism.
-\end{definition}
 
 \begin{example}\label{ex:subtosub} Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
-Show that $T$ is an isomorphism.
+Show that $T$ is one-to-one and onto.
 \begin{proof}
-
-We will first show that $T$ is one-to-one.  
+We will now show that $T$ is one-to-one.  
 Suppose 
 $$T(\vec{u})=T(\vec{v})$$
 for some $\vec{u}$ and $\vec{v}$ in $V$. Vectors $\vec{u}$ and $\vec{v}$ are in the span of $\begin{bmatrix}1\\0\\0\end{bmatrix}$ and $\begin{bmatrix}1\\1\\1\end{bmatrix}$, so
@@ -287,25 +258,22 @@ $$\begin{bmatrix}a\\a+b\end{bmatrix}=\begin{bmatrix}c\\c+d\end{bmatrix}$$
 This implies that $a=c$ which, in turn, implies $b=d$.  This gives us $\vec{u}=\vec{v}$, and we conclude that $T$ is one-to-one.
 
 Next we will show that $T$ is onto.  
-
-The key observation is that vectors $\begin{bmatrix}1\\1\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ span $\RR^2$.  Perhaps this is easiest seen by noting that $$\text{rank}\left(\begin{bmatrix}1&0\\1&1\end{bmatrix}\right)=2$$
-
+The key observation is that vectors $\begin{bmatrix}1\\1\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ span $\RR^2$.  %Perhaps this is easiest seen by noting that $$\text{rank}\left(\begin{bmatrix}1&0\\1&1\end{bmatrix}\right)=2$$
 This means that given a vector $\vec{v}$ in $\RR^2$, we can write $\vec{v}$ as $\vec{v}=a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}0\\1\end{bmatrix}$.  But this means that $\vec{v}=T\left(a\begin{bmatrix}1\\0\\0\end{bmatrix}+b\begin{bmatrix}1\\1\\1\end{bmatrix}\right)$  We conclude that $T$ is onto. 
-
-Since $T$ is a linear transformation that  is one-to-one and onto, $T$ is an isomorphism.
 \end{proof}
 \end{example}
 
-\begin{theorem}\label{th:isomeansinvert} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  Then $T$ has an inverse if and only if $T$ is an isomorphism. 
+\subsection*{Existence of Inverses}
+\begin{theorem}\label{th:isomeansinvert} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  Then $T$ has an inverse if and only if $T$ is one-to-one and onto. 
 \end{theorem}
 \begin{proof}
-We will first assume that $T$ is an isomorphism and show that there exists a transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$.  Because $T$ is onto, for every $\vec{w}$ in $W$, there exists $\vec{v}$ in $V$ such that $T(\vec{v})=\vec{w}$.  Moreover, because $T$ is one-to-one, vector $\vec{v}$ is the only vector that maps to $\vec{w}$.  To stress this, we will say that for every $\vec{w}$, there exists $\vec{v}_{\vec{w}}$ such that $T(\vec{v}_{\vec{w}})=\vec{w}$. (Since every $\vec{v}$ maps to exactly one $\vec{w}$, this notation makes sense for elements of $V$ as well.)  We can now define $S:W\rightarrow V$ by $S(\vec{w})=\vec{v}_{\vec{w}}$.
+We will first assume that $T$ is one-to-one and onto, and show that there exists a transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$.  Because $T$ is onto, for every $\vec{w}$ in $W$, there exists $\vec{v}$ in $V$ such that $T(\vec{v})=\vec{w}$.  Moreover, because $T$ is one-to-one, vector $\vec{v}$ is the only vector that maps to $\vec{w}$.  To stress this, we will say that for every $\vec{w}$, there exists $\vec{v}_{\vec{w}}$ such that $T(\vec{v}_{\vec{w}})=\vec{w}$. (Since every $\vec{v}$ maps to exactly one $\vec{w}$, this notation makes sense for elements of $V$ as well.)  We can now define $S:W\rightarrow V$ by $S(\vec{w})=\vec{v}_{\vec{w}}$.
 Then
 $$(S\circ T)(\vec{v}_{\vec{w}})=S(T(\vec{v}_{\vec{w}}))=S(\vec{w})=\vec{v}_{\vec{w}}$$
 $$(T\circ S)(\vec{w})=T(S(\vec{w}))=T(\vec{v}_{\vec{w}})=\vec{w}$$
 We conclude that $S\circ T=\id_V$ and $T\circ S=\id_W$.  Therefore $S$ is an inverse of $T$.
 
-We will now assume that $T$ has an inverse $S$ and show that $T$ must be an isomorphism.  To show that $T$ is an isomorphism, we need to show that $T$ is one-to-one and onto.
+We will now assume that $T$ has an inverse $S$ and show that $T$ must be one-to-one and onto.  
 Suppose $$T(\vec{v}_1)=T(\vec{v}_2)$$ then $$S(T(\vec{v}_1))=S(T(\vec{v}_2))$$
 but then
 $$\vec{v}_1=\vec{v}_2$$
@@ -317,17 +285,17 @@ We conclude that $T$ is onto.
 \end{proof}
 
 \begin{example}\label{ex:subtosubinvert}
-Transformation $T$ in Example \ref{ex:subtosub} is invertible.
+Transformation $T$ in Example \ref{ex:subtosub}  is invertible.
 \begin{explanation}
-We demonstrated that $T$ is an isomorphism.  By Theorem \ref{th:isomeansinvert}, $T$ has an inverse.  
+We demonstrated that $T$ is one-to-one and onto.  By Theorem \ref{th:isomeansinvert}, $T$ has an inverse.  
 
-Recall that $T$ was introduced in Exploration Problem \ref {init:subtosub} of LTR-M-0030 to demonstrate that Theorem \ref{th:existunique} of LTR-M-0030 is not always applicable.  We now have additional tools. Theorem \ref{th:isomeansinvert} assures us that $T$ has an inverse, but does not help us find it. We will visit this problem again, in LTR-M-0080, and find an inverse of $T$.
+Recall that $T$ was introduced in Exploration \ref {init:subtosub} of LTR-0030 to demonstrate that Theorem \ref{th:existunique} of LTR-0030 is not always directly applicable.  We now have additional tools. Theorem \ref{th:isomeansinvert} assures us that $T$ has an inverse, but does not help us find it. We will visit this problem again, in LTR-0080, and find an inverse of $T$.
 \end{explanation}
 \end{example}
 
 \subsection*{Uniqueness of Inverses}
 
-Definition \ref{def:inverse} of LTR-M-0030 refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
+Definition \ref{def:inverse} of LTR-0030 refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
 
 \begin{theorem}\label{th:inverseisunique}
 If $T$ is a linear transformation, and $S$ is an inverse of $T$.  Then $S$ is unique.
@@ -373,15 +341,15 @@ Show that a linear transformation $T:\RR^2\rightarrow \RR^2$ with standard matri
  \begin{problem}
  Define a transformation $T:\RR^2\rightarrow \RR^2$ by 
  $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x\\-2x+4y\end{bmatrix}$$
- Show that $T$ is an isomorphism.
+ Show that $T$ is a linear transformation that has an inverse.
  \begin{hint}
- Don't forget to show that $T$ is linear.
+You will need to demonstrate that $T$ is one-to-one and onto.
  \end{hint}
  \end{problem}
  
  \begin{problem}
  Let $V=\text{span}\left(\begin{bmatrix}1\\0\\1\end{bmatrix}, \begin{bmatrix}0\\1\\0\end{bmatrix}\right)$.  Define a linear transformation $T:V\rightarrow \RR^2$ by
  $$T\left(\begin{bmatrix}1\\0\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}\quad \text{and}\quad T\left(\begin{bmatrix}0\\1\\0\end{bmatrix}\right)=\begin{bmatrix}-1\\1\end{bmatrix}$$
- Prove that $T$ is an isomorphism.
+ Prove that $T$ has an inverse.
  \end{problem}
 \end{document}
