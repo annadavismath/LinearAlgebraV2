@@ -85,7 +85,7 @@ This time it is harder to detect the vectors that can be eliminated from the spa
 
 $$\begin{bmatrix}1 & 2 & 2 &-1 & 0\\-1 & 3 & 1 & 0 & -1\\3 & 0 & 0 & 3 & 6\\ 1 & -1 & 1 & -2 & -1\end{bmatrix}  \rightsquigarrow \begin{bmatrix} 1 & 0 & 0 & 1 & 2\\0 & 1 & 0 & 1 & 1\\0 & 0 & 1 & -2 & -2\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
 
-We immediately see that $\mbox{rank}(A)=3$, so $\mbox{dim}(\mbox{im}(T))=3$.  
+We can see that $\mbox{rank}(A)=3$, so $\mbox{dim}(\mbox{im}(T))=3$.  
 
 To identify vectors that span $\mbox{im}(T)$, we turn to Procedure \ref{proc:colspace} of VSP-0040.  We identify the first three columns as pivot columns.  These columns are linearly independent and span $\mbox{col}(A)$.  Therefore,
 $$\mbox{im}(T)=\mbox{col}(A)=\mbox{span}\left(\begin{bmatrix}1\\-1\\3\\1\end{bmatrix}, \begin{bmatrix}2\\3\\0\\-1\end{bmatrix}, \begin{bmatrix}2\\1\\0\\1\end{bmatrix}\right)$$
@@ -210,7 +210,7 @@ $$\mbox{nullity}(T)=\mbox{dim}(\mbox{ker}(T))$$
 
 This definition gives us the following relationship between nullity of a linear transformation $T$ and the nullity of the standard matrix $A$ associated with it.
 
-\begin{formula}\label{form:rankTrankA}
+\begin{formula}\label{form:nullTnullA}
 $$\mbox{nullity}(A) = \mbox{dim}(\mbox{null}(A))=\mbox{dim}(\mbox{ker}(T))=\mbox{nullity}(T)$$
 \end{formula}
 
