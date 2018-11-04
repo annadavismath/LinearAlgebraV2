@@ -192,26 +192,22 @@ Transformations like $T_1$ belong to a special category of transformations calle
 
 
   \begin{definition} \label{def:lin}
-  
-A transformation $T:\RR^n\rightarrow \RR^m$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$, and scalars $k$.
+ A transformation $T:\RR^n\rightarrow \RR^m$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$, and scalars $k$.
 \begin{equation}\label{eq:lintrans1}
 T(k\vec{u})= kT(\vec{u})
 \end{equation}
 \begin{equation}\label{eq:lintrans2}
 T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 \end{equation}
-  
 \end{definition}
 
-
+\begin{remark}
 Properties (\ref{eq:lintrans1}) and (\ref{eq:lintrans2}) are often combined into a single property.
-
-
-  
 \begin{equation*}
 T(k_1\vec{u}+k_2\vec{v})= k_1T(\vec{u})+k_2T(\vec{v})
 \end{equation*}
-  
+\end{remark}
+
 \begin{example}\label{ex:lineartrans1}
 Suppose $T:\RR^2\rightarrow\RR^2$ is a transformation such that 
 $$T\left(\begin{bmatrix}
@@ -278,9 +274,7 @@ Since $\begin{bmatrix}
 we conclude that transformation $T$ is not linear.
 \end{explanation}
 \end{example}
-  
-  
-  
+
 In Exploration \ref{init:lintransintro} we introduced a transformation $T_2$ which turned out to be non-linear.  It took some work to show that $T_2$ is not linear.  The following theorem would have made our work easier.
 
 \begin{theorem}\label{th:zerotozero} Let $T:\RR^n\rightarrow \RR^m$ be a linear transformation.  Then $T(\vec{0})=\vec{0}$.  In other words, linear transformations map the zero vector to the zero vector.
@@ -311,35 +305,7 @@ Since $T_2(\vec{0})\neq\vec{0}$, $T_2$ is not linear.
 \end{example}
 
 
-We conclude this section by introducing two simple but important transformations.
 
-\begin{definition}\label{def:idtransonrn}
-The \dfn{identity transformation} on $\RR^n$, denoted by $\id_{\RR^n}$, is a transformation that maps each element of $\RR^n$ to itself.
-
-In other words,
-$$\id_{\RR^n}:\RR^n\rightarrow \RR^n$$ is a transformation such that $$\id_{\RR^n}(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in \RR^n$$
-\end{definition}
-
-\begin{definition}\label{def:zerotransonrn}
-The \dfn{zero transformation}, $Z$, maps every element of the domain to the zero vector.
-
-In other words,
-$$Z:\RR^n\rightarrow \RR^m$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in \RR^n$$
-\end{definition}
-
-\begin{theorem}\label{th:idlintrans}
-The identity transformation is linear.
-\end{theorem}
-\begin{proof}
-Left to the reader. (See Practice Problem \ref{prob:idtrans})
-\end{proof}
-
-\begin{theorem}\label{th:zerolintrans}
-The zero transformation is linear.
-\end{theorem}
-\begin{proof}
-Left to the reader.  (See Practice Problem \ref{prob:zerotrans})
-\end{proof}
 
 \subsection*{Linear Transformations Induced by Matrices}
 
@@ -486,8 +452,89 @@ This shows that the image of every vector in $\RR^3$ is a scalar multiple of $\b
 \end{explanation}
 \end{example}
 
+\subsection*{Linear Transformations of Subspaces of $\RR^n$}
 
+Definition \ref{def:lin} defines a linear transformation as a map from $\RR^n$ into $\RR^m$.  We will now make this definition more general by allowing the domain and the codomain of the transformation to be subspaces of $\RR^n$ and $\RR^m$.  Eventually, a linear transformation will be defined as a mapping between vector spaces.
 
+\begin{definition}\label{def:lin2}
+Let $V$ and $W$ be subspaces of $\RR^n$ and $\RR^m$.  A transformation $T:V\rightarrow W$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $V$, and scalars $k$.
+
+$$T(k\vec{u})= kT(\vec{u})$$
+$$T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})$$
+\end{definition}
+
+\begin{example}
+Let $V$ be a subspace of $\RR^3$ consisting of all vectors in the $xy$-plane.  Let $W$ be a subspace of $\RR^3$ consisting of all vectors along the $z$-axis.  (Do a quick verification that $V$ and $W$ are subspaces of $\RR^3$.)  Define a transformation $T:V\rightarrow W$ by 
+$$T\left(\begin{bmatrix}a\\b\\0\end{bmatrix}\right)=\begin{bmatrix}0\\0\\a+b\end{bmatrix}$$
+Show that $T$ is a linear transformation, and describe its action geometrically.
+\begin{explanation}
+Consider two arbitrary elements $\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}$ and $\begin{bmatrix}a_2\\b_2\\0\end{bmatrix}$ of $V$.
+\begin{align*}
+T\left(\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}+ \begin{bmatrix}a_2\\b_2\\0\end{bmatrix}\right)&=T\left(\begin{bmatrix}a_1+a_2\\b_1+b_2\\0\end{bmatrix}\right)\\
+&=\begin{bmatrix}0\\0\\(a_1+a_2)+(b_1+b_2)\end{bmatrix}\\
+&=\begin{bmatrix}0\\0\\(a_1+b_1)+(a_2+b_2)\end{bmatrix}\\
+&=\begin{bmatrix}0\\0\\a_1+b_1\end{bmatrix}+\begin{bmatrix}0\\0\\a_2+b_2\end{bmatrix}\\
+&=T\left(\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}\right)+ T\left(\begin{bmatrix}a_2\\b_2\\0\end{bmatrix}\right)
+\end{align*}
+Verification of the fact that $T\left(k\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}\right)=kT\left(\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}\right)$ is similar, and we omit the details.
+
+We have shown that $T$ is a linear transformation.  The following diagram will help us visualize the action of $T$ geometrically.
+
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+  \draw[->] (0,0)--(3,0);
+  \draw[->] (0,0)--(0,3);
+  \draw[->] (0,0)--(-1.5,-1);
+
+\filldraw[blue, opacity=0.3](1.5,-1)--(4.5,1)--(-1.5,1)--(-4.5,-1)--cycle;
+  
+\draw[line width=1pt,red,-stealth](0,0)--(2,-0.5) node[below right]{$\begin{bmatrix}1\\2\\0\end{bmatrix}$};
+
+  
+ \draw[->] (6,0)--(9,0);
+  %\draw[->] (5,0)--(5,3);
+  \draw[->] (6,0)--(4.5,-1);
+  
+  \draw[line width=2pt,blue](6,-1)--(6,3) node[above, right]{Image of $T$};
+  \draw[line width=2pt,red,-stealth](6,0)--(6,1.5) node[right]{$T\left(\begin{bmatrix}1\\2\\0\end{bmatrix}\right)=\begin{bmatrix}0\\0\\3\end{bmatrix}$};
+  \draw [->,line width=1pt,-stealth]  (2.5,2) to[out=30, in=150] (5, 2);
+   \node[] at (3.75, 3)   (b) {$T$};
+ \end{tikzpicture}
+\end{center}
+
+\end{explanation}
+\end{example}
+
+We conclude this section by introducing two simple but important transformations.
+
+\begin{definition}\label{def:idtransonrn}
+The \dfn{identity transformation} on $V$, denoted by $\id_V$, is a transformation that maps each element of $V$ to itself.
+
+In other words,
+$$\id_V:V\rightarrow V$$ is a transformation such that $$\id_V(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in V$$
+\end{definition}
+
+\begin{definition}\label{def:zerotransonrn}
+The \dfn{zero transformation}, $Z$, maps every element of the domain to the zero vector.
+
+In other words,
+$$Z:V\rightarrow W$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in V$$
+\end{definition}
+
+\begin{theorem}\label{th:idlintrans}
+The identity transformation is linear.
+\end{theorem}
+\begin{proof}
+Left to the reader. (See Practice Problem \ref{prob:idtrans})
+\end{proof}
+
+\begin{theorem}\label{th:zerolintrans}
+The zero transformation is linear.
+\end{theorem}
+\begin{proof}
+Left to the reader.  (See Practice Problem \ref{prob:zerotrans})
+\end{proof}
 
 
 \section*{Practice Problems}

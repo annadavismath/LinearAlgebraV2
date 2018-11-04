@@ -11,14 +11,13 @@ We establish that a linear transformation of a vector space is completely determ
 
 \section*{LTR-0025: Linear Transformations and Bases}
 
-Recall that a transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is called a \dfn{linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $\mathbb{R}^n$, and scalars $k$.
+Recall that a transformation $T:V\rightarrow W$ is called a \dfn{linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $V$, and scalars $k$.
 \begin{equation*}
-T(k{\bf u})= kT({\bf u})
+T(k\vec{u})= kT(\vec{u})
 \end{equation*}
 \begin{equation*}
-T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
+T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 \end{equation*}
-
 
 \begin{exploration}\label{init:tij}  Suppose we want to define a linear transformation $T:\RR^2\rightarrow \RR^2$ by $$T(\vec{i})=\begin{bmatrix}3\\-2\end{bmatrix}\quad\text{and}\quad T(\vec{j})=\begin{bmatrix}-1\\2\end{bmatrix}$$  
 Is this information sufficient to define $T$?  
@@ -46,6 +45,7 @@ Again, we see how a linear transformation is completely determined by its action
 Our discussion thus far hinged on the fact that the representation of a vector in terms of the given basis elements is unique.  Imagine what would happen if this were not the case.  In Exploration \ref{init:tij}, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have potentially resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  Fortunately, Theorem \ref{th:linindbasis} of VSP-0030 assures us that in $\RR^n$, vector representation in terms of the elements of a basis is unique.  
 
 Suppose we want to define a linear transformation $T:V\rightarrow W$.  Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of $V$.  To define $T$, it is sufficient to state the image of each basis vector under $T$.  Once the images of the basis vectors are established, we can determine the images of all vectors of $V$.
+
 Given any vector $\vec{v}$ of $V$, we can uniquely express $\vec{v}$ as a linear combination of $\vec{v}_1,\ldots,\vec{v}_p$.  Thus,
 $$\vec{v}=a_1\vec{v}_1+\ldots+a_p\vec{v}_p$$ for some scalar coefficients $a_1,\ldots,a_p$.
 We find $T(\vec{v})$ as follows:
