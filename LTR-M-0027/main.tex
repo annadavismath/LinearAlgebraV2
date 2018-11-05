@@ -1,0 +1,46 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{LTR-0027: Linear Transformations of Abstract Vector Spaces} \license{CC-BY 4.0}
+
+\begin{document}
+\begin{abstract}
+We define linear transformation for vector spaces, and  establish that a linear transformation of a vector space is completely determined by its effect on a basis. 
+\end{abstract}
+\maketitle
+
+\section*{LTR-0027: Linear Transformations of Abstract Vector Spaces}
+
+Recall that a transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is called a \dfn{linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $\mathbb{R}^n$, and scalars $k$.
+\begin{equation*}
+T(k{\bf u})= kT({\bf u})
+\end{equation*}
+\begin{equation*}
+T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
+\end{equation*}
+
+We generalize this definition as follows.
+
+\begin{definition}\label{def:lintransgeneral}
+Let $V$ and $W$ be vector spaces. A transformation $T:V\rightarrow W$ is called a \dfn{linear transformation} if the following are true for all vectors ${\bf u}$ and ${\bf v}$ in $V$, and scalars $k$.
+\begin{equation*}
+T(k{\bf u})= kT({\bf u})
+\end{equation*}
+\begin{equation*}
+T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
+\end{equation*}
+\end{definition}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
+  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
+  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
+\end{tikzpicture}
+
+UNDER CONSTRUCTION -- COMING SOON
+\end{center}
+
+
+
+\end{document}
