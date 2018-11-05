@@ -77,7 +77,7 @@ $$A=\begin{bmatrix}4&-1&2&1\\3&0&1&-2\\
 2&1&5&1\\-2&1&3&-1\end{bmatrix}$$
 Find $\det{A}$ by cofactor expansion along the second row.
 \begin{explanation}
-Matrix $A$ is the same as the matrix in Example \ref{ex:expansiontoprow} of DET-M-0010.  According to the Laplace Expansion Theorem we should get the same value for the determinant as we did in Example \ref{ex:expansiontoprow} regardless of which row or column we expand along.  The second row has the advantage over other rows in that it contains a zero.  This makes computing one of the cofactors unnecessary.  Following the checker board sign pattern along the second row we get
+Matrix $A$ is the same as the matrix in Example \ref{ex:expansiontoprow} of DET-0010.  According to the Laplace Expansion Theorem we should get the same value for the determinant as we did in Example \ref{ex:expansiontoprow} regardless of which row or column we expand along.  The second row has the advantage over other rows in that it contains a zero.  This makes computing one of the cofactors unnecessary.  Following the checker board sign pattern along the second row we get
 
 \begin{align*}
 \det{A}&=-(3)\det{A_{21}}+(0)\det{A_{22}}-(1)\det{A_{23}}+(-2)\det{A_{24}}\\
@@ -109,23 +109,23 @@ $$\det(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
 
 We started the topic of determinants by introducing two definitions of the determinant and proving that they produce the same result.  However, if you examine our proofs carefully, you will find that none of the proofs rely on cofactor expansion along the first row.  So, all of our results were derived based exclusively on cofactor expansion along the first column.  Indeed, we did not have to present the first definition at all. Our only motivation for doing so was that both definitions are standard and widely used. 
 
-In keeping with our effort to avoid cofactor expansion along the first row in proofs, we will prove the  Laplace Expansion Theorem using cofactor expansion along the first column.  Then cofactor expansion along the first row will simply become a consequence of the Laplace Expansion Theorem, rendering the equivalence proof (Theorem \ref{th:rowcolexpequivalence}) of DET-M-0020 redundant.
+In keeping with our effort to avoid cofactor expansion along the first row in proofs, we will prove the  Laplace Expansion Theorem using cofactor expansion along the first column.  Then cofactor expansion along the first row will simply become a consequence of the Laplace Expansion Theorem, rendering the equivalence proof (Theorem \ref{th:rowcolexpequivalence}) of DET-0020 redundant.
 
-We begin by stating the following counterpart of Theorem \ref{th:elemrowopsanddet} of DET-M-0030.
+We begin by stating the following counterpart of Theorem \ref{th:elemrowopsanddet} of DET-0030.
 \begin{theorem}[Elementary Column Operations and the Determinant]\label{th:elemcolopsanddet}
 Let $A$ be an $n\times n$ matrix.  
 \begin{enumerate}
-\item\label{item:rowswapanddet}
+\item\label{item:colswapanddet}
 If $B$ is obtained from $A$ by interchanging two different columns, then $$\det{B}=-\det{A}$$
-\item \label{item:rowconstantmultanddet}
+\item \label{item:colconstantmultanddet}
 If $B$ is obtained from $A$ by multiplying one of the columns of $A$ by a non-zero constant $k$.  Then $$\det{B}=k\det{A}$$
-\item \label{item:addmultotherrowdet}
+\item \label{item:addmultothercoldet}
 If $B$ is obtained from $A$ by adding a multiple of one column of $A$ to another column, then
 $$\det{B}=\det{A}$$
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-This is a direct consequence of the fact that $\det{A^T}=\det{A}$. (Theorem \ref{th:detoftrans} of DET-M-0040)
+This is a direct consequence of the fact that $\det{A^T}=\det{A}$. (Theorem \ref{th:detoftrans} of DET-0040)
 \end{proof}
 
 We are now ready to prove Theorem \ref{th:laplace1}.  For convenience we restate the result:
@@ -155,7 +155,7 @@ We will start by showing that cofactor expansion along column $j$ produces the s
 &=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
 \end{align*}
 
-To show that the determinant of $A$ can also be computed by cofactor expansion along any row follows from the fact that $\det{A}=\det{A^T}$. (Theorem \ref{th:detoftrans} of DET-M-0040)
+To show that the determinant of $A$ can also be computed by cofactor expansion along any row follows from the fact that $\det{A}=\det{A^T}$. (Theorem \ref{th:detoftrans} of DET-0040)
 \end{proof}
 \section*{Practice Problems}
 
