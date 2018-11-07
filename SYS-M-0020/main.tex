@@ -280,19 +280,19 @@ The augmented matrix in (\ref{eq:sys20reducedrowechelon}) has the same convenien
     \begin{array}{ccccccc}
       x_1 & &&&&= &1/2 \\
    & &x_2&&&=&-13/2\\
-   & &&&x_3&=&2
+   & &&&x_3&=&2\\
         \end{array}
     \end{equation*}
 This gives us the solution $(\frac{1}{2}, -\frac{13}{2}, 2)$.
 
 While the augmented matrix in (\ref{eq:sys20reducedrowechelon}) was certainly ``convenient", we could have converted back to the equation format a little earlier.  Let's take a look at the augmented matrix in (\ref{eq:sys20rowechelon}).  Converting (\ref{eq:sys20rowechelon}) to a system of equations gives us
-%\begin{equation*}
- %   \begin{array}{ccccccc}
-  %    x_1 &- &x_2&-&3x_3&= &1\\
- %  & &2x_2&+&5x_3&=&-3\\
- %  & &&&x_3&=&2
- %       \end{array}
-%    \end{equation*}
+\begin{equation*}
+    \begin{array}{ccccccc}
+      x_1 &- &x_2&-&3x_3&= &1\\
+   & &2x_2&+&5x_3&=&-3\\
+   & &&&x_3&=&2\\
+        \end{array}
+    \end{equation*}
 Substituting $x_3=2$ into the second equation and solving for $x_2$ gives us $$x_2=\frac{-3-5(2)}{2}=-\frac{13}{2}$$  Now substituting $x_3=2$ and $x_2=-\frac{13}{2}$ into the first equation results in $$x_1=1+\left(-\frac{13}{2}\right)+3(2)=\frac{1}{2}$$  This process is called \dfn{back substitution} and it produces the same solution as we obtained earlier.
 \end{exploration}
 
