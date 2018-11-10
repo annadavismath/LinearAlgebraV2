@@ -11,7 +11,7 @@ We present and practice block matrix multiplication.
 
 \section*{MAT-0023: Block Matrix Multiplication}
 \begin{definition}\label{def:blockmat}
-It is often useful to consider matrices whose entries are themselves matrices (called \dfn{blocks}). A matrix viewed in this way is said to be \dfn{partitioned into blocks}
+It is often useful to consider matrices whose entries are themselves matrices, called \dfn{blocks}. A matrix viewed in this way is said to be \dfn{partitioned into blocks}
 \end{definition}
 
 For example, writing a matrix $B$ in the form
@@ -31,7 +31,7 @@ A = \left[ \begin{array}{rr|rrr}
 2 & -1 & 4 & 2 & 1 \\
 3 & 1 & -1 & 7 & 5
 \end{array} \right] = \left[ \begin{array}{cc}
-I_{2} & 0_{23} \\
+I_{2} & O_{23} \\
 P & Q
 \end{array} \right]
 \end{equation*}
@@ -48,16 +48,16 @@ X \\
 Y
 \end{array} \right]
 \end{equation*}
-where the blocks have been labelled as indicated. This is a natural way to partition $A$ into blocks in view of the blocks $I_{2}$ and the two-by-three zero matrix, denoted by $0_{23}$, that occur. This notation is particularly useful when we are multiplying the matrices $A$ and $B$ because the product $AB$ can be computed in block form as follows:
+where the blocks have been labelled as indicated. This is a natural way to partition $A$ into blocks in view of the blocks $I_{2}$ and the two-by-three zero matrix, denoted by $O_{23}$, that occur. This notation is particularly useful when we are multiplying the matrices $A$ and $B$ because the product $AB$ can be computed in block form as follows:
 \begin{equation*}
 AB = \left[ \begin{array}{cc}
-I & 0 \\
+I & O \\
 P & Q
 \end{array} \right] \left[ \begin{array}{c}
 X \\
 Y
 \end{array} \right] = \left[ \begin{array}{c}
-IX + 0Y \\
+IX + OY \\
 PX + QY
 \end{array} \right] = \left[ \begin{array}{c}
 X \\
