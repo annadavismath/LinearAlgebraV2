@@ -55,21 +55,24 @@ $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & 
  +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
 
 \begin{theorem}[Laplace Expansion Theorem]\label{th:laplace1}
-Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Then
-\begin{align}\label{eq:laplace1a}
-\det{A}&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\nonumber\\
-&=a_{i1}(-1)^{i+1}\det{A_{i1}}+a_{i2}(-1)^{i+2}\det{A_{i2}}+\ldots +a_{in}(-1)^{i+n}\det{A_{in}}\nonumber\\
+Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  Then each of the following computations produces $\det{A}$.
+\begin{enumerate}
+    \item \label{eq:laplace1a} \dfn{Cofactor Expansion along the $i^{th}$ row}
+\begin{align*}
+\det{A}&=a_{i1}C_{i1}+a_{i2}C_{i2}+\ldots +a_{in}C_{in}\\
+&=a_{i1}(-1)^{i+1}\det{A_{i1}}+a_{i2}(-1)^{i+2}\det{A_{i2}}+\ldots +a_{in}(-1)^{i+n}\det{A_{in}}\\
 &=\sum_{j=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
-\end{align}
-and
-\begin{align}\label{eq:laplace1b}
-\det{A}&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\nonumber\\
-&=a_{1j}(-1)^{1+j}\det{A_{1j}}+a_{2j}(-1)^{2+j}\det{A_{2j}}+\ldots +a_{nj}(-1)^{n+j}\det{A_{nj}}\nonumber\\
+\end{align*}
+\item \label{eq:laplace1b} \dfn{Cofactor Expansion along the $j^{th}$ column}
+\begin{align*}
+\det{A}&=a_{1j}C_{1j}+a_{2j}C_{2j}+\ldots +a_{nj}C_{nj}\\
+&=a_{1j}(-1)^{1+j}\det{A_{1j}}+a_{2j}(-1)^{2+j}\det{A_{2j}}+\ldots +a_{nj}(-1)^{n+j}\det{A_{nj}}\\
 &=\sum_{i=1}^na_{ij}(-1)^{i+j}\det{A_{ij}}
-\end{align}
+\end{align*}
+\end{enumerate}
 \end{theorem}
  
- Computation (\ref{eq:laplace1a}) is called the \dfn{cofactor expansion along the $i^{th}$ row}.  Computation (\ref{eq:laplace1b}) is called \dfn{cofactor expansion along the $j^{th}$ column}.  
+ %Computation (\ref{eq:laplace1a}) is called the \dfn{cofactor expansion along the $i^{th}$ row}.  Computation (\ref{eq:laplace1b}) is called \dfn{cofactor expansion along the $j^{th}$ column}.  
  
  \begin{example}\label{ex:laplace1}
 Let  
