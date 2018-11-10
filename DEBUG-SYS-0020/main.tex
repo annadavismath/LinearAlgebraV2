@@ -26,184 +26,184 @@ In SYS-0010 we discussed why applying elementary row operations to a linear syst
 
 In this module we seek an efficient method for recording our computations and arriving at a solution using elementary row operations. 
 
-\begin{exploration}\label{init:augmentedmatrixex}
-Consider the linear system
-\begin{equation}\label{eq:sys20originalsystem1}
-\begin{array}{ccccccccc}
-      x &- &y&&&&&= &0 \\
-	 2x& -&2y&+&z&+&2w&=&4\\
-     & &y&&&+&w&=&0\\
-     & &&&2z&+&w&=&5
-    \end{array}
-    \end{equation}
+%\begin{exploration}\label{init:augmentedmatrixex}
+%Consider the linear system
+%\begin{equation}\label{eq:sys20originalsystem1}
+%\begin{array}{ccccccccc}
+%      x &- &y&&&&&= &0 \\
+%	 2x& -&2y&+&z&+&2w&=&4\\
+ %    & &y&&&+&w&=&0\\
+ %    & &&&2z&+&w&=&5
+ %   \end{array}
+  %  \end{equation}
 Our goal is to use elementary row operations to transform this system into an equivalent system of the form
-\begin{equation}\begin{array}{ccccccccc}
-      x & &&&&&&= &a \\
-	 & &y&&&&&=&b\\
-     & &&&z&&&=&c\\
-     & &&&&&w&=&d
-    \end{array}
-    \end{equation}
+%\begin{equation}\begin{array}{ccccccccc}
+ %     x & &&&&&&= &a \\
+%	 & &y&&&&&=&b\\
+ %    & &&&z&&&=&c\\
+  %   & &&&&&w&=&d
+%    \end{array}
+%    \end{equation}
  We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later), but it does exist in this case, and we would like to find a more efficient way of finding it than having to write and rewrite our equations at each step.   
  
 In this problem, we prompt you to perform elementary row operations and ask you to fill in the coefficients in the resulting equations.
  
-$$\begin{array}{c}
- \\
- \xrightarrow{R_2-2R_1}\\
-\\
-\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &- &y&+&0z&+&0w&= &0 \\
-	 0x& +&0y&+&\answer{1}z&+&\answer{2}w&=&\answer{4}\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&2z&+&w&=&5
-    \end{array}$$
+%$$\begin{array}{c}
+% \\
+% \xrightarrow{R_2-2R_1}\\
+%\\
+%\\
+% \end{array}
+%\begin{array}{ccccccccc}
+ %     x &- &y&+&0z&+&0w&= &0 \\
+%	 0x& +&0y&+&\answer{1}z&+&\answer{2}w&=&\answer{4}\\
+ %    0x& +&y&+&0z&+&w&=&0\\
+  %   0x&+&0y&+&2z&+&w&=&5
+  %  \end{array}$$
     
- $$
- \begin{array}{c}
- \xrightarrow{R_1+R_3}\\
- \\
-\\
-\\
- \end{array}
- \begin{array}{ccccccccc}
-      x &+ &\answer{0}y&+&0z&+&\answer{1}w&= &\answer{0} \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&2z&+&w&=&5
-    \end{array}$$
+% $$
+ %\begin{array}{c}
+ %\xrightarrow{R_1+R_3}\\
+ %\\
+%\\
+%\\
+% \end{array}
+ %\begin{array}{ccccccccc}
+ %     x &+ &\answer{0}y&+&0z&+&\answer{1}w&= &\answer{0} \\
+	% 0x& +&0y&+&z&+&2w&=&4\\
+    % 0x& +&y&+&0z&+&w&=&0\\
+    % 0x&+&0y&+&2z&+&w&=&5
+%    \end{array}$$
  
 
-$$\begin{array}{c}
-\\
-\\
- \\
-\xrightarrow{R_4-2R_2}\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&w&= &0 \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&\answer{0}z&+&\answer{-3}w&=&\answer{-3}
-    \end{array}$$
+%$$\begin{array}{c}
+%\\
+%\\
+% \\
+%\xrightarrow{R_4-2R_2}\\
+ %\end{array}
+%\begin{array}{ccccccccc}
+ %     x &+ &0y&+&0z&+&w&= &0 \\
+%	 0x& +&0y&+&z&+&2w&=&4\\
+ %    0x& +&y&+&0z&+&w&=&0\\
+  %   0x&+&0y&+&\answer{0}z&+&\answer{-3}w&=&\answer{-3}
+  %  \end{array}$$
 
 
-$$\begin{array}{c}
-\\
- \\
- \\
-\xrightarrow{-\frac{1}{3}R_4}\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&w&= &0 \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&0z&+&\answer{1}w&=&\answer{1}
-    \end{array}$$
+%$$\begin{array}{c}
+%\\
+ %\\
+ %\\
+%\xrightarrow{-\frac{1}{3}R_4}\\
+ %\end{array}
+%\begin{array}{ccccccccc}
+ %     x &+ &0y&+&0z&+&w&= &0 \\
+%	 0x& +&0y&+&z&+&2w&=&4\\
+ %    0x& +&y&+&0z&+&w&=&0\\
+  %   0x&+&0y&+&0z&+&\answer{1}w&=&\answer{1}
+   % \end{array}$$
     
 
-$$
-\begin{array}{c}
- \xrightarrow{R_1-R_4}\\
- \xrightarrow{R_2-2R_4}\\
-\xrightarrow{R_3-R_4}\\
-\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&\answer{0}w&= &\answer{-1} \\
-	 0x& +&0y&+&z&+&\answer{0}w&=&\answer{2}\\
-     0x& +&y&+&0z&+&\answer{0}w&=&\answer{-1}\\
-     0x&+&0y&+&0z&+&w&=&1
-    \end{array}$$
+%$$
+%\begin{array}{c}
+% \xrightarrow{R_1-R_4}\\
+ %\xrightarrow{R_2-2R_4}\\
+%\xrightarrow{R_3-R_4}\\
+%\\
+% \end{array}
+%\begin{array}{ccccccccc}
+ %     x &+ &0y&+&0z&+&\answer{0}w&= &\answer{-1} \\
+%	 0x& +&0y&+&z&+&\answer{0}w&=&\answer{2}\\
+ %    0x& +&y&+&0z&+&\answer{0}w&=&\answer{-1}\\
+  %   0x&+&0y&+&0z&+&w&=&1
+   % \end{array}$$
     
 
-\begin{equation}\label{eq:sys20rref1}
-\begin{array}{c}
-\\
-\xrightarrow{R_2\leftrightarrow R_3}\\
-\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&0w&= &-1 \\
-   0x& +&y&+&0z&+&0w&=&-1\\
-   0x& +&0y&+&z&+&0w&=&2\\
-     0x&+&0y&+&0z&+&w&=&1
-    \end{array}
-    \end{equation}
+%\begin{equation}\label{eq:sys20rref1}
+%\begin{array}{c}
+%\\
+%\xrightarrow{R_2\leftrightarrow R_3}\\
+%\\
+% \end{array}
+%\begin{array}{ccccccccc}
+ %     x &+ &0y&+&0z&+&0w&= &-1 \\
+  % 0x& +&y&+&0z&+&0w&=&-1\\
+  % 0x& +&0y&+&z&+&0w&=&2\\
+   %  0x&+&0y&+&0z&+&w&=&1
+%    \end{array}
+ %   \end{equation}
     If we drop all of the zero terms, we have:
-    \begin{equation}\label{eq:sys20rrefnozeros}
-    \begin{array}{ccccccccc}
-      x & &&&&&&= &-1 \\
-   & &y&&&&&=&-1\\
-   & &&&z&&&=&2\\
-     &&&&&&w&=&1
-    \end{array}
-    \end{equation}
+  %  \begin{equation}\label{eq:sys20rrefnozeros}
+   % \begin{array}{ccccccccc}
+    %  x & &&&&&&= &-1 \\
+   %& &y&&&&&=&-1\\
+   %& &&&z&&&=&2\\
+    % &&&&&&w&=&1
+    %\end{array}
+    %\end{equation}
 Now we see that $(-1, -1, 2, 1)$ is the solution.
 
 Observe that throughout the entire process, variables $x$, $y$, $z$ and $w$ remained in place; only the coefficients in front of the variables and the entries on the right changed.  Let's try to recreate this process without writing down the variables.  We can capture the original system in (\ref{eq:sys20originalsystem1}) as follows:
-$$\left[\begin{array}{cccc|c}  
- 1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
- \end{array}\right]$$
- 
+%$$\left[\begin{array}{cccc|c}  
+ %1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
+ %\end{array}\right]$$
+
  This array is called an \dfn{augmented matrix}.  The side to the left of the vertical bar is called the \dfn{coefficient matrix}, while the side to the right of the vertical bar corresponds to the constants on the right side of the system.
  
  We can capture all of the elementary row operations we performed earlier as follows:
 
-$$\left[\begin{array}{cccc|c}  
- 1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
- \end{array}\right]
- \begin{array}{c}
- \\
- \xrightarrow{R_2-2R_1}\\
-\\
-\\
- \end{array}
- \left[\begin{array}{cccc|c}  
- 1&-1&0&0&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&2&1&5
- \end{array}\right]
- \begin{array}{c}
- \xrightarrow{R_1+R_3}\\
- \\
-\\
-\\
- \end{array}$$
- $$\left[\begin{array}{cccc|c}  
- 1&0&0&1&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
- \end{array}\right]
- \begin{array}{c}
- \\
- \\
-\\
-\xrightarrow{R_4-2R_2}\\
- \end{array}
- \left[\begin{array}{cccc|c}  
- 1&0&0&1&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&0&-3&-3
- \end{array}\right]
- \begin{array}{c}
- \\
- \\
-\\
-\xrightarrow{(-1/3)R_4}\\
- \end{array}$$
- $$\left[\begin{array}{cccc|c}  
- 1&0&0&1&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&0&1&1
- \end{array}\right]
- \begin{array}{c}
- \xrightarrow{R_1-R_4}\\
- \xrightarrow{R_2-2R_4}\\
-\xrightarrow{R_3-R_4}\\
-\\
- \end{array}\left[\begin{array}{cccc|c}  
- 1&0&0&0&-1\\0&0&1&0&2\\0&1&0&0&-1\\0&0&0&1&1
- \end{array}\right]\begin{array}{c}
- \\
- \xrightarrow{R_2\leftrightarrow R_3}\\
-\\
-\\
- \end{array}$$
+%$$\left[\begin{array}{cccc|c}  
+ %1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\\
+ %\xrightarrow{R_2-2R_1}\\
+%\\
+%\\
+ %\end{array}
+ %\left[\begin{array}{cccc|c}  
+ %1&-1&0&0&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&2&1&5
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\xrightarrow{R_1+R_3}\\
+ %\\
+%\\
+%\\
+ %\end{array}$$
+ %$$\left[\begin{array}{cccc|c}  
+ %1&0&0&1&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\\
+ %\\
+%\\
+%\xrightarrow{R_4-2R_2}\\
+ %\end{array}
+ %\left[\begin{array}{cccc|c}  
+ %1&0&0&1&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&0&-3&-3
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\\
+ %\\
+%\\
+%\xrightarrow{(-1/3)R_4}\\
+ %\end{array}$$
+ %$$\left[\begin{array}{cccc|c}  
+ %1&0&0&1&0\\0&0&1&2&4\\0&1&0&1&0\\0&0&0&1&1
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\xrightarrow{R_1-R_4}\\
+ %\xrightarrow{R_2-2R_4}\\
+%\xrightarrow{R_3-R_4}\\
+%\\
+ %\end{array}\left[\begin{array}{cccc|c}  
+ %1&0&0&0&-1\\0&0&1&0&2\\0&1&0&0&-1\\0&0&0&1&1
+ %\end{array}\right]\begin{array}{c}
+ %\\
+ %\xrightarrow{R_2\leftrightarrow R_3}\\
+%\\
+%\\
+ %\end{array}$$
  
  
  %%%%% start of cuts %%%%%%
@@ -217,7 +217,7 @@ $$\left[\begin{array}{cccc|c}
 % The last augmented matrix corresponds to systems in (\ref{eq:sys20rref1}) and (\ref{eq:sys20rrefnozeros}), and we can easily see the solution.   
 
 
-\end{exploration}
+%\end{exploration}
 
 %Exploration \ref{init:augmentedmatrixex} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
 %$$\begin{array}{ccccccccc}
@@ -240,11 +240,11 @@ $$\left[\begin{array}{cccc|c}
 
 \begin{exploration}\label{init:backsub}
 Consider the system
-$$\begin{array}{ccccccc}
-      x_1 &- &x_2&-&3x_3&= &1 \\
-   4x_1& -&2x_2&-&7x_3&=&1\\
-   -x_1& +&x_2&+&4x_3&=&1
-    \end{array}$$
+%$$\begin{array}{ccccccc}
+ %     x_1 &- &x_2&-&3x_3&= &1 \\
+ %  4x_1& -&2x_2&-&7x_3&=&1\\
+ %  -x_1& +&x_2&+&4x_3&=&1
+ %   \end{array}$$
 Recall that in Exploration \ref{init:augmentedmatrixex} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
 
 %\begin{align}&\left[\begin{array}{ccc|c}  
@@ -324,11 +324,11 @@ A matrix is said to be in \dfn{row-echelon form} if:
 The term row-echelon form can be applied to matrices whether or not they are augmented matrices (matrices with the vertical bar). For example, both the coefficient matrix and the augmented matrix in (\ref{eq:sys20rowechelon}) are in row-echelon form.  Note that the leading entries form a staircase pattern. All entries below the leading entries are zero, but the entries above the leading entries are not all zero.
 
 Below are two more examples of matrices in row-echelon form.  The leading entries of each matrix are boxed.
-$$\begin{bmatrix} 
- \fbox{1}&2&-1&-5&0&2\\0&0&\fbox{3}&1&2&0\\0&0&0&0&\fbox{1}&0
- \end{bmatrix}\quad\text{and}\quad\begin{bmatrix}
- \fbox{4}&2\\0&\fbox{1}\\0&0
- \end{bmatrix}$$
+%$$\begin{bmatrix} 
+% \fbox{1}&2&-1&-5&0&2\\0&0&\fbox{3}&1&2&0\\0&0&0&0&\fbox{1}&0
+ %\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}
+ %\fbox{4}&2\\0&\fbox{1}\\0&0
+ %\end{bmatrix}$$
  
  
 
@@ -344,11 +344,11 @@ A matrix that is already in \dfn{row-echelon} form is said to be in \dfn{reduced
 The following two matrices are in \dfn{reduced row-echelon form}.  Note that there are $0$'
 s below and above each leading $1$.
 
-$$\begin{bmatrix}  
- \fbox{1}&0&-1&0&1\\0&\fbox{1}&0&0&2\\0&0&0&\fbox{1}&2
- \end{bmatrix}\quad\text{and}\quad\begin{bmatrix}
- \fbox{1}&0\\0&\fbox{1}\\0&0
- \end{bmatrix}$$
+%$$\begin{bmatrix}  
+% \fbox{1}&0&-1&0&1\\0&\fbox{1}&0&0&2\\0&0&0&\fbox{1}&2
+% \end{bmatrix}\quad\text{and}\quad\begin{bmatrix}
+% \fbox{1}&0\\0&\fbox{1}\\0&0
+% \end{bmatrix}$$
  
  
 
@@ -359,82 +359,82 @@ respectively.
 
 
 \begin{example}\label{ex:freevar1} Solve the system of equations or determine that the system is inconsistent.
-$$\begin{array}{ccccccccc}
-      x &- &2y&+&z&&&= &2 \\
-	 -2x& +&y&-&z&+&w&=&0\\
-     x& +&4y&&&+&w&=&1 
-    \end{array}$$
+%$$\begin{array}{ccccccccc}
+ %     x &- &2y&+&z&&&= &2 \\
+%	 -2x& +&y&-&z&+&w&=&0\\
+ %    x& +&4y&&&+&w&=&1 
+  %  \end{array}$$
 \begin{explanation}
 We begin by rewriting the system in the augmented matrix form.
-$$\left[\begin{array}{cccc|c}  
- 1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
- \end{array}\right]$$
+%$$\left[\begin{array}{cccc|c}  
+% 1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
+ %\end{array}\right]$$
  Our goal is to carry this matrix to its reduced row-echelon form by means of elementary row operations.  To do this, we will proceed from left to right and use leading entries to wipe out all entries above and below them.
  
- $$\left[\begin{array}{cccc|c}  
- 1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
- \end{array}\right]
- \begin{array}{c}
- \\
- \xrightarrow{R_2+2R_1}\\
-\xrightarrow{R_3-R_1}\\
- \end{array}\left[\begin{array}{cccc|c}  
- 1&-2&1&0&2\\0&-3&1&1&4\\0&6&-1&1&-1
- \end{array}\right]\begin{array}{c}
- \\
- \\
-\xrightarrow{R_3+2R_2}\\
- \end{array}$$
+ %$$\left[\begin{array}{cccc|c}  
+ %1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\\
+ %\xrightarrow{R_2+2R_1}\\
+%\xrightarrow{R_3-R_1}\\
+ %\end{array}\left[\begin{array}{cccc|c}  
+ %1&-2&1&0&2\\0&-3&1&1&4\\0&6&-1&1&-1
+ %\end{array}\right]\begin{array}{c}
+ %\\
+ %\\
+%\xrightarrow{R_3+2R_2}\\
+ %\end{array}$$
  
- $$\left[\begin{array}{cccc|c}  
- 1&-2&1&0&2\\0&-3&1&1&4\\0&0&1&3&7
- \end{array}\right]
- \begin{array}{c}
- \\
- \xrightarrow{(-1/3)R_2}\\
-\\
- \end{array}\left[\begin{array}{cccc|c}  
- 1&-2&1&0&2\\0&1&-1/3&-1/3&-4/3\\0&0&1&3&7
- \end{array}\right]\begin{array}{c}
- \xrightarrow{R_1+2R_2}\\
- \\
-\\
- \end{array}$$
+ %$$\left[\begin{array}{cccc|c}  
+ %1&-2&1&0&2\\0&-3&1&1&4\\0&0&1&3&7
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\\
+ %\xrightarrow{(-1/3)R_2}\\
+%\\
+ %\end{array}\left[\begin{array}{cccc|c}  
+ %1&-2&1&0&2\\0&1&-1/3&-1/3&-4/3\\0&0&1&3&7
+ %\end{array}\right]\begin{array}{c}
+ %\xrightarrow{R_1+2R_2}\\
+ %\\
+%\\
+ %\end{array}$$
  
- $$\left[\begin{array}{cccc|c}  
- 1&0&1/3&-2/3&-2/3\\0&1&-1/3&-1/3&-4/3\\0&0&1&3&7
- \end{array}\right]
- \begin{array}{c}
- \xrightarrow{R_1-(1/3)R_3}\\
- \xrightarrow{R_2+(1/3)R_3}\\
-\\
- \end{array}\left[\begin{array}{cccc|c}  
- 1&0&0&-5/3&-3\\0&1&0&2/3&1\\0&0&1&3&7
- \end{array}\right]$$
+ %$$\left[\begin{array}{cccc|c}  
+ %1&0&1/3&-2/3&-2/3\\0&1&-1/3&-1/3&-4/3\\0&0&1&3&7
+ %\end{array}\right]
+ %\begin{array}{c}
+ %\xrightarrow{R_1-(1/3)R_3}\\
+ %\xrightarrow{R_2+(1/3)R_3}\\
+%\\
+ %\end{array}\left[\begin{array}{cccc|c}  
+ %1&0&0&-5/3&-3\\0&1&0&2/3&1\\0&0&1&3&7
+ %\end{array}\right]$$
  
  Our final matrix may not be quite as nice as the one in (\ref{eq:sys20reducedrowechelon}), but it is in reduced row-echelon form.  Our next step is to convert our augmented matrix back to a system of equations.  We have:
- $$\begin{array}{ccccccccc}
-      x & &&&&-&(5/3)w&= &-3 \\
-	 & &y&&&+&(2/3)w&=&1\\
-     & &&&z&+&3w&=&7 
-    \end{array}$$
+ %$$\begin{array}{ccccccccc}
+  %    x & &&&&-&(5/3)w&= &-3 \\
+%	 & &y&&&+&(2/3)w&=&1\\
+ %    & &&&z&+&3w&=&7 
+  %  \end{array}$$
  We will rewrite the system as follows:
- $$\begin{array}{ccccccccc}
-      x & &&&&&&= &-3+(5/3)w \\
-	 & &y&&&&&=&1-(2/3)w\\
-     & &&&z&&&=&7-3w 
-    \end{array}$$
+ %$$\begin{array}{ccccccccc}
+  %    x & &&&&&&= &-3+(5/3)w \\
+%	 & &y&&&&&=&1-(2/3)w\\
+ %    & &&&z&&&=&7-3w 
+  %  \end{array}$$
  Now we see that we can assign any value to $w$, then compute $x$, $y$ and $z$ to obtain a solution to the system.  For example, let $w=0$, then $x=-3$, $y=1$ and $z=7$, so $(-3, 1, 7, 0)$ is a solution.  If we let $w=3$, then $x=2$, $y=-1$ and $z=-2$, so $(2, -1, -2, 3)$ is also a solution.   To capture all possibilities, we will let $w=t$, where $t$ is an arbitrary \dfn{parameter}.   
  
-  We can think of the solution set in two different ways.  First, the solution set is the set of all points of the form$$\left(-3+\frac{5}{3}t, 1-\frac{2}{3}t, 7-3t, t\right)$$ 
+  We can think of the solution set in two different ways.  First, the solution set is the set of all points of the form $$\left(-3+\frac{5}{3}t, 1-\frac{2}{3}t, 7-3t, t\right)$$ 
  
  We can also think of the solution set in geometric terms by observing that 
- \begin{align*}
- x&=-3+\frac{5}{3}t\\
- y&=1-\frac{2}{3}t\\
- z&=7-3t\\
- w&=t
- \end{align*}
+ %\begin{align*}
+ %x&=-3+\frac{5}{3}t\\
+ %y&=1-\frac{2}{3}t\\
+ %z&=7-3t\\
+ %w&=t
+ %\end{align*}
  is a set of parametric equations that describes a line in $\RR^4$.  (See Formula \ref{form:paramlinend})  This means that the three hyperplanes given by the equations in the system intersect in a line, producing infinitely many solutions to the system.
 
 \end{explanation}
@@ -444,11 +444,11 @@ Observe that in Example \ref{ex:freevar1}, variables $x$, $y$ and $z$ correspond
 
 \begin{example}\label{ex:nosolutionssys}
 Solve the system of equations or determine that the system is inconsistent.
-$$\begin{array}{ccccccc}
-      2x & -&y&&&= &2 \\
-	 x& +&y&-&2z&=&0\\
-     -3x& &&+&2z&=&-1
-    \end{array}$$
+%$$\begin{array}{ccccccc}
+ %     2x & -&y&&&= &2 \\
+%	 x& +&y&-&2z&=&0\\
+ %    -3x& &&+&2z&=&-1
+ %   \end{array}$$
     
     \begin{explanation}
     We rewrite the system in augmented matrix form and transform it to reduced row-echelon form.  We leave the details of the elementary row operations to the reader and state the final result.
@@ -494,44 +494,44 @@ $$\begin{array}{ccccccc}
 
 \begin{example}\label{ex:rrefinfmanysolutionssys}
 Solve the system of equations or determine that the system is inconsistent.
-$$\begin{array}{ccccccc}
-      x & -&3y&-&z&= &3 \\
-	 -3x& +&5y&&&=&-2\\
-     x&+ &y&+&2z&=&-4
-    \end{array}$$
+%$$\begin{array}{ccccccc}
+ %     x & -&3y&-&z&= &3 \\
+%	 -3x& +&5y&&&=&-2\\
+ %    x&+ &y&+&2z&=&-4
+  %  \end{array}$$
     
     \begin{explanation}
     We rewrite the system in the augmented matrix form and transform it to reduced row-echelon form.  We leave the details of the elementary row operations to the reader and state the final result.
     
-   $$ \left[\begin{array}{ccc|c}  
- 1&-3&-1&3\\-3&5&0&-2\\1&1&2&-4
- \end{array}\right]\begin{array}{c}
- \\
- \rightsquigarrow\\
- \\
- \end{array}\left[\begin{array}{ccc|c}  
- 1&0&5/4&-9/4\\0&1&3/4&-7/4\\0&0&0&0
- \end{array}\right]$$
+  % $$ \left[\begin{array}{ccc|c}  
+ %1&-3&-1&3\\-3&5&0&-2\\1&1&2&-4
+ %\end{array}\right]\begin{array}{c}
+ %\\
+ %\rightsquigarrow\\
+ %\\
+ %\end{array}\left[\begin{array}{ccc|c}  
+ %1&0&5/4&-9/4\\0&1&3/4&-7/4\\0&0&0&0
+ %\end{array}\right]$$
  Converting the augmented matrix back to a system of equations we get
- $$\begin{array}{ccccccc}
-      x &+ &0y&+&(5/4)z&= &-9/4 \\
-	 0x& +&y&+&(3/4)z&=&-7/4\\
-     0x&+ &0y&+&0z&=&0
-    \end{array}$$
+ %$$\begin{array}{ccccccc}
+ %     x &+ &0y&+&(5/4)z&= &-9/4 \\
+%	 0x& +&y&+&(3/4)z&=&-7/4\\
+ %    0x&+ &0y&+&0z&=&0
+  %  \end{array}$$
     
  Unlike the last equation in (\ref{eq:sys20nosolutions}), the last equation in this system has infinitely many solutions because all values of $x$, $y$ and $z$ satisfy it.  Since the last equation contributes nothing, we will remove it and rewrite the system as
- $$\begin{array}{ccccc}
-      x & &&= &-9/4-(5/4)z \\
-	 & &y&=&-7/4-(3/4)z\\
-    \end{array}$$
+ %$$\begin{array}{ccccc}
+  %    x & &&= &-9/4-(5/4)z \\
+%	 & &y&=&-7/4-(3/4)z\\
+ %   \end{array}$$
 Variables $x$ and $y$ correspond to leading $1's$ in the reduced row-echelon form.  So, $x$ and $y$ are the leading variables.    Variable $z$ is a free variable.  We let $z=t$.  Solutions to this system are points of the form
-  $$\left(-\frac{9}{4}-\frac{5}{4}t, -\frac{7}{4}-\frac{3}{4}t, t\right)$$
+ % $$\left(-\frac{9}{4}-\frac{5}{4}t, -\frac{7}{4}-\frac{3}{4}t, t\right)$$
   We can also interpret the solutions as lying on a line in $\RR^3$ given by parametric equations
-  \begin{align*}
-  x&=-\frac{9}{4}-\frac{5}{4}t\\
-  y&=-\frac{7}{4}-\frac{3}{4}t\\
-  z&=t\\
-  \end{align*}
+ % \begin{align*}
+  %x&=-\frac{9}{4}-\frac{5}{4}t\\
+  %y&=-\frac{7}{4}-\frac{3}{4}t\\
+  %z&=t\\
+  %\end{align*}
   
   This line is the line of intersection of the three planes.
  \end{explanation}
