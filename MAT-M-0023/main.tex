@@ -10,7 +10,7 @@ We present and practice block matrix multiplication.
 \maketitle
 
 \section*{MAT-0023: Block Matrix Multiplication}
-\begin{definition}
+\begin{definition}\label{def:blockmat}
 It is often useful to consider matrices whose entries are themselves matrices (called \dfn{blocks}). A matrix viewed in this way is said to be \dfn{partitioned into blocks}
 \end{definition}
 
@@ -75,7 +75,7 @@ This is easily checked to be the product $AB$, computed in the conventional mann
 In other words, we can compute the product $AB$ by ordinary matrix multiplication, using blocks as entries. The only requirement is that the blocks be compatible. That is, the sizes of the blocks must be such that all matrix products of blocks that occur make sense. This means that the number of columns in each block of $A$ must equal the number of rows in the corresponding block of $B$.
 
 
-\begin{theorem}
+\begin{theorem}\label{th:blockmatmult}
 If matrices $A$ and $B$ are partitioned compatibly into blocks, the product $AB$ can be computed by matrix multiplication using blocks as entries.
 \end{theorem}
 We omit the proof.
@@ -159,7 +159,7 @@ Block multiplication has theoretical uses as we shall see. However, it is also u
 
 \section*{Practice Problems}
 
-\begin{problem}
+\begin{problem}\label{prob:blockmatmult1}
 Compute $AB$, using the indicated block partitioning.
 \begin{equation*}
 A = \left[ \begin{array}{rr|rr}
