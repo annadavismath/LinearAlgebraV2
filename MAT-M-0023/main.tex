@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{MAT-0023: Block Matrix Multiplication} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin} \title{MAT-0023: Block Matrix Multiplication} \license{CC-BY-NC-SA}
 
 \begin{document}
 \begin{abstract}
@@ -10,18 +10,190 @@ We present and practice block matrix multiplication.
 \maketitle
 
 \section*{MAT-0023: Block Matrix Multiplication}
+\begin{definition}\label{def:blockmat}
+It is often useful to consider matrices whose entries are themselves matrices (called \dfn{blocks}). A matrix viewed in this way is said to be \dfn{partitioned into blocks}
+\end{definition}
+
+For example, writing a matrix $B$ in the form
+\begin{equation*}
+B = \begin{bmatrix}
+\vec{b}_{1} & \vec{b}_{2} & \ldots & \vec{b}_{k}
+\end{bmatrix} \mbox{ where the } \vec{b}_{j} \mbox{ are the columns of } B
+\end{equation*}
+is such a block partition of $B$. Here is another example.
+
+Consider the matrices
+\begin{equation*}
+A = \left[ \begin{array}{rr|rrr}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+\hline
+2 & -1 & 4 & 2 & 1 \\
+3 & 1 & -1 & 7 & 5
+\end{array} \right] = \left[ \begin{array}{cc}
+I_{2} & 0_{23} \\
+P & Q
+\end{array} \right]
+\end{equation*}
+\begin{equation*}
+B = \left[ \begin{array}{rr}
+4 & -2 \\
+5 & 6 \\
+\hline
+7 & 3 \\
+-1 & 0 \\
+1 & 6
+\end{array} \right] = \left[ \begin{array}{c}
+X \\
+Y
+\end{array} \right]
+\end{equation*}
+where the blocks have been labelled as indicated. This is a natural way to partition $A$ into blocks in view of the blocks $I_{2}$ and the two-by-three zero matrix, denoted by $0_{23}$, that occur. This notation is particularly useful when we are multiplying the matrices $A$ and $B$ because the product $AB$ can be computed in block form as follows:
+\begin{equation*}
+AB = \left[ \begin{array}{cc}
+I & 0 \\
+P & Q
+\end{array} \right] \left[ \begin{array}{c}
+X \\
+Y
+\end{array} \right] = \left[ \begin{array}{c}
+IX + 0Y \\
+PX + QY
+\end{array} \right] = \left[ \begin{array}{c}
+X \\
+PX + QY
+\end{array} \right] = \left[ \begin{array}{rr}
+4 & -2 \\
+5 & 6 \\
+\hline
+30 & 8 \\
+8 & 27
+\end{array} \right]
+\end{equation*}
+This is easily checked to be the product $AB$, computed in the conventional manner.
+
+In other words, we can compute the product $AB$ by ordinary matrix multiplication, using blocks as entries. The only requirement is that the blocks be compatible. That is, the sizes of the blocks must be such that all matrix products of blocks that occur make sense. This means that the number of columns in each block of $A$ must equal the number of rows in the corresponding block of $B$.
 
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
-  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
-  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
-\end{tikzpicture}
+\begin{theorem}\label{th:blockmatmult}
+If matrices $A$ and $B$ are partitioned compatibly into blocks, the product $AB$ can be computed by matrix multiplication using blocks as entries.
+\end{theorem}
+We omit the proof.
 
-UNDER CONSTRUCTION -- COMING SOON
-\end{center}
+We have been using two cases of block multiplication. If $B = \begin{bmatrix}
+\vec{b}_{1} & \vec{b}_{2} & \ldots & \vec{b}_{k}
+\end{bmatrix}$ is a matrix where the $\vec{b}_{j}$ are the columns of $B$, and if the matrix product $AB$ is defined, then we have
+\begin{equation*}
+AB = A \begin{bmatrix}
+\vec{b}_{1} & \vec{b}_{2} & \cdots & \vec{b}_{k}
+\end{bmatrix} = \begin{bmatrix}
+A\vec{b}_{1} & A\vec{b}_{2} & \cdots & A\vec{b}_{k}
+\end{bmatrix}
+\end{equation*}
+As another illustration,
+\begin{equation*}
+B\vec{x} = \begin{bmatrix}
+\vec{b}_{1} & \vec{b}_{2} & \cdots & \vec{b}_{k}
+\end{bmatrix} \begin{bmatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{k}
+\end{bmatrix} = x_{1}\vec{b}_{1} + x_{2}\vec{b}_{2} + \cdots + x_{k}\vec{b}_{k}
+\end{equation*}
+where $\vec{x}$ is any $k \times 1$ column matrix.
 
 
+
+
+
+%\begin{theorem}{}{003738}
+%Suppose matrices $A = \left[ \begin{array}{cc}
+%B & X \\
+%0 & C
+%\end{array} \right]$
+% and $A_{1} = \left[ \begin{array}{cc}
+% B_{1} & X_{1} \\
+% 0 & C_{1}
+% \end{array} \right]$ are partitioned as shown where $B$ and $B_{1}$ are square matrices of the same size, and $C$ and $C_{1}$ are also square of the same size. These are compatible partitionings and block multiplication gives
+%\begin{equation*}
+%AA_{1} = \left[ \begin{array}{cc}
+%B & X \\
+%0 & C
+%\end{array} \right] \left[ \begin{array}{cc}
+%B_{1} & X_{1} \\
+%0 & C_{1}
+%\end{array} \right] = \left[ \begin{array}{cc}
+%BB_{1} & BX_{1} + XC_{1} \\
+%0 & CC_{1}
+%\end{array} \right]
+%\end{equation*}
+%\end{theorem}
+
+%\begin{example}{}{003746}
+%Obtain a formula for $A^{k}$ where $A = \left[ \begin{array}{cc}
+%I & X \\
+%0 & 0
+%\end{array} \right]$
+% is square and $I$ is an identity matrix.
+
+
+%\begin{solution}
+%  We have $A^{2} = \left[ \begin{array}{cc}
+%  I & X \\
+%  0 & 0
+%  \end{array} \right] \left[ \begin{array}{cc}
+%  I & X \\
+%  0 & 0
+%  \end{array} \right] = \left[ \begin{array}{cc}
+%  I^{2} & IX + X0 \\
+%  0 & 0^{2}
+%  \end{array} \right] = \left[ \begin{array}{cc}
+%  I & X \\
+%  0 & 0
+%  \end{array} \right] = A$. Hence $A^{3} = AA^{2} = AA = A^{2} = A$. Continuing in this way, we see that $A^{k} = A$ for every $k \geq 1$.
+%\end{solution}
+%\end{example}
+
+Block multiplication has theoretical uses as we shall see. However, it is also useful in computing products of matrices in a computer with limited memory capacity. The matrices are partitioned into blocks in such a way that each product of blocks can be handled. Then the blocks are stored in auxiliary memory and their products are computed one by one.
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:blockmatmult1}
+Compute $AB$, using the indicated block partitioning.
+\begin{equation*}
+A = \left[ \begin{array}{rr|rr}
+2 & -1 & 3 & 1 \\
+1 & 0  & 1 & 2 \\
+\hline
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right] \quad
+B = \left[ \begin{array}{rr|r}
+1 & 2 & 0 \\
+-1 & 0  & 0 \\
+\hline
+0 & 5 & 1 \\
+1 & -1 & 0 
+\end{array} \right]
+\end{equation*}
+
+Answer:
+\begin{equation*}
+AB = \left[ \begin{array}{rr|r}
+\answer{4} & \answer{18} & \answer{3} \\
+\answer{3} & \answer{5}  & \answer{1} \\
+\hline
+\answer{0} & \answer{5} & \answer{1} \\
+\answer{1} & \answer{-1} & \answer{0}
+\end{array} \right] 
+\end{equation*}
+
+\end{problem}
+
+\section*{Text Source}
+The text in this module is an adaptation of Section 2.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p 73-74.
 
 \end{document}
