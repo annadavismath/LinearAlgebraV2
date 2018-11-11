@@ -28,93 +28,93 @@ In this module we seek an efficient method for recording our computations and ar
 
 \begin{exploration}\label{init:augmentedmatrixex}
 Consider the linear system
-%\begin{equation*}%\label{eq:sys20originalsystem1}
+%\begin{equation}\label{eq:sys20originalsystem1}
 %\begin{array}{ccccccccc}
 %      x &- &y&&&&&= &0 \\
 %	 2x& -&2y&+&z&+&2w&=&4\\
 %     & &y&&&+&w&=&0\\
 %     & &&&2z&+&w&=&5
 %    \end{array}
-%\end{equation*}
+%\end{equation}
 Our goal is to use elementary row operations to transform this system into an equivalent system of the form
-\begin{equation*}\begin{array}{ccccccccc}
-      x & &&&&&&= &a \\
-	 & &y&&&&&=&b\\
-     & &&&z&&&=&c\\
-     & &&&&&w&=&d
-   \end{array}
-    \end{equation*}
+%\begin{equation*}\begin{array}{ccccccccc}
+ %     x & &&&&&&= &a \\
+%	 & &y&&&&&=&b\\
+ %    & &&&z&&&=&c\\
+ %    & &&&&&w&=&d
+ %  \end{array}
+ %   \end{equation*}
  We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later), but it does exist in this case, and we would like to find a more efficient way of finding it than having to write and rewrite our equations at each step.   
  
 In this problem, we prompt you to perform elementary row operations and ask you to fill in the coefficients in the resulting equations.
  
-$$\begin{array}{c}
- \\
- \xrightarrow{R_2-2R_1}\\
-\\
-\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &- &y&+&0z&+&0w&= &0 \\
- 0x& +&0y&+&\answer{1}z&+&\answer{2}w&=&\answer{4}\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&2z&+&w&=&5
-    \end{array}$$
+%$$\begin{array}{c}
+% \\
+% \xrightarrow{R_2-2R_1}\\
+%\\
+%\\
+% \end{array}
+%\begin{array}{ccccccccc}
+%      x &- &y&+&0z&+&0w&= &0 \\
+% 0x& +&0y&+&\answer{1}z&+&\answer{2}w&=&\answer{4}\\
+ %    0x& +&y&+&0z&+&w&=&0\\
+ %    0x&+&0y&+&2z&+&w&=&5
+ %   \end{array}$$
     
- $$\begin{array}{c}
- \xrightarrow{R_1+R_3}\\
- \\
-\\
-\\
- \end{array}
- \begin{array}{ccccccccc}
-     x &+ &\answer{0}y&+&0z&+&\answer{1}w&= &\answer{0} \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&2z&+&w&=&5
-    \end{array}$$
+% $$\begin{array}{c}
+% \xrightarrow{R_1+R_3}\\
+% \\
+%\\
+%\\
+% \end{array}
+% \begin{array}{ccccccccc}
+%     x &+ &\answer{0}y&+&0z&+&\answer{1}w&= &\answer{0} \\
+%	 0x& +&0y&+&z&+&2w&=&4\\
+%     0x& +&y&+&0z&+&w&=&0\\
+%     0x&+&0y&+&2z&+&w&=&5
+%    \end{array}$$
  
 
-$$\begin{array}{c}
-\\
-\\
- \\
-\xrightarrow{R_4-2R_2}\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&w&= &0 \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-    0x& +&y&+&0z&+&w&=&0\\
-   0x&+&0y&+&\answer{0}z&+&\answer{-3}w&=&\answer{-3}
-  \end{array}$$
+%$$\begin{array}{c}
+%\\
+%\\
+% \\
+%\xrightarrow{R_4-2R_2}\\
+% \end{array}
+%\begin{array}{ccccccccc}
+%      x &+ &0y&+&0z&+&w&= &0 \\
+%	 0x& +&0y&+&z&+&2w&=&4\\
+%    0x& +&y&+&0z&+&w&=&0\\
+%   0x&+&0y&+&\answer{0}z&+&\answer{-3}w&=&\answer{-3}
+%  \end{array}$$
 
 
-$$\begin{array}{c}
-\\
- \\
- \\
-\xrightarrow{-\frac{1}{3}R_4}\\
- \end{array}
-\begin{array}{ccccccccc}
-     x &+ &0y&+&0z&+&w&= &0 \\
-	 0x& +&0y&+&z&+&2w&=&4\\
-     0x& +&y&+&0z&+&w&=&0\\
-     0x&+&0y&+&0z&+&\answer{1}w&=&\answer{1}
-   \end{array}$$
+%$$\begin{array}{c}
+%\\
+% \\
+% \\
+%\xrightarrow{-\frac{1}{3}R_4}\\
+% \end{array}
+%\begin{array}{ccccccccc}
+%     x &+ &0y&+&0z&+&w&= &0 \\
+%	 0x& +&0y&+&z&+&2w&=&4\\
+%     0x& +&y&+&0z&+&w&=&0\\
+%     0x&+&0y&+&0z&+&\answer{1}w&=&\answer{1}
+ %  \end{array}$$
     
 
-$$\begin{array}{c}
- \xrightarrow{R_1-R_4}\\
- \xrightarrow{R_2-2R_4}\\
-\xrightarrow{R_3-R_4}\\
-\\
- \end{array}
-\begin{array}{ccccccccc}
-      x &+ &0y&+&0z&+&\answer{0}w&= &\answer{-1} \\
-	 0x& +&0y&+&z&+&\answer{0}w&=&\answer{2}\\
-     0x& +&y&+&0z&+&\answer{0}w&=&\answer{-1}\\
-     0x&+&0y&+&0z&+&w&=&1
-\end{array}$$
+%$$\begin{array}{c}
+% \xrightarrow{R_1-R_4}\\
+% \xrightarrow{R_2-2R_4}\\
+%\xrightarrow{R_3-R_4}\\
+%\\
+% \end{array}
+%\begin{array}{ccccccccc}
+%      x &+ &0y&+&0z&+&\answer{0}w&= &\answer{-1} \\
+%	 0x& +&0y&+&z&+&\answer{0}w&=&\answer{2}\\
+ %    0x& +&y&+&0z&+&\answer{0}w&=&\answer{-1}\\
+ %    0x&+&0y&+&0z&+&w&=&1
+%\end{array}$$
     
 
 %\begin{equation}\label{eq:sys20rref1}
