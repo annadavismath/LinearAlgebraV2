@@ -378,39 +378,44 @@ $$P=\begin{bmatrix}
 In block form we may write 
 $$P=\begin{bmatrix}
 B&C
+\end{bmatrix} \quad \text{and} \quad P^{-1}=\begin{bmatrix}
+D \\
+E
 \end{bmatrix}$$
-where $B$ is $n \times k$ and $C$ is  $(n-k) \times k$.  By Practice Problem \ref{prob:figureitoutlater} of  MAT-0023, we know
-$P^{-1}=\begin{bmatrix}
-B^{-1} \\
-C{-1}
-\end{bmatrix} 
-$ and also $B^{-1} C = O$ and $C^{-1} B = O$. Therefore,
+where $B$ is $n \times k$, $C$ is  $n \times (n-k)$, $D$ is $k \times n$, and $E$ is $(n-k) \times n$.  We observe
+$I_n = P^{-1}P = \left[\begin{array}{c|c}  
+DB & DC \\ \hline
+EB & EC
+ \end{array}\right] $. 
+This implies
+$$DB = I_k,\quad DC=O_{k\,\,n-k},\quad EB = O_{n-k\,\,k} \quad\text{ and }\quad EC = I_{n-k}$$
+Therefore,
 \begin{equation*}
 P^{-1}AP=\begin{bmatrix}
-B^{-1} \\
-C{-1}
+D \\
+E
 \end{bmatrix} 
 A
 \begin{bmatrix}
 B&C
 \end{bmatrix} =
 \left[\begin{array}{c|c}  
-B^{-1}AB & B^{-1}AC \\ \hline
-C^{-1}AB & C^{-1}AC
+DAB & DAC \\ \hline
+EAB & EAC
  \end{array}\right]
 \end{equation*}
 \begin{equation*}
 =  \left[\begin{array}{c|c}  
-\lambda_1 B^{-1}B & B^{-1}AC \\ \hline
-\lambda_1 C^{-1}B & C^{-1}AC
+\lambda_1 DB & DAC \\ \hline
+\lambda_1 EB & EAC
  \end{array}\right]  
 =  \left[\begin{array}{c|c}  
-\lambda_1 I_k & B^{-1}AC \\ \hline
-0 & C^{-1}AC
+\lambda_1 I_k & DAC \\ \hline
+O & EAC
  \end{array}\right]  
 \end{equation*}
 We finish the proof by comparing the characteristic polynomials on both sides of this equation, and making use of the fact that similar matrices have the same characteristic polynomials.  
-$$\det(A-\lambda I) = \det(P^{-1}AP-\lambda I)=\det(\lambda_1 - \lambda)^k \det(C^{-1}AC)$$
+$$\det(A-\lambda I) = \det(P^{-1}AP-\lambda I)=\det(\lambda_1 - \lambda)^k \det(EAC)$$
 We see that the characteristic polynomial of $A$ has $(\lambda_1 - \lambda)^k$ as a factor.  This tells us that algebraic multiplicity of $\lambda_1$ is at least $k$, proving the desired inequality. 
 \end{proof}
 
