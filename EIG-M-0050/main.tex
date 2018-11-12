@@ -302,7 +302,7 @@ Let $A$ be an $n \times n$ matrix and suppose it has $n$ distinct eigenvalues. T
 \end{corollary}
 
 The corollary tells us that many matrices can be diagonalized in this way.
-\begin{definition}
+\begin{definition}\label{def:eigdecomposition}
 If we are able to diagonalize $A$, say $A=PDP^{-1}$, we say that $PDP^{-1}$ is an \dfn{eigenvalue decomposition} of $A$.
 \end{definition}
 Not every matrix has an eigenvalue decomposition. Sometimes we cannot find an invertible matrix $P$ such that $P^{-1}AP=D$.  Consider the following example.
@@ -357,7 +357,7 @@ We saw earlier in Corollary \ref{th:distincteigenvalues} that an $n \times n$ ma
 
 Recall that the \dfn{algebraic multiplicity} of an eigenvalue $\lambda$ is the number of times that it occurs as a root of the characteristic polynomial.
 
-\begin{definition}
+\begin{definition}\label{def:geommulteig}
 The \dfn{geometric multiplicity} of an eigenvalue $\lambda$ is the dimension of the corresponding eigenspace $\mathcal{S}_\lambda$.
 \end{definition}
 
@@ -439,7 +439,8 @@ Conversely, if the geometric multiplicity equals the algebraic multiplicity of e
 \begin{problem}
 In this exercise you will "fill in the details" of Example \ref{ex:diagonalizematrix}.
 \begin{problem}\label{prob:ex:diagonalizematrix1}
-Find the eigenvalues of matrix \begin{equation*}
+Find the eigenvalues of matrix 
+\begin{equation*}
 A=\begin{bmatrix}
 2 & 0 & 0 \\
 1 & 4 & -1 \\
@@ -460,7 +461,7 @@ P=
 \end{bmatrix}
 \end{equation*}
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:ex:diagonalizematrix5}
 Compute $D=P^{-1}AP$
 \end{problem}
 \begin{problem}\label{prob:ex:diagonalizematrix4}
