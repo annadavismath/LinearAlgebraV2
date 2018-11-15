@@ -48,27 +48,27 @@ Our goal is to use elementary row operations to transform this system into an eq
  
 In this problem, we prompt you to perform elementary row operations and ask you to fill in the coefficients in the resulting equations.
  
-$$\begin{array}{c}
- \\
- \xrightarrow{R_2-2R_1}\\
-\\
-\\
- \end{array}
-\begin{matrix}
+%$$\begin{array}{c}
+% \\
+% \xrightarrow{R_2-2R_1}\\
+%\\
+%\\
+% \end{array}
+$$\begin{matrix}
       x &- &y&+&0z&+&0w&= &0 \\
 	 0x& +&0y&+&\answer{1}z&+&\answer{2}w&=&\answer{4}\\
      0x& +&y&+&0z&+&w&=&0\\
      0x&+&0y&+&2z&+&w&=&5
     \end{matrix}$$
     
- $$
- \begin{array}{c}
- \xrightarrow{R_1+R_3}\\
- \\
-\\
-\\
- \end{array}
- \begin{matrix}
+ %$$
+ %\begin{array}{c}
+ %\xrightarrow{R_1+R_3}\\
+ %\\
+%\\
+%\\
+% \end{array}
+ $$\begin{matrix}
       x &+ &\answer{0}y&+&0z&+&\answer{1}w&= &\answer{0} \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
@@ -76,13 +76,13 @@ $$\begin{array}{c}
     \end{matrix}$$
  
 
-$$\begin{array}{c}
-\\
-\\
- \\
-\xrightarrow{R_4-2R_2}\\
- \end{array}
-\begin{matrix}
+%$$\begin{array}{c}
+%\\
+%\\
+% \\
+%\xrightarrow{R_4-2R_2}\\
+% \end{array}
+$$\begin{matrix}
       x &+ &0y&+&0z&+&w&= &0 \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
@@ -90,13 +90,13 @@ $$\begin{array}{c}
     \end{matrix}$$
 
 
-$$\begin{array}{c}
-\\
- \\
- \\
-\xrightarrow{-\frac{1}{3}R_4}\\
- \end{array}
-\begin{matrix}
+%$$\begin{array}{c}
+%\\
+% \\
+% \\
+%\xrightarrow{-\frac{1}{3}R_4}\\
+% \end{array}
+$$\begin{matrix}
       x &+ &0y&+&0z&+&w&= &0 \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
@@ -104,14 +104,14 @@ $$\begin{array}{c}
     \end{matrix}$$
     
 
-$$
-\begin{array}{c}
- \xrightarrow{R_1-R_4}\\
- \xrightarrow{R_2-2R_4}\\
-\xrightarrow{R_3-R_4}\\
-\\
- \end{array}
-\begin{matrix}
+%$$
+%\begin{array}{c}
+% \xrightarrow{R_1-R_4}\\
+% \xrightarrow{R_2-2R_4}\\
+%\xrightarrow{R_3-R_4}\\
+%\\
+% \end{array}
+$$\begin{matrix}
       x &+ &0y&+&0z&+&\answer{0}w&= &\answer{-1} \\
 	 0x& +&0y&+&z&+&\answer{0}w&=&\answer{2}\\
      0x& +&y&+&0z&+&\answer{0}w&=&\answer{-1}\\
@@ -206,37 +206,37 @@ $$\left[\begin{array}{cccc|c}
  \end{array}$$
  
  
- %%%%% start of cuts %%%%%%
  
  
  
- %\begin{equation}\label{eq:sys20rref}\left[\begin{array}{cccc|c}  
- %1&0&0&0&-1\\0&1&0&0&-1\\0&0&1&0&2\\0&0&0&1&1
- %\end{array}\right]\end{equation}
  
-% The last augmented matrix corresponds to systems in (\ref{eq:sys20rref1}) and (\ref{eq:sys20rrefnozeros}), and we can easily see the solution.   
+ \begin{equation}\label{eq:sys20rref}\left[\begin{array}{cccc|c}  
+ 1&0&0&0&-1\\0&1&0&0&-1\\0&0&1&0&2\\0&0&0&1&1
+ \end{array}\right]\end{equation}
+ 
+ The last augmented matrix corresponds to systems in (\ref{eq:sys20rref1}) and (\ref{eq:sys20rrefnozeros}), and we can easily see the solution.   
 
 
 \end{exploration}
 
-%Exploration \ref{init:augmentedmatrixex} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
-%$$\begin{array}{ccccccccc}
-%      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
-%	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
- %    &&&&\vdots&&&& \\
-  %   a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
-  %  \end{array}$$
-  %  can be written in the \dfn{augmented matrix form} as follows:
-  %  $$\left[\begin{array}{cccc|c}  
- %a_{11}&a_{12}&\ldots&a_{1n}&b_1\\a_{21}&a_{22}&\ldots&a_{2n}&b_2\\\vdots&\vdots&\ddots&\vdots&\vdots\\a_{m1}&a_{m2}&\ldots&a_{mn}&b_m
- %\end{array}\right]$$
- %The array to the left of the vertical bar is called the \dfn{coefficient matrix} of the linear system and is often given a capital letter name, like $A$.  The vertical array to the right of the bar is called a \dfn{constant vector}.
- %$$A=\begin{bmatrix}a_{11}&a_{12}&\ldots&a_{1n}\\a_{21}&a_{22}&\ldots&a_{2n}\\\vdots&\vdots&\ddots&\vdots\\a_{m1}&a_{m2}&\ldots&a_{mn}\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_m\end{bmatrix}$$
-%We will sometimes use the following notation to represent an augmented matrix.
+Exploration \ref{init:augmentedmatrixex} introduced us to some vocabulary terms.  Let's formalize our definitions.  Every linear system 
+$$\begin{array}{ccccccccc}
+      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
+	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
+     &&&&\vdots&&&& \\
+     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
+    \end{array}$$
+    can be written in the \dfn{augmented matrix form} as follows:
+    $$\left[\begin{array}{cccc|c}  
+ a_{11}&a_{12}&\ldots&a_{1n}&b_1\\a_{21}&a_{22}&\ldots&a_{2n}&b_2\\\vdots&\vdots&\ddots&\vdots&\vdots\\a_{m1}&a_{m2}&\ldots&a_{mn}&b_m
+ \end{array}\right]$$
+ The array to the left of the vertical bar is called the \dfn{coefficient matrix} of the linear system and is often given a capital letter name, like $A$.  The vertical array to the right of the bar is called a \dfn{constant vector}.
+ $$A=\begin{bmatrix}a_{11}&a_{12}&\ldots&a_{1n}\\a_{21}&a_{22}&\ldots&a_{2n}\\\vdots&\vdots&\ddots&\vdots\\a_{m1}&a_{m2}&\ldots&a_{mn}\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_m\end{bmatrix}$$
+We will sometimes use the following notation to represent an augmented matrix.
 
-%$$\left[\begin{array}{c|c}  
-% A & \vec{b}\\
- %\end{array}\right]$$
+$$\left[\begin{array}{c|c}  
+ A & \vec{b}\\
+ \end{array}\right]$$
 
 \begin{exploration}\label{init:backsub}
 Consider the system
@@ -247,64 +247,64 @@ $$\begin{array}{ccccccc}
     \end{array}$$
 Recall that in Exploration \ref{init:augmentedmatrixex} we first converted the given system to an augmented matrix form, then performed elementary row operations until we arrived at a ``convenient" form.  We then converted the ``convenient" augmented matrix back to a system of equations and identified the solution.  The term ``convenient" is open to interpretation.  In this problem we will explore two ``convenient" forms.  Each one will lead to a definition.  
 
-%\begin{align}&\left[\begin{array}{ccc|c}  
- %1&-1&-3&1\\4&-2&-7&1\\-1&1&4&1
- %\end{array}\right]\nonumber\\
- %\begin{array}{c}
-%\\
-%  \xrightarrow{R_2-4R_1}\\
-%\xrightarrow{R_3+R_1}\\
-% \end{array}
-% &\left[\begin{array}{ccc|c}  
-% 1&-1&-3&1\\0&2&5&-3\\0&0&1&2
-% \end{array}\right]\label{eq:sys20rowechelon}\\
- %\begin{array}{c}
- %\\
- %\xrightarrow{(1/2)R_2}\\
-%\\
-%\end{array}
-%&\left[\begin{array}{ccc|c}  
- %1&-1&-3&1\\0&1&5/2&-3/2\\0&0&1&2
- %\end{array}\right]\nonumber\\
- %\begin{array}{c}
- %\xrightarrow{R_1+R_2}\\
- %\\
-%\\
-%\end{array}&\left[\begin{array}{ccc|c}  
-% 1&0&-1/2&-1/2\\0&1&5/2&-3/2\\0&0&1&2
-% \end{array}\right]\nonumber\\
-% \begin{array}{c}
-% \xrightarrow{R_1+ (1/2)R_3}\\
-% \xrightarrow{R_2- (5/2)R_3}\\
-%\\
-%\end{array}
-%&\left[\begin{array}{ccc|c}  
- %1&0&0&1/2\\0&1&0&-13/2\\0&0&1&2
- %\end{array}\right]\label{eq:sys20reducedrowechelon} 
- %\end{align}
+\begin{align}&\left[\begin{array}{ccc|c}  
+ 1&-1&-3&1\\4&-2&-7&1\\-1&1&4&1
+ \end{array}\right]\nonumber\\
+ \begin{array}{c}
+\\
+  \xrightarrow{R_2-4R_1}\\
+\xrightarrow{R_3+R_1}\\
+ \end{array}
+ &\left[\begin{array}{ccc|c}  
+ 1&-1&-3&1\\0&2&5&-3\\0&0&1&2
+ \end{array}\right]\label{eq:sys20rowechelon}\\
+ \begin{array}{c}
+ \\
+ \xrightarrow{(1/2)R_2}\\
+\\
+\end{array}
+&\left[\begin{array}{ccc|c}  
+ 1&-1&-3&1\\0&1&5/2&-3/2\\0&0&1&2
+ \end{array}\right]\nonumber\\
+ \begin{array}{c}
+ \xrightarrow{R_1+R_2}\\
+ \\
+\\
+\end{array}&\left[\begin{array}{ccc|c}  
+ 1&0&-1/2&-1/2\\0&1&5/2&-3/2\\0&0&1&2
+ \end{array}\right]\nonumber\\
+ \begin{array}{c}
+ \xrightarrow{R_1+ (1/2)R_3}\\
+ \xrightarrow{R_2- (5/2)R_3}\\
+\\
+\end{array}
+&\left[\begin{array}{ccc|c}  
+ 1&0&0&1/2\\0&1&0&-13/2\\0&0&1&2
+ \end{array}\right]\label{eq:sys20reducedrowechelon} 
+ \end{align}
 
-%The augmented matrix in (\ref{eq:sys20reducedrowechelon}) has the same convenient form as the one in (\ref{eq:sys20rref}).  This augmented matrix in corresponds to the system
-%\begin{equation*}
-%    \begin{array}{ccccccc}
- %     x_1 & &&&&= &1/2 \\
-  % & &x_2&&&=&-13/2\\
-   %& &&&x_3&=&2
-    %    \end{array}
-    %\end{equation*}
+The augmented matrix in (\ref{eq:sys20reducedrowechelon}) has the same convenient form as the one in (\ref{eq:sys20rref}).  This augmented matrix in corresponds to the system
+\begin{equation*}
+    \begin{array}{ccccccc}
+      x_1 & &&&&= &1/2 \\
+   & &x_2&&&=&-13/2\\
+   & &&&x_3&=&2
+        \end{array}
+    \end{equation*}
 This gives us the solution $(\frac{1}{2}, -\frac{13}{2}, 2)$.
 
-%While the augmented matrix in (\ref{eq:sys20reducedrowechelon}) was certainly ``convenient", we could have converted back to the equation format a little earlier.  Let's take a look at the augmented matrix in (\ref{eq:sys20rowechelon}).  Converting (\ref{eq:sys20rowechelon}) to a system of equations gives us
-%\begin{equation*}
- %   \begin{array}{ccccccc}
-  %    x_1 &- &x_2&-&3x_3&= &1\\
- %  & &2x_2&+&5x_3&=&-3\\
- %  & &&&x_3&=&2
- %       \end{array}
-%    \end{equation*}
-%Substituting $x_3=2$ into the second equation and solving for $x_2$ gives us $$x_2=\frac{-3-5(2)}{2}=-\frac{13}{2}$$  Now substituting $x_3=2$ and $x_2=-\frac{13}{2}$ into the first equation results in $$x_1=1+\left(-\frac{13}{2}\right)+3(2)=\frac{1}{2}$$  This process is called \dfn{back substitution} and it produces the same solution as we obtained earlier.
+While the augmented matrix in (\ref{eq:sys20reducedrowechelon}) was certainly ``convenient", we could have converted back to the equation format a little earlier.  Let's take a look at the augmented matrix in (\ref{eq:sys20rowechelon}).  Converting (\ref{eq:sys20rowechelon}) to a system of equations gives us
+\begin{equation*}
+    \begin{array}{ccccccc}
+      x_1 &- &x_2&-&3x_3&= &1\\
+   & &2x_2&+&5x_3&=&-3\\
+   & &&&x_3&=&2
+        \end{array}
+    \end{equation*}
+Substituting $x_3=2$ into the second equation and solving for $x_2$ gives us $$x_2=\frac{-3-5(2)}{2}=-\frac{13}{2}$$  Now substituting $x_3=2$ and $x_2=-\frac{13}{2}$ into the first equation results in $$x_1=1+\left(-\frac{13}{2}\right)+3(2)=\frac{1}{2}$$  This process is called \dfn{back substitution} and it produces the same solution as we obtained earlier.
 \end{exploration}
 
-%Observe that the coefficient matrices in (\ref{eq:sys20rref}) and (\ref{eq:sys20reducedrowechelon}) have the same format: 1's along the diagonal, zeros above and below the 1's.  The other ``convenient" format, exhibited by the coefficient matrix in (\ref{eq:sys20rowechelon}),  also has zeros below the diagonal, but not all of the diagonal entries are 1's and some of the entries above the diagonal are not zero.  Each of these formats gives rise to a definition.  These definitions are the topic of the next section.
+Observe that the coefficient matrices in (\ref{eq:sys20rref}) and (\ref{eq:sys20reducedrowechelon}) have the same format: 1's along the diagonal, zeros above and below the 1's.  The other ``convenient" format, exhibited by the coefficient matrix in (\ref{eq:sys20rowechelon}),  also has zeros below the diagonal, but not all of the diagonal entries are 1's and some of the entries above the diagonal are not zero.  Each of these formats gives rise to a definition.  These definitions are the topic of the next section.
 
 
 \subsection*{Row-Echelon and Reduced Row-Echelon Forms}
@@ -453,44 +453,44 @@ $$\begin{array}{ccccccc}
     \begin{explanation}
     We rewrite the system in augmented matrix form and transform it to reduced row-echelon form.  We leave the details of the elementary row operations to the reader and state the final result.
     
- %  \begin{equation}\label{eq:sys20nosolutionsys} \left[\begin{array}{ccc|c}  
- %2&-1&0&2\\1&1&-2&0\\-3&0&2&-1
- %\end{array}\right]\begin{array}{c}
- %\\
- %\rightsquigarrow\\
- %\\
- %\end{array}\left[\begin{array}{ccc|c}  
- %1&0&-2/3&0\\0&1&-4/3&0\\0&0&0&1
- %\end{array}\right]\end{equation}
+   \begin{equation}\label{eq:sys20nosolutionsys} \left[\begin{array}{ccc|c}  
+ 2&-1&0&2\\1&1&-2&0\\-3&0&2&-1
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c}  
+ 1&0&-2/3&0\\0&1&-4/3&0\\0&0&0&1
+ \end{array}\right]\end{equation}
     
  Converting back to a system of linear equations, we get
  
- %\begin{equation}\label{eq:sys20nosolutions}\begin{array}{ccccccc}
- %     0x &+ &0y&-&(2/3)z&= &0 \\
-%	 0x&+ &0y&-&(4/3)z&=&0\\
- %    0x&+ &0y&+&0z&=&1
- %   \end{array}\end{equation}
+ \begin{equation}\label{eq:sys20nosolutions}\begin{array}{ccccccc}
+      0x &+ &0y&-&(2/3)z&= &0 \\
+	 0x&+ &0y&-&(4/3)z&=&0\\
+     0x&+ &0y&+&0z&=&1
+    \end{array}\end{equation}
     The last equation in this system clearly has no solutions.  We conclude that this system (and the original system) is inconsistent.
     \end{explanation}
     
 \end{example}
 
-%\begin{observation}\label{ob:inconsistent} Note that the last row of the reduced row-echelon form in (\ref{eq:sys20nosolutionsys}) looks like this
-%$$\left[\begin{array}{ccc|c}  
-% 0&0&0&1
-% \end{array}\right]$$
- %This row corresponds to the equation
- %$$\begin{array}{ccccccc}
- %    0x&+ &0y&+&0z&=&1
- %   \end{array}$$
- %which clearly has no solutions.  
+\begin{observation}\label{ob:inconsistent} Note that the last row of the reduced row-echelon form in (\ref{eq:sys20nosolutionsys}) looks like this
+$$\left[\begin{array}{ccc|c}  
+ 0&0&0&1
+ \end{array}\right]$$
+ This row corresponds to the equation
+ $$\begin{array}{ccccccc}
+     0x&+ &0y&+&0z&=&1
+    \end{array}$$
+ which clearly has no solutions.  
  
- %In general, if the reduced row-echelon form of the augmented matrix contains a row
- %$$\left[\begin{array}{ccc|c}  
- %0&\ldots&0&1
- %\end{array}\right]$$
- %we can conclude that the system is inconsistent.
-%\end{observation}
+ In general, if the reduced row-echelon form of the augmented matrix contains a row
+ $$\left[\begin{array}{ccc|c}  
+ 0&\ldots&0&1
+ \end{array}\right]$$
+ we can conclude that the system is inconsistent.
+\end{observation}
 
 \begin{example}\label{ex:rrefinfmanysolutionssys}
 Solve the system of equations or determine that the system is inconsistent.
