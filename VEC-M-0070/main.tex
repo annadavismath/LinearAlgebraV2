@@ -1,6 +1,6 @@
 \documentclass{ximera}
 \input{../preamble.tex}
-\author{Anna Davis \and Rosemarie Emanuele} \title{VEC-0070:  Orthogonal Projections} \license{CC-BY 4.0}
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{VEC-0070:  Orthogonal Projections} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -160,7 +160,7 @@ $$\norm{\vec{v}_{\perp}}=\frac{1}{3}\sqrt{49+4+25}=\frac{\sqrt{78}}{3}$$
 
 \section*{Practice Problems}
 \begin{problem}%\label{prob:proj1}
-Find $\mbox{proj}_{\vec{d}}\vec{v}$.  Enter your answers in decimal form; round to the nearest tenth.
+Find $\mbox{proj}_{\vec{d}}\vec{v}$.  
   \begin{problem}\label{prob:proj1a}
   If $\vec{d}=\begin{bmatrix}-1\\3\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}1\\4\end{bmatrix}$ then
   $$\mbox{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{-1.1}\\\answer{3.3}\end{bmatrix}$$
@@ -171,7 +171,7 @@ Find $\mbox{proj}_{\vec{d}}\vec{v}$.  Enter your answers in decimal form; round 
     \end{problem}
 \end{problem}
 \begin{problem}\label{prob:proj2}
-Find the projection of vector $\vec{v}$ onto line $l$. Enter your answers in decimal form; round to the nearest one hundredth.
+Find the projection of vector $\vec{v}$ onto line $l$. (If entering answers in decimal form, round to the nearest one hundredth.)
 
 \begin{center}
 \begin{tikzpicture}[scale=.6]
@@ -186,7 +186,7 @@ Find the projection of vector $\vec{v}$ onto line $l$. Enter your answers in dec
 \end{center}
 
 Answer:
-$$\begin{bmatrix}\answer{-3.65}\\\answer{0.73}\end{bmatrix}$$
+$$\begin{bmatrix}\answer[tolerance=0.005]{-95/26}\\\answer[tolerance=0.005]{19/26}\end{bmatrix}$$
 \end{problem}
 \begin{problem}\label{prob:distpttoline}
 Find the distance between point $A$ and line $l$.
@@ -208,9 +208,19 @@ Answer: $\sqrt{\answer{3.2}}$.
 Show that $\mbox{proj}_{\vec{d}}\vec{v}$ does not depend on the length of $\vec{d}$ by proving that $\mbox{proj}_{\vec{d}}\vec{v}=\mbox{proj}_{k\vec{d}}\vec{v}$ for $k\neq 0$.  What does this result mean geometrically?  Illustrate your response with a diagram.
 \end{problem}
 \begin{problem}\label{prob:circletangenttoline}
-Find the equation of a circle centered at $(4, 2)$ if the line $y=\frac{3}{2}x+3$ is tangent to the circle.  Enter your answer as a fraction with the denominator of $13$.
+Find the radius of a circle centered at $(4, 2)$ if the line $y=\frac{3}{2}x+3$ is tangent to the circle.  Enter your response as a fraction with the denominator of $13$.
 
-The equation of the circle is:
-$$(x-4)^2+(y-2)^2=\answer{196/13}$$
+Answer:
+$$r=\answer{\sqrt{196/13}}$$
+The graph below shows the line $y=\frac{3}{2}x+3$ together with a circle of radius $1$.  Change the value of $r$ to the radius you have found to visualize the correct answer.
+
+\begin{sageCell}
+var('r')
+r=(1)^(1/2)
+circle((4,2), r) + plot(1.5*x+3, (x,0,8))
+\end{sageCell}
+
+
+
 \end{problem}
 \end{document}

@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0010: Introduction to Linear Transformations} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0010: Introduction to Linear Transformations} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -203,10 +203,54 @@ T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 
 \begin{remark}
 Properties (\ref{eq:lintrans1}) and (\ref{eq:lintrans2}) are often combined into a single property.
-\begin{equation*}
+\begin{equation}\label{eq:lintranscombinedprop}
 T(k_1\vec{u}+k_2\vec{v})= k_1T(\vec{u})+k_2T(\vec{v})
-\end{equation*}
+\end{equation}
 \end{remark}
+
+\begin{example}\label{ex:lintransfirst}
+Suppose $T:\RR^2\rightarrow \RR^3$ is a linear transformation such that 
+$$T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)=\begin{bmatrix}-1\\0\\3\end{bmatrix}\quad\text{and}\quad T\left(\begin{bmatrix}0\\-1\end{bmatrix}\right)=\begin{bmatrix}2\\-1\\0\end{bmatrix}$$
+Find each of the following:
+\begin{enumerate}
+    \item \label{item:lintransfirsta} $T\left(\begin{bmatrix}2\\5\end{bmatrix}\right)=T\left(2\begin{bmatrix}1\\2\end{bmatrix}-\begin{bmatrix}0\\-1\end{bmatrix}\right)$
+    \item \label{item:lintransfirstb}
+    $T\left(\begin{bmatrix}1\\1\end{bmatrix}\right)$
+\end{enumerate}
+\begin{explanation}
+\ref{item:lintransfirsta} Because $T$ is a linear transformation, it satisfies (\ref{eq:lintranscombinedprop}).  We compute:
+\begin{align*}
+    T\left(\begin{bmatrix}2\\5\end{bmatrix}\right)&=T\left(2\begin{bmatrix}1\\2\end{bmatrix}-\begin{bmatrix}0\\-1\end{bmatrix}\right)\\
+    &=2T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)-T\left(\begin{bmatrix}0\\-1\end{bmatrix}\right)\\
+    &=2\begin{bmatrix}-1\\0\\3\end{bmatrix}-\begin{bmatrix}2\\-1\\0\end{bmatrix}\\
+    &=\begin{bmatrix}-2\\0\\6\end{bmatrix}-\begin{bmatrix}2\\-1\\0\end{bmatrix}=\begin{bmatrix}-4\\1\\6\end{bmatrix}
+\end{align*}
+
+\ref{item:lintransfirstb} Observe that $\begin{bmatrix}1\\1\end{bmatrix}=\begin{bmatrix}1\\2\end{bmatrix}+\begin{bmatrix}0\\-1\end{bmatrix}$.  By (\ref{eq:lintranscombinedprop}) we have:
+\begin{align*}
+    T\left(\begin{bmatrix}1\\1\end{bmatrix}\right)&=T\left(\begin{bmatrix}1\\2\end{bmatrix}+\begin{bmatrix}0\\-1\end{bmatrix}\right)\\
+    &=T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)+T\left(\begin{bmatrix}0\\-1\end{bmatrix}\right)\\
+    &=\begin{bmatrix}-1\\0\\3\end{bmatrix}+\begin{bmatrix}2\\-1\\0\end{bmatrix}=\begin{bmatrix}1\\-1\\3\end{bmatrix}
+\end{align*}
+\end{explanation}
+\end{example}
+
+\begin{observation}
+In Example \ref{ex:lintransfirst} we were given the images of two vectors, $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}0\\-1\end{bmatrix}$, under a linear transformation $T$.  Based on this information, we were able to determine the images of two additional vectors: $\begin{bmatrix}2\\5\end{bmatrix}$ and $\begin{bmatrix}1\\1\end{bmatrix}$. 
+The reason we were able to determine $T\left(\begin{bmatrix}2\\5\end{bmatrix}\right)$ and $T\left(\begin{bmatrix}1\\1\end{bmatrix}\right)$ is because $\begin{bmatrix}2\\5\end{bmatrix}$ and $\begin{bmatrix}1\\1\end{bmatrix}$ can be written as unique linear combinations of $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}0\\-1\end{bmatrix}$.
+
+Can every vector of $\RR^2$ be written as a linear combination of $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}0\\-1\end{bmatrix}$?
+\begin{multipleChoice}
+  \choice[correct]{Yes}
+  \choice{No}
+    \end{multipleChoice}
+    
+    Is the information provided in Example \ref{ex:lintransfirst} sufficient to determine the image of every vector in $\RR^2$ under $T$?
+    \begin{multipleChoice}
+  \choice[correct]{Yes}
+  \choice{No}
+    \end{multipleChoice}
+\end{observation}
 
 \begin{example}\label{ex:lineartrans1}
 Suppose $T:\RR^2\rightarrow\RR^2$ is a transformation such that 
@@ -243,7 +287,7 @@ $$\begin{bmatrix}
 -1\\
 0
 \end{bmatrix}$$
-If $T$ were a linear transformation, then $$T\left(\begin{bmatrix}
+If $T$ were a linear transformation, then we would have: $$T\left(\begin{bmatrix}
 -1\\
 1
 \end{bmatrix}\right)=T\left(\begin{bmatrix}
