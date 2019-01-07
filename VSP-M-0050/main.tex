@@ -1,453 +1,195 @@
 \documentclass{ximera}
 \input{../preamble.tex}
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{VEC-0050:  Dot Product and its Properties} \license{CC-BY 4.0}
 
-\author{Paul Zachlin \and Anna Davis} \title{VSP-0050: Abstract Vector Spaces} \license{CC-BY-NC-SA}
 \begin{document}
-
 \begin{abstract}
-We state the definition of an abstract vector space, and learn how to determine if a given set with two operations is a vector space. We define a subspace of a vector space and state the subspace test.  We find linear combinations and span of elements of a vector space.
+  We define the dot product and prove its algebraic properties.
 \end{abstract}
 \maketitle
 
+\section*{VEC-0050:  Dot Product and its Properties}
 
-\section*{VSP-0050: Abstract Vector Spaces}
-\subsection*{Properties of Vector Spaces} 
-
-In VSP-0020 we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
-In this module we will consider sets other than $\RR^n$ that have two operations and satisfy the same properties.  Such sets, together with the operations of addition and scalar multiplication, will also be called vector spaces.
-
-Recall that $\RR^n$ was said to be a vector space because
-\begin{itemize}
-    \item[] $\RR^n$ is closed under vector addition
-    \item[] $\RR^n$ is closed under scalar multiplication
-\end{itemize}
-and satisfies the following properties:
-
-  \begin{enumerate}
-  \item 
-  Commutative Property of Addition:\quad
-  $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
-  \item 
-  Associative Property of Addition:\quad
-  $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$
-  \item 
-  Existence of Additive Identity:\quad
-  $\vec{u}+\vec{0}=\vec{u}$
-  \item 
-  Existence of Additive Inverse:\quad
-  $\vec{u}+(-\vec{u})=\vec{0}$
-  \item
-  Distributive Property over Vector Addition:\quad
-  $k(\vec{u}+\vec{v})=k\vec{u}+k\vec{v}$
-  \item
-  Distributive Property over Scalar Addition:\quad
-  $(k+p)\vec{u}=k\vec{u}+p\vec{u}$
-  \item 
-  Associative Property for Scalar Multiplication:\quad
-  $k(p\vec{u})=(kp)\vec{u}$
-  \item 
-  Multiplication by $1$:\quad
-  $1\vec{u}=\vec{u}$
-  \end{enumerate}
-
-In the next two examples we will explore two sets other than $\RR^n$ endowed with addition and scalar multiplication and satisfying the same properties.
-
-\begin{example}\label{ex:setofmatricesvectorspace}
-Let $\mathbb{M}_{m,n}$ be the set of all $m\times n$ matrices.  Matrix addition and scalar multiplication were defined in MAT-0010.
-
-Observe that the sum of two $m\times n$ matrices is also an $m\times n$ matrix. Likewise, a scalar multiple of an $m\times n$ matrix is an $m\times n$ matrix.  Thus 
-\begin{itemize}
-    \item[] $\mathbb{M}_{m,n}$ is closed under matrix addition
-    \item[] $\mathbb{M}_{m,n}$ is closed under scalar multiplication
-\end{itemize}
-
-In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalarmult} of MAT-0010 give us the following properties of matrix addition and scalar multiplication.  Note that these properties are analogous to the eight vector properties.
-\begin{enumerate}
-  \item 
-  Commutative Property of Addition:  $\quad A+B=B+A$
-  \item 
-  Associative Property of Addition: $\quad (A+B)+C=A+(B+C)$
-  \item 
-  Existence of Additive Identity:  $\quad A+\vec{0}=A$ where $\vec{0}$ is the $m \times n$ zero matrix
-  \item 
-  Existence of Additive Inverse:  $\quad A+(-A)=\vec{0}$
-  \item
-  Distributive Property over Matrix Addition:  $\quad k(A+B)=kA+kB$
-  \item
-  Distributive Property over Scalar Addition:  $\quad (k+p)A=kA+pA$
-  \item 
-  Associative Property for Scalar Multiplication: $\quad k(pA)=(kp)A$
-  \item 
-  Multiplication by $1$: $\quad 1A=A$
-  \end{enumerate}
-\end{example}
-
-\begin{example}\label{ex:linfunctionsvectspace} Consider the set $\mathbb{L}$ of all linear functions.  This set includes all polynomials of degree $1$ and degree $0$.  We will use addition and scalar multiplication of polynomials as the two operations, and show that $\mathbb{L}$ is closed under those operations and satisfies eight properties analogous to those of vectors of $\RR^n$.
-\begin{explanation}
-Elements of $\mathbb{L}$ are functions $f$ given by
-$$f(x)=mx+b$$
-(Note that $m$ and $b$ can be equal to zero.)
-
-Given $f_1$ and $f_2$ in $\mathbb{L}$, it is easy to verify that $f_1+f_2$ is also in $\mathbb{L}$.  This gives us closure under function addition.
-
-For any scalar $k$, we have
-$$kf(x)=k(mx+b)=(km)x+(kb)$$
-Therefore $kf$ is in $\mathbb{L}$, and $\mathbb{L}$ is closed under scalar multiplication.
-
-We now proceed to formulate eight properties analogous to those of vectors of $\RR^n$.
-
-Let $f_1$, $f_2$ and $f_3$ be elements of $\mathbb{L}$ given by $f_1(x)=m_1 x + b_1$, $f_2(x)=m_2 x + b_2$, and $f_3(x)=m_3 x + b_3$. Let $k$ and $p$ be scalars.  
-  \begin{enumerate}
-  \item 
-  Commutative Property of Addition:  
-  \quad $f_1+f_2=f_2+f_1$
-  
-  This property holds because
-  \begin{align*}f_1(x) + f_2(x) &= (m_1 x + b_1) + (m_2 x + b_2)\\ &= (m_2 x + b_2) + (m_1 x + b_1)\\ &= f_2(x) + f_1(x)
+\begin{definition}\label{def:dotproduct}
+  Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$.  The \dfn{dot
+    product} of $\vec{u}$ and $\vec{v}$, denoted by
+  $\vec{u}\dotp \vec{v}$, is given by
+  \begin{align*}
+    \vec{u}\dotp\vec{v}=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\dotp\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}=u_1v_1+u_2v_2+\ldots+u_nv_n.
   \end{align*}
-  \item 
-  Associative Property of Addition:\quad
-  $(f_1 + f_2) + f_3 = f_1 + (f_2 + f_3)$
-  
-  This property is easy to verify.
-  \item 
-  Existence of Additive Identity:\quad  
-  $f_1 + f_0 = f_1$
-  
-  The additive identity $f_0$ is given by $f_0(x)=0$.  Note that $f_0$ is in $\mathbb{L}$.
-  \item 
-  Existence of Additive Inverse: \quad 
-    $f_1 + (-f_1) = f_0$ 
-    
-The additive inverse of $f_1$ is a function $-f_1$ given by $-f_1(x)=-mx+(-b)$.    Note that $-f_1$ is in $\mathbb{L}$.
-  \item
-  Distributive Property over Vector Addition:\quad 
-  $k(f_1+f_2)=kf_1+kf_2$
-  
-  This property holds because
- \begin{align*}
-  k(f_1(x) + f_2(x)) &= k((m_1 x + b_1) + (m_2 x + b_2))\\  &= k(m_1 x + b_1) + k(m_2 x + b_2)\\  &= k f_1(x) + k f_2(x)
-  \end{align*}
-  
-  \item
-  Distributive Property over Scalar Addition:\quad $(k+p)f_1=kf_1+pf_1$  
-  
-  This property holds because
-  \begin{align*}(k+p)f_1(x)&= (k+p)(m_1 x + b_1)\\ &=k(m_1 x + b_1) + p(m_1 x + b_1)\\ &= k f_1(x) + p f_1(x)\end{align*}
- 
-  \item 
-  Associative Property for Scalar Multiplication:\quad $(k(pf_1))=(kp)f_1$ 
-  
-  This property holds because
-  \begin{align*}k(p(f_1(x)))&=k(p(m_1 x + b_1))\\&=k(p m_1 x +p b_1)\\ &= (kp) m_1 x + (kp) b_1\\ &= (kp)(m_1 x + b_1)\\&=(kp)f_1(x)\end{align*}
-  
-  \item 
-  Multiplication by $1$ 
-  $$1 f_1=f_1$$
-  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{ex:dotex}
+  Find $\vec{u}\dotp \vec{v}$ if
+  $\vec{u}=\begin{bmatrix}-2\\0\\1\end{bmatrix}$ and
+  $\vec{v}=\begin{bmatrix}3\\2\\-4\end{bmatrix}$.
+
+  \begin{explanation}
+    $$\vec{u}\dotp\vec{v}=\begin{bmatrix}-2\\0\\1\end{bmatrix}\dotp\begin{bmatrix}3\\2\\-4\end{bmatrix}=(-2)(3)+(0)(2)+(1)(-4)=-6-4=-10$$
   \end{explanation}
 \end{example}
 
-\subsection*{Definition of a Vector Space}
+Note that the dot product of two vectors is a scalar.  For this reason, the dot product is sometimes called a \dfn{scalar product}.
 
-Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace} show us that there are many times in mathematics when we encounter a set with two operations (that we call addition and scalar multiplication) that satisfies the same properties as $\RR^n$.  We will refer to such sets as \dfn{vector spaces}.
+\subsection*{Properties of the Dot Product}
 
-  \begin{definition}\label{def:vectorspacegeneral} 
-  Let $V$ be a nonempty set.  Suppose that elements of $V$ can be added together and multiplied by scalars.  The set $V$, together with operations of addition and scalar multiplication, is called a \dfn{vector space} provided that 
-  \begin{itemize}
-  \item[] $V$ is closed under addition
-  \item[] $V$ is closed under scalar multiplication
-  \end{itemize}
-  and the following properties hold for $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $V$ and scalars $k$ and $p$:
+A quick examination of Example \ref{ex:dotex} will convince you that the dot product is \dfn{commutative}. In other words, $\vec{u}\dotp\vec{v}=\vec{v}\dotp\vec{u}$.  This and other properties of the dot product are stated below.
+
+\begin{theorem}\label{th:dotproductproperties} The following properties hold for
+  vectors $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $\RR^n$ and scalar
+  $k$.
   \begin{enumerate}
-   \item \label{item:commaddvectspdef}
-  Commutative Property of Addition:\quad
-  $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
-  \item \label{item:assaddvectspdef}
-  Associative Property of Addition:\quad
-  $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$
-  \item \label{item:idaddvectspdef}
-  Existence of Additive Identity:\quad
-  $\vec{u}+\vec{0}=\vec{u}$
-  \item \label{item:invaddvectspdef}
-  Existence of Additive Inverse:\quad
-  $\vec{u}+(-\vec{u})=\vec{0}$
-  \item \label{item:distvectaddvectspdef}
-  Distributive Property over Vector Addition:\quad
-  $k(\vec{u}+\vec{v})=k\vec{u}+k\vec{v}$
-  \item \label{item:distscalaraddvectspdef}
-  Distributive Property over Scalar Addition:\quad
-  $(k+p)\vec{u}=k\vec{u}+p\vec{u}$
-  \item \label{item:assmultvectspdef}
-  Associative Property for Scalar Multiplication:\quad
-  $k(p\vec{u})=(kp)\vec{u}$
-  \item \label{item:idmultvectspdef}
-  Multiplication by $1$:\quad
-  $1\vec{u}=\vec{u}$
-  \end{enumerate}
-We will refer to elements of $V$ as \dfn{vectors}.  
-\end{definition}
-
-\begin{example}\label{ex:MLexamplesofvectspaces}
-$\mathbb{M}_{m,n}$ and $\mathbb{L}$ are vector spaces. (See Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace})
-\end{example}
-%{\color{red}(Adopted from Nicholson)}
-Sets of polynomials provide an important source of examples, so we review some basic facts. A \dfn{polynomial} in $x$ is an expression
-\begin{equation*}
-p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_nx^n
-\end{equation*}
-where $a_{0}, a_{1}, a_{2}, \ldots, a_{n}$ are real numbers called the \dfn{coefficients} of the polynomial. If all the coefficients are zero, the polynomial is called the \dfn{zero polynomial} and is denoted simply as $0$. If $p(x) \neq 0$, the highest power of $x$ with a nonzero coefficient is called the \dfn{degree} of $p(x)$ denoted as $\mbox{deg} p(x)$. The coefficient itself is called the \dfn{leading coefficient} of $p(x)$. Hence $\mbox{deg}(3 + 5x) = 1$, $\mbox{deg}(1 + x + x^{2}) = 2$, and $\mbox{deg}(4) = 0$. (The degree of the zero polynomial is not defined.)
-
-Let $\mathbb{P}$ denote the set of all polynomials and suppose that
-\begin{align*}
-p(x) &= a_0 + a_1x + a_2x^2 + \ldots \\
-q(x) &= b_0 + b_1x + b_2x^2 + \ldots
-\end{align*}
-are two polynomials in $\mathbb{P}$ (possibly of different degrees). Then $p(x)$ and $q(x)$ are called \dfn{equal} [written $p(x) = q(x)$] if and only if all the corresponding coefficients are equal---that is, $a_{0} = b_{0}$, $a_{1} = b_{1}$, $a_{2} = b_{2}$, and so on. In particular, $a_{0} + a_{1}x + a_{2}x^{2} + \ldots = 0$ means that $a_{0} = 0$, $a_{1} = 0$, $a_{2} = 0$, $\ldots$. 
-
-The set $\mathbb{P}$ has an addition and scalar multiplication defined on it as follows: if $p(x)$ and $q(x)$ are as before and $k$ is a real number,
-\begin{align*}
-p(x) + q(x) &= (a_0 + b_0) + (a_1 + b_1)x + (a_2 + b_2)x^2 + \ldots \\
-kp(x) &= ka_0 + (ka_1)x + (ka_2)x^2 + \ldots
-\end{align*} 
-
-\begin{example}\label{ex:pisavectorspace}
-$\mathbb{P}$ is a vector space.  
-\begin{explanation}It is easy to see that the sum of two polynomials is again a polynomial, and that a scalar multiple of a polynomial is a polynomial.  Thus, $\mathbb{P}$ is closed under addition and scalar multiplication.  The other eight vector space properties are easily verified, and we conclude that $\mathbb{P}$ is a vector space.
-\end{explanation}
-\end{example}
-\begin{example}\label{ex:deg2onlynotavecspace}
-Let $Y$ be the set of all degree two polynomials in $x$.  In other words,
-$$Y=\left\{ax^2+bx+c : a \ne 0 \right\}$$
-We claim that $Y$ is not a vector space.
-\begin{explanation}
-Observe that $Y$ is not closed under addition.  To see this, let $y_1 = 2x^2+3x+4$ and let $y_2=-2x^2$.  Then $y_1$ and $y_2$ are both elements of $Y$.  However, $y_1+y_2 = 3x+4$ is not an element of $Y$, as it is only a degree one polynomial.  We require the coefficient $a$ of $x^2$ to be nonzero for a polynomial to be in $Y$, and this is not the case for $y_1+y_2$.
-
-As an exercise, check the remaining vector space properties one-by-one to see which properties hold and which do not.  
-\end{explanation} %Watch the next video if you need help.
-\end{example}
-
-%{\color{red}video link}
-% \href{https://odu.wistia.com/medias/mtg9f07kyk}
-Set $Y$ in Example \ref{ex:deg2onlynotavecspace} is not a vector space, but if we make a slight modification, we can make it into a vector space.  
-
-\begin{example}\label{ex:deg_le_2vectorspace}
-Let  $\mathbb{P}^2$ be the set of polynomials of degree two or less.  In other words,
-$$\mathbb{P}^2=\left\{ax^2+bx+c : a,b,c \in \mathbb{R} \right\}$$
-
-Note that $\mathbb{P}^2$ contains the zero polynomial (let $a=b=c=0$).  
-
-Unlike set $Y$ in Example \ref{ex:deg2onlynotavecspace}, $\mathbb{P}^2$ is closed under polynomial addition and scalar multiplication.  It is easy to verify that all vector space properties hold, so $\mathbb{P}^2$ is a vector space.
-\end{example}
-\begin{example}\label{ex:pnisavectorspace}
-Let $n$ be a natural number.  Define $\mathbb{P}^n$ to be the set of polynomials of degree $n$ or less than $n$, then by reasoning similar to Example \ref{ex:deg_le_2vectorspace}, $\mathbb{P}^n$ is a vector space.
-\end{example}
-
-\subsection*{Subspaces}
-\begin{definition}\label{def:subspaceabstract}
-A nonempty subset $U$ of a vector space $V$ is called a \dfn{subspace} of $V$, provided that $U$ is itself a vector space when given the same addition and scalar multiplication as $V$.
-\end{definition}
-
-\begin{example}\label{ex:subspaceabstract1}
-In Example \ref{ex:deg_le_2vectorspace} we demonstrated that $\mathbb{P}^2$ is a vector space.  From Example \ref{ex:pisavectorspace} we know that $\mathbb{P}$ is a vector space. But $\mathbb{P}^2$ is a subset of $\mathbb{P}$, and uses the same operations of polynomial addition and scalar multiplication.  Therefore $\mathbb{P}^2$ is a subspace of $\mathbb{P}$.
-\end{example}
-
-Checking all ten properties to verify that a subset of a vector space is a subspace can be cumbersome.  Fortunately we have the following theorem.
-
-\begin{theorem}[Subspace Test]\label{th:subspacetestabstract}
-Let $U$ be a nonempty subset of a vector space $V$.  If $U$ is closed under the operations of addition and scalar multiplication of $V$, then $U$ is a subspace of $V$.
-\end{theorem}
-\begin{proof}
-To prove that closure is a sufficient condition for $U$ to be a subspace, we will need to show that closure under addition and scalar multiplication of $V$ guarantees that the remaining eight properties are satisfied automatically.  
-
-Observe that Properties \ref{item:commaddvectspdef}, \ref{item:assaddvectspdef}, \ref{item:distvectaddvectspdef}, \ref{item:distscalaraddvectspdef}, \ref{item:assmultvectspdef} and \ref{item:idmultvectspdef} hold for all elements of $V$.  Thus, these properties will hold for all elements of $U$.  We say that these properties are \dfn{inherited} from $V$.
-
-To prove Property \ref{item:idaddvectspdef} we need to show that $\vec{0}$, which we know to be an element of $V$, is contained in $U$.  Let $\vec{u}$ be an element of $U$ (recall that $U$ is nonempty).  We will show that $0\vec{u}=\vec{0}$ in $V$.  Then, by closure under scalar multiplication, we will be able to conclude that $0\vec{u}=\vec{0}$ must be in $U$.
-$$0\vec{u}=(0+0)\vec{u}=0\vec{u}+0\vec{u}$$
-Adding the additive inverse of $0\vec{u}$ to both sides gives us
-$$0\vec{u}+(-0\vec{u})=(0\vec{u}+0\vec{u})+(-0\vec{u})$$
-By Properties \ref{item:assaddvectspdef} and \ref{item:invaddvectspdef}
-
-$$\vec{0}=0\vec{u}+(0\vec{u}+(-0\vec{u}))$$
-By Properties \ref{item:idaddvectspdef} and \ref{item:invaddvectspdef}
-$$\vec{0}=0\vec{u}+\vec{0}=0\vec{u}$$
-
-Because $U$ is closed under scalar multiplication $0\vec{u}=\vec{0}$ is in $U$.
-
-We know that every element of $U$, being an element of $V$, has an additive inverse  in $V$.  We need to show that the additive inverse of every element of $U$ is contained in $U$. Let $\vec{u}$ be any element of $U$.  We will show that $(-1)\vec{u}$ is the additive inverse of $\vec{u}$.  Then by closure, $(-1)\vec{u}$ will have to be contained in $U$.  To show that $(-1)\vec{u}$ is the additive inverse of $\vec{u}$, we must show that $\vec{u}+(-1)\vec{u}=\vec{0}$.  We compute:
-$$\vec{u}+(-1)\vec{u}=1\vec{u}+(-1)\vec{u}=(1+(-1))\vec{u}=0\vec{u}=\vec{0}$$
-Thus $(-1)\vec{u}$ is the additive inverse of $\vec{u}$. By closure, $(-1)\vec{u}$ is in $U$.  
-\end{proof}
-
-\begin{example}\label{ex:centralizerofA}
-Let $A$ be a fixed matrix in $\mathbb{M}_{n,n}$. Show that the set $C_A$ of all $n\times n$ matrices that commute with $A$ under matrix multiplication  is a subspace of $\mathbb{M}_{n,n}$.  
-
-\begin{explanation}
-The set $C_A$ consists of all $n\times n$ matrices $X$ such that $AX=XA$.  First, observe that $C_A$ is not empty because $I_n$ is an element.  Now we need to show that $C_A$ is closed under matrix addition and scalar multiplication.
-
-Suppose that $X_1$ and $X_{2}$ lie in $C_A$.  Then $AX_1 = X_1A$ and $AX_{2} = X_{2}A$. Then
-$$
-A(X_1 + X_2) 	= AX_1 + AX_2 = X_1A + X_2A + (X_1 + X_2)A $$
-Therefore $(X_1+X_2)$ commutes with $A$.  Thus $(X_1+X_2)$ is in $C_A$.  We conclude that $C_A$ is closed under matrix addition.
-
-Now suppose $X$ is in $C_A$.  Let $k$ be a scalar, then
-$$
-A(kX)= k(AX) = k(XA) = (kX)A
-$$
-Therefore $(kX)$ commutes with $A$.  We conclude that $(kX)$ is in $C_A$, and $C_A$ is closed under scalar multiplication.
- Hence $C_A$ is a subspace of $\mathbb{M}_{n,n}$.
-\end{explanation}
-\end{example}
-
-%{\color{red}Nicholson} 
-Suppose $p(x)$ is a polynomial and $a$ is a number. Then the number $p(a)$ obtained by replacing $x$ by $a$ in the expression for $p(x)$ is called the \dfn{evaluation} of $p(x)$ at $a$. For example, if $p(x) = 5 - 6x + 2x^{2}$, then the evaluation of $p(x)$ at $a = 2$ is $p(2) = 5 - 12 + 8 = 1$. If $p(a) = 0$, the number $a$ is called a \dfn{root} of $p(x)$.
-
-\begin{example}\label{ex:root3}
-Consider the set $U$ of all polynomials in $\mathbb{P}$ that have $3$ as a root:
-\begin{equation*}
-U = \{p(x) \in \mathbb{P} : p(3) = 0 \}
-\end{equation*}
-Show that $U$ is a subspace of $\mathbb{P}$.
-
-\begin{explanation}
-  Observe that $U$ is not empty because $r(x)=x-3$ is an element of $U$.  Suppose $p(x)$ and $q(x)$ lie in $U$.  Then $p(3) = 0$ and $q(3) = 0$. We have $(p + q)(x) = p(x) + q(x)$ for all $x$, so $(p + q)(3) = p(3) + q(3) = 0 + 0 = 0$, and $U$ is closed under addition. The verification that $U$ is closed under scalar multiplication is similar.
-\end{explanation}
-\end{example}
-
-
-
-\subsection*{Linear Combinations and Span}
-
-\begin{definition}\label{def:lincombabstract}
-Let $V$ be a vector space and let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_n$ be vectors in $V$.  A vector $\vec{v}$ is said to be a \dfn{linear combination} of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_n$ if 
-$$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots + a_n\vec{v}_n$$
-for some scalars $a_1, a_2, \ldots ,a_n$.
-\end{definition}
-
-\begin{definition}\label{def:spanabstract} Let $V$ be a vector space and let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors in $V$.  The set $S$ of all linear combinations of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ is called the \dfn{span} of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  We write 
-$$S=\mbox{span}(\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p)$$
-and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.  Any vector in $S$ is said to be \dfn{in the span} of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  The set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is called a \dfn{spanning set} for $S$.
-\end{definition}
-%{\color{red}Nicholson}
-\begin{example}\label{ex:inthespanpoly}
-Consider $p_{1} = 1 + x + 4x^{2}$ and $p_{2} = 1 + 5x + x^{2}$ in $\mathbb{P}^{2}$. Determine whether $p_{1}$ and $p_{2}$ lie in $\mbox{span}\{1 + 2x - x^{2}, 3 + 5x + 2x^{2}\}$.
-
-\begin{explanation}
-For $p_{1}$, we want to determine if $a$ and $b$ exist such that
-\begin{equation*}
-p_1 = a(1 + 2x - x^2) + b(3 + 5x + 2x^2)
-\end{equation*}
-Expanding the right hand side gives us:
-$$a+2ax-ax^2+3b+5bx+2bx^2$$
-Combining like terms, we get:
-$$(a+3b)+(2a+5b)x+(-a+2b)x^2$$
-Setting this equal to $p_{1} = 1 + x + 4x^{2}$ and
-equating coefficients of powers of $x$ gives us a system of equations
-\begin{equation*}
-1 = a + 3b,\quad 1 = 2a + 5b, \quad \mbox{ and } \quad 4 = -a + 2b
-\end{equation*}
-This system has the solution $a = -2$ and $b = 1$, so $p_{1}$ is indeed in $\mbox{span}\{1 + 2x - x^{2}, 3 + 5x + 2x^{2}\}$.
-
-Turning to $p_{2} = 1 + 5x + x^{2}$, we are looking for $a$ and $b$ such that 
-\begin{equation*}
-p_{2} = a(1 + 2x - x^{2}) + b(3 + 5x + 2x^{2})
-\end{equation*}
- Again equating coefficients of powers of $x$ gives equations $1 = a + 3b$, $5 = 2a + 5b$, and $1 = -a + 2b$. But in this case there is no solution, so $p_{2}$ is not in $\mbox{span}\{1 + 2x - x^{2}, 3 + 5x + 2x^{2}\}$.
-\end{explanation}
-\end{example}
-
-\begin{theorem}\label{th:spanisasubspaceabstract}
-Let $V$ be a vector space.  Let $S$ be any subset of $V$.  Then $U=\mbox{span}(S)$ is a subspace of $V$.
-\end{theorem}
-\begin{proof}
-See Practice Problem \ref{prob:spanisasubspaceabstract}.
-\end{proof}
-
-\section*{Practice Problems}
-\begin{problem}
-(Adapted from Kuttler, Exercises 9.1.1-9.1.4) Is the set of all points in $\mathbb{R}^2$ a vector space under the given definitions of addition and scalar multiplication?    In each case be specific about which vector space properties hold and which properties fail.
-  \begin{problem}\label{prob:abstractvectspace1}
-  Addition: $(a, b)+(c, d)=(a+d, b+c)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
-  \end{problem}
-  \begin{problem}\label{prob:abstractvectspace2}
-  Addition: $(a, b)+(c, d)=(0, b+d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
-  \end{problem}
-  \begin{problem}\label{prob:abstractvectspace3}
-  Addition: $(a, b)+(c, d)=(a+c, b+d)$\\ Scalar Multiplication: $k(a, b)=(a, kb)$
-  \end{problem}
-  \begin{problem}\label{prob:abstractvectspace4}
-  Addition: $(a, b)+(c, d)=(a-c, b-d)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
-  \end{problem}
-  \end{problem}
+  \item\label{item:commutative}
+    $\vec{u}\dotp\vec{v}=\vec{v}\dotp\vec{u}$
    
- \begin{problem}\label{prob:abstractvectspace5}
- Let $\mathcal{F}$ be the set of all real-valued functions whose domain is all real numbers.  Define addition and scalar multiplication as follows:
- $$(f+g)(x)=f(x)+g(x)\quad (cf)(x)=cf(x)$$
- Verify that $\mathcal{F}$ is a vector space.
- \end{problem}
- \begin{problem}\label{prob:abstractvectspacediffeq}
- A differential equation is an equation that contains derivatives.  Consider the differential equation:
- \begin{align}\label{diffeq} f''+f=0\end{align}
-A solution to such an equation is a function.
-  \begin{enumerate}
-  \item Verify that $f(x)=\sin x$ is a solution to (\ref{diffeq}).
-  \item Is $f(x)=2\sin x$ a solution?
-  \item Is $f(x)=\cos x$ a solution?
-  \item Is $f(x)=\sin x+\cos x$ a solution?
-  \item Let $S$ be the set of all solutions to (\ref{diffeq}).  Prove that $S$ is a vector space.
+  \item\label{item:distributive} $(\vec{u}+\vec{v})\dotp \vec{w}=\vec{u}\dotp \vec{w}+\vec{v}\dotp \vec{w}$
+   
+  \item\label{item:distributive-again} $\vec{u}\dotp (\vec{v}+\vec{w})=\vec{u}\dotp\vec{v}+\vec{u}\dotp \vec{w}$
+   
+  \item\label{item:scalar} $(k\vec{u})\dotp \vec{v}=k(\vec{u}\dotp\vec{v})=\vec{u}\dotp (k\vec{v})$
+   
+  \item \label{item:positive} $\vec{u}\dotp\vec{u}\geq 0$, and $\vec{u}\dotp\vec{u}=0$ if and only if $\vec{u}={\bf 0}$.
+   
+  \item \label{item:norm}
+    $\norm{\vec{u}}^2=\vec{u}\dotp\vec{u}$
   \end{enumerate}
-  \end{problem}
-\begin{problem}\label{prob:abstractvectspacecomplex}
-In this problem we will check that the set $\mathbb{C}$ of all complex numbers is in fact a vector space.  Let $z_1 = a_1 + b_1 i$ be a complex number where $i=\sqrt{-1}$.  Similarly, let $z_2 = a_2 + b_2 i$ and $z_3 = a_3 + b_3 i$ be complex numbers and let $k$ and $p$ be real number scalars.  Check that complex numbers are closed under addition and multiplication, and that they satisfy each of the vector space properties.
-\end{problem}
+\end{theorem}
 
-\begin{problem}\label{prob:abstractvectspace6}
-Refer to Example \ref{ex:centralizerofA} and describe all elements of $C_I$, where $I$ is a $3\times 3$ identity matrix.
-\end{problem}
+We will prove Property ~\ref{item:distributive}.  The remaining properties are left as exercises.
+
+\begin{proof}[Proof of Property~\ref{item:distributive}:]
+
+\begin{align*}
+\left(\vec{u}+\vec{v}\right)\dotp \vec{w}&=\left(\begin{bmatrix} u_1\\ u_2\\ \vdots\\ u_n \end{bmatrix}+\begin{bmatrix} v_1\\ v_2\\ \vdots\\ v_n \end{bmatrix}\right)\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}=\begin{bmatrix}
+u_1+v_1\\
+u_2+v_2\\
+\vdots\\
+u_n+v_n
+\end{bmatrix}\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}\\
+&=(u_1+v_1)w_1+
+(u_2+v_2)w_2+
+\ldots+
+(u_n+v_n)w_n\\
+&=u_1w_1+v_1w_1+
+u_2w_2+v_2w_2+
+\ldots+
+u_nw_n+v_nw_n\\
+&=(u_1w_1+
+u_2w_2\ldots+u_nw_n)+(v_1w_1+v_2w_2+
+\ldots
++v_nw_n)\\
+&=\begin{bmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_n
+\end{bmatrix}\dotp\begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}+\begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix}\dotp \begin{bmatrix}w_1\\w_2\\\vdots\\w_n\end{bmatrix}
+=\vec{u}\dotp\vec{w}+\vec{v}\dotp\vec{w}
+\end{align*}
+\end{proof}
+
+%\youtube{858cSuHqF-Q}
+
+We will illustrate Property~\ref{item:norm} with an example.
+\begin{example}\label{ex:exprop6}
+  Let $\vec{u}=\begin{bmatrix}-2\\3\end{bmatrix}$.  Use $\vec{u}$ to illustrate Property~\ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+  \begin{explanation}
   
-\begin{problem}\label{prob:abstractvectspace7}
-Is the subset of all invertible $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
+  $$\norm{\vec{u}}^2=(-2)^2+3^2=(-2)(-2)+(3)(3)=\vec{u}\dotp\vec{u}$$
+  \end{explanation}
+\end{example}
+
+\subsection*{Practice Problems}
+
+\begin{problem}\label{prob:dotproduct1}
+Find the dot product of $\vec{u}$ and $\vec{v}$ if
+  $$\vec{u}=\begin{bmatrix}-1\\-2\\5\\4\end{bmatrix},\quad \vec{v}=\begin{bmatrix}2\\-2\\-3\\1\end{bmatrix}$$
+  Answer:
+  $$\vec{u} \dotp \vec{v} = \answer{-9}$$
 \end{problem}
 
-\begin{problem}\label{prob:symmetricsubspace}
-Is the subset of all symmetric (See Definition \ref{def:symmetricandskewsymmetric} of MAT-0025) $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
+\begin{problem}\label{prob:dotproduct2}
+Find the dot product of $\vec{u}$ and $\vec{v}$ if 
+  $$\vec{u}=\begin{bmatrix}1\\1/2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$$
+  Answer:
+  
+  $$\vec{u} \dotp \vec{v} = \answer{0}$$
 \end{problem}
 
-\begin{problem}\label{prob:abstractvectspace8}
-Let $Z$ be a subset of $\mathbb{M}_{n,n}$ that consists of $n\times n$ matrices that commute with {\it every} matrix in $\mathbb{M}_{n,n}$ under matrix multiplication. In other words,
-$$Z=\{B : BY=YB \mbox{ for all } Y \mbox{ in } \mathbb{M}_{n,n}\}$$
+\begin{problem}\label{prob:dotproductprop6}
+  Use vector $\vec{u}=\begin{bmatrix}2\\5\\-7\end{bmatrix}$ to
+  illustrate Property~\ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+\end{problem}
 
-Is $Z$ a subspace of $\mathbb{M}_{n,n}$?
+\begin{problem}\label{prob:th:dotprductproperties}
+  Prove Properties~\ref{item:commutative}, \ref{item:distributive-again}, \ref{item:scalar}, \ref{item:positive} and \ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
+\end{problem}
 
+\begin{problem}\label{prob:perpvectors1}
+From the given list of vector pairs, identify ALL pairs of vectors that lie on perpendicular lines.
 \begin{hint}
-Don't forget to check that $Z$ is not empty!
+You may want to draw a picture and think about what you know about slopes of perpendicular lines.
 \end{hint}
+\begin{selectAll}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+  \choice{$\vec{u}=\begin{bmatrix}-1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}1\\\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}1\\-2\end{bmatrix}$}
+  \choice[correct]{$\vec{u}=\begin{bmatrix}-1\\-\frac{1}{2}\end{bmatrix}$, $\vec{v}=\begin{bmatrix}-2\\4\end{bmatrix}$}
+\end{selectAll}
+Compute $\vec{u}\dotp\vec{v}$ for each pair.  What do you observe? 
 \end{problem}
 
-\begin{problem}\label{prob:abstractvectspace9}
-List several elements of $\mbox{span}\left(\begin{bmatrix}1&0\\0&1\end{bmatrix}, \begin{bmatrix}0&1\\1&0\end{bmatrix}\right)$.  Suggest a spanning set for $\mathbb{M}_{2,2}$.
+\begin{problem}%\label{prob:perpvectors2}
+ For each part below
+ \begin{enumerate}
+ \item 
+ Find the value of $x$ that will make vectors $\vec{u}$ and $\vec{v}$ perpendicular. 
+  \begin{hint} Think of the $x$-component as the ``run" and the $y$-component as the ``rise", then use what you know about slopes of perpendicular lines.
+  \end{hint}
+  \item Find $\vec{u}\dotp\vec{v}$.
+  \end{enumerate}
+  
+ 
+  \begin{problem}\label{prob:perpvectors2a}
+    $$\vec{u} = \begin{bmatrix}1\\2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}2\\x\end{bmatrix}$$
+    
+    Answer:  
+    $$x = \answer{-1}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
+
+  \begin{problem}\label{prob:perpvectors2b}
+    $$\vec{u} = \begin{bmatrix}5\\2\end{bmatrix},\quad \vec{v}=\begin{bmatrix}x\\-4\end{bmatrix}$$
+    Answer:
+    $$x = \answer{8/5}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
+
+  \begin{problem}\label{prob:perpvectors2c}
+    $$\vec{u} = \begin{bmatrix} 4\\-3\end{bmatrix},\quad \vec{v} =\begin{bmatrix}6\\x\end{bmatrix}$$ 
+    Answer:
+    $$x = \answer{8}$$
+    $$\vec{u}\dotp\vec{v}=\answer{0}$$
+  \end{problem}
 \end{problem}
 
-\begin{problem}\label{prob:abstractvectspace10}
-Find $\mbox{span}(1, x, x^2, x^3)$.
+\begin{problem}\label{prob:perpvectors3}
+  \begin{enumerate}
+    \item Vector $\vec{u}$ that lies on the line $y=mx$, has the form $\vec{u}=k\begin{bmatrix}1\\m\end{bmatrix}$.  Assuming that $m\neq 0$, find the general form for a vector $\vec{v}$ that lies on a line perpendicular to $y=mx$.
+      \begin{hint}
+        What do you know about the slopes of perpendicular
+        lines?
+      \end{hint}
+    \item Find $\vec{u}\dotp \vec{v}$.
+    \item Formulate a conjecture about the dot product of perpendicular vectors.
+  \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:spanisasubspaceabstract}
-Prove Theorem \ref{th:spanisasubspaceabstract}.
-\end{problem}
 
-\section*{Text Source} The discussion on polynomials was adapted from Section 6.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+\end{document}
 
-W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 331-332 
-
-\section*{Example Source}
-Examples \ref{ex:root3} and \ref{ex:inthespanpoly} were adapted from Examples 6.2.4 and 6.2.7 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
-
-W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 340-341 
-
-\section*{Exercise Source}
-Practice Problems \ref{prob:abstractvectspace1}-\ref{prob:abstractvectspace4} is adopted from Problems 9.1.1-9.1.4 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
-
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 469.
-
-\end{document} 
