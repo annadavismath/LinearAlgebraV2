@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0050: Image and Kernel of a Linear Transformation} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0050: Image and Kernel of a Linear Transformation} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -14,7 +14,7 @@ Note to Student:  In this module we will often use $V$ and $W$ to denote the dom
 \section*{LTR-0050: Image and Kernel of a Linear Transformation}
 \subsection*{The Image of a Linear Transformation}
 \begin{definition}\label{def:imageofT}
-Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  The \dfn{image} of $T$, denoted by $mbox{im}(T)$, is the set
+Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  The \dfn{image} of $T$, denoted by $\mbox{im}(T)$, is the set
 $$\mbox{im}(T)=\{T(\vec{v}):\vec{v}\in V\}$$
 In other words, the image of $T$ consists of individual images of all vectors of $V$.
 \end{definition}
@@ -117,7 +117,7 @@ The \dfn{rank} of a linear transformation $T:V\rightarrow W$, is the dimension o
 $$\mbox{rank}(T)=\mbox{dim}(\mbox{im}(T))$$
 \end{definition}
 
-This definition gives us the following relationship between the rank of a linear transformation $T$ and the rank of the standard matrix $A$ associated with it.
+This definition gives us the following relationship between the rank of a linear transformation $T:\RR^n\rightarrow\RR^m$ and the rank of the standard matrix $A$ associated with it.
 
 \begin{formula}\label{form:rankTrankA}
 $$\mbox{rank}(A) = \mbox{dim}(\mbox{col}(A))=\mbox{dim}(\mbox{im}(T))=\mbox{rank}(T)$$
@@ -208,7 +208,7 @@ The \dfn{nullity} of a linear transformation $T:V\rightarrow W$, is the dimensio
 $$\mbox{nullity}(T)=\mbox{dim}(\mbox{ker}(T))$$
 \end{definition}
 
-This definition gives us the following relationship between nullity of a linear transformation $T$ and the nullity of the standard matrix $A$ associated with it.
+This definition gives us the following relationship between nullity of a linear transformation $T:\RR^n\rightarrow\RR^m$ and the nullity of the standard matrix $A$ associated with it.
 
 \begin{formula}\label{form:nullTnullA}
 $$\mbox{nullity}(A) = \mbox{dim}(\mbox{null}(A))=\mbox{dim}(\mbox{ker}(T))=\mbox{nullity}(T)$$
