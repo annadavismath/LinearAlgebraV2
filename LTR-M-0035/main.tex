@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0035: Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0035: Existence of the Inverse of a Linear Transformation} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -39,6 +39,8 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
  \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
  \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+ 
+ \node[gray] at (-5, 0)  (comment)    {(Two distinct elements map to $\vec{w}$)};
    \draw [->,line width=0.5pt,-stealth]  (topleft.east) to (cleft1.north west);
   \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.south west);
  \end{tikzpicture}
@@ -49,8 +51,10 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
  \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
  \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+ \node[gray] at (-6, 0)  (comment)    {(Reversing the arrows does not produce a function)};
    \draw [->,line width=0.5pt,-stealth]  (cleft1.north west) to (topleft.east);
   \draw [->,line width=0.5pt,-stealth]  (cleft1.south west) to (bottomleft.east);
+  \node[] at (-4, -2)  (caption)    {Figure 1.  Two distinct elements map to $\vec{w}$.};
  \end{tikzpicture}
  \end{center} 
   
@@ -77,6 +81,7 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
   
   \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
   \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
+  \node[] at (-4, -1)  (caption)    {Figure 2.  Nothing maps to $\vec{b}$.};
  \end{tikzpicture}
  \end{center}
 
@@ -90,7 +95,7 @@ Does $T$ have an inverse? Show that multiple vectors of the domain map to $\vec{
 
 We now dig a little deeper to get additional insights into why $T$ does not have an inverse.  Observe that all vectors of the form $\begin{bmatrix}k\\-k\end{bmatrix}$ map to $\vec{0}$.  To verify this, use matrix multiplication:
 $$\begin{bmatrix}1&1\\2&2\end{bmatrix}\begin{bmatrix}k\\-k\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}$$
-This shows that there are infinitely many vectors that map to $\vec{0}$.  So, ``reversing the arrows" would not result in a function.
+This shows that there are infinitely many vectors that map to $\vec{0}$.  So, ``reversing the arrows" would not result in a function. (See Figure 1)
 
 
 \end{explanation}
@@ -120,70 +125,73 @@ $$\left[\begin{array}{cc|c}
  0 & 1 & b_2\\
  0 & 0 & b_3-2b_1
 \end{array}\right]$$
-Equation (\ref{ex:matrix}) has a solution if and only if $b_3-2b_1=0$.  Since we do not want (\ref{ex:matrix}) to have a solution, all we need to do is pick values $b_1$, $b_2$ and $b_3$ such that $b_3-2b_1\neq 0$.  Let $\vec{b}=\begin{bmatrix}1\\1\\1\end{bmatrix}$.  Then no element of $\RR^2$ maps to $\vec{b}$.
+Equation (\ref{ex:matrix}) has a solution if and only if $b_3-2b_1=0$.  Since we do not want (\ref{ex:matrix}) to have a solution, all we need to do is pick values $b_1$, $b_2$ and $b_3$ such that $b_3-2b_1\neq 0$.  Let $\vec{b}=\begin{bmatrix}1\\1\\1\end{bmatrix}$.  Then no element of $\RR^2$ maps to $\vec{b}$.  This shows that we cannot ``reverse the arrows" in an attempt to produce an inverse of $T$. (See Figure 2)
 \end{explanation}
 \end{example}
 
-Our next goal is to develop some vocabulary that would allow us to discuss issues illustrated by the figures.
+Our next goal is to develop vocabulary that would allow us to discuss issues illustrated in Figures $1$ and $2$.
 
-\begin{center}
-\begin{tikzpicture}
- \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
- \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
- \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+%\begin{center}
+% begin{tikzpicture}
+ %\node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+ %\node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+% \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
  
- \node[gray] at (-5, 0)  (comment)    {(Two distinct elements map to $\vec{w}$)};
-   \draw [->,line width=0.5pt,-stealth]  (topleft.east) to (cleft1.north west);
-  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.south west);
- \end{tikzpicture}
- \end{center} 
+ %\node[gray] at (-5, 0)  (comment)    {(Two distinct elements map to $\vec{w}$)};
+  % \draw [->,line width=0.5pt,-stealth]  (topleft.east) to (cleft1.north west);
+  %\draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.south west);
+ %\end{tikzpicture}
+ %\end{center} 
  
- \begin{center}
-\begin{tikzpicture}
- \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
- \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
- \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
- \node[gray] at (-6, 0)  (comment)    {(Reversing the arrows does not produce a function)};
-   \draw [->,line width=0.5pt,-stealth]  (cleft1.north west) to (topleft.east);
-  \draw [->,line width=0.5pt,-stealth]  (cleft1.south west) to (bottomleft.east);
- \end{tikzpicture}
- \end{center} 
+ %\begin{center}
+%\begin{tikzpicture}
+% \node[] at (-5, 1.2)  (topleft)    {$\vec{v}_1$};
+% \node[] at (-5, -1.2)  (bottomleft)    {$\vec{v}_2$};
+% \node[] at (0, 0)  (cleft1)    {$T(\vec{v}_1)=T(\vec{v}_2)=\vec{w}$};
+% \node[gray] at (-6, 0)  (comment)    {(Reversing the arrows does not produce a function)};
+ %  \draw [->,line width=0.5pt,-stealth]  (cleft1.north west) to (topleft.east);
+ % \draw [->,line width=0.5pt,-stealth]  (cleft1.south west) to (bottomleft.east);
+ %\end{tikzpicture}
+ %\end{center} 
   
+%ISSUE 2.  
 
-\begin{center}
-\begin{tikzpicture}
- \node[] at (0, 1)  (topleft)    {$\vec{b}$};
- \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
- \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
-  \node[gray] at (2, 1)  (comment)    {(Nothing maps to $\vec{b}$)};
-  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.west);
- \end{tikzpicture}
- \end{center}
+%\begin{center}
+%\begin{tikzpicture}
+% \node[] at (0, 1)  (topleft)    {$\vec{b}$};
+% \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+% \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+%  \node[gray] at (2, 1)  (comment)    {(Nothing maps to $\vec{b}$)};
+%  \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.west);
+ %\end{tikzpicture}
+ %\end{center}
  
- \begin{center}
-\begin{tikzpicture}
- \node[] at (0, 1)  (topright)    {$\vec{b}$};
- \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
- \node[] at (-2, 1)  (topleft)    {?};
- \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
- \node[gray] at (-6, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
+ %\begin{center}
+%\begin{tikzpicture}
+% \node[] at (0, 1)  (topright)    {$\vec{b}$};
+ %\node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
+ %\node[] at (-2, 1)  (topleft)    {?};
+ %\node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
+ %\node[gray] at (-6, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
   
-  \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
-  \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
- \end{tikzpicture}
- \end{center}
+ % \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
+ % \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
+ %\end{tikzpicture}
+ %\end{center}
 
 \subsection*{One-to-one Linear Transformations}
-
+Figure $1$ gave us a diagrammatic representation of a transformation that maps two distinct elements, $\vec{v}_1$ and $\vec{v}_2$ to the same element $\vec{w}$, making it impossible for us to ``reverse the arrows" in an attempt to find the inverse transformation.  Based on this example, it is reasonable to conjecture that for a transformation to be invertible, the transformation must be such that each output is the image of exactly one input.  Such transformations are called \dfn{one-to-one}.  
 \begin{definition}[One-to-One]\label{def:onetoone} A linear transformation $T:V\rightarrow W$ is \dfn{one-to-one} if 
 $$T(\vec{v}_1)=T(\vec{v}_2)\quad \text{implies that}\quad \vec{v}_1=\vec{v}_2$$
 \end{definition}
+The transformation in Figure $1$ is not one-to-one because $\vec{v}_1$ and $\vec{v}_2$ map to the same vector $\vec{w}$, (i.e. $T(\vec{v}_1)=T(\vec{v}_2)$), yet the diagram suggests that $\vec{v}_1\neq\vec{v}_2$.
 
 \begin{example}\label{ex:notonetoone2}
 Transformation $T$ in Example \ref{ex:notonetoone} is not one-to-one.
 \begin{explanation}
 We can use any two vectors of the form $\begin{bmatrix}k\\-k\end{bmatrix}$ to make our case.  
 $$T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\vec{0}=T\left(\begin{bmatrix}-2\\2\end{bmatrix}\right)\quad \text{but}\quad\begin{bmatrix}1\\-1\end{bmatrix}\neq \begin{bmatrix}-2\\2\end{bmatrix}$$
+In other words, we have more than one vector that maps to the zero vector.
 \end{explanation}
 \end{example}
 
@@ -201,10 +209,10 @@ $$\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}y_1\\y_2\end{bmatrix}$$
 \end{proof}
 \end{example}
 
-At this point we can conjecture that being one-to-one is a necessary, but not a sufficient condition for a linear transformation to have an inverse.  We will consider the other necessary condition next.
+Since transformation in Example \ref{ex:notonto} is one-to-one but not invertible we can conjecture that being one-to-one is a necessary, but not a sufficient condition for a linear transformation to have an inverse.  We will consider the other necessary condition next.
 
 \subsection*{``Onto" Linear Transformations}
-
+Figure $2$ makes a convincing case that for a transformation to be invertible every element of the codomain must have something mapping to it. Transformations such that every element of the codomain is an image of some element of the domain are called \dfn{onto}.
 \begin{definition}[Onto]\label{def:onto} A linear transformation $T:V\rightarrow W$ is \dfn{onto} if for every element $\vec{w}$ of $W$, there exists an element $\vec{v}$ of $V$ such that $T(\vec{v})=\vec{w}$.
 \end{definition}
 
@@ -231,9 +239,7 @@ Observe that $A$ is invertible, and $$A^{-1}=\begin{bmatrix}1&0\\-2&1\end{bmatri
 Let $\vec{b}$ be an element of $\RR^2$.  We need to show that there exists $\vec{x}$ in $\RR^3$ such that $T(\vec{x})=A\vec{x}=\vec{b}$. 
 Observe that
  $$\mbox{rref}(A)=\begin{bmatrix}1 & 0 & -2\\0 & 1 & 1\end{bmatrix}$$
- This means that $A\vec{x}=\vec{b}$ has a solution (in fact, it has infinitely many solutions).  Therefore $\vec{b}$ is an image of some $\vec{x}$ in $\RR^3$. We conclude that $T$ is onto. 
- 
-
+ This means that $A\vec{x}=\vec{b}$ has a solution (in fact, it has infinitely many solutions) for every $\vec{b}$ in $\RR^2$.  Therefore every $\vec{b}$ in $\RR^2$ is an image of some $\vec{x}$ in $\RR^3$. We conclude that $T$ is onto. 
 \end{proof}
 \end{example}
 

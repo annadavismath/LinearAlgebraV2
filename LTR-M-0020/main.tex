@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0020: Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0020: Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -44,7 +44,7 @@ In general, the linear transformation $T:\RR^n\rightarrow\RR^m$, induced by an $
 
 \subsection*{Linear Transformations of $\RR^n$ as Matrix Transformations}
 
-We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation, but we do not yet know that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of \dfn{all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
+Recall that matrix transformations are linear  (Theorem \ref\label{th:matrixtran} of LTR-0010). We now know that standard unit vectors map to the columns of the matrix that induces the linear transformation. What  we do not yet know is that all linear transformations are induced by matrices.  To show that all linear transformations from $\RR^n$ into $\RR^m$ are matrix transformations, we will demonstrate that the destination of the standard unit vectors under a linear transformation $T$ determines the images of \dfn{all} vectors of $\RR^n$ under $T$. We first illustrate this idea with an example.  
 
 \begin{example}\label{ex:imageofatransformation}  
 Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{b}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
@@ -104,16 +104,83 @@ In Theorem \ref{th:matrixtran} of LTR-0010 we showed that every transformation i
   \begin{corollary}\label{cor:lintransmattrans} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.
 \end{corollary}
 
-\begin{example}\label{ex:findmatrix}
-Find the matrix of a linear transformation $T:\RR^2\rightarrow \RR^2$ such that $T(\vec{i})=2\vec{i}$ and $T(\vec{j})=2\vec{j}$.  
+
+ \begin{example}\label{ex:findmatrix2}
+ The standard matrix of a linear transformation $T:\RR^3\rightarrow \RR^2$ such that $T(\vec{i})=\begin{bmatrix}2\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}-1\\3\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}0\\4\end{bmatrix}$ is
+ $$A=\begin{bmatrix}2&-1&0\\-1&3&4\end{bmatrix}$$
+ \end{example}
+ 
+ \begin{example}\label{ex:findmatrix}
+Find the standard matrix of a linear transformation $T:\RR^2\rightarrow \RR^2$ such that $T(\vec{i})=2\vec{i}$ and $T(\vec{j})=2\vec{j}$.  
 \begin{explanation}
 We use the images of $\vec{i}$ and $\vec{j}$ as columns of the matrix.  The standard matrix of $T$ is
 $$\begin{bmatrix}2&0\\0&2\end{bmatrix}$$
 \end{explanation}
 \end{example}
  
+ \begin{example}
+ Find the standard matrix of a linear transformation $T:\RR^2\rightarrow \RR^4$ if $T\left(\begin{bmatrix}3\\1\end{bmatrix}\right)=\begin{bmatrix}6\\1\\13\\-1\end{bmatrix}$ and $T\left(\begin{bmatrix}-2\\0\end{bmatrix}\right)=\begin{bmatrix}-2\\0\\-8\\2\end{bmatrix}$.  
+\begin{explanation}
+In this example we are not given the images of the standard basis vectors $\vec{i}$ and $\vec{j}$.  However, we can find the images of $\vec{i}$ and $\vec{j}$ by expressing $\vec{i}$ and $\vec{j}$ as linear combinations of $\begin{bmatrix}3\\1\end{bmatrix}$ and $\begin{bmatrix}-2\\0\end{bmatrix}$, then apply the fact that $T$ is linear.
+
+Let's start with the easy one.  
+$$\vec{i}=-\frac{1}{2}\begin{bmatrix}-2\\0\end{bmatrix}$$
+Therefore, by linearity of $T$, we have:
+$$T(\vec{i})=T\left(-\frac{1}{2}\begin{bmatrix}-2\\0\end{bmatrix}\right)=-\frac{1}{2}T\left(\begin{bmatrix}-2\\0\end{bmatrix}\right)=-\frac{1}{2}\begin{bmatrix}-2\\0\\-8\\2\end{bmatrix}=\begin{bmatrix}1\\0\\4\\-1\end{bmatrix}$$
+This gives us the first column of the standard matrix for $T$.
+
+You can solve the vector equation
+$$a\begin{bmatrix}3\\1\end{bmatrix}+b\begin{bmatrix}-2\\0\end{bmatrix}=\vec{j}$$
+to express $\vec{j}$ as a linear combination of $\begin{bmatrix}3\\1\end{bmatrix}$ and $\begin{bmatrix}-2\\0\end{bmatrix}$ as follows:
+$$\vec{j}=\begin{bmatrix}3\\1\end{bmatrix}+\frac{3}{2}\begin{bmatrix}-2\\0\end{bmatrix}$$
+By linearity of $T$,
+\begin{align*}
+    T(\vec{j})&=T\left(\begin{bmatrix}3\\1\end{bmatrix}+\frac{3}{2}\begin{bmatrix}-2\\0\end{bmatrix}\right)=T\left(\begin{bmatrix}3\\1\end{bmatrix}\right)+\frac{3}{2}T\left(\begin{bmatrix}-2\\0\end{bmatrix}\right)\\
+    &=\begin{bmatrix}6\\1\\13\\-1\end{bmatrix}+\frac{3}{2}\begin{bmatrix}-2\\0\\-8\\2\end{bmatrix}=\begin{bmatrix}3\\1\\1\\2\end{bmatrix}
+\end{align*}
+This gives us the second column of the standard matrix.  Putting all of the information together, we get the following standard matrix for $T$:
+$$A=\begin{bmatrix}1&3\\0&1\\4&1\\-1&2\end{bmatrix}$$
+\end{explanation}
+ \end{example}
+
+\begin{exploration}\label{init:matrixtransgeometry1}
+Consider the matrix
+$$A=\begin{bmatrix}-1&0\\0&1\end{bmatrix}$$
+In this problem we will investigate the geometric nature of the transformation $T$ induced by the matrix $A$.  First, observe that $T:\RR^2\rightarrow\RR^2$.  (Why?)  We know that $T$ maps $\vec{i}$ maps to $\begin{bmatrix}-1\\0\end{bmatrix}$, and maps $\vec{j}$ to itself.  But what does $T$ do to an arbitrary vector in $\RR^2$?  To find out, we will apply $A$ to an arbitrary vector $\begin{bmatrix}a\\b\end{bmatrix}$ of $\RR^2$.
+$$\begin{bmatrix}-1&0\\0&1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}-a\\b\end{bmatrix}$$
+This computation shows that $T$ negates the $x$ component of a vector and leaves the $y$ component unchanged.  The diagram below shows the action of $T$ on several vectors.  
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+
+\draw[thin,gray!40] (-3,-3) grid (3,3);
+  \draw[<->] (-3,0)--(3,0);
+  \draw[<->] (0,-3)--(0,3);
+
+  \draw[thin,gray!40] (4,-3) grid (10,3);
+  \draw[<->] (4,0)--(10,0);
+  \draw[<->] (7,-3)--(7,3);
  
- 
+  \draw [->,line width=1pt,-stealth]  (2,3.2)to[out=60, in=120](4.5, 3.2);
+   \node[] at (3.4, 4.2)   (b) {$T$};
+
+\draw [->,line width=1pt,red,-stealth](0,0)--(2,1);
+\draw [->,line width=1pt,blue,-stealth](0,0)--(-1,3);
+\draw [->,line width=1pt,orange,-stealth](0,0)--(2,-2);
+\draw [->,line width=1pt,cyan,-stealth](0,0)--(-1,-2);
+\draw [->,line width=1pt,green,-stealth](0,0)--(0,2);
+
+\draw [->,line width=1pt,red,-stealth](7,0)--(5,1);
+\draw [->,line width=1pt,blue,-stealth](7,0)--(8,3);
+\draw [->,line width=1pt,orange,-stealth](7,0)--(5,-2);
+\draw [->,line width=1pt,cyan,-stealth](7,0)--(8,-2);
+\draw [->,line width=1pt,green,-stealth](7,0)--(7,2);
+
+\end{tikzpicture}
+\end{center}
+
+From a geometric perspective, negating the $x$ component while leaving the $y$ component unchanged, reflects all vectors in the plane about the $y$-axis.
+\end{exploration}
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:evaluateT}

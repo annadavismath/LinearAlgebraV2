@@ -1,13 +1,15 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0025: Linear Transformations and Bases} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0025: Linear Transformations and Bases} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
 We establish that a linear transformation of a vector space is completely determined by its action on a basis. 
 \end{abstract}
 \maketitle
+
+Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$.
 
 \section*{LTR-0025: Linear Transformations and Bases}
 
@@ -32,7 +34,7 @@ Vectors $\vec{i}$ and $\vec{j}$ form a standard basis of $\RR^2$.  What if we wa
 Let $\mathcal{B}=\left\{\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\-1\end{bmatrix}\right\}$ be our basis of choice for $\RR^2$. (How would you verify that $\mathcal{B}$ is a basis of $\RR^2$?) And suppose we want to define a linear transformation $S:\RR^2\rightarrow \RR^2$ by $$S\left(\begin{bmatrix}1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\-1\end{bmatrix}\quad\text{and}\quad S\left(\begin{bmatrix}2\\-1\end{bmatrix}\right)=\begin{bmatrix}2\\0\end{bmatrix}$$
 Is this enough information to define $S$?
 
-Because $\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\-1\end{bmatrix}$ span $\RR^2$, every element $\vec{v}$ of $\RR^2$ can be written as a unique linear combination $$\vec{v}=a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}2\\-1\end{bmatrix}$$
+Because $\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\-1\end{bmatrix}$ form a basis of $\RR^2$, every element $\vec{v}$ of $\RR^2$ can be written as a unique linear combination $$\vec{v}=a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}2\\-1\end{bmatrix}$$
 We can find $S(\vec{v})$ as follows:
 $$S(\vec{v})=S\left(a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}2\\-1\end{bmatrix}\right)=a\begin{bmatrix}0\\-1\end{bmatrix}+b\begin{bmatrix}2\\0\end{bmatrix}$$
 
@@ -43,8 +45,9 @@ Again, we see how a linear transformation is completely determined by its action
 
 
 Our discussion thus far hinged on the fact that the representation of a vector in terms of the given basis elements is unique.  Imagine what would happen if this were not the case.  In Exploration \ref{init:tij}, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have potentially resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  Fortunately, Theorem \ref{th:linindbasis} of VSP-0030 assures us that in $\RR^n$, vector representation in terms of the elements of a basis is unique.  
+Theorem \ref{th:uniquerep} of VSP-0060 generalizes this result to abstract vector spaces.
 
-Suppose we want to define a linear transformation $T:V\rightarrow W$.  Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of $V$.  To define $T$, it is sufficient to state the image of each basis vector under $T$.  Once the images of the basis vectors are established, we can determine the images of all vectors of $V$.
+Suppose we want to define a linear transformation $T:V\rightarrow W$.  Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of $V$.  To define $T$, it is sufficient to state the image of each basis vector under $T$.  Once the images of the basis vectors are established, we can determine the images of all vectors of $V$ as follows:
 
 Given any vector $\vec{v}$ of $V$, we can uniquely express $\vec{v}$ as a linear combination of $\vec{v}_1,\ldots,\vec{v}_p$.  Thus,
 $$\vec{v}=a_1\vec{v}_1+\ldots+a_p\vec{v}_p$$ for some scalar coefficients $a_1,\ldots,a_p$.
