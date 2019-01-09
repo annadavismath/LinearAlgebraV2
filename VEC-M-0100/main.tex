@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{VEC-0100: Linear Independence} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{VEC-0100: Linear Independence} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -11,9 +11,11 @@
 \maketitle
 
 \section*{VEC-0100: Linear Independence}
-In this module we discuss the notion of \dfn{linear independence} of a set of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$.  We consider the equation \begin{align}\label{eq:defoflinind}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}\end{align}
- 
-Observe that equation (\ref{eq:defoflinind}) is consistent, for the equation can be solved by letting  $a_1=a_2=\ldots =a_p=0$.  This solution is known as the \dfn{trivial solution}.
+%In this module we discuss the notion of \dfn{linear independence} of a set of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$.  We 
+
+Consider the vector equation \begin{align}\label{eq:defoflinind}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}\end{align}
+ where $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are vectors of $\RR^n$ and $a_1, \ldots ,a_p$ are unknown scalar coefficients.
+Observe that this equation is consistent because $a_1=a_2=\ldots =a_p=0$ is a solution.  This solution is known as the \dfn{trivial solution}.
 
 \begin{definition}[Linear Independence]\label{def:linearindependence}
 Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is \dfn{linearly independent} if the only solution to 
