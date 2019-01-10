@@ -1,6 +1,6 @@
 \documentclass{ximera}
 \input{../preamble.tex}
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0080: Matrix of a Linear Transformation with Respect to Arbitrary Bases} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0080: Matrix of a Linear Transformation with Respect to Arbitrary Bases} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -12,7 +12,7 @@
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
-  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
+ \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
   \filldraw[orange] (0,0) ellipse (2cm and 1cm);
   \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
 \end{tikzpicture}
@@ -20,7 +20,92 @@
 UNDER CONSTRUCTION -- ALMOST THERE...
 \end{center}
 
-\subsection*{Examples of Matrices of Linear Transformations with Respect to  Arbitrary Bases}
+We know that every linear transformation from $\RR^n$ into $\RR^m$ is a matrix transformation  (Theorem \ref{th:matlin} of LTR-0020).  What about linear transformations between vector spaces other than $\RR^n$?  In this module we will learn to represent linear transformations between arbitrary finite-dimensional vector spaces using matrices.  To do so, we will use the fact that every $n$-dimensional vector space is isomorphic to $\RR^n$  (Corollary \ref{cor:ndimisotorn} of LTR-0060).  What we do here will serve as yet another example of how isomorphisms can be used to translate problems in one vector space to another, more convenient, vector space.
+
+\begin{exploration}\label{init:taumatrix}
+In LTR-0060 we introduced the transformation
+$$\tau_2:\mathbb{M}_{2,2}\rightarrow\mathbb{P}^3$$
+defined by
+$$\tau_2\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a+(a+c)x+(b-c)x^2+dx^3$$
+(Expression \ref{eq:justforfuniso2} of LTR-0060).
+
+You should verify that $\tau_2$ is linear.  (See Practice Problem \ref{prob:taulinear}.)
+
+We will examine $\tau_2$ in an effort to find a way to represent it with a matrix.  (In the process, we will also end up proving that $\tau_2$ is an isomorphism, which is what you were challanged to do in LTR-0060.)
+
+We will start by selecting a basis for each of $\mathbb{M}_{2,2}$ and $\mathbb{P}^3$.  We can choose any basis for either space, but we will choose bases that will make computations easier.
+
+Let 
+$$\mathcal{B}=\left\{\begin{bmatrix}1&0\\0&0\end{bmatrix}, \begin{bmatrix}0&1\\0&0\end{bmatrix}, \begin{bmatrix}0&0\\1&0\end{bmatrix}, \begin{bmatrix}0&0\\0&1\end{bmatrix}\right\}$$
+$$\mathcal{C}=\{1, x, x^2, x^3\}$$
+be our bases of choice for $\mathbb{M}_{2,2}$ and $\mathbb{P}^3$ respectively.
+
+Recall that a \dfn{coordinate vector isomorphism} maps a vector to its coordinate vector with respect to the given basis (Example \ref{ex:coordmapiso} of LTR-0060).  In the diagram below, let $R$ and $S$ be coordinate vector isomorphisms with respect to $\mathcal{B}$ and $\mathcal{C}$.
+
+\begin{center}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.5] (1,0) rectangle (4,3);
+   \fill[orange, opacity=0.6] (5,0) rectangle (10,3);
+   
+    \fill[blue, opacity=0.3] (1,4) rectangle (4,7);
+   \fill[orange, opacity=0.4] (5,4) rectangle (10,7);
+   
+   \node[] at (1.5, 6.5)  (p2)    {$\mathbb{M}_{2,2}$};
+   \node[] at (9.5, 6.5)  (r3)    {$\mathbb{P}^3$};
+   
+   \node[] at (1.5, 2.5)  (p2)    {$\RR^4$};
+   \node[] at (9.5, 2.5)  (r3)    {$\RR^4$};
+   
+  
+    \node[] at (2.5, 5.5)  (a)    {$\begin{bmatrix}a&b\\c&d\end{bmatrix}$};
+     \node[] at (2.5, 1.5)  (b)    {$\begin{bmatrix}a\\b\\c\\d\end{bmatrix}$};
+     
+    
+    \node[] at (7.5, 5.5)  (c)    {$a+(a+c)x+(b-c)x^2+dx^3$};
+     \node[] at (7.5, 1.5)  (d)    {$\begin{bmatrix}a\\a+c\\b-c\\d\end{bmatrix}$};
+     
+    
+     \draw [->,line width=0.5pt,-stealth]  (a.east)to(c.west);
+     \draw [->,line width=0.5pt,-stealth, dashed]  (b.east)to(d.west);
+     
+     \draw [->,line width=0.5pt,-stealth]  (a.south)to(b.north);
+     \draw [->,line width=0.5pt,-stealth]  (c.south)to(d.north);
+     
+%T and tau arrows     
+     \draw [->,line width=0.5pt,-stealth, dashed]  (2.5,-0.1)to[out=340, in=200](8.5,-0.1 );
+     \draw [->,line width=0.5pt,-stealth]  (2.5,7.1)to[out=20, in=160](8.5, 7.1);
+     
+%S and S-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (10.1,6)to[out=290, in=70](10.1,1 );
+     \draw [->,line width=0.5pt,-stealth]  (10.1,2)to[out=70, in=290](10.1, 5);
+     
+%R and R-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (0.9,6)to[out=250, in=110](0.9,1 );
+     \draw [->,line width=0.5pt,-stealth]  (0.9,2)to[out=110, in=250](0.9, 5);
+     
+%Function labels
+      \node[] at (5.5, 8)    {$\tau_2$};
+      \node[] at (5.5, -1)    {$T$};
+      
+      \node[] at (0.1, 3.5)    {$R$};
+      \node[] at (1, 3.5)    {$R^{-1}$};
+      
+      \node[] at (10.9, 3.5)    {$S$};
+      \node[] at (10, 3.5)    {$S^{-1}$};
+      
+      
+  \end{tikzpicture}
+\end{center}
+
+Define $T:\RR^4\rightarrow \RR^4$ by $$T\left(\begin{bmatrix}a\\b\\c\\d\end{bmatrix}\right)=\begin{bmatrix}a\\a+c\\b-c\\d\end{bmatrix}$$
+Observe that $T=S\circ\tau_2\circ R^{-1}$.  Because $T$ is a composition of linear transformations, $T$ itself is linear (Theorem \ref{th:complinear} of LTR-0030).  Thus, we should be able to find the standard matrix for $T$.  To do this, find the images of the standard unit vectors and use them to  create the standard matrix $A$ for $T$.
+$$A=\begin{bmatrix}\answer{1}&\answer{0}&\answer{0}&\answer{0}\\\answer{1}&\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{1}&\answer{-1}&\answer{0}\\\answer{0}&\answer{0}&\answer{0}&\answer{1}\end{bmatrix}$$
+
+We say that $A$ is the matrix of $\tau_2$ with respect to $\mathcal{B}$ and $\mathcal{C}$.
+
+As a side-note, observe that $\tau_2=S^{-1}\circ T\circ R$.  Observe also that $T$ is invertible because $A$ is invertible.  So, $T$ is an isomorphism.  As a composition of isomorphisms, $\tau_2$ is an isomorphism (Theorem \ref{th:isocompisiso} of LTR-0060).  While we could have proved this result directly, as you were challenged to do in LTR-0060, this approach is much less tedious.
+
+\end{exploration}
 
 \begin{exploration}\label{init:matlintransgeneral}
 Let
@@ -30,7 +115,7 @@ $$\vec{w}_1=\begin{bmatrix}1\\0\\1\end{bmatrix}\quad\text{and}\quad\vec{w}_2=\be
 In Example \ref{ex:subtosub1} of LTR-M-0025 we defined $V$ and $W$ as follows:
 
 $$V=\text{span}(\vec{v}_1, \vec{v}_2)\quad\text{and}\quad W=\text{span}(\vec{w}_1, \vec{w}_2)$$
-
+Geometrically, $V$ and $W$ are planes in $\RR^3$.
 We chose
 $$\mathcal{B}=\{\vec{v}_1, \vec{v}_2\}\quad\text{and}\quad\mathcal{C}=\{\vec{w}_1, \vec{w}_2\}$$
 as bases of $V$ and $W$, respectively.
@@ -38,24 +123,101 @@ as bases of $V$ and $W$, respectively.
 We also defined a linear transformation $T:V\rightarrow W$ by 
 $$T(\vec{v}_1)=2\vec{w}_1-3\vec{w}_2\quad\text{and} \quad T(\vec{v}_2)=-\vec{w}_1+4\vec{w}_2$$
 
-Our goal now is to find a matrix associated with this transformation.  
+Our goal now is to find a matrix for $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$.  
 
-Why is it that we cannot find the standard matrix of $T$?\begin{hint}{Here the domain is a two-dimensional subspace of $\RR^3$, and such a subspace need not contain the standard basis vectors.}\end{hint} 
+The information given in this problem is slightly different from the information in Exploration \ref{init:taumatrix}.  Instead of being given the transformation in terms of an algebraic expression, here we are only given the images of the basis vectors.  As before, we will map vectors of $V$ and $W$ to their coordinate vectors.  Where are the coordinate vectors located? 
+\begin{enumerate}
+    \item $[\vec{v}_1]_{\mathcal{B}}$ and $[\vec{v}_2]_{\mathcal{B}}$ are elements of \wordChoice{\choice{$\RR$}, \choice[correct]{$\RR^2$}, \choice{$\RR^3$}}
+     \item $[\vec{w}_1]_{\mathcal{C}}$ and $[\vec{w}_2]_{\mathcal{C}}$ are elements of \wordChoice{\choice{$\RR$}, \choice[correct]{$\RR^2$}, \choice{$\RR^3$}}
+\end{enumerate}
+We need to find some relevant coordinate vectors.
+\begin{enumerate}
+     \item 
+     $$[\vec{v}_1]_{\mathcal{B}}=\begin{bmatrix}\answer{1}\\\answer{0}\end{bmatrix}\quad\text{and}\quad [\vec{v}_2]_{\mathcal{B}}=\begin{bmatrix}\answer{0}\\\answer{1}\end{bmatrix}$$
+     \item 
+     $$[T(\vec{v}_1)]_{\mathcal{C}}=\begin{bmatrix}\answer{2}\\\answer{-3}\end{bmatrix}\quad\text{and}\quad [T(\vec{v}_2)]_{\mathcal{C}}=\begin{bmatrix}\answer{-1}\\\answer{4}\end{bmatrix}$$
+\end{enumerate}
 
-Recall that a transformation is completely determined by its action on a basis.  So, what our matrix needs to capture is this:
-$$1\vec{v}_1+0\vec{v}_2\mapsto 2\vec{w}_1-3\vec{w}_2$$
-$$0\vec{v}_1+1\vec{v}_2\mapsto -1\vec{w}_1+4\vec{w}_2$$
-Because the bases vectors $\vec{v}_1$, $\vec{v}_2$, $\vec{w}_1$ and $\vec{w}_2$ are permanent fixtures in this set-up what we are really looking for is to capture what happens to the coefficients of $\vec{v}_1$, $\vec{v}_2$, $\vec{w}_1$ and $\vec{w}_2$.   Diagrammatically, we have:
-$$\begin{bmatrix}1\\0\end{bmatrix}\mapsto\begin{bmatrix}2\\-3\end{bmatrix}$$
-$$\begin{bmatrix}0\\1\end{bmatrix}\mapsto\begin{bmatrix}-1\\4\end{bmatrix}$$
-Vectors $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ are said to be \dfn{coordinate vectors} of $\vec{v}_1$ and $\vec{v}_2$ with respect to $\mathcal{B}$, while $\begin{bmatrix}2\\-3\end{bmatrix}$ and $\begin{bmatrix}-1\\4\end{bmatrix}$ are the \dfn{coordinate vectors} of the images of $\vec{v}_1$ and $\vec{v}_2$ with respect to  $\mathcal{C}$. For now, we will refer to this mapping as a ``mapping of coordinate vectors".  But this mapping is induced by 
+The following diagram summarizes this information.  (Press the arrow on the right to expand.)
+
+\begin{expandable}
+\begin{center}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.5] (1,0) rectangle (4,3);
+   \fill[orange, opacity=0.6] (5,0) rectangle (10,3);
+   
+    \fill[blue, opacity=0.3] (1,4) rectangle (4,7);
+   \fill[orange, opacity=0.4] (5,4) rectangle (10,7);
+   
+   \node[] at (1.5, 7.5)  (p2)    {$V$};
+   \node[] at (9.5, 7.5)  (r3)    {$W$};
+   
+   \node[] at (1.5, -0.5)  (p2)    {$\RR^2$};
+   \node[] at (9.5, -0.5)  (r3)    {$\RR^2$};
+   
+  
+    \node[] at (2, 6)  (a)    {$\begin{bmatrix}1\\2\\0\end{bmatrix}$};
+     \node[] at (2, 1)  (b)    {$\begin{bmatrix}1\\0\end{bmatrix}$};
+     
+    
+    \node[] at (8.5, 6)  (c)    {$2\vec{w}_1-3\vec{w}_2$};
+     \node[] at (8.5, 1)  (d)    {$\begin{bmatrix}2\\-3\end{bmatrix}$};
+     
+     \node[] at (3, 5)  (e)    {$\begin{bmatrix}0\\1\\1\end{bmatrix}$};
+     \node[] at (3, 2)  (f)    {$\begin{bmatrix}0\\1\end{bmatrix}$};
+     
+    
+    \node[] at (7, 5)  (g)    {$-\vec{w}_1+4\vec{w}_2$};
+     \node[] at (7, 2)  (h)    {$\begin{bmatrix}-1\\4\end{bmatrix}$};
+     
+    
+     \draw [->,line width=0.5pt,-stealth]  (a.east)to(c.west);
+     \draw [->,line width=0.5pt,-stealth, dashed]  (b.east)to(d.west);
+     
+     \draw [->,line width=0.5pt,-stealth]  (a.south)to(b.north);
+     \draw [->,line width=0.5pt,-stealth]  (c.south)to(d.north);
+     
+     \draw [->,line width=0.5pt,-stealth]  (e.east)to(g.west);
+     \draw [->,line width=0.5pt,-stealth, dashed]  (f.east)to(h.west);
+     
+     \draw [->,line width=0.5pt,-stealth]  (e.south)to(f.north);
+     \draw [->,line width=0.5pt,-stealth]  (g.south)to(h.north);
+     
+%T and tau arrows     
+     \draw [->,line width=0.5pt,-stealth, dashed]  (2.5,-0.1)to[out=340, in=200](8.5,-0.1 );
+     \draw [->,line width=0.5pt,-stealth]  (2.5,7.1)to[out=20, in=160](8.5, 7.1);
+     
+%S and S-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (10.1,6)to[out=290, in=70](10.1,1 );
+     \draw [->,line width=0.5pt,-stealth]  (10.1,2)to[out=70, in=290](10.1, 5);
+     
+%R and R-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (0.9,6)to[out=250, in=110](0.9,1 );
+     \draw [->,line width=0.5pt,-stealth]  (0.9,2)to[out=110, in=250](0.9, 5);
+     
+%Function labels
+      \node[] at (5.5, 8)    {$T$};
+      \node[] at (5.5, -1)    {$F$};
+      
+      \node[] at (0.1, 3.5)    {$R$};
+      \node[] at (1, 3.5)    {$R^{-1}$};
+      
+      \node[] at (10.9, 3.5)    {$S$};
+      \node[] at (10, 3.5)    {$S^{-1}$};
+      
+      
+  \end{tikzpicture}
+\end{center}
+\end{expandable}
+
+Define $F:\RR^2\rightarrow \RR^2$ by $F=S\circ T\circ R^{-1}$.  $F$ is a linear transformation that maps $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ to $\begin{bmatrix}2\\-3\end{bmatrix}$ and $\begin{bmatrix}-1\\4\end{bmatrix}$, respectively.  This gives us the standard matrix for $F$.
+
+
 $$A=\begin{bmatrix}2&-1\\-3&4\end{bmatrix}$$
-Let's take a look at what this matrix can do for us.
+We say that $A$ is a matrix for $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$.  Let's take a look at what this matrix can do for us.
 
 Recall that in Example \ref{ex:subtosub1} of LTR-M-0025 we found that the image of $\vec{v}=2\vec{v}_1+\vec{v}_2$ is $$T(\vec{v})=T(2\vec{v}_1+\vec{v}_2)=3\vec{w}_1-2\vec{w}_2$$
-Utilizing our ``mapping of coordinate vectors" notation, we can express this as 
-$$\begin{bmatrix}2\\1\end{bmatrix}\mapsto\begin{bmatrix}3\\-2\end{bmatrix}$$
-Note that this result can be obtained by finding the product $A\begin{bmatrix}2\\1\end{bmatrix}$.
+This result can be obtained by finding the product of $A$ with the coordinate vector of  $\vec{v}$.
 $$\begin{bmatrix}2&-1\\-3&4\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}3\\-2\end{bmatrix}$$
 
 Given any vector $\vec{u}=a\vec{v}_1+b\vec{v}_2$ of $V$, we can find $T(\vec{u})$ as follows:
@@ -66,7 +228,7 @@ $$T(\vec{u})=T(a\vec{v}_1+b\vec{v}_2)=(2a-b)\vec{w}_1+(-3a+4b)\vec{w}_2$$
 
 \end{exploration}
 
-Matrix $A$ of Exploration Problem \ref{init:matlintransgeneral} is called the \dfn{matrix of linear transformation $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$}.
+%Matrix $A$ of Exploration Problem \ref{init:matlintransgeneral} is called the \dfn{matrix of linear transformation $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$}.
 
 \begin{example}\label{ex:transmatrix1}
 Let $V$ and $W$ be vector spaces with bases $\mathcal{B}=\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2\}$, respectively.  Define a linear transformation $T:V\rightarrow W$ by $$T(\vec{v}_1)=2\vec{w}_1-\vec{w}_2,\quad T(\vec{v}_2)=-\vec{w}_1,\quad T(\vec{v}_3)=\vec{w}_1+3\vec{w}_2$$
@@ -128,49 +290,150 @@ Compare this to the matrix of $T$ with respect to the standard basis (in standar
 \subsection{The Matrix of a Linear Transformation}
 In this section we will formalize the process for finding the matrix of a linear transformation with respect to arbitrary bases that we established through earlier examples.
 
-Let $V$ and $W$ be vector spaces with bases $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_n\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_m\}$, respectively.   Suppose $T:V\rightarrow W$ is a linear transformation.  Our goal is to represent this transformation as a matrix transformation.
+Let $V$ and $W$ be vector spaces with bases $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_n\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_m\}$, respectively.   Suppose $T:V\rightarrow W$ is a linear transformation.  Our goal is to find a matrix for $T$ with respect to $\mathcal{B}$ and $\mathcal{C}$.
 
-Observe that $\text{dim}(V)=n=\text{dim}(\RR^n)$ and $\text{dim}(W)=m=\text{dim}(\RR^m)$. Define a linear transformation $R:V\rightarrow \RR^n$ by $R(\vec{v}_i)=\vec{e}_i$ for $1\leq i\leq n$.  In Practice Problem \ref{prob:coordinatemappingisanisom} you will be asked to show that $R$ is one-to-one and onto.  This means that $R$ is an isomorphism.  (Compare this to Exploration Problem \ref{init:coordmapping} of LTR-M-0060)
+Observe that $\text{dim}(V)=n=\text{dim}(\RR^n)$ and $\text{dim}(W)=m=\text{dim}(\RR^m)$. Let $R:V\rightarrow \RR^n$ and $S:W\rightarrow \RR^m$ be coordinate vector isomorphisms defined by
+$$R(\vec{v})=[\vec{v}]_{\mathcal{B}}\quad\text{and}\quad S(\vec{w})=[\vec{w}]_{\mathcal{C}}$$
+%Define a linear transformation $R:V\rightarrow \RR^n$ by $R(\vec{v}_i)=\vec{e}_i$ for $1\leq i\leq n$.  In Practice Problem \ref{prob:coordinatemappingisanisom} you will be asked to show that $R$ is one-to-one and onto.  This means that $R$ is an isomorphism.  (Compare this to Exploration Problem \ref{init:coordmapping} of LTR-M-0060)
 
-Suppose $\vec{v}$ is an element of $V$, then $\vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n$.  The image of $\vec{v}$ is given by
-\begin{align*}
-R(\vec{v})&=R(a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n)\\&=a_1R(\vec{v}_1)+a_2R(\vec{v}_2)+\ldots +a_nR(\vec{v}_n)=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}
-\end{align*}
+%Suppose $\vec{v}$ is an element of $V$, then $\vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n$.  The image of $\vec{v}$ is given by
+%\begin{align*}
+%R(\vec{v})&=R(a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n)\\&=a_1R(\vec{v}_1)+a_2R(\vec{v}_2)+\ldots +a_nR(\vec{v}_n)=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}
+%\end{align*}
 
-Thus, the image of $\vec{v}$ is the \dfn{coordinate vector of $\vec{v}$ with respect to $\mathcal{B}$}. We will denote it by $[\vec{v}]_{\mathcal{B}}$.
+%Thus, the image of $\vec{v}$ is the \dfn{coordinate vector of $\vec{v}$ with respect to $\mathcal{B}$}. We will denote it by $[\vec{v}]_{\mathcal{B}}$.
 
-Similarly, we can define an isomorphism $S:W\rightarrow \RR^m$ by $R(\vec{w}_i)=\vec{e}_i$ for $1\leq i\leq m$. Thus, the image of a vector $\vec{w}=b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m$ in $W$ is given by
+%Similarly, we can define an isomorphism $S:W\rightarrow \RR^m$ by $R(\vec{w}_i)=\vec{e}_i$ for $1\leq i\leq m$. Thus, the image of a vector $\vec{w}=b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m$ in $W$ is given by
 
-\begin{align*}
-S(\vec{w})&=S(b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m)\\&=b_1S(\vec{w}_1)+b_2S(\vec{w}_2)+\ldots +b_mS(\vec{w}_m)=\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=[\vec{w}]_{\mathcal{C}}
-\end{align*}
+%\begin{align*}
+%S(\vec{w})&=S(b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m)\\&=b_1S(\vec{w}_1)+b_2S(\vec{w}_2)+\ldots +b_mS(\vec{w}_m)=\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=[\vec{w}]_{\mathcal{C}}
+%\end{align*}
 
-This is the coordinate vector of $\vec{w}$ with respect to $\mathcal{C}$.
+%This is the coordinate vector of $\vec{w}$ with respect to $\mathcal{C}$.
 
-We know that $R$ is an isomorphism.  Therefore, by Theorem \ref{th:isomeansinvert} of LTR-M-0035, $R^{-1}$ exists. Consider the transformation
+We know that $R$ is an isomorphism and $R^{-1}$ exists. Consider the transformation
 $$S\circ T\circ R^{-1}:\RR^n\rightarrow \RR^m$$
 
+%\begin{center}
+%\begin{tikzpicture}
+%\node{
+%\begin{tikzcd}[column sep=6em, row sep=huge]
+%V  \arrow[d, "R" black, shift left=0.5ex] \arrow[red]{r}[black]{T}
+%& W \arrow[red]{d}[black]{S} \\
+%\RR^n \arrow[u,red, "R^{-1}" black, shift left=0.5ex]\arrow{r}{S\circ T\circ R^{-1}}
+%& \RR^m
+%\end{tikzcd}
+%};
+%\end{tikzpicture}
+%\end{center}
+
 \begin{center}
-\begin{tikzpicture}
-\node{
-\begin{tikzcd}[column sep=6em, row sep=huge]
-V  \arrow[d, "R" black, shift left=0.5ex] \arrow[red]{r}[black]{T}
-& W \arrow[red]{d}[black]{S} \\
-\RR^n \arrow[u,red, "R^{-1}" black, shift left=0.5ex]\arrow{r}{S\circ T\circ R^{-1}}
-& \RR^m
-\end{tikzcd}
-};
-\end{tikzpicture}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.5] (1,0) rectangle (3,2);
+   \fill[orange, opacity=0.6] (4,0) rectangle (6,2);
+   
+    \fill[blue, opacity=0.3] (1,3) rectangle (3,5);
+   \fill[orange, opacity=0.4] (4,3) rectangle (6,5);
+   
+   \node[] at (1.25, 4.75)  (p2)    {$V$};
+   \node[] at (5.75, 4.75)  (r3)    {$W$};
+   
+   \node[] at (1.25, 0.25)  (p2)    {$\RR^n$};
+   \node[] at (5.75, 0.25)  (r3)    {$\RR^m$};
+   
+%T and tau arrows     
+     \draw [->,line width=0.5pt,-stealth, dashed]  (2,-0.1)to[out=340, in=200](5,-0.1 );
+     \draw [->,line width=0.5pt,-stealth, blue]  (2,5.1)to[out=20, in=160](5, 5.1);
+     
+%S and S-1 arrows  
+     \draw [->,line width=0.5pt,-stealth, blue]  (6.1,4)to[out=290, in=70](6.1,1 );
+     
+%R and R-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (0.9,4.8)to[out=240, in=120](0.9,0.2 );
+     \draw [->,line width=0.5pt,-stealth, blue]  (0.9,1)to[out=110, in=250](0.9, 4);
+     
+%Function labels
+      \node[] at (3.5, 5.75)    {$T$};
+      \node[] at (3.5, -0.75)    {$S\circ T\circ R^{-1}$};
+      
+      \node[] at (-0.1, 2.5)    {$R$};
+      \node[] at (1, 2.5)    {$R^{-1}$};
+      
+      \node[] at (6.75, 2.5)    {$S$};
+      
+  \end{tikzpicture}
 \end{center}
 
-This transformation maps the coordinate vectors of vectors in $V$ to the coordinate vectors of their images in $W$.  For example, if $\vec{v}\mapsto\vec{w}$, then $S\circ T\circ R^{-1}$ accomplishes the following:
-$$[\vec{v}]_{\mathcal{B}}\mapsto\vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n\mapsto\vec{w}=b_1\vec{w}_1+b_2\vec{w}_2+\ldots +b_m\vec{w}_m\mapsto[\vec{w}]_{\mathcal{C}}$$
-(In our earlier examples we referred to this transformation as the ``mapping of coordinate vectors".)
 
-The linear transformation $S\circ T\circ R^{-1}:\RR^n\rightarrow \RR^m$ has a standard matrix.  To find it, we need to determine the images of standard unit vectors $\vec{e}_i$ under $S\circ T\circ R^{-1}$. We have the following
-$$\vec{e}_i=[\vec{v}_i]_{\mathcal{B}}\mapsto \vec{v}_i \mapsto T(\vec{v}_i)\mapsto [T(\vec{v}_i)]_{\mathcal{C}}$$
+As a composition of linear transformation, $S\circ T\circ R^{-1}$ is linear and thus has a standard matrix.
+To find it, we need to determine the images of standard unit vectors $\vec{e}_i$ under $S\circ T\circ R^{-1}$. We have the following:
 
-We summarize this discussion in as a theorem.
+%\begin{center}
+%\begin{tikzpicture}
+%\node{
+%\begin{tikzcd}[column sep=6em, row sep=huge]
+%V  \arrow[d, "R" black, shift left=0.5ex] \arrow[red]{r}[black]{T}
+%& W \arrow[red]{d}[black]{S} \\
+%\RR^n \arrow[u,red, "R^{-1}" black, shift %left=0.5ex]\arrow{r}{S\circ T\circ R^{-1}}
+%& [T(\vec{v}_i)]_{\mathcal{C}}
+%\end{tikzcd}
+%};
+%\end{tikzpicture}
+%\end{center}
+
+\begin{center}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.5] (1,0) rectangle (3,2);
+   \fill[orange, opacity=0.6] (4,0) rectangle (6,2);
+   
+    \fill[blue, opacity=0.3] (1,3) rectangle (3,5);
+   \fill[orange, opacity=0.4] (4,3) rectangle (6,5);
+   
+   \node[] at (1.25, 4.75)  (p2)    {$V$};
+   \node[] at (5.75, 4.75)  (r3)    {$W$};
+   
+   \node[] at (1.25, 0.25)  (p2)    {$\RR^n$};
+   \node[] at (5.75, 0.25)  (r3)    {$\RR^m$};
+   
+  
+    \node[] at (2, 4)  (a)    {$\vec{v}_i$};
+     \node[] at (2, 1)  (b)    {$\vec{e}_i=[\vec{v}_i]_{\mathcal{B}}$};
+     
+    
+    \node[] at (5, 4)  (c)    {$T(\vec{v}_i)$};
+     \node[] at (5, 1)  (d)    {$[T(\vec{v}_i)]_{\mathcal{C}}$};
+     
+    
+     \draw [->,line width=0.5pt,-stealth, blue]  (a.east)to(c.west);
+     \draw [->,line width=0.5pt,-stealth, dashed]  (b.east)to(d.west);
+     
+     \draw [->,line width=0.5pt,-stealth, blue]  (b.north)to(a.south);
+     \draw [->,line width=0.5pt,-stealth, blue]  (c.south)to(d.north);
+     
+%T and tau arrows     
+     \draw [->,line width=0.5pt,-stealth, dashed]  (2,-0.1)to[out=340, in=200](5,-0.1 );
+     \draw [->,line width=0.5pt,-stealth, blue]  (2,5.1)to[out=20, in=160](5, 5.1);
+     
+%S and S-1 arrows  
+     \draw [->,line width=0.5pt,-stealth, blue]  (6.1,4)to[out=290, in=70](6.1,1 );
+     
+%R and R-1 arrows  
+     \draw [->,line width=0.5pt,-stealth]  (0.9,4.8)to[out=240, in=120](0.9,0.2 );
+     \draw [->,line width=0.5pt,-stealth, blue]  (0.9,1)to[out=110, in=250](0.9, 4);
+     
+%Function labels
+      \node[] at (3.5, 5.75)    {$T$};
+      \node[] at (3.5, -0.75)    {$S\circ T\circ R^{-1}$};
+      
+      \node[] at (-0.1, 2.5)    {$R$};
+      \node[] at (1, 2.5)    {$R^{-1}$};
+      
+      \node[] at (6.75, 2.5)    {$S$};
+      
+  \end{tikzpicture}
+\end{center}
+
+Vectors $[T(\vec{v}_i)]_{\mathcal{C}}$ will become the columns of the standard matrix.  We summarize this discussion in as a theorem.
 
 \begin{theorem}\label{th:matlintransgeneral}
 Let $V$ and $W$ be finite-dimensional vector spaces with bases $\mathcal{B}=\{\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_n\}$ and $\mathcal{C}$, respectively.  Suppose $T:V\rightarrow W$ is a linear transformation.  
@@ -228,6 +491,11 @@ $A^{-1}$ is the matrix of $T^{-1}$ with respect to $\mathcal{C}$ and $\mathcal{B
 \end{example}
 
 \section*{Practice Problems}
+
+\begin{problem}\label{prob:taulinear}
+Verify that $\tau_2$ of Exploration \ref{init:taumatrix} is linear.
+\end{problem}
+
 \begin{problem}
 In Example \ref{ex:transmatrix2} we found the matrix of a linear transformation $T$ with respect to bases $\mathcal{B}$ and $\mathcal{C}$.  Find the matrix of $T$ with respect to the standard bases and compare the two matrices.
 \end{problem}
