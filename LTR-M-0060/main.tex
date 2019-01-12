@@ -389,20 +389,14 @@ From this theorem follows a corollary, that shows why we spent so much time tryi
 Every $n$-dimensional vector space is isomorphic to $\RR^n$.
 \end{corollary}
 
-\begin{example}
-The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\RR^2$. %(See Figure \ref{fig:planeisoplane})
-
-
-%\begin{figure}[h]
-%\begin{image}
-\begin{center}
+\begin{example}\label{ex:planeisoplane}
+The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\RR^2$. \begin{center}
 \tdplotsetmaincoords{70}{130}
 \begin{tikzpicture}[scale=0.8]
 	\draw[->](-2,0,0)--(3,0,0) ;
     \draw[->](0,-2,0)--(0,3,0) ;
     \draw[->](0,0,-2)--(0,0,5) ;
-    %\filldraw[blue, opacity=0.3] (0,0,0)--(4, 2, 0)--(5,6.5,5)--(0, 4, 5)--cycle;
-   \filldraw[blue, opacity=0.3] (2,3,0)--(0,2,2.5)--(-2,-3,0)--(0,-2,-2.5)--cycle;
+     \filldraw[blue, opacity=0.3] (2,3,0)--(0,2,2.5)--(-2,-3,0)--(0,-2,-2.5)--cycle;
      
     
     \draw[->, line width=2pt,red, -stealth](0,0,0)--(2,3,0);
@@ -417,12 +411,9 @@ The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\R
  \end{tikzpicture}
 \end{center}
 
-%  \end{image}
-%\end{figure}
-
 \end{example}
 
-\begin{example}\label{ex:p2isor3}
+\begin{example}\label{ex:p2isor3b}
 $\mathbb{P}^2\ncong \RR^2$ 
 \begin{explanation}
 Recall that $\mbox{dim}(\mathbb{P}^2)=3$.  Since $\mbox{dim}(\mathbb{P}^2)=3\neq 2=\mbox{dim}(\RR^2)$, we conclude that $\mathbb{P}^2$ is not isomorphic to $\RR^2$.
@@ -435,7 +426,7 @@ Recall that $\mbox{dim}(\mathbb{P}^2)=3$.  Since $\mbox{dim}(\mathbb{P}^2)=3\neq
 Prove that transformation $T$ of Exploration \ref{init:isomorph} is one-to-one and onto.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:tauone}
 Verify that $$\tau_1:\mathbb{M}_{2,2}\rightarrow\mathbb{P}^3$$
 given by
 $$\tau_1\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a-bx-cx^2+dx^3$$
@@ -495,7 +486,7 @@ You may find the proof of Theorem \ref{th:ndimspacesisorn} helpful.
 Prove that the composition of two isomorphisms is an isomorphism.  (Theorem \ref{th:isocompisiso}.)
 \end{problem}
 
-\begin{problem} 
+\begin{problem} \label{prob:kerneliszero}
 Prove that a linear transformation $T:V\rightarrow W$ is one-to-one if and only if $\text{ker}(T)=\{\vec{0}\}$.
 \end{problem}
 
