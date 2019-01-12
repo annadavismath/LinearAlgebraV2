@@ -1,27 +1,273 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{LTR-0060: Isomorphic Vector Spaces} \license{CC-BY 4.0}
+\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{LTR-0060: Isomorphic Vector Spaces} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
-  We examine the effect of one-to-one and onto linear transformations on bases and other linearly independent and spanning sets.  We define isomorphic vector spaces and prove that any two vector spaces of the same finite dimension are isomorphic.
+  We define isomorphic vector spaces, discuss isomorphisms and their properties, and prove that any vector space of dimension $n$ is isomorphic to $\RR^n$.
 \end{abstract}
 \maketitle
 
 \section*{LTR-0060: Isomorphic Vector Spaces}
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
-  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
-  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
-\end{tikzpicture}
+%\begin{center}
+%\begin{tikzpicture}[scale=1]
+%  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
+%  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
+%  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
+%\end{tikzpicture}
 
-UNDER CONSTRUCTION -- INTRO SECTION COMING SOON
+%UNDER CONSTRUCTION -- INTRO SECTION COMING SOON
+%\end{center}
+A vector space is defined as a collection of objects together with operations of addition and scalar multiplication that follow certain rules (Definition \ref{def:vectorspacegeneral} of VSP-0050).  In our study of abstract vector spaces, we have encountered spaces that appeared very different from each other.  Just how different are they?  Does $\mathbb{L}$, a vector space whose elements have the form $mx+b$, have anything in common with $\RR^2$?  Is $\mathbb{P}^3$ fundamentally different from $\mathbb{M}_{2,2}$?
+
+To answer these questions, we will have to look beyond the superficial appearance of the elements of a vector space and delve into its structure.  The ``structure" of a vector space is determined by how the elements of the vector space interact with each other through the operations of addition and scalar multiplication.  
+
+Let us return to the question of what $\mathbb{L}$ has in common with $\RR^2$.  Consider two typical elements of $\mathbb{L}$:
+\begin{equation}\label{eq:iso1}
+    mx+b\quad\text{and}\quad qx+c
+\end{equation}
+We can add these elements together
+\begin{equation}\label{eq:iso2}
+(mx+b)+(qx+c)=(m+q)x+(b+c)\end{equation}
+or multiply each one by a constant
+\begin{equation}\label{eq:iso3}
+k(mx+b)=kmx+kb\quad\text{and}\quad t(qx+c)=tqx+tc\end{equation}
+
+But suppose we get tired of having to write  $x$ down every time.  Could we leave off the $x$ and represent $mx+b$ by  $\begin{bmatrix}m\\b\end{bmatrix}$?  If we do this, expressions (\ref{eq:iso1}), (\ref{eq:iso2}) and (\ref{eq:iso3}) would be mimicked by the following expressions involving vectors of $\RR^2$:
+$$\begin{bmatrix}m\\b\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}q\\c\end{bmatrix}$$
+$$\begin{bmatrix}m\\b\end{bmatrix}+\begin{bmatrix}q\\c\end{bmatrix}=\begin{bmatrix}m+q\\b+c\end{bmatrix}$$
+$$k\begin{bmatrix}m\\b\end{bmatrix}=\begin{bmatrix}km\\kb\end{bmatrix}\quad\text{and}\quad t\begin{bmatrix}q\\c\end{bmatrix}=\begin{bmatrix}tq\\tc\end{bmatrix}$$
+It appears that we should be able to switch back and forth between $\mathbb{L}$ and $\RR^2$, translating questions and answers from one space to the other and back again.  
+
+\begin{center}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.3] (0,0) rectangle (5,5);
+   \fill[pink, opacity=0.5] (6,0) rectangle (11,5);
+   
+   \node[] at (0.5, 4.5)  (p2)    {$\mathbb{L}$};
+   \node[] at (10.5, 4.5)  (r3)    {$\RR^2$};
+   
+   \node[] at (2, 3)  (p_1)    {$(mx+b)+(qx+c)$};
+   \node[] at (2, 1)  (p_4)    {$(m+q)x+(b+c)$};
+   \node[] at (2, 2)  (eq1)    {{\rotatebox{90}{$=$}}};
+   \node[] at (8.5, 2)  (eq2)    {{\rotatebox{90}{$=$}}};
+     
+     \node[] at (8.5, 3)  (v_1)    {$\begin{bmatrix}m\\b\end{bmatrix}+\begin{bmatrix}q\\c\end{bmatrix}$};
+  \node[] at (8.5, 1.2)  (v_4)    {$\begin{bmatrix}m+q\\b+c\end{bmatrix}$};
+     
+     \draw [->,line width=0.5pt,-stealth]  (3.6, 3)to[out=10, in=170](7.4,3);
+     \draw [->,line width=0.5pt,-stealth]  (p_4.east)to[out=10, in=170](v_4.west);
+     
+     \draw [->,line width=0.5pt,-stealth]  (7.4,2.9)to[out=190, in=350](3.6, 2.9);
+     \draw [->,line width=0.5pt,-stealth]  (7.7,1.1)to[out=190, in=350](3.6,0.9 );
+     
+    % \draw [->,line width=0.5pt,-stealth]  (8.5,-0.1)to[out=200, in=340](2.5,-0.1 );
+     %\draw [->,line width=0.5pt,-stealth]  (2.5,5.1)to[out=20, in=160](8.5, 5.1);
+     
+  \end{tikzpicture}
 \end{center}
 
-\subsection*{Some Results Concerning One-to-One Transformations and Onto Transformations}
+
+We begin to suspect that $\mathbb{L}$ and $\RR^2$ have the same ``structure".  Spaces such as $\mathbb{L}$ and $\RR^2$ are said to be \dfn{isomorphic}.  This term is derived from the Greek ``iso," meaning ``same," and ``morphe," meaning ``form."  The term captures the idea that isomorphic vector spaces have the same structure.    Before we present a precise definition of the term, we need to better understand what we mean by  ``switching back and forth" between spaces.  The following Exploration will help us formulate this vague notion in terms of transformations.
+
+\begin{exploration}\label{init:isomorph}
+Recall that the set of all polynomials of degree $2$ or less, together with polynomial addition and scalar multiplication, is a vector space, denoted by $\mathbb{P}^2$.  Let $\mathcal{B}=\{1, x, x^2\}$. You should do a quick mental check that $\mathcal{B}$ is a basis of $\mathbb{P}^2$.
+
+Define a transformation $T:\mathbb{P}^2\rightarrow \RR^3$ by
+$T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$.  You may have recognized $T$ as the transformation that maps each element of $\mathbb{P}^2$ to its coordinate vector with respect to $\mathcal{B}$.  
+
+Transformation $T$ has several nice properties:
+  \begin{enumerate}
+      \item By Theorem \ref{th:coordvectmappinglinear} of LTR-0022, $T$ is linear.
+      \item It is easy to verify that $T$ is one-to-one and onto. (See Practice Problem \ref{prob:Tonetooneonto}.)
+      \item By Theorem \ref{th:isomeansinvert} of LTR-0035, $T$ has an inverse.
+  \end{enumerate}
+  
+  Our goal is to investigate and illustrate what these properties mean for transformation $T$, and for the relationship between $\mathbb{P}^2$ and $\RR^3$.  
+  
+  First, observe that $T$ being one-to-one and onto establishes ``pairings" between elements of $\mathbb{P}^2$ and $\RR^3$ in such a way that every element of one vector space is uniquely matched with exactly one element of the other vector space, as shown in the diagram below.
+  
+ \begin{center}
+ \begin{tikzpicture} 
+   \fill[blue, opacity=0.3] (0,0) rectangle (5,5);
+   \fill[pink, opacity=0.5] (6,0) rectangle (11,5);
+   
+   \node[] at (0.5, 4.5)  (p2)    {$\mathbb{P}^2$};
+   \node[] at (10.5, 4.5)  (r3)    {$\RR^3$};
+   
+   \node[] at (2.5, 4.2)  (p_1)    {$1+2x-3x^2$};
+   \node[] at (1.2, 2.8)  (p_2)    {$-4$};
+    \node[] at (3, 1.8)  (p_3)    {$x+5$};
+     \node[] at (2, 0.6)  (p_4)    {$a+bx+cx^2$};
+     
+     \node[] at (8.5, 4.2)  (v_1)    {$\begin{bmatrix}1\\2\\-3\end{bmatrix}$};
+   \node[] at (7.2, 3.2)  (v_2)    {$\begin{bmatrix}-4\\0\\0\end{bmatrix}$};
+    \node[] at (9, 1.9)  (v_3)    {$\begin{bmatrix}5\\1\\0\end{bmatrix}$};
+     \node[] at (7.5, 0.8)  (v_4)    {$\begin{bmatrix}a\\b\\c\end{bmatrix}$};
+     
+     \draw [->,line width=0.5pt,-stealth]  (3.6, 4.2)to[out=10, in=170](7.9,4.2);
+     \draw [->,line width=0.5pt,-stealth]  (p_2.east)to[out=10, in=170](v_2.west);
+     \draw [->,line width=0.5pt,-stealth]  (p_3.east)to[out=10, in=170](v_3.west);
+     \draw [->,line width=0.5pt,-stealth]  (p_4.east)to[out=10, in=170](v_4.west);
+     
+     \draw [->,line width=0.5pt,-stealth]  (7.9,4.1)to[out=190, in=350](3.6, 4.1);
+     \draw [->,line width=0.5pt,-stealth]  (6.5,3.1)to[out=190, in=350](1.6,2.7 );
+     \draw [->,line width=0.5pt,-stealth]  (8.5,1.8)to[out=190, in=350](3.6,1.7 );
+     \draw [->,line width=0.5pt,-stealth]  (7,0.7)to[out=190, in=350](3,0.5 );
+     
+     \draw [->,line width=0.5pt,-stealth]  (8.5,-0.1)to[out=200, in=340](2.5,-0.1 );
+     \draw [->,line width=0.5pt,-stealth]  (2.5,5.1)to[out=20, in=160](8.5, 5.1);
+     
+     \node[] at (5.5, 6)    {$T$};
+      \node[] at (5.5, -1)    {$T^{-1}$};
+  \end{tikzpicture}
+\end{center}
+
+  Second, the fact that $T$ (and $T^{-1}$) are linear will allow us to translate questions related to linear combinations in one of the vector spaces to equivalent questions in the other vector space, then translate answers back to the original vector space.  To make this statement concrete, consider the following problem:
+  
+  Let $$p_1(x)=3-x+2x^2\quad\text{and}\quad p_2(x)=-1+3x+x^2$$ find $p_1(x)+p_2(x)$.  
+  
+  The answer is, of course
+  $$p_1(x)+p_2(x)=2+2x+3x^2$$
+  Easy.  But suppose for a moment that we did not know how to add polynomials, or that we found the process extremely difficult, or maybe instead of $\mathbb{P}^2$ we had another vector space that we did not want to deal with. 
+  
+  It turns out that we can use $T$ and $T^{-1}$ to answer the addition question.  We will start by applying $T$ to $p_1(x)$ and $p_2(x)$ separately:
+  $$T(p_1(x))=\begin{bmatrix}3\\-1\\2\end{bmatrix},\quad T(p_2(x))=\begin{bmatrix}-1\\3\\1\end{bmatrix}$$
+  Next, we add the images of $p_1(x)$ and $p_2(x)$ in $\RR^3$
+  $$\begin{bmatrix}3\\-1\\2\end{bmatrix}+\begin{bmatrix}-1\\3\\1\end{bmatrix}=\begin{bmatrix}2\\2\\3\end{bmatrix}$$
+  This maneuver allows us to avoid the addition question in $\mathbb{P}^2$ and answer the question in $\RR^3$ instead.  We use $T^{-1}$ to translate the answer back to $\mathbb{P}^2$:
+  $$T^{-1}\left(\begin{bmatrix}2\\2\\3\end{bmatrix}\right)=2+2x+3x^2$$
+  All of this relies on linearity.  Here is a formal justification for the process.  Try to spot where linearity is used.
+  \begin{align}
+      p_1(x)+p_2(x)&=(3-x+2x^2)+(-1+3x+x^2)\\
+      &=T^{-1}\left(\begin{bmatrix}3\\-1\\2\end{bmatrix}\right)+T^{-1}\left(\begin{bmatrix}-1\\3\\1\end{bmatrix}\right)\\
+      &=T^{-1}\left(\begin{bmatrix}3\\-1\\2\end{bmatrix}+\begin{bmatrix}-1\\3\\1\end{bmatrix}\right)\\
+      &=T^{-1}\left(\begin{bmatrix}2\\2\\3\end{bmatrix}\right)\\
+      &=2+2x+3x^2
+  \end{align}
+  Which transition requires linearity?
+  \begin{multipleChoice}
+  \choice{From Step (1) to Step (2)}
+  \choice[correct]{From Step (2) to Step (3)}
+  \choice{From Step (3) to Step (4)}
+  \choice{From Step (4) to Step (5)}
+    \end{multipleChoice}
+\end{exploration}
+Invertible linear transformations, such as transformation $T$ of Exploration \ref{init:isomorph}, are useful because they preserve the structure of interactions between elements as we move back and forth between two vector spaces, allowing us to answer questions about one vector space in a different vector space.  In particular, any question related to linear combinations can be addressed in this fashion. This includes questions concerning linear independence, span, basis and dimension. 
+
+\begin{definition}\label{def:isomorphism} Let $V$ and $W$ be vector spaces.  If there exists an invertible linear transformation $T:V\rightarrow W$ we say that $V$ and $W$ are \dfn{isomorphic} and write $V\cong W$.  The invertible linear transformation $T$ is called an \dfn{isomorphism}.
+\end{definition}
+
+It is worth pointing out that if $T:V\rightarrow W$ is an isomorphism, then $T^{-1}:W\rightarrow V$, being linear and invertible, is also an isomorphism.
+
+\begin{example}\label{ex:lisor2}
+Our earlier discussion suggests that $\mathbb{L}\cong\RR^2$.  We postpone the proof until Example \ref{ex:coordmapiso}.
+\end{example}
+
+\begin{example}\label{ex:p2isor3}
+Exploration \ref{init:isomorph} shows that $\mathbb{P}^2\cong\RR^3$.  
+\end{example}
+
+
+
+\begin{example}\label{ex:isomorphexample1}
+Show that $\mathbb{M}_{2,2}$ and $\mathbb{P}^3$ are isomorphic.
+\begin{proof}
+We will start by finding a plausible candidate for an isomorphism.  Define $T:\mathbb{M}_{2,2}\rightarrow \mathbb{P}^3$ by
+$$T\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a+bx+cx^2+dx^3$$
+
+We will first show that $T$ is a linear transformation,  then verify that $T$ is invertible.
+\begin{align*}
+    T\left(k\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)&=T\left(\begin{bmatrix}ka&kb\\kc&kd\end{bmatrix}\right)\\
+    &=ka+kbx+kcx^2+kdx^3=k(a+bx+cx^2+dx^3)\\
+    &=kT\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)
+\end{align*}
+
+\begin{align*}
+    T\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}+\begin{bmatrix}m&n\\p&q\end{bmatrix}\right)&=T\left(\begin{bmatrix}a+m&b+n\\c+p&d+q\end{bmatrix}\right)\\
+    &=(a+m)+(b+n)x+(c+p)x^2+(d+q)x^3\\
+    &=(a+bx+cx^2+dx^3)+(m+nx+px^2+qx^3)\\
+    &=T\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)+T\left(\begin{bmatrix}m&n\\p&q\end{bmatrix}\right)
+\end{align*}
+We can show that $T$ is one-to-one and onto, and therefore has an inverse.  We can also observe directly that $T^{-1}$ is given by 
+$$T^{-1}(a+bx+cx^2+dx^3)=\begin{bmatrix}a&b\\c&d\end{bmatrix}$$
+We conclude that $T$ is an isomorphism, and $\mathbb{M}_{2,2}\cong\mathbb{P}^3$.
+\end{proof}
+\end{example}
+Isomorphism $T$ in Example \ref{ex:isomorphexample1} establishes the fact that $\mathbb{M}_{2,2}\cong\mathbb{P}^3$. However, there is nothing special about $T$, as there are many other isomorphisms from $\mathbb{M}_{2,2}$ to $\mathbb{P}^3$.  Just for fun, try to verify that each of the following is an isomorphism.
+
+\begin{equation}\label{eq:justforfuniso1}\tau_1:\mathbb{M}_{2,2}\rightarrow\mathbb{P}^3\end{equation}
+$$\tau_1\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a-bx-cx^2+dx^3$$
+
+\begin{equation}\label{eq:justforfuniso2}\tau_2:\mathbb{M}_{2,2}\rightarrow\mathbb{P}^3\end{equation}
+$$\tau_2\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a+(a+c)x+(b-c)x^2+dx^3$$
+
+\subsubsection*{The Coordinate Vector Isomorphism}
+In Exploration \ref{init:isomorph} we made good use of a transformation that maps every element of $\mathbb{P}^2$ to its coordinate vector in $\RR^3$.  We observed that this transformation is linear and invertible, therefore it is an isomorphism.  The following example generalizes this result.
+
+\begin{example}\label{ex:coordmapiso}
+Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be a basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is an isomorphism.
+We leave the proof of this result to the reader.  (See Practice Problem \ref{prob:verifyisomorphism}.)
+\end{example}
+
+\subsection*{Properties of Isomorphic Vector Spaces and Isomorphisms}  In this section we will illustrate properties of isomorphisms with specific examples.  Formal proofs of properties will be presented in the next section.
+
+\begin{exploration}\label{init:basestobasesiso}
+In Exploration \ref{init:isomorph} we defined a transformation $T:\mathbb{P}^2\rightarrow \RR^3$ by
+$T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$. We later observed that  $T$ is an isomorphism.  We will now examine the effect of $T$ on two different basis of $\mathbb{P}^2$.
+
+Let 
+$\mathcal{B}_1=\{1, x, x^2\}$ and $\mathcal{B}_2=\{x, 1+x, x+x^2\}$.  (Recall that $\mathcal{B}_2$ is a basis of $\mathbb{P}^2$ by Example \ref{ex:coordvectorinpolyvectspace2} of VSP-0060.)
+
+First,
+$$T(\mathcal{B}_1)=\{T(1), T(x), T(x^2)\}=\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}0\\1\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\end{bmatrix}\right\}$$
+Clearly, the images of the elements of $\mathcal{B}_1$ form a basis of $\RR^3$.
+
+Now we consider $\mathcal{B}_2$.
+$$T(\mathcal{B}_2)=\{T(x), T(1+x), T(x+x^2)\}=\left\{\begin{bmatrix}0\\1\\0\end{bmatrix}, \begin{bmatrix}1\\1\\0\end{bmatrix}, \begin{bmatrix}0\\1\\1\end{bmatrix}\right\}$$
+It is easy to verify that $\begin{bmatrix}0\\1\\0\end{bmatrix}, \begin{bmatrix}1\\1\\0\end{bmatrix}, \begin{bmatrix}0\\1\\1\end{bmatrix}$ are linearly independent and span $\RR^3$, therefore the images of the elements of $\mathcal{B}_2$ from a basis of $\RR^3$.
+
+\end{exploration}
+
+We can try any number of bases of $\mathbb{P}^2$ and we will find that the image of each basis of $\mathbb{P}^2$ is a basis of $\RR^3$.  In general, we have the following result:
+\begin{fact}
+An isomorphism maps a basis of the domain to a basis of the codomain. (We will state this result more formally as Theorem \ref{th:bijectionsbasis} in the next section.)
+\end{fact}
+
+Isomorphisms preserve bases, but more generally, they preserve linear independence.  
+\begin{fact}
+If $T:V\rightarrow W$ is an isomorphism, then the subset $\{\vec{v_1}, \vec{v}_2,\ldots ,\vec{v}_n\}$ of $V$ is linearly independent if and only if $\{T(\vec{v_1}), T(\vec{v}_2),\ldots ,T(\vec{v}_n)\}$ is linearly independent in $W$.  (We will state and prove this result as Theorem \ref{th:linindtolinindiso}.)
+\end{fact}
+
+\begin{example}\label{ex:inverseimageoflinind}
+Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ be a basis of $V$.  Let 
+$$\vec{w}_1=2\vec{v}_1+3\vec{v}_2-5\vec{v}_3-2\vec{v}_4$$
+$$\vec{w}_2=-\vec{v}_1+4\vec{v}_2-3\vec{v}_3+\vec{v}_4$$
+$$\vec{w}_3=-3\vec{v}_1-\vec{v}_2+4\vec{v}_3+3\vec{v}_4$$
+
+Are $\vec{w}_1, \vec{w}_2, \vec{w}_3$ linearly independent?
+\begin{explanation}
+We can approach this question head-on by considering the vector equation
+$$a\vec{w}_1+b\vec{w}_2+c\vec{w}_3=\vec{0}$$
+to see if the only solution is the trivial one. (See Practice Problem \ref{prob:noiso}.)
+
+Instead, we will use isomorphisms.  Observe that we do not know anything about $V$ aside from the fact that it has four basis vectors.  Vectors $\vec{w}_1$, $\vec{w}_2$, $\vec{w}_3$ are given in terms of these basis vectors.  This should give us an idea for constructing an isomorphism between $V$ and $\RR^4$.  Consider $T:V\rightarrow\RR^4$ such that $T(\vec{w})=[\vec{w}]_{\mathcal{B}}$.
+Then $$T(\vec{w}_1)=[\vec{w}_1]_{\mathcal{B}}=\begin{bmatrix}2\\3\\-5\\-2\end{bmatrix},\quad T(\vec{w}_2)=[\vec{w}_2]_{\mathcal{B}}=\begin{bmatrix}-1\\4\\-3\\1\end{bmatrix},\quad T(\vec{w}_3)=[\vec{w}_3]_{\mathcal{B}}=\begin{bmatrix}-3\\-1\\4\\3\end{bmatrix}$$
+By Example \ref{ex:coordmapiso}, $T$   is an isomorphism.  This means that $\vec{w}_1$, $\vec{w}_2$, $\vec{w}_3$ are linearly independent if and only if their coordinate vectors are linearly independent.  There are multiple ways of determining whether 
+$$\begin{bmatrix}2\\3\\-5\\-2\end{bmatrix}, \begin{bmatrix}-1\\4\\-3\\1\end{bmatrix}, \begin{bmatrix}-3\\-1\\4\\3\end{bmatrix}$$
+are linearly independent.  One way is to find the reduced row echelon form of 
+$$\begin{bmatrix}2&-1&-3\\3&4&-1\\-5&-3&4\\-2&1&3\end{bmatrix}$$
+The matrix reduces as follows:
+$$\begin{bmatrix}2&-1&-3\\3&4&-1\\-5&-3&4\\-2&1&3\end{bmatrix}\rightsquigarrow\begin{bmatrix}1&0&-13/11\\0&1&7/11\\0&0&0\\0&0&0\end{bmatrix}$$
+We see that the rank of the matrix is $2$. By Theorem \ref{th:linindandrank} of VEC-0110 we conclude that the column vectors are not linearly independent.   Thus, the vectors $\vec{w}_1$, $\vec{w}_2$ and $\vec{w}_3$ are not linearly independent.
+\end{explanation}
+\end{example}
+
+
+
+\subsection*{Proofs of Isomorphism Properties}
 
 Recall that a transformation $T$ is \dfn{one-to-one} provided that $$T(\vec{v}_1)=T(\vec{v}_2)$$ implies that $$\vec{v}_1=\vec{v}_2$$
 
@@ -69,8 +315,6 @@ By linearity, we have:
 Thus, $\vec{w}$ is in the span of $T(\vec{v}_1),\ldots ,T(\vec{v}_n)$.
 \end{proof}
  
-Recall that a linear transformation that is one-to-one and onto is called an \dfn{isomorphism}.
-
 We will now combine the results of Theorem \ref{th:onetoonelinind} and Theorem \ref{th:ontospan} to obtain a result about the effect of isomorphisms on a basis.
 
 \begin{theorem}\label{th:bijectionsbasis}
@@ -79,7 +323,20 @@ Let $T:V\rightarrow W$ be an isomorphism.  Suppose $\mathcal{B}_V=\{\vec{v}_1,\l
 \begin{proof}
 Left to the reader.  (See Practice Problem \ref{prob:bijectionsbasisproof}) 
 \end{proof}
- 
+
+\begin{theorem}\label{th:linindtolinindiso}
+Suppose $T:V\rightarrow W$ is an isomorphism, then the subset $\{\vec{v_1}, \vec{v}_2,\ldots ,\vec{v}_n\}$ of $V$ is linearly independent if and only if $\{T(\vec{v_1}), T(\vec{v}_2),\ldots ,T(\vec{v}_n)\}$ is linearly independent in $W$.
+\end{theorem} 
+\begin{proof}
+We have already proved one direction of this this ``if and only if" statement as Theorem \ref{th:onetoonelinind}.  To prove the other direction, suppose that $T(\vec{v_1}), T(\vec{v}_2),\ldots ,T(\vec{v}_n)$ are linearly independent vectors in $W$.  We need to show that this implies that $\vec{v_1}, \vec{v}_2,\ldots ,\vec{v}_n$ are linearly independent in $V$.  Observe that if $T$ is an isomorphism, then $T^{-1}:W\rightarrow V$ is also an isomorphism.  Thus, by Theorem \ref{th:onetoonelinind}, $T^{-1}(T(\vec{v_1})), T^{-1}(T(\vec{v}_2)),\ldots ,T^{-1}(T(\vec{v}_n))$ are linearly independent.  But this means that $\vec{v_1}, \vec{v}_2,\ldots ,\vec{v}_n$ are linearly independent.
+\end{proof}
+
+\begin{theorem}\label{th:isocompisiso}
+Let $U$, $V$ and $W$ be vector spaces.  Suppose that $T_1:U\rightarrow V$ and $T_2:V\rightarrow W$ are isomorphisms.  Then $T_2\circ T_1:U\rightarrow W$ is an isomorphism.
+\end{theorem}
+\begin{proof}
+The proof is left to the reader.  (See Practice Problem \ref{prob:isocompisisoproof}.)
+\end{proof}
  
 %%%% Moved to Exercises %%%%%%%%%%%%%% 
 %\begin{theorem} A linear transformation $T:V\rightarrow W$ is one-to-one if and only if $\text{ker}(T)=\{\vec{0}\}$.
@@ -98,9 +355,7 @@ Left to the reader.  (See Practice Problem \ref{prob:bijectionsbasisproof})
 %$$\vec{v}_1=\vec{v}_2$$
 %\end{proof}
  
-\subsection{Isomorphic Vector Spaces}
-\begin{definition} Let $V$ and $W$ be vector spaces.  If there exists an isomorphism from $V$ onto $W$ we say that $V$ and $W$ are \dfn{isomorphic} and write $V\cong W$.
-\end{definition}
+\subsection{Finite-dimensional Vector Spaces}
 
 \begin{theorem}\label{th:ndimspacesisorn}
 Let $V$ and $W$ be finite-dimensional vector spaces. Then
@@ -126,10 +381,9 @@ But $\vec{w}_1,\vec{w}_2,\ldots ,\vec{w}_n$ are linearly independent, so $a_i-b_
 We now show that $T$ is onto. Suppose that $\vec{w}$ is an element of $W$.  Then $\vec{w}=c_1\vec{w}_1+\ldots +c_n\vec{w}_n$ for some scalars $c_i$'s.  But then
 $$\vec{w}=c_1T(\vec{v}_1)+\ldots +c_nT(\vec{v}_n)=T(c_1\vec{v}_1+\ldots +c_n\vec{v}_n)$$
 We conclude that $\vec{w}$ is an image of an element of $V$, so $T$ is onto.
-
 \end{proof}
 
-From this proof follows a corollary, that some would argue is a very important result.  It shows why we spent so much time trying to understand $\RR^n$ in this course!
+From this theorem follows a corollary, that shows why we spent so much time trying to understand $\RR^n$ in this course.
 
 \begin{corollary}\label{cor:ndimisotorn}
 Every $n$-dimensional vector space is isomorphic to $\RR^n$.
@@ -169,64 +423,76 @@ The span of any two linearly independent vectors in $\RR^3$ is isomorphic to $\R
 \end{example}
 
 \begin{example}\label{ex:p2isor3}
-The vector space $\mathbb{P}^2$ of polynomials of degree less than or equal to two is isomorphic to $\RR^3$.
+$\mathbb{P}^2\ncong \RR^2$ 
+\begin{explanation}
+Recall that $\mbox{dim}(\mathbb{P}^2)=3$.  Since $\mbox{dim}(\mathbb{P}^2)=3\neq 2=\mbox{dim}(\RR^2)$, we conclude that $\mathbb{P}^2$ is not isomorphic to $\RR^2$.
+\end{explanation}
 \end{example}
 
-\begin{explanation}
-Recall that we defined $$\mathbb{P}^2=\left\{ax^2+bx+c : a,b,c \in \mathbb{R} \right\},$$ and we showed in Example \ref{ex:dimofP} of VSP-M-0060 that a basis for $\mathbb{P}^2$ is given by the three polynomials $\left\{1,x,x^2\right\}$.  Since $\mbox{dim}\,\mathbb{P}^2=3=\mbox{dim}\,\RR^3$, we conclude that $\mathbb{P}^2$ is isomorphic to $\RR^3$.
-\end{explanation}
-
-Isomorphisms are powerful tools that allow us to answer questions about unknown or inconvenient spaces using familiar or convenient spaces, such as $\RR^n$.  One such question is that of finding the matrix of a linear transformation for arbitrary vector spaces with arbitrary bases.  The following problem will pave the way to resolving this question. 
-
-
-\begin{exploration}\label{init:coordmapping} In this problem we will explore an isomorphism between an $n$-dimensional vector space and $\RR^n$.
-
-Let $V$ be an $n$-dimensional vector space.  Then $V$ has a basis $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_n\}$.  Define a linear transformation $T:V\rightarrow \RR^n$ by $T(\vec{v}_i)=\vec{e}_i$ for $1\leq i\leq n$.
-It is instructive to examine the action of $T$ on an arbitrary element of $V$.  Let $\vec{v}$ be an element of $V$, then $\vec{v}$ can be uniquely expressed as a linear combination of elements of $\mathcal{B}$.
-$$\vec{v}=a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n$$
-By linearity we have
-\begin{align*}
-T(\vec{v})&=T(a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_n\vec{v}_n)\\
-&=a_1T(\vec{v}_1)+a_2T(\vec{v}_2)+\ldots +a_nT(\vec{v}_n)\\
-&=a_1\vec{e}_1+a_2\vec{e}_2+\ldots +a_n\vec{e}_n
-\end{align*}
-We can write this as $$T(\vec{v})=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}$$
-Note that the components of $T(\vec{v})$ are the coefficients in front of the basis vectors in the linear combination that represents $\vec{v}$ in therms of the basis elements.  These coefficients are called \dfn{coordinates of $\vec{v}$ with respect to $\mathcal{B}$}.  The vector $T(\vec{v})$  is called the \dfn{coordinate vector of $\vec{v}$ with respect to $\mathcal{B}$}. We use the following notation to denote it
-
-$$T(\vec{v})=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}=[\vec{v}]_{\mathcal{B}}$$
-
-We leave it to the reader to verify that $T$ is an isomorphism.
-
-\end{exploration}
-
-
-
 \section*{Practice Problems}
+
+\begin{problem}\label{prob:Tonetooneonto}
+Prove that transformation $T$ of Exploration \ref{init:isomorph} is one-to-one and onto.
+\end{problem}
+
+\begin{problem}
+Verify that $$\tau_1:\mathbb{M}_{2,2}\rightarrow\mathbb{P}^3$$
+given by
+$$\tau_1\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a-bx-cx^2+dx^3$$
+of Expression \ref{eq:justforfuniso1} is an isomorphism.
+\end{problem}
+
+\begin{problem}\label{prob:noiso}
+Do Example \ref{ex:inverseimageoflinind} without using isomorphisms.  
+\end{problem}
+
+\begin{problem}\label{prob:useisoshowlinind}
+Let 
+$$\mathcal{S}=\left\{\begin{bmatrix}1&-3\\-2&2\end{bmatrix}, \begin{bmatrix}4&-2\\1&5\end{bmatrix}, \begin{bmatrix}5&5\\8&4\end{bmatrix}\right\}$$
+Is $\mathcal{S}$ linearly independent in $\mathbb{M}_{2,2}$?  \wordChoice{\choice[correct]{Yes}\choice{No}}
+\end{problem}
+
+\begin{problem}\label{prob:basism22iso}
+Let 
+$$\mathcal{S}=\left\{\begin{bmatrix}1&2\\3&4\end{bmatrix}, \begin{bmatrix}5&6\\7&8\end{bmatrix}, \begin{bmatrix}9&10\\11&12\end{bmatrix}, \begin{bmatrix}13&14\\15&16\end{bmatrix}\right\}$$
+Is $\mathcal{S}$ a basis for $\mathbb{M}_{2,2}$? \wordChoice{\choice{Yes}\choice[correct]{No}}
+\end{problem}
 
 \begin{problem}\label{prob:bijectionsbasisproof}
 Prove Theorem \ref{th:bijectionsbasis}.
 \end{problem}
 
-
-
-\begin{problem}\label{prob:coordvector}
-Let $V$ be a subspace of $\RR^3$ with a basis $\mathcal{B}=\left\{\begin{bmatrix}2\\1\\-1\end{bmatrix}, \begin{bmatrix}0\\3\\2\end{bmatrix}\right\}$.  Find the coordinate vector, $[\vec{v}]_{\mathcal{B}}$, for $\vec{v}=\begin{bmatrix}4\\-1\\-4\end{bmatrix}$.
-$$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}\answer{2}\\\answer{-1}\end{bmatrix}$$
+\begin{problem}\label{prob:chooseisospace}
+Let $V$ be a vector space, and suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4, \vec{v}_5\}$ is a basis for $V$.  What can we conclude about $V$?  
+\begin{selectAll}
+    \choice{We cannot conclude anything about $V$ because we don't know what $V$ is.}
+    \choice[correct]{$V\cong \RR^5$}
+    \choice{$V\cong \mathbb{P}^5$}
+    \choice{$V\cong \RR^4$}
+    \choice[correct]{$V\cong \mathbb{P}^4$}
+    \choice{$V\cong \mathbb{M}_{5,5}$}
+  \end{selectAll}
 \end{problem}
 
-\begin{problem}
-If the order of the basis elements in Problem \ref{prob:coordvector} was switched to form a new basis
-$$\mathcal{B}'=\left\{\begin{bmatrix}0\\3\\2\end{bmatrix}, \begin{bmatrix}2\\1\\-1\end{bmatrix} \right\}$$
-How would this affect the coordinate vector?
-
-$$[\vec{v}]_{\mathcal{B}'}=\begin{bmatrix}\answer{-1}\\\answer{2}\end{bmatrix}$$
+\begin{problem}\label{prob:pickisospaces} Which of the followng statements are true?
+\begin{selectAll}
+    \choice{$\mathbb{M}_{3,3}\cong \RR^6$}
+    \choice[correct]{$\mathbb{M}_{3,3}\cong \RR^9$}
+    \choice{$\mathbb{M}_{4,4}\cong \mathbb{P}^{16}$}
+    \choice[correct]{$\mathbb{M}_{4,4}\cong \mathbb{P}^{15}$}
+    \choice[correct]{$\mathbb{L}\cong \RR^2$}
+    \end{selectAll}
 \end{problem}
 
 \begin{problem}\label{prob:verifyisomorphism}
-Verify that $T:V\rightarrow \RR^n$ of Exploration Problem \ref{init:coordmapping} is an isomorphism.
+Verify that $T:V\rightarrow \RR^n$ of Example \ref{ex:coordmapiso} is an isomorphism.
 \begin{hint}
 You may find the proof of Theorem \ref{th:ndimspacesisorn} helpful.
 \end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:isocompisisoproof}
+Prove that the composition of two isomorphisms is an isomorphism.  (Theorem \ref{th:isocompisiso}.)
 \end{problem}
 
 \begin{problem} 
