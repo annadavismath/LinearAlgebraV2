@@ -1,0 +1,340 @@
+\documentclass{ximera}
+\input{preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{APP-0010: Application to Network Flow} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We study an application of systems of equations to network flow.
+\end{abstract}
+\maketitle
+
+There are many types of problems that concern a network of conductors along which some sort of flow is observed. Examples of these include an irrigation network and a network of streets or freeways. There are often points in the system at which a net flow either enters or leaves the system. The basic principle behind the analysis of such systems is that the total flow into the system must equal the total flow out. In fact, we apply this principle at every junction in the system.
+
+\begin{theorem}[Junction Rule]\label{001735}
+At each of the junctions in the network, the total flow into that junction must equal the total flow out.
+\end{theorem}
+
+\noindent This requirement gives a linear equation relating the flows in conductors emanating from the junction.
+
+\begin{example}\label{001739}
+A network of one-way streets is shown in the accompanying diagram. The rate of flow of cars into intersection $A$ is 500 cars per hour, and 400 and 100 cars per hour emerge from $B$ and $C$, respectively. Find the possible flows along each street.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[line width=2pt,blue, -stealth](-3,2)--(-2,2);
+\draw[line width=2pt,blue, -stealth](-2,2)--(0.1,2);
+\draw[line width=2pt,blue](-0.1,2)--(2,2);
+\draw[line width=2pt,blue, -stealth](2,2)--(3,2);
+\draw[line width=2pt,blue, -stealth](-2,2)--(-1,1);
+\draw[line width=2pt,blue](-1.1,1.1)--(0,0);
+\draw[line width=2pt,blue, -stealth](0,0)--(0,-1);
+\draw[line width=2pt,blue](0,-0.9)--(0,-2);
+\draw[line width=2pt,blue, -stealth](0,0)--(1.1,1.1);
+\draw[line width=2pt,blue](0.9,0.9)--(2,2);
+\draw[line width=2pt,blue, -stealth](-2,2)--(-0.9,-0.2);
+\draw[line width=2pt,blue](-1,0)--(0,-2);
+\draw[line width=2pt,blue, -stealth](0,-2)--(1.1,0.2);
+\draw[line width=2pt,blue, -stealth](0,-2)--(0,-3);
+\draw[line width=2pt,blue](1,0)--(2,2);
+\fill (-2, 2)node[above]{$A$} circle (1.1mm);
+\fill (2, 2)node[above]{$B$} circle (1.1mm);
+\fill (0, -2)node[left]{$C$} circle (1.1mm);
+\fill (0,0)node[above]{$D$} circle (1.1mm);
+\node[] at (0, 2.4)   (a) {$f_1$};
+\node[] at (-2.8, 2.3)   (a) {$500$};
+\node[] at (2.8, 2.3)   (a) {$400$};
+\node[] at (-0.6, 1)   (a) {$f_2$};
+\node[] at (0.6, 1)   (a) {$f_4$};
+\node[] at (-1.4, 0)   (a) {$f_3$};
+\node[] at (1.4, 0)   (a) {$f_6$};
+\node[] at (0.3, -0.6)   (a) {$f_5$};
+\node[] at (0.3, -2.5)   (a) {$100$};
+\end{tikzpicture}
+\end{center}
+
+
+\begin{explanation}
+Suppose the flows along the streets are $ f_1$, $f_2$, $f_3$, $f_4$, $f_5$, and $f_6$ cars per hour in the directions shown.
+
+Then, equating the flow in with the flow out at each intersection, we get
+\begin{equation*}
+\begin{array}{lrl}
+	\mbox{Intersection } A & 500 					& = f_1 + f_2 + f_3 \\
+	\mbox{Intersection } B & \quad f_1 + f_4 + f_6 	& = 400 \\
+	\mbox{Intersection } C & f_3 + f_5 				& = f_6 + 100 \\
+	\mbox{Intersection } D & f_2					& = f_4 + f_5 \\
+\end{array}
+\end{equation*}
+These give four equations in the six variables $ f_1, f_2, \dots , f_6 $.
+\begin{equation*}
+\begin{array}{rlrlrlrlrlrcr}
+	f_1 & + & f_2 & + & f_3 &   &     &   &     &   &     & = & 500 \\
+	f_1 &   &     &   &     & + & f_4 &   &     & + & f_6 & = & 400 \\
+	    &   &     &   & f_3 &   &     & + & f_5 & - & f_6 & = & 100 \\
+	    &   & f_2 &   &     & - & f_4 & - & f_5 &   &     & = & 0 \\
+\end{array}
+\end{equation*}
+The reduction of the augmented matrix is
+\begin{equation*}
+\left[ \begin{array}{rrrrrr|r}
+	1 & 1 & 1 & 0 & 0 & 0 & 500 \\
+	1 & 0 & 0 & 1 & 0 & 1 & 400 \\
+	0 & 0 & 1 & 0 & 1 &-1 & 100 \\
+	0 & 1 & 0 &-1 &-1 & 0 & 0
+\end{array} \right]
+\rightarrow
+\left[ \begin{array}{rrrrrr|r}
+	1 & 0 & 0 & 1 & 0 & 1 & 400 \\
+	0 & 1 & 0 &-1 &-1 & 0 & 0 \\
+	0 & 0 & 1 & 0 & 1 &-1 & 100 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{array} \right]
+\end{equation*}
+Hence, when we use $f_4$, $f_5$, and $f_6$ as parameters, the general solution is
+\begin{equation*}
+f_1 = 400 - f_4 - f_6 \quad\quad f_2 = f_4 + f_5 \quad\quad f_3 = 100 - f_5 + f_6
+\end{equation*}
+This gives all solutions to the system of equations and hence all the possible flows.
+
+Of course, not all these solutions may be acceptable in the real situation. For example, the flows $ f_1, f_2, \dots , f_6 $ are all \textit{positive} in the present context (if one came out negative, it would mean traffic flowed in the opposite direction). This imposes constraints on the flows: $f_1 \geq 0$ and $f_3 \geq 0$ become
+\begin{equation*}
+f_4 + f_6 \leq 400 \quad\quad f_5 - f_6 \leq 100
+\end{equation*}
+Further constraints might be imposed by insisting on maximum values on the flow in each street.
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:pipenetwork}
+Find the possible flows in each of the following networks of pipes.
+\begin{enumerate}
+\item 
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[line width=2pt,blue, -stealth](-3,0)--(-2,0);
+\draw[line width=2pt,blue, -stealth](-2,0)--(-1,1);
+\draw[line width=2pt,blue](-1.1,0.9)--(0,2);
+\draw[line width=2pt,blue, -stealth](0,2)--(0,3);
+\draw[line width=2pt,blue, -stealth](2,0)--(1,1);
+\draw[line width=2pt,blue](1.1,0.9)--(0,2);
+\draw[line width=2pt,blue, -stealth](2,0)--(-0.1,0);
+\draw[line width=2pt,blue](0.1,0)--(-2,0);
+\draw[line width=2pt,blue, -stealth](2,0)--(1,-1);
+\draw[line width=2pt,blue](1.1,-0.9)--(0,-2);
+\draw[line width=2pt,blue, -stealth](-2,0)--(-1,-1);
+\draw[line width=2pt,blue](-1.1,-0.9)--(0,-2);
+\draw[line width=2pt,blue](0,-2)--(0,-3);
+\draw[line width=2pt,blue,-stealth](0,-2)--(0,-3);
+\draw[line width=2pt,blue,-stealth](3,0)--(2,0);
+\fill (-2, 0)circle (1.1mm);
+\fill (2, 0)circle (1.1mm);
+\fill (0, 2)circle (1.1mm);
+\fill (0,-2)circle (1.1mm);
+\node[] at (0.3, 2.4)   (a) {$50$};
+\node[] at (-2.8, 0.3)   (a) {$40$};
+\node[] at (2.8, 0.3)   (a) {$60$};
+\node[] at (-1.2, 1.2)   (a) {$f_1$};
+\node[] at (1.2, 1.2)   (a) {$f_2$};
+\node[] at (0, 0.3)   (a) {$f_3$};
+\node[] at (-1.2, -1.2)   (a) {$f_4$};
+\node[] at (1.2, -1.2)   (a) {$f_5$};
+\node[] at (0.3, -2.4)   (a) {$50$};
+\end{tikzpicture}
+\end{center}
+
+
+
+\item 
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[line width=2pt,blue, -stealth](-5,0)--(-4,0);
+\draw[line width=2pt,blue, -stealth](4,0)--(5,0);
+\draw[line width=2pt,blue, -stealth](0,4)--(0,5);
+\draw[line width=2pt,blue, -stealth](0,-4)--(0,-5);
+\draw[line width=2pt,blue, -stealth](-4,0)--(-2,-1);
+\draw[line width=2pt,blue, -stealth](0,-2)--(2,-1);
+\draw[line width=2pt,blue](-2.1,-0.95)--(0,-2);
+\draw[line width=2pt,blue](1.9,-1.05)--(4,0);
+\draw[line width=2pt,blue, -stealth](-4,0)--(-2,-2);
+\draw[line width=2pt,blue, -stealth](0,-4)--(2,-2);
+\draw[line width=2pt,blue](-2.1,-1.9)--(0,-4);
+\draw[line width=2pt,blue](1.9,-2.1)--(4,0);
+\draw[line width=2pt,blue, -stealth](-4,0)--(-2,2);
+\draw[line width=2pt,blue, -stealth](0,4)--(2,2);
+\draw[line width=2pt,blue](-2.1,1.9)--(0,4);
+\draw[line width=2pt,blue](1.9,2.1)--(4,0);
+\draw[line width=2pt,blue, -stealth](0,4)--(0,1);
+\draw[line width=2pt,blue](0,1.1)--(0,-2);
+\draw[line width=2pt,blue, -stealth](0,-2)--(0,-3);
+\draw[line width=2pt,blue](0,-2.9)--(0,-4);
+\fill (-4, 0)circle (1.1mm);
+\fill (0, -2)circle (1.1mm);
+\fill (4,0)circle (1.1mm);
+\fill (0,-4)circle (1.1mm);
+\fill (0,4)circle (1.1mm);
+\node[] at (-5, 0.3)   (a) {$50$};
+\node[] at (4.8, 0.3)   (a) {$60$};
+\node[] at (0.3, 4.5)   (a) {$25$};
+\node[] at (0.3, -4.5)   (a) {$40$};
+\node[] at (0.3, 0.8)   (a) {$75$};
+\node[] at (-2, 2.5)   (a) {$f_1$};
+\node[] at (2.2, 2.5)   (a) {$f_2$};
+\node[] at (-2, -0.5)   (a) {$f_3$};
+\node[] at (2, -0.5)   (a) {$f_4$};
+\node[] at (-2, -2.5)   (a) {$f_5$};
+\node[] at (2, -2.5)   (a) {$f_7$};
+\node[] at (0.3, -2.8)   (a) {$f_6$};
+\end{tikzpicture}
+\end{center}
+
+\end{enumerate}
+%\begin{sol}
+%\begin{enumerate}[label={\alph*.}]
+%\setcounter{enumi}{1}
+%\item
+%$\arraycolsep=1pt
+%\begin{array}[t]{rcrrr}
+%	f_1 & = &  85 & - f_4 & - f_7 \\
+%	f_2 & = &  60 & - f_4 & - f_7 \\
+%	f_3 & = & -75 & + f_4 & + f_6 \\
+%	f_5 & = &  40 & - f_6 & - f_7 \\
+%\end{array}$
+%
+%$f_4$, $f_6$, $f_7$ parameters
+%
+%\end{enumerate}
+%\end{sol}
+\end{problem}
+
+\begin{problem}\label{prob:pipenetwork2}
+A proposed network of irrigation canals is described in the accompanying diagram. At peak demand, the flows at interchanges $A$, $B$, $C$, and $D$ are as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[line width=2pt,blue, -stealth](-3,0)--(-2,0);
+\draw[line width=2pt,blue, -stealth](0,2)--(0,3);
+\draw[line width=2pt,blue, -stealth](2,1)--(3,1);
+\draw[line width=2pt,blue, -stealth](2, -2)--(2,-3);
+\draw[line width=2pt,blue, -stealth](-2,0)--(-1,1);
+\draw[line width=2pt,blue, -stealth](0,2)--(1,1.5);
+\draw[line width=2pt,blue](-1.1,0.9)--(0,2);
+\draw[line width=2pt,blue](0.9,1.55)--(2,1);
+\draw[line width=2pt,blue, -stealth](-2, 0)--(0,-1);
+\draw[line width=2pt,blue](-0.1,-0.95)--(2,-2);
+\draw[line width=2pt,blue, -stealth](0, 2)--(1,0);
+\draw[line width=2pt,blue](0.95,0.1)--(2,-2);
+\draw[line width=2pt,blue, -stealth](2, 1)--(2,-0.5);
+\draw[line width=2pt,blue](2,-0.4)--(2,-2);
+\fill (-2, 0)node[above left]{$A$} circle (1.1mm);
+\fill (0, 2)node[above right]{$B$} circle (1.1mm);
+\fill (2,1)node[above right]{$C$} circle (1.1mm);
+\fill (2, -2)node[right]{$D$} circle (1.1mm);
+\node[] at (-3, 0.3)   (a) {$55$};
+\node[] at (-0.3, 2.4)   (a) {$20$};
+\node[] at (1.7, -2.4)   (a) {$20$};
+\node[] at (2.5, 0.7)   (a) {$15$};
+\node[] at (-1,1.5)   (a) {$f_1$};
+\node[] at (0.5, 0.2)   (a) {$f_2$};
+\node[] at (1.2, 1.8)   (a) {$f_3$};
+\node[] at (0, -1.4)   (a) {$f_4$};
+\node[] at (2.3, -0.5)   (a) {$f_5$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Find the possible flows.
+
+\item If canal $BC$ is closed, what range of flow on $AD$ must be maintained so that no canal carries a flow of more than 30?
+
+\end{enumerate}
+%\begin{sol}
+%\begin{enumerate}[label={\alph*.}]
+%\setcounter{enumi}{1}
+%\item
+%$\arraycolsep=1pt
+%\begin{array}[t]{l}
+%	f_5 = 15 \\
+%	25 \leq f_4 \leq 30
+%\end{array}$
+%
+%\end{enumerate}
+%\end{sol}
+\end{problem}
+
+\begin{problem}\label{prob:pipenetwork3}
+A traffic circle has five one-way streets, and vehicles enter and leave as shown in the accompanying diagram.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[line width=2pt,blue, -stealth](-3,0)--(-2,0);
+\draw[line width=2pt,blue, -stealth](0,2)--(0,3);
+\draw[line width=2pt,blue, -stealth](2,1)--(3,1);
+\draw[line width=2pt,blue, -stealth](3, -2)--(2,-1);
+\draw[line width=2pt,blue, -stealth](-1,-1)--(-1,-2);
+\draw[line width=2pt,blue, -stealth](0,2)--(-1,1);
+\draw[line width=2pt,blue](-0.9,1.1)--(-2,0);
+\draw[line width=2pt,blue, -stealth](-2,0)--(-1.5,-0.5);
+\draw[line width=2pt,blue](-1.6,-0.4)--(-1,-1);
+\draw[line width=2pt,blue, -stealth](-1,-1)--(0.5,-1);
+\draw[line width=2pt,blue](0.4,-1)--(2,-1);
+\draw[line width=2pt,blue, -stealth](2,-1)--(2,0);
+\draw[line width=2pt,blue](2,-0.1)--(2,1);
+\draw[line width=2pt,blue, -stealth](2,1)--(1,1.5);
+\draw[line width=2pt,blue](1.1,1.45)--(0,2);
+\fill (-2, 0)node[above left]{$A$} circle (1.1mm);
+\fill (-1,-1)node[below left]{$B$} circle (1.1mm);
+\fill (2, -1)node[below left]{$C$} circle (1.1mm);
+\fill (2, 1)node[above right]{$D$} circle (1.1mm);
+\fill (0, 2)node[above right]{$E$} circle (1.1mm);
+\node[] at (-3, 0.3)   (a) {$50$};
+\node[] at (-0.3, 2.4)   (a) {$35$};
+\node[] at (1.7, -2.4)   (a) {$20$};
+\node[] at (2.8, 0.7)   (a) {$25$};
+\node[] at (-0.7, -1.7)   (a) {$30$};
+\node[] at (2.8, -1.4)   (a) {$40$};
+\node[] at (-1,1.5)   (a) {$f_5$};
+\node[] at (2.3, 0)   (a) {$f_3$};
+\node[] at (1.2, 1.8)   (a) {$f_4$};
+\node[] at (0.5, -1.3)   (a) {$f_2$};
+\node[] at (-1.7, -0.7)   (a) {$f_1$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Compute the possible flows.
+
+\item Which road has the heaviest flow?
+
+\end{enumerate}
+\begin{multipleChoice}
+ \choice{AB}
+ \choice{BC}
+ \choice[correct]{CD}
+ \choice{DE}
+ \choice{EA}
+ \end{multipleChoice}
+\end{problem}
+
+
+
+\section*{Text Source} This application was adapted from Section 1.4 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 27 
+
+%\section*{Example Source}
+%Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
+
+%\section*{Exercise Source}
+%Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
+
+
+
+\end{document}
