@@ -1,5 +1,5 @@
 \documentclass{ximera}
-\input{preamble.tex}
+\input{../preamble.tex}
 
 \author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{VEC-0040:  Linear Combinations of Vectors} \license{CC-BY 4.0}
 
@@ -216,14 +216,12 @@ The method we used in Example \ref{ex:lincombparallelogrammethod} to express the
 \end{tikzpicture}
 \end{center}
 
-\begin{center} 
-\geogebra{u77b52k8}{800}{600} 
-\end{center}
-
 \end{procedure}
 
+The following GeoGebra interactive will allow you to go through the steps given in Procedure \ref{pro:lincombgeo} for a combination of vectors of your choice.
+
 \begin{center} 
-\geogebra{kk5hwjka}{800}{600} 
+\geogebra{u77b52k8}{800}{600} 
 \end{center}
 
 \begin{example}\label{ex:lincombgeometry2}
@@ -264,6 +262,8 @@ a-2b&=2
 \end{align*}
 
 When you try to solve this system using your favorite method, you will find that the system is inconsistent.  Thus, $\begin{bmatrix}3\\2\end{bmatrix}$ cannot be written as a linear combination of $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.
+
+We know that there is no way to express $\begin{bmatrix}3\\2\end{bmatrix}$ as a linear combination of vectors $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.  What would happen if we tried to apply Procedure \ref{pro:lincombgeo} to these vectors?  Just for fun, you can use the GeoGebra interactive above to find out.
 
 \end{explanation}
 \end{example}
@@ -339,14 +339,59 @@ Use two different approaches (algebraic and geometric) to explain why the vector
 \end{problem}
 
 \begin{problem}\label{prob:lincombtwovectors4}
-Set up a system of equations that can be used to express $\begin{bmatrix}1\\2\\-3\end{bmatrix}$ as a linear combination of vectors $\begin{bmatrix}1\\1\\0\end{bmatrix}$, $\begin{bmatrix}3\\-1\\1\end{bmatrix}$ and $\begin{bmatrix}-2\\-1\\0\end{bmatrix}$.
+We have seen Procedure \ref{pro:lincombgeo} applied to vectors in $\RR^2$.  The same process can, in certain cases be applied to vectors in $\RR^3$.  In both parts of this problem you will be asked to follow the steps in Procedure \ref{pro:lincombgeo} to express one vector as a linear combination of two given vectors.  Then you will be asked to identify the condition which makes it possible to do so.
 
-System of Equations:
+\begin{problem}\label{prob:lincombtwovectors4a}
+Use GeoGebra to answer the questions below.  Use the navigation bar at the bottom to view steps.  Right-click and drag to rotate the image.
+\begin{center} 
+\geogebra{kk5hwjka}{800}{600} 
+\end{center}
+\begin{enumerate}
+    \item Determine the components of the blue vector ${\bf v}$.
+    $${\bf v}=\begin{bmatrix}\answer{1}\\\answer{-2}\\\answer{1}\end{bmatrix}$$
+    \item
+    Determine the components of the red vector ${\bf u}$.  (Advance the navigation bar to display ${\bf u}$.)
+    $${\bf u}=\begin{bmatrix}\answer{3}\\\answer{0}\\\answer{-1}\end{bmatrix}$$
+    \item
+    Determine the components of the pink vector ${\bf w}$. (Advance the navigation bar to display ${\bf w}$.)
+    $${\bf w}=\begin{bmatrix}\answer{7}\\\answer{4}\\\answer{-5}\end{bmatrix}$$
+    \item 
+    What do you observe about ${\bf v}$, ${\bf u}$ and ${\bf w}$?  (Hint:  Right-click and drag to rotate the image.)
+    \begin{multipleChoice}
+ \choice{${\bf w}$ is three times longer than ${\bf u}$.}
+ \choice{${\bf w}$ lies on the same line as ${\bf v}$.}
+  \choice{${\bf w}$ is not a linear combination of ${\bf u}$ and ${\bf v}$ because it points away from ${\bf u}$ and ${\bf v}$.}
+  \choice[correct]{${\bf w}$ lies in the same plane as ${\bf v}$ and ${\bf u}$.}
+ \end{multipleChoice}
+ \item Advance the navigation bar to view the remaining steps.  Express ${\bf w}$ as a linear combination of ${\bf v}$ (blue) and ${\bf u}$ (red).
+ $${\bf w}=\answer{-2}{\bf v}+\answer{3}{\bf u}$$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:lincombtwovectors4b}
+The following GeoGebra interactive shows vectors ${\bf v}=\begin{bmatrix}1\\-2\\1\end{bmatrix}$, ${\bf u}=\begin{bmatrix}3\\0\\-1\end{bmatrix}$, and ${\bf w}=\begin{bmatrix}7\\4\\0\end{bmatrix}$. Right-click and drag to rotate the image.  Use geometry to explain why ${\bf w}$ cannot be expressed as a linear combination of ${\bf v}$ and ${\bf u}$.
+
+\begin{center} 
+\geogebra{x9f6qnyr}{800}{600} 
+\end{center}
+
+We can also show that ${\bf w}$ is not a linear combination of ${\bf v}$ and ${\bf u}$ algebraically by attempting to solve a system of equations corresponding to 
+$$x_1{\bf v}+x_2{\bf u}={\bf w}$$
+Set up the system of equations
 $$\begin{array}{ccccccc}
-      \answer{1}x_1 & +&\answer{3}x_2&+&\answer{-2}x_3&= &\answer{1} \\
-	 \answer{1}x_1& +&\answer{-1}x_2&+&\answer{-1}x_3&=&\answer{2}\\
-     \answer{0}x_1& +&\answer{1}x_2&+&\answer{0}x_3&=&\answer{-3}
+      \answer{1}x_1 & +&\answer{3}x_2&= &\answer{7} \\
+	 \answer{-2}x_1& +&\answer{0}x_2&=&\answer{4}\\
+     \answer{1}x_1& +&\answer{-1}x_2&=&\answer{0}
     \end{array}$$
+
+Find the reduced row echelon form.
+
+$$\left[\begin{array}{cc|c} 
+ \answer{1}&\answer{0}&\answer{0}\\\answer{0}&\answer{1}&\answer{0}\\\answer{0}&\answer{0}&\answer{1}
+ \end{array}\right]$$
+
+\end{problem}
+
 \end{problem}
 
 \end{document}
