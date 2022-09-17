@@ -1,0 +1,78 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{Application to Chemical Equations} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We study an application of systems of equations to balancing chemical equations.
+\end{abstract}
+\maketitle
+
+\section*{Application to Chemical Equations}
+When a chemical reaction\index{chemical reaction} takes place a number of molecules combine to produce new molecules. Hence, when hydrogen $\mbox{H}_2$ and oxygen $\mbox{O}_2$ molecules combine, the result is water H\textsubscript{2}O. We express this as
+\begin{equation*}
+\mbox{H}_2 + \mbox{O}_2 \rightarrow \mbox{H}_2\mbox{O}
+\end{equation*}
+Individual atoms are neither created nor destroyed, so the number of hydrogen and oxygen atoms going into the reaction must equal the number coming out (in the form of water). In
+this case the reaction is said to be \textit{balanced}. Note that each hydrogen molecule $\mbox{H}_2$ consists of two atoms as does each oxygen molecule $\mbox{O}_2$, while a water molecule $\mbox{H}_2\mbox{O}$ consists of two hydrogen atoms and one oxygen atom. In the above reaction, this requires that twice as many hydrogen molecules enter the reaction; we express this as follows:
+\begin{equation*}
+2\mbox{H}_2 + \mbox{O}_2 \rightarrow 2\mbox{H}_2\mbox{O}
+\end{equation*}
+This is now balanced because there are 4 hydrogen atoms and 2 oxygen atoms on each side of the reaction.
+
+\begin{example}\label{001872}
+Balance the following reaction for burning octane $\mbox{C}_8\mbox{H}_{18}$ in oxygen $\mbox{O}_2$:
+\begin{equation*}
+\mbox{C}_8\mbox{H}_{18} + \mbox{O}_2 \rightarrow \mbox{CO}_2 + \mbox{H}_2\mbox{O}
+\end{equation*}
+where $\mbox{CO}_2$ represents carbon dioxide. We must find positive integers $x$, $y$, $z$, and $w$ such that
+\begin{equation*}
+x\mbox{C}_8\mbox{H}_{18} + y\mbox{O}_2 \rightarrow z\mbox{CO}_2 + w\mbox{H}_2\mbox{O}
+\end{equation*}
+Equating the number of carbon, hydrogen, and oxygen atoms on each side gives $8x = z$, $18x = 2w$ and $2y = 2z + w$, respectively. These can be written as a homogeneous linear system
+\begin{equation*}
+\begin{array}{rlrlrlrcr}
+ 	 8x &   &   & - & z &   &   & = & 0 \\
+	18x &   &   &   &   & - &2w & = & 0 \\
+	    &   &2y & - &2z & - & w & = & 0
+\end{array}
+\end{equation*}
+which can be solved by gaussian elimination. In larger systems this is
+necessary but, in such a simple situation, it is easier to solve
+directly. Set $w = t$, so that $x = \frac{1}{9}t$, $z = \frac{8}{9}t$, $2y = \frac{16}{9}t + t = \frac{25}{9}t$. But $x$, $y$, $z$, and $w$ must be positive integers, so the smallest value of $t$ that eliminates fractions is $18$. Hence, $x = 2$, $y = 25$, $z = 16$, and $w = 18$, and the balanced reaction is
+\begin{equation*}
+2\mbox{C}_8\mbox{H}_{18} + 25\mbox{O}_2 \rightarrow 16\mbox{CO}_2 + 18\mbox{H}_2\mbox{O}
+\end{equation*}
+The reader can verify that this is indeed balanced.
+\end{example}
+
+It is worth noting that this problem introduces a new element into the theory of linear equations: the insistence that the solution must consist of positive integers.
+
+\section*{Practice Problems}
+
+In each case balance the chemical reaction.
+
+\begin{problem}\label{chemeqn1}
+$\mbox{CH}_{4} + \mbox{O}_2 \to \mbox{CO}_{2} + \mbox{H}_{2}\mbox{O}$. This is the burning of methane $\mbox{CH}_{4}$.
+\end{problem}
+
+\begin{problem}\label{chemeqn2}
+$\answer{2}\mbox{NH}_{3} + \answer{3}\mbox{CuO} \to \mbox{N}_{2} + \answer{3}\mbox{Cu} + \answer{3}\mbox{H}_{2}\mbox{O}$. Here $\mbox{NH}_{3}$ is ammonia, $\mbox{CuO}$ is copper oxide, $\mbox{Cu}$ is copper, and $\mbox{N}_{2}$ is nitrogen.
+\end{problem}
+
+\begin{problem}\label{chemeqn3}
+$\mbox{CO}_{2} + \mbox{H}_{2}\mbox{O} \to \mbox{C}_{6}\mbox{H}_{12}\mbox{O}_{6} + \mbox{O}_{2}$. This is called the photosynthesis reaction---$\mbox{C}_{6}\mbox{H}_{12}\mbox{O}_{6}$ is glucose.
+\end{problem}
+
+\begin{problem}\label{chemeqn4}
+$\answer{15}\mbox{Pb}(\mbox{N}_{3})_{2} + \answer{44}\mbox{Cr}(\mbox{MnO}_{4})_{2} \to \answer{22}\mbox{Cr}_{2}\mbox{O}_{3} + \answer{88}\mbox{MnO}_{2} + \answer{5}\mbox{Pb}_{3}\mbox{O}_{4} + \answer{90}\mbox{NO}$.
+\end{problem}
+
+\section*{Text Source} This application was adapted from Section 1.4 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 32 
+
+
+\end{document}
