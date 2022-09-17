@@ -1,0 +1,466 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{Application to Input-Output Economic Models} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ We study an application of matrix algebra to input-output economic models.
+\end{abstract}
+\maketitle
+
+In 1973 Wassily Leontief was awarded the Nobel prize in economics for his work on mathematical models.  (See W. W. Leontief, ``The world economy of the year 2000,'' \textit{Scientific American,} Sept. 1980.) Roughly speaking, an economic system in this model consists of several industries, each of which produces a product and each of which uses some of the production of the other industries. The following example is typical.
+
+\begin{example}\label{006965}
+A primitive society has three basic needs: food, shelter, and clothing. There are thus three industries in the society---the farming, housing, and garment industries---that produce these commodities. Each of these industries consumes a certain proportion of the total output of each commodity according to the following table.
+
+$$
+\begin{array}{ccccc}
+  & & & \textbf{OUTPUT} & \\
+  & & \textbf{Farming} & \textbf{Housing} &    \textbf{Garment}  \\
+  & \textbf{Farming} &    0.4  &    0.2 &    0.3  \\
+ \textbf{INPUT} &   \textbf{Housing} &    0.2  &    0.6 &    0.4 \\
+   & \textbf{Garment} &    0.4  &    0.2 &    0.3  \\
+ \end{array}
+ $$
+Find the annual prices that each industry must charge for its income to equal its expenditures.
+
+\begin{explanation}
+  Let $p_{1}$, $p_{2}$, and $p_{3}$ be the prices charged per year by the farming, housing, and garment industries, respectively, for their total output. To see how these prices are determined, consider the farming industry. It receives $p_{1}$ for its production in any year. But it \textit{consumes} products from all these industries in the following amounts (from row 1 of the table): $40\%$ of the food, $20\%$ of the housing, and $30\%$ of the clothing. Hence, the expenditures of the farming industry are $0.4p_{1} + 0.2p_{2} + 0.3p_{3}$, so
+\begin{equation*}
+0.4p_{1} + 0.2p_{2} + 0.3p_{3} = p_{1}
+\end{equation*}
+A similar analysis of the other two industries leads to the following system of equations.
+\begin{align*}
+0.4p_{1} + 0.2p_{2} + 0.3p_{3} &= p_{1} \\
+0.2p_{1} + 0.6p_{2} + 0.4p_{3} &= p_{2} \\
+0.4p_{1} + 0.2p_{2} + 0.3p_{3} &= p_{3}
+\end{align*}
+This has the matrix form $E{\bf p} = {\bf p}$, where
+\begin{equation*}
+E = \begin{bmatrix}
+0.4 & 0.2 & 0.3 \\
+0.2 & 0.6 & 0.4 \\
+0.4 & 0.2 & 0.3
+\end{bmatrix} \quad \mbox{ and } \quad
+{\bf p} = \left[ \begin{array}{c}
+p_{1} \\
+p_{2} \\
+p_{3}
+\end{array} \right]
+\end{equation*}
+The equations can be written as the homogeneous system
+\begin{equation*}
+(I - E){\bf p} = {\bf 0}
+\end{equation*}
+where $I$ is the $3 \times 3$ identity matrix, and the solutions are
+\begin{equation*}
+{\bf p} = \left[ \begin{array}{c}
+2t \\
+3t \\
+2t
+\end{array} \right]
+\end{equation*}
+where $t$ is a parameter. Thus, the pricing must be such that the total output of the farming industry has the same value as the total output of the garment industry, whereas the total value of the housing industry must be $\frac{3}{2}$ as much.
+\end{explanation}
+\end{example}
+
+In general, suppose an economy has $n$ industries, each of which uses some (possibly none) of the production of every industry. We assume first that the economy is \textbf{closed}\index{closed economy} (that is, no product is exported or imported) and that all product is used. Given two industries $i$ and $j$, let $e_{ij}$ denote the proportion of the total annual output of industry $j$ that is consumed by industry $i$. Then $E = \left[ e_{ij} \right]$ is called the \textbf{input-output} matrix.  Clearly,
+\begin{equation}\label{eq:IOcond1}
+0 \leq e_{ij} \leq 1 \quad \mbox{for all } i \mbox{ and } j
+\end{equation}
+Moreover, all the output from industry $j$ is used by \textit{some} industry (the model is closed), so
+\begin{equation}\label{eq:IOcond2}
+e_{1j} + e_{2j} + \cdots + e_{ij} = 1 \quad \mbox{for each } j
+\end{equation}
+This condition asserts that each column of $E$ sums to $1$. Matrices satisfying conditions (\ref{eq:IOcond1}) and (\ref{eq:IOcond2}) are called \textbf{stochastic matrices}.
+
+As in Example~\ref{006965}, let $p_{i}$ denote the price of the total annual production of industry $i$. Then $p_{i}$ is the annual revenue of industry $i$. On the other hand, industry $i$ spends $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$ annually for the product it uses ($e_{ij}p_{j}$ is the cost for product from industry $j$). The closed economic system is said to be in \textbf{equilibrium} if the annual expenditure equals the annual revenue for each industry---that is, if
+\begin{equation*}
+e_{1j}p_{1} + e_{2j}p_{2} + \cdots + e_{ij}p_{n} = p_{i} \quad \mbox{for each } i = 1, 2, \dots, n
+\end{equation*}
+If we write ${\bf p} = \left[ \begin{array}{c}
+p_{1} \\
+p_{2} \\
+\vdots \\
+p_{n}
+\end{array} \right]$,
+ these equations can be written as the matrix equation
+\begin{equation*}
+E{\bf p} = {\bf p}
+\end{equation*}
+This is called the \textbf{equilibrium condition}, and the solutions ${\bf p}$ are called \textbf{equilibrium price structures}. The equilibrium condition can be written as
+\begin{equation*}
+(I - E){\bf p} = {\bf 0}
+\end{equation*}
+which is a system of homogeneous equations for ${\bf p}$. Moreover, there is always a nontrivial solution ${\bf p}$. Indeed, the column sums of $I - E$ are all $0$ (because $E$ is stochastic), so the row-echelon form of $I - E$ has a row of zeros. In fact, more is true:
+
+\begin{theorem}\label{007013}
+Let $E$ be any $n \times n$ stochastic matrix. Then there is a nonzero $n \times 1$ vector ${\bf p}$ with nonnegative entries such that $E{\bf p} = {\bf p}$. If all the entries of $E$ are positive, the matrix ${\bf p}$ can be chosen with all entries positive.
+\end{theorem}
+
+Theorem~\ref{007013} guarantees the existence of an equilibrium price structure for any closed input-output system of the type discussed here. The proof is beyond the scope of this book.\footnote{The interested reader is referred to P. Lancaster's \textit{Theory of Matrices} (New York: Academic Press, 1969) or to E. Seneta's \textit{Non-negative Matrices} (New York: Wiley, 1973).}
+
+\begin{example}\label{007017}
+Find the equilibrium price structures for four industries if the input-output matrix is
+\begin{equation*}
+E = \begin{bmatrix}
+0.6 & 0.2 & 0.1 & 0.1 \\
+0.3 & 0.4 & 0.2 & 0 \\
+0.1 & 0.3 & 0.5 & 0.2 \\
+0 & 0.1 & 0.2 & 0.7
+\end{bmatrix} 
+\end{equation*}
+Find the prices if the total value of business is $\$1000$.
+
+\begin{explanation}
+  If ${\bf p} = \begin{bmatrix}
+  p_{1} \\
+  p_{2} \\
+  p_{3} \\
+  p_{4}
+  \end{bmatrix}$
+ is the equilibrium price structure, then the equilibrium condition reads $E{\bf p} = {\bf p}$. When we write this as $(I - E){\bf p} = {\bf 0}$, we obtain the following family of solutions
+\begin{equation*}
+{\bf p} = \begin{bmatrix}
+44t \\
+39t \\
+51t \\
+47t
+\end{bmatrix}
+\end{equation*}
+where $t$ is a parameter. If we insist that $p_{1} + p_{2} + p_{3} + p_{4} = 1000$, then $t = 5.525$. Hence
+\begin{equation*}
+{\bf p} = \begin{bmatrix}
+243.09 \\
+215.47 \\
+281.76 \\
+259.67
+\end{bmatrix} 
+\end{equation*}
+to five figures.
+\end{explanation}
+\end{example}
+
+\subsection*{The Open Model}
+
+We now assume that there is a demand for products in the \textbf{open sector} of the economy, which is the part of the economy other than the producing industries (for example, consumers). Let $d_{i}$ denote the total value of the demand for product $i$ in the open sector. If $p_{i}$ and $e_{ij}$ are as before, the value of the annual demand for product $i$ by the producing industries themselves is $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$, so the total annual revenue $p_{i}$ of industry $i$ breaks down as follows:
+\begin{equation*}
+p_{i} = (e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}) + d_{i} \quad \mbox{for each } i = 1, 2, \dots, n
+\end{equation*}
+The column ${\bf d} = \left[ \begin{array}{c}
+d_{1} \\
+\vdots \\
+d_{n}
+\end{array} \right]$
+ is called the \textbf{demand matrix}, and this gives a matrix equation
+\begin{equation*}
+{\bf p} = E{\bf p} + {\bf d}
+\end{equation*}
+or
+\begin{equation}\label{eq:demandmatrix}
+(I - E){\bf p} = {\bf d}
+\end{equation}
+This is a system of linear equations for ${\bf p}$, and we ask for a solution ${\bf p}$ with every entry nonnegative. Note that every entry of $E$ is between $0$ and $1$, but the column sums of $E$ need not equal $1$ as in the closed model.
+
+Before proceeding, it is convenient to introduce a useful notation. If $A = \left[ a_{ij} \right]$ and $B = \left[ b_{ij} \right]$ are matrices of the same size, we write $A > B$ if $a_{ij} > b_{ij}$ for all $i$ and $j$, and we write $A \geq B$ if $a_{ij} \geq b_{ij}$ for all $i$ and $j$. Thus $P \geq 0$ means that every entry of $P$ is nonnegative. Note that $A \geq 0$ and $B \geq 0$ implies that $AB \geq 0$.
+
+Now, given a demand matrix ${\bf d} \geq {\bf 0}$, we look for a production matrix ${\bf p} \geq {\bf 0}$ satisfying equation (\ref{eq:demandmatrix}). This certainly exists if $I - E$ is invertible and $(I - E)^{-1} \geq 0$. On the other hand, the fact that ${\bf d} \geq {\bf 0}$ means any solution ${\bf p}$ to equation (\ref{eq:demandmatrix}) satisfies ${\bf p} \geq E{\bf p}$. Hence, the following theorem is not too surprising.
+
+\begin{theorem}\label{007060}
+Let $E \geq 0$ be a square matrix. Then $I - E$ is invertible and $(I - E)^{-1} \geq 0$ if and only if there exists a column ${\bf p} > {\bf 0}$ such that ${\bf p} > E{\bf p}$.
+\end{theorem}
+
+\begin{proof}[Heuristic Proof]
+
+\noindent If $(I - E)^{-1} \geq 0$, the existence of ${\bf p} > {\bf 0}$ with ${\bf p} > E{\bf p}$ is left as Practice Problem~\ref{ex:ex2_8_11}. Conversely, suppose such a column ${\bf p}$ exists. Observe that
+\begin{equation*}
+(I - E)(I + E + E^2 + \cdots + E^{k-1}) = I - E^k
+\end{equation*}
+holds for all $k \geq 2$. If we can show that every entry of $E^{k}$ approaches $0$ as $k$ becomes large then, intuitively, the infinite matrix sum
+\begin{equation*}
+U = I + E + E^2 + \cdots
+\end{equation*}
+exists and $(I - E)U = I$. Since $U \geq 0$, this does it. To show that $E^{k}$ approaches $0$, it suffices to show that $EP < \mu P$ for some number $\mu$ with $0 < \mu < 1$ (then $E^{k}P < \mu^{k}P$ for all $k \geq 1$ by induction). The existence of $\mu$ is left as Practice Problem~\ref{ex:ex2_8_12}.
+\end{proof}
+
+The condition ${\bf p} > E{\bf p}$ in Theorem~\ref{007060} has a simple economic interpretation. If ${\bf p}$ is a production matrix, entry $i$ of $E{\bf p}$ is the total value of all product used by industry $i$ in a year. Hence, the condition ${\bf p} > E{\bf p}$ means that, for each $i$, the value of product produced by industry $i$ exceeds the value of the product it uses. In other words, each industry runs at a profit.
+
+\begin{example}\label{007075}
+If $E = \begin{bmatrix}
+0.6 & 0.2 & 0.3 \\
+0.1 & 0.4 & 0.2 \\
+0.2 & 0.5 & 0.1
+\end{bmatrix}$,
+ show that $I - E$ is invertible and $(I - E)^{-1} \geq 0$.
+
+
+\begin{explanation}
+  Use ${\bf p} = (3, 2, 2)^{T}$ in Theorem~\ref{007060}.
+\end{explanation}
+\end{example}
+
+If ${\bf p}_{0} = (1, 1, 1)^{T}$, the entries of $E{\bf p}_{0}$ are the row sums of $E$. Hence ${\bf p}_{0} > E{\bf p}_{0}$ holds if the row sums of $E$ are all less than $1$. This proves the first of the following useful facts (the second is Practice Problem~\ref{ex:ex2_8_10}).
+
+\begin{corollary}\label{007090}
+Let $E \geq 0$ be a square matrix. In each case, $I - E$ is invertible and $(I - E)^{-1} \geq 0$:
+
+\begin{enumerate}
+\item All row sums of $E$ are less than $1$.
+
+\item All column sums of $E$ are less than $1$.
+
+\end{enumerate}
+\end{corollary}
+
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:i/o_1}
+Find the possible equilibrium price structures for each given input-output matrix.
+\begin{problem}
+
+$\begin{bmatrix}
+0.1 & 0.2 & 0.3 \\
+0.6 & 0.2 & 0.3 \\
+0.3 & 0.6 & 0.4
+\end{bmatrix}$
+
+${\bf p}=\begin{bmatrix}
+\answer{t} \\
+\answer{3t} \\
+\answer{t}
+\end{bmatrix} \quad$ (Use $t$ as the parameter.)
+\end{problem}
+
+\begin{problem}\label{prob:i/o_2}
+$\begin{bmatrix}
+0.5 & 0 & 0.5 \\
+0.1 & 0.9 & 0.2 \\
+0.4 & 0.1 & 0.3
+\end{bmatrix}$
+\end{problem}
+
+\begin{problem}\label{prob:i/o_3}
+$\begin{bmatrix}
+0.3 & 0.1 & 0.1 & 0.2 \\
+0.2 & 0.3 & 0.1 & 0 \\
+0.3 & 0.3 & 0.2 & 0.3 \\
+0.2 & 0.3 & 0.6 & 0.7
+\end{bmatrix}$
+
+${\bf p}=\begin{bmatrix}
+\answer{14t} \\
+\answer{17t} \\
+\answer{47t} \\
+\answer{23t}
+\end{bmatrix} \quad$ (Use $t$ as the parameter.)
+\end{problem}
+
+
+
+\begin{problem}\label{prob:i/o_4}
+$\begin{bmatrix}
+0.5 & 0 & 0.1 & 0.1 \\
+0.2 & 0.7 & 0 & 0.1 \\
+0.1 & 0.2 & 0.8 & 0.2 \\
+0.2 & 0.1 & 0.1 & 0.6
+\end{bmatrix}$
+\end{problem}
+
+\end{problem}
+
+
+\begin{problem}\label{prob:i/o_5}
+Three industries $A$, $B$, and $C$ are such that all the output of $A$ is used by $B$, all the output of $B$ is used by $C$, and all the output of $C$ is used by $A$. Find the possible equilibrium price structures.
+
+
+${\bf p}=\begin{bmatrix}
+\answer{t} \\
+\answer{t} \\
+\answer{t}
+\end{bmatrix} \quad$ (Use $t$ as the parameter.)
+
+\end{problem}
+
+\begin{problem}\label{prob:i/o_6}
+Find the possible equilibrium price structures for three industries where the input-output matrix is $\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}$. Discuss why there are two parameters here.
+\end{problem}
+
+\begin{problem}
+Prove Theorem~\ref{007013} for a $2 \times 2$ stochastic matrix $E$ by first writing it in the form $E = \begin{bmatrix}
+a & b \\
+1 - a & 1 - b
+\end{bmatrix}$, where $0 \leq a \leq 1$ and $0 \leq b \leq 1$.
+
+%\begin{sol}
+%$P = \left[ \begin{array}{c}
+%bt \\
+%(1 - a)t
+%\end{array} \right]$
+% is nonzero (for some $t$) unless $b = 0$ and $a = 1$. In that case, $\left[ \begin{array}{r}
+ %1 \\
+ %1
+ %\end{array} \right]$
+ %is a solution. If the entries of $E$ are positive, then $P = \left[ \begin{array}{c}
+ %b \\
+ %1 - a
+ %\end{array} \right]$
+ %has positive entries.
+%\end{sol}
+\end{problem}
+
+\begin{problem}\label{prob:i/o_7}
+If $E$ is an $n \times n$ stochastic matrix and ${\bf c}$ is an $n \times 1$ matrix, show that the sum of the entries of ${\bf c}$ equals the sum of the entries of the $n \times 1$ matrix $E{\bf c}$.
+\end{problem}
+
+\begin{problem}\label{prob:i/o_8}
+Let $W = \begin{bmatrix}
+1 & 1 & 1 & \cdots & 1
+\end{bmatrix}$. Let $E$ and $F$ denote $n \times n$ matrices with nonnegative entries.
+
+\begin{problem}\label{prob:i/o_9}
+Show that $E$ is a stochastic matrix if and only if $WE = W$.
+\end{problem} 
+
+\begin{problem}\label{prob:i/o_10}
+Use part (a.) to deduce that, if $E$ and $F$ are both stochastic matrices, then $EF$ is also stochastic.
+\end{problem} 
+
+\end{problem}
+
+\begin{problem}
+Find a $2 \times 2$ matrix $E$ with entries between $0$ and $1$ such that:
+
+\begin{enumerate}
+\item\label{prob:i/o_11} $I - E$ has no inverse.
+
+\item\label{prob:i/o_12} $I - E$ has an inverse but not all entries of $(I - E)^{-1}$ are nonnegative.
+
+\end{enumerate}
+%\begin{sol}
+%\begin{enumerate}[label={\alph*.}]
+%\setcounter{enumi}{1}
+%\item $\left[ \begin{array}{rr}
+%0.4 & 0.8 \\
+%0.7 & 0.2
+%\end{array} \right]$
+
+%\end{enumerate}
+%\end{sol}
+\end{problem}
+
+\begin{problem}\label{prob:i/o_13}
+If $E$ is a $2 \times 2$ matrix with entries between $0$ and $1$, show that $I - E$ is invertible and $(I - E)^{-1} \geq 0$ if and only if $\mbox{tr}(E) < 1 + \det E$. Here, if $E = \left[ \begin{array}{rr}
+a & b \\
+c & d
+\end{array} \right]$,
+ then $\mbox{tr}(E) = a + d$ and $\det E = ad - bc$.
+
+%\begin{sol}
+%If $E = \left[ \begin{array}{rr}
+%	a & b \\
+%	c & d
+%\end{array} \right]$,
+% then $I - E = \left[ \begin{array}{cc}
+% 1 - a & -b \\
+% -c & 1 - d
+% \end{array} \right]$,
+% so $\func{det}(I - E) = (1 - a)(1 - d) - bc = 1 - \func{tr }E + \func{det }E$. If $\func{det}(I - E) \neq 0$, then $(I - E)^{-1} = \frac{1}{\func{det}(I - E)} \left[ \begin{array}{cc}
+% 1 - d & b \\
+% c & 1 - a
+% \end{array} \right]$, so $(I - E)^{-1} \geq 0$ if $\func{det}(I - E) > 0$, that is, $\func{tr }E < 1 + \func{det } E$.
+% The converse is now clear.
+%\end{sol}
+\end{problem}
+
+\begin{problem}
+In each case show that $I - E$ is invertible and $(I - E)^{-1} \geq 0$.
+\begin{problem}\label{prob:i/o_14}
+$\begin{bmatrix}
+0.6 & 0.5 & 0.1 \\
+0.1 & 0.3 & 0.3 \\
+0.2 & 0.1 & 0.4
+\end{bmatrix}$
+\begin{hint}
+Use ${\bf p} = \begin{bmatrix}
+3 \\
+2 \\
+1
+\end{bmatrix}$
+ in Theorem~\ref{007060}.
+\end{hint}
+\end{problem}
+\begin{problem}\label{prob:i/o_15}
+$\begin{bmatrix}
+0.7 & 0.1 & 0.3 \\
+0.2 & 0.5 & 0.2 \\
+0.1 & 0.1 & 0.4
+\end{bmatrix}$
+\end{problem}
+\begin{problem}\label{prob:i/o_16}
+$\begin{bmatrix}
+0.6 & 0.2 & 0.1 \\
+0.3 & 0.4 & 0.2 \\
+0.2 & 0.5 & 0.1
+\end{bmatrix}$
+\begin{hint}
+Use ${\bf p} = \begin{bmatrix}
+3 \\
+2 \\
+2
+\end{bmatrix}$
+ in Theorem~\ref{007060}.
+\end{hint}
+\end{problem}
+\begin{problem}\label{prob:i/o_17}
+$\begin{bmatrix}
+0.8 & 0.1 & 0.1 \\
+0.3 & 0.1 & 0.2 \\
+0.3 & 0.3 & 0.2
+\end{bmatrix}$
+\end{problem}
+
+\end{problem}
+
+\begin{problem}\label{ex:ex2_8_10}
+Prove that (1) implies (2) in the Corollary to Theorem~\ref{007060}.
+\end{problem}
+
+\begin{problem}\label{ex:ex2_8_11}
+If $(I - E)^{-1} \geq 0$, find ${\bf p} > 0$ such that ${\bf p} > E{\bf p}$.
+\end{problem}
+
+\begin{problem}\label{ex:ex2_8_12}
+If $E{\bf p} < {\bf p}$ where $E \geq 0$ and ${\bf p} > 0$, find a number $\mu$ such that $E{\bf p} < \mu{\bf p}$ and $0 < \mu < 1$.
+
+\begin{hint}
+If $E{\bf p} = (q_{1}, \dots, q_{n})^{T}$ and ${\bf p} = (p_{1}, \dots, p_{n})^{T}$, take any number $\mu$ where $\mbox{max}\left\lbrace \frac{q_{1}}{p_{1}}, \dots, \frac{q_{n}}{p_{n}} \right\rbrace < \mu < 1$.
+\end{hint}
+
+\end{problem}
+
+\section*{Text Source} This application was adapted from Section 2.8 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 128 
+
+%\section*{Example Source}
+%Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
+
+%\section*{Exercise Source}
+%Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
+
+
+
+
+\end{document}
+
