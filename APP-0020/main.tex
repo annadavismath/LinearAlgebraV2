@@ -6,7 +6,7 @@
 \begin{document}
 
 \begin{abstract}
- We study an application of systems of equations to electrical networks.
+% We study an application of systems of equations to electrical networks.
 \end{abstract}
 \maketitle
 
@@ -91,30 +91,27 @@ Find the various currents in the circuit shown.
 %\end{wrapfigure}
   First apply the junction rule at junctions $A$, $B$, $C$, and $D$ to obtain
 
-$$
-\begin{array*}{lrcl}
-	\mbox{Junction } A & I_1 & = & I_2 + I_3 \\
-	\mbox{Junction } B & I_6 & = & I_1 + I_5 \\
-	\mbox{Junction } C & \quad I_2 + I_4 & = & I_6 \\
-	\mbox{Junction } D & I_3 + I_5 & = & I_4 \\
-\end{array*}$$
+
+$$\begin{array}{lccccccc}
+	\mbox{Junction } A:\quad &&& I_1 & = & I_2 &+& I_3 \\
+	\mbox{Junction } B:\quad &&& I_6 & = & I_1 &+& I_5 \\
+	\mbox{Junction } C:\quad & I_2 &+& I_4 & = & I_6 && \\
+	\mbox{Junction } D:\quad & I_3 &+& I_5 & = & I_4&& \\
+\end{array}$$
 
 Note that these equations are not independent (in fact, the third is an easy consequence of the other three).
 
 Next, the circuit rule insists that the sum of the voltage increases (due to the sources) around a closed circuit must equal the sum of the voltage drops (due to resistances). By Ohm's law, the voltage loss across a resistance $R$ (in the direction of the current $I$) is $RI$. Going counterclockwise around three closed circuits yields
 
-$$\begin{array*}{lrrrcl}
-	\mbox{Upper left} &  10 & + & 5 & = & 20I_1 \\
-	\mbox{Upper right} & \quad  -5 & +& 20 & = & 10I_3 + 5I_4 \\
-	\mbox{Lower} & & &-10 & = & -20I_5 - 5I_4 \\
-\end{array*}$$
+$$\begin{array}{lcccccccc}
+	\mbox{Upper left: } \quad\quad  &10 & + & 5 & = & 20I_1 && \\
+	\mbox{Upper right: } &-5 & +& 20 & = & 10I_3& +& 5I_4 \\
+	\mbox{Lower: } && &-10 & = & -20I_5 &-& 5I_4 \\
+\end{array}$$
 
 Hence, disregarding the redundant equation obtained at junction $C$, we have six equations in the six unknowns $I_1, \dots, I_6$. The solution is
 
-$$\begin{array*}{cccccc}
-	I_1 = \frac{15}{20} & I_2 = \frac{-1}{20} &
-	I_3 = \frac{16}{20} & I_4 = \frac{28}{20} & I_5 = \frac{12}{20} & I_6 = \frac{27}{20}
-    \end{array*}$$
+$$	I_1 = \frac{15}{20} I_2 = \frac{-1}{20}I_3 = \frac{16}{20} I_4 = \frac{28}{20}I_5 = \frac{12}{20}I_6 = \frac{27}{20}$$
 
 The fact that $I_2$ is negative means, of course, that this current is in the opposite direction, with a magnitude of $\frac{1}{20}$ amperes.
 
