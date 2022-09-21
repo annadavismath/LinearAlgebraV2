@@ -1,0 +1,651 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{Application to Markov Chains} \license{CC-BY 4.0}
+
+\begin{document}
+
+\begin{abstract}
+% We study an application of matrix algebra to Markov Chains.
+\end{abstract}
+\maketitle
+
+\section*{Application to Markov Chains}
+Many natural phenomena progress through various stages and can be in a variety of states at each stage. For example, the weather in a given city progresses day by day and, on any given day, may be sunny or rainy. Here the states are ``sun'' and ``rain,'' and the weather progresses from one state to another in daily stages. Another example might be a football team: The stages of its evolution are the games it plays, and the possible states are ``win,'' ``draw,'' and ``loss.''
+
+
+The general setup is as follows: A ``system'' evolves through a series of ``stages,'' and at any stage it can be in any one of a finite number of ``states.'' At any given stage, the state to which it will go at the next stage depends on the past and present history of the system---that is, on the sequence of states it has occupied to date.
+
+
+\begin{definition}{Markov Chain}\label{007191}
+A \textbf{Markov chain} is such an evolving system wherein the state to which it will go next depends only on its present state and does not depend on the earlier history of the system.
+\end{definition}
+Note: The name honours Andrei Andreyevich Markov (1856--1922) who was a professor at the university in St. Petersburg, Russia.
+
+Even in the case of a Markov chain, the state the system will occupy at any stage is determined only in terms of probabilities. In other words, chance plays a role. For example, if a football team wins a particular game, we do not know whether it will win, draw, or lose the next game. On the other hand, we may know that the team tends to persist in winning streaks; for example, if it wins one game it may win the next game $\frac{1}{2}$ of the time, lose $\frac{4}{10}$ of the time, and draw $\frac{1}{10}$ of the time. These fractions are called the \textbf{probabilities} of these various possibilities. Similarly, if the team loses, it may lose the next game with probability $\frac{1}{2}$ (that is, half the time), win with probability $\frac{1}{4}$, and draw with probability $\frac{1}{4}$. The probabilities of the various outcomes after a drawn game will also be known.
+
+
+We shall treat probabilities informally here: \textit{The probability that a given event will occur is the long-run proportion of the time that the event does indeed occur}. Hence, all probabilities are numbers between $0$ and $1$. A probability of $0$ means the event is impossible and never occurs; events with probability $1$ are certain to occur.
+
+
+If a Markov chain is in a particular state, the probabilities that it goes to the various states at the next stage of its evolution are called the \textbf{transition probabilities} for the chain, and they are assumed to be known quantities. To motivate the general conditions that follow, consider the following simple example. Here the system is a man, the stages are his successive lunches, and the states are the two restaurants he chooses.
+
+\begin{example}\label{007199}
+A man always eats lunch at one of two restaurants, $A$ and $B$. He never eats at $A$ twice in a row. However, if he eats at $B$, he is three times as likely to eat at $B$ next time as at $A$. Initially, he is equally likely to eat at either restaurant.
+
+
+\begin{enumerate}
+\item What is the probability that he eats at $A$ on the third day after the initial one?
+
+\item What proportion of his lunches does he eat at $A$?
+
+\end{enumerate}
+
+ \begin{explanation}
+  The table of transition probabilities follows. The $A$ column indicates that if he eats at $A$ on one day, he never eats there again on the next day and so is certain to go to $B$.
+  
+$$
+\begin{array}{ccccc}
+   & & \textbf{Present Lunch} & \\
+   &  & A & B  \\
+ \textbf{Next Lunch} &   A &    0  &    0.25 \\
+   & B &    1  &    0.75   \\
+ \end{array}
+ $$
+ 
+
+The $B$ column shows that, if he eats at $B$ on one day, he will eat there on the next day $\frac{3}{4}$ of the time and switches to $A$ only $\frac{1}{4}$ of the time.
+
+
+The restaurant he visits on a given day is not determined. The most that we can expect is to know the probability that he will visit $A$ or $B$ on that day.
+
+Let ${\bf s}_{m} = \begin{bmatrix}
+s_{1}^{(m)} \\
+s_{2}^{(m)}
+\end{bmatrix}$
+ denote the \textit{state vector} for day $m$. Here $s_{1}^{(m)}$ denotes the probability that he eats at $A$ on day $m$, and $s_{2}^{(m)}$ is the probability that he eats at $B$ on day $m$. It is convenient to let ${\bf s}_{0}$ correspond to the initial day. Because he is equally likely to eat at $A$ or $B$ on that initial day, $s_{1}^{(0)} = 0.5$ and $s_{2}^{(0)} = 0.5$, so ${\bf s}_{0} = \begin{bmatrix}
+0.5 \\
+0.5
+\end{bmatrix}.$
+ Now let
+\begin{equation*}
+P = \begin{bmatrix}
+0 & 0.25 \\
+1 & 0.75
+\end{bmatrix}
+\end{equation*}
+denote the \textit{transition matrix}. We claim that the relationship
+\begin{equation*}
+{\bf s}_{m+1} = P{\bf s}_m
+\end{equation*}
+holds for all integers $m \geq 0$. This will be derived later; for now, we use it as follows to successively compute ${\bf s}_{1}, {\bf s}_{2}, {\bf s}_{3}, \dots$.
+\begin{align*}
+{\bf s}_{1} &= P{\bf s}_0 = \begin{bmatrix}
+0 & 0.25 \\
+1 & 0.75
+\end{bmatrix}
+\begin{bmatrix}
+0.5 \\
+0.5
+\end{bmatrix} =
+\begin{bmatrix}
+0.125 \\
+0.875
+\end{bmatrix} \\
+{\bf s}_{2} &= P{\bf s}_1 =  \begin{bmatrix}
+0 & 0.25 \\
+1 & 0.75
+\end{bmatrix}
+\begin{bmatrix}
+0.125 \\
+0.875
+\end{bmatrix} =
+\begin{bmatrix}
+0.21875 \\
+0.78125
+\end{bmatrix} \\
+{\bf s}_{3} &= P{\bf s}_2 = \begin{bmatrix}
+0 & 0.25 \\
+1 & 0.75
+\end{bmatrix}
+\begin{bmatrix}
+0.21875 \\
+0.78125
+\end{bmatrix} =
+\begin{bmatrix}
+0.1953125 \\
+0.8046875
+\end{bmatrix}
+\end{align*}
+Hence, the probability that his third lunch (after the initial one) is at $A$ is approximately $0.195$, whereas the probability that it is at $B$ is $0.805$. If we carry these calculations on, the next state vectors are (to five figures):
+\begin{align*}
+{\bf s}_4 &= \begin{bmatrix}
+0.20117 \\
+0.79883
+\end{bmatrix}
+\quad {\bf s}_5 = \begin{bmatrix}
+0.19971 \\
+0.80029
+\end{bmatrix} \\
+{\bf s}_6 &= \begin{bmatrix}
+0.20007 \\
+0.79993
+\end{bmatrix} \quad {\bf s}_7 = \begin{bmatrix}
+0.19998 \\
+0.80002
+\end{bmatrix}
+\end{align*}
+Moreover, as $m$ increases the entries of ${\bf s}_{m}$ get closer and closer to the corresponding entries of $\begin{bmatrix}
+0.2 \\
+0.8
+\end{bmatrix}$.
+ Hence, in the long run, he eats $20\%$ of his lunches at $A$ and $80\%$ at $B$.
+\end{explanation}
+\end{example}
+
+
+%\input{2-matrix-algebra/figures/9-an-application-to-markov-chains/transition}
+%\caption{\label{fig:007242}}
+
+
+Example~\ref{007199} incorporates most of the essential features of all Markov chains. The general model is as follows: The system evolves through various stages and at each stage can be in exactly one of $n$ distinct states. It progresses through a sequence of states as time goes on. If a Markov chain is in state $j$ at a particular stage of its development, the probability $p_{ij}$ that it goes to state $i$ at the next stage is called the \textbf{transition probability}. The $n \times n$ matrix $P = \begin{bmatrix}
+p_{ij}
+\end{bmatrix}$ is called the \textbf{transition matrix} for the Markov chain. The situation is depicted graphically in the diagram.
+
+We make one important assumption about the transition matrix $P = \begin{bmatrix}
+p_{ij}
+\end{bmatrix}$: It does \textit{not} depend on which stage the process is in. This assumption means that the transition probabilities are \textit{independent of time}---that is, they do not change as time goes on. It is this assumption that distinguishes Markov chains in the literature of this subject.
+
+\begin{example}\label{007243}
+Suppose the transition matrix of a three-state Markov chain is
+%\begin{equation*}
+%\begin{tabu}{ccccccc@{}ll}
+%& & & & \multicolumn{3}{c}{\arraycolsep=10pt\begin{array}{ccc}
+%	\multicolumn{3}{c}{\mbox{Present state}} \\
+%	1 & 2 & 3
+%	\end{array}} & & \\
+%P & = & \leftB \begin{array}{rrr}
+%p_{11} & p_{12} & p_{13} \\
+%p_{21} & p_{22} & p_{23} \\
+%p_{31} & p_{32} & p_{33}
+%\end{array} \rightB & = & \multicolumn{3}{c}{
+%	\leftB \begin{array}{ccc}
+%	0.3 & 0.1 & 0.6 \\
+%	0.5 & 0.9 & 0.2 \\
+%	0.2 & 0.0 & 0.2
+%	\end{array} \rightB} & \arraycolsep=-3pt\begin{array}{c}
+%1 \\
+%2 \\
+%3
+%\end{array} & \mbox{Next state} \\
+%\end{tabu}
+%\end{equation*}
+If, for example, the system is in state 2, then column 2 lists the probabilities of where it goes next. Thus, the probability is $p_{12} = 0.1$ that it goes from state 2 to state 1, and the probability is $p_{22} = 0.9$ that it goes from state 2 to state 2. The fact that $p_{32} = 0$ means that it is impossible for it to go from state 2 to state 3 at the next stage.
+\end{example}
+
+Consider the $j$th column of the transition matrix $P$.
+\begin{equation*}
+\begin{bmatrix}
+p_{1j} \\
+p_{2j} \\
+\vdots \\
+p_{nj}
+\end{bmatrix}
+\end{equation*}
+If the system is in state $j$ at some stage of its evolution, the transition probabilities $p_{1j}, p_{2j}, \dots, p_{nj}$ represent the fraction of the time that the system will move to state 1, state 2, \dots, state $n$, respectively, at the next stage. We assume that it has to go to \textit{some} state at each transition, so the sum of these probabilities is $1$:
+\begin{equation*}
+p_{1j} + p_{2j} + \cdots + p_{nj} = 1 \quad \mbox{for each } j
+\end{equation*}
+Thus, the columns of $P$ all sum to $1$ and the entries of $P$ lie between $0$ and $1$. Hence $P$ is called a \textbf{stochastic matrix}.
+
+
+As in Example~\ref{007199}, we introduce the following notation: Let $s_{i}^{(m)}$ denote the probability that the system is in state $i$ after $m$ transitions. The $n \times 1$ matrices
+\begin{equation*}
+{\bf s}_m = \begin{bmatrix}
+s_{1}^{(m)} \\
+s_{2}^{(m)} \\
+\vdots \\
+s_{n}^{(m)}
+\end{bmatrix}
+\quad m = 0, 1, 2, \dots
+\end{equation*}
+are called the \textbf{state vectors} for the Markov chain. Note that the sum of the entries of ${\bf s}_{m}$ must equal $1$ because the system must be in \textit{some} state after $m$ transitions. The matrix ${\bf s}_{0}$ is called the \textbf{initial state vector} for the Markov chain and is given as part of the data of the particular chain. For example, if the chain has only two states, then an initial vector ${\bf s}_0 = \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}$
+ means that it started in state 1. If it started in state 2, the initial vector would be ${\bf s}_0 = \begin{bmatrix}
+0 \\
+1
+\end{bmatrix}$.
+ If ${\bf s}_0 = \begin{bmatrix}
+0.5 \\
+0.5
+\end{bmatrix}$, it is equally likely that the system started in state 1 or in state 2.
+
+\begin{theorem}\label{007270}
+Let $P$ be the transition matrix for an $n$-state Markov chain. If ${\bf s}_{m}$ is the state vector at stage $m$, then
+\begin{equation*}
+{\bf s}_{m+1} = P{\bf s}_m
+\end{equation*}
+for each $m = 0, 1, 2, \dots$.
+\end{theorem}
+
+\begin{proof}[Heuristic Proof]
+Suppose that the Markov chain has been run $N$ times, each time starting with the same initial state vector. Recall that $p_{ij}$ is the proportion of the time the system goes from state $j$ at some stage to state $i$ at the next stage, whereas $s_{i}^{(m)}$ is the proportion of the time it is in state $i$ at stage $m$. Hence
+\begin{equation*}
+s_{i}^{m+1}N
+\end{equation*}
+is (approximately) the number of times the system is in state $i$ at stage $m + 1$. We are going to calculate this number another way. The system got to state $i$ at stage $m + 1$ through \textit{some} other state (say state $j$) at stage $m$. The number of times it was \textit{in} state $j$ at that stage is (approximately) $s_{j}^{(m)}N$, so the number of times it got to state $i$ via state $j$ is $p_{ij}(s_{j}^{(m)}N)$. Summing over $j$ gives the number of times the system is in state $i$ (at stage $m + 1$). This is the number we calculated before, so
+\begin{equation*}
+s_{i}^{(m+1)}N = p_{i1}s_{1}^{(m)}N + p_{i2}s_{2}^{(m)}N + \cdots + p_{in}s_{n}^{(m)}N
+\end{equation*}
+Dividing by $N$ gives $s_{i}^{(m+1)} = p_{i1}s_{1}^{(m)} + p_{i2}s_{2}^{(m)} + \cdots + p_{in}s_{n}^{(m)}$ for each $i$, and this can be expressed as the matrix equation ${\bf s}_{m+1} = P{\bf s}_{m}$.
+\end{proof}
+
+If the initial probability vector ${\bf s}_{0}$ and the transition matrix $P$ are given, Theorem~\ref{007270} gives ${\bf s}_{1}, {\bf s}_{2}, {\bf s}_{3}, \dots$, one after the other, as follows:
+\begin{equation*}
+\begin{array}{c}
+{\bf s}_{1} = P{\bf s}_0 \\
+{\bf s}_{2} = P{\bf s}_1 \\
+{\bf s}_{3} = P{\bf s}_2 \\
+\vdots
+\end{array}
+\end{equation*}
+Hence, the state vector ${\bf s}_{m}$ is completely determined for each $m = 0, 1, 2, \dots$ by $P$ and ${\bf s}_{0}$.
+
+\begin{example}\label{007301}
+A wolf pack always hunts in one of three regions $R_{1}$, $R_{2}$, and $R_{3}$. Its hunting habits are as follows:
+
+\begin{enumerate}
+\item If it hunts in some region one day, it is as likely as not to hunt there again the next day.
+
+\item If it hunts in $R_{1}$, it never hunts in $R_{2}$ the next day.
+
+\item If it hunts in $R_{2}$ or $R_{3}$, it is equally likely to hunt in each of the other regions the next day.
+
+\end{enumerate}
+
+If the pack hunts in $R_{1}$ on Monday, find the probability that it hunts there on Thursday.
+
+
+\begin{explanation}
+  The stages of this process are the successive days; the states are the three regions. The transition matrix $P$ is determined as follows (see the table): The first habit asserts that $p_{11} = p_{22} = p_{33} = \frac{1}{2}$. Now column 1 displays what happens when the pack starts in $R_{1}$: It never goes to state 2, so $p_{21} = 0$ and, because the column must sum to $1$, $p_{31} = \frac{1}{2}$. Column 2 describes what happens if it starts in $R_{2}$: $p_{22} = \frac{1}{2}$ and $p_{12}$ and $p_{32}$ are equal (by habit 3), so $p_{12} = p_{32} = \frac{1}{2}$ because the column sum must equal $1$. Column 3 is filled in a similar way.
+%\begin{equation*}
+%	\def\arraystretch{1.5}
+%	\begin{tabu}{|c|c|c|c|}
+%	\hline
+%	& R_{1} & R_{2} & R_{3} \\ \hline
+%	R_{1} & \frac{1}{2} & \frac{1}{4} & \frac{1}{4} \\
+%	R_{2} & 0 & \frac{1}{2} & \frac{1}{4} \\
+%	R_{3} & \frac{1}{2} & \frac{1}{4} & \frac{1}{2} \\
+%	\hline
+%	\end{tabu}
+%\end{equation*}
+Now let Monday be the initial stage. Then ${\bf s}_0 = \begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}$
+ because the pack hunts in $R_{1}$ on that day. Then ${\bf s}_{1}$, ${\bf s}_{2}$, and ${\bf s}_{3}$ describe Tuesday, Wednesday, and Thursday, respectively, and we compute them using Theorem~\ref{007270}.
+\begin{equation*}
+{\bf s}_1 = P{\bf s}_0 = \begin{bmatrix}
+\frac{1}{2} \\
+0 \\
+\frac{1}{2}
+\end{bmatrix} \quad
+{\bf s}_2 = P{\bf s}_1 = \begin{bmatrix}
+\frac{3}{8} \\
+\frac{1}{8} \\
+\frac{4}{8}
+\end{bmatrix} \quad
+{\bf s}_3 = P{\bf s}_2 = \begin{bmatrix}
+\frac{11}{32} \\
+\frac{6}{32} \\
+\frac{15}{32}
+\end{bmatrix}
+\end{equation*}
+Hence, the probability that the pack hunts in Region $R_{1}$ on Thursday is $\frac{11}{32}$.
+\end{explanation}
+\end{example}
+
+\subsubsection*{Steady State Vector}
+
+Another phenomenon that was observed in Example~\ref{007199} can be expressed in general terms. The state vectors ${\bf s}_{0}, {\bf s}_{1}, {\bf s}_{2}, \dots$ were calculated in that example and were found to ``approach'' ${\bf s} = \begin{bmatrix}
+0.2 \\
+0.8
+\end{bmatrix}$.
+ This means that the first component of ${\bf s}_{m}$ becomes and remains very close to $0.2$ as $m$ becomes large, whereas the second component gets close to $0.8$ as $m$ increases. When this is the case, we say that ${\bf s}_{m}$ \textbf{converges} to ${\bf s}$. For large $m$, then, there is very little error in taking ${\bf s}_{m} = {\bf s}$, so the long-term probability that the system is in state 1 is $0.2$, whereas the probability that it is in state 2 is $0.8$. In Example~\ref{007199}, enough state vectors were computed for the limiting vector ${\bf s}$ to be apparent. However, there is a better way to do this that works in most cases.
+
+Suppose $P$ is the transition matrix of a Markov chain, and assume that the state vectors ${\bf s}_{m}$ converge to a limiting vector ${\bf s}$. Then ${\bf s}_{m}$ is very close to ${\bf s}$ for sufficiently large $m$, so ${\bf s}_{m+1}$ is also very close to ${\bf s}$. Thus, the equation ${\bf s}_{m+1} = P{\bf s}_{m}$ from Theorem~\ref{007270} is closely approximated by
+\begin{equation*}
+{\bf s} = P{\bf s}
+\end{equation*}
+so it is not surprising that ${\bf s}$ should be a solution to this matrix equation. Moreover, it is easily solved because it can be written as a system of homogeneous linear equations
+\begin{equation*}
+(I - P){\bf s} = {\bf 0}
+\end{equation*}
+with the entries of ${\bf s}$ as variables.
+
+
+In Example~\ref{007199}, where $P = \begin{bmatrix}
+0 & 0.25 \\
+1 & 0.75
+\end{bmatrix}$,
+ the general solution to $(I - P){\bf s} = {\bf 0}$ is ${\bf s} = \begin{bmatrix}
+ t \\
+ 4t
+\end{bmatrix}$,
+ where $t$ is a parameter. But if we insist that the entries of $S$ sum to $1$ (as must be true of all state vectors), we find $t = 0.2$ and so ${\bf s} = \begin{bmatrix}
+ 0.2 \\
+ 0.8
+\end{bmatrix}$
+ as before.
+
+
+All this is predicated on the existence of a limiting vector for the sequence of state vectors of the Markov chain, and such a vector may not always exist. However, it does exist in one commonly occurring situation. A stochastic matrix $P$ is called \textbf{regular} if some power $P^{m}$ of $P$ has every entry greater than zero. The matrix $P = \begin{bmatrix}
+ 0 & 0.25 \\
+ 1 & 0.75
+\end{bmatrix}$
+ of Example~\ref{007199} is regular (in this case, each entry of $P^{2}$ is positive), and the general theorem is as follows:
+
+
+\begin{theorem}\label{007400}
+Let $P$ be the transition matrix of a Markov chain and assume that $P$ is regular. Then there is a unique column matrix ${\bf s}$ satisfying the following conditions:
+
+
+\begin{enumerate}
+\item $P{\bf s} = {\bf s}$.
+
+\item The entries of ${\bf s}$ are positive and sum to $1$.
+
+\end{enumerate}
+
+Moreover, condition 1 can be written as
+\begin{equation*}
+(I - P){\bf s} = {\bf 0}
+\end{equation*}
+and so gives a homogeneous system of linear equations for ${\bf s}$. Finally, the sequence of state vectors ${\bf s}_{0}, {\bf s}_{1}, {\bf s}_{2}, \dots$ converges to ${\bf s}$ in the sense that if $m$ is large enough, each entry of ${\bf s}_{m}$ is closely approximated by the corresponding entry of ${\bf s}$.
+\end{theorem}
+
+\noindent This theorem will not be proved here.  The interested reader can find an elementary proof in J. Kemeny, H. Mirkil, J. Snell, and G. Thompson, \textit{Finite Mathematical Structures} (Englewood Cliffs, N.J.: Prentice-Hall, 1958).
+
+If $P$ is the regular transition matrix of a Markov chain, the column ${\bf s}$ satisfying conditions 1 and 2 of Theorem~\ref{007400} is called the \textbf{steady-state vector}for the Markov chain. The entries of ${\bf s}$ are the long-term probabilities that the chain will be in each of the various states.
+
+
+\begin{example}\label{007416}
+A man eats one of three soups---beef, chicken, and vegetable---each day. He never eats the same soup two days in a row. If he eats beef soup on a certain day, he is equally likely to eat each of the others the next day; if he does not eat beef soup, he is twice as likely to eat it the next day as the alternative.
+
+
+\begin{enumerate}
+\item If he has beef soup one day, what is the probability that he has it again two days later?
+
+\item What are the long-run probabilities that he eats each of the three soups?
+
+\end{enumerate}
+
+\begin{explanation}
+  The states here are $B$, $C$, and $V$, the three soups. The transition matrix $P$ is given in the table. (Recall that, for each state, the corresponding column lists the probabilities for the next state.)
+%\begin{equation*}
+%\def\arraystretch{1.5}
+%\begin{tabu}{|c|c|c|c|}
+%\hline
+%& B & C & V \\ \hline
+%B & 0 & \frac{2}{3} & \frac{2}{3} \\
+%C & \frac{1}{2} & 0 & \frac{1}{3} \\
+%V & \frac{1}{2} & \frac{1}{3} & 0 \\
+%\hline
+%\end{tabu}
+%\end{equation*}
+If he has beef soup initially, then the initial state vector is
+\begin{equation*}
+{\bf s}_0 = \begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix} 
+\end{equation*}
+Then two days later the state vector is ${\bf s}_{2}$. If $P$ is the transition matrix, then
+\begin{equation*}
+{\bf s}_1 = P{\bf s}_0 = \frac{1}{2} \begin{bmatrix}
+0 \\
+1 \\
+1
+\end{bmatrix}, \quad
+{\bf s}_2 = P{\bf s}_1 = \frac{1}{6} \begin{bmatrix}
+4 \\
+1 \\
+1
+\end{bmatrix}
+\end{equation*}
+so he eats beef soup two days later with probability $\frac{2}{3}$. This answers (a.) and also shows that he eats chicken and vegetable soup each with probability $\frac{1}{6}$.
+
+
+To find the long-run probabilities, we must find the steady-state vector ${\bf s}$. Theorem~\ref{007400} applies because $P$ is regular ($P^{2}$ has positive entries), so ${\bf s}$ satisfies $P{\bf s} = {\bf s}$. That is, $(I - P){\bf s} = {\bf 0}$ where
+\begin{equation*}
+I - P = \frac{1}{6} \begin{bmatrix}
+6 & -4 & -4 \\
+-3 & 6 & -2 \\
+-3 & -2 & 6
+\end{bmatrix}
+\end{equation*}
+The solution is ${\bf s} = \begin{bmatrix}
+4t \\
+3t \\
+3t
+\end{bmatrix}$,
+ where $t$ is a parameter, and we use ${\bf s} = \begin{bmatrix}
+ 0.4 \\
+ 0.3 \\
+ 0.3
+\end{bmatrix}$
+ because the entries of ${\bf s}$ must sum to $1$. Hence, in the long run, he eats beef soup $40\%$ of the time and eats chicken soup and vegetable soup each $30\%$ of the time.
+\end{explanation}
+\end{example}
+
+\section*{Practice Problems}
+
+\begin{problem}
+Which of the following stochastic matrices is regular?
+\begin{problem}\label{prob:RegOrNot1}
+$\begin{bmatrix}
+0 & 0 & \frac{1}{2} \\
+1 & 0 & \frac{1}{2} \\
+0 & 1 & 0
+\end{bmatrix}$
+ \begin{multipleChoice}
+ \choice{Regular}
+ \choice[correct]{Not regular}
+ \end{multipleChoice}
+\end{problem}
+\begin{problem}\label{prob:RegOrNot2}
+$\begin{bmatrix}
+\frac{1}{2} & 0 & \frac{1}{3} \\
+\frac{1}{4} & 1 & \frac{1}{3} \\
+\frac{1}{4} & 0 & \frac{1}{3}
+\end{bmatrix}$
+ \begin{multipleChoice}
+ \choice{Regular}
+ \choice[correct]{Not regular}
+ \end{multipleChoice}
+\end{problem}
+\end{problem}
+
+\begin{problem}
+In each case find the steady-state vector and, assuming that it starts in state 1, find the probability that it is in state 2 after $3$ transitions.
+
+\begin{problem}\label{prob:SteadyState&ProbVec1}
+$$\begin{bmatrix}
+0.5 & 0.3 \\
+0.5 & 0.7
+\end{bmatrix}$$
+Steady state vector $ = \begin{bmatrix}
+\answer{\frac{2}{3}} \\
+\answer{\frac{1}{3}}
+\end{bmatrix}$, probability $ = \answer{\frac{3}{8}}$
+\end{problem}
+\begin{problem}\label{prob:SteadyState&ProbVec2}
+$$\begin{bmatrix}
+\frac{1}{2} & 1 \\
+\frac{1}{2} & 0
+\end{bmatrix}$$
+\end{problem}
+\begin{problem}\label{prob:SteadyState&ProbVec3}
+$$\begin{bmatrix}
+	0 & \frac{1}{2} & \frac{1}{4} \\
+	1 & 0 & \frac{1}{4} \\
+	0 & \frac{1}{2} & \frac{1}{2}
+\end{bmatrix}$$ 
+Steady state vector $ = \begin{bmatrix}
+\answer{\frac{1}{3}} \\
+\answer{\frac{1}{3}} \\
+\answer{\frac{1}{3}}
+\end{bmatrix}$, probability $ = \answer{0.312}$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}
+0.4 & 0.1 & 0.5 \\
+0.2 & 0.6 & 0.2 \\
+0.4 & 0.3 & 0.3
+\end{bmatrix}$$
+\end{problem}
+\begin{problem}\label{prob:SteadyState&ProbVec4}
+$$\begin{bmatrix}
+0.8 & 0.0 & 0.2 \\
+0.1 & 0.6 & 0.1 \\
+0.1 & 0.4 & 0.7
+\end{bmatrix}$$ 
+Steady state vector = $\begin{bmatrix}
+\answer{\frac{1}{4}} \\
+\answer{\frac{7}{20}} \\
+\answer{\frac{2}{5}}
+\end{bmatrix}$, probability $ = \answer{0.306}$
+\end{problem}
+\begin{problem}
+$$\begin{bmatrix}
+0.1 & 0.3 & 0.3 \\
+0.3 & 0.1 & 0.6 \\
+0.6 & 0.6 & 0.1
+\end{bmatrix}$$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+A fox hunts in three territories $A$, $B$, and $C$. He never hunts in the same territory on two successive days. If he hunts in $A$, then he hunts in $C$ the next day. If he hunts in $B$ or $C$, he is twice as likely to hunt in $A$ the next day as in the other territory.
+\begin{problem}\label{prob:fox1}
+What proportion of his time does he spend in $A$, in $B$, and in $C$?
+\end{problem}
+\begin{problem}\label{prob:fox2}
+If he hunts in $A$ on Monday ($C$ on Monday), what is the probability that he will hunt in $B$ on Thursday?
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Assume that there are three social classes---upper, middle, and lower---and that social mobility behaves as follows:
+
+\begin{enumerate}
+\item Of the children of upper-class parents, $70\%$ remain upper-class, whereas $10\%$ become middle-class and $20\%$ become lower-class.
+
+\item Of the children of middle-class parents, $80\%$ remain middle-class, whereas the others are evenly split between the upper class and the lower class.
+
+\item For the children of lower-class parents, $60\%$ remain lower-class, whereas $30\%$ become middle-class and $10\%$ upper-class.
+
+\begin{problem}\label{prob:SocialClass1}
+Find the probability that the grandchild of lower-class parents becomes upper-class.
+\end{problem}
+\begin{problem}\label{prob:SocialClass2}
+Find the long-term breakdown of society into classes.
+$\answer{50}\%$ middle, $\answer{25}\%$ upper, $\answer{25}\%$ lower
+\end{problem}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:election}
+The prime minister says she will call an election. This gossip is passed from person to person with a probability $p \neq 0$ that the information is passed incorrectly at any stage. Assume that when a person hears the gossip he or she passes it to one person who does not know. Find the long-term probability that a person will hear that there is going to be an election.
+\end{problem}
+
+\begin{problem}\label{prob:late4work}
+John makes it to work on time one Monday out of four. On other work days his behaviour is as follows: If he is late one day, he is twice as likely to come to work on time the next day as to be late. If he is on time one day, he is as likely to be late as not the next day. Find the probability of his being late and that of his being on time Wednesdays.
+Probability of being late $= \answer{\frac{7}{16}}$, Probability of being on time $= \answer{\frac{9}{16}}$
+\end{problem}
+
+\begin{problem}\label{prob:matchcoins}
+Suppose you have $1$ cent and match coins with a friend. At each match you either win or lose $1$ cent \ with equal probability. If you go broke or ever get $4$ cents, you quit. Assume your friend never quits. If the states are 0, 1, 2, 3, and 4 representing your wealth, show that the corresponding transition matrix $P$ is not regular. Find the probability that you will go broke after $3$ matches.
+\end{problem}
+
+\begin{problem}
+A mouse is put into a maze of compartments, as in the diagram. Assume that he always leaves any compartment he enters and that he is equally likely to take any tunnel entry.
+
+%\begin{figure}[H]
+%\centering
+%\input{2-matrix-algebra/figures/9-an-application-to-markov-chains/exercise2.9.8}
+%\caption{\label{fig:007524}}
+%\end{figure}
+
+\begin{problem}\label{prob:mouse1} 
+If he starts in compartment 1, find the probability that he is in compartment 1 again after $3$ moves.
+$\answer{\frac{7}{75}}$
+\end{problem}
+\begin{problem}\label{prob:mouse2} 
+Find the compartment in which he spends most of his time if he is left for a long time.
+He spends most of his time in compartment $\answer{3}$.  The steady state vector is $\begin{bmatrix}
+\answer{3/16} \\
+\answer{1/8} \\
+\answer{5/16} \\
+\answer{1/4} \\
+\answer{1/8}
+\end{bmatrix}$
+\end{problem}
+\end{problem}
+
+\begin{problem}\label{prob:stochastic1} 
+If a stochastic matrix has a $1$ on its main diagonal, show that it cannot be regular. Assume it is not $1 \times 1$.
+\end{problem}
+
+\begin{problem}\label{prob:stage-m}
+If ${\bf s}_{m}$ is the stage-$m$ state vector for a Markov chain, show that ${\bf s}_{m+k} = P^{k}{\bf s}_{m}$ holds for all $m \geq 1$ and $k \geq 1$ (where $P$ is the transition matrix).
+\end{problem}
+
+\begin{problem}\label{prob:DoublyStochastic1}
+A stochastic matrix is \textbf{doubly stochastic} if all the row sums also equal $1$. Find the steady-state vector for a doubly stochastic matrix.
+\end{problem}
+
+\begin{problem}\label{prob:stochastic2}
+Consider the $2 \times 2$ stochastic matrix
+
+$P = \begin{bmatrix}
+1 - p & q \\
+p & 1 - q
+\end{bmatrix}$, where $0 < p < 1$ and $0 < q < 1$.
+
+\begin{enumerate}
+\item Show that $\frac{1}{p + q} \begin{bmatrix}
+q \\
+p
+\end{bmatrix}$
+ is the steady-state vector for $P$.
+
+\item Show that $P^{m}$ converges to the matrix $\frac{1}{p + q} \begin{bmatrix}
+q & q \\
+p & p
+\end{bmatrix}$ by first verifying inductively that
+$P^m = \frac{1}{p + q} \begin{bmatrix}
+q & q \\
+p & p
+\end{bmatrix}$ $+ \frac{(1 - p - q)^m}{p + q} 
+\begin{bmatrix}
+p & -q \\
+-p & q
+\end{bmatrix}$ for $m = 1, 2, \dots$. (It can be shown that the sequence of powers $P, P^{2}, P^{3}, \dots$ of any regular transition matrix converges to the matrix each of whose columns equals the steady-state vector for $P$.)
+\begin{hint}
+Since $0 < p < 1$ and $0 < q < 1$ we get $0 < p + q < 2$ whence $-1 < p + q - 1 < 1$. Finally, $-1 < 1 - p - q < 1$, so $(1 - p - q)^{m}$ converges to zero as $m$ increases.
+\end{hint}
+\end{enumerate}
+\end{problem}
+
+
+\section*{Text Source} This application was adapted from Section 2.9 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 134 
+
+\end{document}
+
