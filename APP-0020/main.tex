@@ -10,49 +10,13 @@
 \end{abstract}
 \maketitle
 
-\section{Application to Electrical Networks}
+\section*{Application to Electrical Networks}
 In an electrical network it is often necessary to find the current in amperes ($A$) flowing in various parts of the network. These networks usually contain resistors that retard the current. The resistors are indicated by a symbol 
 
 
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
-\draw[color=red, very thick]
-(0,0) to [short, -] (1,0)
-(1,0) to [R, l=$5\Omega$, -] (2,0)
-(-3,0) to [short, -*] (0,0)
-(2,0) to [short, -*] (3,0)
-(-2.6,0) to [short, -*] (-2,0)
-(-3,0) to [short, -] (-3,1)
-(-3,1) to [R, l=$20\Omega$, -] (-3,2)
-(-3,2) to [short, -] (-3,3)
-(0,3) to[battery1,l=$10V$] (-3,3)
-(0,3) to [short, *-] (0.6,3)
-(3,3) to [short, -] (2,3)
-(2,3) to [R, l=$10\Omega$, -] (1,3)
-(0,0) to[battery1,l=$5V$] (0,3)
-(3,0) to[battery1,l=$20V$] (3,3)
-(-2,-2) to [R, l=$5\Omega$, -] (-2,-1)
-(-2,-3) to [short, -] (-2,-2)
-(-2,-1) to [short, -] (-2,0)
-(3,-3) to[battery1,l=$10V$] (-2,-3)
-(3,-3) to [short, -] (3,0);
-\draw[line width=1pt,blue, -stealth](1,-0.5)--(2,-0.5);
-\draw[line width=1pt,blue, -stealth](-1.5,-2)--(-1.5,-1);
-\draw[line width=1pt,blue, stealth-](0,-2.4)--(1,-2.4);
-\draw[line width=1pt,blue, stealth-](-2.5,1)--(-2.5,2);
-\draw[line width=1pt,blue, -stealth](-1,3.6)--(-2,3.6);
-\draw[line width=1pt,blue, -stealth](3.6,1)--(3.6,2);
-\draw[line width=1pt,blue, -stealth](0.6,1)--(0.6,2);
-\node[] at (0, 3.3)   (a) {$A$};
-\node[] at (-2, 0.3)   (a) {$B$};
-\node[] at (0, -0.3)   (a) {$C$};
-\node[] at (3.3, 0)   (a) {$D$};
-\end{tikzpicture}
-\end{center}
-
-\begin{center}
-\begin{tikzpicture}[scale=0.5]
-\draw[color=red, very thick]
+\draw[color=blue, very thick]
 (0,0) to [short, -] (1,0)
 (1,0) to [R, l=$5\Omega$, -] (2,0)
 (-3,0) to [short, -*] (0,0)

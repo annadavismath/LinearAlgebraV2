@@ -1,0 +1,387 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{Orthogonal and Orthonormal Sets of Vectors} \license{CC-BY 4.0}
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+\subsection{Orthogonal and Orthonormal Sets}
+
+In this section, we examine what it means for vectors (and sets of
+vectors) to be orthogonal and orthonormal. First, it is necessary to
+review some important concepts. You may recall the definitions for the
+span of a set of vectors and a linear independent set of vectors. We
+include the definitions and examples here for convenience.
+
+\begin{definition}\label{def:spanReprise} Let ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ be vectors in $\RR^n$.  The set $S$ of all linear combinations of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ is called the \dfn{span} of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$.  We write 
+$$S=\mbox{span}({\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p)$$
+and we say that vectors ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ \dfn{span} $S$.  Any vector in $S$ is said to be \dfn{in the span} of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$.  The set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is called a \dfn{spanning set} for $S$.
+\end{definition}
+
+Consider the following example.
+
+\begin{example}\label{spanvectors}
+Describe the span of the vectors ${\bf u}=\begin{bmatrix}
+1  \\ 1 \\ 0
+\end{bmatrix}$ and
+${\bf v}=\begin{bmatrix}
+3  \\ 2 \\ 0
+\end{bmatrix} \in \mathbb{R}^{3}$.
+\end{example}
+
+\begin{explanation}
+It is clear that any linear combination of the vectors ${\bf u}$ and ${\bf v}$ yields a vector
+$\begin{bmatrix}
+x  \\ y \\ 0
+\end{bmatrix}$ in the $XY$-plane.
+
+Moreover every vector in the $XY$-plane is in fact such a linear
+combination of the vectors ${\bf u}$ and ${\bf v}$. To see this, note that
+$$\begin{bmatrix}
+x  \\ y \\ 0
+\end{bmatrix}
+=
+(-2x+3y) \begin{bmatrix}
+1  \\ 1 \\ 0
+\end{bmatrix}
++
+(x-y)\begin{bmatrix}
+3  \\ 2 \\ 0
+\end{bmatrix}
+$$
+
+Thus  span$\{{\bf u},{\bf v}\}$ is precisely the $XY$-plane.
+\end{explanation}
+
+Note that a collection of the form $\mbox{span}\left( \{{\bf u}_1, \cdots , {\bf u}_k\}\right)$
+a subspace of $\mathbb{R}^{n}$, as by definition it is closed under addition and scalar multiplication.
+
+Recall that another important property of sets of vectors is linear independence.
+
+\begin{definition}[Linear Independence]\label{def:linearindependenceReprise}
+Let ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ be vectors of $\RR^n$.  We say that the set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is \dfn{linearly independent} if the only solution to 
+$$a_1{\bf v}_1+a_2{\bf v}_2+\ldots +a_p{\bf v}_p={\bf 0}$$
+is the \dfn{trivial solution} $a_1=a_2=\ldots =a_p=0$.
+
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_p$ are zero) exists, then we say that the set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is \dfn{linearly dependent}.
+\end{definition}
+
+\begin{example}\label{linearlyindependentvectors}
+Consider the vectors ${\bf u}=\begin{bmatrix}
+1  \\ 1 \\ 0
+\end{bmatrix}$, 
+${\bf v}=\begin{bmatrix}
+3  \\ 2 \\ 0
+\end{bmatrix}$, and
+${\bf w}=\begin{bmatrix}
+4  \\ 5 \\ 0
+\end{bmatrix} \in \mathbb{R}^{3}$.
+Determine if the set $\{{\bf u}, {\bf v}, {\bf w}\}$ is linearly independent.
+\end{example}
+
+\begin{explanation}
+We already verified in Example \ref{spanvectors} that
+$\mbox{span}\left( \{{\bf u}, {\bf v} \}\right)$ is the $XY$-plane. Since ${\bf w}$
+is clearly also in the $XY$-plane, then the set $\{{\bf u}, {\bf v},
+{\bf w}\}$ is \textbf{not} linearly independent.
+\end{explanation}
+
+Recall that if a subspace is spanned by a linearly independent set of vectors, then we say that those vectors form a \dfn{basis} for the subspace.  Thus the set of vectors $\{{\bf u}, {\bf v}\}$ from Example
+\ref{linearlyindependentvectors} is a basis for the $XY$-plane in
+$\mathbb{R}^{3}$ since it is both linearly independent and spans
+the $XY$-plane.
+
+\begin{example}\label{OrthoVectoSpanningSet}
+Let $\{{\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k\}\in\mathbb{R}^n$ and
+suppose $\mathbb{R}^n=\mbox{span}\left(\{{\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k\}\right)$.
+Furthermore, suppose that there exists a vector ${\bf u}\in\mathbb{R}^n$ for which ${\bf u}\dotp {\bf x}_j=0$ for all $j$, $1\leq j\leq k$.
+What can be said about the vector ${\bf u}$?
+\end{example}
+
+\begin{explanation}
+Write ${\bf u}=t_1{\bf x}_1 + t_2{\bf x}_2 +\cdots +t_k{\bf x}_k$
+for some $t_1, t_2, \ldots, t_k\in\mathbb{R}$
+(this is possible because
+${\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k$ span $\mathbb{R}^n$).
+
+Then
+\begin{eqnarray*}
+\norm{{\bf u}}^2 & = & {\bf u}\dotp{\bf u} \\
+& = & {\bf u}\dotp(t_1{\bf x}_1 + t_2{\bf x}_2 +\cdots +t_k{\bf x}_k) \\
+& = & {\bf u}\dotp (t_1{\bf x}_1) +  {\bf u}\dotp (t_2{\bf x}_2) +
+\cdots +  {\bf u}\dotp (t_k{\bf x}_k) \\
+& = & t_1({\bf u}\dotp {\bf x}_1) + t_2({\bf u}\dotp {\bf x}_2) + \cdots
++ t_k({\bf u}\dotp {\bf x}_k) \\
+& = & t_1(0) + t_2(0) + \cdots + t_k(0) = 0.
+\end{eqnarray*}
+Since $\norm{{\bf u}}^2 =0$, $\norm{{\bf u}} =0$.
+We know that $\norm{{\bf u}}=0$ if and only if
+${\bf u}={\bf 0}$.
+Therefore, ${\bf u}={\bf 0}$.
+In conclusion, the only vector orthogonal to every vector of
+a spanning set of $\mathbb{R}^n$ is the zero vector.
+\end{explanation}
+
+We can now discuss what is meant by an \dfn{orthogonal set of vectors}. 
+
+\begin{definition}\label{orthset}
+Let $\{ {\bf u}_1, {\bf u}_2, \cdots, {\bf u}_m \}$ be a set of
+vectors in $\mathbb{R}^n$. Then this set is called an
+\dfn{orthogonal set} if the following conditions hold:
+\begin{enumerate}
+\item
+${\bf u}_i \dotp {\bf u}_j = 0$ for all $i \neq j$
+\item
+${\bf u}_i \neq {\bf 0}$ for all $i$
+\end{enumerate}
+\end{definition}
+
+If we have an orthogonal set of vectors and normalize each vector so
+they have length 1, the resulting set is called an \dfn{orthonormal
+set} of vectors. They can be described as follows.
+
+\begin{definition}\label{orthoSetVectors}
+A set of vectors, $\left\{ {\bf w}_{1},\cdots ,{\bf w}_{m}\right\} $
+is said to be an
+\dfn{orthonormal} set if
+\[
+{\bf w}_i \dotp {\bf w}_j = \delta _{ij} = \left\{
+\begin{array}{c}
+1\text{ if }i=j \\
+0\text{ if }i\neq j
+\end{array}
+\right.
+\]
+\end{definition}
+
+Note that all orthonormal sets are orthogonal, but the converse is not
+necessarily true since the vectors may not be normalized. In order to
+normalize the vectors, we simply need divide each one by its length.
+
+\begin{definition}\label{normalizing}
+\dfn{Normalizing} an orthogonal set is the process of turning an orthogonal set into an orthonormal set.
+If $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_k\}$
+is an orthogonal subset of $\mathbb{R}^n$,
+then
+\[ \left\{
+\frac{1}{\norm{{\bf u}_1}}{\bf u}_1,
+\frac{1}{\norm{{\bf u}_2}}{\bf u}_2, \ldots,
+\frac{1}{\norm{{\bf u}_k}}{\bf u}_k \right\}
+\]
+is an orthonormal set.
+\end{definition}
+
+We illustrate this concept in the following example.
+
+\begin{example}\label{ex:orthonormalset}
+Consider the set of vectors  given by
+\[
+\left\{ {\bf u}_1, {\bf u}_2 \right\} = \left\{
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix},
+\begin{bmatrix}
+-1 \\
+1
+\end{bmatrix}
+\right\}
+\]
+Show that this is an orthogonal set of vectors  but not an orthonormal one. Find the corresponding orthonormal set.
+\end{example}
+
+\begin{explanation}
+One easily verifies that ${\bf u}_1 \dotp {\bf u}_2 = 0$ and
+$\left\{ {\bf u}_1, {\bf u}_2 \right\}$ is an orthogonal set of
+vectors. On the other hand one can compute that ${\norm{{\bf u}_1}}= {\norm{{\bf u}_2}} =
+\sqrt{2} \neq 1$ and so the set is not orthonormal.
+
+Thus to find a corresponding orthonormal set, we simply need to
+normalize each vector. We will write $\{ {\bf w}_1, {\bf w}_2 \}$
+for the corresponding orthonormal set. Then,
+\begin{eqnarray*}
+{\bf w}_1 &=& \frac{1}{\norm{{\bf u}_1}}{\bf u}_1\\
+&=& \frac{1}{\sqrt{2}} \begin{bmatrix}
+1 \\
+1
+\end{bmatrix} \\
+&=&
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\end{eqnarray*}
+
+Similarly,
+\begin{eqnarray*}
+{\bf w}_2 &=& \frac{1}{\norm{{\bf u}_2}}{\bf u}_2\\
+&=& \frac{1}{\sqrt{2}} \begin{bmatrix}
+-1 \\
+1
+\end{bmatrix} \\
+&=&
+\begin{bmatrix}
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\end{eqnarray*}
+
+Therefore the corresponding orthonormal set is
+\[
+\left\{ {\bf w}_1, {\bf w}_2 \right\} =
+\left\{
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix},
+\begin{bmatrix}
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\right\}
+\]
+
+You can verify that this set is orthonormal.
+\end{explanation}
+
+Consider an orthogonal set of vectors in $\RR^n$, written $\{
+{\bf w}_1, \cdots, {\bf w}_k \}$ with $k \leq n$. The span of these
+vectors is a subspace $W$ of $\RR^n$. If we
+could show that this orthogonal set is also linearly independent, we
+would have a basis of $W$. This is precisely what we do in the next theorem.
+
+\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
+Let $ \{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}$ be an
+orthonormal set of vectors in $\mathbb{R}^n$. Then this set is
+linearly independent and forms a basis for the subspace $W =
+\mbox{span}\left( \{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}\right)$.
+\end{theorem}
+
+\begin{proof}
+To show this set is linearly independent, suppose a linear combination
+of these vectors equals ${\bf 0}$, such as:
+\[
+a_1 {\bf w}_1 + a_2 {\bf w}_2 + \cdots + a_k {\bf w}_k = {\bf 0}, a_i \in \RR
+\]
+We need to show that all $a_i = 0$. To do so, we take the dot product of
+each side of the above equation with the vector ${\bf w}_i$ and obtain the following.
+
+\begin{eqnarray*}
+{\bf w}_i \dotp (a_1 {\bf w}_1 + a_2 {\bf w}_2 + \cdots + a_k {\bf w}_k ) &=& {\bf w}_i \dotp {\bf 0}\\
+a_1 ({\bf w}_i \dotp {\bf w}_1) + a_2 ({\bf w}_i \dotp {\bf w}_2) + \cdots + a_k ({\bf w}_i \dotp {\bf w}_k)  &=& 0
+\end{eqnarray*}
+Now since the set is orthogonal, ${\bf w}_i \dotp {\bf w}_m = 0$ for all $m \neq i$, so we have:
+\[
+a_1 (0) + \cdots + a_i({\bf w}_i \dotp {\bf w}_i) + \cdots + a_k (0) = 0
+\]
+\[
+a_i \norm{{\bf w}_i}^2 = 0
+\]
+
+Since the set is orthogonal, we know that $\norm{{\bf w}_i}^2  \neq 0$. It follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}$ is linearly independent.
+
+Finally since $W = \mbox{span} \{ {\bf w}_1, {\bf w}_2, \cdots,
+{\bf w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
+
+\end{proof}
+
+If an orthogonal set is a basis for a subspace, we call it an
+\dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
+
+We conclude this section with a discussion of Fourier expansions. Given any orthogonal basis $B$ of $\RR^n$ and an arbitrary vector ${\bf x} \in \RR^n$, how do we express ${\bf x}$ as a linear combination of vectors in $B$? The solution is Fourier expansion.
+
+\begin{theorem}[Fourier Expansion]\label{fourierexpansion}
+Let $V$ be a subspace of $\mathbb{R}^n$ and suppose $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_m \}$
+is an orthogonal basis of $V$.
+Then for any ${\bf x}\in V$,
+\[ {\bf x} =
+\left(\frac{{\bf x}\dotp {\bf u}_1}{\norm{{\bf u}_1}^2}\right) {\bf u}_1 +
+\left(\frac{{\bf x}\dotp {\bf u}_2}{\norm{{\bf u}_2}^2}\right) {\bf u}_2 +
+\cdots +
+\left(\frac{{\bf x}\dotp {\bf u}_m}{\norm{{\bf u}_m}^2}\right) {\bf u}_m.
+\]
+This expression is called the Fourier expansion
+of ${\bf x}$, and
+\[ \frac{{\bf x}\dotp {\bf u}_j}{\norm{{\bf u}_j}^2},\]
+$j=1,2,\ldots,m$
+are the Fourier coefficients.
+\end{theorem}
+
+Consider the following example.
+
+\begin{example}\label{fourier}
+Let
+${\bf u}_1= \begin{bmatrix}
+1 \\ -1 \\ 2
+\end{bmatrix},
+{\bf u}_2= \begin{bmatrix}
+0 \\ 2 \\ 1 
+\end{bmatrix},
+{\bf u}_3 =\begin{bmatrix}
+5 \\ 1 \\ -2
+\end{bmatrix}$,
+and let
+${\bf x} =\begin{bmatrix}
+1 \\ 1 \\ 1
+\end{bmatrix}$.  
+
+Then $B=\{ {\bf u}_1, {\bf u}_2, {\bf u}_3\}$
+is an orthogonal basis of $\mathbb{R}^3$.
+
+Use this fact to write ${\bf x}$ as  a linear combination of the vectors of $B$.
+\end{example}
+
+\begin{explanation}
+Since $B$ is a basis (verify!) there is a unique way to express ${\bf x}$ as a
+linear combination of vectors of $B$. Moreover, since $B$ is an
+orthogonal basis (verify!), then this can be done by computing the
+Fourier expansion of ${\bf x}$.
+
+That is:
+
+\[
+{\bf x}   =
+\left(\frac{{\bf x}\dotp {\bf u}_1}{\norm{{\bf u}_1}^2}\right) {\bf u}_1 +
+\left(\frac{{\bf x}\dotp {\bf u}_2}{\norm{{\bf u}_2}^2}\right) {\bf u}_2 +
+\left(\frac{{\bf x}\dotp {\bf u}_3}{\norm{{\bf u}_3}^2}\right) {\bf u}_3.
+\]
+
+We readily compute:
+
+\[
+\frac{{\bf x}\dotp{\bf u}_1}{\norm{{\bf u}_1}^2} = \frac{2}{6}, \;
+\frac{{\bf x}\dotp{\bf u}_2}{\norm{{\bf u}_2}^2} = \frac{3}{5},
+\mbox{ and }
+\frac{{\bf x}\dotp{\bf u}_3}{\norm{{\bf u}_3}^2} = \frac{4}{30}.\]
+
+Therefore,
+\[ \begin{bmatrix}
+1 \\ 1 \\ 1
+\end{bmatrix}
+= \frac{1}{3}\begin{bmatrix}
+1 \\ -1 \\ 2
+\end{bmatrix}
++\frac{3}{5}\begin{bmatrix}
+0 \\ 2 \\ 1
+\end{bmatrix}
++\frac{2}{15}\begin{bmatrix}
+5 \\ 1 \\ -2
+\end{bmatrix}.\]
+\end{explanation} 
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:diagonalizematrix1}
+Verify that the set $B=\{ {\bf u}_1, {\bf u}_2, {\bf u}_3\}$
+of Example~\ref{fourier} is, in fact, a basis of $\mathbb{R}^3$.
+
+\end{problem}
+  
+\section*{Text Source}
+A large portion of the text in this module is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 233-238.  
+
+\end{document}
