@@ -257,7 +257,7 @@ would have a basis of $W$. This is precisely what we do in the next theorem.
 Let $ \{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}$ be an
 orthonormal set of vectors in $\mathbb{R}^n$. Then this set is
 linearly independent and forms a basis for the subspace $W =
-\mbox{span}\left( \{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}\right)$.
+\mbox{span}\left( {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \right)$.
 \end{theorem}
 
 \begin{proof}
@@ -291,9 +291,13 @@ Finally since $W = \mbox{span} \{ {\bf w}_1, {\bf w}_2, \cdots,
 If an orthogonal set is a basis for a subspace, we call it an
 \dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
 
-We conclude this section with a discussion of Fourier expansions. Given any orthogonal basis $B$ of $\RR^n$ and an arbitrary vector ${\bf x} \in \RR^n$, how do we express ${\bf x}$ as a linear combination of vectors in $B$? The solution is Fourier expansion.
+%We conclude this section with a discussion of Fourier expansions. 
+Given any orthogonal basis $B$ of $\RR^n$ and an arbitrary vector ${\bf x} \in \RR^n$, how do we express ${\bf x}$ as a linear combination of vectors in $B$? To answer this question we need to return to the section on orthogonal projections. It turns out that an arbitrary vector $\vec{x}$ of $\RR^n$ can be expressed as the sum of orthogonal projections of $\vec{x}$ onto each element of the orthogonal basis $B$. This result is stated formally in Theorem \ref{fourierexpansion}.
+To make sense of the statement of the theorem, recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{u}$ is given by
+$$\left(\frac{\vec{x}\cdot\vec{u}}{\norm{\vec{u}}^2}\right)\vec{u}$$
+%The solution is Fourier expansion.
 
-\begin{theorem}[Fourier Expansion]\label{fourierexpansion}
+\begin{theorem}\label{fourierexpansion}
 Let $V$ be a subspace of $\mathbb{R}^n$ and suppose $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_m \}$
 is an orthogonal basis of $V$.
 Then for any ${\bf x}\in V$,
@@ -303,12 +307,29 @@ Then for any ${\bf x}\in V$,
 \cdots +
 \left(\frac{{\bf x}\dotp {\bf u}_m}{\norm{{\bf u}_m}^2}\right) {\bf u}_m.
 \]
-This expression is called the Fourier expansion
-of ${\bf x}$, and
-\[ \frac{{\bf x}\dotp {\bf u}_j}{\norm{{\bf u}_j}^2},\]
-$j=1,2,\ldots,m$
-are the Fourier coefficients.
+%This expression is called the Fourier expansion
+%of ${\bf x}$, and
+%\[ \frac{{\bf x}\dotp {\bf u}_j}{\norm{{\bf u}_j}^2},\]
+%$j=1,2,\ldots,m$
+%are the Fourier coefficients.
 \end{theorem}
+
+\begin{exploration}
+    To visualize the meaning of Theorem \ref{fourierexpansion} in $\RR^2$ consider the following GeoGebra interactive.  Vectors $\vec{u}_1$ and $\vec{u}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors form a basis of $\RR^2$.  Vector $\vec{x}$ is an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{u}_1$ and $\vec{u}_2$ are depicted in light grey.
+    \begin{enumerate}
+        \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
+        \item Use the tips of $\vec{u}_1$ and $\vec{u}_2$ to change the basis vectors.  What happens when $\vec{u}_1$ and $\vec{u}_2$ are no longer orthogonal?
+        \item Pick another pair of orthogonal vectors $\vec{u}_1$ and $\vec{u}_2$.  Verify that $\vec{x}$ is still the sum of the projections.
+    \end{enumerate}
+
+    \begin{center}
+\geogebra{nsqzhsxv}{800}{600}
+\end{center}
+\end{exploration}
+
+
+Note that in the special case where $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_m \}$
+is an \emph{orthonormal} basis of $V$, we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in that case $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,n$. 
 
 Consider the following example.
 
@@ -332,15 +353,11 @@ Then $B=\{ {\bf u}_1, {\bf u}_2, {\bf u}_3\}$
 is an orthogonal basis of $\mathbb{R}^3$.
 
 Use this fact to write ${\bf x}$ as  a linear combination of the vectors of $B$.
-\end{example}
 
 \begin{explanation}
 Since $B$ is a basis (verify!) there is a unique way to express ${\bf x}$ as a
 linear combination of vectors of $B$. Moreover, since $B$ is an
-orthogonal basis (verify!), then this can be done by computing the
-Fourier expansion of ${\bf x}$.
-
-That is:
+orthogonal basis (verify!), then using Theorem~\ref{fourierexpansion} it is especially easy to do.  We compute:
 
 \[
 {\bf x}   =
@@ -371,6 +388,7 @@ Therefore,
 5 \\ 1 \\ -2
 \end{bmatrix}.\]
 \end{explanation} 
+\end{example}
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:diagonalizematrix1}
