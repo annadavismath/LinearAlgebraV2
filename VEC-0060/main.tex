@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{Dot Product and the Angle Between Vectors} \license{CC-BY 4.0}
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{Dot Product and Angle} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -10,7 +10,7 @@
 \end{abstract}
 \maketitle
 
-\section*{Dot Product and the Angle Between Vectors}
+\section*{Dot Product and Angle}
 
 Given two vectors $\vec{u}$ and $\vec{v}$, let $\theta$ be the angle between them such that $0\leq\theta\leq \pi$.  We will refer to $\theta$ as the \dfn{included angle}.
 
@@ -83,20 +83,18 @@ $$\theta \approx 134.4^{\circ}  $$
 
 \subsection*{Orthogonal Vectors}
 
-Two non-zero vectors are said to be \dfn{perpendicular} or \dfn{orthogonal} if the included angle is a right angle.
+\begin{definition}\label{def:orthovectors} 
+Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$. We say $\vec{u}$ and $\vec{v}$ are \dfn{orthogonal} if $\vec{u}\dotp \vec{v}=0$.
+\end{definition}
 
+If $n=2$ or $n=3$, it is clear from the discussion above that non-zero \dfn{orthogonal} vectors are simply \dfn{perpendicular} vectors (the included angle is $90^{\circ}$).  To see this, suppose that $\vec{u}\dotp\vec{v}=0$ for nonzero vectors $\vec{u},\vec{v}$.  Then from Theorem \ref{th:dotproductcosine} we have
+$$0=\norm{\vec{u}}\norm{\vec{v}}\cos\theta.$$
+Since $\vec{u},\vec{v}$ are nonzero vectors, we have $0=\cos\theta$, which implies $\theta=90^{\circ}$.
 
-  \begin{theorem}\label{th:orth} Let $\vec{u}$ and $\vec{v}$ be non-zero vectors in $\RR^n$. Then $\vec{u}\dotp \vec{v}=0$ if and only if $\vec{u}$ and $\vec{v}$ are orthogonal.
-\end{theorem}
+\begin{remark}  By our definition, the zero vector is orthogonal to any vector.  However, we will not use the word \dfn{perpendicular} when the zero vector is involved, as it is not possible to talk about an ``included angle''.
+\end{remark}
 
-
-\begin{proof} Recall that to prove an ``if and only if" statement, we must prove two statements.  In this particular case, we will need to show the following
-\begin{itemize}
-\item If $\vec{u}\dotp \vec{v}=0$, then $\vec{u}$ and $\vec{v}$ are orthogonal.
-\item If $\vec{u}$ and $\vec{v}$ are orthogonal, then $\vec{u}\dotp \vec{v}=0$.
-\end{itemize}
-We leave the details of the proof to the reader.
-\end{proof}
+For $\RR^n$ with $n>3$, when we no longer have visual interpretation to aid us, our definition of \dfn{orthogonal} vectors in terms of dot product will come in handy.
 
 \section*{Practice Problems}
 \begin{problem}%\label{prob:anglebetweenvectors}
@@ -193,6 +191,13 @@ Assign coordinates to points $A$, $B$ and $C$, express vectors $\overrightarrow{
 \begin{problem}\label{prob:rhombusdot} A rhombus is a quadrilateral with four congruent sides.  Use vectors to prove that a parallelogram is a rhombus if and only if its diagonals are perpendicular.
 \begin{hint}
 See section on vector subtraction in Module VEC-M-0030.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:pythagoreanR3usedotp}
+ The points $A(2,1,4),B(4,2,-1)$, and $C(6,8,7)$ form a triangle in $\RR^3$.  Is it a right triangle?
+\begin{hint}
+Express each side of the triangle as a vector and use what you have learned in this section.
 \end{hint}
 \end{problem}
 
