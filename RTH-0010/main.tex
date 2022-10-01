@@ -11,165 +11,61 @@
 \subsection{Orthogonal and Orthonormal Sets}
 
 In this section, we examine what it means for vectors (and sets of
-vectors) to be orthogonal and orthonormal. First, it is necessary to
-review some important concepts. You may recall the definitions for the
-span of a set of vectors and a linear independent set of vectors. We
-include the definitions and examples here for convenience.
+vectors) to be orthogonal and orthonormal. Recall that two non-zero vectors are orthogonal if their dot product is zero.  (In $\RR^2$ and $\RR^3$ this means that two vectors are perpendicular.)  A collection of non-zero vectors in $\RR^n$ is called \dfn{orthogonal} if the vectors are pair-wise orthogonal.  The diagram below shows two orthogonal vectors in $\RR^2$ and three orthogonal vectors in $\RR^3$.
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[line width=2pt,red,-stealth](0,0)--(1.5,0.5);  
+\draw[line width=2pt,blue,-stealth](0,0)--(-1,3);
+\node[] at (-1, -1)  (p2)    {Orthogonal vectors in $\RR^2$};
+ \end{tikzpicture}
+ \quad\quad\quad
+\begin{tikzpicture}[scale=0.5]
+	\draw[line width=2pt,red,-stealth](0,0,0)--(5,0,0);
+    \draw[line width=2pt,blue,-stealth](0,0,0)--(0,2,0);
+    \draw[line width=2pt,black,-stealth](0,0,0)--(0,0,5);
+    \node[] at (3, -3,0)  (p2)    {Orthogonal vectors in $\RR^3$};
+    \end{tikzpicture}
+\end{center}
 
-\begin{definition}\label{def:spanReprise} Let ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ be vectors in $\RR^n$.  The set $S$ of all linear combinations of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ is called the \dfn{span} of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$.  We write 
-$$S=\mbox{span}({\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p)$$
-and we say that vectors ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ \dfn{span} $S$.  Any vector in $S$ is said to be \dfn{in the span} of ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$.  The set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is called a \dfn{spanning set} for $S$.
-\end{definition}
+If every vector in an orthogonal set of vectors is also a unit vector, then we say that the given set of vectors is \dfn{orthonormal}.
 
-Consider the following example.
+\begin{center}
+\begin{tikzpicture}[scale=0.25]
+\draw[line width=2pt,red,-stealth](0,0)--(3,4);  
+\draw[line width=2pt,blue,-stealth](0,0)--(-4,3);
+\node[] at (-2, -2)  (p2)    {Orthonormal vectors in $\RR^2$};
+ \end{tikzpicture}
+ \quad\quad\quad
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}[scale=0.25]
+	\draw[line width=2pt,red,-stealth](0,0,0)--(5,0,0);
+    \draw[line width=2pt,blue,-stealth](0,0,0)--(0,5,0);
+    \draw[line width=2pt,black,-stealth](0,0,0)--(0,0,5);
+    \node[] at (3, -3,0)  (p2)    {Orthonormal vectors in $\RR^3$};
+    \end{tikzpicture}
+\end{center}
 
-\begin{example}\label{spanvectors}
-Describe the span of the vectors ${\bf u}=\begin{bmatrix}
-1  \\ 1 \\ 0
-\end{bmatrix}$ and
-${\bf v}=\begin{bmatrix}
-3  \\ 2 \\ 0
-\end{bmatrix} \in \mathbb{R}^{3}$.
-\end{example}
-
-\begin{explanation}
-It is clear that any linear combination of the vectors ${\bf u}$ and ${\bf v}$ yields a vector
-$\begin{bmatrix}
-x  \\ y \\ 0
-\end{bmatrix}$ in the $XY$-plane.
-
-Moreover every vector in the $XY$-plane is in fact such a linear
-combination of the vectors ${\bf u}$ and ${\bf v}$. To see this, note that
-$$\begin{bmatrix}
-x  \\ y \\ 0
-\end{bmatrix}
-=
-(-2x+3y) \begin{bmatrix}
-1  \\ 1 \\ 0
-\end{bmatrix}
-+
-(x-y)\begin{bmatrix}
-3  \\ 2 \\ 0
-\end{bmatrix}
-$$
-
-Thus  span$\{{\bf u},{\bf v}\}$ is precisely the $XY$-plane.
-\end{explanation}
-
-Note that a collection of the form $\mbox{span}\left( \{{\bf u}_1, \cdots , {\bf u}_k\}\right)$
-a subspace of $\mathbb{R}^{n}$, as by definition it is closed under addition and scalar multiplication.
-
-Recall that another important property of sets of vectors is linear independence.
-
-\begin{definition}[Linear Independence]\label{def:linearindependenceReprise}
-Let ${\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p$ be vectors of $\RR^n$.  We say that the set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is \dfn{linearly independent} if the only solution to 
-$$a_1{\bf v}_1+a_2{\bf v}_2+\ldots +a_p{\bf v}_p={\bf 0}$$
-is the \dfn{trivial solution} $a_1=a_2=\ldots =a_p=0$.
-
-If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_p$ are zero) exists, then we say that the set $\{{\bf v}_1, {\bf v}_2,\ldots ,{\bf v}_p\}$ is \dfn{linearly dependent}.
-\end{definition}
-
-\begin{example}\label{linearlyindependentvectors}
-Consider the vectors ${\bf u}=\begin{bmatrix}
-1  \\ 1 \\ 0
-\end{bmatrix}$, 
-${\bf v}=\begin{bmatrix}
-3  \\ 2 \\ 0
-\end{bmatrix}$, and
-${\bf w}=\begin{bmatrix}
-4  \\ 5 \\ 0
-\end{bmatrix} \in \mathbb{R}^{3}$.
-Determine if the set $\{{\bf u}, {\bf v}, {\bf w}\}$ is linearly independent.
-\end{example}
-
-\begin{explanation}
-We already verified in Example \ref{spanvectors} that
-$\mbox{span}\left( \{{\bf u}, {\bf v} \}\right)$ is the $XY$-plane. Since ${\bf w}$
-is clearly also in the $XY$-plane, then the set $\{{\bf u}, {\bf v},
-{\bf w}\}$ is \textbf{not} linearly independent.
-\end{explanation}
-
-Recall that if a subspace is spanned by a linearly independent set of vectors, then we say that those vectors form a \dfn{basis} for the subspace.  Thus the set of vectors $\{{\bf u}, {\bf v}\}$ from Example
-\ref{linearlyindependentvectors} is a basis for the $XY$-plane in
-$\mathbb{R}^{3}$ since it is both linearly independent and spans
-the $XY$-plane.
-
-\begin{example}\label{OrthoVectoSpanningSet}
-Let $\{{\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k\}\in\mathbb{R}^n$ and
-suppose $\mathbb{R}^n=\mbox{span}\left(\{{\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k\}\right)$.
-Furthermore, suppose that there exists a vector ${\bf u}\in\mathbb{R}^n$ for which ${\bf u}\dotp {\bf x}_j=0$ for all $j$, $1\leq j\leq k$.
-What can be said about the vector ${\bf u}$?
-\end{example}
-
-\begin{explanation}
-Write ${\bf u}=t_1{\bf x}_1 + t_2{\bf x}_2 +\cdots +t_k{\bf x}_k$
-for some $t_1, t_2, \ldots, t_k\in\mathbb{R}$
-(this is possible because
-${\bf x}_1, {\bf x}_2, \ldots, {\bf x}_k$ span $\mathbb{R}^n$).
-
-Then
-\begin{eqnarray*}
-\norm{{\bf u}}^2 & = & {\bf u}\dotp{\bf u} \\
-& = & {\bf u}\dotp(t_1{\bf x}_1 + t_2{\bf x}_2 +\cdots +t_k{\bf x}_k) \\
-& = & {\bf u}\dotp (t_1{\bf x}_1) +  {\bf u}\dotp (t_2{\bf x}_2) +
-\cdots +  {\bf u}\dotp (t_k{\bf x}_k) \\
-& = & t_1({\bf u}\dotp {\bf x}_1) + t_2({\bf u}\dotp {\bf x}_2) + \cdots
-+ t_k({\bf u}\dotp {\bf x}_k) \\
-& = & t_1(0) + t_2(0) + \cdots + t_k(0) = 0.
-\end{eqnarray*}
-Since $\norm{{\bf u}}^2 =0$, $\norm{{\bf u}} =0$.
-We know that $\norm{{\bf u}}=0$ if and only if
-${\bf u}={\bf 0}$.
-Therefore, ${\bf u}={\bf 0}$.
-In conclusion, the only vector orthogonal to every vector of
-a spanning set of $\mathbb{R}^n$ is the zero vector.
-\end{explanation}
-
-We can now discuss what is meant by an \dfn{orthogonal set of vectors}. 
+Formally, we can define orthogonal and orthonormal vectors as follows.
 
 \begin{definition}\label{orthset}
-Let $\{ {\bf u}_1, {\bf u}_2, \cdots, {\bf u}_m \}$ be a set of
-vectors in $\mathbb{R}^n$. Then this set is called an
-\dfn{orthogonal set} if the following conditions hold:
-\begin{enumerate}
-\item
-${\bf u}_i \dotp {\bf u}_j = 0$ for all $i \neq j$
-\item
-${\bf u}_i \neq {\bf 0}$ for all $i$
-\end{enumerate}
+Let $\{ \vec{x}_1, \vec{x}_2, \cdots, \vec{x}_m \}$ be a set of nonzero
+vectors in $\RR^n$. Then this set is called an
+\dfn{orthogonal set} if 
+$\vec{x}_i \dotp \vec{x}_j = 0$ for all $i \neq j$.
+Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
 \end{definition}
 
-If we have an orthogonal set of vectors and normalize each vector so
-they have length 1, the resulting set is called an \dfn{orthonormal
-set} of vectors. They can be described as follows.
-
-\begin{definition}\label{orthoSetVectors}
-A set of vectors, $\left\{ {\bf w}_{1},\cdots ,{\bf w}_{m}\right\} $
-is said to be an
-\dfn{orthonormal} set if
-\[
-{\bf w}_i \dotp {\bf w}_j = \delta _{ij} = \left\{
-\begin{array}{c}
-1\text{ if }i=j \\
-0\text{ if }i\neq j
-\end{array}
-\right.
-\]
-\end{definition}
-
-Note that all orthonormal sets are orthogonal, but the converse is not
-necessarily true since the vectors may not be normalized. In order to
-normalize the vectors, we simply need divide each one by its length.
+An orthogonal set of vectors may not be orthonormal.  To convert an orthogonal set to an orthonormal set, we simply need divide each vector by its own length.
 
 \begin{definition}\label{normalizing}
 \dfn{Normalizing} an orthogonal set is the process of turning an orthogonal set into an orthonormal set.
-If $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_k\}$
-is an orthogonal subset of $\mathbb{R}^n$,
+If $\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}$
+is an orthogonal subset of $\RR^n$,
 then
 \[ \left\{
-\frac{1}{\norm{{\bf u}_1}}{\bf u}_1,
-\frac{1}{\norm{{\bf u}_2}}{\bf u}_2, \ldots,
-\frac{1}{\norm{{\bf u}_k}}{\bf u}_k \right\}
+\frac{1}{\norm{\vec{v}_1}}\vec{v}_1,
+\frac{1}{\norm{\vec{v}_2}}\vec{v}_2, \ldots,
+\frac{1}{\norm{\vec{v}_k}}\vec{v}_k \right\}
 \]
 is an orthonormal set.
 \end{definition}
@@ -179,31 +75,30 @@ We illustrate this concept in the following example.
 \begin{example}\label{ex:orthonormalset}
 Consider the set of vectors  given by
 \[
-\left\{ {\bf u}_1, {\bf u}_2 \right\} = \left\{
+\left\{ \vec{v}_1, \vec{v}_2 \right\} = \left\{
 \begin{bmatrix}
 1 \\
 1
 \end{bmatrix},
-\begin{bmatrix}
+\begin{bmatrix*}[r]
 -1 \\
 1
-\end{bmatrix}
+\end{bmatrix*}
 \right\}
 \]
 Show that this is an orthogonal set of vectors  but not an orthonormal one. Find the corresponding orthonormal set.
-\end{example}
 
 \begin{explanation}
-One easily verifies that ${\bf u}_1 \dotp {\bf u}_2 = 0$ and
-$\left\{ {\bf u}_1, {\bf u}_2 \right\}$ is an orthogonal set of
-vectors. On the other hand one can compute that ${\norm{{\bf u}_1}}= {\norm{{\bf u}_2}} =
+One easily verifies that $\vec{v}_1 \dotp \vec{v}_2 = 0$ and
+$\left\{ \vec{v}_1, \vec{v}_2 \right\}$ is an orthogonal set of
+vectors. On the other hand one can compute that ${\norm{\vec{v}_1}}= {\norm{\vec{v}_2}} =
 \sqrt{2} \neq 1$ and so the set is not orthonormal.
 
 Thus to find a corresponding orthonormal set, we simply need to
-normalize each vector. We will write $\{ {\bf w}_1, {\bf w}_2 \}$
+normalize each vector. We will write $\{ \vec{u}_1, \vec{u}_2 \}$
 for the corresponding orthonormal set. Then,
 \begin{eqnarray*}
-{\bf w}_1 &=& \frac{1}{\norm{{\bf u}_1}}{\bf u}_1\\
+\vec{u}_1 &=& \frac{1}{\norm{\vec{v}_1}}\vec{v}_1\\
 &=& \frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 1
@@ -217,109 +112,92 @@ for the corresponding orthonormal set. Then,
 
 Similarly,
 \begin{eqnarray*}
-{\bf w}_2 &=& \frac{1}{\norm{{\bf u}_2}}{\bf u}_2\\
-&=& \frac{1}{\sqrt{2}} \begin{bmatrix}
+\vec{u}_2 &=& \frac{1}{\norm{\vec{v}_2}}\vec{v}_2\\
+&=& \frac{1}{\sqrt{2}} \begin{bmatrix*}[r]
 -1 \\
 1
-\end{bmatrix} \\
+\end{bmatrix*} \\
 &=&
-\begin{bmatrix}
+\begin{bmatrix*}[r]
 -\frac{1}{\sqrt{2}} \\
 \frac{1}{\sqrt{2}}
-\end{bmatrix}
+\end{bmatrix*}
 \end{eqnarray*}
 
 Therefore the corresponding orthonormal set is
 \[
-\left\{ {\bf w}_1, {\bf w}_2 \right\} =
+\left\{ \vec{u}_1, \vec{u}_2 \right\} =
 \left\{
 \begin{bmatrix}
 \frac{1}{\sqrt{2}} \\
 \frac{1}{\sqrt{2}}
 \end{bmatrix},
-\begin{bmatrix}
+\begin{bmatrix*}[r]
 -\frac{1}{\sqrt{2}} \\
 \frac{1}{\sqrt{2}}
-\end{bmatrix}
+\end{bmatrix*}
 \right\}
 \]
 
 You can verify that this set is orthonormal.
 \end{explanation}
+\end{example}
 
-Consider an orthogonal set of vectors in $\RR^n$, written $\{
-{\bf w}_1, \cdots, {\bf w}_k \}$ with $k \leq n$. The span of these
-vectors is a subspace $W$ of $\RR^n$. If we
-could show that this orthogonal set is also linearly independent, we
-would have a basis of $W$. This is precisely what we do in the next theorem.
+\subsection*{Orthogonal and Orthonormal Bases: An intuitive Introduction}
+Recall that every basis of $\RR^n$ imposes a coordinate system on $\RR^n$ that can be used to express any vector of $\RR^n$ as a linear combination of the elements of the basis.  For instance,  vectors $\vec{v}_1=\begin{bmatrix}1\\2\end{bmatrix}$ and $\vec{v}_2=\begin{bmatrix}3\\1\end{bmatrix}$ impose a coordinate system on $\RR^2$, as shown below.  We readily see that $\vec{x}=\begin{bmatrix}7\\4\end{bmatrix}$ can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
 
-\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
-Let $ \{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}$ be an
-orthonormal set of vectors in $\mathbb{R}^n$. Then this set is
-linearly independent and forms a basis for the subspace $W =
-\mbox{span}\left( {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \right)$.
-\end{theorem}
+\begin{center}
+\begin{tikzpicture}[scale=1]
 
-\begin{proof}
-To show this set is linearly independent, suppose a linear combination
-of these vectors equals ${\bf 0}$, such as:
-\[
-a_1 {\bf w}_1 + a_2 {\bf w}_2 + \cdots + a_k {\bf w}_k = {\bf 0}, a_i \in \RR
-\]
-We need to show that all $a_i = 0$. To do so, we take the dot product of
-each side of the above equation with the vector ${\bf w}_i$ and obtain the following.
+  \draw[<->] (-2,0)--(8,0);
+  \draw[<->] (0,-2)--(0,6);
+\draw[line width=0.5pt, gray](-2,1)--(0.5,6);  
+\draw[line width=0.5pt, gray](-1,-2)--(3,6);
+\draw[line width=0.5pt, gray](1.5,-2)--(5.5,6);
+\draw[line width=0.5pt, gray](4,-2)--(8,6);
+\draw[line width=0.5pt, gray](6.5,-2)--(8,1);
+\draw[line width=0.5pt, gray](-2, 4.33)--(3,6);
+\draw[line width=0.5pt, gray](-2, 2.66)--(8,6);
+\draw[line width=0.5pt, gray](-2, 1)--(8,4.33);
+\draw[line width=0.5pt, gray](-2, -0.66)--(8,2.66);
+\draw[line width=0.5pt, gray](-1, -2)--(8,1);
+\draw[line width=0.5pt, gray](4,-2)--(8,-0.66);
+ \draw[line width=2pt,blue,-stealth](0,0)--(1,2);
+\draw[line width=2pt,red,-stealth](0,0)--(3,1);
+\draw[line width=2pt,-stealth](0,0)--(7,4);
+\node[blue] at (0.5, 1.5)  (p2)    {$\vec{v}_1$};
+\node[red] at (1.6, 0.2)  (p2)    {$\vec{v}_2$};
+\node[] at (3.5, 2.3)  (p2)    {$\vec{x}$};
+ \end{tikzpicture}
+ \end{center}
+Vector $\vec{x}$ is easy to work with.  In general, one way to express an arbitrary vector as a linear combination of $\vec{v}_1$ and $\vec{v}_2$ is to solve a system of linear equations, which can be costly.  One reason we like $\{\vec{i},\vec{j}\}$ as a basis of $\RR^2$ is because any vector $\vec{x}$ of $\RR^2$ can be easily expressed as the sum of the orthogonal projections of $\vec{x}$ onto the basis vectors $\vec{i}$ and $\vec{j}$, as shown below.
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+ \draw[<->] (-1,0)--(3.5,0);
+  \draw[<->] (0,-1)--(0,3.5);
+  \draw[line width=6pt,-stealth, black!20!white](0,0)--(2,0);
+  \draw[line width=6pt,-stealth, black!20!white](0,0)--(0,3);
+\draw[line width=2pt,red,-stealth](0,0)--(1,0);  
+\draw[line width=2pt,blue,-stealth](0,0)--(0,1);
+\draw[line width=2pt,-stealth](0,0)--(2,3);  
+\draw[line width=0.5pt,dashed](2,3)--(2,0);  
+\draw[line width=0.5pt,dashed](2,3)--(0,3); 
+\node[] at (1.7, -0.4)  (p2)    {$\mbox{proj}_{\vec{i}}\vec{x}$};
+\node[] at (-0.7, 2.5)  (p2)    {$\mbox{proj}_{\vec{j}}\vec{x}$};
+\node[] at (3, 3.1)  (p2)    {$\vec{x}=\mbox{proj}_{\vec{i}}\vec{x}+\mbox{proj}_{\vec{j}}\vec{x}$};
+\node[red] at (0.5, -0.3)  (p2)    {$\vec{i}$};
+\node[blue] at (-0.3, 0.5)  (p2)    {$\vec{j}$};
+ \end{tikzpicture}
+\end{center}
 
-\begin{eqnarray*}
-{\bf w}_i \dotp (a_1 {\bf w}_1 + a_2 {\bf w}_2 + \cdots + a_k {\bf w}_k ) &=& {\bf w}_i \dotp {\bf 0}\\
-a_1 ({\bf w}_i \dotp {\bf w}_1) + a_2 ({\bf w}_i \dotp {\bf w}_2) + \cdots + a_k ({\bf w}_i \dotp {\bf w}_k)  &=& 0
-\end{eqnarray*}
-Now since the set is orthogonal, ${\bf w}_i \dotp {\bf w}_m = 0$ for all $m \neq i$, so we have:
-\[
-a_1 (0) + \cdots + a_i({\bf w}_i \dotp {\bf w}_i) + \cdots + a_k (0) = 0
-\]
-\[
-a_i \norm{{\bf w}_i}^2 = 0
-\]
+We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ works well.  What if we tilted this coordinate system while preserving the orthogonal relationship between the basis vectors?  The following exploration allows you to investigate the consequences.
 
-Since the set is orthogonal, we know that $\norm{{\bf w}_i}^2  \neq 0$. It follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ {\bf w}_1, {\bf w}_2, \cdots, {\bf w}_k \}$ is linearly independent.
-
-Finally since $W = \mbox{span} \{ {\bf w}_1, {\bf w}_2, \cdots,
-{\bf w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
-
-\end{proof}
-
-If an orthogonal set is a basis for a subspace, we call it an
-\dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
-
-%We conclude this section with a discussion of Fourier expansions. 
-Given any orthogonal basis $B$ of $\RR^n$ and an arbitrary vector ${\bf x} \in \RR^n$, how do we express ${\bf x}$ as a linear combination of vectors in $B$? To answer this question we need to return to the section on orthogonal projections. It turns out that an arbitrary vector $\vec{x}$ of $\RR^n$ can be expressed as the sum of orthogonal projections of $\vec{x}$ onto each element of the orthogonal basis $B$. This result is stated formally in Theorem \ref{fourierexpansion}.
-To make sense of the statement of the theorem, recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{u}$ is given by
-$$\left(\frac{\vec{x}\cdot\vec{u}}{\norm{\vec{u}}^2}\right)\vec{u}$$
-%The solution is Fourier expansion.
-
-\begin{theorem}\label{fourierexpansion}
-Let $V$ be a subspace of $\mathbb{R}^n$ and suppose $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_m \}$
-is an orthogonal basis of $V$.
-Then for any ${\bf x}\in V$,
-\[ {\bf x} =
-\left(\frac{{\bf x}\dotp {\bf u}_1}{\norm{{\bf u}_1}^2}\right) {\bf u}_1 +
-\left(\frac{{\bf x}\dotp {\bf u}_2}{\norm{{\bf u}_2}^2}\right) {\bf u}_2 +
-\cdots +
-\left(\frac{{\bf x}\dotp {\bf u}_m}{\norm{{\bf u}_m}^2}\right) {\bf u}_m.
-\]
-%This expression is called the Fourier expansion
-%of ${\bf x}$, and
-%\[ \frac{{\bf x}\dotp {\bf u}_j}{\norm{{\bf u}_j}^2},\]
-%$j=1,2,\ldots,m$
-%are the Fourier coefficients.
-\end{theorem}
-
-\begin{exploration}
-    To visualize the meaning of Theorem \ref{fourierexpansion} in $\RR^2$ consider the following GeoGebra interactive.  Vectors $\vec{u}_1$ and $\vec{u}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors form a basis of $\RR^2$.  Vector $\vec{x}$ is an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{u}_1$ and $\vec{u}_2$ are depicted in light grey.
+\begin{exploration}\label{exp:orth1}
+    In the following GeoGebra interactive, vectors $\vec{v}_1$ and $\vec{v}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors are clearly linearly independent and span $\RR^2$.  Therefore they form an orthogonal basis of $\RR^2$.  Let $\vec{x}$ be an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ are depicted in light grey.
     \begin{enumerate}
         \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
-        \item Use the tips of $\vec{u}_1$ and $\vec{u}_2$ to change the basis vectors.  What happens when $\vec{u}_1$ and $\vec{u}_2$ are no longer orthogonal?
-        \item Pick another pair of orthogonal vectors $\vec{u}_1$ and $\vec{u}_2$.  Verify that $\vec{x}$ is still the sum of the projections.
+        \item Use the tips of $\vec{v}_1$ and $\vec{v}_2$ to change the basis vectors.  What happens when $\vec{v}_1$ and $\vec{v}_2$ are no longer orthogonal?
+        \item Pick another pair of orthogonal vectors $\vec{v}_1$ and $\vec{v}_2$.  Verify that $\vec{x}$ is still the sum of the projections.
     \end{enumerate}
 
     \begin{center}
@@ -327,78 +205,184 @@ Then for any ${\bf x}\in V$,
 \end{center}
 \end{exploration}
 
+\subsection*{Orthogonal and Orthonormal Bases}
+Consider an orthogonal set of vectors in $\RR^n$, written $\{
+\vec{w}_1, \cdots, \vec{w}_k \}$ with $k \leq n$. The span of these
+vectors is a subspace $W$ of $\RR^n$.   If we
+could show that this orthogonal set is also linearly independent, we
+would have a basis of $W$. This is precisely what we do in the following theorem.
 
-Note that in the special case where $\{ {\bf u}_1, {\bf u}_2, \ldots, {\bf u}_m \}$
-is an \emph{orthonormal} basis of $V$, we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in that case $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,n$. 
+\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
+Let $ \{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ be an
+orthogonal set of vectors in $\RR^n$. Then this set is
+linearly independent and forms a basis for the subspace $W =
+\mbox{span}\left( \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \right)$.
+\end{theorem}
 
-Consider the following example.
+\begin{proof}
+To show this set is linearly independent, suppose a linear combination
+of these vectors equals $\vec{0}$, such as:
+\[
+a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k = \vec{0}, a_i \in \RR
+\]
+We need to show that all $a_i = 0$. To do so, we take the dot product of
+each side of the above equation with the vector $\vec{w}_i$ and obtain the following.
+
+\begin{eqnarray*}
+\vec{w}_i \dotp (a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k ) &=& \vec{w}_i \dotp \vec{0}\\
+a_1 (\vec{w}_i \dotp \vec{w}_1) + a_2 (\vec{w}_i \dotp \vec{w}_2) + \cdots + a_k (\vec{w}_i \dotp \vec{w}_k)  &=& 0
+\end{eqnarray*}
+Now since the set is orthogonal, $\vec{w}_i \dotp \vec{w}_m = 0$ for all $m \neq i$, so we have:
+\[
+a_1 (0) + \cdots + a_i(\vec{w}_i \dotp \vec{w}_i) + \cdots + a_k (0) = 0
+\]
+\[
+a_i \norm{\vec{w}_i}^2 = 0
+\]
+
+Since the set is orthogonal, we know that $\norm{\vec{w}_i}^2  \neq 0$. It follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ is linearly independent.
+
+Finally since $W = \mbox{span} \{ \vec{w}_1, \vec{w}_2, \cdots,
+\vec{w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
+
+\end{proof}
+
+If an orthogonal set is a basis for a subspace, we call it an
+\dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
+
+In Exploration \ref{exp:orth1} you have found that we can express an arbitrary vector of $\RR^2$ as the sum of its projections onto the basis vectors, provided that the basis is orthogonal. It turns out that this result holds in any subspace of $\RR^n$. The following theorem proves this result.  As you read the statement of the theorem, it will be helpful to recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{d}$ is given by
+$$\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$ (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Section ???} on orthogonal projections.)
+
+\begin{theorem}\label{fourierexpansion}
+Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_m \}$
+is an orthogonal basis of $V$.
+Then we can express any $\vec{x}\in V$ as a linear combination of the basis elements,
+\[ \vec{x} =
+c_1 \vec{v}_1 +
+c_2 \vec{v}_2 +
+\cdots +
+c_m \vec{v}_m,
+\]
+and, in fact, $c_i = \frac{\vec{x}\dotp \vec{v}_i}{\norm{\vec{v}_i}^2}$ for $i=1,\ldots,m$, so that
+\begin{equation}
+\vec{x} =
+\left(\frac{\vec{x}\dotp \vec{v}_1}{\norm{\vec{v}_1}^2}\right) \vec{v}_1 +
+\left(\frac{\vec{x}\dotp \vec{v}_2}{\norm{\vec{v}_2}^2}\right) \vec{v}_2 +
+\cdots +
+\left(\frac{\vec{x}\dotp \vec{v}_m}{\norm{\vec{v}_m}^2}\right) \vec{v}_m.
+\end{equation}\label{FourierEqn}
+%This expression is called the Fourier expansion
+%of $\vec{x}$, and
+%\[ \frac{\vec{x}\dotp \vec{v}_j}{\norm{\vec{v}_j}^2},\]
+%$j=1,2,\ldots,m$
+%are the Fourier coefficients.
+\end{theorem}
+
+\begin{proof}
+The first statement in the theorem is clear, since any basis is also a spanning set.  
+
+We need to establish the formula $c_i = \frac{\vec{x}\dotp \vec{v}_i}{\norm{\vec{v}_i}^2}$ for $i=1,\ldots,m$. To do so, we take the dot product of
+each side with the vector $\vec{v}_i$ and obtain the following.
+
+\begin{equation*}
+  \vec{x} \dotp \vec{v}_i =  \left(c_1\vec{v}_1 +
+c_2\vec{v}_2 +
+\cdots +
+c_m\vec{v}_m\right) \dotp \vec{v}_i 
+\end{equation*}
+Our basis is orthogonal, so $\vec{v}_j \dotp \vec{v}_i = 0$ for all $j \neq i$, which means after we distribute the dot product, only one term will remain on the right-hand side.  We have 
+\begin{equation*}
+  \vec{x} \dotp \vec{v}_i =  c_i\vec{v}_i \dotp \vec{v}_i 
+\end{equation*}
+
+We now divide both sides by $\vec{v}_i \dotp \vec{v}_i = \norm{\vec{v}_i}^2$, and since $i$ was arbitrary, the proof is complete.
+\end{proof}
+
+Theorem~\ref{fourierexpansion} shows one important benefit of a basis being orthogonal.  With an orthogonal basis it is easy to represent any vector in terms of the basis vectors.  
 
 \begin{example}\label{fourier}
 Let
-${\bf u}_1= \begin{bmatrix}
+$\vec{v}_1= \begin{bmatrix*}[r]
 1 \\ -1 \\ 2
-\end{bmatrix},
-{\bf u}_2= \begin{bmatrix}
+\end{bmatrix*},
+\vec{v}_2= \begin{bmatrix}
 0 \\ 2 \\ 1 
 \end{bmatrix},
-{\bf u}_3 =\begin{bmatrix}
+\vec{v}_3 =\begin{bmatrix*}[r]
 5 \\ 1 \\ -2
-\end{bmatrix}$,
+\end{bmatrix*}$,
 and let
-${\bf x} =\begin{bmatrix}
+$\vec{x} =\begin{bmatrix}
 1 \\ 1 \\ 1
 \end{bmatrix}$.  
 
-Then $B=\{ {\bf u}_1, {\bf u}_2, {\bf u}_3\}$
-is an orthogonal basis of $\mathbb{R}^3$.
-
-Use this fact to write ${\bf x}$ as  a linear combination of the vectors of $B$.
+Notice that $\mathcal{B}=\{ \vec{v}_1, \vec{v}_2, \vec{v}_3\}$
+is an \underline{orthogonal} set of vectors.  Use this fact to write $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.
 
 \begin{explanation}
-Since $B$ is a basis (verify!) there is a unique way to express ${\bf x}$ as a
-linear combination of vectors of $B$. Moreover, since $B$ is an
-orthogonal basis (verify!), then using Theorem~\ref{fourierexpansion} it is especially easy to do.  We compute:
+We first apply Theorem~\ref{orthbasis} to say that $\mathcal{B}$ is linearly independent set of vectors, and so $\mathcal{B}$ forms a basis for $\RR^3$. Next we apply Theorem~\ref{fourierexpansion} to express $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.  We wish to write:
 
 \[
-{\bf x}   =
-\left(\frac{{\bf x}\dotp {\bf u}_1}{\norm{{\bf u}_1}^2}\right) {\bf u}_1 +
-\left(\frac{{\bf x}\dotp {\bf u}_2}{\norm{{\bf u}_2}^2}\right) {\bf u}_2 +
-\left(\frac{{\bf x}\dotp {\bf u}_3}{\norm{{\bf u}_3}^2}\right) {\bf u}_3.
+\vec{x}   =
+\left(\frac{\vec{x}\dotp \vec{v}_1}{\norm{\vec{v}_1}^2}\right) \vec{v}_1 +
+\left(\frac{\vec{x}\dotp \vec{v}_2}{\norm{\vec{v}_2}^2}\right) \vec{v}_2 +
+\left(\frac{\vec{x}\dotp \vec{v}_3}{\norm{\vec{v}_3}^2}\right) \vec{v}_3.
 \]
 
 We readily compute:
 
 \[
-\frac{{\bf x}\dotp{\bf u}_1}{\norm{{\bf u}_1}^2} = \frac{2}{6}, \;
-\frac{{\bf x}\dotp{\bf u}_2}{\norm{{\bf u}_2}^2} = \frac{3}{5},
+\frac{\vec{x}\dotp\vec{v}_1}{\norm{\vec{v}_1}^2} = \frac{2}{6}, \;
+\frac{\vec{x}\dotp\vec{v}_2}{\norm{\vec{v}_2}^2} = \frac{3}{5},
 \mbox{ and }
-\frac{{\bf x}\dotp{\bf u}_3}{\norm{{\bf u}_3}^2} = \frac{4}{30}.\]
+\frac{\vec{x}\dotp\vec{v}_3}{\norm{\vec{v}_3}^2} = \frac{4}{30}.\]
 
 Therefore,
 \[ \begin{bmatrix}
 1 \\ 1 \\ 1
 \end{bmatrix}
-= \frac{1}{3}\begin{bmatrix}
+= \frac{1}{3}\begin{bmatrix*}[r]
 1 \\ -1 \\ 2
-\end{bmatrix}
+\end{bmatrix*}
 +\frac{3}{5}\begin{bmatrix}
 0 \\ 2 \\ 1
 \end{bmatrix}
-+\frac{2}{15}\begin{bmatrix}
++\frac{2}{15}\begin{bmatrix*}[r]
 5 \\ 1 \\ -2
-\end{bmatrix}.\]
+\end{bmatrix*}.\]
 \end{explanation} 
 \end{example}
 
-\section*{Practice Problems}
-\begin{problem}\label{prob:diagonalizematrix1}
-Verify that the set $B=\{ {\bf u}_1, {\bf u}_2, {\bf u}_3\}$
-of Example~\ref{fourier} is, in fact, a basis of $\mathbb{R}^3$.
+The formula from Theorem~\ref{fourier} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
 
+\begin{corollary}
+Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
+is an orthonormal basis of $V$.
+Then for any $\vec{x}\in V$,
+\[ \vec{x} =
+\left(\vec{x}\dotp \vec{u}_1\right) \vec{u}_1 +
+\left(\vec{x}\dotp \vec{u}_2\right) \vec{u}_2 +
+\cdots +
+\left(\vec{x}\dotp \vec{u}_m\right)  \vec{u}_m.
+\]
+\end{corollary}
+\begin{proof}
+This is a special case of Theorem \ref{fourierexpansion} where we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in this case $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,m$.
+\end{proof}
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:rref_way}
+Retry Example~\ref{fourier} using Gaussian elimination.  Is the method of Example~\ref{fourier} more efficient?
+\end{problem}
+\begin{problem}\label{prob:vec_eq_0}
+    Let $\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\in\RR^n$ and
+suppose $\mbox{span}\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\}=\RR^n$.
+Furthermore, suppose that there exists a vector $\vec{v}\in\RR^n$ for which $\vec{v}\dotp \vec{x}_j=0$ for all $j$, $1\leq j\leq k$.
+Show that $\vec{v}=\vec{0}$.
 \end{problem}
   
 \section*{Text Source}
-A large portion of the text in this module is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+A portion of the text in this module is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 233-238.  
 
