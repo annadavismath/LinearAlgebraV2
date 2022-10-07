@@ -1,0 +1,560 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis \and Paul Bender} \title{LU Factorization} \license{CC-BY 4.0}
+
+\begin{document}
+\begin{abstract}
+% We introduce the $LU$ factorization of a matrix, and demonstrate how it may be used when solving a system of equations.  We also discuss how to obtain an $LU$ factorization.
+\end{abstract}
+\maketitle
+\section*{$LU$ factorization}
+
+\begin{exploration}\label{init:LUfactorization}
+Consider the equation:
+$$\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}\vec{x}=\begin{bmatrix}1\\8\\5\end{bmatrix}$$
+This equation is unusual in that it involves two matrices on the left-hand side.  If we multiply the matrices together, we get
+$$\begin{bmatrix}2&-1&2\\6&1&5\\-4&10&-3\end{bmatrix}\vec{x}=\begin{bmatrix}1\\8\\5\end{bmatrix}$$
+Gaussian elimination yields:
+$$\begin{bmatrix}
+2&-1&2&1\\6&1&5&8\\-4&10&-3&5
+\end{bmatrix}
+\quad\rightsquigarrow\quad
+\begin{bmatrix}
+ 1&0&0&2\\0&1&0&1\\0&0&1&-1
+\end{bmatrix}.
+$$
+We conclude that
+$$\vec{x}=\begin{bmatrix}2\\1\\-1\end{bmatrix}.$$
+
+Now that we know the answer, we will turn to the original question and consider the advantages of the format of the original problem.  Observe that the two matrices have a distinct pattern.  The matrix on the left has zeros above the main diagonal, while the matrix on the right has zeros below the main diagonal.  Matrices that follow such a pattern are called \dfn{lower triangular} and \dfn{upper triangular} matrices, respectively.
+
+Let $\vec{y}=\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}\vec{x}$.  Then we can write the original equation as
+$$\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\left(\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}\vec{x}\right)=\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\vec{y}=\begin{bmatrix}1\\8\\5\end{bmatrix}$$
+The equation 
+$$\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\vec{y}=\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\begin{bmatrix}y_1\\y_2\\y_3\end{bmatrix}=\begin{bmatrix}1\\8\\5\end{bmatrix}$$ 
+corresponds to the system
+$$\begin{matrix}
+	 y_1&&&=&1\\
+	   3y_1 & +y_2&&= &8 \\
+      -2y_1&+2y_2&+y_3&=&5
+    \end{matrix}$$
+    
+This system can be easily solved by substitution, giving us
+$$y_1=1$$
+$$3(1)+y_2=8 \rightsquigarrow y_2=5$$
+$$-2(1)+2(5)+y_3=5 \rightsquigarrow y_3=-3$$
+So,
+$$\vec{y}=\begin{bmatrix}y_1\\y_2\\y_3\end{bmatrix}=\begin{bmatrix}1\\5\\-3\end{bmatrix}$$
+    
+Recall that we let $\vec{y}=\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}\vec{x}$.  
+The equation
+$$\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}\vec{x}=\begin{bmatrix}1\\5\\-3\end{bmatrix}$$
+corresponds to the system
+$$\begin{matrix}
+	 2x_1& -&x_2&+&2x_3&=&1\\
+	   & &4x_2&-&x_3&= &5 \\
+      & &&&3x_3&=&-3
+    \end{matrix}$$
+    which can be easily solved by back-substitution:
+    $$x_3=\answer{-1}$$
+    $$x_2=\answer{1}$$
+    $$x_1=\answer{2}$$
+    
+    Thus, $\vec{x}=\begin{bmatrix}2\\1\\-1\end{bmatrix}$.  Observe that this is the same answer that we obtained in the beginning of the problem using Gaussian elimination.  
+\end{exploration}
+
+It turns out that given a matrix equation such as 
+$$\begin{bmatrix}2&-1&2\\6&1&5\\-4&10&-3\end{bmatrix}\vec{x}=\begin{bmatrix}1\\8\\5\end{bmatrix}$$
+of Exploration \ref{init:LUfactorization}, often in practice we express the matrix on the left as a product of an upper triangular matrix $U$ and a lower triangular matrix $L$ and use substitution to solve the equation than to use Gaussian elimination to find the solution.  In Exploration \ref{init:LUfactorization}, 
+
+$$\begin{bmatrix}2&-1&2\\6&1&5\\-4&10&-3\end{bmatrix}=LU=\begin{bmatrix}1&0&0\\3&1&0\\-2&2&1\end{bmatrix}\begin{bmatrix}2&-1&2\\0&4&-1\\0&0&3\end{bmatrix}$$
+
+The process of taking a matrix $A$ and expressing it as a product $A=LU$ of a lower triangular matrix $L$ and an upper triangular matrix $U$ is called \dfn{$LU$-factorization}.
+%An $LU$ factorization of a matrix $A$ is when we express the given matrix as the
+%product
+%$$A=LU$$
+%where  $L$ is a lower triangular square matrix and $U$ is an upper triangular matrix.  
+We also adopt the (common) convention that $L$ is a matrix with a diagonal consisting entirely of $1$'s, which is often called a \dfn{lower unit triangular} matrix.
+
+Let's look at another example, where we solve the same system solve in the Exploration from \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank}.
+
+\begin{example}\label{ex:usingLU}
+Consider the system
+$$\begin{array}{ccccccccc}
+	 -5x_1& +&2x_2&-&3x_3&=&1\\
+	   x_1 &+ &2x_2&-&3x_3&= &1 \\
+      x_1&- &2x_2&+&x_3&=&1
+    \end{array}$$
+We will solve this system of equations using an $LU$ factorization of the coefficient matrix.  First we observe that 
+\[
+\begin{bmatrix}
+-5 & 2 & -3 \\
+1 & 2 & -3 \\
+1 & -2 & 1\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+-1/5 & 1 & 0 \\
+-1/5  & -2/3  & 1
+\end{bmatrix} 
+\begin{bmatrix}
+-5 & 2 & -3 \\
+0 & 12/5  & -18/5 \\
+0 & 0 & -2
+\end{bmatrix}
+\]
+(How we actually come up with an  $LU$ factorization of $A$ will be discussed after this example.)
+
+To understand how an $LU$ factorization can be used, it is helpful to think of this system of equations as a matrix equation.
+$$A\vec{x}=\vec{b}$$
+$$(LU)\vec{x}=\vec{b}$$
+$$L(U\vec{x})=\vec{b}$$
+So if we let $\vec{y}=U\vec{x}$ and also write $\vec{y}=\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}$, then we are able to solve for $ y_1, y_2, \text{ and } y_3$ using \emph{forward-substitution}.
+$$L\vec{y}=\vec{b}$$
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+-1/5 & 1 & 0 \\
+-1/5  & -2/3  & 1
+\end{bmatrix} 
+\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}
+=
+\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+\]
+See if you can do it!
+$$y_1=\answer{1},\quad y_2=\answer{6/5},\quad y_3=\answer{2}$$
+Once we have the values of $\vec{y}$, since $\vec{y}=U\vec{x}$, all that remains is to solve the following matrix equation using back-substitution.
+$$U\vec{x}=\vec{y}$$
+$$
+\begin{expandable}
+\begin{bmatrix}
+-5 & 2 & -3 \\
+0 & 12/5  & -18/5 \\
+0 & 0 & -2
+\end{bmatrix} 
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+=
+\begin{bmatrix} 1 \\ 6/5 \\ 2 \end{bmatrix}
+\end{expandable}
+$$
+By now you are quite used to solving this kind of problem...
+$$x_1=\answer{0},\quad x_2=\answer{-1},\quad x_3=\answer{-1}$$
+\end{example}
+
+You may have noticed a couple of differences when comparing the system we just solved to the one in the Exploration from \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank}, although neither change affected the solution.  The first was a change in notation, to make it easier to demonstrate how to solve a system using $LU$ factorization.  Indeed the solution we came up with in the earlier module was $x=0,y=-1,\text{ and } z=-1$, which matches what we got above.  
+
+The other difference is that we switched the order of the first two equations.  Without making this change, the matrix would not have an $LU$ factorization, but switching the order of the first two equations resulted in a coefficient matrix that does.  We will see that any matrix which can be reduced to row echelon form without switching the order of its rows will have an $LU$ factorization.
+
+\subsection*{Finding an $LU$ factorization by Inspection}
+
+\begin{example}\label{ex:LU1}
+Find an $LU$ factorization of $A=
+\begin{bmatrix}
+1 & 2 & 0 & 2 \\
+1 & 3 & 2 & 1 \\
+2 & 3 & 4 & 0%
+\end{bmatrix}
+.$
+\end{example}
+
+One way to find the $LU$ factorization%
+ is to simply look for it directly.
+We need
+\[
+\begin{bmatrix}
+1 & 2 & 0 & 2 \\
+1 & 3 & 2 & 1 \\
+2 & 3 & 4 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+x & 1 & 0 \\
+y & z & 1
+\end{bmatrix} 
+\begin{bmatrix}
+a & d & h & j \\
+0 & b & e & i \\
+0 & 0 & c & f
+\end{bmatrix}
+\]
+By multiplying the latter matrices we get
+\[
+\begin{bmatrix}
+a & d & h & j \\
+xa & xd+b & xh+e & xj+i \\
+ya & yd+zb & yh+ze+c & yj+iz+f
+\end{bmatrix}
+\]
+and from this, it is a simple exercise to determine each of the unknowns. For example, from the first
+column, we get $a=1$ and then $x=1,y=2.$ 
+
+% Now go to the second column. You need $
+% d=2,xd+b=3$ so $b=1,yd+zb=3$ so $z=-1.$ From the third column, $h=0,e=2,c=6.$
+% Now from the fourth column, $j=2,i=-1,f=-5.$ 
+
+See if you can continue to determine the entire $LU$
+factorization of $A$.
+\[
+\begin{bmatrix}
+1 & 2 & 0 & 2 \\
+1 & 3 & 2 & 1 \\
+2 & 3 & 4 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+2 & \answer{-1} & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & \answer{2} & \answer{0} & \answer{2} \\
+0 & \answer{1} & \answer{2} & \answer{-1} \\
+0 & 0 & \answer{6} & \answer{-5}
+\end{bmatrix}
+\]
+
+\subsection*{Finding an $LU$ factorization by the Multiplier Method}
+
+In the following example we demonstrate a method for computing an $LU$ factorization known as the multiplier method.
+
+\begin{example}\label{ex:multiplierLU}
+Find an $LU$ factorization for
+\[
+\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 3 & 1 \\
+-2 & 3 & -2
+\end{bmatrix} 
+\]
+
+\end{example}
+
+\begin{explanation}
+Write the matrix as the following product.
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 3 & 1 \\
+-2 & 3 & -2
+\end{bmatrix} 
+\]
+In the matrix on the right, we begin with the left row and zero
+out the entries below the top using the row operation which involves adding a multiple of a row to another row. You do this and also update the matrix on the left so that the product will be unchanged. 
+
+Here is the first step.  We take $-2$ times the top row and add to the second. Then take $2$ times the top row and add to the second in the matrix on the left.  This give us
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & -1 & -5 \\
+-2 & 3 & -2
+\end{bmatrix} 
+\]
+
+The next step is to take $2$ times the top row and add to the bottom in the matrix on the right. To ensure that the product is unchanged, we place a $-2$ in the bottom left corner in the matrix on the left. Thus the second step yields
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+-2 & 0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & -1 & -5 \\
+0 & 7 & 4
+\end{bmatrix} 
+\]
+
+For our final step, we take $7$ times the middle row on right and add to bottom row. Updating the matrix on the left in the manner we did earlier, we get
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+-2 & -7 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & -1 & -5 \\
+0 & 0 & -31
+\end{bmatrix} 
+\]
+At this point, we can stop. We have an $LU$ factorization of the original matrix.  We can always multiply the matrices to check, if we wish.
+\end{explanation}
+
+Suppose $A$ is a matrix which has the property that $A$ may be placed into row echelon form without switching rows.  We claimed earlier that such a matrix necessarily had an $LU$ factorization.  
+
+% Then every row which is replaced using this
+% row operation in obtaining the \ef\; may be modified by using a row which
+% is above it.\index{LU factorization!justification}
+
+% So how does the multiplier method work for finding an $LU$ factorization?  
+
+\begin{lemma}\label{lem:multipliermethodtriangularmatrices}
+Let $L$ be a lower (upper) triangular matrix $m\times m$
+which has ones down the main diagonal. Then $L^{-1}$ also is a lower (upper)
+triangular matrix which has ones down the main diagonal. In the case that $L$
+is of the form
+\begin{equation}
+L=
+\begin{bmatrix}
+1 &  &  &  \\
+a_{1} & 1 &  &  \\
+\vdots &  & \ddots &  \\
+a_{n} &  &  & 1
+\end{bmatrix}, 
+\end{equation}\label{4nove1h}
+where all entries are zero except for the left column and main diagonal, it
+is also the case that $L^{-1}$ is obtained from $L$ by simply multiplying each entry below the main diagonal in $L$ by $-1$. The same is true if the single nonzero column is in another position.
+\end{lemma}
+
+\begin{proof}Consider the usual setup for finding the inverse $\begin{bmatrix}
+L & I
+\end{bmatrix}$.  Each row operation used on $L$ to transform this matrix to reduced row echelon form changes only the entries in $I$ below the main diagonal. Whether we have the special case of $L$ given in \ref{4nove1h} where the nonzero nondiagonal entries are in the left column, or if the single
+nonzero column is in another position, it is clear that multiplication by $-1$ as described in the lemma gives us $L^{-1}$.
+\end{proof}
+
+For a simple illustration of the lemma, observe:
+\begin{equation*}
+\begin{bmatrix}
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+0 & a & 1 & 0 & 0 & 1
+\end{bmatrix}
+\rightarrow 
+\begin{bmatrix}
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & -a & 1
+\end{bmatrix}
+\end{equation*}
+
+Now let $A$ be an $m\times n$ matrix, say
+\begin{equation*}
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &  & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix},
+\end{equation*}
+and assume $A$ can be row reduced to an upper triangular form using only row
+operation 3. Thus, in particular, $a_{11}\neq 0$. Multiply on the left by 
+\begin{equation*}
+E_{1}=
+\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+-
+\frac{a_{21}}{a_{11}} & 1 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+-\frac{a_{m1}}{a_{11}} & 0 & \cdots & 1
+\end{bmatrix}
+\end{equation*}
+This is the product of elementary matrices which make modifications in the
+first column only. It is equivalent to taking $-a_{21}/a_{11}$ times the
+first row and adding to the second. Then taking $-a_{31}/a_{11}$ times the
+first row and adding to the third and so forth. The quotients in the first
+column of the above matrix are the multipliers. Thus the result is of the
+form
+\begin{equation*}
+E_{1}A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}^{\prime } \\
+0 & a_{22}^{\prime } & \cdots & a_{2n}^{\prime } \\
+\vdots & \vdots &  & \vdots \\
+0 & a_{m2}^{\prime } & \cdots & a_{mn}^{\prime }
+\end{bmatrix}
+\end{equation*}
+By assumption, $a_{22}^{\prime }\neq 0$ and so it is possible to use this
+entry to zero out all the entries below it in the matrix on the right by
+multiplication by a matrix of the form 
+\begin{equation*}
+E_{2}=
+\begin{bmatrix}
+1 & \mathbf{0} \\
+\mathbf{0} & E
+\end{bmatrix}
+\end{equation*}
+where $E$ is an $( m-1)\times ( m-1)$
+matrix of the form
+\begin{equation*}
+E=\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+-\frac{a_{32}^{\prime }}{a_{22}^{\prime }} & 1 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+-\frac{a_{m2}^{\prime }}{a_{22}^{\prime }} & 0 & \cdots & 1
+\end{bmatrix}
+\end{equation*}
+Again, the entries in the first column below the 1 are the multipliers.
+Continuing this way, zeroing out the entries below the diagonal entries, finally leads us to
+\begin{equation*}
+E_{m-1}E_{n-2}\cdots E_{1}A=U
+\end{equation*}
+where $U$ is upper triangular. Each $E_{j}$ has all ones down the main diagonal and is lower triangular. Now we can multiply both sides by the inverses of the $E_{j}$ in the reverse order. This yields
+\begin{equation*}
+A=E_{1}^{-1}E_{2}^{-1}\cdots E_{m-1}^{-1}U
+\end{equation*}
+
+By Lemma \ref{lem:multipliermethodtriangularmatrices}, this implies that the product of those $E_{j}^{-1}$
+is a lower triangular matrix having all ones down the main diagonal.
+
+The above discussion and lemma explain how the multiplier
+method works. The expressions
+\begin{equation*}
+-\frac{a_{21}}{a_{11}},-\frac{a_{31}}{a_{11}},\cdots, -\frac{a_{m1}}{a_{11}},
+\end{equation*}
+which we obtained in building $E_{1}$, and which we denote respectively by $M_{21},\cdots ,M_{m1}$ to save notation, are the multipliers.
+\index{multipliers} Therefore, according to the lemma, to find $E_{1}^{-1}$ we simply write
+\begin{equation*}
+\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+-M_{21} & 1 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+-M_{m1} & 0 & \cdots & 1
+\end{bmatrix}
+\end{equation*}
+Similar considerations apply to the other $E_{j}^{-1}.$ Thus $L$ is a
+product of the form
+\begin{equation*}
+\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+-M_{21} & 1 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+-M_{m1} & 0 & \cdots & 1
+\end{bmatrix}
+\cdots 
+\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 \\
+\vdots & 0 & \ddots & \vdots \\
+0 & \cdots & -M_{m(m-1)} & 1
+\end{bmatrix}, 
+\end{equation*}
+where each factor has at most one nonzero column, the position of which moves from left to right as we scan the above product of matrices from left to right. It follows from what we know  about the effect of multiplying on the left by an elementary matrix that the above product is of the form
+\begin{equation*}
+\begin{bmatrix}
+1 & 0 & \cdots & 0 & 0 \\
+-M_{21} & 1 & \cdots & 0 & 0 \\
+\vdots & -M_{32} & \ddots & \vdots & \vdots \\
+-M_{(M-1)1} & \vdots & \cdots & 1 & 0 \\
+-M_{M1} & -M_{M2} & \cdots & -M_{MM-1} & 1
+\end{bmatrix}
+\end{equation*}
+
+To sum up the procedure, beginning at the left column and moving toward the right, you
+simply insert, into the corresponding position in the identity matrix, $-1$
+times the multiplier which was used to zero out an entry in that position
+below the main diagonal in $A,$ while retaining the main diagonal which
+consists entirely of ones. This will give us $L$ as we create $U$ using row operation 3.
+
+The above procedure shows that if a matrix can be reduced to row-echelon form without swapping any rows, then we can find an $LU$ factorization.  But what about the general case?
+
+\begin{theorem}
+Suppose an $m \times n$ matrix $A$ is carried to a row-echelon matrix $U$ using Gaussian elimination. Let $P_1, P_2, \ldots, P_s$ be the elementary matrices corresponding (in order) to the row interchanges used,
+and write $P=P_s \cdots P_2 P_1$ . (If no interchanges are used take $P = I_M$.) Then:
+1. $PA$ is the matrix obtained from $A$ by doing these interchanges (in order) to A.
+2. $PA$ has an $LU$-factorization.
+\end{theorem}
+
+For a proof of the above theorem, the reader is referred to Nicholson, pp 123-127.
+
+The matrix $P$ in the above theorem is called a $permutation matrix$.  These matrices have other important applications, as we will see later.
+
+
+\section*{Practice Problems}
+
+\begin{problem}
+Use the given $LU$ factorization of the coefficient matrix using to solve the system of equations.
+\begin{equation*}
+\begin{array}{c}
+x+2y+3z=5 \\
+2x+3y+z=6 \\
+3x+5y+4z=11
+\end{array}
+\end{equation*}
+
+Observe that an $LU$ factorization of the coefficient matrix is
+\[
+\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 3 & 1 \\
+3 & 5 & 4\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+3 & 1 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & -1 & -5 \\
+0 & 0 & 0
+\end{bmatrix}
+\]
+\end{problem}
+
+\begin{problem}
+Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
+\begin{problem}
+\begin{equation*}
+\begin{array}{c}
+x+2y=5 \\
+2x+3y=6
+\end{array}
+\end{equation*}
+\end{problem}
+
+\begin{problem}
+\begin{equation*}
+\begin{array}{c}
+x+2y+z=1 \\
+y+3z=2 \\
+2x+3y=6
+\end{array}
+\end{equation*}
+\end{problem}
+
+\begin{problem}
+\begin{equation*}
+\begin{array}{c}
+x+2y+3z=5 \\
+2x+3y+z=6 \\
+x-y+z=2
+\end{array}
+\end{equation*}
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Is there only one $LU$ factorization for a given matrix?
+
+\textbf{
+Hint:\ }Consider the equation
+$$
+\begin{bmatrix}0 & 1 \\0 & 1\end{bmatrix}=\begin{bmatrix}1& 0 \\1 & 1\end{bmatrix} \begin{bmatrix}0 & 1 \\0 & 0\end{bmatrix}
+$$
+
+Look for all possible $LU$ factorizations.
+\end{problem}
+
+\begin{problem}
+Can you show that every permutation matrix is invertible?  If so, What does the inverse of a permutation matrix look like?
+\end{problem}
+
+\section*{Text Source}
+The text in this module is an adaptation of Section 2.2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 99-106.
+
+\end{document}
