@@ -5,10 +5,11 @@
 
 \begin{document}
 \begin{abstract}
-  %We define a linear combination of vectors and examine whether a given vector may be expressed as a linear combination of other vectors, both algebraically and geometrically.
-\end{abstract}
+ \end{abstract}
 \maketitle
 \section*{Linear Combinations of Vectors}
+
+When studying vectors, the two main operations we have learned about are vector addition and scalar multiplication.  Both are involved in the important concept of a \dfn{linear combination} of vectors.
 
 \begin{definition}\label{def:lincomb}
 A vector $\vec{v}$ is said to be a \dfn{linear combination} of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_n$ if 
@@ -267,6 +268,28 @@ We know that there is no way to express $\begin{bmatrix}3\\2\end{bmatrix}$ as a 
 
 \end{explanation}
 \end{example}
+
+Visualizing linear combination of vectors in $\RR^3$ is more difficult than doing so in $\RR^2$.  The following GeoGebra interactive will help you do this.
+
+\begin{exploration}\label{exp:vecAddInR3}
+Recall that adding two vectors amounts to finding the diagonal of a parallelogram determined by placing the two vectors tail to tail.  This process is not limited to vectors of $\RR^2$.  In the following exercise you will define vectors $\vec{v}$, $\vec{w}$ and $\vec{u}$, then add them by finding diagonals of parallelograms, two vectors at a time. RIGHT-CLICK and DRAG the the left panel to rotate the graph.
+
+\begin{center} 
+\geogebra{ccpev33m}{900}{800} 
+\end{center}
+
+The process we visualized above for three vectors allows us to add any number of vectors, two at a time.  A special case that you will find useful is adding three vectors in $\RR^3$.  It turns out that the sum of three (non-co-planar) vectors is the diagonal of a three-dimensional figure called a \emph{parallelepiped}.  Each face of the parallelepiped is a parallelogram determined by two out of the three given vectors.  The following GeoGebra exercise will help you visualize the sum of three vectors as the diagonal of a parallelepiped.
+
+\begin{center} 
+\geogebra{bpzfb7vr}{900}{700} 
+\end{center}
+
+Finally, you can use the following GeoGebra interactive to help you visualize linear combinations of three vectors in $\RR^3$.
+
+\begin{center} 
+\geogebra{zvzxujp2}{900}{800} 
+\end{center}
+\end{exploration}
 
 \subsection*{Algebra of Linear Combinations}
 
