@@ -10,16 +10,16 @@
 \maketitle
 
 \section*{Redundant Vectors}
-
+Need an Intro sentence. 
 \begin{exploration}\label{exp:redundantVecs1}
 Consider the following collection of vectors:
 $$\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$$
 What is the span of these vectors?  \wordChoice{\choice{A line}, \choice[correct]{$\RR^2$}, \choice{A parallelogram}, \choice{A parallelepiped}}
 
-In this Exploration we will examine what happens to the span of a collection of vectors when a vector is removed from the collection.  
+In this Exploration we will examine what can happen to the span of a collection of vectors when a vector is removed from the collection.  
 
 First, let's remove
-$\begin{bmatrix}2\\1\end{bmatrix}$.  Which of the following is true?  
+$\begin{bmatrix}2\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$.  Which of the following is true?  
 \begin{multipleChoice}  
 \choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$}  
 \choice[correct]{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)$ is a line}  
@@ -48,14 +48,14 @@ As you just discovered, removing a vector from a collection of vectors may or ma
 Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  If removing $\vec{v}_j$ ($1\leq j\leq k$) from this collection does not change the span of the collection, in other words, if $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
 \end{definition}
 
-Our next goal is to see what causes $\begin{bmatrix}-4\\2\end{bmatrix}$ to be redundant.  The answer lies not in the vector itself, but in its relationship to the other vectors in the collection. Observe that $\begin{bmatrix}-4\\2\end{bmatrix}=-2\begin{bmatrix}2\\-1\end{bmatrix}$.  In other words, $\begin{bmatrix}-4\\2\end{bmatrix}$ is a scalar multiple of another vector in the set.  To see why this matters, let's pick an arbitrary vector in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$.  Vector $\begin{bmatrix}0\\2\end{bmatrix}$ is in the span because it can be written as a linear combination of the three vectors as follows
-$$\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}-4\\2\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}$$
+Our next goal is to see what causes $\begin{bmatrix}-4\\2\end{bmatrix}$ to be redundant.  The answer lies not in the vector itself, but in its relationship to the other vectors in the collection. Observe that $\begin{bmatrix}-4\\2\end{bmatrix}=-2\begin{bmatrix}2\\-1\end{bmatrix}$.  In other words, $\begin{bmatrix}-4\\2\end{bmatrix}$ is a scalar multiple of another vector in the set.  To see why this matters, let's pick an arbitrary vector $\vec{w}=\begin{bmatrix}0\\2\end{bmatrix}$ in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$.  Vector $\vec{w}$ is in the span because it can be written as a linear combination of the three vectors as follows
+$$\vec{w}=\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}-4\\2\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}$$
 
 But $\begin{bmatrix}-4\\2\end{bmatrix}$ is not essential to this linear combination because it can be replaced with $-2\begin{bmatrix}2\\-1\end{bmatrix}$, as shown below.
 
 $$\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}-4\\2\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ (-2)\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}=-\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}$$
 
-Regardless of what vector we pick in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$, we will always be able to replace $\begin{bmatrix}-4\\2\end{bmatrix}$ with $-2\begin{bmatrix}2\\-1\end{bmatrix}$, placing the vector we picked in the span of $\begin{bmatrix}2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\1\end{bmatrix}$,    and rendering $\begin{bmatrix}-4\\2\end{bmatrix}$ redundant.  (Note that we can just as easily write $\begin{bmatrix}2\\-1\end{bmatrix}=-\frac{1}{2}\begin{bmatrix}-4\\2\end{bmatrix}$, and argue that $\begin{bmatrix}2\\-1\end{bmatrix}$ is redundant.)  We conclude that only one of $\begin{bmatrix}-4\\2\end{bmatrix}$ and $\begin{bmatrix}2\\-1\end{bmatrix}$ is needed to maintain the span of the original three vectors.  We have
+Regardless of what vector $\vec{w}$ we write as a linear combination of$\begin{bmatrix}2\\-1\end{bmatrix}$,$ \begin{bmatrix}-4\\2\end{bmatrix}$ and $\begin{bmatrix}2\\1\end{bmatrix}$, we will always be able to replace $\begin{bmatrix}-4\\2\end{bmatrix}$ with $-2\begin{bmatrix}2\\-1\end{bmatrix}$, placing $\vec{w}$ into the span of $\begin{bmatrix}2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\1\end{bmatrix}$, and making $\begin{bmatrix}-4\\2\end{bmatrix}$ redundant.  (Note that we can just as easily write $\begin{bmatrix}2\\-1\end{bmatrix}=-\frac{1}{2}\begin{bmatrix}-4\\2\end{bmatrix}$, and argue that $\begin{bmatrix}2\\-1\end{bmatrix}$ is redundant.)  We conclude that only one of $\begin{bmatrix}-4\\2\end{bmatrix}$ and $\begin{bmatrix}2\\-1\end{bmatrix}$ is needed to maintain the span of the original three vectors.  We have
 $$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$$
 The left-most collection in this expression contains redundant vectors; the other two collections do not.
 
@@ -63,7 +63,7 @@ In Exploration \ref{exp:redundantVecs1} we found one vector to be redundant beca
 
 \begin{exploration}\label{exp:redundantVecs2}
     Consider the set of vectors $$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$
-The three vectors are shown below.
+The three vectors are shown below. RIGHT-CLICK and DRAG to rotate the interactive graph.
 \begin{center}
 \geogebra{x72vbsaw}{400}{400}
 \end{center}
@@ -72,23 +72,25 @@ $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\en
 Can we remove one of the vectors from the set without changing the span?  Observe that we can write $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ as a linear combination of the other two vectors
  \begin{equation}\label{eq:redundant}\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{2}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{1}\begin{bmatrix}2\\0\\1\end{bmatrix}\end{equation}
 
- This means that any vector in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ can be written as a linear combination of only $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ by replacing $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ with the expression in (\ref{eq:redundant}). For example, $$\begin{bmatrix}7\\6\\-1\end{bmatrix}=\begin{bmatrix}1\\2\\-1\end{bmatrix}+\begin{bmatrix}2\\0\\1\end{bmatrix}+\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{3}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{2}\begin{bmatrix}2\\0\\1\end{bmatrix}$$
+ This means that we can write any vector in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ as a linear combination of only $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ by replacing $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ with the expression in (\ref{eq:redundant}). For example, $$\begin{bmatrix}7\\6\\-1\end{bmatrix}=\begin{bmatrix}1\\2\\-1\end{bmatrix}+\begin{bmatrix}2\\0\\1\end{bmatrix}+\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{3}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{2}\begin{bmatrix}2\\0\\1\end{bmatrix}$$
 
 We have
 $$\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix}\right)$$
 
- Vector $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant.  Can each of the other two vectors in the set 
- $$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$ be considered redundant?  You will address this question in Practice Problem \ref{prob:redundant1}.
+ We conclude that vector $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant.  Can each of the other two vectors in the set 
+ $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$ be considered redundant?  You will address this question in Practice Problem \ref{prob:redundant1}.
 \end{exploration}
- Explorations \ref{exp:redundantVecs1} and \ref{exp:redundantVecs2} gave us a good intuitive understanding that a the redundancy status of a vector as part of a collection of vectors depends on whether the given vector is a linear combination of the other vectors in the collection.  The following theorem formalizes our findings.
+ Explorations \ref{exp:redundantVecs1} and \ref{exp:redundantVecs2} gave us a good intuitive understanding that the redundancy status of a vector as part of a collection of vectors depends on whether the given vector is a linear combination of the other vectors in the collection.  The following theorem formalizes our findings.
 
  \begin{theorem}\label{th:redundant}
      Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  Vector $\vec{v}_j$, ($1\leq j\leq k$) is redundant in this collection if and only if $\vec{v}_j$ can be expressed as a linear combination of the other vectors in the collection.
  \end{theorem}
  \begin{proof}
-     First, suppose $\vec{v}_j$ is a linear combination of vectors $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
+     First, suppose $\vec{v}_j$ is a linear combination of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
 
-Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$.
+To show equality of the two spans we will pick a vector in the left span and show that it is also an element of the span on the right.  Then, we will pick a vector in the right span and show that it is also an element of the span on the left.
+
+Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$. (Why?)
 
 Now suppose $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we need to show that $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
 
@@ -105,7 +107,7 @@ Substituting the expression in (\ref{eq:vj}) for $\vec{v}_j$ and simplifying, we
 &+&(b_{j+1}+b_ja_{j+1})\vec{v}_{j+1}\\
 &+&\dots\\
 &+&(b_k+b_ja_k)\vec{v}_k\end{eqnarray*}
-This shows that $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$
+This shows that $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
 We now have 
 $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
 and the first part of the proof is complete.
