@@ -6,40 +6,161 @@
 \begin{document}
 
 \begin{abstract}
-% We define linear independence of a set of vectors, and explore this concept algebraically and geometrically.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
-\section*{Linear Independence}
-%In this module we discuss the notion of \dfn{linear independence} of a set of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$.  We 
+\section*{Redundant Vectors}
 
-Consider the vector equation \begin{align}\label{eq:defoflinind}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}\end{align}
- where $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are vectors of $\RR^n$ and $a_1, \ldots ,a_p$ are unknown scalar coefficients.  
- 
- Can we say whether or not this equation is consistent?  
-\begin{expandable}
-Observe that this equation must be consistent, regardless of what the vectors are, because $a_1=a_2=\ldots =a_p=0$ is a solution.  This solution is known as the \dfn{trivial solution}.
-\end{expandable} 
+\begin{exploration}\label{exp:redundantVecs1}
+Consider the following collection of vectors:
+$$\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$$
+What is the span of these vectors?  \wordChoice{\choice{A line}, \choice[correct]{$\RR^2$}, \choice{A parallelogram}, \choice{A parallelepiped}}
 
-(Click the arrow on the right for the answer.)
+In this Exploration we will examine what happens to the span of a collection of vectors when a vector is removed from the collection.  
 
-\begin{definition}[Linear Independence]\label{def:linearindependence}
-Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is \dfn{linearly independent} if the only solution to 
-$$a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}$$
-is the \dfn{trivial solution} $a_1=a_2=\ldots =a_p=0$.
+First, let's remove
+$\begin{bmatrix}2\\1\end{bmatrix}$.  Which of the following is true?  
+\begin{multipleChoice}  
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$}  
+\choice[correct]{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)$ is a line}  
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)=\RR^2$}
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)$ is a parallelogram.}
+\end{multipleChoice}  
 
-If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_p$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is \dfn{linearly dependent}.
+We see that the span \wordChoice{\choice[correct]{has changed}, \choice{has not changed.}}
+
+Now let's remove $\begin{bmatrix}-4\\2\end{bmatrix}$ from the \emph{original} collection of vectors.  Which of the following is true?
+
+\begin{multipleChoice}  
+\choice[correct]{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$}  
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$ is a line}  
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$ is the right side of the coordinate plane.}
+\choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$ is a parallelogram.}
+\end{multipleChoice}  
+
+We see that the span \wordChoice{\choice{has changed.}, \choice[correct]{has not changed.}}
+
+\end{exploration}
+
+As you just discovered, removing a vector from a collection of vectors may or may not affect the span of the collection.  We will refer to vectors that can be removed from a collection without changing the span as \dfn{redundant}.  In Exploration \ref{exp:redundantVecs1}, $\begin{bmatrix}-4\\2\end{bmatrix}$ is \dfn{redundant}, while $\begin{bmatrix}2\\1\end{bmatrix}$ is not.
+
+\begin{definition}\label{def:redundant}
+Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  If removing $\vec{v}_j$ ($1\leq j\leq k$) from this collection does not change the span of the collection, in other words, if $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
 \end{definition}
 
-If the {\it set} of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is linearly independent (dependent), we often say that the {\it vectors} $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are linearly independent (dependent).
+Our next goal is to see what causes $\begin{bmatrix}-4\\2\end{bmatrix}$ to be redundant.  The answer lies not in the vector itself, but in its relationship to the other vectors in the collection. Observe that $\begin{bmatrix}-4\\2\end{bmatrix}=-2\begin{bmatrix}2\\-1\end{bmatrix}$.  In other words, $\begin{bmatrix}-4\\2\end{bmatrix}$ is a scalar multiple of another vector in the set.  To see why this matters, let's pick an arbitrary vector in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$.  Vector $\begin{bmatrix}0\\2\end{bmatrix}$ is in the span because it can be written as a linear combination of the three vectors as follows
+$$\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}-4\\2\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}$$
 
-% \begin{definition}[Linear Independence]\label{def:linearindependence}
-% Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors of $\RR^n$.  We say that $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are \dfn{linearly dependent} (or the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is linearly dependent) if there exist scalars $a_1, a_2, \ldots , a_p$, not all zero, such that
-% \begin{align}\label{eq:defoflinind}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_p=\vec{0}\end{align}
-% Otherwise we say that $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are \dfn{linearly independent} (or the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is linearly independent).
-% \end{definition}
+But $\begin{bmatrix}-4\\2\end{bmatrix}$ is not essential to this linear combination because it can be replaced with $-2\begin{bmatrix}2\\-1\end{bmatrix}$, as shown below.
 
-% Note that given {\it any} set of vectors in $\RR^n$, equation (\ref{eq:defoflinind}) will always have at least the \dfn{trivial solution} $a_1=a_2=\ldots =a_p=0$.  If the trivial solution is the only possible solution, then we say that the vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are linearly independent.  If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_p$ are zero) exists, then we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ are linearly dependent.
+$$\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}-4\\2\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}+ (-2)\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}=-\begin{bmatrix}2\\-1\end{bmatrix}+ \begin{bmatrix}2\\1\end{bmatrix}$$
+
+Regardless of what vector we pick in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$, we will always be able to replace $\begin{bmatrix}-4\\2\end{bmatrix}$ with $-2\begin{bmatrix}2\\-1\end{bmatrix}$, placing the vector we picked in the span of $\begin{bmatrix}2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\1\end{bmatrix}$,    and rendering $\begin{bmatrix}-4\\2\end{bmatrix}$ redundant.  (Note that we can just as easily write $\begin{bmatrix}2\\-1\end{bmatrix}=-\frac{1}{2}\begin{bmatrix}-4\\2\end{bmatrix}$, and argue that $\begin{bmatrix}2\\-1\end{bmatrix}$ is redundant.)  We conclude that only one of $\begin{bmatrix}-4\\2\end{bmatrix}$ and $\begin{bmatrix}2\\-1\end{bmatrix}$ is needed to maintain the span of the original three vectors.  We have
+$$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$$
+The left-most collection in this expression contains redundant vectors; the other two collections do not.
+
+In Exploration \ref{exp:redundantVecs1} we found one vector to be redundant because we could replace it with a scalar multiple of another vector in the set.  The following Exploration delves into what happens when a vector in a given set is a linear combination of the other vectors.
+
+\begin{exploration}\label{exp:redundantVecs2}
+    Consider the set of vectors $$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$
+The three vectors are shown below.
+\begin{center}
+\geogebra{x72vbsaw}{400}{400}
+\end{center}
+$\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ is \wordChoice{\choice{A line}, \choice[correct]{A plane}, \choice{$\RR^3$}, \choice{A parallelepiped}}
+
+Can we remove one of the vectors from the set without changing the span?  Observe that we can write $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ as a linear combination of the other two vectors
+ \begin{equation}\label{eq:redundant}\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{2}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{1}\begin{bmatrix}2\\0\\1\end{bmatrix}\end{equation}
+
+ This means that any vector in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ can be written as a linear combination of only $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ by replacing $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ with the expression in (\ref{eq:redundant}). For example, $$\begin{bmatrix}7\\6\\-1\end{bmatrix}=\begin{bmatrix}1\\2\\-1\end{bmatrix}+\begin{bmatrix}2\\0\\1\end{bmatrix}+\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{3}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{2}\begin{bmatrix}2\\0\\1\end{bmatrix}$$
+
+We have
+$$\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix}\right)$$
+
+ Vector $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant.  Can each of the other two vectors in the set 
+ $$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$ be considered redundant?  You will address this question in Practice Problem \ref{prob:redundant1}.
+\end{exploration}
+ Explorations \ref{exp:redundantVecs1} and \ref{exp:redundantVecs2} gave us a good intuitive understanding that a the redundancy status of a vector as part of a collection of vectors depends on whether the given vector is a linear combination of the other vectors in the collection.  The following theorem formalizes our findings.
+
+ \begin{theorem}\label{th:redundant}
+     Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  Vector $\vec{v}_j$, ($1\leq j\leq k$) is redundant in this collection if and only if $\vec{v}_j$ can be expressed as a linear combination of the other vectors in the collection.
+ \end{theorem}
+ \begin{proof}
+     First, suppose $\vec{v}_j$ is a linear combination of vectors $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
+
+Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$.
+
+Now suppose $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we need to show that $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
+
+     By assumption, we can write $\vec{v}_j$ as
+\begin{equation}\label{eq:vj}
+\vec{v}_j=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_{j-1}\vec{v}_{j-1}+a_{j+1}\vec{v}_{j+1}+\dots +a_k\vec{v}_k
+\end{equation}
+
+Since $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we have
+$$\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_j\vec{v}_j+\dots +b_k\vec{v}_k$$
+Substituting the expression in (\ref{eq:vj}) for $\vec{v}_j$ and simplifying, we obtain the following
+\begin{eqnarray*}\vec{w}=(b_1+b_ja_1)\vec{v}_1+(b_2+b_ja_2)\vec{v}_2&+&\dots\\
+&+&(b_{j-1}+b_ja_{j-1})\vec{v}_{j-1}\\
+&+&(b_{j+1}+b_ja_{j+1})\vec{v}_{j+1}\\
+&+&\dots\\
+&+&(b_k+b_ja_k)\vec{v}_k\end{eqnarray*}
+This shows that $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$
+We now have 
+$$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
+and the first part of the proof is complete.
+
+Next, we will assume that $\vec{v}_j$ is redundant, then show that $\vec{v}_j$ is a linear combination of the other vectors.
+
+If $\vec{v}_j$ is redundant then removing it from the set does not change the span. 
+$$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
+Consider a vector $\vec{w}$ in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$  
+\begin{equation}\label{eq:w1}
+\vec{w}=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_k\vec{v}_k
+\end{equation}
+Since the span contains ALL possible linear combinations of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$, it is easy to ensure that $\vec{w}$ is such that $a_j\neq 0$.
+
+By assumption, $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.  Therefore, we can express $\vec{w}$ as a linear combination 
+\begin{equation}\label{eq:w2}
+\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_{j-1}\vec{v}_{j-1}+b_{j+1}\vec{v}_{j+1}+\dots +b_k\vec{v}_k
+\end{equation}
+Subtracting expression (\ref{eq:w2}) from (\ref{eq:w1}) we obtain
+\begin{eqnarray}\label{eq:zero}
+    \vec{0}=\vec{w}-\vec{w}=(a_1-b_1)\vec{v}_1&+&\dots\\ \nonumber
+    &+&(a_{j-1}-b_{j-1})\vec{v}_{j-1}+a_j\vec{v}_j+(a_{j+1}-b_{j+1})\vec{v}_{j+1}\\ \nonumber
+    &+&\dots\\ \nonumber
+    &+&(a_k-b_k)\vec{v}_k
+\end{eqnarray}
+Recall that we ensured that $a_j\neq 0$.  This allows us to express $\vec{v}_j$ as a linear combination of the other vectors by solving for $\vec{v}_j$.
+\begin{eqnarray*}
+    \vec{v}_j=-\frac{1}{a_j}\Big[(a_1-b_1)\vec{v}_1&+&\dots\\
+    &+&(a_{j-1}-b_{j-1})\vec{v}_{j-1}+(a_{j+1}-b_{j+1})\vec{v}_{j+1}\\
+    &+&\dots\\
+    &+&(a_k-b_k)\vec{v}_k\Big]
+\end{eqnarray*}
+ \end{proof}
+
+ Collections of vectors that do not contain redundant vectors are very important in linear algebra.  We will start referring to such collections as \dfn{linearly independent}.  Collections of vectors that contain redundant vectors will be called \dfn{linearly dependent}.   
+
+\section*{Linear Independence}
+
+Our definition of linear independence and dependence from the previous section is a valuable intuitive tool.  The downside of this definition is that it does not provide a clear computational path for determining whether a collection of vectors is linearly dependent or independent.  The following definition will allow us to easily determine linear dependence and independence of vectors.
+
+%\begin{expandable}
+%Observe that this equation must be consistent, regardless of what the vectors are, because $a_1=a_2=\ldots =a_p=0$ is a solution.  This solution is known as the \dfn{trivial solution}.
+%\end{expandable} 
+
+\begin{definition}[Linear Independence]\label{def:linearindependence}
+Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
+\begin{equation}\label{eq:defLinInd}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_k=\vec{0}\end{equation}
+is the \dfn{trivial solution} $a_1=a_2=\ldots =a_k=0$.
+
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
+\end{definition}
+
+If the {\it set} of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is linearly independent (dependent), we often say that the {\it vectors} $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ are linearly independent (dependent).
+
+To see that Definition \ref{def:linearindependence} is equivalent to our earlier definition involving redundant vectors observe that equation (\ref{eq:zero}) provides us with a non-trivial solution to equation (\ref{eq:defLinInd}) when redundant vectors are present.  Conversely, when a non-trivial solution to (\ref{eq:defLinInd}) exists, we can solve for the vector with a non-zero coefficient, expressing it as a linear combination of the other vectors.
 
 \begin{example}\label{ex:linind}Determine whether the vectors in each part are linearly independent.
 
@@ -105,7 +226,7 @@ A subset of $\RR^n$ containing two or more vectors is linearly dependent if and 
 See Practice Problem \ref{prob:lindeplincombofother}.
 \end{proof}
 
-\subsection*{Geometry of Linearly Dependent and Linearly Independent Sets}
+\subsection*{Geometry of Linearly Dependent and Linearly Independent Vectors}
 
 Theorem \ref{th:lindeplincombofother} gives us a convenient way of looking at linear dependence/independence geometrically.  When looking at two or more vectors, we ask ``can one of the vectors be written as a linear combination of the others?"  If the answer is ``yes", then the vectors are linearly dependent.
 \subsubsection*{A Set of Two Vectors}
@@ -173,7 +294,9 @@ A set of three vectors is linearly independent if the vectors do not lie in the 
 \end{itemize}
 
 \section*{Practice Problems}
-
+\begin{problem}\label{prob:redundant1}
+Exploration \ref{exp:redundantVecs2}
+\end{problem}
 \begin{problem} Are the given vectors linearly independent?
 
 \begin{problem}\label{prob:linindmultchoice1}
@@ -353,5 +476,9 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
 \end{center}
 \end{problem}
 
+\end{problem}
+
+\begin{problem}\label{prob:Adding1OK}
+If $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and if $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$, then $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
 \end{problem}
 \end{document} 
