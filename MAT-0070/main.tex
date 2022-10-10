@@ -5,7 +5,7 @@
 
 \begin{document}
 \begin{abstract}
-% We introduce the $LU$ factorization of a matrix, and demonstrate how it may be used when solving a system of equations.  We also discuss how to obtain an $LU$ factorization.
+ 
 \end{abstract}
 \maketitle
 \section*{$LU$ factorization}
@@ -126,18 +126,18 @@ See if you can do it!
 $$y_1=\answer{1},\quad y_2=\answer{6/5},\quad y_3=\answer{2}$$
 Once we have the values of $\vec{y}$, since $\vec{y}=U\vec{x}$, all that remains is to solve the following matrix equation using back-substitution.
 $$U\vec{x}=\vec{y}$$
-$$
+
 \begin{expandable}
-\begin{bmatrix}
+$$\begin{bmatrix}
 -5 & 2 & -3 \\
 0 & 12/5  & -18/5 \\
 0 & 0 & -2
 \end{bmatrix} 
 \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
 =
-\begin{bmatrix} 1 \\ 6/5 \\ 2 \end{bmatrix}
+\begin{bmatrix} 1 \\ 6/5 \\ 2 \end{bmatrix}$$
 \end{expandable}
-$$
+
 By now you are quite used to solving this kind of problem...
 $$x_1=\answer{0},\quad x_2=\answer{-1},\quad x_3=\answer{-1}$$
 \end{example}
