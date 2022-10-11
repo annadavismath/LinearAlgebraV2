@@ -21,7 +21,9 @@ What is the span of these vectors?  \wordChoice{\choice{A line}, \choice[correct
 In this Exploration we will examine what can happen to the span of a collection of vectors when a vector is removed from the collection.  
 
 First, let's remove
-$\begin{bmatrix}2\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$.  Which of the following is true?  
+$\begin{bmatrix}2\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$.  
+
+Which of the following is true?  
 \begin{multipleChoice}  
 \choice{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$}  
 \choice[correct]{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}\right)$ is a line}  
@@ -31,7 +33,9 @@ $\begin{bmatrix}2\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\end{bmatrix
 
 Removing $\begin{bmatrix}2\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right\}$ \wordChoice{\choice[correct]{changed}, \choice{did not change}} the span.
 
-Now let's remove $\begin{bmatrix}-4\\2\end{bmatrix}$ from the \emph{original} collection of vectors.  Which of the following is true?
+Now let's remove $\begin{bmatrix}-4\\2\end{bmatrix}$ from the \emph{original} collection of vectors.  
+
+Which of the following is true?
 
 \begin{multipleChoice}  
 \choice[correct]{$\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$}  
@@ -47,7 +51,7 @@ Removing $\begin{bmatrix}-4\\2\end{bmatrix}$ from $\left\{\begin{bmatrix}2\\-1\e
 As you just discovered, removing a vector from a collection of vectors may or may not affect the span of the collection.  We will refer to vectors that can be removed from a collection without changing the span as \dfn{redundant}.  In Exploration \ref{exp:redundantVecs1}, $\begin{bmatrix}-4\\2\end{bmatrix}$ is \dfn{redundant}, while $\begin{bmatrix}2\\1\end{bmatrix}$ is not.
 
 \begin{definition}\label{def:redundant}
-Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  If $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$ we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
+Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a set of vectors in $\RR^n$.  If we can remove one vector without changing the span of this set, then that vector is \dfn{redundant}.  In other words, if $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$ we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
 \end{definition}
 
 Our next goal is to see what causes $\begin{bmatrix}-4\\2\end{bmatrix}$ to be redundant.  The answer lies not in the vector itself, but in its relationship to the other vectors in the collection. Observe that $\begin{bmatrix}-4\\2\end{bmatrix}=-2\begin{bmatrix}2\\-1\end{bmatrix}$.  In other words, $\begin{bmatrix}-4\\2\end{bmatrix}$ is a scalar multiple of another vector in the set.  To see why this matters, let's pick an arbitrary vector $\vec{w}=\begin{bmatrix}0\\2\end{bmatrix}$ in $\mbox{span}\left(\begin{bmatrix}2\\-1\end{bmatrix}, \begin{bmatrix}-4\\2\end{bmatrix}, \begin{bmatrix}2\\1\end{bmatrix}\right)$.  Vector $\vec{w}$ is in the span because it can be written as a linear combination of the three vectors as follows
@@ -73,7 +77,7 @@ $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\en
 \end{center}
 
 Can we remove one of the vectors from the set without changing the span?  Observe that we can write $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ as a linear combination of the other two vectors
- \begin{equation}\label{eq:redundant}\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{2}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{1}\begin{bmatrix}2\\0\\1\end{bmatrix}\end{equation}
+ \begin{equation}\label{eq:redundant}\begin{bmatrix}4\\4\\-1\end{bmatrix}=2\begin{bmatrix}1\\2\\-1\end{bmatrix}+1\begin{bmatrix}2\\0\\1\end{bmatrix}\end{equation}
 
  This means that we can write any vector in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ as a linear combination of only $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ by replacing $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ with the expression in (\ref{eq:redundant}). For example, $$\begin{bmatrix}7\\6\\-1\end{bmatrix}=\begin{bmatrix}1\\2\\-1\end{bmatrix}+\begin{bmatrix}2\\0\\1\end{bmatrix}+\begin{bmatrix}4\\4\\-1\end{bmatrix}=\answer{3}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{2}\begin{bmatrix}2\\0\\1\end{bmatrix}$$
 
@@ -83,84 +87,17 @@ $$\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\e
  We conclude that vector $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant.  Can each of the other two vectors in the set 
  $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$ be considered redundant?  You will address this question in Practice Problem \ref{prob:redundant1}.
 \end{exploration}
- Explorations \ref{exp:redundantVecs1} and \ref{exp:redundantVecs2} give us a good intuitive understanding that the redundancy status of a vector as part of a collection of vectors depends on whether the given vector is a linear combination of the other vectors in the collection.  
- %The following theorem formalizes our findings.
-
- %\begin{theorem}\label{th:redundant}
- %    Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a collection of vectors in $\RR^n$.  Vector $\vec{v}_j$, ($1\leq j\leq k$) is redundant in this collection if and only if $\vec{v}_j$ can be expressed as a linear combination of the other vectors in the collection.
- %\end{theorem}
- %\begin{proof}
- %    First, suppose $\vec{v}_j$ is a linear combination of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
-
-%To show equality of the two spans we will pick a vector in the left span and show that it is also an element of the span on the right.  Then, we will pick a vector in the right span and show that it is also an element of the span on the left.
-
-%Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$. (Why?)
-
-%Now suppose $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we need to show that $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
-
- %    By assumption, we can write $\vec{v}_j$ as
-%\begin{equation}\label{eq:vj}
-%\vec{v}_j=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_{j-1}\vec{v}_{j-1}+a_{j+1}\vec{v}_{j+1}+\dots +a_k\vec{v}_k
-%\end{equation}
-
-%Since $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we have
-%$$\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_j\vec{v}_j+\dots +b_k\vec{v}_k$$
-%Substituting the expression in (\ref{eq:vj}) for $\vec{v}_j$ and simplifying, we obtain the following
-%\begin{eqnarray*}\vec{w}=(b_1+b_ja_1)\vec{v}_1+(b_2+b_ja_2)\vec{v}_2&+&\dots\\
-%&+&(b_{j-1}+b_ja_{j-1})\vec{v}_{j-1}\\
-%&+&(b_{j+1}+b_ja_{j+1})\vec{v}_{j+1}\\
-%&+&\dots\\
-%&+&(b_k+b_ja_k)\vec{v}_k\end{eqnarray*}
-%This shows that $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
-%We now have 
-%$$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
-%and the first part of the proof is complete.
-
-%Next, we will assume that $\vec{v}_j$ is redundant, then show that $\vec{v}_j$ is a linear combination of the other vectors.
-
-%If $\vec{v}_j$ is redundant then removing it from the set does not change the span. 
-%$$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$
-%Consider a vector $\vec{w}$ in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$  
-%\begin{equation}\label{eq:w1}
-%\vec{w}=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_k\vec{v}_k
-%\end{equation}
-%Since the span contains ALL possible linear combinations of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$, it is easy to ensure that $\vec{w}$ is such that $a_j\neq 0$.
-
-%By assumption, $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.  Therefore, we can express $\vec{w}$ as a linear combination 
-%\begin{equation}\label{eq:w2}
-%\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_{j-1}\vec{v}_{j-1}+b_{j+1}\vec{v}_{j+1}+\dots +b_k\vec{v}_k
-%\end{equation}
-%Subtracting expression (\ref{eq:w2}) from (\ref{eq:w1}) we obtain
-%\begin{eqnarray}\label{eq:zero}
- %   \vec{0}=\vec{w}-\vec{w}=(a_1-b_1)\vec{v}_1&+&\dots\\ \nonumber
- %   &+&(a_{j-1}-b_{j-1})\vec{v}_{j-1}+a_j\vec{v}_j+(a_{j+1}-b_{j+1})\vec{v}_{j+1}\\ \nonumber
-  %  &+&\dots\\ \nonumber
-   
-   %&+&(a_k-b_k)\vec{v}_k
-%\end{eqnarray}
-%Recall that we ensured that $a_j\neq 0$.  This allows us to express $\vec{v}_j$ as a linear combination of the other vectors by solving for $\vec{v}_j$.
-%\begin{eqnarray*}
- %   \vec{v}_j=-\frac{1}{a_j}\Big[(a_1-b_1)\vec{v}_1&+&\dots\\
-  %  &+&(a_{j-1}-b_{j-1})\vec{v}_{j-1}+(a_{j+1}-b_{j+1})\vec{v}_{j+1}\\
-  %  &+&\dots\\
-   % &+&(a_k-b_k)\vec{v}_k\Big]
-%\end{eqnarray*}
- %\end{proof}
-
- Collections of vectors that do not contain redundant vectors are very important in linear algebra.  We will start referring to such collections as \dfn{linearly independent}.  Collections of vectors that contain redundant vectors will be called \dfn{linearly dependent}.
  
- Thinking of linear independence and dependence in terms of redundancy is valuable, but the downside of such a definition is that it does not provide a clear computational path for determining whether a collection of vectors is linearly dependent or independent.  The following section offers a definition that will allow us to easily determine linear dependence and independence of vectors.
+ Collections of vectors that do not contain redundant vectors are very important in linear algebra.  We will refer to such collections as \dfn{linearly independent}.  Collections of vectors that contain redundant vectors will be called \dfn{linearly dependent}.  The following section offers a definition that will allow us to easily determine linear dependence and independence of vectors.
 
 \section*{Linear Independence}
 
-
-
 \begin{definition}[Linear Independence]\label{def:linearindependence}
 Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
-\begin{equation}\label{eq:defLinInd}a_1\vec{v}_1+a_2\vec{v}_2+\ldots +a_p\vec{v}_k=\vec{0}\end{equation}
-is the \dfn{trivial solution} $a_1=a_2=\ldots =a_k=0$.
+\begin{equation}\label{eq:defLinInd}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
+is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
 
-If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $a_1, a_2,\ldots ,a_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
 \end{definition}
 \begin{remark}\label{remark:LinIndEquiv}
 Given a set of vectors $X=\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ we can now ask the following questions:
@@ -172,11 +109,7 @@ Given a set of vectors $X=\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ we can now as
 It turns out that these questions are equivalent.  In other words, if the answer to one of them is ``YES", the answer to the other two is also ``YES".  Conversely, if the answer to one of them is ``NO", then the answer to the other two is also ``NO".  We will start by illustrating this idea with an example, then conclude this section by formally proving the equivalency.
 \end{remark}
 
-%If the {\it set} of vectors $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is linearly independent (dependent), we often say that the {\it vectors} $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ are linearly independent (dependent).
-
-%To see that Definition \ref{def:linearindependence} is equivalent to our earlier definition involving redundant vectors observe that equation (\ref{eq:zero}) provides us with a non-trivial solution to equation (\ref{eq:defLinInd}) when redundant vectors are present.  Conversely, when a non-trivial solution to (\ref{eq:defLinInd}) exists, we can solve for the vector with a non-zero coefficient, expressing it as a linear combination of the other vectors.
-
-\begin{example}\label{ex:linind}Determine whether the vectors in each part are linearly independent.
+\begin{example}\label{ex:linind}What can we say about the following sets of vectors in light of Remark \ref{remark:LinIndEquiv}?
 
 \begin{enumerate}
 \item \label{item:linindpart1}
@@ -185,16 +118,16 @@ $$\begin{bmatrix}2\\-3\end{bmatrix}, \begin{bmatrix}0\\3\end{bmatrix},\begin{bma
 \item \label{item:linindpart2} $$\begin{bmatrix}2\\1\\4\end{bmatrix},\begin{bmatrix}-3\\1\\1\end{bmatrix}$$
 \end{enumerate}
 \begin{explanation} \ref{item:linindpart1}
-We will solve the vector equation
-\begin{align}\label{eq:linrelationpart1}a_1\begin{bmatrix}2\\-3\end{bmatrix}+a_2 \begin{bmatrix}0\\3\end{bmatrix}+a_3\begin{bmatrix}1\\-1\end{bmatrix}+a_4\begin{bmatrix}1\\-2\end{bmatrix}=\vec{0}\end{align}
+We will start by addressing linear independence.  To do so, we will solve the vector equation
+\begin{align}\label{eq:linrelationpart1}c_1\begin{bmatrix}2\\-3\end{bmatrix}+c_2 \begin{bmatrix}0\\3\end{bmatrix}+c_3\begin{bmatrix}1\\-1\end{bmatrix}+c_4\begin{bmatrix}1\\-2\end{bmatrix}=\vec{0}\end{align}
  
- Clearly $a_1=a_2=a_3=a_4=0$ is a solution to the equation.  The question is whether another solution exists.
+ Clearly $c_1=c_2=c_3=c_4=0$ is a solution to the equation.  The question is whether another solution exists.
  
 The vector equation translates into the following system:
 
 $$\begin{array}{ccccccccc}
-      2a_1 & &&+&a_3&+&a_4&= &0 \\
-        -3a_1& +&3a_2&-&a_3&-&2a_4&= &0 \\
+      2c_1 & &&+&c_3&+&c_4&= &0 \\
+        -3c_1& +&3c_2&-&c_3&-&2c_4&= &0 \\
       \end{array}$$
   Writing the system in augmented matrix form and applying elementary row operations gives us the following reduced row-echelon form:
   $$\left[\begin{array}{cccc|c}  
@@ -203,7 +136,7 @@ $$\begin{array}{ccccccccc}
  1&0&1/2&1/2&0\\0&1&1/6&-1/6&0
  \end{array}\right]$$
  This shows that (\ref{eq:linrelationpart1}) has infinitely many solutions:  
- $$a_1=-\frac{1}{2}s-\frac{1}{2}t,\quad a_2=-\frac{1}{6}s+\frac{1}{6}t,\quad a_3=s,\quad a_4=t$$
+ $$c_1=-\frac{1}{2}s-\frac{1}{2}t,\quad c_2=-\frac{1}{6}s+\frac{1}{6}t,\quad c_3=s,\quad c_4=t$$
  Letting $t=s=6$, we obtain the following:
  
  \begin{equation}\label{eq:ex1}
@@ -212,47 +145,115 @@ $$\begin{array}{ccccccccc}
  We conclude that the vectors are linearly dependent.
 
  Observe that (\ref{eq:ex1})  allows us to solve for one of the vectors and express it as a linear combination of the others. For example, 
-$$\begin{bmatrix}2\\-3\end{bmatrix}=0 \begin{bmatrix}0\\3\end{bmatrix}+\begin{bmatrix}1\\-1\end{bmatrix}+\begin{bmatrix}1\\-2\end{bmatrix}$$
+\begin{equation}\label{eq:ex1lincomb}
+    \begin{bmatrix}2\\-3\end{bmatrix}=0 \begin{bmatrix}0\\3\end{bmatrix}+\begin{bmatrix}1\\-1\end{bmatrix}+\begin{bmatrix}1\\-2\end{bmatrix}
+\end{equation}
 This would not be possible if a nontrivial solution to the equation
-$$a_1\begin{bmatrix}2\\-3\end{bmatrix}+a_2 \begin{bmatrix}0\\3\end{bmatrix}+a_3\begin{bmatrix}1\\-1\end{bmatrix}+a_4\begin{bmatrix}1\\-2\end{bmatrix}=\vec{0}$$
+$$c_1\begin{bmatrix}2\\-3\end{bmatrix}+c_2 \begin{bmatrix}0\\3\end{bmatrix}+c_3\begin{bmatrix}1\\-1\end{bmatrix}+c_4\begin{bmatrix}1\\-2\end{bmatrix}=\vec{0}$$
 did not exist.
 
-Using the argument of Exploration \ref{exp:redundantVecs2}, we conclude that $\begin{bmatrix}2\\-3\end{bmatrix}$ is redundant in 
+Using the linear combination in (\ref{eq:ex1lincomb}) and the argument of Exploration \ref{exp:redundantVecs2}, we conclude that $\begin{bmatrix}2\\-3\end{bmatrix}$ is redundant in 
 $$\left\{\begin{bmatrix}2\\-3\end{bmatrix}, \begin{bmatrix}0\\3\end{bmatrix},\begin{bmatrix}1\\-1\end{bmatrix},\begin{bmatrix}1\\-2\end{bmatrix}\right\}$$
 We find that the answer to all questions in Remark \ref{remark:LinIndEquiv} is ``YES".
  
  
- \ref{item:linindpart2} We need to solve the equation
+ \ref{item:linindpart2} To address linear independence, we need to solve the equation
  
- $$a_1\begin{bmatrix}2\\1\\4\end{bmatrix}+a_2\begin{bmatrix}-3\\1\\1\end{bmatrix}=\vec{0}$$
+ $$c_1\begin{bmatrix}2\\1\\4\end{bmatrix}+c_2\begin{bmatrix}-3\\1\\1\end{bmatrix}=\vec{0}$$
  Converting the equation to augmented matrix form and performing row reduction gives us
  $$\left[\begin{array}{cc|c}  
  2&-3&0\\1&1&0\\4&1&0
  \end{array}\right]\rightsquigarrow\left[\begin{array}{cc|c}  
  1&0&0\\0&1&0\\0&0&0
  \end{array}\right]$$
- This shows that $a_1=a_2=0$ is the only solution.  Therefore the two vectors are linearly independent.
+ This shows that $c_1=c_2=0$ is the only solution.  Therefore the two vectors are linearly independent.
+ 
+ Furthermore, we cannot write one of the vectors as a linear combination of the other.  (Do you see that the only way this would be possible with a set of two vectors is if they were scalar multiples of each other?)
+ 
+Finally, we observe that removing either vector would change the span from a plane in $\RR^3$ to a line in $\RR^3$, so the answer to all three questions in Remark \ref{remark:LinIndEquiv} is ``NO".
 \end{explanation}
 \end{example}
 
 \begin{theorem}\label{th:lindeplincombofother}
-Let $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ where ($k\geq 2$) be  a set of vectors in $\RR^n$ containing two or more vectors.  The following conditions are equivalent.
+Let $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ be  a set of vectors in $\RR^n$ containing two or more vectors.  The following conditions are equivalent.
 \begin{enumerate}
-\item 
-There exists a non-trivial solution to $\vec{v}_1+\vec{v}_2+\dots +\vec{v}_k=\vec{0}$.
-\item
+\item\label{th:lindeplincombofother_a} 
+%There exists a non-trivial solution to $c_1\vec{v}_1+c_2\vec{v}_2+\dots +c_k\vec{v}_k=\vec{0}$.
+$\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ are linearly dependent.
+\item\label{th:lindeplincombofother_b} 
 One of $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ can be expressed as a linear combination of the others.
-\item 
+\item\label{th:lindeplincombofother_c} 
 The set $\{\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k\}$ contains redundant vectors.
 \end{enumerate}
 \end{theorem}
-\begin{proof}
-Proof goes here.
-\end{proof}
 
+\begin{proof}
+ $\ref{th:lindeplincombofother_a} \implies \ref{th:lindeplincombofother_b}$  If $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ are linearly dependent, then 
+ \begin{equation*}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_j\vec{v}_j+\ldots +c_k\vec{v}_k=\vec{0}\end{equation*}
+ 
+ has a non-trivial solution.  In other words at least one of the constants, say $c_j$, does not equal zero.  This allows us to solve for $\vec{v}_j$:
+
+\begin{align*}
+-c_j\vec{v}_j&=c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_k\vec{v}_k \\ \\
+\vec{v}_j&=-\frac{c_1}{c_j}\vec{v}_1-\frac{c_2}{c_j}\vec{v}_2-\ldots -\frac{c_k}{c_j}\vec{v}_k
+\end{align*}
+(Do you see why it was important to have one of the constants nonzero?)  This shows that $\vec{v}_j$ may be expressed as a linear combination of the other vectors.
+
+ $\ref{th:lindeplincombofother_b} \implies \ref{th:lindeplincombofother_c}$  First, suppose $\vec{v}_j$ is a linear combination of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right).$$
+To show equality of the two spans we will pick a vector in the left span and show that it is also an element of the span on the right.  Then, we will pick a vector in the right span and show that it is also an element of the span on the left, and we will conclude that the sets are equal.
+
+Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$. (Why?)
+
+Now suppose $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$.  We need to show that $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
+
+By assumption, we can write $\vec{v}_j$ as
+\begin{equation}\label{eq:vj}
+\vec{v}_j=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_{j-1}\vec{v}_{j-1}+a_{j+1}\vec{v}_{j+1}+\dots +a_k\vec{v}_k.
+\end{equation}
+
+Since $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$, we have
+$$\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_j\vec{v}_j+\dots +b_k\vec{v}_k.$$
+Substituting the expression in (\ref{eq:vj}) for $\vec{v}_j$ and simplifying, we obtain the following
+\begin{eqnarray*}\vec{w}=(b_1+b_ja_1)\vec{v}_1+(b_2+b_ja_2)\vec{v}_2&+&\dots\\
+&+&(b_{j-1}+b_ja_{j-1})\vec{v}_{j-1}\\
+&+&(b_{j+1}+b_ja_{j+1})\vec{v}_{j+1}\\
+&+&\dots\\
+&+&(b_k+b_ja_k)\vec{v}_k.\end{eqnarray*}
+This shows that $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.
+We now have 
+$$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right),$$
+which shows that $\vec{v}_j$ is redundant.
+
+ $\ref{th:lindeplincombofother_c} \implies \ref{th:lindeplincombofother_a}$  Suppose that $\vec{v}_j$ is redundant, so that
+ $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right).$$
+ Consider a vector $\vec{w}$ in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$  
+\begin{equation}\label{eq:w1}
+\vec{w}=a_1\vec{v}_1+a_2\vec{v}_2+\dots +a_j\vec{v}_j+\dots +a_k\vec{v}_k
+\end{equation}
+Since the span contains ALL possible linear combinations of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$, we may choose $\vec{w}$ such that $a_j\neq 0$.
+
+By assumption, $\vec{w}$ is also in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$.  Therefore, we can express $\vec{w}$ as a linear combination 
+\begin{equation}\label{eq:w2}
+\vec{w}=b_1\vec{v}_1+b_2\vec{v}_2+\dots +b_{j-1}\vec{v}_{j-1}+b_{j+1}\vec{v}_{j+1}+\dots +b_k\vec{v}_k.
+\end{equation}
+
+ We complete the proof by showing there exists a non-trivial solution to 
+\begin{equation}\label{eq:LinIndepDefRepeated}
+c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_j\vec{v}_j+\ldots +c_k\vec{v}_k=\vec{0}.\end{equation}  Subtracting expression (\ref{eq:w2}) from (\ref{eq:w1}) we obtain
+\begin{eqnarray*}
+    \vec{0}=\vec{w}-\vec{w}=(a_1-b_1)\vec{v}_1&+&\dots\\ \nonumber
+    &+&(a_{j-1}-b_{j-1})\vec{v}_{j-1}+a_j\vec{v}_j+(a_{j+1}-b_{j+1})\vec{v}_{j+1}\\ \nonumber
+  &+&\dots\\ \nonumber
+  &+&(a_k-b_k)\vec{v}_k
+\end{eqnarray*}
+Recall that we ensured that $a_j\neq 0$.  This implies that we have a non-trivial solution to Equation \ref{eq:LinIndepDefRepeated}.
+
+These three parts of the proof show that if one of the conditions is true, all three must be true.  It is a logical consequence that if one of the three conditions is false, all three must be false.
+ \end{proof}
+ 
 \subsection*{Geometry of Linearly Dependent and Linearly Independent Vectors}
 
-Theorem \ref{th:lindeplincombofother} gives us a convenient way of looking at linear dependence/independence geometrically.  When looking at two or more vectors, we ask ``can one of the vectors be written as a linear combination of the others?"  If the answer is ``yes", then the vectors are linearly dependent.
+Theorem \ref{th:lindeplincombofother} gives us a convenient ways of looking at linear dependence/independence geometrically.  When looking at two or more vectors, we ask, ``can one of the vectors be written as a linear combination of the others?"  We can also ask, ``is one of the vectors redundant?''  If the answer to either of these questions is ``YES", then the vectors are linearly dependent.
 \subsubsection*{A Set of Two Vectors}
 Two vectors are linearly dependent if and only if one is a scalar multiple of the other.  Two nonzero linearly dependent vectors may look like this:
 \begin{center}
@@ -318,9 +319,32 @@ A set of three vectors is linearly independent if the vectors do not lie in the 
 \end{itemize}
 
 \section*{Practice Problems}
+
 \begin{problem}\label{prob:redundant1}
-Exploration \ref{exp:redundantVecs2}
+In Exploration \ref{exp:redundantVecs2} we considered the following set of vectors
+$$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$
+
+and demonstrated that $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant by using the fact that it is a linear combination of the other two vectors.  
+\begin{enumerate}
+    \item Express each of $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ as a linear combination of the remaining vectors.
+    $$\begin{bmatrix}1\\2\\-1\end{bmatrix}=\answer{-\frac{1}{2}}\begin{bmatrix}2\\0\\1\end{bmatrix}+\answer{\frac{1}{2}}\begin{bmatrix}4\\4\\-1\end{bmatrix}$$
+
+    $$\begin{bmatrix}2\\0\\1\end{bmatrix}=\answer{-2}\begin{bmatrix}1\\2\\-1\end{bmatrix}+\answer{1}\begin{bmatrix}4\\4\\-1\end{bmatrix}$$
+
+    \item
+    Which of the following is NOT true?
+\begin{multipleChoice}
+ \choice{If $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$, then $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$.}
+ \choice{Both $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ are redundant in $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$.}
+  \choice[correct]{Since we have found that $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ are redundant in $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$, we can remove both vectors from $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$ at the same time without affecting the span. }
+ \end{multipleChoice}
+    
+\end{enumerate}
 \end{problem}
+
+
+
+
 \begin{problem} Are the given vectors linearly independent?
 
 \begin{problem}\label{prob:linindmultchoice1}
@@ -412,13 +436,6 @@ $$2\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
 
 \end{problem}
 
-\begin{problem}\label{prob:lindeplincombofother}
-Prove Theorem \ref{th:lindeplincombofother}.
-\begin{hint}
-This is an ``if and only if" statement.  First, assume that the set is linearly dependent and show that one vector can be expressed as a linear combination of the others.  Second, assume that one vector can be expressed as a linear combination of the others, then shown that the set is linearly dependent.
-\end{hint}
-\end{problem}
-
 \begin{problem}
 Each diagram below shows a collection of vectors.  Are the vectors linearly dependent or independent?
 
@@ -504,5 +521,9 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
 
 \begin{problem}\label{prob:Adding1OK}
 If $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and if $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$, then $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
+\end{problem}
+
+\begin{problem}\label{prob:OtherLinearComb}
+Suppose $\{{\vec{u}},{\vec{v}}\}$ is a linearly independent set of vectors.  Prove that the set $\{{{\vec{u}} -{\vec{v}}, {\vec{u}}+2{\vec{v}}}\}$ is also linearly independent.
 \end{problem}
 \end{document} 
