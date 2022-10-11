@@ -188,7 +188,7 @@ The set $\{\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k\}$ contains redundant vectors.
 \end{theorem}
 
 \begin{proof}
- $\ref{th:lindeplincombofother_a} \implies \ref{th:lindeplincombofother_b}$  If $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ are linearly dependent, then 
+ (\ref{th:lindeplincombofother_a}) $\implies$ (\ref{th:lindeplincombofother_b})  If $\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k$ are linearly dependent, then 
  \begin{equation*}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_j\vec{v}_j+\ldots +c_k\vec{v}_k=\vec{0}\end{equation*}
  
  has a non-trivial solution.  In other words at least one of the constants, say $c_j$, does not equal zero.  This allows us to solve for $\vec{v}_j$:
@@ -199,7 +199,7 @@ The set $\{\vec{v}_1,\vec{v}_2,\dots ,\vec{v}_k\}$ contains redundant vectors.
 \end{align*}
 (Do you see why it was important to have one of the constants nonzero?)  This shows that $\vec{v}_j$ may be expressed as a linear combination of the other vectors.
 
- $\ref{th:lindeplincombofother_b} \implies \ref{th:lindeplincombofother_c}$  First, suppose $\vec{v}_j$ is a linear combination of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right).$$
+(\ref{th:lindeplincombofother_b}) $\implies$ (\ref{th:lindeplincombofother_c})  First, suppose $\vec{v}_j$ is a linear combination of $\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k$.  We will show that $\vec{v}_j$ is redundant by showing that $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right).$$
 To show equality of the two spans we will pick a vector in the left span and show that it is also an element of the span on the right.  Then, we will pick a vector in the right span and show that it is also an element of the span on the left, and we will conclude that the sets are equal.
 
 Observe that if $\vec{w}$ is in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$, then it has to be in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$. (Why?)
@@ -224,7 +224,7 @@ We now have
 $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right),$$
 which shows that $\vec{v}_j$ is redundant.
 
- $\ref{th:lindeplincombofother_c} \implies \ref{th:lindeplincombofother_a}$  Suppose that $\vec{v}_j$ is redundant, so that
+ (\ref{th:lindeplincombofother_c}) $\implies$ (\ref{th:lindeplincombofother_a})  Suppose that $\vec{v}_j$ is redundant, so that
  $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right).$$
  Consider a vector $\vec{w}$ in $\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)$  
 \begin{equation}\label{eq:w1}
@@ -336,7 +336,7 @@ and demonstrated that $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant by usi
 \begin{multipleChoice}
  \choice{If $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$, then $\vec{w}$ is in $\mbox{span}\left(\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$.}
  \choice{Both $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ are redundant in $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$.}
-  \choice[correct]{Since we have found that $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ are redundant in $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$, we can remove both vectors from $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$ at the same time without affecting the span. }
+  \choice[correct]{We can remove $\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and $\begin{bmatrix}2\\0\\1\end{bmatrix}$ from $\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$ at the same time without affecting the span. }
  \end{multipleChoice}
     
 \end{enumerate}
