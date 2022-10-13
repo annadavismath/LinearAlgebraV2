@@ -354,6 +354,9 @@ $$\begin{bmatrix}-1\\0\end{bmatrix}, \begin{bmatrix}2\\3\end{bmatrix},\begin{bma
  \choice{Yes}
   \choice[correct]{No }
  \end{multipleChoice}
+ \begin{hint}
+ If we rewrite $$c_1\begin{bmatrix}-1\\0\end{bmatrix}+c_2 \begin{bmatrix}2\\3\end{bmatrix}+c_3\begin{bmatrix}4\\-1\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}$$ as a system of linear equations, there will be more unknowns than equations.
+ \end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:linindmultchoice2}
@@ -363,7 +366,9 @@ $$\begin{bmatrix}1\\0\\5\end{bmatrix}, \begin{bmatrix}2\\2\\3\end{bmatrix},\begi
  \choice[correct]{Yes}
   \choice{No }
  \end{multipleChoice}
-
+\begin{hint}
+If we let $A$ be the matrix whose columns are these vectors, then $\mbox{rref}(A)$ should tell us what we want to know.
+\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:linindmultchoice3}
@@ -373,6 +378,9 @@ $$\begin{bmatrix}3\\0\\5\end{bmatrix}, \begin{bmatrix}2\\0\\2\end{bmatrix},\begi
  \choice{Yes}
   \choice[correct]{No }
  \end{multipleChoice}
+ \begin{hint}
+ If we let $A$ be the matrix whose columns are these vectors, then $\mbox{rref}(A)$ should tell us what we want to know.
+ \end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:linindmultchoice4}
@@ -382,6 +390,10 @@ $$\begin{bmatrix}3\\1\\4\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\\1\end{bmatrix
  \choice[correct]{Yes}
   \choice{No }
  \end{multipleChoice}
+ \begin{hint}
+ In a set of two vectors, the only way one could be redundant is if they are scalar multiples of each other.
+ \end{hint}
+
 \end{problem}
 
 \end{problem}
@@ -393,6 +405,9 @@ Any set containing the zero vector is linearly dependent.
  \choice[correct]{TRUE}
   \choice{FALSE}
  \end{multipleChoice}
+  \begin{hint}
+ Can the zero vector be removed from the set without changing the span?
+ \end{hint}
  \end{problem}
 \begin{problem}\label{prob:TFlinind2}
 A set containing five vectors in $\RR^2$ is linearly dependent.
@@ -400,6 +415,9 @@ A set containing five vectors in $\RR^2$ is linearly dependent.
  \choice[correct]{TRUE}
   \choice{FALSE}
  \end{multipleChoice}
+  \begin{hint}
+ If we rewrite Equation \ref{def:linearindependence} for five vectors in $\RR^2$ as a system of equations, how many equations and unknowns will it have?  What does this imply about the number of solutions?
+ \end{hint}
 \end{problem}
 
 \end{problem}
@@ -520,10 +538,14 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
 \end{problem}
 
 \begin{problem}\label{prob:Adding1OK}
-If $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and if $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$, then $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
+suppose $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and that $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$.  Prove that $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
 \end{problem}
 
 \begin{problem}\label{prob:OtherLinearComb}
-Suppose $\{{\vec{u}},{\vec{v}}\}$ is a linearly independent set of vectors.  Prove that the set $\{{{\vec{u}} -{\vec{v}}, {\vec{u}}+2{\vec{v}}}\}$ is also linearly independent.
+Suppose $\{{\vec{u}},{\vec{v}}\}$ is a linearly independent set of vectors.  Prove that the set $\{\vec{u} -\vec{v}, \vec{u}+2\vec{v}\}$ is also linearly independent.
+\end{problem}
+
+\begin{problem}\label{prob:OtherLinearComb2}
+Suppose $\{{\vec{u}},{\vec{v}}\}$ is a linearly independent set of vectors in $\RR^3$.  Is the following set dependent or independent $\{\vec{u} -\vec{v}, \vec{u}+2\vec{v}, \vec{u}+\vec{v}\}$? Prove your claim.
 \end{problem}
 \end{document} 
