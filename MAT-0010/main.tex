@@ -7,7 +7,6 @@
 \begin{document}
 
 \begin{abstract}
- % We introduce matrices, define matrix addition and scalar multiplication, and prove properties of those operations.
 \end{abstract}
 \maketitle
 
@@ -45,8 +44,8 @@ as $$A= \begin{bmatrix} a_{ij} \end{bmatrix}=\begin{bmatrix}
          \end{bmatrix}$$. 
 
 We denote the $j^{th}$ column of a matrix $A$ 
-by $A_{j}$ and write
-$$A=\begin{bmatrix}|&|&&|\\A_1& A_2 &\ldots & A_n\\|&|&&|\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}A_1& A_2 &\ldots & A_n\end{bmatrix}$$
+by $\vec{a}_{j}$ and write
+$$A=\begin{bmatrix}|&|&&|\\\vec{a}_1& \vec{a}_2 &\ldots & \vec{a}_n\\|&|&&|\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}\vec{a}_1& \vec{a}_2 &\ldots & \vec{a}_n\end{bmatrix}$$
 
 A matrix $B=\begin{bmatrix}b_{ij}\end{bmatrix}$ which has size $n \times n$ is called a \dfn{square matrix}. 
 In other words, $B$ is a square matrix if it has the same number of rows and columns.  In a square matrix, entries of the form $b_{ii}$ are said to lie on the \dfn{main diagonal}.  For example, if $$B=\begin{bmatrix}1&2&3\\4&5&6\\7&4&9\end{bmatrix}$$
@@ -65,7 +64,7 @@ general definitions.
 \begin{definition}[The Zero Matrix]\label{def:zeromatrix}
 The $m\times n$ \dfn{zero matrix} is the $m\times n$ matrix
 having every entry equal to zero. The zero matrix is
-denoted by $\vec{0}$.
+denoted by $\vec{O}$.
 \end{definition}
 
 \begin{definition}[Equality of Matrices]\label{def:equalityofmatrices}
@@ -144,14 +143,14 @@ $$\left( A+B\right) +C=A+\left( B+C\right) $$
 \begin{center}
 There exists a zero matrix such that
 \end{center}
-$$A+{\bf 0}=A$$
+$$A+\vec{O}=A$$
 
 
 \item\label{item:mataddinv} Additive Inverse
 \begin{center}
 There exists a matrix, $-A$, such that
 \end{center}
-$$A+\left( -A\right) ={\bf 0} $$
+$$A+\left( -A\right) =\vec{O} $$
 
 \end{enumerate}
 \end{theorem}
