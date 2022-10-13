@@ -6,7 +6,6 @@
 
 \begin{document}
 \begin{abstract}
-%In this module we discuss algebraic multiplicity, geometric multiplicity, and their relationship to diagonalizability.
 \end{abstract}
 \maketitle
 
@@ -32,7 +31,7 @@ Let $A$ be an $n\times n$ matrix. Then $A$ is said to be \dfn{diagonalizable} if
 \begin{equation*}
 P^{-1}AP=D
 \end{equation*}
-where $D$ is a diagonal matrix.
+where $D$ is a diagonal matrix.  In other words, a matrix $A$ is diagonalizable if it is similar to a diagonal matrix, $A \sim D$.
 \end{definition}
 
 % Notice that the above equation can be rearranged as $A=PDP^{-1}$. Suppose we wanted to compute $A^{100}$. By diagonalizing $A$ first it suffices to then compute $\left(PDP^{-1}\right)^{100}$, which reduces to $PD^{100}P^{-1}$. This last computation is much simpler than $A^{100}$. While this process is described in detail later, it provides motivation for diagonalization. 
@@ -295,6 +294,29 @@ Then $\{ \vec{x}_1, \vec{x}_2, \ldots, \vec{x}_m\}$ is
 linearly independent.
 \end{theorem}
 
+\begin{proof}
+We prove this by induction on $m$, the number of vectors in the set. If $m = 1$, then $\{\vec{x}_{1}\}$ is a linearly independent set because $\vec{x}_{1} \neq \vec{0}$. In general, suppose we have established that the theorem is true for some $m \geq 1$. Given eigenvectors $\{\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{m+1}\}$, suppose
+\begin{equation}
+\label{eq:thm_proof_5_5_4_1}
+c_1\vec{x}_1 + c_2\vec{x}_2 + \dots + c_{m+1}\vec{x}_{m+1} = \vec{0}.
+\end{equation}
+We must show that each $c_{i} = 0$. Multiply both sides of (\ref{eq:thm_proof_5_5_4_1}) on the left by $A$ and use the fact that $A\vec{x}_{i} = \lambda_{i}\vec{x}_{i}$ to get
+\begin{equation}
+\label{eq:thm_proof_5_5_4_2}
+c_1\lambda_1\vec{x}_1 + c_2\lambda_2\vec{x}_2 + \dots + c_{m+1}\lambda_{m+1}\vec{x}_{m+1} = \vec{0}.
+\end{equation}
+If we multiply (\ref{eq:thm_proof_5_5_4_1}) by $\lambda_{1}$ and subtract the result from (\ref{eq:thm_proof_5_5_4_2}), the first terms cancel and we obtain
+\begin{equation*}
+c_2(\lambda_2 - \lambda_1)\vec{x}_2 + c_3(\lambda_3 - \lambda_1)\vec{x}_3 + \dots + c_{m+1}(\lambda_{m+1} - \lambda_1)\vec{x}_{m+1} = \vec{0}.
+\end{equation*}
+Since $\vec{x}_{2}, \vec{x}_{3}, \dots, \vec{x}_{m+1}$
+correspond to distinct eigenvalues $\lambda_{2}, \lambda_{3}, \dots, \lambda_{m+1}$, the set $\{\vec{x}_{2}, \vec{x}_{3}, \dots, \vec{x}_{m+1}\}$ is linearly independent by the induction hypothesis. Hence,
+\begin{equation*}
+c_2(\lambda_2 - \lambda_1) = 0, \quad c_3(\lambda_3 - \lambda_1) = 0, \quad \dots, \quad c_{m+1}(\lambda_{m+1} - \lambda_1) = 0
+\end{equation*}
+and so $c_{2} = c_{3} = \dots = c_{m+1} = 0$ because the $\lambda_{i}$ are distinct. It follows that (\ref{eq:thm_proof_5_5_4_1}) becomes $c_{1}\vec{x}_{1} = \vec{0}$, which implies that $c_{1} = 0$ because $\vec{x}_{1} \neq \vec{0}$, and the proof is complete. 
+\end{proof}
+
 The corollary that follows from this theorem gives a useful tool in determining if $A$ is diagonalizable.
 
 \begin{corollary}\label{th:distincteigenvalues}
@@ -468,10 +490,116 @@ Compute $D=P^{-1}AP$
 Show that computing the inverse of $P$ is not really necessary by comparing the products  $PD$ and $AP$.
 \end{problem}
   \end{problem}
-  
-\section*{Text Source}
-A large portion of the text in this module is an adaptation of Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 363-368.  
+\begin{problem}
+In each case, decide whether the matrix $A$ is diagonalizable. If so, find $P$ such that $P^{-1}AP$ is diagonal.
+
+\begin{problem}
+\item $\begin{bmatrix}
+1 & 0 & 0 \\
+1 & 2 & 1 \\
+0 & 0 & 1
+\end{bmatrix}$
+\item $\begin{bmatrix}
+3 &  0 & 6 \\
+0 & -3 & 0 \\
+5 &  0 & 2
+\end{bmatrix}$
+\item $\begin{bmatrix}
+ 3 &  1 &  6 \\
+ 2 &  1 &  0 \\
+-1 &  0 & -3
+\end{bmatrix}$
+\item $\begin{bmatrix}
+4 & 0 & 0 \\
+0 & 2 & 2 \\
+2 & 3 & 1
+\end{bmatrix}$
+\end{problem}
+
+%\setcounter{enumi}{1}
+%problem  Yes, $ P =
+%\leftB \begin{array}{rrr}
+%-1 & 0 & 6 \\
+% 0 & 1 & 0 \\
+% 1 & 0 & 5
+%\end{array} \rightB$, $P^{-1}AP =
+%\leftB \begin{array}{rrr}
+%-3 &  0 & 0 \\
+% 0 & -3 & 0 \\
+% 0 &  0 & 8
+%\end{array} \rightB$
+
+%\setcounter{enumi}{3}
+%problem  No, $c_{A}(x) = (x + 1)(x - 4)^{2}$ so $\lambda = 4$ has multiplicity 2. But $\func{dim}(E_{4}) = 1$ so Theorem~\ref{thm:016250} applies.
+\end{problem}
+
+\begin{problem}
+Let $A$ denote an $n \times n$ upper triangular matrix.
+\begin{enumerate}
+
+\item If all the main diagonal entries of $A$ are distinct, show that $A$ is diagonalizable.
+
+\item If all the main diagonal entries of $A$ are equal, show that $A$ is diagonalizable only if it is \textit{already} diagonal.
+%The eigenvalues of $A$ are all equal (they are the diagonal elements), so if $P^{-1}AP = D$ is diagonal, then $D = \lambda I$. Hence $A = P^{-1}(\lambda I)P = \lambda I$.
+
+\item Show that $\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 0 & 2
+\end{bmatrix}$ is diagonalizable but that $\begin{bmatrix}
+ 1 & 1 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 2
+ \end{bmatrix}$ is not diagonalizable.
+ 
+\end{enumerate}
+
+\end{problem}
+
+\begin{problem}
+Let $A$ be a diagonalizable $n \times n$ matrix with eigenvalues $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$ (including multiplicities). Show that:
+
+\begin{enumerate}
+\item $\det A = \lambda_{1}\lambda_{2}\cdots \lambda_{n}$
+\item $\mbox{tr} A = \lambda_{1} + \lambda_{2} + \cdots + \lambda_{n}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+\begin{enumerate}
+
+\item Show that two diagonalizable matrices are similar if and only if they have the same eigenvalues with the same multiplicities.
+
+\item If $A$ is diagonalizable, show that $A \sim A^{T}$.
+
+\item Show that $A \sim A^{T}$ if
+ $A = \begin{bmatrix}
+ 1 & 1 \\
+ 0 & 1
+ \end{bmatrix}$
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+If $A$ is $2 \times 2$ and diagonalizable, show that $C(A) = \{X \mid XA = AX\}$ has dimension $2$ or $4$. [\textit{Hint}: If $P^{-1}AP = D$, show that $X$ is in $C(A)$ if and only if $P^{-1}XP$ is in $C(D)$.]
+\end{problem}
+
+\begin{problem}
+If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (see Example~\ref{exa:009262}). In particular, show $c_{A}(A) = 0$. [\textit{Remark}: $c_{A}(A) = 0$ for \textit{all} square matrices $A$---this is the Cayley-Hamilton theorem, see Theorem~\ref{thm:033262}.]
+\end{problem}
+
+\begin{problem}
+Let $A$ be $n \times n$ with $n$ distinct real eigenvalues. If $AC = CA$, show that $C$ is diagonalizable.
+\end{problem}
+
+\section*{Text Source}
+The text in this module is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 362-364.
+
+Many of the Practice Problems are Exercises from 
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 298-310.
 
 \end{document}
