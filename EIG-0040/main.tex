@@ -6,22 +6,380 @@
 
 \begin{document}
 \begin{abstract}
- %Abstract goes here
 \end{abstract}
 \maketitle
 
 \section*{Similar Matrices and Their Properties}
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
-  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
-  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
-\end{tikzpicture}
+\begin{definition}
+If $A$ and $B$ are $n \times n$ matrices, we say that $A$ and $B$ are \dfn{similar}, if $B = P^{-1}AP$ for some invertible matrix $P$.  IN this case we write $A \sim B$.
+\end{definition}
 
-UNDER CONSTRUCTION -- COMING SOON
-\end{center}
+\begin{remark} 
+We also have $A \sim B$ if  $B = QAQ^{-1}$ where $Q$ is invertible (write $P^{-1} = Q$).
+\end{remark}
+
+As we will see, matrices that are similar share many properties.  The first three properties contained in the following theorem are important enough in mathematics to receive a name.  We say that any relation which is \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive}, is called an \dfn{equivalence relation}.
+
+\begin{theorem}\label{th:{similarityequivalence}}
+Similarity is an \dfn{equivalence relation}, i.e. for $n \times n$ matrices $A,B,$ and $C$,
+\begin{enumerate}
+\item $A \sim A$ (reflexive)
+\item If $A \sim B$, then $B \sim A$ (symmetric)
+\item If $A \sim B$ and $B \sim C$, then $A \sim C$ (transitive)
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+It is clear that $A\sim A$, taking $P=I$.
+
+Now, if $A\sim B,$ then for some $P$ invertible,
+\begin{equation*}
+A=P^{-1}BP
+\end{equation*}
+and so
+\begin{equation*}
+PAP^{-1}=B
+\end{equation*}
+But then
+\begin{equation*}
+\left( P^{-1}\right) ^{-1}AP^{-1}=B
+\end{equation*}
+which shows that $B\sim A$.
+
+Now suppose $A\sim B$ and $B\sim C$. Then there exist invertible matrices
+$P,Q$ such that
+\begin{equation*}
+A=P^{-1}BP,\ B=Q^{-1}CQ
+\end{equation*}
+Then,
+\begin{equation*}
+A=P^{-1} \left( Q^{-1}CQ \right)P=\left( QP\right) ^{-1}C\left( QP\right)
+\end{equation*}
+showing that $A$ is similar to $C$.
+\end{proof}
+
+This proves that similarity $\sim$ between matrices is an \dfn{equivalence relation}.  Practice Problem \ref{prob:lessthan} gives a good example of a relation that is NOT an equivalence relation.
 
 
+We pause to introduce a simple matrix function that will be referred to later.  Given a square matrix, we have learned how to compute the determinant.  Another important quantity we can compute is the \dfn{trace}.
+
+\begin{definition}
+The \dfn{trace} of an $n \times n$ matrix $A$, abbreviated $\mbox{tr} A$, is defined to be the sum of the main diagonal elements of $A$.  In other words, if $ A = [a_{ij}]$, then $\mbox{tr} A = a_{11} + a_{22} + \dots + a_{nn}$.  We may also write $\mbox{tr} A =\sum_{i=1}^n a_{ii}$.
+\end{definition}
+
+It is easy to see that $\mbox{tr}(A + B) = \mbox{tr} A + \mbox{tr} B$ and that $\mbox{tr}(cA) = c \mbox{ tr} A$ holds for all $n \times n$ matrices $A$ and $B$ and all scalars $c$. The following fact is more surprising.
+
+\begin{theorem}\label{th:trAB=trBA}
+Let $A$ and $B$ be $n \times n$ matrices. Then $\mbox{tr}(AB) = \mbox{tr}(BA)$.
+\end{theorem}
+
+\begin{proof}
+Write $A = [a_{ij}]$ and $B = [b_{ij}]$. For each $i$, the $(i, i)$-entry $d_{i}$ of the matrix $AB$ is given as follows: $d_{i} = a_{i1}b_{1i} + a_{i2}b_{2i} + \dots + a_{in}b_{ni} = \sum_{j}a_{ij}b_{ji}$. Hence
+\begin{equation*}
+\mbox{tr}(AB) = d_1 + d_2 + \dots + d_n = \sum_{i}d_i = \sum_{i}\left(\sum_{j}a_{ij}b_{ji}\right)
+\end{equation*}
+Similarly we have $\mbox{tr}(BA) = \sum_{i}\left(\sum_{j}b_{ij}a_{ji}\right)$. Since these two double sums are the same, the theorem is proved.
+\end{proof}
+
+The following theorem lists a number of other properties shared by similar matrices.
+
+\begin{theorem}\label{th:properties_similar}
+If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
+\begin{enumerate}
+\item\label{th:properties_similar_det} $\det(A) = \det(B)$,
+\item\label{th:properties_similar_rank} $\mbox{rank}(A) = \mbox{rank}(B)$,
+\item\label{th:properties_similar_trace} $\mbox{tr}(A)= \mbox{tr}(B)$,
+\item\label{th:properties_similar_char_poly} $A$ and $B$ have the same characteristic polynomials, and
+\item\label{th:properties_similar_eig} $A$ and $B$ have the same eigenvalues.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $B = P^{-1}AP$ for some invertible matrix $P$. 
+
+For \ref{th:properties_similar_det}, $\det B = \det(P^{-1}) \det A \det P = \det A$ because $\det(P^{-1}) = 1/ \det P$ and determinants commute (see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0040/main}{Properties of the Determinant}.
+
+Similarly, for \ref{th:properties_similar_rank} $\mbox{rank} B = \mbox{rank}(P^{-1}AP) = \mbox{rank} A$, because multiplication by an invertible matrix cannot change the rank.  To see this, note that any invertible matrix is a product of elementary matrices.  Multiplying by elementary matrices is equivalent to performing elementary row (column) operations on $A$, which does not change the row (column) space, nor the rank.  It follows that similar matrices have the same rank. 
+
+For \ref{th:properties_similar_trace}, we make use of Theorem~\ref{th:trAB=trBA}:
+\begin{equation*}
+\mbox{tr} (P^{-1}AP) = \mbox{tr}[P^{-1}(AP)] = \mbox{tr}[(AP)P^{-1}] = \mbox{tr} A.
+\end{equation*}
+As for \ref{th:properties_similar_char_poly},
+\begin{align*}
+\det(xI - B) &= \det \{x(P^{-1}P) - P^{-1}AP\} \\
+&= \det \{ P^{-1}(xI - A)P\} \\
+&= \det (xI - A)
+\end{align*}
+Finally, \ref{th:properties_similar_char_poly} implies \ref{th:properties_similar_eig} because the eigenvalues of a matrix are the roots of its characteristic polynomial.
+\end{proof}
+
+\begin{remark}
+Sharing the five properties in Theorem~\ref{th:properties_similar} does not guarantee that two matrices are similar. The matrices
+$A = \begin{bmatrix}
+1 & 1 \\
+0 & 1
+\end{bmatrix}$ and $I = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$ have the same determinant, rank, trace, characteristic polynomial, and eigenvalues, but they are not similar because $P^{-1}IP = I$ for any invertible matrix $P$.
+\end{remark}
+
+Even though the properties in Theorem~\ref{th:properties_similar} cannot be used to show two matrices are similar, these properties come in handy for showing that two matrices are NOT similar.
+
+\begin{example}
+Are the matrices $A =
+\begin{bmatrix}
+2 & 1 \\
+1 & -1
+\end{bmatrix}$ and $B =
+\begin{bmatrix}
+3 & 0 \\
+1 & -1
+\end{bmatrix}$ similar?
+\begin{explanation}
+A quick check shows us $\det A = \det B$, and both matrices are seen to be invertible, so they have the same rank.  However, $\mbox{tr} A = 1$ and $\mbox{tr} B = 2$, so the matrices are not similar.
+\end{explanation}
+\end{example}
+
+The next theorem shows that similarity is compatible with inverses, transposes, and powers:
+
+\begin{theorem}\label{th:other_properties_similar}
+If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
+\begin{enumerate}
+\item\label{th:properties_similar_inverse} $A^{-1} \sim B^{-1}$,
+\item\label{th:properties_similar_transpose} $A^T \sim B^T$, and
+\item\label{th:properties_similar_powers} $A^k \sim B^k$ for all integers $k \geq 1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+See Practice Problem \ref{}.
+\end{proof}
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:lessthan}
+At the beginning of this module we mentioned that similarity of $n \times n$ matrices is an \dfn{equivalence relation}.
+
+An equivalence relation is a binary relation $R$ on elements of a set $S$ that has the following properties:
+\begin{enumerate}
+\item The reflexive property:  $x R x$ for every $x \in S$
+\item The symmetric property:  If $x R y$, then $y R x$ for every $x,y \in S$
+\item The transitive property:  If $x R y$ and $y R z$, then $x R z$ for every $x,y,z \in S$
+\end{enumerate}
+
+Let $S$ be the set of all positive integers.  We can show that the relation ``less than'' (symbolized by $<$) is NOT an equivalence relation on this set.  To see this, note that ``less than'' is not reflexive, because $s<s$ is not true for any positive integer $s$.
+
+\begin{problem}
+Is the relation ``less than'' symmetric?
+\end{problem}
+
+\begin{problem}
+Is the relation ``less than'' transitive?
+\end{problem}
+
+\end{problem}
+
+\begin{problem}\label{prob:notsimilar}
+By computing the trace, determinant, and rank, show that $A$ and $B$ are \textit{not} similar in each case.
+
+\begin{problem}\label{prob:notsimilar_a}
+$A = \begin{bmatrix}
+	1 & 2 \\
+	2 & 1
+\end{bmatrix}$, $B =
+\begin{bmatrix}
+	1 & 1\\
+	-1 & 1
+\end{bmatrix}$
+\end{problem}
+
+\begin{problem}\label{prob:notsimilar_b}
+$A =
+\begin{bmatrix}
+3 & 1 \\
+2 & -1
+\end{bmatrix}$, $B =
+\begin{bmatrix}
+1 & 1 \\
+2 & 1
+\end{bmatrix}$
+\end{problem}
+
+\begin{problem}\label{prob:notsimilar_c}
+$A =
+\begin{bmatrix}
+3 & 1 \\
+-1 & 2
+\end{bmatrix}$, $B =
+\begin{bmatrix}
+2 & -1 \\
+3 & 2
+\end{bmatrix}$
+\end{problem}
+
+\begin{problem}\label{prob:notsimilar_d}
+$A =
+\begin{bmatrix}
+2 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0
+\end{bmatrix}$, $B =
+\begin{bmatrix}
+ 1 & -2 & 1 \\
+-2 & 4 & -2 \\
+-3 & 6 & -3
+\end{bmatrix}$
+\end{problem}
+
+\begin{problem}\label{prob:notsimilar_e}
+$A =
+\begin{bmatrix}
+1 & 2 & -3 \\
+1 & -1 & 2 \\
+0 & 3 & -5
+\end{bmatrix}$, $B =
+\begin{bmatrix}
+-2 & 1 & 3 \\
+ 6 & -3 & -9 \\
+ 0 & 0 & 0
+\end{bmatrix}$
+\end{problem}
+
+\end{problem}
+
+%\setcounter{enumi}{1}
+%\item  traces $= 2$, ranks $= 2$, but $\det A = -5$, $\det B = -1$
+
+%\setcounter{enumi}{3}
+%\item  ranks $= 2$, determinants $= 7$, but $\mbox{tr} A = 5$, $\mbox{tr} B = 4$
+
+%\setcounter{enumi}{5}
+%\item  traces $= -5$, determinants $= 0$, but $\mbox{rank} A = 2$, $\mbox{rank} B = 1$
+
+
+
+\begin{problem}\label{prob:notsimilar_4x4}
+Show that $\begin{bmatrix}
+1 & 2 & -1 &  0 \\
+2 & 0 &  1 &  1 \\
+1 & 1 &  0 & -1 \\
+4 & 3 & 0 & 0
+\end{bmatrix}$ and $
+\begin{bmatrix}
+  1 & -1 &  3 &  0 \\
+ -1 &  0 &  1 &  1 \\
+  0 & -1 &  4 &  1 \\
+  5 & -1 & -1 & -4
+\end{bmatrix}$ are \textit{not} similar.
+\end{problem}
+
+\begin{problem}\label{prob:similarproperties}
+If $A \sim B$, show that:
+\begin{enumerate}
+\item\label{prob:similarproperties_inverses} $A^{-1} \sim B^{-1}$
+\begin{hint}
+If $B = P^{-1}AP$, then $B^{-1} = (P^{-1}AP)^{-1} = \ldots$.
+\end{hint}
+\item\label{prob:similarproperties_scalars} $rA \sim rB$ for $r$ in $\RR$
+\item\label{prob:similarproperties_powers} $A^{n} \sim B^{n}$ for $n \geq 1$
+\item\label{prob:similarproperties_transposes} $A^{T} \sim B^{T}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:similarproperties_invertible}
+If $A$ is invertible, show that $AB$ is similar to $BA$ for all $B$.
+\end{problem}
+
+\begin{problem}\label{prob:similarproperties_rI}
+Show that the only matrix similar to a scalar matrix $A = rI$, $r$ in $\RR$, is $A$ itself.
+\end{problem}
+
+\begin{problem}\label{prob:similarproperties_ev}
+Let $\lambda$ be an eigenvalue of $A$ with corresponding eigenvector $\vec{x}$. If $B = P^{-1}AP$ is similar to $A$, show that $P^{-1}\vec{x}$ is an eigenvector of $B$ corresponding to $\lambda$.
+\end{problem}
+
+\begin{problem}\label{prob:moresimilarproperties}
+If $A \sim B$ and $A$ has any of the following properties, show that $B$ has the same property.
+
+\begin{enumerate}
+\item\label{prob:moresimilarproperties_idempotent} A is \dfn{Idempotent}, that is $A^{2} = A$.
+
+\item\label{prob:moresimilarproperties_nilpotent} A is \dfn{Nilpotent}, that is $A^{k} = 0$ for some $k \geq 1$.
+
+\item\label{prob:moresimilarproperties_invertible} A is Invertible.
+
+\end{enumerate}
+%\begin{sol}
+%\item  If $B = P^{-1}AP$ and $A^{k} = 0$, then $B^{k} = (P^{-1}AP)^{k} = P^{-1}A^{k}P = P^{-1}0P = 0$.
+%\end{sol}
+\end{problem}
+
+\begin{problem}\label{prob:similar_poly_eval}
+Given a polynomial $p(x) = r_{0} + r_{1}x + \dots + r_{n}x^{n}$ and a square matrix $A$, the matrix $p(A) = r_{0}I + r_{1}A + \dots  + r_{n}A^{n}$ is called the \dfn{evaluation} of $p(x)$ at $A$. Let $B = P^{-1}AP$. Show that $p(B) = P^{-1}p(A)P$ for all polynomials $p(x)$.
+\end{problem}
+
+\begin{problem}\label{prob:5_5_12}
+Let $P$ be an invertible $n \times n$ matrix. If $A$ is any $n \times n$ matrix, write $T_{P}(A) = P^{-1}AP$. Verify that:
+
+%\begin{enumerate}[label={\alph*.}]
+\begin{enumerate}
+\item\label{prob:5_5_12a} $T_{P}(I) = I$
+\item\label{prob:5_5_12b} $T_{P}(AB) = T_{P}(A)T_{P}(B)$
+%Solution $T_{P}(A)T_{P}(B) = (P^{-1}AP)(P^{-1}BP) = P^{-1}(AB)P = T_{P}(AB)$.
+\item\label{prob:5_5_12c} $T_{P}(A + B) = T_{P}(A) + T_{P}(B)$
+\item\label{prob:5_5_12d} $T_{P}(rA) = rT_{P}(A)$
+\item\label{prob:5_5_12e} $T_{P}(A^{k}) = [T_{P}(A)]^{k}$ for $k \geq 1$
+\item\label{prob:5_5_12f} If $A$ is invertible, $T_{P}(A^{-1}) = [T_{P}(A)]^{-1}$.
+\item\label{prob:5_5_12g} If $Q$ is invertible, $T_{Q}[T_{P}(A)] = T_{PQ}(A)$.
+\end{enumerate}
+
+\end{problem}
+
+
+
+\begin{problem}
+Let $A = \begin{bmatrix}
+0 & a & b \\
+a & 0 & c \\
+b & c & 0	
+\end{bmatrix}$ and $B =
+\begin{bmatrix}
+c & a & b \\
+a & b & c \\
+b & c & a
+\end{bmatrix}$.
+
+\begin{enumerate}
+\item Show that $x^{3} - (a^{2} + b^{2} + c^{2})x - 2abc$ has real roots by considering $A$.
+
+\item Show that $a^{2} + b^{2} + c^{2} \geq ab + ac + bc$ by considering $B$.
+%\item  $c_{B}(x) = [x - (a + b + c)][x^{2} - k]$ where $k = a^{2} + b^{2} + c^{2} - [ab + ac + bc]$. Use Theorem~\ref{thm:016397}.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Assume the $2 \times 2$ matrix $A$ is similar to an upper triangular matrix. If $\mbox{tr} A = 0 = \mbox{tr} A^{2}$, show that $A^{2}$ is equal to the zero matrix.
+\end{problem}
+
+\begin{problem}
+Show that $A$ is similar to $A^{T}$ for all $2 \times 2$ matrices $A$. 
+\begin{hint}
+Let $A =\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$. If $c = 0$ treat the cases $b = 0$ and $b \neq 0$ separately. If $c \neq 0$, reduce to the case $c = 1$ using Exercise~\ref{prob:5_5_12}~\ref{prob:5_5_12d}.
+\end{hint}
+\end{problem}
+
+\section*{Text Source}
+The text in this module is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 362-364.
+
+Many of the Practice Problems are Exercises from 
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 298-310.
 
 \end{document}
