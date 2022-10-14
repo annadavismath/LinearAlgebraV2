@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonal Matrices} \license{CC-BY 4.0}
+\author{Paul Zachlin \and Anna Davis} \title{Gram-Schmidt Orthogonalization} \license{CC-BY 4.0}
 
 \begin{document}
 
@@ -10,217 +10,300 @@
 \end{abstract}
 \maketitle
 
-\section*{Orthogonal Matrices}
-Recall that the process to find the inverse of a matrix is often cumbersome.
-In contrast, it is very easy to take the transpose of a matrix. Luckily for some special matrices, the transpose equals the inverse. When an $n \times n$ matrix with real
-entries has its transpose equal to its inverse, the matrix is called an \dfn{orthogonal matrix}.
+\section*{Gram-Schmidt Orthogonalization}
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonal Vectors} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \textbf{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
+Our task is to show that every subspace of $\RR^n$ \textit{has} an orthogonal basis.  We will start with intuitive explorations in lower dimensions, then proceed to formalize our results for subspaces of $\RR^n$.
 
-The precise definition is as follows.
+\subsection*{Creating an Orthogonal Basis of $\RR^2$}  
+Given an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$, let's start building our orthogonal basis, $\{\vec{f}_1, \vec{f}_2\}$, by setting $\vec{f}_1 = \vec{v}_1$. To find the next element of our orthogonal basis, consider the orthogonal projection of $\vec{v}_2$ onto $\vec{f}_1$.  (See the figure below.)  
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+ \draw[<->] (-1,0)--(5,0);
+  \draw[<->] (0,-1)--(0,5);
+  \draw[line width=6pt,-stealth, black!20!white](0,0)--(2,4);
+\draw[line width=2pt,red,-stealth](0,0)--(1,2);  
+\draw[line width=2pt,blue,-stealth](0,0)--(4,3);
+\draw[line width=2pt,-stealth](2,4)--(4,3);  
+\node[] at (0.7, 2.8)  (p2)    {$\mbox{proj}_{\vec{f}_1}\vec{v}_2$};
+\node[] at (3.9, 3.8)  (p2)    {$\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$};
+\node[red] at (-0.1, 1)  (p2)    {$\vec{v}_1=\vec{f}_1$};
+\node[blue] at (2, 1.2)  (p2)    {$\vec{v}_2$};
+%\draw[line width=2pt,-stealth](0,0)--(2,-1); 
+%\node[] at (1.1, -0.3)  (p2)    {$\vec{f}_2$};
+ \end{tikzpicture}
+ \quad\quad
+\begin{tikzpicture}[scale=1.2]
+ \draw[<->] (-1,0)--(5,0);
+  \draw[<->] (0,-1)--(0,5);
+%  \draw[line width=6pt,-stealth, black!20!white](0,0)--(2,4);
+\draw[line width=2pt,red,-stealth](0,0)--(1,2);  
+%\draw[line width=2pt,blue,-stealth](0,0)--(4,3);
+%\draw[line width=2pt,-stealth](2,4)--(4,3);  
+%\node[] at (0.7, 2.8)  (p2)    {$\mbox{proj}_{\vec{v}_1}\vec{v}_2$};
+%\node[] at (3.9, 3.8)  (p2)    {$\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$};
+\node[red] at (0.2, 1)  (p2)    {$\vec{f}_1$};
+%\node[blue] at (2, 1.2)  (p2)    {$\vec{v}_2$};
+\draw[line width=2pt,-stealth](0,0)--(2,-1); 
+\node[] at (1.1, -0.3)  (p2)    {$\vec{f}_2$};
+ \end{tikzpicture}
+\end{center}
+Next, let $\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$.  Observe that $\vec{f}_2$ is orthogonal to $\vec{f}_1$.  This gives us an orthogonal collection $\mathcal{B}=\{\vec{f}_1,\vec{f}_2\}$.  It is intuitively clear that $\vec{f}_1$ and $\vec{f}_2$ are linearly independent.  Therefore $\mathcal{B}$ is an orthogonal basis of $\RR^2$.
 
-\begin{definition}\label{OrthoMatrix}
-A real $n\times n$ matrix $U$ is called an \dfn{orthogonal} matrix if $UU^{T}=U^{T}U=I.$
-\end{definition}
+The following exploration illustrates this process dynamically.
+\begin{exploration}
+Choose an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$ by dragging the tips of vectors $\vec{v}_1$ and $\vec{v}_2$ to desired positions.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis of $\RR^2$.
+\begin{center}
+\geogebra{xtqppyav}{800}{600}
+\end{center}
+\end{exploration}
 
-Note that since $U$ is assumed to be a square matrix, it suffices to verify only one of these equalities $UU^{T}=I$ or $U^{T}U=I$ holds in order to guarantee that $U^T$ is the inverse of $U$.
+We can apply this process to any two-dimensional subset of $\RR^n$.  The following exploration will guide you through the process of constructing an orthogonal basis for a plane spanned by two arbitrary vectors in $\RR^3$.
+\begin{exploration}
+Let $W =\mbox{span}\left({\bf v}_1,{\bf v}_2\right)$. $W$ is a plane through the origin in $\RR^3$.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis for $W$.  RIGHT-CLICK and DRAG to rotate the image for a better view.
+    \begin{center}
+\geogebra{zghsfkym}{900}{600}
+\end{center}
 
-Consider the following example.
+\end{exploration}
 
-\begin{example}\label{ex:OrthogonalMatrix1}
-Show the matrix
-\begin{equation*}
-U=\begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
-\end{bmatrix}
-\end{equation*}
-is orthogonal.
-\end{example}
+\subsection*{Creating an Orthogonal Basis of $\RR^3$}
 
-\begin{explanation}
-All we need to do is verify (one of the equations from) the requirements of Definition \ref{OrthoMatrix}.
 
-\begin{equation*}
-UU^{T}=\begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
-\end{bmatrix} \begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
-\end{bmatrix} = \begin{bmatrix}
-1 & 0 \\
-0 & 1
-\end{bmatrix}
-\end{equation*}
+Here are some geogebras just so we can see what they look like:
+\begin{exploration}
+Here are some manipulatives:
+\begin{center}
+\geogebra{qjpvmsws}{900}{800}
+\end{center}
+\end{exploration}
 
-Since $UU^{T} = I$, this matrix is orthogonal.
-\end{explanation}
 
-\begin{example}\label{ex:OrthogonalMatrix2}
-Let $U=\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 0 & -1 \\
-0 & -1 & 0
-\end{bmatrix}.$ Is $U$ orthogonal?
-\end{example}
 
-\begin{explanation}
-Again the answer is yes and this can be verified simply by showing that $U^{T}U=I$:
+
+
+
+
+\subsection*{Gram-Schmidt Orthogonalization Algorithm}
+
+%%%%%%%%%%%%
+Consider an orthogonal set of vectors in $\RR^n$, written $\{
+\vec{w}_1, \cdots, \vec{w}_k \}$ with $k \leq n$. The span of these
+vectors is a subspace $W$ of $\RR^n$.   If we
+could show that this orthogonal set is also linearly independent, we
+would have a basis of $W$. This is precisely what we do in the following theorem.
+
+\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
+Let $ \{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ be an
+orthogonal set of non-zero vectors in $\RR^n$. Then this set is
+linearly independent and forms a basis for the subspace $W =
+\mbox{span}\left( \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \right)$.
+\end{theorem}
+
+\begin{proof}
+To show this set is linearly independent, suppose a linear combination
+of these vectors equals $\vec{0}$, such as:
+\[
+a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k = \vec{0}, a_i \in \RR
+\]
+We need to show that all $a_i = 0$. To do so, we take the dot product of
+each side of the above equation with the vector $\vec{w}_i$ and obtain the following.
 
 \begin{eqnarray*}
-U^{T}U&=&\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 0 & -1 \\
-0 & -1 & 0
-\end{bmatrix}^{T}\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 0 & -1 \\
-0 & -1 & 0
-\end{bmatrix} \\
-&=&\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 0 & -1 \\
-0 & -1 & 0
-\end{bmatrix}
-\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 0 & -1 \\
-0 & -1 & 0
-\end{bmatrix} \\
-&=&\begin{bmatrix}
-1 & 0 & 0 \\
-0 & 1 & 0 \\
-0 & 0 & 1
-\end{bmatrix}
+\vec{w}_i \dotp (a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k ) &=& \vec{w}_i \dotp \vec{0}\\
+a_1 (\vec{w}_i \dotp \vec{w}_1) + a_2 (\vec{w}_i \dotp \vec{w}_2) + \cdots + a_k (\vec{w}_i \dotp \vec{w}_k)  &=& 0
 \end{eqnarray*}
-\end{explanation}
-
-When we say that $U$ is orthogonal, we are saying that $UU^T=I$, meaning that
-\begin{equation*}
-\sum_{j}u_{ij}u_{jk}^{T}=\sum_{j}u_{ij}u_{kj}=\delta _{ik}
-\end{equation*}
-where $\delta _{ij}$ is the \textbf{Kronecker symbol}
-defined
-\index{Kronecker symbol} by
-\begin{equation*}
-\delta _{ij}=\left\{
-\begin{array}{c}
-1
-\text{ if }i=j \\
-0\text{ if }i\neq j
-\end{array}
-\right.
-\end{equation*}
-
-These equations say that the product of the $i^{th}$ row of $U$ with the $k^{th}$ row
-gives $1$ if $i=k$ and $0$ if $i\neq k.$ The same is true of the columns because
-$U^{T}U=I$ also. Therefore,
-\begin{equation*}
-\sum_{j}u_{ij}^{T}u_{jk}=\sum_{j}u_{ji}u_{jk}=\delta _{ik}
-\end{equation*}
-which says that the product of one column with another column gives $1$ if the two
-columns are the same and $0$ if the two columns are different.
-
-More succinctly, this states that if $\vec{u}_{1},\cdots ,\vec{u}_{n}$
-are the columns of $U,$ an orthogonal matrix, then
+Now since the set is orthogonal, $\vec{w}_i \dotp \vec{w}_m = 0$ for all $m \neq i$, so we have:
 \[
-\vec{u}_{i}\dotp \vec{u}_{j}=\delta _{ij} = \left\{
-\begin{array}{c}
-1\text{ if }i=j \\
-0\text{ if }i\neq j
-\end{array}
-\right.
+a_1 (0) + \cdots + a_i(\vec{w}_i \dotp \vec{w}_i) + \cdots + a_k (0) = 0
+\]
+\[
+a_i \norm{\vec{w}_i}^2 = 0
 \]
 
-We will say that the columns form an orthonormal set of vectors, and similarly for the rows. Thus a matrix is \dfn{orthogonal} if its rows (or columns) form an
-\dfn{orthonormal} set of vectors. Notice that the convention is to call such a matrix orthogonal rather than orthonormal (although perhaps the latter term would make more sense!).
+We know that $\norm{\vec{w}_i}^2  \neq 0$, so it follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ is linearly independent.
 
-\begin{theorem}[Orthonormal Basis]\label{orthbasis}
-The rows of an $n \times n$ orthogonal matrix form an orthonormal
-basis of $\RR^n$. Furthermore, any orthonormal basis of
-$\RR^n$ can be used to construct an $n \times n$ orthogonal
-matrix.
-\end{theorem}
+Finally since $W = \mbox{span} \{ \vec{w}_1, \vec{w}_2, \cdots,
+\vec{w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
 
-\begin{proof}
-Recall from Theorem \ref{orthbasis} that an orthonormal set is
-linearly independent and forms a basis for its span. Since the rows of
-an $n \times n$ orthogonal matrix form an orthonormal set, they must
-be linearly independent. Now we have $n$ linearly independent vectors,
-and it follows that their span equals $\mathbb{R}^n$. Therefore these
-vectors form an orthonormal basis for $\mathbb{R}^n$.
-
-Suppose now that we have an orthonormal basis for $\mathbb{R}^n$. Since the
-basis will contain $n$ vectors, these can be used to construct an $n
-\times n$ matrix, with each vector becoming a row. Therefore the
-matrix is composed of orthonormal rows, which by our above discussion,
-means that the matrix is orthogonal. Note we could also have construct
-a matrix with each vector becoming a column instead, and this would
-again be an orthogonal matrix. In fact this is simply the transpose of
-the previous matrix.
 \end{proof}
 
-Consider the following proposition.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{theorem}\label{orthoDet}
-Suppose $U$ is an orthogonal matrix. Then $\det \left( U\right) = \pm 1.$
-\end{theorem}
+So we understand that an orthogonal basis is very ``nice'', but does every subspace have an orthogonal basis?  It turns out that the answer is YES!  We may simply apply the following procedure to any basis of the subspace.
 
-\begin{proof}
-This result follows from the properties of determinants. Recall that
-for any matrix $A$, $\det(A)^T = \det(A)$. Now if $U$ is orthogonal, then:
+%\newpage
+%\begin{wrapfigure}[4]{l}{5cm}
+%\vspace*{5em}
+%\centering
+%\input{8-orthogonality/figures/1-orthogonal-complements-and-projections/theorem8.1.2}
+%\caption{\label{fig:023740}}
+%\end{wrapfigure}
+%\hfill
+\begin{theorem}[Gram-Schmidt Orthogonalization] \label{th:GS}
+If $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{m}\}$ is any basis of a subspace $W$ of $\RR^n$, consider the following sequence of subspaces:
 \begin{equation*}
-(\det \left( U\right)) ^{2}=\det \left( U^{T}\right) \det \left( U\right)
-=\det \left( U^{T}U\right) =\det \left( I\right) =1
+\begin{array}{ccl}
+W_1&=&\mbox{span}\{\vec{x}_{1}\} \\
+W_2&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2}\} \\
+W_3&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3}\} \\
+\vdots &&\\
+W_k &=& \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3},\ldots,\vec{x}_{k}\}
+\end{array}
 \end{equation*}
 
-Therefore $(\det (U))^2 = 1$ and it follows that $\det \left( U\right) = \pm 1$.
+Then we can construct an orthogonal basis $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}$ for $W_k$ for each $k = 2, 3, \dots , m$ by adding one vector at a time successively as follows:
+\begin{equation*}
+\begin{array}{ccl}
+\vec{f}_{1} &=& \vec{x}_{1} \\
+\vec{f}_{2} &=& \vec{x}_{2} - \mbox{proj}_{W_1}(\vec{x}) \\
+\vec{f}_{3} &=& \vec{x}_{3} - \mbox{proj}_{W_2}(\vec{x}) \\
+\vdots &&\\
+\vec{f}_{m} &=& \vec{x}_{3} - \mbox{proj}_{W_{m-1}}(\vec{x})
+\end{array}
+\end{equation*}
+
+In particular, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal basis for $W (= W_m)$.  Also, the algorithm converts any basis of $\RR^n$ itself into an orthogonal basis.
+
+\begin{proof}
+Using the definition of projection onto a subspace, the iterative procedure above may be written:
+\begin{equation}\label{eqn:GSproof}
+\begin{array}{ccl}
+\vec{f}_{1} &=& \vec{x}_{1} \\
+\vec{f}_{2} &=& \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} \\
+\vec{f}_{3} &=& \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} \\
+\vdots &&\\
+\vec{f}_{k} &=& \vec{x}_{k} - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{k} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}\vec{f}_{k-1} \\
+\vdots &&
+\end{array}
+\end{equation}
+We see immediately that $\mbox{span}\{\vec{f}_{1}\}=W_1$ and that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2}\}=W_2$ because $\vec{f}_{2}$ is a linear combination of $\vec{x}_{1}$ and $\vec{x}_{2}$.  In fact, for any value of $k$, we see that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}=W_k$, because each $\vec{f}_{k}$ is a linear combination of the vectors $\{\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{k-1}\}$.
+To complete the proof, we need to show that each set $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}$ is linearly independent.  By Theorem \ref{orthbasis}, it suffices to show that this set is an orthogonal set.  We will do so by demonstrating that for each $k$, $\vec{f}_{k}$ is orthogonal to each of the previous basis vectors $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k-1}\}$.
+
+If we take the dot product of each side of Equation (\ref{eqn:GSproof}) with any $\vec{f}_{i}$ where $i<k$, we get
+\begin{align*}
+\vec{f}_{k} \dotp \vec{f}_{i}
+&= (\vec{x}_k - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \dots -\frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\vec{f}_{i} - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}\vec{f}_{k-1}) \dotp \vec{f}_{i} \\
+&= \vec{x}_k \dotp \vec{f}_{i} - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}(\vec{f}_{1} \dotp \vec{f}_{i}) - \dots -\frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}(\vec{f}_{i} \dotp \vec{f}_{i}) - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}(\vec{f}_{k-1} \dotp \vec{f}_{i}) \\
+&= \vec{x}_k \dotp \vec{f}_{i} - \frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2} \norm{\vec{f}_{i}}^2 \\
+&= 0.
+\end{align*}
+This completes the proof.
 \end{proof}
+\end{theorem}
 
-Orthogonal matrices are divided into two classes, proper and improper.
-The proper orthogonal matrices are those whose determinant equals 1
-and the improper ones are those whose determinant equals $-1$. The
-reason for the distinction is that the improper orthogonal matrices
-are sometimes considered to have no physical significance. These
-matrices cause a change in orientation which would correspond to
-material passing through itself in a non physical manner. Thus in
-considering which coordinate systems must be considered in certain
-applications, you only need to consider those which are related by a
-proper orthogonal transformation. Geometrically, the linear
-transformations determined by the proper orthogonal matrices
-correspond to the composition of rotations.
+\remark{Erhardt
+ Schmidt (1876--1959) was a German mathematician who studied under the
+great David Hilbert. He
+ first described the present algorithm in 1907. J\"{o}rgen Pederson Gram
+(1850--1916)\index{Gram, J\"{o}rgen Pederson}  was a Danish actuary.} 
 
-We conclude this section with two more useful properties of orthogonal matrices.
+\begin{example}\label{023743}
+Find an orthogonal basis of the row space of $A = \begin{bmatrix}
+1 & 1 & -1 & -1\\
+3 & 2 & 0 & 1\\
+1 & 0 & 1 & 0
+\end{bmatrix}$.
 
-\begin{theorem}{Product and Inverse of Orthogonal Matrices}{productinverseorthogonal}
-Suppose $A$ and $B$ are orthogonal matrices. Then $AB$ and $A^{-1}$ both exist and are orthogonal.
+\begin{explanation}
+  Let $\vec{x}_{1}$, $\vec{x}_{2}$, $\vec{x}_{3}$ denote the rows of $A$ and observe that $\{\vec{x}_{1}, \vec{x}_{2}, \vec{x}_{3}\}$ is linearly independent. Take $\vec{f}_{1} = \vec{x}_{1}$. The algorithm gives
+\begin{align*}
+\vec{f}_{2} &= \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = (3, 2, 0, 1) - \frac{4}{4}(1, 1, -1, -1) = (2, 1, 1, 2) \\
+\vec{f}_{3} &= \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{x}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}(4, -3, 7, -6)
+\end{align*}
+
+Hence $\{(1, 1, -1, -1), (2, 1, 1, 2), \frac{1}{10}(4, -3, 7, -6)\}$ is the orthogonal basis provided by the algorithm. In
+hand calculations it may be convenient to eliminate fractions (see the Remark below), so $\{(1, 1, -1, -1), (2, 1, 1, 2), (4, -3, 7, -6)\}$ is also an orthogonal basis for row $A$.
+\end{explanation}
+\end{example}
+
+\begin{remark}
+Observe that the vector $\frac{\vec{x} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\vec{f}_{i}$
+ is unchanged if a nonzero scalar multiple of $\vec{f}_{i}$ is used in place of $\vec{f}_{i}$. Hence, if a newly constructed $\vec{f}_{i}$ is multiplied by a nonzero scalar at some stage of the Gram-Schmidt algorithm, the subsequent $\vec{f}$s will be unchanged. This is useful in actual calculations.
+ \end{remark}
+
+The Gram-Schmidt algorithm demonstrates in a constructive way that every subspace of $\RR^n$ has an orthogonal basis.  We formalize this in one final theorem.
+
+\begin{theorem}\label{023635}
+Let $W$ be a subspace of $\RR^n$.  Then  $W$ has an orthogonal basis.  In fact, every orthogonal subset $\{\vec{f}_{1}, \dots , \vec{f}_{m}\}$ in $W$ can be extended to an orthogonal basis for $W$.
 \end{theorem}
 
 \begin{proof}
-First we examine the product $AB$.
-\[ (AB)(B^TA^T)=A(BB^T)A^T =AA^T=I \]
-Since $AB$ is square, $B^TA^T=(AB)^T$ is the inverse of
-$AB$, so $AB$ is invertible, and $(AB)^{-1}=(AB)^T$
-Therefore, $AB$ is orthogonal.
+If $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right) = W$, it is \textit{already} a basis. Otherwise, there exists $\vec{x}$ in $W$ outside $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right)$. Using the Gram-Schmidt procedure we define $\vec{f}_{m+1} = \vec{x} - \mbox{proj}_{W_{m}}(\vec{x})$, where $W_m = \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{m}\}$. If $\mbox{span}\left(\vec{f}_{1}, \dots, \vec{f}_{m}, \vec{f}_{m+1}\right) = W$, we are done. Otherwise, the process continues to create larger and larger orthogonal subsets of $W$. They are all linearly independent by Theorem~\ref{th:GS}, so we have a basis when we reach a subset containing \mbox{dim} $W$ vectors.
+\end{proof}
 
-Next we show that $A^{-1}=A^T$ is also orthogonal.
-\[ (A^{-1})^{-1} = A = (A^T)^{T}
-=(A^{-1})^{T} \]
-Therefore $A^{-1}$ is also orthogonal.
-\end{proof} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Practice Problems}
-\begin{problem}\label{prob:rotationsRorthogonal}
-Recall that \begin{equation} 
-M_{\theta}=\begin{bmatrix}
-\cos\theta & -\sin\theta\\
-\sin\theta & \cos\theta
-\end{bmatrix}
-\end{equation}
-induces a counterclockwise rotation in $\RR^2$ by $\theta$ about the origin.  Show that this matrix is an orthogonal matrix.
-\end{problem}
-  
-\section*{Text Source}
-A large portion of the text in this module is an adaptation of Section 4.11.2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 238-241.  
+\begin{problem}
+In each case, use the Gram-Schmidt algorithm to convert the given basis $\mathcal{B}$ of $V$ into an orthogonal basis.  
+
+\begin{problem}\label{GS1}
+$V = \RR^2$, $\mathcal{B} = \{(1, -1), (2, 1)\}$
+%$\{(\answer{2},\answer{1}),(\answer{-\frac{3}{5}},\answer{\frac{6}{5}})\}$
+\end{problem}
+\begin{problem}
+$V = \RR^2$, $\mathcal{B} = \{(2, 1), (1, 2)\}$
+\end{problem}
+\begin{problem}
+$V = \RR^3$, $\mathcal{B} = \{(1, -1, 1), (1, 0, 1), (1, 1, 2)\}$
+
+%$\{(\answer{0},\answer{1},\answer{1}),(\answer{1},\answer{1},\answer{1}),(\answer{1},\answer{-2},\answer{2})\}$
+\end{problem}
+\begin{problem}
+$V = \RR^3$, $\mathcal{B} = \{(0, 1, 1), (1, 1, 1), (1, -2, 2)\}$
+\end{problem}
+\end{problem}
+
+\begin{problem}
+Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal. [\textit{Hint}: Let $R$ be the row-echelon form of $A$, and use the Gram-Schmidt process on the nonzero rows of $R$ from the bottom up. Use Lemma~\ref{004537}.]
+\end{problem}
+
+\begin{problem}
+Let $A$ be an $(n - 1) \times n$ matrix with rows $\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{n-1}$ and let $A_{i}$ denote the \\ $(n - 1) \times (n - 1)$ matrix obtained from $A$ by deleting column $i$. Define the vector $\vec{y}$ in $\RR^n$ by \begin{equation*}
+\vec{y} = \begin{bmatrix}
+\det A_{1} \\ -\det A_{2} \\ \det A_{3} \\ \cdots \\ (-1)^{n+1} \det A_{n}
+\end{bmatrix}
+\end{equation*} Show that:
+
+
+\begin{enumerate}[label={\alph*.}]
+\item $\vec{x}_{i} \dotp \vec{y} = 0$ for all $i = 1, 2, \dots , n - 1$. 
+\begin{hint}
+Write $B_{i} = \begin{bmatrix}
+x_{i} \\ A
+\end{bmatrix}$
+and show that $\det B_{i} = 0$.
+\end{hint}
+
+\item $\vec{y} \neq \vec{0}$ if and only if $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{n-1}\}$ is linearly independent.
+\begin{hint}
+If some $\det A_{i} \neq 0$, the rows of $A_{i}$ are linearly independent. Conversely, if the $\vec{x}_{i}$ are independent, consider $A = UR$ where $R$ is in reduced row-echelon form
+\end{hint}
+
+\item If $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{n-1}\}$ is linearly independent, use Theorem~\ref{023885}(3) to show that all solutions to the system of $n - 1$ homogeneous equations
+\begin{equation*}
+A\vec{x}^T = \vec{0}
+\end{equation*}
+are given by $t\vec{y}$, $t$ a parameter.
+
+\end{enumerate}
+\end{problem}
+
+\section*{Text Source} This section was adapted from the first part of Section 8.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415 
+
+%\section*{Example Source}
+%Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
+
+%\section*{Exercise Source}
+%Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
+
+
 
 \end{document}
