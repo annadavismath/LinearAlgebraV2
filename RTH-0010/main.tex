@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonal and Orthonormal Sets of Vectors} \license{CC-BY 4.0}
+\author{Paul Zachlin \and Anna Davis} \title{Orthogonal and Orthonormal Sets} \license{CC-BY 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -48,7 +48,7 @@ If every vector in an orthogonal set of vectors is also a unit vector, then we s
 Formally, we can define orthogonal and orthonormal vectors as follows.
 
 \begin{definition}\label{orthset}
-Let $\{ \vec{x}_1, \vec{x}_2, \cdots, \vec{x}_m \}$ be a set of nonzero
+Let $\{ \vec{x}_1, \vec{x}_2, \cdots, \vec{x}_k \}$ be a set of nonzero
 vectors in $\RR^n$. Then this set is called an
 \dfn{orthogonal set} if 
 $\vec{x}_i \dotp \vec{x}_j = 0$ for all $i \neq j$.
@@ -73,20 +73,18 @@ is an orthonormal set.
 We illustrate this concept in the following example.
 
 \begin{example}\label{ex:orthonormalset}
-Consider the set of vectors  given by
+Consider the vectors
 \[
-\left\{ \vec{v}_1, \vec{v}_2 \right\} = \left\{
-\begin{bmatrix}
+\vec{v}_1=\begin{bmatrix}
 1 \\
 1
-\end{bmatrix},
+\end{bmatrix},\quad \vec{v}_2  =
 \begin{bmatrix}
 -1 \\
 1
 \end{bmatrix}
-\right\}
 \]
-Show that this is an orthogonal set of vectors  but not an orthonormal one. Find the corresponding orthonormal set.
+Show that $\{\vec{v}_1,\vec{v}_2\}$ is an orthogonal set of vectors  but not an orthonormal one. Find the corresponding orthonormal set.
 
 \begin{explanation}
 One easily verifies that $\vec{v}_1 \dotp \vec{v}_2 = 0$ and
@@ -94,9 +92,8 @@ $\left\{ \vec{v}_1, \vec{v}_2 \right\}$ is an orthogonal set of
 vectors. On the other hand one can compute that ${\norm{\vec{v}_1}}= {\norm{\vec{v}_2}} =
 \sqrt{2} \neq 1$ and so the set is not orthonormal.
 
-Thus to find a corresponding orthonormal set, we simply need to
-normalize each vector. We will write $\{ \vec{u}_1, \vec{u}_2 \}$
-for the corresponding orthonormal set. Then,
+To find a corresponding orthonormal set, we need to
+normalize each vector. 
 \begin{eqnarray*}
 \vec{u}_1 &=& \frac{1}{\norm{\vec{v}_1}}\vec{v}_1\\
 &=& \frac{1}{\sqrt{2}} \begin{bmatrix}
@@ -143,7 +140,7 @@ You can verify that this set is orthonormal.
 \end{explanation}
 \end{example}
 
-\subsection*{Orthogonal and Orthonormal Bases: An intuitive Introduction}
+\subsection*{Orthogonal and Orthonormal Bases}
 Recall that every basis of $\RR^n$ imposes a coordinate system on $\RR^n$ that can be used to express any vector of $\RR^n$ as a linear combination of the elements of the basis.  For instance,  vectors $\vec{v}_1=\begin{bmatrix}1\\2\end{bmatrix}$ and $\vec{v}_2=\begin{bmatrix}3\\1\end{bmatrix}$ impose a coordinate system on $\RR^2$, as shown below.  We readily see that $\vec{x}=\begin{bmatrix}7\\4\end{bmatrix}$ can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
 
 \begin{center}
@@ -205,110 +202,70 @@ We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ 
 \end{center}
 \end{exploration}
 
-\subsection*{Orthogonal and Orthonormal Bases}
-Consider an orthogonal set of vectors in $\RR^n$, written $\{
-\vec{w}_1, \cdots, \vec{w}_k \}$ with $k \leq n$. The span of these
-vectors is a subspace $W$ of $\RR^n$.   If we
-could show that this orthogonal set is also linearly independent, we
-would have a basis of $W$. This is precisely what we do in the following theorem.
-
-\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
-Let $ \{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ be an
-orthogonal set of vectors in $\RR^n$. Then this set is
-linearly independent and forms a basis for the subspace $W =
-\mbox{span}\left( \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \right)$.
-\end{theorem}
-
-\begin{proof}
-To show this set is linearly independent, suppose a linear combination
-of these vectors equals $\vec{0}$, such as:
-\[
-a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k = \vec{0}, a_i \in \RR
-\]
-We need to show that all $a_i = 0$. To do so, we take the dot product of
-each side of the above equation with the vector $\vec{w}_i$ and obtain the following.
-
-\begin{eqnarray*}
-\vec{w}_i \dotp (a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k ) &=& \vec{w}_i \dotp \vec{0}\\
-a_1 (\vec{w}_i \dotp \vec{w}_1) + a_2 (\vec{w}_i \dotp \vec{w}_2) + \cdots + a_k (\vec{w}_i \dotp \vec{w}_k)  &=& 0
-\end{eqnarray*}
-Now since the set is orthogonal, $\vec{w}_i \dotp \vec{w}_m = 0$ for all $m \neq i$, so we have:
-\[
-a_1 (0) + \cdots + a_i(\vec{w}_i \dotp \vec{w}_i) + \cdots + a_k (0) = 0
-\]
-\[
-a_i \norm{\vec{w}_i}^2 = 0
-\]
-
-Since the set is orthogonal, we know that $\norm{\vec{w}_i}^2  \neq 0$. It follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ is linearly independent.
-
-Finally since $W = \mbox{span} \{ \vec{w}_1, \vec{w}_2, \cdots,
-\vec{w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
-
-\end{proof}
 
 If an orthogonal set is a basis for a subspace, we call it an
 \dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
 
 In Exploration \ref{exp:orth1} you have found that we can express an arbitrary vector of $\RR^2$ as the sum of its projections onto the basis vectors, provided that the basis is orthogonal. It turns out that this result holds in any subspace of $\RR^n$. The following theorem proves this result.  As you read the statement of the theorem, it will be helpful to recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{d}$ is given by
-$$\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$ (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Section ???} on orthogonal projections.)
+\begin{equation}\label{eq:orthProj}
+\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}
+\end{equation}
+(See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Orthogonal Projections}.)
 
-\begin{theorem}\label{fourierexpansion}
-Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_m \}$
+\begin{theorem}\label{th:fourierexpansion}
+Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{f}_1, \vec{f}_2, \ldots, \vec{f}_m \}$
 is an orthogonal basis of $V$.
-Then we can express any $\vec{x}\in V$ as a linear combination of the basis elements,
-\[ \vec{x} =
-c_1 \vec{v}_1 +
-c_2 \vec{v}_2 +
-\cdots +
-c_m \vec{v}_m,
-\]
-and, in fact, $c_i = \frac{\vec{x}\dotp \vec{v}_i}{\norm{\vec{v}_i}^2}$ for $i=1,\ldots,m$, so that
+Then for every $\vec{x}$ in $V$,
 \begin{equation}
 \vec{x} =
-\left(\frac{\vec{x}\dotp \vec{v}_1}{\norm{\vec{v}_1}^2}\right) \vec{v}_1 +
-\left(\frac{\vec{x}\dotp \vec{v}_2}{\norm{\vec{v}_2}^2}\right) \vec{v}_2 +
+\left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
+\left(\frac{\vec{x}\dotp \vec{f}_2}{\norm{\vec{f}_2}^2}\right) \vec{f}_2 +
 \cdots +
-\left(\frac{\vec{x}\dotp \vec{v}_m}{\norm{\vec{v}_m}^2}\right) \vec{v}_m.
+\left(\frac{\vec{x}\dotp \vec{f}_m}{\norm{\vec{f}_m}^2}\right) \vec{f}_m.
 \end{equation}\label{FourierEqn}
 %This expression is called the Fourier expansion
 %of $\vec{x}$, and
-%\[ \frac{\vec{x}\dotp \vec{v}_j}{\norm{\vec{v}_j}^2},\]
+%\[ \frac{\vec{x}\dotp \vec{f}_j}{\norm{\vec{f}_j}^2},\]
 %$j=1,2,\ldots,m$
 %are the Fourier coefficients.
 \end{theorem}
 
 \begin{proof}
-The first statement in the theorem is clear, since any basis is also a spanning set.  
-
-We need to establish the formula $c_i = \frac{\vec{x}\dotp \vec{v}_i}{\norm{\vec{v}_i}^2}$ for $i=1,\ldots,m$. To do so, we take the dot product of
-each side with the vector $\vec{v}_i$ and obtain the following.
-
-\begin{equation*}
-  \vec{x} \dotp \vec{v}_i =  \left(c_1\vec{v}_1 +
-c_2\vec{v}_2 +
+We may express $\vec{x}$ as a linear combination of the basis elements:
+\[ \vec{x} =
+c_1 \vec{f}_1 +
+c_2 \vec{f}_2 +
 \cdots +
-c_m\vec{v}_m\right) \dotp \vec{v}_i 
-\end{equation*}
-Our basis is orthogonal, so $\vec{v}_j \dotp \vec{v}_i = 0$ for all $j \neq i$, which means after we distribute the dot product, only one term will remain on the right-hand side.  We have 
+c_m \vec{f}_m.
+\]
+We claim that $c_i = \frac{\vec{x}\dotp \vec{f}_i}{\norm{\vec{f}_i}^2}$ for $i=1,\ldots,m$. To see this, we take the dot product of
+each side with the vector $\vec{f}_i$ and obtain the following.
+
 \begin{equation*}
-  \vec{x} \dotp \vec{v}_i =  c_i\vec{v}_i \dotp \vec{v}_i 
+  \vec{x} \dotp \vec{f}_i =  \left(c_1\vec{f}_1 +
+c_2\vec{f}_2 +
+\cdots +
+c_m\vec{f}_m\right) \dotp \vec{f}_i 
+\end{equation*}
+Our basis is orthogonal, so $\vec{f}_j \dotp \vec{f}_i = 0$ for all $j \neq i$, which means after we distribute the dot product, only one term will remain on the right-hand side.  We have 
+\begin{equation*}
+  \vec{x} \dotp \vec{f}_i =  c_i\vec{f}_i \dotp \vec{f}_i 
 \end{equation*}
 
-We now divide both sides by $\vec{v}_i \dotp \vec{v}_i = \norm{\vec{v}_i}^2$, and since $i$ was arbitrary, the proof is complete.
+We now divide both sides by $\vec{f}_i \dotp \vec{f}_i = \norm{\vec{f}_i}^2$, and since our claim holds for $i=1,\ldots,m$, the proof is complete.
 \end{proof}
 
-Theorem~\ref{fourierexpansion} shows one important benefit of a basis being orthogonal.  With an orthogonal basis it is easy to represent any vector in terms of the basis vectors.  
+Theorem~\ref{th:fourierexpansion} shows one important benefit of a basis being orthogonal.  With an orthogonal basis it is easy to represent any vector in terms of the basis vectors.  
 
 \begin{example}\label{fourier}
 Let
-$\vec{v}_1= \begin{bmatrix}
+$\vec{f}_1= \begin{bmatrix}
 1 \\ -1 \\ 2
 \end{bmatrix},
-\vec{v}_2= \begin{bmatrix}
+\vec{f}_2= \begin{bmatrix}
 0 \\ 2 \\ 1 
 \end{bmatrix},
-\vec{v}_3 =\begin{bmatrix}
+\vec{f}_3 =\begin{bmatrix}
 5 \\ 1 \\ -2
 \end{bmatrix}$,
 and let
@@ -316,26 +273,26 @@ $\vec{x} =\begin{bmatrix}
 1 \\ 1 \\ 1
 \end{bmatrix}$.  
 
-Notice that $\mathcal{B}=\{ \vec{v}_1, \vec{v}_2, \vec{v}_3\}$
+Notice that $\mathcal{B}=\{ \vec{f}_1, \vec{f}_2, \vec{f}_3\}$
 is an \underline{orthogonal} set of vectors.  Use this fact to write $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.
 
 \begin{explanation}
-We first apply Theorem~\ref{orthbasis} to say that $\mathcal{B}$ is linearly independent set of vectors, and so $\mathcal{B}$ forms a basis for $\RR^3$. Next we apply Theorem~\ref{fourierexpansion} to express $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.  We wish to write:
+We first observe that $\mathcal{B}$ is a linearly independent set of vectors, and so $\mathcal{B}$ is a basis for $\RR^3$. Next we apply Theorem~\ref{th:fourierexpansion} to express $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.  We wish to write:
 
 \[
 \vec{x}   =
-\left(\frac{\vec{x}\dotp \vec{v}_1}{\norm{\vec{v}_1}^2}\right) \vec{v}_1 +
-\left(\frac{\vec{x}\dotp \vec{v}_2}{\norm{\vec{v}_2}^2}\right) \vec{v}_2 +
-\left(\frac{\vec{x}\dotp \vec{v}_3}{\norm{\vec{v}_3}^2}\right) \vec{v}_3.
+\left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
+\left(\frac{\vec{x}\dotp \vec{f}_2}{\norm{\vec{f}_2}^2}\right) \vec{f}_2 +
+\left(\frac{\vec{x}\dotp \vec{f}_3}{\norm{\vec{f}_3}^2}\right) \vec{f}_3.
 \]
 
 We readily compute:
 
 \[
-\frac{\vec{x}\dotp\vec{v}_1}{\norm{\vec{v}_1}^2} = \frac{2}{6}, \;
-\frac{\vec{x}\dotp\vec{v}_2}{\norm{\vec{v}_2}^2} = \frac{3}{5},
+\frac{\vec{x}\dotp\vec{f}_1}{\norm{\vec{f}_1}^2} = \frac{2}{6}, \;
+\frac{\vec{x}\dotp\vec{f}_2}{\norm{\vec{f}_2}^2} = \frac{3}{5},
 \mbox{ and }
-\frac{\vec{x}\dotp\vec{v}_3}{\norm{\vec{v}_3}^2} = \frac{4}{30}.\]
+\frac{\vec{x}\dotp\vec{f}_3}{\norm{\vec{f}_3}^2} = \frac{4}{30}.\]
 
 Therefore,
 \[ \begin{bmatrix}
@@ -358,7 +315,7 @@ The formula from Theorem~\ref{fourier} is easy to use, and it becomes even easie
 \begin{corollary}
 Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
 is an orthonormal basis of $V$.
-Then for any $\vec{x}\in V$,
+Then for any $\vec{x}$ in $V$,
 \[ \vec{x} =
 \left(\vec{x}\dotp \vec{u}_1\right) \vec{u}_1 +
 \left(\vec{x}\dotp \vec{u}_2\right) \vec{u}_2 +
@@ -367,8 +324,156 @@ Then for any $\vec{x}\in V$,
 \]
 \end{corollary}
 \begin{proof}
-This is a special case of Theorem \ref{fourierexpansion} where we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in this case $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,m$.
+This is a special case of Theorem \ref{th:fourierexpansion}.  Because $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,m$, %where we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in this case 
+the terms are given by 
+$$\left(\frac{\vec{x}\cdot \vec{u}_i}{\norm{\vec{u}_i}^2}\right)\vec{u}_i=\left(\vec{x}\dotp \vec{u}_i\right) \vec{u}_i.$$
+
 \end{proof}
+
+\subsection*{Orthogonal Projection onto a Subspace}
+
+%We have studied the orthogonal projection of one vector onto another, and made extensive use of the formula
+%\begin{equation}
+%\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}.
+%\end{equation}\label{def:projectontod}
+In this section we generalize the concept of projection and define the projection of a vector \emph{onto a subspace}.  Consider vector $\vec{x}\in \RR^3$.  Suppose $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$ is an orthogonal basis of $\RR^3$, as shown in the figure below.  By Theorem \ref{th:fourierexpansion}, we can express $\vec{x}$ as the sum of its projections onto $\vec{f}_1, \vec{f}_2$ and  $\vec{f}_3$.
+
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+
+\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
+\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
+\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
+\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
+\node[label={above:$\vec{x}$}] at (2,1.1,2) {};
+\node[label={below:$\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$}] at (3,-1,4) {};
+    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(0,0,4) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(4,0,0) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(0,2.5,0) ;
+    
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
+
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
+    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
+        \end{tikzpicture}
+\end{center}
+
+Now consider subspaces $U=\mbox{span}(\vec{f}_1,\vec{f}_2)$, $V=\mbox{span}(\vec{f}_1,\vec{f}_3)$ and $W=\mbox{span}(\vec{f}_2,\vec{f}_3)$ of $\RR^3$.  Applying the same intuition to the planes $U, V$ and $W$ as we did to vectors (lines), we can speak of projections of $\vec{x}$ onto $U, V$ and $W$.  These projections are shown in the figure below.
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+
+\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
+\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
+\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
+\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
+\node[label={above:$\vec{x}$}] at (2,0.6,2) {};
+\node[label={above:$U=\mbox{span}(\vec{f}_1,\vec{f}_2)$}] at (4.7,2.8,0) {};
+\node[label={above:$V=\mbox{span}(\vec{f}_1,\vec{f}_3)$}] at (6.5,-0.2,5) {};
+\node[label={above:$W=\mbox{span}(\vec{f}_2,\vec{f}_3)$}] at (-2,2.5,1) {};
+    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
+    
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(0,2.5,4) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,0,4) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,2.5,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
+
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
+    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
+      \end{tikzpicture}
+          
+     \end{center}
+
+We will use the notation $\mbox{proj}_U\vec{x}$, $\mbox{proj}_V\vec{x}$ and $\mbox{proj}_W\vec{x}$ to to denote projections of $\vec{x}$ onto $U, V$ and $W$, respectively.  Such projections are called \emph{projections onto a subspace} of $\RR^n$.  In general, subspaces can be lines, planes or hyperplanes.  For instance, a projection of a vector onto another vector is simply a projection onto a one-dimensional subspace of $\RR^n$.
+Looking at the above diagram, it is intuitively clear that $$\mbox{proj}_U\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}$$
+$$\mbox{proj}_V\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$$
+$$\mbox{proj}_W\vec{x}=\mbox{proj}_{\vec{f}_2}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$$
+
+We will often find it convenient to express a vector as a sum of its projection onto a subspace and a vector orthogonal to the subspace.  The following diagram demonstrates this decomposition for vector $\vec{x}$ and its projection $\vec{w}$ onto $V$.  In the diagram, $\vec{w}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$, and $\vec{w}^{\perp}$ is a vector orthogonal to $\vec{w}$ defined by $\vec{w}^{\perp}=\vec{x}-\vec{w}$.
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+
+\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
+\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
+\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
+\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
+\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
+\node[label={above:$\vec{x}$}] at (2,0.6,2) {};
+\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
+\node[label={above:$\vec{w}^{\perp}$}] at (5.3,1.5,6) {};
+    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
+    
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,0,4) ;
+
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](4,0,4)--(4,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
+
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
+    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
+    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
+    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
+    \node[label={below:$\vec{x}=\vec{w}+\vec{w}^{\perp}$}] at (3,-1,3) {};
+      \end{tikzpicture}
+          
+     \end{center}
+
+
+These ideas are generalized in the following definition.
+
+
+
+
+\begin{definition}[Projection onto a Subspace of $\RR^n$]\label{def:projOntoSubspace}
+Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. If $\vec{x}$ is in $\RR^n$, the vector
+\begin{equation}
+\vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
+\end{equation}\label{def:projectontoWeasy}
+is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$.  The vector $\vec{x}-\vec{w}$ is called the \dfn{component of $\vec{x}$ orthogonal to $\vec{w}$}.  We will write $\vec{w}^\perp = \vec{x}-\vec{w}$.
+\end{definition}
+
+Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$ in Definition \ref{def:projOntoSubspace} using the following formula.
+\begin{formula}
+\begin{equation}
+\vec{w} = \mbox{proj}_W(\vec{x}) =\frac{\vec{x} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} + \frac{\vec{x} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2}+ \dots +\frac{\vec{x} \dotp \vec{f}_{m}}{\norm{\vec{f}_{m}}^2}\vec{f}_{m}
+\end{equation}\label{def:projectontoW}
+\end{formula}
+
+Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in the next section.
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:rref_way}
@@ -379,6 +484,24 @@ Retry Example~\ref{fourier} using Gaussian elimination.  Is the method of Exampl
 suppose $\mbox{span}\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\}=\RR^n$.
 Furthermore, suppose that there exists a vector $\vec{v}\in\RR^n$ for which $\vec{v}\dotp \vec{x}_j=0$ for all $j$, $1\leq j\leq k$.
 Show that $\vec{v}=\vec{0}$.
+\end{problem}
+
+\begin{problem}
+Let $\vec{x} = (1, -2, 1, 6)$ in $\RR^4$, and let $W = \mbox{span}\left((2, 1, 3, -4), (1, 2, 0, 1)\right)$.
+\begin{problem}\label{OrthoProj1.1}
+Compute $\mbox{proj}_W(\vec{x})$.
+%ANSWER:  $\frac{1}{10}(-9,3,-21,33) = \frac{3}{10}(-3,1,-7,11)$ 
+\end{problem}
+
+\begin{problem}\label{OrthoProj1.2}
+Show that $\{(1, 0, 2, -3), (4, 7, 1, 2)\}$ is another orthogonal basis of $W$.
+\end{problem}
+
+\begin{problem}\label{OrthoProj1.3}
+Use the basis in part (b) to compute $\mbox{proj}_W(\vec{x})$.
+%ANSWER:  $\frac{1}{70}(-63,21,-147,231) = \frac{3}{10}(-3,1,-7,11)$
+\end{problem}
+
 \end{problem}
   
 \section*{Text Source}
