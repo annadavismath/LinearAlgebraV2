@@ -6,41 +6,30 @@
 \begin{document}
 
 \begin{abstract}
-
 \end{abstract}
 \maketitle
 
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=1]
+\section*{Orthogonal Complements and Decompositions}
+\subsection*{Orthogonal Complements}
+We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \mbox{ is a real number}\}$ is an orthogonal complement of $\{a\vec{i}+b\vec{j} \mid a, b \mbox{ are real numbers}\}$.
 
-\filldraw[blue, opacity=0.3] (2,0,2)--(2,0,-2)--(-2,0,-2)--(-2,0,2)--cycle;
-
-    \draw[->,line width=0.4mm, -stealth, blue](0,-2,0)--(0,3,0) ;%normal to grey
-    
-    \node[label={below right:$W$}] at (0.8,0.1,-2) {};
-    \node[label={below right:$W^\perp$}] at (0,3,0) {};   
-    
-    %\draw[-,line width=0.4mm, -stealth](0,0,0)--(0.8, -.8, -2) ;
-    
-    \node[fill,circle,inner sep=1.5pt,label={left:$O$}] at (0,0,0) {};
-     \end{tikzpicture}
-          
-     \end{center}
-
-  
-
-Next we consider the set of vectors that are orthogonal to \underline{every} vector in a given subspace $W$. 
-
-\section*{Orthogonal Complements}
-\label{sec:8_1}
-
-\begin{definition}[Orthogonal Complement of a Subspace of $\RR^n$]\label{def:023776}
-If $W$ is a subspace of $\RR^n$, define the \textbf{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
+  \begin{definition}[Orthogonal Complement of a Subspace of $\RR^n$]\label{def:023776}
+If $W$ is a subspace of $\RR^n$, define the \dfn{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
 \begin{equation*}
 W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{y} = 0 \mbox{ for all } \vec{y} \mbox{ in } W\}
 \end{equation*}
 \end{definition}
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=1]
+\filldraw[blue, opacity=0.3] (2,0,2)--(2,0,-2)--(-2,0,-2)--(-2,0,2)--cycle;
+    \draw[->,line width=0.4mm, -stealth, blue](0,-2,0)--(0,3,0) ;%normal to grey
+ \node[label={below right:$W$}] at (0.8,0.1,-2) {};
+    \node[label={below right:$W^\perp$}] at (0,3,0) {};   
+   \node[fill,circle,inner sep=1.5pt] at (0,0,0) {};
+     \end{tikzpicture}
+\end{center}
 
 The following theorem collects some
 useful properties of the orthogonal complement; the proof of \ref{th:023783a} and \ref{th:023783b}
@@ -53,13 +42,13 @@ Let $W$ be a subspace of $\RR^n$.
 
 \item\label{th:023783b} $\{\vec{0}\}^\perp = \RR^n$ and $(\RR^n)^\perp = \{\vec{0}\}$.
 
-\item\label{th:023783c} If $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$, then $W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for } i = 1, 2, \dots, k\}$.
+\item\label{th:023783c} $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$ if and only if $W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for } i = 1, 2, \dots, k\}$.
 
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
-\ref{th:023783c} Let $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$; we must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. Clearly if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. Conversely, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we must show that $\vec{x}$ is in $W^\perp$, that is, $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. Write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then, using Theorem~\ref{014833},
+\begin{proof}[Proof of Part~\ref{th:023783c}:]
+Let $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$; we must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. Clearly if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. Conversely, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we must show that $\vec{x}$ is in $W^\perp$, that is, $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. Write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
 \begin{equation*}
 \vec{x} \dotp \vec{y} = c_{1}(\vec{x} \dotp \vec{x}_{1}) + c_{2}(\vec{x} \dotp \vec{x}_{2})+ \dots +c_{k}(\vec{x} \dotp \vec{x}_{k}) = c_{1}0 + c_{2}0 + \dots + c_{k}0 = 0
 \end{equation*}
@@ -68,24 +57,24 @@ Let $W$ be a subspace of $\RR^n$.
 \end{proof}
 
 \begin{example}\label{ex:023829}
-Find a basis for $W^\perp$ if $W = \mbox{span}\left\{\begin{bmatrix*}[r]
+Find a basis for $W^\perp$ if $W = \mbox{span}\left\{\begin{bmatrix}
   1 \\ -1 \\ 2 \\ 0
-  \end{bmatrix*},
-  \begin{bmatrix*}[r]
+  \end{bmatrix},
+  \begin{bmatrix}
   1 \\ 0 \\ -2 \\ 3
-  \end{bmatrix*}\right\}$ in $\RR^4$.
+  \end{bmatrix}\right\}$ in $\RR^4$.
 
 \begin{explanation}
   By Theorem~\ref{th:023783}, $\vec{x} = \begin{bmatrix}
   x \\ y \\ z \\ w
   \end{bmatrix}$
   is in $W^\perp$ if and only if $\vec{x}$ is orthogonal to both 
-  $\vec{v}_1 = \begin{bmatrix*}[r]
+  $\vec{v}_1 = \begin{bmatrix}
   1 \\ -1 \\ 2 \\ 0
-  \end{bmatrix*}$ and
-  $\vec{v}_2 = \begin{bmatrix*}[r]
+  \end{bmatrix}$ and
+  $\vec{v}_2 = \begin{bmatrix}
   1 \\ 0 \\ -2 \\ 3
-  \end{bmatrix*}$; that is,
+  \end{bmatrix}$; that is,
   $\vec{x} \dotp \vec{v}_1 = 0$ and $\vec{x} \dotp \vec{v}_2 = 0$, or
 \begin{equation*}
 \begin{array}{rrrrrrrr}
@@ -102,18 +91,16 @@ Using Gaussian elimination on this system gives $W^\perp = \mbox{span}\left\{\be
 \end{explanation}
 \end{example}
 
-%\begin{wrapfigure}{l}{5cm}
-%\centering
-%\input{8-orthogonality/figures/1-orthogonal-complements-and-projections/projections2}
-%\caption{\label{fig:023841}}
-%\end{wrapfigure}
-
-Some of the important subspaces we studied earlier are, in fact, orthogonal complements of each other.  Recall each of the following facts associated to any $m \times n$ matrix $A$.
+Some of the important subspaces we studied earlier are orthogonal complements of each other.  Recall the following definitions associated with an $m \times n$ matrix $A$.
 \begin{enumerate}
     \item Its \dfn{null space}, $\mbox{null}(A) = \{\vec{x}\in \RR^n \mid A\vec{x} = \vec{0}\}$, is a subspace of $\RR^n$.
     \item Its \dfn{row space}, $\mbox{row}(A) = \mbox{span} \{ \mbox{the rows of } A\}$, is a subspace of $\RR^n$.
     \item Its \dfn{column space}, $\mbox{col}(A) = \mbox{span} \{ \mbox{the columns of } A\}$, is a subspace of $\RR^m$.
 \end{enumerate}
+
+\begin{center}
+\geogebra{f6eavqxs}{950}{800}
+\end{center}
 
 \begin{theorem}\label{th:4subspaces}
 Let $A$ be an $m \times n$ matrix.  Then we have:
@@ -147,17 +134,17 @@ Verify each of the statements in Theorem~\ref{th:4subspaces}.
  and
  $$\mbox{row}(A)=\mbox{span}\Big(\begin{bmatrix}1&0&3&0&-9\end{bmatrix},
 \begin{bmatrix}0&1&5&0&-31\end{bmatrix},
-\begin{bmatrix}0&0&0&1&3\end{bmatrix}\Big).$$  (See the examples in \link[Subspaces of $\RR^n$ Associated with Matrices]{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main} for the details.) It is easy to check that each of the basis vectors of $\mbox{null}(A)$ is orthogonal to each of the basis vectors of $\mbox{row}(A)$, demonstrating the first part of Theorem~\ref{th:4subspaces}.  You will be asked to demonstrate the second part of Theorem~\ref{th:4subspaces} for this example in Practice Problem \ref{prob:finishex4subspaces}
+\begin{bmatrix}0&0&0&1&3\end{bmatrix}\Big).$$  (See the examples in \link[Subspaces of $\RR^n$ Associated with Matrices]{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main} for the details.) It is easy to check that each of the basis vectors of $\mbox{null}(A)$ is orthogonal to each of the basis vectors of $\mbox{row}(A)$, demonstrating the first part of Theorem~\ref{th:4subspaces}.  You will be asked to demonstrate the second part of Theorem~\ref{th:4subspaces} for this example in Practice Problem \ref{prob:finishex4subspaces}.
 \end{explanation}
 \end{example}
 
 We now return to the proof of Theorem \ref{th:4subspaces}.
 
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{th:4subspaces}:]
 Let $\vec{x}\in\RR^n$.  $\vec{x}\in\left(\mbox{row}(A)\right)^\perp$ if and only if x is orthogonal to every row of $A$.  But this is true if and only if $A\vec{x}=\vec{0}$, which is equivalent to saying $\vec{x}\in\mbox{null}(A)$, which proves \ref{th:4subspacesa}.  To prove \ref{th:4subspacesb}, we simply replace $A$ with $A^T$, and we may apply \ref{th:4subspacesa} since $\mbox{col}(A) = \mbox{row}(A^T)$.
 \end{proof}
 
-\section*{Orthogonal Decomposition Theorem}
+\subsection*{Orthogonal Decomposition Theorem}
 
 Now that we have defined the orthogonal complement of a subspace, we are ready to state the main theorem of this section.  If you have studied physics or multi-variable calculus, you are familiar with the idea of expressing a vector in as the sum of its tangential and normal components. (If you haven't yet taken those courses, this section will help to prepare you for them!)  The following theorem is a generalization of that idea.
 
