@@ -141,7 +141,7 @@ You can verify that this set is orthonormal.
 \end{example}
 
 \subsection*{Orthogonal and Orthonormal Bases}
-Recall that every basis of $\RR^n$ (or a subspace $V$ of $\RR^n$) imposes a coordinate system on $\RR^n$ (or $V$) that can be used to express any vector of $\RR^n$ (or $V$) as a linear combination of the elements of the basis.  For example, vectors $\vec{v}_1$ %=\begin{bmatrix}1\\2\end{bmatrix}$ 
+Recall that every basis of $\RR^n$ (or a subspace $W$ of $\RR^n$) imposes a coordinate system on $\RR^n$ (or $W$) that can be used to express any vector of $\RR^n$ (or $W$) as a linear combination of the elements of the basis.  For example, vectors $\vec{v}_1$ %=\begin{bmatrix}1\\2\end{bmatrix}$ 
 and $\vec{v}_2$ %=\begin{bmatrix}3\\1\end{bmatrix}$ 
 impose a coordinate system onto the plane, as shown in the figure below.  We readily see that $\vec{x}$, contained in the plane, %=\begin{bmatrix}7\\4\end{bmatrix}$ 
 can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
@@ -194,7 +194,7 @@ Vector $\vec{x}$ is visually easy to work with.  In general, one way to express 
 We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ works well.  What if we tilted this coordinate system while preserving the orthogonal relationship between the basis vectors?  The following exploration allows you to investigate the consequences.
 
 \begin{exploration}\label{exp:orth1}
-    In the following GeoGebra interactive, vectors $\vec{v}_1$ and $\vec{v}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors are clearly linearly independent and span $\RR^2$.  Therefore they form an orthogonal basis of $\RR^2$.  Let $\vec{x}$ be an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ are depicted in light grey.
+    In the following GeoGebra interactive, vectors $\vec{v}_1$ and $\vec{v}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors are clearly linearly independent and span $\RR^2$.  Let $\vec{x}$ be an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ are depicted in light grey.
     \begin{enumerate}
         \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
         \item Use the tips of $\vec{v}_1$ and $\vec{v}_2$ to change the basis vectors.  What happens when $\vec{v}_1$ and $\vec{v}_2$ are no longer orthogonal?
@@ -213,16 +213,16 @@ If an orthogonal set is a basis for a subspace, we call it an
 \dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
 
 
-The following theorem generalizes your observation in Exploration \ref{exp:orth1}.  As you read the statement of the theorem, it will be helpful to recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{d}$ is given by
+The following theorem generalizes our observation in Exploration \ref{exp:orth1}.  As you read the statement of the theorem, it will be helpful to recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{d}$ is given by
 \begin{equation}\label{eq:orthProj}
 \mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}
 \end{equation}
 (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Orthogonal Projections}.)
 
 \begin{theorem}\label{th:fourierexpansion}
-Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{f}_1, \vec{f}_2, \ldots, \vec{f}_m \}$
-is an orthogonal basis of $V$.
-Then for every $\vec{x}$ in $V$,
+Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{f}_1, \vec{f}_2, \ldots, \vec{f}_m \}$
+is an orthogonal basis of $W$.
+Then for every $\vec{x}$ in $W$,
 \begin{equation}
 \vec{x} =
 \left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
@@ -281,7 +281,7 @@ $\vec{x} =\begin{bmatrix}
 \end{bmatrix}$.  
 
 Notice that $\mathcal{B}=\{ \vec{f}_1, \vec{f}_2, \vec{f}_3\}$
-is an \underline{orthogonal} set of vectors.  Use this fact to write $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.
+is an orthogonal set of vectors.  Use this fact to write $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.
 
 \begin{explanation}
 We first observe that $\mathcal{B}$ is a linearly independent set of vectors, and so $\mathcal{B}$ is a basis for $\RR^3$. Next we apply Theorem~\ref{th:fourierexpansion} to express $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.  We wish to write:
@@ -320,9 +320,9 @@ Therefore,
 The formula from Theorem~\ref{fourier} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
 
 \begin{corollary}
-Let $V$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
-is an orthonormal basis of $V$.
-Then for any $\vec{x}$ in $V$,
+Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
+is an orthonormal basis of $W$.
+Then for any $\vec{x}$ in $W$,
 \[ \vec{x} =
 \left(\vec{x}\dotp \vec{u}_1\right) \vec{u}_1 +
 \left(\vec{x}\dotp \vec{u}_2\right) \vec{u}_2 +
@@ -338,160 +338,47 @@ $$\left(\frac{\vec{x}\cdot \vec{u}_i}{\norm{\vec{u}_i}^2}\right)\vec{u}_i=\left(
 \end{proof}
 
 \subsection*{Orthogonal Projection onto a Subspace}
-In the previous section we had found that given a subspace $V$ of $\RR^n$ with orthogonal basis $\mathcal{B}$, every vector $\vec{x}$ in $V$ can be expressed as the sum of the orthogonal projections of $\vec{x}$ onto the elements of the orthogonal basis $\mathcal{B}$.  Note that our assumption was that $\vec{x}$ is in $V$.  In this section, we look into the meaning of the sum of orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $V$ for those vectors $\vec{x}$ of $\RR^n$ that are \emph{not} in $V$.
+In the previous section we had found that given a subspace $W$ of $\RR^n$ with orthogonal basis $\mathcal{B}$, every vector $\vec{x}$ in $W$ can be expressed as the sum of the orthogonal projections of $\vec{x}$ onto the elements of $\mathcal{B}$.  Note that our premise was that $\vec{x}$ is in $W$.  In this section, we look into the meaning of the sum of orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $W$ for those vectors $\vec{x}$ of $\RR^n$ that are \emph{not} in $W$.
 
 \begin{exploration}\label{exp:orthProjSub}
-In the GeoGebra interactive below, $V$ is a plane in $\RR^3 $(subspace of $\RR^3$) spanned by $\vec{v}_1$ and $\vec{v}_2$.  In the initial set up $\vec{v}_1$ and $\vec{v}_2$ are orthogonal.  Vector $\vec{x}$ is not in the plane.  use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$.  RIGHT-CLICK and DRAG the left panel to rotate the image.
+In the GeoGebra interactive below, $W$ is a plane, spanned by $\vec{v}_1$ and $\vec{v}_2$, in $\RR^3$.  $W$ is subspace of $\RR^3$.  In the initial set up, $\vec{v}_1$ and $\vec{v}_2$ are orthogonal.  Vector $\vec{x}$ is not in $W$.  Use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$.  RIGHT-CLICK and DRAG to rotate the image.   
     \begin{center}
 \geogebra{hehqyayz}{950}{800}
 \end{center}
 \begin{enumerate}
-    \item Return the sliders to their default position ($s_1=s_2=0$) to ensure that $\vec{v}_1$ and $\vec{v}_2$ are orthogonal. Use the sliders ($x_1, x_2, x_3$) to manipulate vector $\vec{x}$.  Rotate the figure for a better view.  What is true about about vector $\vec{p}$?
+\item If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position ($s_1=s_2=0$) to ensure that they are orthogonal.  Rotate the image to convince yourself that the perpendiculars dropped from the tip of $\vec{x}$ to $\vec{v}_1$ and $\vec{v}_2$ appear perpendicular to $\vec{v}_1$ and $\vec{v}_2$ in the diagram. (You will have to find a good vantage point to convince yourself.)  Are both of these perpendiculars also necessarily perpendicular to the plane? \wordChoice{\choice{Yes}, \choice[correct]{No}}
+
+
+    \item Use sliders $x_1, x_2$ and $x_3$ to manipulate $\vec{x}$.  Rotate the figure for a better view.  What is true about about vector $\vec{p}$?
     
     \begin{multipleChoice}
  \choice{$\vec{p}=\vec{x}-(\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x})$.}
- \choice{Vector $\vec{p}$ is orthogonal to $V$.}
- \choice{Vector $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ is a projection of $\vec{x}$ onto $V$.}
+ \choice{Vector $\vec{p}$ is orthogonal to $W$.}
  \choice[correct]{All of the above.}
  \end{multipleChoice}
+ 
+  \item Rotate the figure so that you're looking directly down at the plane.  If you're looking at it correctly, you will notice that (1) the parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle; (2) the sum of projections of $\vec{x}$ onto the basis vectors, $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$, is located directly underneath $\vec{x}$, like a shadow at midday.
 
  \item 
- Use sliders ($s_1$ and $s_2$) to manipulate the basis vectors $\vec{v}_1$ and $\vec{v}_2$ so that they are no longer orthogonal.  Rotate the figure for a better view.  Which of the following is true?
+ Use sliders $s_1$ and $s_2$ to manipulate the basis vectors $\vec{v}_1$ and $\vec{v}_2$ so that they are no longer orthogonal.  Rotate the figure for a better view.  Which of the following is true?
  \begin{multipleChoice}
  \choice[correct]{$\vec{p}=\vec{x}-(\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x})$.}
- \choice{Vector $\vec{p}$ is orthogonal to $V$.}
+ \choice{Vector $\vec{p}$ is orthogonal to $W$.}
   \choice{All of the above.}
+ \end{multipleChoice}
+ Rotate your figure so that you're looking directly down at the plane, as you did in the previous part.  Which of the following is true?
+ \begin{multipleChoice}
+ \choice{the parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle.}
+ \choice{$\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ is located directly underneath $\vec{x}$.}
+  \choice[correct]{None of the above.}
  \end{multipleChoice}
 \end{enumerate}
 \end{exploration}
 
+In Exploration \ref{exp:orthProjSub}, you had discovered that given a plane, spanned by orthogonal vectors $\vec{v}_1,\vec{v}_2$, in $\RR^3$ , and a vector $\vec{x}$, not in the plane, we can interpret the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ as a ``shadow" of $\vec{x}$ that lies in the plane directly underneath the vector $\vec{x}$. We say that this ``shadow" is an orthogonal projection of $\vec{x}$ onto $W$. You have also found that if $\vec{v}_1,\vec{v}_2$ are not orthogonal, the ``shadow" of $\vec{x}$ no longer lies directly underneath $\vec{x}$.  Therefore, it is crucial that $\vec{v}_1,\vec{v}_2$ are orthogonal for the ``shadow" to be considered an orthogonal projection.  
 
-%We have studied the orthogonal projection of one vector onto another, and made extensive use of the formula
-%\begin{equation}
-%\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}.
-%\end{equation}\label{def:projectontod}
-%In this section we generalize the concept of projection and define the projection of a vector \emph{onto a subspace}.  Consider vector $\vec{x}\in \RR^3$.  Suppose $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$ is an orthogonal basis of $\RR^3$, as shown in the figure below.  By Theorem \ref{th:fourierexpansion}, we can express $\vec{x}$ as the sum of its projections onto $\vec{f}_1, \vec{f}_2$ and  $\vec{f}_3$.
-
-
-
-
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=0.8]
-
-\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
-\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
-\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
-\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
-\node[label={above:$\vec{x}$}] at (2,1.1,2) {};
-\node[label={below:$\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$}] at (3,-1,4) {};
-    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(0,0,4) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(4,0,0) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.3](0,0,0)--(0,2.5,0) ;
-    
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
-
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
-    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
-        \end{tikzpicture}
-\end{center}
-
-Now consider subspaces $U=\mbox{span}(\vec{f}_1,\vec{f}_2)$, $V=\mbox{span}(\vec{f}_1,\vec{f}_3)$ and $W=\mbox{span}(\vec{f}_2,\vec{f}_3)$ of $\RR^3$.  Applying the same intuition to the planes $U, V$ and $W$ as we did to vectors (lines), we can speak of projections of $\vec{x}$ onto $U, V$ and $W$.  These projections are shown in the figure below.
-
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=0.8]
-
-\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
-\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
-\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
-\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
-\node[label={above:$\vec{x}$}] at (2,0.6,2) {};
-\node[label={above:$U=\mbox{span}(\vec{f}_1,\vec{f}_2)$}] at (4.7,2.8,0) {};
-\node[label={above:$V=\mbox{span}(\vec{f}_1,\vec{f}_3)$}] at (6.5,-0.2,5) {};
-\node[label={above:$W=\mbox{span}(\vec{f}_2,\vec{f}_3)$}] at (-2,2.5,1) {};
-    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
-    
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(0,2.5,4) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,0,4) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,2.5,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
-
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
-    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
-      \end{tikzpicture}
-          
-     \end{center}
-
-We will use the notation $\mbox{proj}_U\vec{x}$, $\mbox{proj}_V\vec{x}$ and $\mbox{proj}_W\vec{x}$ to to denote projections of $\vec{x}$ onto $U, V$ and $W$, respectively.  Such projections are called \emph{projections onto a subspace} of $\RR^n$.  In general, subspaces can be lines, planes or hyperplanes.  For instance, a projection of a vector onto another vector is simply a projection onto a one-dimensional subspace of $\RR^n$.
-Looking at the above diagram, it is intuitively clear that $$\mbox{proj}_U\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}$$
-$$\mbox{proj}_V\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$$
-$$\mbox{proj}_W\vec{x}=\mbox{proj}_{\vec{f}_2}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$$
-
-We will often find it convenient to express a vector as a sum of its projection onto a subspace and a vector orthogonal to the subspace.  The following diagram demonstrates this decomposition for vector $\vec{x}$ and its projection $\vec{w}$ onto $V$.  In the diagram, $\vec{w}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_3}\vec{x}$, and $\vec{w}^{\perp}$ is a vector orthogonal to $\vec{w}$ defined by $\vec{w}^{\perp}=\vec{x}-\vec{w}$.
-
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=0.8]
-
-\filldraw[blue, opacity=0.3] (0,0,0)--(0,0,5)--(0,3,5)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,3,0)--(0,3,0)--cycle;
-\filldraw[blue, opacity=0.4] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,4,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
-\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
-\node[label={right:$\vec{f}_2$}] at (0,4,0) {};
-\node[label={left:$\vec{f}_3$}] at (0,0,6) {};
-\node[label={above:$\vec{x}$}] at (2,0.6,2) {};
-\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
-\node[label={above:$\vec{w}^{\perp}$}] at (5.3,1.5,6) {};
-    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,2.5,4) ;
-    
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](0,0,0)--(4,0,4) ;
-
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.2](4,0,4)--(4,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,4)--(4,2.5,0) ;
-
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(0,2.5,4) ;
-    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(4,0,0) ;
-    \draw[-,line width=0.2mm, dashed](4,2.5,0)--(0,2.5,0) ;
-    \draw[-,line width=0.2mm, dashed](0,2.5,4)--(0,2.5,0) ;
-    \node[label={below:$\vec{x}=\vec{w}+\vec{w}^{\perp}$}] at (3,-1,3) {};
-      \end{tikzpicture}
-          
-     \end{center}
-
-
-These ideas are generalized in the following definition.
-
-
+In general, we can define an orthogonal projection of $\vec{x}$ in $\RR^n$ onto a subspace $W$ of $\RR^n$ as the sum of the orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $W$.  %We denote such a projection by $\mbox{proj}_V(\vec{x})$. An important aspect of this definition is that it allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}$, onto $W$ and a vector orthogonal to $\vec{w}$, called $\vec{w}^\perp$.  
+Definition \ref{def:projOntoSubspace} and the subsequent diagram summarize this discussion.
 
 
 \begin{definition}[Projection onto a Subspace of $\RR^n$]\label{def:projOntoSubspace}
@@ -499,8 +386,31 @@ Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{
 \begin{equation}
 \vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
 \end{equation}\label{def:projectontoWeasy}
-is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$.  The vector $\vec{x}-\vec{w}$ is called the \dfn{component of $\vec{x}$ orthogonal to $\vec{w}$}.  We will write $\vec{w}^\perp = \vec{x}-\vec{w}$.
+is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$.  %The vector $\vec{x}-\vec{w}$ is called the \dfn{component of $\vec{x}$ orthogonal to $\vec{w}$}.  We will write $\vec{w}^\perp = \vec{x}-\vec{w}$.
 \end{definition}
+
+An illustration of Definition \ref{def:projOntoSubspace} for a two-dimensional subspace $W$ with orthogonal basis $\{\vec{f}_1,\vec{f}_2\}$ is shown below.
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
+\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
+\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
+\node[label={above:$W$}] at (5.2,0,5) {};
+\node[label={left:$\vec{f}_2$}] at (0,0,6) {};
+\node[label={above:$\vec{x}$}] at (2,1.5,2) {};
+\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
+\draw[-,line width=0.2mm, dashed](4,3,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
+    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(0,0,4) ;
+    \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(4,0,0) ;
+   \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,3,4) ;
+    \draw[->,line width=1.5mm, -stealth, red,opacity=0.2](0,0,0)--(4,0,4) ;
+    \node[label={below:$\vec{w}=\mbox{proj}_V\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}$}] at (3,-1,3) {};
+      \end{tikzpicture}
+\end{center}
 
 Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$ in Definition \ref{def:projOntoSubspace} using the following formula.
 \begin{formula}
@@ -509,7 +419,35 @@ Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$
 \end{equation}\label{def:projectontoW}
 \end{formula}
 
-Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in the next section.
+Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_V(\vec{x})$ located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+%\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
+%\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
+%\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
+%\node[label={left:$\vec{f}_2$}] at (0,0,6) {};
+\node[label={above:$\vec{x}$}] at (2,1.5,2) {};
+\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
+\node[label={above:$\vec{w}^{\perp}$}] at (5.3,2.2,6) {};
+ %   \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
+  %  \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
+   % \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(0,0,4) ;
+%    \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(4,0,0) ;
+    \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,3,4) ;
+    \draw[->,line width=1.5mm, -stealth, red,opacity=0.2](0,0,0)--(4,0,4) ;
+\draw[->,line width=1.5mm, -stealth, red,opacity=0.2](4,0,4)--(4,3,4) ;
+    \node[label={below:$\vec{x}=\vec{w}+\vec{w}^{\perp}$}] at (3,-1,3) {};
+    \node[label={above:$W$}] at (5,0,1.9) {};
+      \end{tikzpicture}
+          
+     \end{center}
+In Exploration \ref{exp:orthProjSub}, you had met $\vec{w}^\perp$ under the name of $\vec{p}$ and observed that this vector is orthogonal to $W$. 
+The fact that this decomposition is unique and that $\vec{w}^\perp$ is orthogonal to every vector in $W$ is the subject of the Orthogonal Decomposition Theorem which we will prove in the next section.
+
+
+%Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in the next section.
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:rref_way}
