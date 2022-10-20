@@ -45,7 +45,7 @@ If every vector in an orthogonal set of vectors is also a unit vector, then we s
 \draw[line width=2pt,blue,-stealth](0,0)--(-4,3);
 \node[] at (-1, -1)  (p2)    {An orthonormal set of two vectors};
 \node[] at (-1.8, 2)  (p2)    {1};
-\node[] at (1.8, 1.2)  (p2)    {1};
+\node[] at (1.3, 2.5)  (p2)    {1};
  \end{tikzpicture}
  \quad\quad\quad
 %\tdplotsetmaincoords{70}{130}
@@ -333,7 +333,7 @@ Therefore,
 
 The formula from Theorem~\ref{fourier} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
 
-\begin{corollary}
+\begin{corollary}\label{cor:orthonormal}
 Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
 is an orthonormal basis of $W$.
 Then for any $\vec{x}$ in $W$,
@@ -362,7 +362,7 @@ Use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto
 \geogebra{hehqyayz}{950}{800}
 \end{center}
 
-If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position ($s_1=s_2=0$) to ensure that they are orthogonal.  
+If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position (set $s_1=s_2=0$) to ensure that they are orthogonal.  
 
 \begin{enumerate}
 \item Rotate the image to convince yourself that the perpendiculars dropped from the tip of $\vec{x}$ to $\vec{v}_1$ and $\vec{v}_2$ are indeed perpendicular to $\vec{v}_1$ and $\vec{v}_2$ in the diagram. (You'll have to look at it just right to convince yourself of this.)  Are both of these perpendiculars also necessarily perpendicular to the plane? \wordChoice{\choice{Yes}, \choice[correct]{No}}
@@ -398,7 +398,7 @@ If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default 
 \end{enumerate}
 \end{exploration}
 
-In Exploration \ref{exp:orthProjSub}, you discovered that given a plane, spanned by orthogonal vectors $\vec{v}_1,\vec{v}_2$, in $\RR^3$, and a vector $\vec{x}$, not in the plane, we can interpret the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ as a ``shadow" of $\vec{x}$ that lies in the plane directly underneath the vector $\vec{x}$. We say that this ``shadow" is an \dfn{orthogonal projection of $\vec{x}$ onto $W$}. You have also found that if $\vec{v}_1,\vec{v}_2$ are not orthogonal, the ``shadow" of $\vec{x}$ no longer lies directly underneath $\vec{x}$.  Therefore, it is essential that $\vec{v}_1,\vec{v}_2$ are orthogonal for the ``shadow" to be considered an orthogonal projection.  
+In Exploration \ref{exp:orthProjSub}, you discovered that given a plane, spanned by orthogonal vectors $\vec{v}_1,\vec{v}_2$, in $\RR^3$, and a vector $\vec{x}$, not in the plane, we can interpret the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ as a ``shadow" of $\vec{x}$ that lies in the plane directly underneath the vector $\vec{x}$. We say that this ``shadow" is an \dfn{orthogonal projection of $\vec{x}$ onto $W$}. You have also found that if $\vec{v}_1,\vec{v}_2$ are not orthogonal, the parallelogram representing the sum of the orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ will not be a rectangle.  In this case, $\vec{x}$ minus this sum will NOT be orthogonal to the plane.  It is essential that $\vec{v}_1,\vec{v}_2$ are orthogonal for $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ to be considered an orthogonal projection.  
 
 In general, we can define an orthogonal projection of $\vec{x}$ in $\RR^n$ onto a subspace $W$ of $\RR^n$ as the sum of the orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $W$.  %We denote such a projection by $\mbox{proj}_V(\vec{x})$. An important aspect of this definition is that it allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}$, onto $W$ and a vector orthogonal to $\vec{w}$, called $\vec{w}^\perp$.  
 Definition \ref{def:projOntoSubspace} and the subsequent diagram summarize this discussion.
@@ -443,7 +443,7 @@ Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$
 \end{formula}
 
 \subsection*{Orthogonal Decomposition of $\vec{x}$}
-Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_W(\vec{x})$ located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
+Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_W\vec{x}$ located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
 \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
@@ -459,12 +459,12 @@ Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum 
       \end{tikzpicture}
           
      \end{center}
-You have already met $\vec{w}^\perp$, under the name of $\vec{p}$ in Exploration \ref{exp:orthProjSub}, and observed that this vector is orthogonal to $W$. We will now prove that $\vec{w}^\perp$ is orthogonal to every vector in $W$.  This will be accomplished in two steps.  First, in Theorem \ref{th:orthDecompX} we will prove that $\vec{w}^\perp$ is orthogonal to all of the basis elements of $W$. You will use this result to demonstrate that $\vec{w}^\perp$ is orthogonal to every vector in $W$.
+You have already met $\vec{w}^\perp$, under the name of $\vec{p}$ in Exploration \ref{exp:orthProjSub}, and observed that this vector is orthogonal to $W$. We will now prove that $\vec{w}^\perp$ is orthogonal to every vector in $W$.  This will be accomplished in two steps.  First, in Theorem \ref{th:orthDecompX} we will prove that $\vec{w}^\perp$ is orthogonal to all of the basis elements of $W$. Next, you will use this result to demonstrate that $\vec{w}^\perp$ is orthogonal to every vector in $W$.
 
 \begin{theorem}\label{th:orthDecompX}
 Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. Let $\vec{x}$ be in $\RR^n$, and define $\vec{w}^\perp$ as
 \begin{equation*}
-\vec{w}^\perp=\vec{x}-(\mbox{proj}_W\vec{x}) = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
+\vec{w}^\perp=\vec{x}-\mbox{proj}_W\vec{x} = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
 \end{equation*}
 Then $\vec{w}^\perp$ is orthogonal to $\vec{f}_i$ for $1\leq i\leq m$.
 \end{theorem}
@@ -481,16 +481,16 @@ We leave the proof of the following Corollary as Practice Problem \ref{prob:proo
 \begin{corollary}\label{cor:orthProjOntoW}
 Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. Let $\vec{x}$ be in $\RR^n$, and define $\vec{w}^\perp$ as
 \begin{equation*}
-\vec{w}^\perp=\vec{x}-(\mbox{proj}_W\vec{x}) = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
+\vec{w}^\perp=\vec{x}-\mbox{proj}_W\vec{x} = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
 \end{equation*}
 Then $\vec{w}^\perp$ is orthogonal to every vector in $W$.
 \end{corollary}
 
 
 
-The fact that the decomposition of $\vec{x}$ into the sum of $\vec{w}$ and $\vec{w}^\perp$ is unique is the subject of the Orthogonal Decomposition Theorem which we will prove in ...
+The fact that the decomposition of $\vec{x}$ into the sum of $\vec{w}$ and $\vec{w}^\perp$ is unique is the subject of the Orthogonal Decomposition Theorem which we will prove in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0020/main}{Orthogonal Complements and Decompositions}.
 
-Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in the next section.
+Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0015/main}{the next section}.
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:rref_way}
