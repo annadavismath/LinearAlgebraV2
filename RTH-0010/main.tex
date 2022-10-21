@@ -152,16 +152,10 @@ You can verify that this set is orthonormal.
 \end{example}
 
 \subsection*{Orthogonal and Orthonormal Bases}
-Recall that every basis of $\RR^n$ (or a subspace $W$ of $\RR^n$) imposes a coordinate system on $\RR^n$ (or $W$) that can be used to express any vector of $\RR^n$ (or $W$) as a linear combination of the elements of the basis.  For example, vectors $\vec{v}_1$ %=\begin{bmatrix}1\\2\end{bmatrix}$ 
-and $\vec{v}_2$ %=\begin{bmatrix}3\\1\end{bmatrix}$ 
-impose a coordinate system onto the plane, as shown in the figure below.  We readily see that $\vec{x}$, contained in the plane, %=\begin{bmatrix}7\\4\end{bmatrix}$ 
-can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
+Recall that every basis of $\RR^n$ (or a subspace $W$ of $\RR^n$) imposes a coordinate system on $\RR^n$ (or $W$) that can be used to express any vector of $\RR^n$ (or $W$) as a linear combination of the elements of the basis.  For example, vectors $\vec{v}_1$ and $\vec{v}_2$ impose a coordinate system onto the plane, as shown in the figure below.  We readily see that $\vec{x}$, contained in the plane, can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
-
-%  \draw[<->] (-2,0)--(8,0);
- % \draw[<->] (0,-2)--(0,6);
 \draw[line width=0.5pt, gray](-2,1)--(0.5,6);  
 \draw[line width=0.5pt, gray](-1,-2)--(3,6);
 \draw[line width=0.5pt, gray](1.5,-2)--(5.5,6);
@@ -243,11 +237,6 @@ Then for every $\vec{x}$ in $W$,
 \cdots +
 \left(\frac{\vec{x}\dotp \vec{f}_m}{\norm{\vec{f}_m}^2}\right) \vec{f}_m.
 \end{equation}\label{FourierEqn}
-%This expression is called the Fourier expansion
-%of $\vec{x}$, and
-%\[ \frac{\vec{x}\dotp \vec{f}_j}{\norm{\vec{f}_j}^2},\]
-%$j=1,2,\ldots,m$
-%are the Fourier coefficients.
 \end{theorem}
 
 \begin{proof}
@@ -330,7 +319,7 @@ Therefore,
 \end{explanation} 
 \end{example}
 
-The formula from Theorem~\ref{fourier} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
+The formula from Theorem~\ref{th:fourierexpansion} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
 
 \begin{corollary}\label{cor:orthonormal}
 Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
