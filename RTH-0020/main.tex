@@ -42,17 +42,19 @@ Let $W$ be a subspace of $\RR^n$.
 
 \item\label{th:023783b} $\{\vec{0}\}^\perp = \RR^n$ and $(\RR^n)^\perp = \{\vec{0}\}$.
 
-\item\label{th:023783c} $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$ if and only if $W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for } i = 1, 2, \dots, k\}$.
+\item\label{th:023783c} If $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$ then $W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for } i = 1, 2, \dots, k\}$.
 
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}[Proof of Part~\ref{th:023783c}:]
-Let $W = \mbox{span}\left(\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{k}\right)$; we must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. Clearly if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. Conversely, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we must show that $\vec{x}$ is in $W^\perp$, that is, $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. Write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
+We must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$.  To show that two sets $\mathcal{S}$ and $\mathcal{T}$ are equal, a common strategy is to show that $\mathcal{S} \subseteq \mathcal{T}$ and also $\mathcal{T} \subseteq \mathcal{S}$.  We employ this strategy now.
+
+Clearly, if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. This shows $W^\perp \subseteq \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. For the reverse inclusion, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we need to show that $\vec{x}$ is in $W^\perp$.  We need to show $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. We can write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
 \begin{equation*}
 \vec{x} \dotp \vec{y} = c_{1}(\vec{x} \dotp \vec{x}_{1}) + c_{2}(\vec{x} \dotp \vec{x}_{2})+ \dots +c_{k}(\vec{x} \dotp \vec{x}_{k}) = c_{1}0 + c_{2}0 + \dots + c_{k}0 = 0
 \end{equation*}
- as required.
+ as required, and the proof of equality is complete.
 
 \end{proof}
 
@@ -98,9 +100,20 @@ Some of the important subspaces we studied earlier are orthogonal complements of
     \item Its \dfn{column space}, $\mbox{col}(A) = \mbox{span} \{ \mbox{the columns of } A\}$, is a subspace of $\RR^m$.
 \end{enumerate}
 
+\begin{exploration}
+In the following GeoGebra interactive, you can chanage the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Then, since matrix $A$ is defined using $\vec{v}$ and $\vec{w}$ as its rows, we have $\mbox{row}(A) = \mbox{span}\{\vec{v},\vec{w}\}$.  
+   
 \begin{center}
 \geogebra{f6eavqxs}{950}{800}
 \end{center}
+
+\begin{enumerate}
+        \item Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$? 
+        \end{enumerate}
+
+  It is possible to ``break" this interactive (If you succeeded in doing that, great job, you understand this material!). If $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, then $\mbox{row}(A)$ is a \wordChoice{\choice{Point}, \choice[correct]{Line},\choice{Plane}}, and the dimension of $\mbox{null}(A)$ is \wordChoice{\choice{1}, \choice[correct]{2},\choice{3}}.  The interactive does not accommodate these requirements.  To see what happens when $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, see Practice Problem \ref{prob:brokenInteractive}.
+\end{exploration}
+
 
 \begin{theorem}\label{th:4subspaces}
 Let $A$ be an $m \times n$ matrix.  Then we have:
@@ -256,6 +269,12 @@ Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{u}_{i} = 0$
 \section*{Practice Problems}
 \begin{problem}\label{prob:Uperp}
 Solve the linear system in Example \ref{ex:023829} and use your result to find a basis for $W^\perp$ if $W = \mbox{span}\left((1, -1, 2, 0), (1, 0, -2, 3)\right)$ in $\RR^4$.
+\end{problem}
+
+\begin{problem}\label{prob:brokenInteractive}
+    \begin{center}
+\geogebra{tyntjmdp}{950}{800}
+\end{center}
 \end{problem}
 
 \begin{problem}\label{prob:finishex4subspaces}
