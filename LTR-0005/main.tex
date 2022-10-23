@@ -1,0 +1,401 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Anna Davis \and Paul Zachlin} \title{Matrix Transformations} \license{CC-BY 4.0}
+
+\begin{document}
+\begin{abstract}
+\end{abstract}
+\maketitle
+\section*{Matrix Transformations}
+\subsection*{Functions from $\RR^n$ into $\RR^m$}
+In the past you have worked with functions $f:\RR\longrightarrow \RR$.  Most of the time such functions were defined algebraically.  For example, we can define $f$ by $f(x)=x^2$.  This function takes a number in the \dfn{domain} ($\RR$) and \dfn{maps} it to the square of the number in the \dfn{codomain} (also $\RR$).  Previously, you might have visualized function $f$ by looking at its graph, the set of all points of the form $(x, f(x))$ in $\RR^2$.  In this course, we will find it more useful to look at functions diagrammatically.  For instance, the diagram below shows that $f$ maps 2 to 4.  We say that 4 is the \dfn{image of} 2 \dfn{under $f$}.
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+  \draw[<->] (-1,0)--(3,0);
+  \draw[<->] (5,0)--(9,0);
+  \node[] at (4.2, 2)   (b) {$f$};
+  \draw [->,line width=0.5pt,-stealth]  (1,0.2) to[out=45] (7.5, 0.2);
+  \node[fill,circle,inner sep=1.5pt] at (0.9,0) {};
+  \node[fill,circle,inner sep=1.5pt] at (7.5,0) {};
+  \node[] at (0.9, -0.5)   (b) {$2$}; 
+  \node[] at (7.4, -0.5)   (b) {$4$};
+  \node[] at (-2, 0.6)   (b) {Domain: $\RR$};
+  \node[] at (10, 0.6)   (b) {Codomain: $\RR$};
+\end{tikzpicture}
+\end{center}
+
+We will now consider functions that map $\RR^n$ into $\RR^m$.  We will refer to such functions as \dfn{transformations}.  There are two ways of thinking of transformations.  A transformation $T:\RR^n\longrightarrow\RR^m$ can take a vector in $\RR^n$ and map it to a vector in $\RR^m$, or it can map a point in $\RR^n$ to a point in $\RR^m$.  We will think of transformations as acting on vectors or points interchangeably because every point $(x_1, x_2,\dots ,x_n)$ of $\RR^n$ can be interpreted as the tip of a vector $\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}$ in $\RR^n$.  Matrix multiplication will provide us with initial tools for defining some transformations.
+
+\subsection*{Examples of Matrix Transformations}
+Consider the matrix $A=\begin{bmatrix}1&0.5\\0&1\end{bmatrix}$.  The product of $A$ with a $2\times 1$ vector is a $2\times 1$ vector.  We can define a transformation $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$.  This transformation can be applied to every vector of $\RR^2$.  Here we will look at what it does to five vectors.  You can use matrix multiplication to verify that the following is true
+$$T\left(\begin{bmatrix}0\\3\end{bmatrix}\right)=\begin{bmatrix}1.5\\3\end{bmatrix};\quad T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)=\begin{bmatrix}2\\2\end{bmatrix};\quad T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)=\begin{bmatrix}2.5\\1\end{bmatrix}$$
+$$T\left(\begin{bmatrix}2\\0\end{bmatrix}\right)=\begin{bmatrix}2\\0\end{bmatrix};\quad T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}0.5\\-1\end{bmatrix}$$
+The original vectors and their images are shown below.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (4,4);
+  \draw[<->] (-2,0)--(4,0);
+   \draw[<->] (0,-2)--(0,4);
+\draw[line width=1.5pt,-stealth](0,0)--(1,-1)node[above right]{$\vec{v}_5$};
+\draw[line width=1.5pt,-stealth, red](0,0)--(2,0)node[above left]{$\vec{v}_4$};
+\draw[line width=1.5pt,-stealth, blue](0,0)--(2,1)node[above left]{$\vec{v}_3$};
+\draw[line width=1.5pt,-stealth, gray](0,0)--(1,2)node[above left]{$\vec{v}_2$};
+\draw[line width=1.5pt,-stealth, orange](0,0)--(0,3)node[above left]{$\vec{v}_1$};  
+      \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (4,4);
+  \draw[<->] (-2,0)--(4,0);
+   \draw[<->] (0,-2)--(0,4);
+\draw[line width=1.5pt,-stealth](0,0)--(0.5,-1)node[above right]{$T(\vec{v}_5)$};
+\draw[line width=1.5pt,-stealth, red](0,0)--(2,0)node[above right]{$T(\vec{v}_4)$};
+\draw[line width=1.5pt,-stealth, blue](0,0)--(2.5,1)node[above right]{$T(\vec{v}_3)$};
+\draw[line width=1.5pt,-stealth, gray](0,0)--(2,2)node[above right]{$T(\vec{v}_2)$};
+\draw[line width=1.5pt,-stealth, orange](0,0)--(1.5,3)node[above right]{$T(\vec{v}_1)$};  
+      \end{tikzpicture}
+\end{center}
+
+Even by looking at a handful of vectors it is difficult to tell what the transformation actually accomplishes.  This is why sometimes looking at points instead of vectors can be beneficial.  If we consider every point in the left grid below as a tip of a vector, we can apply the transformation to each point to obtain the grid on the right.
+
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (4,4);
+  \draw[<->] (-2,0)--(4,0);
+   \draw[<->] (0,-2)--(0,4);
+   
+  \fill[] (0,-1) circle (0.1cm);
+  \fill[] (1,-1) circle (0.1cm);
+  \fill[] (2,-1) circle (0.1cm);
+   
+  \fill[red] (0,0) circle (0.1cm);
+  \fill[red] (1,0) circle (0.1cm);
+  \fill[red] (2,0) circle (0.1cm);
+  
+  \fill[blue] (0,1) circle (0.1cm);
+  \fill[blue] (1,1) circle (0.1cm);
+  \fill[blue] (2,1) circle (0.1cm);
+  
+  \fill[gray] (0,2) circle (0.1cm);
+  \fill[gray] (1,2) circle (0.1cm);
+  \fill[gray] (2,2) circle (0.1cm);
+  
+  \fill[orange] (0,3) circle (0.1cm);
+  \fill[orange] (1,3) circle (0.1cm);
+  \fill[orange] (2,3) circle (0.1cm);
+  
+   
+  \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (4,4);
+\draw[<->] (-2,0)--(4,0);
+  \draw[<->] (0,-2)--(0,4);
+   
+   \fill[] (0-0.5,-1) circle (0.1cm);
+  \fill[] (1-0.5,-1) circle (0.1cm);
+  \fill[] (2-0.5,-1) circle (0.1cm);
+   
+  \fill[red] (0,0) circle (0.1cm);
+  \fill[red] (1,0) circle (0.1cm);
+  \fill[red] (2,0) circle (0.1cm);
+  
+  \fill[blue] (0+0.5,1) circle (0.1cm);
+  \fill[blue] (1+0.5,1) circle (0.1cm);
+  \fill[blue] (2+0.5,1) circle (0.1cm);
+  
+  \fill[gray] (0+1,2) circle (0.1cm);
+  \fill[gray] (2,2) circle (0.1cm);
+  \fill[gray] (3,2) circle (0.1cm);
+  
+  \fill[orange] (1.5,3) circle (0.1cm);
+  \fill[orange] (2.5,3) circle (0.1cm);
+  \fill[orange] (3.5,3) circle (0.1cm);
+ 
+ \end{tikzpicture}
+
+\end{center}
+
+Applying $T$ to a grid of points helps us see that the entire plane was sheared by the transformation.
+
+We can also analyze the action of $T$ algebraically.  Start by finding the image of a generic vector $\begin{bmatrix}x\\y\end{bmatrix}$.
+$$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+0.5y\\y\end{bmatrix}$$
+We immediately see that the $y$ component of the vector remains unchanged.  We also see that the $x$ component increases (or decreases) by an increment that depends on $y$.  When considering $T$ as a transformation acting on points, we see that points located 1 unit above the $x$-axis, get shifted to the right by 0.5.  Points located 2 units above, get shifted to the right by 1. The higher the point, the greater the shift.  Points with negative $y$-coordinates get shifted to the left. In this fashion $T$ shears the entire plane.
+
+ Now that we have seen the effect of functions defined via matrix multiplication, we can better appreciate the term \dfn{transformation}, as such functions distort the domain and the shapes located in it.
+
+A $2\times 2$ matrix induces a transformation from $\RR^2$ into $\RR^2$.  An $m\times n$ matrix can be multiplied by $n\times 1$ vectors on the right, with the resulting product being an $m\times 1$ vector.  Therefore we can use an $m\times n$ matrix $A$ to define a transformation $T:\RR^n\longrightarrow \RR^m$ by $T(\vec{x})=A\vec{x}$.
+
+\begin{example}\label{ex:matrixTrans1}
+    Let $A=\begin{bmatrix}1&2&-1\\3&2&-2\end{bmatrix}$.  Define a transformation 
+    $$T:\RR^{\answer{3}}\longrightarrow\RR^{\answer{2}}$$ by 
+    $T(\vec{x})=A\vec{x}$.  Find all vectors in the domain that map to $\vec{0}$.
+\begin{explanation}
+    We need to solve the system $A\vec{x}=\vec{0}$.  We begin by forming an augmented matrix and finding its reduced row echelon form
+    $$\left[\begin{array}{ccc|c} 
+ 1&2&-1&0\\3&2&-2&0
+ \end{array}\right]\begin{array}{c}
+ \\
+ \rightsquigarrow\\
+ \\
+ \end{array}\left[\begin{array}{ccc|c} 
+ 1&0&-1/2&0\\0&1&-1/4&0
+ \end{array}\right]$$
+ There are infinitely many solutions
+ $$\vec{x}=\begin{bmatrix}1/2\\1/4\\1\end{bmatrix}t$$
+ This means that as $T$ transforms $\RR^3$ into $\RR^2$, all points along the line $x=\frac{1}{2}t; y=\frac{1}{4}t; z=t$ map to the origin.
+\end{explanation}    
+\end{example}
+
+\subsection*{Linearity of Matrix Transformations}
+Restating properties \ref{item:matrixproperties1} and \ref{item:matrixproperties4} of Section \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0020/main}{Matrix Multiplication} in terms of matrix-vector multiplication gives us
+\begin{eqnarray}\label{eq:linearityConstant}
+ k(A\vec{v})&=&A(k\vec{v})\\
+    A(\vec{v}+\vec{w})&=&A\vec{v}+A\vec{w}\label{eq:linearityAdd}
+   \end{eqnarray}
+We will now examine the implications of these properties for matrix transformations.
+
+\begin{exploration}\label{exp:linearityConstant}
+    Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$ where $A=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}$.
+
+    Let's apply this linear transformation to $\begin{bmatrix}4\\2\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}$.
+\begin{equation}\label{eq:linearityConstant1}
+T\left(\begin{bmatrix}4\\2\end{bmatrix}\right)=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}6\\-2\end{bmatrix}
+\end{equation}
+Our computation in (\ref{eq:linearityConstant1}) shows that the image of $\begin{bmatrix}4\\2\end{bmatrix}$ under $T$ is $\begin{bmatrix}6\\-2\end{bmatrix}$.
+
+Our next computation, using Property (\ref{eq:linearityConstant}), will give us an important insight into two different ways in which the final image can be obtained. 
+\begin{equation}\label{eq:linearityConstant2}
+T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=2\left(\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}\right)=2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
+\end{equation}
+Compare the left-hand side of (\ref{eq:linearityConstant2}) to the right-hand side:
+\begin{equation*}
+T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
+\end{equation*}
+The first sequence of diagrams below corresponds to the left-hand side.  Starting from inside the parenthesis and working out way out we get:
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (4,3);
+  \draw[<->] (-1,0)--(4,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth](0,0)--(2,1);
+ \node[] at (1, 2)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
+      \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (4,3);
+  \draw[<->] (-1,0)--(4,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth](0,0)--(4,2);
+\node[] at (1, 2)   (b) {$2\begin{bmatrix}2\\1\end{bmatrix}$};
+      \end{tikzpicture}
+   \quad\quad   
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (6,3);
+  \draw[<->] (-1,0)--(6,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth,red](0,0)--(6,-2);
+\node[red] at (2, -2)   (b) {$T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)$};
+      \end{tikzpicture}   
+\end{center}
+ The second sequence of three diagrams corresponds to the right-hand side.  
+ \begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (4,3);
+  \draw[<->] (-1,0)--(4,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth](0,0)--(2,1);
+ \node[] at (1, 2)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
+      \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (4,3);
+  \draw[<->] (-1,0)--(4,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth, red](0,0)--(3,-1);
+\node[red] at (1.5, -2)   (b) {$T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
+      \end{tikzpicture}
+   \quad\quad   
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-1,-3) grid (6,3);
+  \draw[<->] (-1,0)--(6,0);
+   \draw[<->] (0,-3)--(0,3);
+\draw[line width=1.5pt,-stealth,red](0,0)--(6,-2);
+\node[red] at (2, -2)   (b) {$2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
+      \end{tikzpicture}   
+\end{center}
+In the first sequence of steps, we double the vector first, then apply the transformation.  In the second sequence, we apply the transformation directly to $\begin{bmatrix}2\\1\end{bmatrix}$, then double the image.  Both approaches produce the same final result, $\begin{bmatrix}6\\-2\end{bmatrix}$.
+\end{exploration}
+
+We summarize the property we discovered in Exploration \ref{exp:linearityConstant} by observing that for any matrix transformation $T:\RR^n\longrightarrow \RR^m$, 
+\begin{equation}\label{eq:linTransProp1}
+T(k\vec{v})=kT(\vec{v})
+\end{equation}
+
+We now turn out attention to Property (\ref{eq:linearityAdd}) of matrix multiplication and its implications for matrix transformations.
+\begin{exploration}\label{exp:linearityDist}
+    Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$, where $A=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}$.
+
+Let's apply this linear transformation to the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$.
+\begin{equation*}\label{eq:linearitySum1}
+T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)=T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatrix}
+\end{equation*}
+Our computation shows that $T$ maps the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$ to $\begin{bmatrix}2\\3\end{bmatrix}$.
+
+Our next computation, using Property (\ref{eq:linearityAdd}), will show that the image of a sum is the sum of the images.
+\begin{eqnarray*}
+T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)&=&\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)\\
+&=&\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}\\
+&=&T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
+\end{eqnarray*}
+We established that
+$$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)=T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$$
+We can interpret this result geometrically by comparing the sequence of steps involved in evaluating the left-hand side with the sequence of steps involved in evaluating the right-hand side.
+
+For the left-hand side, we start by finding the sum of the two vectors, then we apply the transformation to the sum.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (3,3);
+  \draw[<->] (-2,0)--(3,0);
+   \draw[<->] (0,-2)--(0,3);
+\draw[line width=1.5pt,-stealth](0,0)--(-1,-2);
+\draw[line width=1.5pt,-stealth](0,0)--(2,1);
+\filldraw[blue, opacity=0.3](0,0)--(-1,-2)--(1,-1)--(2,1)--cycle;
+\draw[line width=1.5pt,-stealth, red](0,0)--(1,-1);
+ \node[red] at (2, -1)   (b) {$\begin{bmatrix}1\\-1\end{bmatrix}$};
+      \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (3,3);
+  \draw[<->] (-2,0)--(3,0);
+   \draw[<->] (0,-2)--(0,3);
+\draw[line width=1.5pt,-stealth, red](0,0)--(2,3);
+ \node[red] at (2.5, 1.8)   (b) {$T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)$};
+      \end{tikzpicture}
+  \end{center}
+For the right-hand side, we apply the transformation to each vector separately, then find the sum of the images. 
+ \begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (3,3);
+  \draw[<->] (-2,0)--(3,0);
+   \draw[<->] (0,-2)--(0,3);
+\draw[line width=1.5pt,-stealth](0,0)--(-1,-2);
+\draw[line width=1.5pt,-stealth](0,0)--(2,1);
+%\filldraw[blue, opacity=0.3](0,0)--(-1,-2)--(1,-1)--(2,1)--cycle;
+%\draw[line width=1.5pt,-stealth, red](0,0)--(1,-1);
+ \node[] at (2, 1.8)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
+ \node[] at (-1.5, -1)   (b) {$\begin{bmatrix}-1\\-2\end{bmatrix}$};
+      \end{tikzpicture}
+   \quad\quad
+\begin{tikzpicture}[scale=0.8]
+\draw[thin,gray!40] (-2,-2) grid (3,3);
+  \draw[<->] (-2,0)--(3,0);
+   \draw[<->] (0,-2)--(0,3);
+   \filldraw[blue, opacity=0.3](0,0)--(1,0)--(2,3)--(1,3)--cycle;
+\draw[line width=1.5pt,-stealth, red](0,0)--(2,3);
+ \node[] at (1.8, -0.8)   (b) {$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)$};
+ \node[] at (-0.5, 2)   (b) {$T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
+ \draw[line width=1.5pt,-stealth](0,0)--(1,0);
+ \draw[line width=1.5pt,-stealth](0,0)--(1,3);
+ \node[red] at (4, 2)   (b) {$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
+       \end{tikzpicture}
+  \end{center}
+  In both cases, the final image is the vector $\begin{bmatrix}2\\3\end{bmatrix}$.
+\end{exploration}
+
+We summarize our findings in Exploration \ref{exp:linearityDist} by observing that for any matrix transformation $T:\RR^n\longrightarrow \RR^m$, 
+\begin{equation}\label{eq:linTransProp2}
+T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})
+\end{equation}
+We will now combine (\ref{eq:linTransProp1}) and (\ref{eq:linTransProp2}) into a theorem.  
+\begin{theorem}\label{th:matrixTransProp}
+    Suppose $T:\RR^n\longrightarrow\RR^m$ is a matrix transformation, then for all vectors $\vec{v}_1$, $\vec{v}_2$ in $\RR^n$ and all real number constants $k_1$, $k_2$ in $\RR$,
+    \begin{equation}\label{eq:matrixTransProp} T(k_1\vec{v}_1+k_2\vec{v}_2)=k_1T(\vec{v}_1)+k_2T(\vec{v_2})
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    The proof follows directly from properties (\ref{eq:linearityConstant}) and (\ref{eq:linearityAdd}) of matrix multiplication.
+\end{proof}
+
+In general, any transformation that satisfies (\ref{eq:matrixTransProp}) is called a \dfn{linear transformation}.  By Theorem \ref{th:matrixTransProp}, all matrix transformations are linear.
+We will study linear transformations in depth in the chapter on \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_linTrans/main}{Linear Transformations}.
+
+\subsection*{Where did $\vec{i}$ Go?}
+In this section we will look at the images of standard unit vectors under a matrix transformation, and discuss why this information is helpful.
+\begin{exploration}\label{exp:imagesOfijk}
+    Let $A=\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}$.
+    Find the following products:
+$$\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}\begin{bmatrix}1\\0\\0\end{bmatrix}=\begin{bmatrix}\answer{1}\\\answer{4}\\\answer{7}\end{bmatrix}$$
+$$\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}\begin{bmatrix}0\\1\\0\end{bmatrix}=\begin{bmatrix}\answer{2}\\\answer{5}\\\answer{8}\end{bmatrix}$$
+$$\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}\begin{bmatrix}0\\0\\1\end{bmatrix}=\begin{bmatrix}\answer{3}\\\answer{6}\\\answer{9}\end{bmatrix}$$
+
+Let $T:\RR^3\longrightarrow\RR^3$ be a matrix transformation induced by $A$, then we can say that $T$ maps $\vec{i}$, $\vec{j}$ and $\vec{k}$ to the first, second and third columns of $A$, respectively. 
+
+This nice property is not limited to transformations induced by square matrices.  Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation induced by
+$$A=\begin{bmatrix}1&-2&4\\0&3&5\end{bmatrix}$$
+We will examine the effect of $T$ on the standard unit vectors $\vec{i}$, $\vec{j}$ and $\vec{k}$.
+ 
+$$T(\vec{i})=A\vec{i}=\begin{bmatrix}\answer{1}\\\answer{0}\end{bmatrix},\quad T(\vec{j})=A\vec{j}=\begin{bmatrix}\answer{-2}\\\answer{3}\end{bmatrix}, \quad
+T(\vec{k})=A\vec{k}=\begin{bmatrix}\answer{4}\\\answer{5}\end{bmatrix}$$
+ 
+Observe that the image of $\vec{i}$ is the first column of $A$, the image of $\vec{j}$ is the second column of $A$, and the image of $\vec{k}$ is the third column.
+
+\end{exploration}
+
+We formalize our findings in Exploration \ref{exp:imagesOfijk} as follows.
+\begin{observation}\label{obs:imagesOfijk}
+    In general, the linear transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
+ 
+  \begin{equation*} \label{eq:matlintransIntro}
+ A=\begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+        \vdots & \vdots&\ddots &\vdots\\
+        a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}
+         =
+         \begin{bmatrix}
+           | & |& &|\\
+        T(\vec{e}_1) & T(\vec{e}_2)&\dots &T(\vec{e}_n)\\
+        |&| & &|
+         \end{bmatrix}
+\end{equation*}
+\end{observation}
+
+
+
+Why is it that knowing the images of standard unit vectors under a matrix transformation is helpful?  Consider the following example.
+
+\begin{example}\label{ex:imageOfBasisVectors}
+    Let $T:\RR^2\longrightarrow\RR^2$ be a matrix transformation such that  $T(\vec{i})=\begin{bmatrix}-2\\3\end{bmatrix}$ and $T(\vec{j})=\begin{bmatrix}1\\0\end{bmatrix}$.  Find $T\left(\begin{bmatrix}-4\\10\end{bmatrix}\right)$. 
+    \begin{explanation}
+        We will make use of linearity of matrix transformations.   $$T\left(\begin{bmatrix}-4\\10\end{bmatrix}\right)=T(-4\vec{i}+10\vec{j})=-4T(\vec{i})+10T(\vec{j})=-4\begin{bmatrix}-2\\3\end{bmatrix}+10\begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}18\\-12\end{bmatrix}$$
+    \end{explanation}
+\end{example}
+
+Example \ref{ex:imageOfBasisVectors} illustrates that a linear transformation $T:\RR^n\longrightarrow\RR^m$ is \dfn{completely determined} by where it maps the standard unit vectors.  This is true because we can express every vector $\vec{v}$ in $\RR^n$ as a linear combination of the standard unit vectors, then use (\ref{eq:matrixTransProp}) to find the image of $\vec{v}$.  The following GeoGebra interactive illustrates this point.
+\begin{exploration}\label{exp:linCombStUnitVectors}
+Let $T:\RR^2\longrightarrow \RR^2$ be a matrix transformation induced by the matrix $A$.  The GeoGebra window on the left shows the domain of $T$, with standard unit vectors $\vec{i}$ and $\vec{j}$, and a vector $\vec{x}$.  The window  on the right shows the codomain of $T$, with the images of $\vec{i}$, $\vec{j}$ and $\vec{x}$ plotted.  To use this interactive, you can 
+\begin{itemize}
+    \item change the entries of matrix $A$;
+    \item change vector $\vec{x}$ by dragging its tip.
+\end{itemize}
+\begin{center}
+\geogebra{nhs3wnqd}{950}{700}
+\end{center}
+Choose your matrix $A$.  Visually verify the following claims:
+\begin{itemize}
+    \item The image of $\vec{i}$ is the first column of matrix $A$.
+    \item The image of $\vec{j}$ is the second column of matrix $A$.
+\end{itemize}
+Let $\vec{x}=\begin{bmatrix}2\\1\end{bmatrix}$.  Complete the following statement by filling the blanks.
+$$T(\vec{x})=T(\answer{2}\vec{i}+\answer{1}\vec{j})=\answer{2}T(\vec{i})+\answer{1}T(\vec{j})$$
+Choose a different matrix $A$, but keep vector $\vec{x}$ the same.  Does the above relationship still hold?
+
+Change vector $\vec{x}$ by dragging its tip.  Observe the image of $\vec{x}$ and its relationship to the images of $\vec{i}$ and $\vec{j}$.  Complete the following statement.
+$$T\left(\begin{bmatrix}a\\b\end{bmatrix}\right)=T(\answer{a}\vec{i}+\answer{b}\vec{j})=\answer{a}T(\vec{i})+\answer{b}T(\vec{j})$$
+for all vectors $\begin{bmatrix}a\\b\end{bmatrix}$ in $\RR^2$.
+
+\end{exploration}
+\end{document}
