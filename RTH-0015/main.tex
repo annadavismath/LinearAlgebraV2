@@ -14,7 +14,7 @@
 In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonal Vectors} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \textbf{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
 Our task is to show that every subspace of $\RR^n$ \textit{has} an orthogonal basis.  We will start with intuitive explorations in lower dimensions, then proceed to formalize our results for subspaces of $\RR^n$.
 
-\subsection*{Creating an Orthogonal Basis of $\RR^2$}  
+\subsection*{A Visual Guide to Creating an Orthogonal Basis}  
 Given an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$, let's start building our orthogonal basis, $\{\vec{f}_1, \vec{f}_2\}$, by setting $\vec{f}_1 = \vec{v}_1$. To find the next element of our orthogonal basis, consider the orthogonal projection of $\vec{v}_2$ onto $\vec{f}_1$.  (See the figure below.)  
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
@@ -47,10 +47,10 @@ Given an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$, let's start buil
 \node[] at (1.1, -0.3)  (p2)    {$\vec{f}_2$};
  \end{tikzpicture}
 \end{center}
-Next, let $\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$.  Observe that $\vec{f}_2$ is orthogonal to $\vec{f}_1$.  This gives us an orthogonal collection $\mathcal{B}=\{\vec{f}_1,\vec{f}_2\}$.  It is intuitively clear that $\vec{f}_1$ and $\vec{f}_2$ are linearly independent.  Therefore $\mathcal{B}$ is an orthogonal basis of $\RR^2$.
+Next, let $\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$.  Observe that $\vec{f}_2$ is orthogonal to $\vec{f}_1$ (See Theorem \ref{th:orthDecompX} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonality and Projections}).  This gives us an orthogonal collection $\mathcal{B}=\{\vec{f}_1,\vec{f}_2\}$.  It is intuitively clear that $\vec{f}_1$ and $\vec{f}_2$ are linearly independent.  Therefore $\mathcal{B}$ is an orthogonal basis of $\RR^2$.
 
 The following exploration illustrates this process dynamically.
-\begin{exploration}
+\begin{exploration}\label{exp:orth1}
 Choose an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$ by dragging the tips of vectors $\vec{v}_1$ and $\vec{v}_2$ to desired positions.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis of $\RR^2$.
 \begin{center}
 \geogebra{xtqppyav}{800}{600}
@@ -58,20 +58,16 @@ Choose an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$ by dragging the 
 \end{exploration}
 
 We can apply this process to any two-dimensional subset of $\RR^n$.  The following exploration will guide you through the process of constructing an orthogonal basis for a plane spanned by two arbitrary vectors in $\RR^3$.
-\begin{exploration}
+\begin{exploration}\label{exp:orth2}
 Let $W =\mbox{span}\left({\bf v}_1,{\bf v}_2\right)$. $W$ is a plane through the origin in $\RR^3$.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis for $W$.  RIGHT-CLICK and DRAG to rotate the image for a better view.
     \begin{center}
 \geogebra{zghsfkym}{900}{600}
 \end{center}
-
 \end{exploration}
 
-\subsection*{Creating an Orthogonal Basis of $\RR^3$}
-
-
-Here are some geogebras just so we can see what they look like:
-\begin{exploration}
-Here are some manipulatives:
+In the next exploration, we take the process of constructing an orthogonal basis to the edge of the visual realm and construct an orthogonal basis for $\RR^3$.
+\begin{exploration}\label{exp:orth3}
+In the GeoGebra interactive below $\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ is a basis of $\RR^3$.  Use check boxes to go through the steps for constructing an orthogonal basis starting with the given basis.  RIGHT-CLICK and DRAG to rotate the image for a better view.
 \begin{center}
 \geogebra{qjpvmsws}{900}{800}
 \end{center}
@@ -85,27 +81,21 @@ Here are some manipulatives:
 
 \subsection*{Gram-Schmidt Orthogonalization Algorithm}
 
-%%%%%%%%%%%%
-Consider an orthogonal set of vectors in $\RR^n$, written $\{
-\vec{w}_1, \cdots, \vec{w}_k \}$ with $k \leq n$. The span of these
-vectors is a subspace $W$ of $\RR^n$.   If we
-could show that this orthogonal set is also linearly independent, we
-would have a basis of $W$. This is precisely what we do in the following theorem.
+In Section \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonality and Projections} we have repeatedly assumed that our subspaces of $\RR^n$ have an orthogonal basis.  We will now prove that this is indeed the case.  Recall that to be a basis of a subspace, a set of vectors must be linearly independent and it must span the subspace.  We will start by demonstrating that a set of orthogonal vectors must be linearly independent.
 
-\begin{theorem}[Orthogonal Basis of a Subspace]\label{orthbasis}
+\begin{theorem}\label{orthbasis}
 Let $ \{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ be an
 orthogonal set of non-zero vectors in $\RR^n$. Then this set is
-linearly independent and forms a basis for the subspace $W =
-\mbox{span}\left( \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \right)$.
+linearly independent.% and forms a basis for the subspace $W =
+%\mbox{span}\left( \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \right)$.
 \end{theorem}
 
 \begin{proof}
-To show this set is linearly independent, suppose a linear combination
-of these vectors equals $\vec{0}$, such as:
+To show that this set is linearly independent, we need to demonstrate that the only solution to the following equation is the trivial solution.
 \[
-a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k = \vec{0}, a_i \in \RR
+a_1 \vec{w}_1 + a_2 \vec{w}_2 + \cdots + a_k \vec{w}_k = \vec{0}
 \]
-We need to show that all $a_i = 0$. To do so, we take the dot product of
+To accomplish this, we need to show that all $a_i = 0$ for all $0\leq i\leq k$.  To do so we take the dot product of
 each side of the above equation with the vector $\vec{w}_i$ and obtain the following.
 
 \begin{eqnarray*}
@@ -120,25 +110,18 @@ a_1 (0) + \cdots + a_i(\vec{w}_i \dotp \vec{w}_i) + \cdots + a_k (0) = 0
 a_i \norm{\vec{w}_i}^2 = 0
 \]
 
-We know that $\norm{\vec{w}_i}^2  \neq 0$, so it follows that $a_i =0$. Since the $a_i$ was chosen arbitrarily, the set $\{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ is linearly independent.
+We know that $\norm{\vec{w}_i}^2  \neq 0$, so it follows that $a_i =0$. Since $i$ was chosen arbitrarily, $a_i =0$ for all $i$ $(0\leq i\leq k)$. This proves that $\{ \vec{w}_1, \vec{w}_2, \cdots, \vec{w}_k \}$ is linearly independent.
 
-Finally since $W = \mbox{span} \{ \vec{w}_1, \vec{w}_2, \cdots,
-\vec{w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
+%Finally since $W = \mbox{span} \{ \vec{w}_1, \vec{w}_2, \cdots,
+%\vec{w}_k \}$, the set of vectors also spans $W$ and therefore forms a basis of $W$.
 
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-So we understand that an orthogonal basis is very ``nice'', but does every subspace have an orthogonal basis?  It turns out that the answer is YES!  We may simply apply the following procedure to any basis of the subspace.
+%So we understand that an orthogonal basis is very ``nice'', but does every subspace have an orthogonal basis?  It turns out that the answer is YES!  We may simply apply the following procedure to any basis of the subspace.
+The following theorem shows how to start with an arbitrary basis of a subspace $W$ of $\RR^n$ and find an orthogonal basis for $W$.  To better understand the notation and the process presented in this theorem, you may want to match the steps of the theorem to the steps of Exploration \ref{exp:orth3}.
 
-%\newpage
-%\begin{wrapfigure}[4]{l}{5cm}
-%\vspace*{5em}
-%\centering
-%\input{8-orthogonality/figures/1-orthogonal-complements-and-projections/theorem8.1.2}
-%\caption{\label{fig:023740}}
-%\end{wrapfigure}
-%\hfill
 \begin{theorem}[Gram-Schmidt Orthogonalization] \label{th:GS}
 If $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{m}\}$ is any basis of a subspace $W$ of $\RR^n$, consider the following sequence of subspaces:
 \begin{equation*}
@@ -147,22 +130,22 @@ W_1&=&\mbox{span}\{\vec{x}_{1}\} \\
 W_2&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2}\} \\
 W_3&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3}\} \\
 \vdots &&\\
-W_k &=& \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3},\ldots,\vec{x}_{k}\}
+W_m &=& \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3},\ldots,\vec{x}_{m}\}
 \end{array}
 \end{equation*}
 
-Then we can construct an orthogonal basis $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}$ for $W_k$ for each $k = 2, 3, \dots , m$ by adding one vector at a time successively as follows:
+Then we can construct an orthogonal basis $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ for $W_k$ for each $k = 2, 3, \dots , m$ by adding one vector at a time successively as follows:
 \begin{equation*}
 \begin{array}{ccl}
 \vec{f}_{1} &=& \vec{x}_{1} \\
-\vec{f}_{2} &=& \vec{x}_{2} - \mbox{proj}_{W_1}(\vec{x}) \\
-\vec{f}_{3} &=& \vec{x}_{3} - \mbox{proj}_{W_2}(\vec{x}) \\
+\vec{f}_{2} &=& \vec{x}_{2} - \mbox{proj}_{W_1}(\vec{x}_2) \\
+\vec{f}_{3} &=& \vec{x}_{3} - \mbox{proj}_{W_2}(\vec{x}_3) \\
 \vdots &&\\
-\vec{f}_{m} &=& \vec{x}_{3} - \mbox{proj}_{W_{m-1}}(\vec{x})
+\vec{f}_{m} &=& \vec{x}_{m} - \mbox{proj}_{W_{m-1}}(\vec{x}_m)
 \end{array}
 \end{equation*}
 
-In particular, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal basis for $W (= W_m)$.  Also, the algorithm converts any basis of $\RR^n$ itself into an orthogonal basis.
+Then, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal basis for $W$.  %Also, the algorithm converts any basis of $\RR^n$ itself into an orthogonal basis.
 
 \begin{proof}
 Using the definition of projection onto a subspace, the iterative procedure above may be written:
@@ -177,17 +160,11 @@ Using the definition of projection onto a subspace, the iterative procedure abov
 \end{array}
 \end{equation}
 We see immediately that $\mbox{span}\{\vec{f}_{1}\}=W_1$ and that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2}\}=W_2$ because $\vec{f}_{2}$ is a linear combination of $\vec{x}_{1}$ and $\vec{x}_{2}$.  In fact, for any value of $k$, we see that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}=W_k$, because each $\vec{f}_{k}$ is a linear combination of the vectors $\{\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{k-1}\}$.
-To complete the proof, we need to show that each set $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}$ is linearly independent.  By Theorem \ref{orthbasis}, it suffices to show that this set is an orthogonal set.  We will do so by demonstrating that for each $k$, $\vec{f}_{k}$ is orthogonal to each of the previous basis vectors $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k-1}\}$.
 
-If we take the dot product of each side of Equation (\ref{eqn:GSproof}) with any $\vec{f}_{i}$ where $i<k$, we get
-\begin{align*}
-\vec{f}_{k} \dotp \vec{f}_{i}
-&= (\vec{x}_k - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \dots -\frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\vec{f}_{i} - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}\vec{f}_{k-1}) \dotp \vec{f}_{i} \\
-&= \vec{x}_k \dotp \vec{f}_{i} - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}(\vec{f}_{1} \dotp \vec{f}_{i}) - \dots -\frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}(\vec{f}_{i} \dotp \vec{f}_{i}) - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}(\vec{f}_{k-1} \dotp \vec{f}_{i}) \\
-&= \vec{x}_k \dotp \vec{f}_{i} - \frac{\vec{x}_{i} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2} \norm{\vec{f}_{i}}^2 \\
-&= 0.
-\end{align*}
-This completes the proof.
+Repeated application of Corollary \ref{cor:orthProjOntoW} shows that the set
+ $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ is orthogonal.  Linear independence follows from orthogonality by Theorem \ref{orthbasis}.  
+
+We conclude that $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ is a linearly independent orthogonal set that spans $W$.
 \end{proof}
 \end{theorem}
 
@@ -207,12 +184,12 @@ Find an orthogonal basis of the row space of $A = \begin{bmatrix}
 \begin{explanation}
   Let $\vec{x}_{1}$, $\vec{x}_{2}$, $\vec{x}_{3}$ denote the rows of $A$ and observe that $\{\vec{x}_{1}, \vec{x}_{2}, \vec{x}_{3}\}$ is linearly independent. Take $\vec{f}_{1} = \vec{x}_{1}$. The algorithm gives
 \begin{align*}
-\vec{f}_{2} &= \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = (3, 2, 0, 1) - \frac{4}{4}(1, 1, -1, -1) = (2, 1, 1, 2) \\
-\vec{f}_{3} &= \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{x}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}(4, -3, 7, -6)
+\vec{f}_{2} &= \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = [3, 2, 0, 1] - \frac{4}{4}[1, 1, -1, -1] = [2, 1, 1, 2] \\
+\vec{f}_{3} &= \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{x}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}[4, -3, 7, -6]
 \end{align*}
 
-Hence $\{(1, 1, -1, -1), (2, 1, 1, 2), \frac{1}{10}(4, -3, 7, -6)\}$ is the orthogonal basis provided by the algorithm. In
-hand calculations it may be convenient to eliminate fractions (see the Remark below), so $\{(1, 1, -1, -1), (2, 1, 1, 2), (4, -3, 7, -6)\}$ is also an orthogonal basis for row $A$.
+Hence $\{[1, 1, -1, -1], [2, 1, 1, 2], \frac{1}{10}[4, -3, 7, -6]\}$ is the orthogonal basis provided by the algorithm. In
+hand calculations it may be convenient to eliminate fractions (see the Remark below), so $\{[1, 1, -1, -1], [2, 1, 1, 2], [4, -3, 7, -6]\}$ is also an orthogonal basis for $\mbox{row}(A)$.
 \end{explanation}
 \end{example}
 
