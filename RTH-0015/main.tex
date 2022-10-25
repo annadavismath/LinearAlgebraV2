@@ -123,25 +123,25 @@ We know that $\norm{\vec{w}_i}^2  \neq 0$, so it follows that $a_i =0$. Since $i
 The following theorem shows how to start with an arbitrary basis of a subspace $W$ of $\RR^n$ and find an orthogonal basis for $W$.  To better understand the notation and the process presented in this theorem, you may want to match the steps of the theorem to the steps of Exploration \ref{exp:orth3}.
 
 \begin{theorem}[Gram-Schmidt Orthogonalization] \label{th:GS}
-If $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{m}\}$ is any basis of a subspace $W$ of $\RR^n$, consider the following sequence of subspaces:
+If $\{\vec{v}_{1}, \vec{v}_{2}, \dots , \vec{v}_{m}\}$ is any basis of a subspace $W$ of $\RR^n$, consider the following sequence of subspaces:
 \begin{equation*}
 \begin{array}{ccl}
-W_1&=&\mbox{span}\{\vec{x}_{1}\} \\
-W_2&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2}\} \\
-W_3&=&\mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3}\} \\
+W_1&=&\mbox{span}\{\vec{v}_{1}\} \\
+W_2&=&\mbox{span}\{\vec{v}_{1},\vec{v}_{2}\} \\
+W_3&=&\mbox{span}\{\vec{v}_{1},\vec{v}_{2},\vec{v}_{3}\} \\
 \vdots &&\\
-W_m &=& \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\vec{x}_{3},\ldots,\vec{x}_{m}\}
+W_m &=& \mbox{span}\{\vec{v}_{1},\vec{v}_{2},\vec{v}_{3},\ldots,\vec{v}_{m}\}
 \end{array}
 \end{equation*}
 
 Then we can construct an orthogonal basis $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ for $W_k$ for each $k = 2, 3, \dots , m$ by adding one vector at a time successively as follows:
 \begin{equation*}
 \begin{array}{ccl}
-\vec{f}_{1} &=& \vec{x}_{1} \\
-\vec{f}_{2} &=& \vec{x}_{2} - \mbox{proj}_{W_1}(\vec{x}_2) \\
-\vec{f}_{3} &=& \vec{x}_{3} - \mbox{proj}_{W_2}(\vec{x}_3) \\
+\vec{f}_{1} &=& \vec{v}_{1} \\
+\vec{f}_{2} &=& \vec{v}_{2} - \mbox{proj}_{W_1}(\vec{v}_2) \\
+\vec{f}_{3} &=& \vec{v}_{3} - \mbox{proj}_{W_2}(\vec{v}_3) \\
 \vdots &&\\
-\vec{f}_{m} &=& \vec{x}_{m} - \mbox{proj}_{W_{m-1}}(\vec{x}_m)
+\vec{f}_{m} &=& \vec{v}_{m} - \mbox{proj}_{W_{m-1}}(\vec{v}_m)
 \end{array}
 \end{equation*}
 
@@ -151,15 +151,15 @@ Then, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal bas
 Using the definition of projection onto a subspace, the iterative procedure above may be written:
 \begin{equation}\label{eqn:GSproof}
 \begin{array}{ccl}
-\vec{f}_{1} &=& \vec{x}_{1} \\
-\vec{f}_{2} &=& \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} \\
-\vec{f}_{3} &=& \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} \\
+\vec{f}_{1} &=& \vec{v}_{1} \\
+\vec{f}_{2} &=& \vec{v}_{2} - \frac{\vec{v}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} \\
+\vec{f}_{3} &=& \vec{v}_{3} - \frac{\vec{v}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} \\
 \vdots &&\\
-\vec{f}_{k} &=& \vec{x}_{k} - \frac{\vec{x}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{k} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \dots -\frac{\vec{x}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}\vec{f}_{k-1} \\
+\vec{f}_{k} &=& \vec{v}_{k} - \frac{\vec{v}_{k} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{k} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \dots -\frac{\vec{v}_{k} \dotp \vec{f}_{k-1}}{\norm{\vec{f}_{k-1}}^2}\vec{f}_{k-1} \\
 \vdots &&
 \end{array}
 \end{equation}
-We see immediately that $\mbox{span}\{\vec{f}_{1}\}=W_1$ and that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2}\}=W_2$ because $\vec{f}_{2}$ is a linear combination of $\vec{x}_{1}$ and $\vec{x}_{2}$.  In fact, for any value of $k$, we see that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}=W_k$, because each $\vec{f}_{k}$ is a linear combination of the vectors $\{\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{k-1}\}$.
+We see immediately that $\mbox{span}\{\vec{f}_{1}\}=W_1$ and that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2}\}=W_2$ because $\vec{f}_{2}$ is a linear combination of $\vec{v}_{1}$ and $\vec{v}_{2}$.  In fact, for any value of $k$, we see that $\mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{k}\}=W_k$, because each $\vec{f}_{k}$ is a linear combination of the vectors $\{\vec{v}_{1},\vec{v}_{2},\ldots,\vec{v}_{k-1}\}$.
 
 Repeated application of Corollary \ref{cor:orthProjOntoW} shows that the set
  $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ is orthogonal.  Linear independence follows from orthogonality by Theorem \ref{orthbasis}.  
@@ -182,10 +182,10 @@ Find an orthogonal basis of the row space of $A = \begin{bmatrix}
 \end{bmatrix}$.
 
 \begin{explanation}
-  Let $\vec{x}_{1}$, $\vec{x}_{2}$, $\vec{x}_{3}$ denote the rows of $A$ and observe that $\{\vec{x}_{1}, \vec{x}_{2}, \vec{x}_{3}\}$ is linearly independent. Take $\vec{f}_{1} = \vec{x}_{1}$. The algorithm gives
+  Let $\vec{v}_{1}$, $\vec{v}_{2}$, $\vec{v}_{3}$ denote the rows of $A$ and observe that $\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\}$ is linearly independent. Take $\vec{f}_{1} = \vec{v}_{1}$. The algorithm gives
 \begin{align*}
-\vec{f}_{2} &= \vec{x}_{2} - \frac{\vec{x}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = [3, 2, 0, 1] - \frac{4}{4}[1, 1, -1, -1] = [2, 1, 1, 2] \\
-\vec{f}_{3} &= \vec{x}_{3} - \frac{\vec{x}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{x}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{x}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}[4, -3, 7, -6]
+\vec{f}_{2} &= \vec{v}_{2} - \frac{\vec{v}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = [3, 2, 0, 1] - \frac{4}{4}[1, 1, -1, -1] = [2, 1, 1, 2] \\
+\vec{f}_{3} &= \vec{v}_{3} - \frac{\vec{v}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{v}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}[4, -3, 7, -6]
 \end{align*}
 
 Hence $\{[1, 1, -1, -1], [2, 1, 1, 2], \frac{1}{10}[4, -3, 7, -6]\}$ is the orthogonal basis provided by the algorithm. In
@@ -205,7 +205,7 @@ Let $W$ be a subspace of $\RR^n$.  Then  $W$ has an orthogonal basis.  In fact, 
 \end{theorem}
 
 \begin{proof}
-If $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right) = W$, it is \textit{already} a basis. Otherwise, there exists $\vec{x}$ in $W$ outside $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right)$. Using the Gram-Schmidt procedure we define $\vec{f}_{m+1} = \vec{x} - \mbox{proj}_{W_{m}}(\vec{x})$, where $W_m = \mbox{span}\{\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{m}\}$. If $\mbox{span}\left(\vec{f}_{1}, \dots, \vec{f}_{m}, \vec{f}_{m+1}\right) = W$, we are done. Otherwise, the process continues to create larger and larger orthogonal subsets of $W$. They are all linearly independent by Theorem~\ref{th:GS}, so we have a basis when we reach a subset containing \mbox{dim} $W$ vectors.
+Suppose $\{\vec{f}_{1}, \dots , \vec{f}_{m}\}$ is an orthogonal subset of $W$.  If $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right) = W$, it is already a basis. Otherwise, there exists $\vec{x}$ in $W$ outside $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right)$. Using the Gram-Schmidt procedure we define $\vec{f}_{m+1} = \vec{x} - \mbox{proj}_{W_{m}}(\vec{x})$, where $W_m = \mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$. If $\mbox{span}\left(\vec{f}_{1}, \dots, \vec{f}_{m}, \vec{f}_{m+1}\right) = W$, we are done. Otherwise, the process continues to create larger and larger orthogonal subsets of $W$. They are all linearly independent by Theorem~\ref{th:GS}, so we have a basis when we reach a subset containing $\mbox{dim}(W)$ vectors.
 \end{proof}
 
 
