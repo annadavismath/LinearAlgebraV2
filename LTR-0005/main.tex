@@ -123,23 +123,40 @@ We can also analyze the action of $T$ algebraically.  Start by finding the image
 $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+0.5y\\y\end{bmatrix}$$
 We immediately see that the $y$ component of the vector remains unchanged.  We also see that the $x$ component increases (or decreases) by an increment that depends on $y$.  When considering $T$ as a transformation acting on points, we see that points located 1 unit above the $x$-axis, get shifted to the right by 0.5.  Points located 2 units above, get shifted to the right by 1. The higher the point, the greater the shift.  Points with negative $y$-coordinates get shifted to the left. In this fashion $T$ shears the entire plane.
 
- Now that we have seen the effect of functions defined via matrix multiplication, we can better appreciate the term \dfn{transformation}, as such functions distort the domain and the shapes located in it.
+ Now that we have seen the effect of functions defined via matrix multiplication, we can better appreciate the term \dfn{transformation}, as such functions distort the domain and the shapes located in it.  The following Exploration will help you visualize this.
 
-\begin{exploration}
-Make your own shape by moving points $A, B, C, D, E, F, G$ in the left pane.  The images of these points under the transformation induced by $M$ are shown on the right.
+\begin{exploration}\label{exp:shapeTransformation}
+Make your own shape by moving points $A, B, C, D, E, F, G$ in the left pane.  (You can also move the entire figure by clicking and dragging the whole polygon.)  The images of the points and the polygon under the transformation induced by $M$ are shown on the right.
 
-Try each of the following matrices and record your observations.
+Try each of the following matrices to determine what each transformation accomplishes.
+$$M_1=\begin{bmatrix}1&0\\0&2\end{bmatrix},\quad M_2=\begin{bmatrix}1/2&0\\0&1\end{bmatrix},\quad M_3=\begin{bmatrix}1&2\\0&1\end{bmatrix}$$
+$$M_4=\begin{bmatrix}\cos(\pi)&-\sin(\pi)\\\sin(\pi)&\cos(\pi)\end{bmatrix},\quad M_5=\begin{bmatrix}\cos\left(\pi/4\right)&-\sin\left(\pi/4\right)\\\sin\left(\pi/4\right)&\cos\left(\pi/4\right)\end{bmatrix}$$
+$$M_6=\begin{bmatrix}1&0\\0&-1\end{bmatrix},\quad M_7=\begin{bmatrix}0&1\\1&0\end{bmatrix},\quad M_8=\begin{bmatrix}1&1\\1&1\end{bmatrix}$$
 
-...Give students a bunch of matrices to try...
-    \begin{center}
+\begin{center}
 \geogebra{cvxdwput}{950}{700}
 \end{center}
+
+Match the description of each transformation with the matrix that induces it.
+
+Horizontal Shear: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice[correct]{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Rotation by $45^{\circ}$ counterclockwise: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice[correct]{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Reflection about the $x$-axis: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice[correct]{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Vertical Stretch: \wordChoice{\choice[correct]{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Maps everything to a straight line: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice[correct]{$M_8$}}
+
+Rotation through a $180^{\circ}$ angle: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice[correct]{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Horizontal compression: \wordChoice{\choice{$M_1$} \choice[correct]{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice{$M_7$}\choice{$M_8$}}
+
+Reflection about the line $y=x$: \wordChoice{\choice{$M_1$} \choice{$M_2$} \choice{$M_3$}\choice{$M_4$}\choice{$M_5$}\choice{$M_6$}\choice[correct]{$M_7$}\choice{$M_8$}}
+
+
 \end{exploration}
-
-
-
-
- 
 
 A $2\times 2$ matrix induces a transformation from $\RR^2$ into $\RR^2$.  An $m\times n$ matrix can be multiplied by $n\times 1$ vectors on the right, with the resulting product being an $m\times 1$ vector.  Therefore we can use an $m\times n$ matrix $A$ to define a transformation $T:\RR^n\longrightarrow \RR^m$ by $T(\vec{x})=A\vec{x}$.
 
@@ -170,172 +187,16 @@ Restating properties \ref{item:matrixproperties1} and \ref{item:matrixproperties
  k(A\vec{v})&=&A(k\vec{v})\\
     A(\vec{v}+\vec{w})&=&A\vec{v}+A\vec{w}\label{eq:linearityAdd}
    \end{eqnarray}
-We will now examine the implications of these properties for matrix transformations.
 
-\begin{exploration}\label{exp:linearityConstant}
-    Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$ where $A=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}$.
-
-    Let's apply this matrix transformation to $\begin{bmatrix}4\\2\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}$.
-\begin{equation}\label{eq:linearityConstant1}
-T\left(\begin{bmatrix}4\\2\end{bmatrix}\right)=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}6\\-2\end{bmatrix}
-\end{equation}
-Our computation in (\ref{eq:linearityConstant1}) shows that the image of $\begin{bmatrix}4\\2\end{bmatrix}$ under $T$ is $\begin{bmatrix}6\\-2\end{bmatrix}$.
-
-Our next computation, using Property (\ref{eq:linearityConstant}), will give us an important insight into two different ways in which the final image can be obtained. 
-\begin{equation}\label{eq:linearityConstant2}
-T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=2\left(\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}\right)=2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
-\end{equation}
-Compare the left-hand side of (\ref{eq:linearityConstant2}) to the right-hand side:
-\begin{equation*}
-T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)=2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
-\end{equation*}
-The first sequence of diagrams below corresponds to the left-hand side.  Starting from inside the parenthesis and working out way out we get:
-\begin{center}
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (4,3);
-  \draw[<->] (-1,0)--(4,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth](0,0)--(2,1);
- \node[] at (1, 2)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
-      \end{tikzpicture}
-   \quad\quad
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (4,3);
-  \draw[<->] (-1,0)--(4,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth](0,0)--(4,2);
-\node[] at (1, 2)   (b) {$2\begin{bmatrix}2\\1\end{bmatrix}$};
-      \end{tikzpicture}
-   \quad\quad   
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (6,3);
-  \draw[<->] (-1,0)--(6,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth,red](0,0)--(6,-2);
-\node[red] at (2, -2)   (b) {$T\left(2\begin{bmatrix}2\\1\end{bmatrix}\right)$};
-      \end{tikzpicture}   
-\end{center}
- The second sequence of three diagrams corresponds to the right-hand side.  
- \begin{center}
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (4,3);
-  \draw[<->] (-1,0)--(4,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth](0,0)--(2,1);
- \node[] at (1, 2)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
-      \end{tikzpicture}
-   \quad\quad
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (4,3);
-  \draw[<->] (-1,0)--(4,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth, red](0,0)--(3,-1);
-\node[red] at (1.5, -2)   (b) {$T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
-      \end{tikzpicture}
-   \quad\quad   
-\begin{tikzpicture}[scale=0.5]
-\draw[thin,gray!40] (-1,-3) grid (6,3);
-  \draw[<->] (-1,0)--(6,0);
-   \draw[<->] (0,-3)--(0,3);
-\draw[line width=1.5pt,-stealth,red](0,0)--(6,-2);
-\node[red] at (2, -2)   (b) {$2T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
-      \end{tikzpicture}   
-\end{center}
-In the first sequence of steps, we double the vector first, then apply the transformation.  In the second sequence, we apply the transformation directly to $\begin{bmatrix}2\\1\end{bmatrix}$, then double the image.  Both approaches produce the same final result, $\begin{bmatrix}6\\-2\end{bmatrix}$.
-\end{exploration}
-
-We summarize the property we discovered in Exploration \ref{exp:linearityConstant} by observing that for any matrix transformation $T:\RR^n\longrightarrow \RR^m$, 
-\begin{equation}\label{eq:linTransProp1}
-T(k\vec{v})=kT(\vec{v})
-\end{equation}
-
-We now turn out attention to Property (\ref{eq:linearityAdd}) of matrix multiplication and its implications for matrix transformations.
-\begin{exploration}\label{exp:linearityDist}
-    Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$, where $A=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}$.
-
-Let's apply this matrix transformation to the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$.
-\begin{equation*}\label{eq:linearitySum1}
-T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)=T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatrix}
-\end{equation*}
-Our computation shows that $T$ maps the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$ to $\begin{bmatrix}2\\3\end{bmatrix}$.
-
-Our next computation, using Property (\ref{eq:linearityAdd}), will show that the image of a sum is the sum of the images.
-\begin{eqnarray*}
-T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)&=&\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)\\
-&=&\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}2\\1\end{bmatrix}\\
-&=&T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)
-\end{eqnarray*}
-We established that
-$$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)=T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$$
-We can interpret this result geometrically by comparing the sequence of steps involved in evaluating the left-hand side with the sequence of steps involved in evaluating the right-hand side.
-
-For the left-hand side, we start by finding the sum of the two vectors, then we apply the transformation to the sum.
-\begin{center}
-\begin{tikzpicture}[scale=0.8]
-\draw[thin,gray!40] (-2,-2) grid (3,3);
-  \draw[<->] (-2,0)--(3,0);
-   \draw[<->] (0,-2)--(0,3);
-\draw[line width=1.5pt,-stealth](0,0)--(-1,-2);
-\draw[line width=1.5pt,-stealth](0,0)--(2,1);
-\filldraw[blue, opacity=0.3](0,0)--(-1,-2)--(1,-1)--(2,1)--cycle;
-\draw[line width=1.5pt,-stealth, red](0,0)--(1,-1);
- \node[red] at (2, -1)   (b) {$\begin{bmatrix}1\\-1\end{bmatrix}$};
-      \end{tikzpicture}
-   \quad\quad
-\begin{tikzpicture}[scale=0.8]
-\draw[thin,gray!40] (-2,-2) grid (3,3);
-  \draw[<->] (-2,0)--(3,0);
-   \draw[<->] (0,-2)--(0,3);
-\draw[line width=1.5pt,-stealth, red](0,0)--(2,3);
- \node[red] at (2.5, 1.8)   (b) {$T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)$};
-      \end{tikzpicture}
-  \end{center}
-For the right-hand side, we apply the transformation to each vector separately, then find the sum of the images. 
- \begin{center}
-\begin{tikzpicture}[scale=0.8]
-\draw[thin,gray!40] (-2,-2) grid (3,3);
-  \draw[<->] (-2,0)--(3,0);
-   \draw[<->] (0,-2)--(0,3);
-\draw[line width=1.5pt,-stealth](0,0)--(-1,-2);
-\draw[line width=1.5pt,-stealth](0,0)--(2,1);
-%\filldraw[blue, opacity=0.3](0,0)--(-1,-2)--(1,-1)--(2,1)--cycle;
-%\draw[line width=1.5pt,-stealth, red](0,0)--(1,-1);
- \node[] at (2, 1.8)   (b) {$\begin{bmatrix}2\\1\end{bmatrix}$};
- \node[] at (-1.5, -1)   (b) {$\begin{bmatrix}-1\\-2\end{bmatrix}$};
-      \end{tikzpicture}
-   \quad\quad
-\begin{tikzpicture}[scale=0.8]
-\draw[thin,gray!40] (-2,-2) grid (3,3);
-  \draw[<->] (-2,0)--(3,0);
-   \draw[<->] (0,-2)--(0,3);
-   \filldraw[blue, opacity=0.3](0,0)--(1,0)--(2,3)--(1,3)--cycle;
-\draw[line width=1.5pt,-stealth, red](0,0)--(2,3);
- \node[] at (1.8, -0.8)   (b) {$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)$};
- \node[] at (-0.5, 2)   (b) {$T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
- \draw[line width=1.5pt,-stealth](0,0)--(1,0);
- \draw[line width=1.5pt,-stealth](0,0)--(1,3);
- \node[red] at (4, 2)   (b) {$T\left(\begin{bmatrix}-1\\-2\end{bmatrix}\right)+T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)$};
-       \end{tikzpicture}
-  \end{center}
-  In both cases, the final image is the vector $\begin{bmatrix}2\\3\end{bmatrix}$.
-\end{exploration}
-
-We summarize our findings in Exploration \ref{exp:linearityDist} by observing that for any matrix transformation $T:\RR^n\longrightarrow \RR^m$, 
-\begin{equation}\label{eq:linTransProp2}
-T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})
-\end{equation}
-We will now combine (\ref{eq:linTransProp1}) and (\ref{eq:linTransProp2}) into a theorem.  
-\begin{theorem}\label{th:matrixTransProp}
-    Suppose $T:\RR^n\longrightarrow\RR^m$ is a matrix transformation, then for all vectors $\vec{v}_1$, $\vec{v}_2$ in $\RR^n$ and all real number constants $k_1$, $k_2$ in $\RR$,
-    \begin{equation}\label{eq:matrixTransProp} T(k_1\vec{v}_1+k_2\vec{v}_2)=k_1T(\vec{v}_1)+k_2T(\vec{v_2})
+The two properties of matrix multiplications translate into analogous properties of matrix transformations.  Suppose $T:\RR^n\longrightarrow\RR^m$ is a matrix transformation, then for all vectors $\vec{v}_1$, $\vec{v}_2$ in $\RR^n$ and all real number constants $k$ in $\RR$,
+\begin{equation}\label{eq:matrixTransProp1} 
+T(k\vec{v}_1)=kT(\vec{v}_1)
     \end{equation}
-\end{theorem}
-\begin{proof}
-    The proof follows directly from properties (\ref{eq:linearityConstant}) and (\ref{eq:linearityAdd}) of matrix multiplication.
-\end{proof}
+    \begin{equation}\label{eq:matrixTransProp2} T(\vec{v}_1+\vec{v}_2)=T(\vec{v}_1)+T(\vec{v_2})
+    \end{equation}
 
-In general, any transformation that satisfies (\ref{eq:matrixTransProp}) is called a \dfn{linear transformation}.  By Theorem \ref{th:matrixTransProp}, all matrix transformations are linear.
-We will study linear transformations in depth in the chapter on \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_linTrans/main}{Linear Transformations}.
+In general, any transformation that satisfies (\ref{eq:matrixTransProp1},\ref{eq:matrixTransProp2}) is called a \dfn{linear transformation}.  As we have just found, all matrix transformations are linear.
+We will study linear transformations in depth later in this chapter.
 
 \subsection*{Where did $\vec{i}$ Go?}
 In this section we will look at the images of standard unit vectors under a matrix transformation, and discuss why this information is helpful.
@@ -390,7 +251,7 @@ Why is it that knowing the images of standard unit vectors under a matrix transf
     \end{explanation}
 \end{example}
 
-Example \ref{ex:imageOfBasisVectors} illustrates that a linear transformation $T:\RR^n\longrightarrow\RR^m$ is \dfn{completely determined} by where it maps the standard unit vectors.  This is true because we can express every vector $\vec{v}$ in $\RR^n$ as a linear combination of the standard unit vectors, then use (\ref{eq:matrixTransProp}) to find the image of $\vec{v}$.  The following GeoGebra interactive illustrates this point.
+Example \ref{ex:imageOfBasisVectors} illustrates that a linear transformation $T:\RR^n\longrightarrow\RR^m$ is \dfn{completely determined} by where it maps the standard unit vectors.  This is true because we can express every vector $\vec{v}$ in $\RR^n$ as a linear combination of the standard unit vectors, then use (\ref{eq:matrixTransProp1}, \ref{eq:matrixTransProp2}) to find the image of $\vec{v}$.  The following GeoGebra interactive illustrates this point.
 \begin{exploration}\label{exp:linCombStUnitVectors}
 Let $T:\RR^2\longrightarrow \RR^2$ be a matrix transformation induced by the matrix $A$.  The GeoGebra window on the left shows the domain of $T$, with standard unit vectors $\vec{i}$ and $\vec{j}$, and a vector $\vec{x}$.  The window  on the right shows the codomain of $T$, with the images of $\vec{i}$, $\vec{j}$ and $\vec{x}$ plotted.  To use this interactive, you can 
 \begin{itemize}
