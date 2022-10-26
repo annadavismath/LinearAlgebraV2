@@ -125,11 +125,27 @@ We immediately see that the $y$ component of the vector remains unchanged.  We a
 
  Now that we have seen the effect of functions defined via matrix multiplication, we can better appreciate the term \dfn{transformation}, as such functions distort the domain and the shapes located in it.
 
+\begin{exploration}
+Make your own shape by moving points $A, B, C, D, E, F, G$ in the left pane.  The images of these points under the transformation induced by $M$ are shown on the right.
+
+Try each of the following matrices and record your observations.
+
+...Give students a bunch of matrices to try...
+    \begin{center}
+\geogebra{cvxdwput}{950}{700}
+\end{center}
+\end{exploration}
+
+
+
+
+ 
+
 A $2\times 2$ matrix induces a transformation from $\RR^2$ into $\RR^2$.  An $m\times n$ matrix can be multiplied by $n\times 1$ vectors on the right, with the resulting product being an $m\times 1$ vector.  Therefore we can use an $m\times n$ matrix $A$ to define a transformation $T:\RR^n\longrightarrow \RR^m$ by $T(\vec{x})=A\vec{x}$.
 
 \begin{example}\label{ex:matrixTrans1}
     Let $A=\begin{bmatrix}1&2&-1\\3&2&-2\end{bmatrix}$.  Define a transformation 
-    $$T:\RR^3\longrightarrow\RR^2$$ by 
+    $T:\RR^3\longrightarrow\RR^2$ by 
     $T(\vec{x})=A\vec{x}$.  Find all vectors in the domain that map to $\vec{0}$.
  \begin{explanation}
     We need to solve the system $A\vec{x}=\vec{0}$.  We begin by forming an augmented matrix and finding its reduced row echelon form
@@ -159,7 +175,7 @@ We will now examine the implications of these properties for matrix transformati
 \begin{exploration}\label{exp:linearityConstant}
     Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$ where $A=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}$.
 
-    Let's apply this linear transformation to $\begin{bmatrix}4\\2\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}$.
+    Let's apply this matrix transformation to $\begin{bmatrix}4\\2\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}$.
 \begin{equation}\label{eq:linearityConstant1}
 T\left(\begin{bmatrix}4\\2\end{bmatrix}\right)=\begin{bmatrix}2&-1\\1&-3\end{bmatrix}\begin{bmatrix}4\\2\end{bmatrix}=\begin{bmatrix}6\\-2\end{bmatrix}
 \end{equation}
@@ -237,7 +253,7 @@ We now turn out attention to Property (\ref{eq:linearityAdd}) of matrix multipli
 \begin{exploration}\label{exp:linearityDist}
     Define $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$, where $A=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}$.
 
-Let's apply this linear transformation to the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$.
+Let's apply this matrix transformation to the sum $\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}$.
 \begin{equation*}\label{eq:linearitySum1}
 T\left(\begin{bmatrix}-1\\-2\end{bmatrix}+\begin{bmatrix}2\\1\end{bmatrix}\right)=T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}1&-1\\2&-1\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatrix}
 \end{equation*}
