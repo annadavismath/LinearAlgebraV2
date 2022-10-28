@@ -5,31 +5,21 @@
 
 \begin{document}
 \begin{abstract}
- % We find standard matrices for classic transformations of the plane such as scalings, shears, rotations and reflections.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 \section*{Geometric Transformations of the Plane}
-Digital image manipulation apps continue to increase in popularity.  To manipulate a digital image, we treat every pixel of the image as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of a non-linear transformation.
+In Exploration \ref{exp:shapeTransformation} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations} we explored how geometric shapes in the plane can be manipulated with matrix transformations by applying the transformation matrix to the points that make up the shape.  In this section we will study matrix transformations of the plane in more detail by applying matrix transformations to pixels in photos.  
+We will treat every pixel of an image as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of one such transformation.
 
 \begin{image}
-   
-\includegraphics[height=1.5in]{twobutterflies.jpg}~
- 
-\end{image}
-
-Many familiar transformations, such as rotations, reflections and shears, are linear. Every pixel $(x, y)$ of a digital image is treated as a vector $\begin{bmatrix}
-x\\
-y
-\end{bmatrix}$.  To perform a linear transformation, we multiply the vector by a matrix.  The figure below shows the result of a linear transformation applied to the photo of a building.  Linear transformations keep the origin fixed, and map lines to lines. (See Practice Problem \ref{prob:linestolines})  
-
-
-    \begin{image}
          \includegraphics[height=1.5in]{twobuildings.jpg}
 \end{image}
 
+Not all transformations are matrix transformations.  Practice Problem \ref{prob:translation_does_not_work} offers a cautionary tale of what happens when we try to find a matrix for a transformation when such a matrix does not exist.
+Luckily, a lot of familiar transformations, such as rotations, scalings, reflections and shears are matrix transformations. We will focus our attention on those.
 
-We now consider several basic linear transformations and the standard matrices associated with them.  The key concept is that if we want to understand what a linear transformation does, it is enough to understand what it does to basis vectors, such as standard basis vectors $\vec{i}$ and $\vec{j}$.  Caution: we can get into trouble if we try to construct a standard matrix for a non-linear transformation by tracking images of $\vec{i}$ and $\vec{j}$, as you will see in one of the Practice Problems!  %However, the examples in this section are all linear transformations. 
+Recall that by Observation \ref{obs:imagesOfijk} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations}, we can find a matrix of a matrix transformation by examining what the transformation does to the standard basis vectors $\vec{i}$ and $\vec{j}$. 
 
 \subsection*{Horizontal and Vertical Scaling} 
 
@@ -54,13 +44,9 @@ We now consider several basic linear transformations and the standard matrices a
   \draw[<->] (0,-0.5)--(0,2);
     \end{tikzpicture}
     \end{center}
-%\end{image}
-%\end{figure}
 
-Assuming that this transformation is linear, we need to find what the transformation does to the standard basis vectors.  Once we have a candidate for the standard matrix, we will test it to make sure it accomplishes the stretch.
+Consider what this transformation does to the standard unit vectors.  We observe that $T(\vec{i})=\vec{i}$ and $T(\vec{j})=2\vec{j}$. 
 
-
-%\begin{image}[4in]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
 
@@ -84,7 +70,7 @@ Assuming that this transformation is linear, we need to find what the transforma
  \end{center}
 %\end{image}
 
-Consider what this transformation does to the standard unit vectors.  We observe that $T(\vec{i})=\vec{i}$ and $T(\vec{j})=2\vec{j}$.  This allows us to construct a candidate for the standard matrix $M$, by making the images of $\vec{i}$ and $\vec{j}$ the columns of $M$.  Thus, 
+ This allows us to construct a candidate for the transformation matrix $M$, by making the images of $\vec{i}$ and $\vec{j}$ the columns of $M$.  Thus, 
 $$M=\begin{bmatrix}
 1 & 0\\
 0 & 2
@@ -108,20 +94,23 @@ $$M=\begin{bmatrix}
 
 \begin{formula}[Horizontal and Vertical Scaling] \label{form:horvertscaling}
   
- A linear transformation that scales objects in the plane vertically by a factor of $k$ ($k>0$) is induced by 
+ A matrix transformation induced by 
   \begin{equation} \label{vscale}
 M_v=\begin{bmatrix}
 1 & 0\\
 0 & k
-\end{bmatrix}
+\end{bmatrix},
 \end{equation}
-A linear transformation that scales objects in the plane horizontally by a factor of $k$ ($k>0$) is induced by 
+where ($k>0$), scales objects in the plane vertically by a factor of $k$.
+
+A matrix transformation induced by
   \begin{equation} \label{hscale}
 M_h=\begin{bmatrix}
 k & 0\\
 0 & 1
-\end{bmatrix}
+\end{bmatrix},
 \end{equation}
+where ($k>0$), scales objects in the plane horizontally by a factor of $k$.
 \end{formula}
 
 In stating the above formula we stipulated that $k>0$.  If we were to allow $k$ to be zero, what would the resulting transformations accomplish?  In what way would the resulting matrices be fundamentally different from matrices $M_v$ and $M_h$?  What would happen if $k$ were allowed to be negative? (See Practice Problem \ref{prob:k0})
@@ -210,27 +199,28 @@ $$\begin{bmatrix}
 k & 1
 \end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}a\\b+ka\end{bmatrix}$$
 
-Because both types of shears are induced by matrices, horizontal and vertical shears are linear transformations.
-
 \begin{formula}[Horizontal and Vertical Shears]\label{form:shears}
   
-A linear transformation that shears the plane horizontally is induced by 
+A matrix transformation induced by 
   \begin{equation} 
 M_{hs}=\begin{bmatrix}
 1 & k\\
 0 & 1
 \end{bmatrix}
 \end{equation}
-A linear transformation that shears the plane vertically is induced by
+shears the plane horizontally.
+
+A matrix transformation induced by
   \begin{equation} 
 M_{vs}=\begin{bmatrix}
 1 & 0\\
 k & 1
 \end{bmatrix}
 \end{equation}
+shears the plane vertically.
 \end{formula}
 
-\begin{example}\label{ex:vertshear1} Find the standard matrix $M_{vs}$ of a linear transformation $T$ that {\it shears} the image of a seagull as shown in the figure below. 
+\begin{example}\label{ex:vertshear1} Find the matrix $M_{vs}$ of a matrix transformation $T$ that {\it shears} the image of a seagull, as shown in the figure below. 
 
 %\begin{figure}[h]
 %\begin{image}[4in]
@@ -303,86 +293,7 @@ $$M_{vs}=\begin{bmatrix}
 
 
 \subsection*{Rotations about the Origin}
-Recall that to prove that a transformation $T$ is linear, we have to show that for all vectors $\vec{u}$ and $\vec{v}$ and scalars $k_1$ and $k_2$ we have
-\begin{equation}\label{eq:rotlintrans}
-T(k_1\vec{u}+k_2\vec{v})=k_1 T(\vec{u})+k_2 T(\vec{v})
-\end{equation}
 
-We are used to going through this verification algebraically.  In some situations, however, it is instructive to think about this property geometrically.  Consider a transformation $R_{\theta}$ that rotates every point in the plane counter-clockwise through angle $\theta$ about the origin.  Is $R_{\theta}$ a linear transformation?
-
-The figure below illustrates the left-hand side of Equation \ref{eq:rotlintrans}.  Scalar multiples of $\vec{u}$ and $\vec{v}$ are added in the domain, then the sum is rotated through angle $\theta$ by $R_{\theta}$.
-
-%\begin{figure}[h]
-\begin{center}
-%\begin{image}[4.5in]
-\begin{tikzpicture}[scale=0.8]
-
-  \draw[<->] (-1,0)--(5,0);
-  \draw[<->] (0,-1)--(0,5);
-  \filldraw[blue, opacity=0.3](0,0)--(3,1)--(4.5,4)--(1.5,3)--cycle;
-  \draw[->,line width=1pt,-stealth, dashed](0,0)--(3,1);
-   \draw[->,line width=1pt,red,-stealth](0,0)--(1.5,0.5);
-   \draw[->,line width=1pt,-stealth, dashed](0,0)--(1.5,3);
-    \draw[->,line width=1pt,blue,-stealth](0,0)--(1,2);
-    \draw[->,line width=1pt,-stealth](0,0)--(4.5,4);
-    \node[red] at (1.2, 0.2)   (u) {$\vec{u}$};
-    \node[] at (3, 0.5)   (k1u) {$k_1\vec{u}$};
-    \node[] at (1, 3)   (k2v) {$k_2\vec{v}$};
-    \node[blue] at (0.5, 1.5)   (v) {$\vec{v}$};
-    \node[] at (3, 4)   (k1uk2v) {$k_1\vec{u}+k_2\vec{v}$};
-    \end{tikzpicture}
-   \quad
-\begin{tikzpicture}[scale=0.8]
-\draw[<->] (-5,0)--(1,0);
-  \draw[<->] (0,-1)--(0,5);
-\draw[->,line width=1pt,-stealth](0,0)--(-4,4.5);
-\node[] at (-2, 4)   (tk1uk2v) {$R_{\theta}(k_1\vec{u}+k_2\vec{v})$};
-  \end{tikzpicture}
-% \end{image}
-\end{center} 
-
-The next figure  illustrates the right-hand side of Equation \ref{eq:rotlintrans}.  First, vectors $\vec{u}$ and $\vec{v}$ are rotated through angle $\theta$, then their images are scaled and added together.  
-
-
-%\begin{figure}[h]
-
-%\begin{image}[4.5in]\label{fig:rotlintransright} 
-\begin{center}
-\begin{tikzpicture}[scale=0.8]
-
-  \draw[<->] (-1,0)--(5,0);
-  \draw[<->] (0,-1)--(0,5);
-  \node[red] at (1.2, 0.2)   (u) {$\vec{u}$};
-    \node[blue] at (0.5, 1.5)   (v) {$\vec{v}$};
-   \draw[->,line width=1pt,red,-stealth](0,0)--(1.5,0.5);
-  
-    \draw[->,line width=1pt,blue,-stealth](0,0)--(1,2);
-   
-  \end{tikzpicture}
-   \quad
-\begin{tikzpicture}[scale=0.8]
-\draw[<->] (-5,0)--(1,0);
-  \draw[<->] (0,-1)--(0,5);
-  \filldraw[blue, opacity=0.3](0,0)--(-1,3)--(-4,4.5)--(-3,1.5)--cycle;
-  \draw[->,line width=1pt,-stealth, dashed](0,0)--(-1,3);
-   \draw[->,line width=1pt,red,-stealth](0,0)--(-0.5,1.5);
-   \draw[->,line width=1pt,-stealth, dashed](0,0)--(-3,1.5);
-    \draw[->,line width=1pt,blue,-stealth](0,0)--(-2,1);
-    \draw[->,line width=1pt,-stealth](0,0)--(-4,4.5);
-  \node[] at (-2, 4.6)   (tk1uk2v) {$k_1R_{\theta}(\vec{u})+k_2R_{\theta}(\vec{v})$};
-  \node[blue] at (-2, 0.4)   (tv) {$R_{\theta}(\vec{v})$};
-  \node[red] at (0.5, 1)   (tu) {$R_{\theta}(\vec{u})$};
-  \node[] at (-0.8, 3.2)   (ktu) {$k_1R_{\theta}(\vec{u})$};
-  \node[] at (-3.4, 2)   (ktv) {$k_2R_{\theta}(\vec{v})$};
-  \end{tikzpicture}
-  \end{center}
-  %\end{image}
-  
-  Because the diagonal of a parallelogram rotates with the parallelogram, it is clear that 
-$$R_{\theta}(k_1\vec{u}+k_2\vec{v})=k_1R_{\theta}(\vec{u})+k_2R_{\theta}(\vec{v})$$
-So, intuition tells us that $R_{\theta}$ is linear.
- 
-Before we consider the general standard matrix of $R_{\theta}$, let's take a look at a specific example.
 
 \begin{example}\label{ex: rotate45} Find the standard matrix $M_{\theta}$ of a linear transformation $R_{\theta}$ that rotates the image  by $45^{\circ}$ counterclockwise.
 
@@ -417,7 +328,7 @@ Before we consider the general standard matrix of $R_{\theta}$, let's take a loo
   \end{tikzpicture}
   \quad
   \begin{tikzpicture}[scale=2.2]
-\node[red] at (0.5, 0.2)   (a) {$T(\vec{i})$};
+\node[red] at (0.3, 0.5)   (a) {$T(\vec{i})$};
     \node[blue] at (-0.5, 0.2)   (b) {$T(\vec{j})$};
      \node[] at (-0.7, 0.9)   (c) {$(-\sin 45^{\circ}, \cos 45^{\circ})$};
       \node[] at (0.7, 0.9)   (c) {$(\cos 45^{\circ}, \sin 45^{\circ})$};
@@ -427,9 +338,14 @@ Before we consider the general standard matrix of $R_{\theta}$, let's take a loo
   \fill[] (-0.71,0.71) circle (0.03cm); 
    \draw[->,line width=1pt,red,-stealth](0,0)--(0.71,0.71);
     \draw[->,line width=1pt,blue,-stealth](0,0)--(-0.71,0.71);
- 
+ \filldraw[blue, opacity=0.2](0,0)--(0.71,0.71)--(0.71,0)--cycle;
+ \filldraw[orange, opacity=0.3](0,0)--(-0.71,0.71)--(0,0.71)--cycle;
+  \draw (0.25,0) arc (0:45:0.25) ;
+  \draw (0,0.25) arc (90:135:0.25) ;
+  \node[] at (-0.15, 0.35)   (a) {$45^{\circ}$};
+\node[] at (0.40, 0.15)   (b) {$45^{\circ}$};
  \end{tikzpicture}
- %\end{image}
+
 \end{center}
 
 
@@ -454,7 +370,7 @@ $$M_{\theta}=\begin{bmatrix}
 \end{explanation}
 \end{example}
 
-In general, we find the standard rotation matrix by determining the images of vectors $\vec{i}$ and $\vec{j}$.
+In general, we find the rotation matrix by determining the images of vectors $\vec{i}$ and $\vec{j}$.
 
 
 
@@ -492,7 +408,7 @@ In general, we find the standard rotation matrix by determining the images of ve
 %\end{image}
 
 \begin{formula}[Counterclockwise Rotation]\label{form:rotation}
-    A linear transformation that rotates the plane counterclockwise through angle $\theta$ about the origin is induced by
+    The transformation that rotates the plane counterclockwise through angle $\theta$ about the origin is induced by
 \begin{equation} \label{eq:rotation}
 M_{\theta}=\begin{bmatrix}
 \cos\theta & -\sin\theta\\
@@ -520,11 +436,11 @@ For example, the figure below shows the reflection of point $A$ about line $l$. 
     \end{center}
  %   \end{image}
  
-    Arguing in a manner similar to our discussion of linearity of rotations, we can see that reflections are also linear.  Our task is to find the matrix of a reflection of the plane about an arbitrary line through the origin.
+    Our task is to find the matrix of a reflection of the plane about an arbitrary line through the origin.
   
 
 \begin{exploration}\label{init:reflectionxyaxes}
-In this problem we will find the standard matrix for the reflection about the $x$ and $y$ axes.  You can easily do this on your own by finding the images of vectors $\vec{i}$ and $\vec{j}$.  
+In this problem we will find the matrix for the reflection about the $x$ and $y$ axes.  You can easily do this on your own by finding the images of vectors $\vec{i}$ and $\vec{j}$.  
   
   We will start with the reflection about the $x$-axis.
   
@@ -532,14 +448,14 @@ In this problem we will find the standard matrix for the reflection about the $x
   
   $$\vec{j}=\begin{bmatrix}0\\1\end{bmatrix}\quad\text{maps to}\quad\begin{bmatrix}\answer{0}\\\answer{-1}\end{bmatrix}$$
   
-  So, the standard matrix that induces the reflection about the $x$-axis is
+  So, the matrix that induces the reflection about the $x$-axis is
   $$\begin{bmatrix}\answer{1}&\answer{0}\\\answer{0}&\answer{-1}\end{bmatrix}$$
 Next, we will consider the reflection about the $y$-axis.
 $$\vec{i}=\begin{bmatrix}1\\0\end{bmatrix}\quad\text{maps to}\quad\begin{bmatrix}\answer{-1}\\\answer{0}\end{bmatrix}$$
   
   $$\vec{j}=\begin{bmatrix}0\\1\end{bmatrix}\quad\text{maps to}\quad\begin{bmatrix}\answer{0}\\\answer{1}\end{bmatrix}$$
   
-  Thus, the standard matrix that induces the reflection about the $y$-axis is
+  Thus, the matrix that induces the reflection about the $y$-axis is
   $$\begin{bmatrix}\answer{-1}&\answer{0}\\\answer{0}&\answer{1}\end{bmatrix}$$
   
   \end{exploration}
@@ -618,33 +534,26 @@ Next we need to find the image of $\vec{j}$. The head of $T(\vec{j})$ is located
 We leave it to the reader to verify that
 \begin{equation}\label{eq:imageofj} T(\vec{j})=\begin{bmatrix}\frac{2m}{m^2+1}\\\frac{m^2-1}{m^2+1}\end{bmatrix}\end{equation}
 
-The standard matrix of this reflection is then given by 
+This reflection is induced by the matrix 
 $$M_{y=mx}=\begin{bmatrix}\frac{1-m^2}{m^2+1} & \frac{2m}{m^2+1}\\\frac{2m}{m^2+1} & \frac{m^2-1}{m^2+1}\end{bmatrix}=\frac{1}{1+m^2}\begin{bmatrix}
 1-m^2 & 2m \\
 2m & m^2-1
 \end{bmatrix}$$
 
-
-
-
-
-
-
-
-
 \begin{formula}[Reflection about the line $y=mx$]\label{form:reflection}
   
-  A linear transformation that reflects the plane about the line $y=mx$ is induced by
+  The matrix 
 \begin{equation} \label{eq:reflectionymx}
 M_{y=mx}=\frac{1}{1+m^2}\begin{bmatrix}
 1-m^2 & 2m \\
 2m & m^2-1
 \end{bmatrix}
 \end{equation}
+reflects the plane about the line $y=mx$.
 \end{formula}
 Note that when $m=0$, expression (\ref{eq:reflectionymx}) is consistent with the reflection matrix you found in Exploration \ref{init:reflectionxyaxes}.
 
-\begin{example}\label{ex:reflectedduck} Find the standard matrix $M$ of a linear transformation that reflects the image of the duck about the line $y=\frac{3}{5}x$.
+\begin{example}\label{ex:reflectedduck} Find matrix $M$ that reflects the image of the duck about the line $y=\frac{3}{5}x$.
 
 %\begin{figure}[h]
 %\begin{image}[4in]
@@ -681,7 +590,7 @@ Note that the eye of the duck in Example \ref{ex:reflectedduck} is located on th
 
 \subsection*{Composition of Linear Transformations}
 
-If a linear transformation is followed by another linear transformation, the resulting transformation can be represented by a product of the two matrices that induce the individual transformations.  Thus, if $T_1$ is induced by $M_1$ and $T_2$ is induced by $M_2$, then $T=T_2\circ T_1$ is induced by $M=M_2M_1$.
+If a matrix transformation is followed by another matrix transformation, the resulting transformation can be represented as a product of the two matrices that induce the individual transformations.  Thus, if $T_1$ is induced by $M_1$ and $T_2$ is induced by $M_2$, then $T=T_2\circ T_1$ is induced by $M=M_2M_1$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -695,17 +604,20 @@ If a linear transformation is followed by another linear transformation, the res
 
 Remember that matrix multiplication is not commutative, so the order in which the matrices are multiplied is of utmost importance.
 
+\begin{exploration}\label{exp:matrixComp}
+You can use the GeoGebra interactive below to decompose a matrix into a product of two matrices corresponding to the basic transformations we discussed above: scalings, rotations, shears and reflections.
+
+Consider the matrix $M=\begin{bmatrix} 1 & 0\\-1 & -1\end{bmatrix}$.  This matrix induces a transformation that can be broken into two parts: (1) a reflection followed by (2) a shear.  Find matrices $M_1$ and $M_2$ that induce the reflection and the shear respectively.  Verify that the product of the two matrices is equal to $M$ (be careful about the order of the product!).
+\begin{center}
+\geogebra{e4assbux}{1000}{500}
+\end{center}
+need to finish...
+\end{exploration}
+
+
 \begin{exploration}\label{init:reflectioncomp}  In this problem we will consider compositions of two reflections and use geometry to illustrate non-commutativity of matrix multiplication.  
 Let $$T_{y=-2x}:\RR^2\rightarrow \RR^2$$ be a reflection about the line $y=-2x$.  Let $$T_{y=x}:\RR^2\rightarrow \RR^2$$ be a reflection about the line $y=x$. We will denote the standard matrices for these transformations by $M_{y=-2x}$ and $M_{y=x}$, and
-%$$M_{y=-2x}=\begin{bmatrix}
-%-3/5 & -4/5 \\
-%-4/5 & 3/5
-%\end{bmatrix}\quad\text{and}\quad
-%M_{y=x}=\begin{bmatrix}
-%0 & 1 \\
-%1 & 0
-%\end{bmatrix}$$
- use geometry to demonstrate that $M_{y=x}M_{y=-2x}\neq M_{y=-2x}M_{y=x}$.  
+use geometry to demonstrate that $M_{y=x}M_{y=-2x}\neq M_{y=-2x}M_{y=x}$.  
  
  To do this, consider transformations $T_1=T_{y=x}\circ T_{y=-2x}$ and $T_2=T_{y=-2x}\circ T_{y=x}$.  Transformation $T_1$ is induced by $M_{y=x}M_{y=-2x}$, and $T_2$ is induced by $M_{y=-2x}M_{y=x}$.
 
@@ -759,12 +671,6 @@ Some pairs of matrices do commute.  For example, geometry makes it is easy to se
 
 
  
-\subsection*{Inverse of a Linear Transformation}
-Recall that two linear transformations are inverses of each other if their composition is the identity transformation.
-If a linear transformation $T$ induced by the matrix $M$ is invertible, then $T^{-1}$ is induced by $M^{-1}$.  
-
-Geometry can help find the inverse of certain matrices.  For example, we can easily see that the inverse of the rotation transformation $R_{\theta}:\RR^2\rightarrow \RR^2$ with standard matrix $M_{\theta}$ has the inverse $R_{360^{\circ}-\theta}:\RR^2\rightarrow \RR^2$ with standard matrix $M_{360^{\circ}-\theta}$.
-
 \section*{Practice Problems}
 \begin{problem}\label{prob:k0}
 Consider matrices $M_v$ and $M_h$ in (\ref{vscale}) and (\ref{hscale}).  
