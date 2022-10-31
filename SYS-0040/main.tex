@@ -1,0 +1,47 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\author{Paul Zachlin \and Anna Davis} \title{Iterative Methods for Solving Linear Systems} \license{CC-BY 4.0}
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+\section*{Iterative Methods for Solving Linear Systems}
+
+The approaches to solving linear systems we have studied up to this point are often called \dfn{direct methods}, to set them apart from \dfn{iterative methods}, which we study in this section.  When we solve linear systems using \dfn{iterative methods}, we repeat the same procedure (called an \dfn{iteration} many times (usually using a computer), and we look for the outputs to ``converge to'' the actual solution.  Let's begin with an exploration to depict this idea.
+
+\begin{exploration}\label{exp:gauss-seidel2x2}
+In the following GeoGebra interactive, the red line is the graph of $ax+by=r$, and the blue line is the graph of $cx+dy=s$.  Our initial guess, point $A$, may be dragged anywhere on the plane before starting the iterative procedure, it is referred to as our ``initial guess''.  Then use the slide-flipping bar on the bottom to proceed through a number of iterations.  One iteration will consist of sliding horizontally from the current point until we hit the red line, followed by sliding vertically until we hit the blue line.  These two steps are then repeated from the new point on the blue line.
+    
+    \begin{enumerate}
+        \item Try solving the system of equations
+\begin{equation*}\label{eq:diagdom1}
+\begin{array}{ccccc}
+      5x& -&2y&=&10\\
+      x & +&3y&= &36 
+    \end{array}
+\end{equation*}
+from various starting points $A$.  Does the iterative method ``converge'' to the actual solution of this system?
+        \item Now try solving the same system of equations, but changing which equation is the red line and which equation is the blue line.  In other words, try
+\begin{equation*}\label{eq:diagdom1}
+\begin{array}{ccccc}
+      x & +&3y&= &36  \\
+     5x& -&2y&=&10
+    \end{array}
+\end{equation*}
+from various starting points $A$.  Now what happens when we try the iterative method?
+\item Try other $2 \times 2$ systems of equations and see how the iterative method works.
+    \end{enumerate}
+
+    \begin{center}
+\geogebra{gb9rfe4z}{800}{600}
+\end{center}
+\end{exploration}
+
+
+In this section we study two iterative methods that may be used to solve a linear system, \dfn{Jacobi's} method  method and the \dfn{Gauss-Seidel} method.
+
+
+\end{document}
