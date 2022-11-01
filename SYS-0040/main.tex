@@ -36,12 +36,29 @@ from various starting points $A$.  Now what happens when we try the iterative me
     \end{enumerate}
 
     \begin{center}
-\geogebra{gb9rfe4z}{800}{600}
+\geogebra{hndq9nmq}{800}{650}
 \end{center}
 \end{exploration}
 
+\subsection*{Jacobi's method}
+As you saw in the Exploration above, iterative methods do not give an exact answer, but an approximate answer.  More iterations give a more accurate answer.
 
-In this section we study two iterative methods that may be used to solve a linear system, \dfn{Jacobi's} method  method and the \dfn{Gauss-Seidel} method.
+In \dfn{Jacobi's} method for solving a linear system of $n$ equations in $n$ variables, we isolate the first variable in the first equation, we isolate the second variable in the second equation, and in general, we isolate the $i$th variable in the $i$th equation.
 
+Let's return to the system of equations from Exploration \ref{exp:gauss-seidel2x2}.  We solve for a different variable in each of the two equations.  This gives us two formulas, one for each unknown.  We begin with our initial guess $\vec{x}_0$, and use these formulas to compute the next iteration $\vec{x}_1$.  Taking the vector $\vec{x}_1$, and we again apply these formulas to compute the next iteration $\vec{x}_2$.
+
+
+\begin{equation*}\begin{array}{ccccc}
+      5x_1& -&2x_2&=&10\\
+      x_1 & +&3x_2&= &36 
+    \end{array}
+ \rightarrow\text{ becomes } \rightarrow
+\begin{array}{ccc}
+      x_1& =&\dfrac{10+2x_2}{5}\\
+      x_2& =&\dfrac{36+x_1}{3}
+    \end{array}
+\end{equation*}
+
+Let's begin with the initial guess $\vec{x}_0 = \begin{bmatrix} 0\\0 \end{bmatrix}$.
 
 \end{document}
