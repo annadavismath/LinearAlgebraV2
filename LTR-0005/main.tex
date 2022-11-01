@@ -28,7 +28,7 @@ In the past you have worked with functions $f:\RR\longrightarrow \RR$.  Most of 
 We will now consider functions that map $\RR^n$ into $\RR^m$.  We will refer to such functions as \dfn{transformations}.  There are two ways of thinking of transformations.  A transformation $T:\RR^n\longrightarrow\RR^m$ can take a vector in $\RR^n$ and map it to a vector in $\RR^m$, or it can map a point in $\RR^n$ to a point in $\RR^m$.  We will think of transformations as acting on vectors or points interchangeably because every point $(x_1, x_2,\dots ,x_n)$ of $\RR^n$ can be interpreted as the tip of a vector $\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}$ in $\RR^n$.  Matrix multiplication will provide us with initial tools for defining some transformations.
 
 \subsection*{Examples of Matrix Transformations}
-Consider the matrix $A=\begin{bmatrix}1&0.5\\0&1\end{bmatrix}$.  The product of $A$ with a $2\times 1$ vector is a $2\times 1$ vector.  We can define a transformation $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$.  This transformation can be applied to every vector of $\RR^2$.  Here we will look at what it does to five vectors.  You can use matrix multiplication to verify that the following is true
+Consider the matrix $A=\begin{bmatrix}1&0.5\\0&1\end{bmatrix}$.  The product of $A$ with a $2\times 1$ vector is a $2\times 1$ vector.  We can define a transformation $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$.  This transformation can be applied to every vector of $\RR^2$. We will now look at what it does to five vectors.  You can use matrix multiplication to verify that the following is true
 $$T\left(\begin{bmatrix}0\\3\end{bmatrix}\right)=\begin{bmatrix}1.5\\3\end{bmatrix};\quad T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)=\begin{bmatrix}2\\2\end{bmatrix};\quad T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)=\begin{bmatrix}2.5\\1\end{bmatrix}$$
 $$T\left(\begin{bmatrix}2\\0\end{bmatrix}\right)=\begin{bmatrix}2\\0\end{bmatrix};\quad T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}0.5\\-1\end{bmatrix}$$
 The original vectors and their images are shown below.
@@ -56,7 +56,7 @@ The original vectors and their images are shown below.
       \end{tikzpicture}
 \end{center}
 
-Even by looking at a handful of vectors it is difficult to tell what the transformation actually accomplishes.  This is why sometimes looking at points instead of vectors can be beneficial.  If we consider every point in the left grid below as a tip of a vector, we can apply the transformation to each point to obtain the grid on the right.
+Even after looking at a handful of vectors it is often difficult to tell what the transformation actually accomplishes.  This is why sometimes looking at points instead of vectors can be beneficial.  If we consider every point in the left grid below as a tip of a vector, we can apply the transformation to each point to obtain the grid on the right.
 
 
 \begin{center}
@@ -120,7 +120,7 @@ Even by looking at a handful of vectors it is difficult to tell what the transfo
 Applying $T$ to a grid of points helps us see that the entire plane was sheared by the transformation.
 
 We can also analyze the action of $T$ algebraically.  Start by finding the image of a generic vector $\begin{bmatrix}x\\y\end{bmatrix}$.
-$$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+0.5y\\y\end{bmatrix}$$
+$$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}1&0.5\\0&1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x+0.5y\\y\end{bmatrix}$$
 We immediately see that the $y$ component of the vector remains unchanged.  We also see that the $x$ component increases (or decreases) by an increment that depends on $y$.  When considering $T$ as a transformation acting on points, we see that points located 1 unit above the $x$-axis, get shifted to the right by 0.5.  Points located 2 units above, get shifted to the right by 1. The higher the point, the greater the shift.  Points with negative $y$-coordinates get shifted to the left. In this fashion $T$ shears the entire plane.
 
  Now that we have seen the effect of functions defined via matrix multiplication, we can better appreciate the term \dfn{transformation}, as such functions distort the domain and the shapes located in it.  The following Exploration will help you visualize this.
@@ -188,7 +188,7 @@ Restating properties \ref{item:matrixproperties1} and \ref{item:matrixproperties
     A(\vec{v}+\vec{w})&=&A\vec{v}+A\vec{w}\label{eq:linearityAdd}
    \end{eqnarray}
 
-The two properties of matrix multiplications translate into analogous properties of matrix transformations.  Suppose $T:\RR^n\longrightarrow\RR^m$ is a matrix transformation, then for all vectors $\vec{v}$, $\vec{w}$ in $\RR^n$ and all real number constants $k$ in $\RR$,
+These two properties of matrix multiplications translate into analogous properties of matrix transformations.  Suppose $T:\RR^n\longrightarrow\RR^m$ is a matrix transformation, then for all vectors $\vec{v}$, $\vec{w}$ in $\RR^n$ and all constants $k$ in $\RR$,
 \begin{equation}\label{eq:matrixTransProp1} 
 T(k\vec{v})=kT(\vec{v})
     \end{equation}
