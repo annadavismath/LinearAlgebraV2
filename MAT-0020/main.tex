@@ -16,33 +16,33 @@ We will introduce matrix multiplication by first considering the special case of
 
 \subsection*{Matrix-Vector Multiplication}
 
-\begin{exploration}\label{exp:matrixvectormultdef} Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{v}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{v}$ using Octave.
+\begin{exploration}\label{exp:matrixvectormultdef} Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{x}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{x}$ using Octave.
 
 Notice in the Octave window below, the semicolon is used to indicate a new line of a matrix, and the asterisk indicates matrix multiplication.
 
 %\begin{octave}
 A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
-v=[3;-1;4;1]
-A*v
+x=[3;-1;4;1]
+A*x
 %\end{octave}
 
-The purpose of this exploration is to understand the matrix-vector product $A\vec{v}$ we computed above.  Note that we can select an entry of a matrix in Octave by naming its row and column.  So A(2,3) = -2.  In the case of a column matrix like $\vec{v}$, we only need to indicate the row to select an entry, so v(3)=4.  We can also select an entire column of matrix $A$ by placing the "dummy colon" as the row.  So A(:,2) gives us the second column of $A$.
+The purpose of this exploration is to understand the matrix-vector product $A\vec{x}$ we computed above.  Note that we can select an entry of a matrix in Octave by naming its row and column.  So A(2,3) = -2.  In the case of a column matrix like $\vec{x}$, we only need to indicate the row to select an entry, so x(3)=4.  We can also select an entire column of matrix $A$ by placing the "dummy colon" as the row.  So A(:,2) gives us the second column of $A$.
 
 %\begin{octave}
 A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
-v=[3;-1;4;1]
+x=[3;-1;4;1]
 A(2,3)
-v(3)
+x(3)
 A(:,2)
 %\end{octave}  
 
-One way to understand the matrix-vector product $A\vec{v}$ is that we are taking a linear combination of the columns of $A$, using the entries in $v$ as our coefficients.  In the next Octave window we demonstrate this.  
+One way to understand the matrix-vector product $A\vec{x}$ is that we are taking a linear combination of the columns of $A$, using the entries in $x$ as our coefficients.  In the next Octave window we demonstrate this.  
 
 %\begin{octave}
 A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0];
-v=[3;-1;4;1]; %semicolons at the end of a line suppress the output
-v(1)*A(:,1)+v(2)*A(:,2)+v(3)*A(:,3)+v(4)*A(:,4)
-A*v
+x=[3;-1;4;1]; %semicolons at the end of a line suppress the output
+x(1)*A(:,1)+x(2)*A(:,2)+x(3)*A(:,3)+x(4)*A(:,4)
+A*x
 %\end{octave} 
 
 We have computed 
@@ -68,39 +68,41 @@ $$
 
 \end{exploration}
 \begin{definition}\label{def:matrixvectormult}
-Let $A$ be an $m\times n$ matrix, and let $\vec{v}$ be an $n\times 1$ vector.  The product $A\vec{v}$ is the $m\times 1$ vector given by:
-$$A\vec{v}=\begin{bmatrix}
+Let $A$ be an $m\times n$ matrix, and let $\vec{x}$ be an $n\times 1$ vector.  The product $A\vec{x}$ is the $m\times 1$ vector given by:
+$$A\vec{x}=\begin{bmatrix}
            a_{11} & a_{12}&\dots&a_{1n}\\
            a_{21}&a_{22} &\dots &a_{2n}\\
 		\vdots & \vdots&\ddots &\vdots\\
 		a_{m1}&\dots &\dots &a_{mn}
-         \end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=
-         b_1\begin{bmatrix}a_{11}\\a_{21}\\ \vdots \\a_{m1}\end{bmatrix}+
-         b_2\begin{bmatrix}a_{12}\\a_{22}\\ \vdots \\a_{m2}\end{bmatrix}+\hdots+
-         b_n\begin{bmatrix}a_{1n}\\a_{2n}\\ \vdots \\a_{mn}\end{bmatrix}$$
+         \end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}=
+         x_1\begin{bmatrix}a_{11}\\a_{21}\\ \vdots \\a_{m1}\end{bmatrix}+
+         x_2\begin{bmatrix}a_{12}\\a_{22}\\ \vdots \\a_{m2}\end{bmatrix}+\dots+
+         x_n\begin{bmatrix}a_{1n}\\a_{2n}\\ \vdots \\a_{mn}\end{bmatrix}$$
+or, equivalently,
+$$A\vec{x}=\begin{bmatrix}a_{11}x_1+a_{12}x_2+\ldots +a_{1n}x_n\\a_{21}x_1+a_{22}x_2+\ldots +a_{2n}x_n\\\vdots\\a_{m1}x_1+a_{m2}x_2+\ldots +a_{mn}x_n\end{bmatrix}$$
 \end{definition}
 We can now make a couple of observations about the matrix-vector product.  The first observation is part of the definition, but it is still worth pointing out.
 \begin{observation}
-In order for the product $A\vec{v}$ to exist, $A$ and $\vec{v}$ must have compatible dimensions.  In particular, vector $\vec{v}$ must have as many components as the number of columns of $A$.  (Otherwise, we would not be have a well-defined linear combination of the columns.)  So, if $A$ is an $m\times n$ matrix, $\vec{v}$ must be an $n\times 1$ vector.  If we write these dimensions next to each other, we will notice that the inner dimensions ($n$) must match, while the outer dimensions, $m$ and $1$, give us the dimensions of the product.
+In order for the product $A\vec{x}$ to exist, $A$ and $\vec{x}$ must have compatible dimensions.  In particular, vector $\vec{x}$ must have as many components as the number of columns of $A$.  (Otherwise, we would not be have a well-defined linear combination of the columns.)  So, if $A$ is an $m\times n$ matrix, $\vec{x}$ must be an $n\times 1$ vector.  If we write these dimensions next to each other, we will notice that the inner dimensions ($n$) must match, while the outer dimensions, $m$ and $1$, give us the dimensions of the product.
 $$\begin{array}{ccccc}
-A& & \vec{v} &=& A\vec{v}\\
+A& & \vec{x} &=& A\vec{x}\\
 (m\times n) & &(n\times 1) & &(m\times 1)
 \end{array}$$
 \end{observation}
 
-\begin{observation} If you are familiar with the \dfn{dot product}, you may have noticed that each individual entry in the product matrix $A\vec{v}$ is the dot product of a row of $A$ with $\vec{v}$.  Thus, if the rows of $A$ are vectors $\vec{r}_1$, $\vec{r}_2,\ldots ,\vec{r}_n$ we can restate Definition \ref{def:matrixvectormult} as follows:
-$$A\vec{v}=\begin{bmatrix}-&\vec{r}_1&-\\-&\vec{r}_2&-\\ &\vdots & \\-&\vec{r}_n &-\end{bmatrix}\vec{v}=\begin{bmatrix}\vec{r}_1\dotp\vec{v}\\\vec{r}_2\dotp\vec{v}\\\vdots\\\vec{r}_n\dotp\vec{v}\end{bmatrix}$$
+\begin{observation} If you are familiar with the \dfn{dot product}, you may have noticed that each individual entry in the product matrix $A\vec{x}$ is the dot product of a row of $A$ with $\vec{x}$.  Thus, if the rows of $A$ are vectors $\vec{r}_1$, $\vec{r}_2,\ldots ,\vec{r}_n$ we can restate Definition \ref{def:matrixvectormult} as follows:
+$$A\vec{x}=\begin{bmatrix}-&\vec{r}_1&-\\-&\vec{r}_2&-\\ &\vdots & \\-&\vec{r}_n &-\end{bmatrix}\vec{x}=\begin{bmatrix}\vec{r}_1\dotp\vec{x}\\\vec{r}_2\dotp\vec{x}\\\vdots\\\vec{r}_n\dotp\vec{x}\end{bmatrix}$$
 \end{observation}
 
 Let's find another matrix-vector product.
 
 \begin{example}\label{ex:matrixvectormultpractice}
-Let $$A=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}-3\\5\end{bmatrix}
+Let $$A=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\quad\text{and}\quad\vec{x}=\begin{bmatrix}-3\\5\end{bmatrix}
 $$
-Find $A\vec{b}$.
+Find $A\vec{x}$.
 \begin{explanation}
 Fill in the blanks below.  
-$$A\vec{b}=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\begin{bmatrix}-3\\5\end{bmatrix}=\begin{bmatrix}\answer{-8}\\\answer{9}\\\answer{11}\\\answer{-12}\end{bmatrix}
+$$A\vec{x}=\begin{bmatrix}1&-1\\2&3\\-2&1\\4&0\end{bmatrix}\begin{bmatrix}-3\\5\end{bmatrix}=\begin{bmatrix}\answer{-8}\\\answer{9}\\\answer{11}\\\answer{-12}\end{bmatrix}
 $$
 \end{explanation}
 \end{example}
@@ -146,10 +148,16 @@ Note that it is still possible to use linear combinations rather than dot produc
 $$AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 & \dots & A\vec{b}_p \end{bmatrix}.
 $$
 
-If we return to Example \ref{ex:matmatproduct} above, note that the second column of the product is given by
-$$A\vec{b_2}=-2\begin{bmatrix}3\\0\\1\end{bmatrix}
+If we return to Example \ref{ex:matmatproduct} above, we may use this approach to compute
+$$A\vec{b}_1=\begin{bmatrix}3\\0\\1\end{bmatrix}
+-\begin{bmatrix}2\\3\\4\end{bmatrix}
++2\begin{bmatrix}-1\\1\\-1\end{bmatrix}
++2\begin{bmatrix}-1\\1\\-1\end{bmatrix} 
+= \begin{bmatrix}1\\1\\-5\end{bmatrix}.
+\text{ and }
+A\vec{b}_2=-2\begin{bmatrix}3\\0\\1\end{bmatrix}
 +4\begin{bmatrix}2\\3\\4\end{bmatrix}
-+3\begin{bmatrix}-1\\1\\-1\end{bmatrix}+0 = \begin{bmatrix}-1\\15\\11\end{bmatrix}
++3\begin{bmatrix}-1\\1\\-1\end{bmatrix}+0 = \begin{bmatrix}-1\\15\\11\end{bmatrix}.
 $$
 
 \begin{example}\label{ex:matmatproduct2} Let
