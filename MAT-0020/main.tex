@@ -143,9 +143,13 @@ AB&=\begin{bmatrix}3 & 2 & -1 & 1\\0 & 3 & 1 & 1\\1 & 4 & -1 & 0\end{bmatrix}\be
 \end{explanation}
 \end{example}
 
-Note that it is still possible to use linear combinations rather than dot products to compute a matrix-matrix product.  If the columns of matrix $B$ are given by ${\vec{b}_1, \vec{b}_2, ..., \vec{b}_p}$, then the matrix product consists of $p$ columns, each of which is a matrix-vector product:
+\begin{remark}
+It is possible to use linear combinations rather than dot products to compute a matrix-matrix product.  If the columns of matrix $B$ are given by ${\vec{b}_1, \vec{b}_2, ..., \vec{b}_p}$, then the matrix product consists of $p$ columns, each of which is a matrix-vector product:
 
-$$AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 & \dots & A\vec{b}_p \end{bmatrix}.
+$$AB = \begin{bmatrix} | & | & \dots & |\\
+A\vec{b}_1 & A\vec{b}_2 & \dots & A\vec{b}_p\\
+| & | & \dots & |
+\end{bmatrix}.
 $$
 
 If we return to Example \ref{ex:matmatproduct} above, we may use this approach to compute
@@ -159,6 +163,8 @@ A\vec{b}_2=-2\begin{bmatrix}3\\0\\1\end{bmatrix}
 +4\begin{bmatrix}2\\3\\4\end{bmatrix}
 +3\begin{bmatrix}-1\\1\\-1\end{bmatrix}+0 = \begin{bmatrix}-1\\15\\11\end{bmatrix}.
 $$
+
+\end{remark}
 
 \begin{example}\label{ex:matmatproduct2} Let
 $$A=\begin{bmatrix}-2 & 1\\3 & 0\\1 & -3\end{bmatrix}\quad\text{and}\quad B=\begin{bmatrix}4 & -2 & 3 & -2 &2\\1 & -3 & 1 & 1 &0\end{bmatrix}$$
