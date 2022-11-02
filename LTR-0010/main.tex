@@ -6,8 +6,7 @@
 \begin{document}
 
 \begin{abstract}
-  %We define a linear transformation from $\RR^n$ into $\RR^m$ and determine whether a given transformation is linear.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 
@@ -25,12 +24,11 @@ The set $V$ is called the \dfn{domain} of $f$, and the set $W$ is called the \df
 \vskip 10pt
 If $y=f(x)$, we say that $x$ \dfn{maps to} $y$, and $y$ is the \dfn{image} of $x$.
 \vskip 10pt
-The collection of images of all points of $V$ is called the \dfn{ range} of $f$.  More often, we will refer to the range as the \dfn{image} of $V$ or the \dfn{image} of $f$.
-  
+The collection of images of all points of $V$ is called the \dfn{image} of $V$ under $f$, or the \dfn{image} of $f$.  (It is also known as the \dfn{ range} of $f$.)  
 \end{definition}
 
 
-In algebra and calculus you worked with functions $f:\RR\rightarrow\RR$ whose domain and codomain were each the set of all real numbers.  In linear algebra, we call our functions \dfn{transformations}.  The domain and codomain of a transformation are \dfn{vector spaces}.  A typical transformation $T$ will map vectors of $\RR^n$ into $\RR^m$.
+In algebra and calculus you worked with functions $f:\RR\rightarrow\RR$ whose domain and codomain were each the set of all real numbers.  In linear algebra, we call our functions \dfn{transformations}.  The domain and codomain of a transformation are \dfn{vector spaces}.  %A typical transformation $T$ will map vectors of $\RR^n$ into $\RR^m$.
 
 \begin{exploration}\label{init:lintransintro} In this exercise we will introduce a very special type of transformation by contrasting the effects of two transformations on vectors of $\RR^2$.  We will see that some transformations have ``nice" properties, while others do not.  Define $T_1$ and $T_2$ as follows:
 $$T_1:\RR^2\rightarrow\RR^2$$
@@ -50,7 +48,7 @@ y
 y-2
 \end{bmatrix}$$
 
-Each of these transformations takes a vector in $\RR^2$, and \dfn{{transforms}} it to another vector in $\RR^2$.  To see if you understand how these transformations are defined, see if you can determine what these transformations do to the vector $\begin{bmatrix}
+Each of these transformations takes a vector in $\RR^2$, and maps it to another vector in $\RR^2$.  To see if you understand how these transformations are defined, see if you can determine what these transformations do to the vector $\begin{bmatrix}
 4\\
 3
 \end{bmatrix}$. 
@@ -86,7 +84,7 @@ $$7\begin{bmatrix}
 21
 \end{bmatrix}$$.  
 
-If we apply $T_1$ and $T_2$ to this product, we will see that $T_1$ ``handles it better" than $T_2$.  We compute:
+Now let's compare how $T_1$ and $T_2$ ``handle" this product.  We compute:
 
 $$
 T_1\left(7\begin{bmatrix}
@@ -188,8 +186,9 @@ It turns out that $T_2$ fails to satisfy this property.  Can you prove that this
 \begin{align}\label{t2}T_2(\vec{u}+\vec{v}) \neq T_2(\vec{u})+T_2(\vec{v}).\end{align}
 (See Practice Problem \ref{prob:prob2}.) 
 \end{exploration}
-Transformations like $T_1$ belong to a special category of transformations called \dfn{linear transformations}.
 
+Transformations satisfying (\ref{lin1}) and (\ref{lin2}), like $T_1$, are called \dfn{linear transformations}. Transformations like $T_2$ are not linear.
+ You have already encountered several linear transformations in the form of matrix transformations in sections \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations} and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0070/main}{Geometric Transformations of the Plane}.  
 
   \begin{definition} \label{def:lin}
  A transformation $T:\RR^n\rightarrow \RR^m$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$, and scalars $k$.
@@ -201,7 +200,7 @@ T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 \end{equation}
 \end{definition}
 
-\begin{remark}
+\begin{remark}\label{rem:combinedLinearDef}
 Properties (\ref{eq:lintrans1}) and (\ref{eq:lintrans2}) are often combined into a single property.
 \begin{equation}\label{eq:lintranscombinedprop}
 T(k_1\vec{u}+k_2\vec{v})= k_1T(\vec{u})+k_2T(\vec{v})
@@ -235,7 +234,7 @@ Find each of the following:
 \end{explanation}
 \end{example}
 
-\begin{observation}
+\begin{observation}\label{obs:basisIsSufficient}
 In Example \ref{ex:lintransfirst} we were given the images of two vectors, $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}0\\-1\end{bmatrix}$, under a linear transformation $T$.  Based on this information, we were able to determine the images of two additional vectors: $\begin{bmatrix}2\\5\end{bmatrix}$ and $\begin{bmatrix}1\\1\end{bmatrix}$. 
 The reason we were able to determine $T\left(\begin{bmatrix}2\\5\end{bmatrix}\right)$ and $T\left(\begin{bmatrix}1\\1\end{bmatrix}\right)$ is because $\begin{bmatrix}2\\5\end{bmatrix}$ and $\begin{bmatrix}1\\1\end{bmatrix}$ can be written as unique linear combinations of $\begin{bmatrix}1\\2\end{bmatrix}$ and $\begin{bmatrix}0\\-1\end{bmatrix}$.
 
@@ -353,35 +352,32 @@ Since $T_2(\vec{0})\neq\vec{0}$, $T_2$ is not linear.
 
 \subsection*{Linear Transformations Induced by Matrices}
 
-\begin{exploration}\label{init:matrixtrans}   Let $$A=\begin{bmatrix}
-3&-2&1\\
-1&0&2
-\end{bmatrix}$$
-Let $\vec{v}$ be a vector in $\RR^3$.  Then $A\vec{v}$ is a vector in $\RR^2$.  We can use this observation to define a transformation $T:\RR^3\rightarrow\RR^2$ by $T(\vec{v})=A\vec{v}$.  For example,
-$$T\left(\begin{bmatrix}
-2\\
-1\\
--3
-\end{bmatrix}\right)=\begin{bmatrix}
-3&-2&1\\
-1&0&2
-\end{bmatrix}\begin{bmatrix}
-2\\
-1\\
--3
-\end{bmatrix}=\begin{bmatrix}
-1\\
--4
-\end{bmatrix}$$
+%\begin{exploration}\label{init:matrixtrans}   Let $$A=\begin{bmatrix}
+%3&-2&1\\
+%1&0&2
+%\end{bmatrix}$$
+%Let $\vec{v}$ be a vector in $\RR^3$.  Then $A\vec{v}$ is a vector in $\RR^2$.  We can use this observation to define a transformation $T:\RR^3\rightarrow\RR^2$ by $T(\vec{v})=A\vec{v}$.  For example,
+%$$T\left(\begin{bmatrix}
+%2\\
+%1\\
+%-3
+%\end{bmatrix}\right)=\begin{bmatrix}
+%3&-2&1\\
+%1&0&2
+%\end{bmatrix}\begin{bmatrix}
+%2\\
+%1\\
+%-3
+%\end{bmatrix}=\begin{bmatrix}
+%1\\
+%-4
+%\end{bmatrix}$$
 
-\end{exploration}
+%\end{exploration}
 
+Recall that a transformation $T:\RR^n\rightarrow\RR^m$ defined by $T(\vec{v})=A\vec{v}$, where $A$ is some $m\times n$ matrix, is called a matrix transformation (or transformation induced by $A$).  As we had discovered in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations}, all matrix transformations are linear.  We now formalize this result as a theorem.
 
-
-We say that the transformation $T$ in Exploration \ref{init:matrixtrans} is \dfn{induced} by matrix $A$.  Such transformations are often called \dfn{matrix transformations}.  In general, an $m\times n$ matrix induces a transformation from $\RR^n$ into $\RR^m$.  We will see that all matrix transformations are linear.
-
-
-  \begin{theorem}\label{th:matrixtran} Let $A$ be an $m\times n$ matrix.  Define $T:\RR^n\rightarrow\RR^m$ by $T(\vec{v})=A\vec{v}$.  Then $T$ is a linear transformation.
+ \begin{theorem}\label{th:matrixtran} Let $A$ be an $m\times n$ matrix.  Define $T:\RR^n\rightarrow\RR^m$ by $T(\vec{v})=A\vec{v}$.  Then $T$ is a linear transformation.
 \end{theorem}
 
 \begin{proof}  Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$, and let $k$ be a scalar.  By properties of matrix multiplication we have:
@@ -391,58 +387,58 @@ Therefore $T$ is a linear transformation.
 \end{proof}
 
 \begin{example}\label{ex:lineartrans2}
-Let $T$ be a linear transformation induced by $$A=\begin{bmatrix}
+Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation induced by $$A=\begin{bmatrix}
 2&0\\
 1&4\\
 0&1
 \end{bmatrix}$$
 \begin{enumerate}
 \item \label{item:exlineartrans2a}
-Find the domain and the codomain of $T$.
-\item \label{item:exlineartrans2b}
-Find $T\left(\begin{bmatrix}
--1\\
-3
-\end{bmatrix}\right)$ and $T\left(\begin{bmatrix}
-2\\
--5
-\end{bmatrix}\right)$
+Find $n$ and $m$.
+%\item \label{item:exlineartrans2b}
+%Find $T\left(\begin{bmatrix}
+%-1\\
+%3
+%\end{bmatrix}\right)$ and $T\left(\begin{bmatrix}
+%2\\
+%-5
+%\end{bmatrix}\right)$
 
-\item \label{item:exlineartrans2c}
-Find the images of vectors ${\bf i}$ and ${\bf j}$.
+%\item \label{item:exlineartrans2c}
+%Find the images of vectors ${\bf i}$ and ${\bf j}$.
 \item \label{item:exlineartrans2d}
 Find the image of $T$.
 \end{enumerate}
 
 \begin{explanation}
-\ref{item:exlineartrans2a} $A$ is a $3\times 2$ matrix, so for the expression $T(\vec{x})=A\vec{x}$ to make sense, $\vec{x}$ has to be a $2\times 1$ vector.  Thus, the domain of $T$ is $\RR^2$.  The product $A\vec{x}$ is a $3\times 1$ vector.  So, the codomain of $T$ is $\RR^3$.
+\ref{item:exlineartrans2a} $A$ is a $3\times 2$ matrix, so for the expression $T(\vec{x})=A\vec{x}$ to make sense, $\vec{x}$ has to be a $2\times 1$ vector.  Thus, the domain of $T$ is $\RR^2$ ($n=2$).  The product $A\vec{x}$ is a $3\times 1$ vector.  So, the codomain of $T$ is $\RR^3$ ($m=3$).
 
-\ref{item:exlineartrans2b} $$T\left(\begin{bmatrix}-1\\3\end{bmatrix}\right)=\begin{bmatrix}
-2&0\\
-1&4\\
-0&1
-\end{bmatrix}\begin{bmatrix}-1\\3\end{bmatrix}=\begin{bmatrix}\answer{-2}\\\answer{11}\\\answer{3}\end{bmatrix}$$
-$$T\left(\begin{bmatrix}2\\-5\end{bmatrix}\right)=\begin{bmatrix}
-2&0\\
-1&4\\
-0&1
-\end{bmatrix}\begin{bmatrix}2\\-5\end{bmatrix}=\begin{bmatrix}\answer{4}\\\answer{-18}\\\answer{-5}\end{bmatrix}$$
+%\ref{item:exlineartrans2b} $$T\left(\begin{bmatrix}-1\\3\end{bmatrix}\right)=\begin{bmatrix}
+%2&0\\
+%1&4\\
+%0&1
+%\end{bmatrix}\begin{bmatrix}-1\\3\end{bmatrix}=\begin{bmatrix}\answer{-2}\\\answer{11}\\\answer{3}\end{bmatrix}$$
+%$$T\left(\begin{bmatrix}2\\-5\end{bmatrix}\right)=\begin{bmatrix}
+%2&0\\
+%1&4\\
+%0&1
+%\end{bmatrix}\begin{bmatrix}2\\-5\end{bmatrix}=\begin{bmatrix}\answer{4}\\\answer{-18}\\\answer{-5}\end{bmatrix}$$
 
-\ref{item:exlineartrans2c}
-$$T(\vec{i})=T\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\begin{bmatrix}
-2&0\\
-1&4\\
-0&1
-\end{bmatrix}\begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}\answer{2}\\\answer{1}\\\answer{0}\end{bmatrix}$$
+%\ref{item:exlineartrans2c}
+%$$T(\vec{i})=T\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\begin{bmatrix}
+%2&0\\
+%1&4\\
+%0&1
+%\end{bmatrix}\begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}\answer{2}\\\answer{1}\\\answer{0}\end{bmatrix}$$
 
-$$T(\vec{j})=T\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\begin{bmatrix}
-2&0\\
-1&4\\
-0&1
-\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix}=\begin{bmatrix}\answer{0}\\\answer{4}\\\answer{1}\end{bmatrix}$$
-Observe that the image of $\vec{i}$ is the first column of $A$, and the image of $\vec{j}$ is the second column of $A$.  If you look at the mechanics of how this happened, you will realize that this is not a coincidence.  We will see this phenomenon again.
+%$$T(\vec{j})=T\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\begin{bmatrix}
+%2&0\\
+%1&4\\
+%0&1
+%\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix}=\begin{bmatrix}\answer{0}\\\answer{4}\\\answer{1}\end{bmatrix}$$
+%Observe that the image of $\vec{i}$ is the first column of $A$, and the image of $\vec{j}$ is the second column of $A$.  If you look at the mechanics of how this happened, you will realize that this is not a coincidence.  We will see this phenomenon again.
 
-\ref{item:exlineartrans2d}  The image of $T$ consists of images of all individual vectors in $\RR^2$ under $T$.  Every vector $\vec{v}$  in $\RR^2$ can be written as $\vec{v}=a\vec{i}+b\vec{j}$ for some real numbers  $a$ and $b$.  Consider the image of $\vec{v}$
+\ref{item:exlineartrans2d}  By Definition \ref{def:function}, the image of $T$ consists of images of all individual vectors in $\RR^2$ under $T$.  Every vector $\vec{v}$  in $\RR^2$ can be written as $\vec{v}=a\vec{i}+b\vec{j}$ for some real numbers  $a$ and $b$.  Consider the image of $\vec{v}$
 $$T(\vec{v})=T(a\vec{i}+b\vec{j})=aT(\vec{i})+bT(\vec{j})=a\begin{bmatrix}2\\1\\0\end{bmatrix}+b\begin{bmatrix}0\\4\\1\end{bmatrix}$$
 This shows that the range, or the image, of $T$ consists of all linear combinations of the columns of $A$.  In other words, the image of $T$ is the span of vectors $\begin{bmatrix}2\\1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\4\\1\end{bmatrix}$. The two vectors are not scalar multiples of each other, therefore they span a plane in $\RR^3$.
 \end{explanation}  
@@ -451,18 +447,21 @@ This shows that the range, or the image, of $T$ consists of all linear combinati
 
 
 \begin{example}\label{ex:lineartrans3}
-Let $$A=\begin{bmatrix}
+Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation induced by
+$$A=\begin{bmatrix}
 -2&1&3\\
 4&-2&-6
 \end{bmatrix}$$
 \begin{enumerate}
 \item\label{item:lintrans3a}
-Find the domain and the codomain of the the transformation $T$ induced by $A$.  
+Find $n$ and $m$. 
 \item\label{item:lintrans3b}
 Find and draw the image of $T$.
 \end{enumerate}
 \begin{explanation}
-\ref{item:lintrans3a} $A$ is a $2\times 3$ matrix.  So, the domain of $T$ is $\RR^3$ and the codomain is $\RR^2$.
+\ref{item:lintrans3a} 
+$$n=\answer{3}, \quad m=\answer{2}$$
+%$A$ is a $2\times 3$ matrix.  So, the domain of $T$ is $\RR^3$ and the codomain is $\RR^2$.
 
 \ref{item:lintrans3b} To find the image of $T$, we will take a slightly different approach from what we did in Example \ref{ex:lineartrans2}\ref{item:exlineartrans2d}.
 
@@ -522,7 +521,7 @@ T\left(\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}+ \begin{bmatrix}a_2\\b_2\\0\end{b
 \end{align*}
 Verification of the fact that $T\left(k\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}\right)=kT\left(\begin{bmatrix}a_1\\b_1\\0\end{bmatrix}\right)$ is similar, and we omit the details.
 
-We have shown that $T$ is a linear transformation.  The following diagram will help us visualize the action of $T$ geometrically.
+We have shown that $T$ is a linear transformation.  $T$ maps all vectors in the $xy$-plane to the $z$-axis.  The following diagram helps us visualize the action of $T$ on a specific vector.
 
 \begin{center}
 \begin{tikzpicture}[scale=.8]
@@ -546,6 +545,35 @@ We have shown that $T$ is a linear transformation.  The following diagram will h
    \node[] at (3.75, 3)   (b) {$T$};
  \end{tikzpicture}
 \end{center}
+
+We can investigate further.  Recall that $T$ is defined by $$T\left(\begin{bmatrix}a\\b\\0\end{bmatrix}\right)=\begin{bmatrix}0\\0\\a+b\end{bmatrix}$$
+Complete each of the following statements referring to the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+
+  \draw[->] (0,0)--(3,0);
+  \draw[->] (0,0)--(0,3);
+  \draw[->] (0,0)--(-1.5,-1);
+\draw[-] (4.5,1)--(-4.5,-1);
+\filldraw[blue, opacity=0.3](4.5,1)--(-1.5,1)--(-4.5,-1)--cycle;
+\filldraw[orange, opacity=0.3](1.5,-1)--(4.5,1)--(-4.5,-1)--cycle;
+   \draw[->] (6,0)--(9,0);
+  %\draw[->] (5,0)--(5,3);
+  \draw[->] (6,0)--(4.5,-1);
+  
+  \draw[line width=2pt,blue](6,-1)--(6,3) node[above, right]{Image of $T$};
+  %\draw[line width=2pt,red,-stealth](6,0)--(6,1.5) node[right]{$T\left(\begin{bmatrix}1\\2\\0\end{bmatrix}\right)=\begin{bmatrix}0\\0\\3\end{bmatrix}$};
+  \draw [->,line width=1pt,-stealth]  (2.5,2) to[out=30, in=150] (5, 2);
+   \node[] at (3.75, 3)   (b) {$T$};
+ \end{tikzpicture}
+\end{center}
+
+The image of the line $y=-x$ under $T$ is \wordChoice{\choice{a line} \choice{a plane} \choice[correct]{the zero vector}\choice{all of $\RR^3$}}
+
+The image of the orange part of the domain (the front triangle) is \wordChoice{\choice[correct]{the positive $z$-axis} \choice{the negative $z$-axis} \choice{the zero vector}\choice{the entire $z$-axis}} 
+
+The image of the purple part of the domain (the back triangle) is \wordChoice{\choice{the positive $z$-axis} \choice[correct]{the negative $z$-axis} \choice{the zero vector}\choice{the entire $z$-axis}} 
 
 \end{explanation}
 \end{example}
