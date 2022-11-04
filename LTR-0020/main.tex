@@ -52,7 +52,7 @@ Because of properties of linear transformations, the information about the image
 \end{explanation}
 \end{example}
 
-As Example \ref{ex:imageofatransformation} illustrates, every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1\ldots \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
+As Example \ref{ex:imageofatransformation} illustrates, every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\ldots , \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1, \ldots , \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
 
 \begin{theorem}\label{th:matlin} Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation.  Then $T$ is a matrix transformation with
   \begin{equation*} \label{matlintrans}
@@ -85,7 +85,7 @@ Theorem \ref{th:matrixtran} shows that every matrix transformation is linear.  T
   \begin{corollary}\label{cor:lintransmattrans} A transformation $T:\RR^n\rightarrow\RR^m$ is a linear transformation if and only if it is a matrix transformation.
 \end{corollary}  
 
-The above discussion relies on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0080/main}{Matrix of a Linear Transformation with Respect to Arbitrary Bases} that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
+The results of this section rely on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0080/main}{Matrix of a Linear Transformation with Respect to Arbitrary Bases} that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
 
 \begin{definition} \label{def:standardmatoflintrans}
   
