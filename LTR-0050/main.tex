@@ -5,8 +5,7 @@
 
 \begin{document}
 \begin{abstract}
- % We define the image and kernel of a linear transformation and prove the Rank-Nullity Theorem for linear transformations.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 Note to Student:  In this module we will often use $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $V$ and $W$ as subspaces of $\RR^n$. 
@@ -70,7 +69,7 @@ So, the image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatr
 
 In Example \ref{ex:image1} we observed that the image of the linear transformation was equal to the column space of its standard matrix.  In general, it is easy to see that if $T:\RR^n\rightarrow \RR^m$ is a linear transformation with standard matrix $A$ then the following relationship holds:
 $$\mbox{im}(T)=\mbox{col}(A)$$
-In addition, by Theorem \ref{th:dimroweqdimcoleqrank} of VSP-0040, we know that
+In addition, by Theorem \ref{th:dimroweqdimcoleqrank} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}, we know that
 $$\mbox{dim}(\mbox{im}(T))=\mbox{dim}(\mbox{col}(A))=\mbox{rank}(A)$$
 
 
@@ -87,7 +86,7 @@ $$\begin{bmatrix}1 & 2 & 2 &-1 & 0\\-1 & 3 & 1 & 0 & -1\\3 & 0 & 0 & 3 & 6\\ 1 &
 
 We can see that $\mbox{rank}(A)=3$, so $\mbox{dim}(\mbox{im}(T))=3$.  
 
-To identify vectors that span $\mbox{im}(T)$, we turn to Procedure \ref{proc:colspace} of VSP-0040.  We identify the first three columns as pivot columns.  These columns are linearly independent and span $\mbox{col}(A)$.  Therefore,
+To identify vectors that span $\mbox{im}(T)$, we turn to Procedure \ref{proc:colspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}.  We identify the first three columns as pivot columns.  These columns are linearly independent and span $\mbox{col}(A)$.  Therefore,
 $$\mbox{im}(T)=\mbox{col}(A)=\mbox{span}\left(\begin{bmatrix}1\\-1\\3\\1\end{bmatrix}, \begin{bmatrix}2\\3\\0\\-1\end{bmatrix}, \begin{bmatrix}2\\1\\0\\1\end{bmatrix}\right)$$
 \end{explanation}
 \end{example}
@@ -176,7 +175,7 @@ $$\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}s+\begin{bmatrix}-2\\-1\\2\\0\\1\en
 We conclude that 
 $$\mbox{ker}(T)=\mbox{span}\left(\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}, \begin{bmatrix}-2\\-1\\2\\0\\1\end{bmatrix}\right)$$
 
-\ref{item:dimkernelT}  Since $\mbox{ker}(T)$ is the span of two vectors of $\RR^5$, we know that $\mbox{ker}(T)$ is a subspace of $\RR^5$ (Theorem \ref{th:span_is_subspace} of VSP-0020).  Observe that the two vectors in the spanning set are linearly independent. (How can we see this without performing computations?)  Therefore $\mbox{dim}(\mbox{ker}(T))=2$.
+\ref{item:dimkernelT}  Since $\mbox{ker}(T)$ is the span of two vectors of $\RR^5$, we know that $\mbox{ker}(T)$ is a subspace of $\RR^5$ (Theorem \ref{th:span_is_subspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0020/main}{Subspaces of $\RR^n$}).  Observe that the two vectors in the spanning set are linearly independent. (How can we see this without performing computations?)  Therefore $\mbox{dim}(\mbox{ker}(T))=2$.
 \end{explanation}
 \end{example}
 
@@ -184,7 +183,7 @@ $$\mbox{ker}(T)=\mbox{span}\left(\begin{bmatrix}-1\\-1\\2\\1\\0\end{bmatrix}, \b
 Recall that the \dfn{null space} of a matrix $A$ is defined to be set of all solutions to the homogeneous equation $A\vec{x}=\vec{0}$. This means that  if $T:\RR^n\rightarrow \RR^m$ is a linear transformation with standard matrix $A$ then
 $$\mbox{ker}(T)=\mbox{null}(A)$$
 
-We know that $\mbox{null}(A)$ of an $m\times n$ matrix is a subspace of $\RR^n$ (Theorem \ref{th:nullsubspacern} of VSP-0040).  We conclude this section by showing that even when vector spaces other than $\RR^n$ are involved, the kernel of a linear transformation is a subspace of the domain of the transformation.
+We know that $\mbox{null}(A)$ of an $m\times n$ matrix is a subspace of $\RR^n$ (Theorem \ref{th:nullsubspacern} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}).  We conclude this section by showing that even when vector spaces other than $\RR^n$ are involved, the kernel of a linear transformation is a subspace of the domain of the transformation.
 \begin{theorem}\label{th:kersubspace} Let $T:V\rightarrow W$ be a linear transformation, then $\mbox{ker}(T)$ is a subspace of $V$.
 \end{theorem}
 \begin{proof}
@@ -228,7 +227,7 @@ $$\mbox{rank}(T)=\mbox{dim}(\mbox{im}(T))=\mbox{dim}(\mbox{col}(A))=\mbox{rank}(
 and
 $$\mbox{nullity}(T)=\mbox{dim}(\mbox{ker}(T))=\mbox{dim}(\mbox{null}(A))=\mbox{nullity}(A)=2$$
 
-Because of Rank-Nullity Theorem for matrices (Theorem \ref{th:matrixranknullity} of VSP-0040), it is not surprising that 
+Because of Rank-Nullity Theorem for matrices (Theorem \ref{th:matrixranknullity} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}), it is not surprising that 
 $$\mbox{rank}(T)+\mbox{nullity}(T)=3+2=5=\mbox{dim}(\RR^5)$$
 
 
