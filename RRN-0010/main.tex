@@ -1,524 +1,323 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonality and Projections} \license{CC-BY 4.0}
+\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{A Brief Introduction to $\RR^n$} \license{CC-BY 4.0}
 
 \begin{document}
+
 \begin{abstract}
+ %We define $\RR^n$ and learn how to plot points in $\RR^3$.
 \end{abstract}
 \maketitle
-\section*{Orthogonality and Projections}
-\subsection*{Orthogonal and Orthonormal Sets}
-In this section, we examine what it means for vectors (and sets of
-vectors) to be orthogonal and orthonormal. Recall that two non-zero vectors are orthogonal if their dot product is zero.  (In $\RR^2$ and $\RR^3$ this means that two vectors are perpendicular.)  A collection of non-zero vectors in $\RR^n$ is called \dfn{orthogonal} if the vectors are pair-wise orthogonal.  The diagram below shows two orthogonal vectors in $\RR^2$ and three orthogonal vectors in $\RR^3$.
-\begin{center}
-\begin{tikzpicture}[scale=0.5]
-\draw[line width=0.5pt, dashed](-2,-0.5)--(2,-0.5)--(2,3.5)--(-2,3.5)--cycle;
-\draw[line width=2pt,red,-stealth](0,0)--(1.5,0.5);  
-\draw[line width=2pt,blue,-stealth](0,0)--(-1,3);
-\node[] at (-0.5, -1.5)  (p2)    {Orthogonal vectors in $\RR^2$};
- \end{tikzpicture}
- \quad\quad\quad
-\begin{tikzpicture}[scale=0.5]
-	\draw[line width=2pt,red,-stealth](0,0,0)--(4,1,0);
-    \draw[line width=2pt,blue,-stealth](0,0,0)--(-0.5,2,0);
-    \draw[line width=2pt,black,-stealth](0,0,0)--(0,0,5);
-    \node[] at (3, -3,1.5)  (p2)    {Orthogonal vectors in $\RR^3$};
-        \draw[-,line width=0.2mm, dashed](6.5,3.5,5.5)--(6.5,-1,5.5) ;
-    \draw[-,line width=0.2mm, dashed](6.5,3.5,5.5)--(-1,3.5,5.5) ;
-    \draw[-,line width=0.2mm, dashed](6.5,3.5,5.5)--(6.5,3.5,-1) ;
-    \draw[-,line width=0.2mm, dashed](-1,-1,5.5)--(6.5,-1,5.5) ;
-    \draw[-,line width=0.2mm, dashed](-1,-1,5.5)--(-1,3.5,5.5) ;
-    \draw[-,line width=0.2mm, dashed](6.5,-1,5.5)--(6.5,-1,-1) ;
-    \draw[-,line width=0.2mm, dashed](6.5,3.5,-1)--(6.5,-1,-1) ;
-    \draw[-,line width=0.2mm, dashed](6.5,3.5,-1)--(-1,3.5,-1) ;
-    \draw[-,line width=0.2mm, dashed](-1,3.5,5.5)--(-1,3.5,-1) ;
-        \end{tikzpicture}
-\end{center}
 
-If every vector in an orthogonal set of vectors is also a unit vector, then we say that the given set of vectors is \dfn{orthonormal}.
+\section*{A Brief Introduction to $\RR^n$}
+The set of all real numbers is denoted by $\RR$.  It is convenient to associate real numbers with points on a line, called the \dfn{real number line}.   
 
 \begin{center}
-\begin{tikzpicture}[scale=0.5]
-\draw[line width=2pt,red,-stealth](0,0)--(3,4);  
-\draw[line width=2pt,blue,-stealth](0,0)--(-4,3);
-\node[] at (-1, -1)  (p2)    {An orthonormal set of two vectors};
-\node[] at (-1.8, 2)  (p2)    {1};
-\node[] at (1.3, 2.5)  (p2)    {1};
- \end{tikzpicture}
- \quad\quad\quad
-%\tdplotsetmaincoords{70}{130}
-%\begin{tikzpicture}[scale=0.25]
-%	\draw[line width=2pt,red,-stealth](0,0,0)--(5,0,0);
- %   \draw[line width=2pt,blue,-stealth](0,0,0)--(0,5,0);
- %   \draw[line width=2pt,black,-stealth](0,0,0)--(0,0,5);
- %   \node[] at (3, -3,0)  (p2)    {Orthonormal vectors in $\RR^3$};
- %   \end{tikzpicture}
+\begin{tikzpicture}
+\draw[latex-latex] (-3.5,0) -- (3.5,0) ; %edit here for the axis
+\foreach \x in  {-3,-2,-1,0,1,2,3} % edit here for the vertical lines
+\draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+\foreach \x in {-3,-2,-1,0,1,2,3} % edit here for the numbers
+\draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] 
+{$\x$};
+\end{tikzpicture}
 \end{center}
 
-Formally, we can define orthogonal and orthonormal vectors as follows.
+The set of all ordered pairs $(x, y)$, where $x$ and $y$ are real numbers, is called $\RR^2$.  Using set notation we write:  
+$$\RR^2=\{(x, y):x,y\in \RR\}$$
+Geometrically speaking, $\RR^2$ can be associated with a coordinate plane in which we refer to each point by its $x$ and $y$ coordinates.
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\begin{axis}[
+x=1cm,y=1cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=-4.5,
+xmax=4.5,
+ymin=-3.5,
+ymax=3.5,
+xtick={-4,-3,...,4},
+ytick={-3,-2,...,3},]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+The set of all ordered triples $(x, y, z)$, where $x$, $y$ and $z$ are real numbers,  is called $\RR^3$.  
+$$\RR^3=\{(x, y, z):x,y, z\in \RR\}$$
+Geometrically, an ordered triple of $\RR^3$ is associated with a point of a three-dimensional space whose position is given by  $x$, $y$ and $z$ coordinates.
 
-\begin{definition}\label{orthset}
-Let $\{ \vec{v}_1, \vec{v}_2, \cdots, \vec{v}_k \}$ be a set of nonzero
-vectors in $\RR^n$. Then this set is called an
-\dfn{orthogonal set} if 
-$\vec{v}_i \dotp \vec{v}_j = 0$ for all $i \neq j$.
-Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
-\end{definition}
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}
+	\draw[->](-2,0,0)--(5,0,0) node[below left]{$y$};
+    \draw[->](0,-2,0)--(0,5,0) node[below left]{$z$};
+    \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
+    
+   \end{tikzpicture}
+\end{center}
 
-An orthogonal set of vectors may not be orthonormal.  To convert an orthogonal set to an orthonormal set, we need divide each vector by its own length.
+\begin{example}\label{ex:plotpointsr3} The following points are shown plotted in $\RR^3$.
 
-\begin{definition}\label{normalizing}
-\dfn{Normalizing} an orthogonal set is the process of turning an orthogonal set into an orthonormal set.
-If $\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}$
-is an orthogonal subset of $\RR^n$,
-then
-\[ \left\{
-\frac{1}{\norm{\vec{v}_1}}\vec{v}_1,
-\frac{1}{\norm{\vec{v}_2}}\vec{v}_2, \ldots,
-\frac{1}{\norm{\vec{v}_k}}\vec{v}_k \right\}
-\]
-is an orthonormal set.
-\end{definition}
+  \begin{enumerate}
+\item
+$P(6, 8, 7)$
+\item
+$Q(4, -6, 9)$
+\item
+$R(-3, 9, -10)$
+  \end{enumerate}
+  
+  
+  \begin{center}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
+% The axes
+\draw[->] (xyz cs:x=-13.5) -- (xyz cs:x=13.5) node[above] {$y$};
+\draw[->] (xyz cs:y=-13.5) -- (xyz cs:y=13.5) node[right] {$z$};
+\draw[->] (xyz cs:z=13.5)--(xyz cs:z=-13.5) node[below] {$x$} ;
+% The thin ticks
+\foreach \coo in {-13,-12,...,13}
+{
+  \draw (\coo,-1.5pt) -- (\coo,1.5pt);
+  \draw (-1.5pt,\coo) -- (1.5pt,\coo);
+  \draw (xyz cs:y=-0.15pt,z=\coo) -- (xyz cs:y=0.15pt,z=\coo);
+}
 
-We illustrate this concept in the following example.
+% Dashed lines for the points P
+\draw[dashed,red] 
+  (xyz cs:z=-6) -- 
+  +(0,7) coordinate (u) -- 
+  (xyz cs:y=7) -- 
+  +(8,0) -- 
+  ++(xyz cs:x=8,z=-6) coordinate (v) --
+  +(0,-7) coordinate (w) --
+  cycle;
+\draw[dashed,red] (u) -- (v);
+\draw[dashed,red] (8,7) -- (8,0) -- (w);
 
-\begin{example}\label{ex:orthonormalset}
-Consider the vectors
-\[
-\vec{v}_1=\begin{bmatrix}
-1 \\
-1
-\end{bmatrix},\quad \vec{v}_2  =
-\begin{bmatrix}
--1 \\
-1
-\end{bmatrix}
-\]
-Show that $\{\vec{v}_1,\vec{v}_2\}$ is an orthogonal set of vectors  but not an orthonormal one. Find the corresponding orthonormal set.
+% Dots and labels for P
+\node[fill,circle,inner sep=1.5pt,label={right:$P(6,8,7)$}] at (v) {};
 
-\begin{explanation}
-One easily verifies that $\vec{v}_1 \dotp \vec{v}_2 = 0$ and
-$\left\{ \vec{v}_1, \vec{v}_2 \right\}$ is an orthogonal set of
-vectors. On the other hand one can compute that ${\norm{\vec{v}_1}}= {\norm{\vec{v}_2}} =
-\sqrt{2} \neq 1$ and so the set is not orthonormal.
+% Dashed lines for the points Q
+\draw[dashed,blue] 
+  (xyz cs:z=-4) -- 
+  +(0,9) coordinate (u1) -- 
+  (xyz cs:y=9) -- 
+  +(-6,0) -- 
+  ++(xyz cs:x=-6,z=-4) coordinate (v1) --
+  +(0,-9) coordinate (w1) --
+  cycle;
+\draw[dashed,blue] (u1) -- (v1);
+\draw[dashed,blue] (-6,9) -- (-6,0) -- (w1);
 
-To find a corresponding orthonormal set, we need to
-normalize each vector. 
-\begin{eqnarray*}
-\vec{u}_1 &=& \frac{1}{\norm{\vec{v}_1}}\vec{v}_1\\
-&=& \frac{1}{\sqrt{2}} \begin{bmatrix}
-1 \\
-1
-\end{bmatrix} \\
-&=&
-\begin{bmatrix}
-\frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}}
-\end{bmatrix}
-\end{eqnarray*}
+% Dots and labels for Q
+\node[fill,circle,inner sep=1.5pt,label={left:$Q(4,-6,9)$}] at (v1) {};
 
-Similarly,
-\begin{eqnarray*}
-\vec{u}_2 &=& \frac{1}{\norm{\vec{v}_2}}\vec{v}_2\\
-&=& \frac{1}{\sqrt{2}} \begin{bmatrix}
--1 \\
-1
-\end{bmatrix} \\
-&=&
-\begin{bmatrix}
--\frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}}
-\end{bmatrix}
-\end{eqnarray*}
+% Dashed lines for the points R
+\draw[dashed] 
+  (xyz cs:z=3) -- 
+  +(0,-10) coordinate (u2) -- 
+  (xyz cs:y=-10) -- 
+  +(9,0) -- 
+  ++(xyz cs:x=9,z=3) coordinate (v2) --
+  +(0,10) coordinate (w2) --
+  cycle;
+\draw[dashed] (u2) -- (v2);
+\draw[dashed] (9,-10) -- (9,0) -- (w2);
 
-Therefore the corresponding orthonormal set is
-\[
-\left\{ \vec{u}_1, \vec{u}_2 \right\} =
-\left\{
-\begin{bmatrix}
-\frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}}
-\end{bmatrix},
-\begin{bmatrix}
--\frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}}
-\end{bmatrix}
-\right\}
-\]
+% Dots and labels for R
+\node[fill,circle,inner sep=1.5pt,label={right:$R(-3,9,-10)$}] at (v2) {};
 
-You can verify that this set is orthonormal.
-\end{explanation}
+\end{tikzpicture}
+\end{center}
 \end{example}
 
-\subsection*{Orthogonal and Orthonormal Bases}
-Recall that every basis of $\RR^n$ (or a subspace $W$ of $\RR^n$) imposes a coordinate system on $\RR^n$ (or $W$) that can be used to express any vector of $\RR^n$ (or $W$) as a linear combination of the elements of the basis.  For example, vectors $\vec{v}_1$ and $\vec{v}_2$ impose a coordinate system onto the plane, as shown in the figure below.  We readily see that $\vec{x}$, contained in the plane, can be written as $\vec{x}=\vec{v}_1+2\vec{v}_2$.
+Each pair of axes in $\RR^3$ determines a plane. The resulting three planes are called \dfn{coordinate planes}.  Each coordinate plane is named after the axes that determine it.  Thus, we have the $xy$-plane, $xz$-plane, and $yz$-plane.  Coordinate planes intersect at the point $(0, 0, 0)$, called the \dfn{origin}, and subdivide $\RR^3$ into eight regions, called \dfn{octants}. 
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}
+	\draw[->](-3,0,0)--(5,0,0) node[below left]{$y$};
+    \draw[->](0,-2,0)--(0,5,0) node[below left]{$z$};
+    \draw[->](0,0,-2)--(0,0,5) node[below left]{$x$};
+       
+    \filldraw[blue!30!white] (0,0,0)--(0,0,-2)--(4,0,-2)--(4,0,0)--cycle;
+   \filldraw[blue!50!white] (0,-1,-2)--(0, 4, -2)--(0,4,0)--(0,-1,0)--cycle;
+    \filldraw[blue!40!white] (-2,4,0)--(4,4,0)node[black, below left]{$yz$-plane}--(4,-1,0)--(-2,-1,0)--cycle;
+    \filldraw[blue!30!white] (0,0,0)--(0,0,4)--(-2,0,4)--(-2,0,0)--cycle;
+    \filldraw[blue!50!white] (0,-1,0)--(0, 4, 0)--(0,4,4)node[black, below right]{$xz$-plane}--(0,-1,4)--cycle;
+    \filldraw[blue!30!white] (0,0,0)--(0,0,4)--(4,0,4)node[black, above left]{$xy$-plane}--(4,0,0)--cycle;
+     
+     \node[fill,circle,inner sep=1.5pt,label={right:$(0,0,0)$}] at (0,0,0) {};
+\end{tikzpicture}
+\end{center}
+
+
+
+The set of all ordered $n$-tuples $(x_1, x_2, \ldots, x_n)$, where $x_i$ is a real number for $1\leq i\leq n$ is called $\RR^n$.
+$$\RR^n=\{(x_1, x_2,\ldots,x_n)|x_i\in \RR\, \text{for}\, 1\leq i\leq n\}$$
+The point $(0,0,\ldots, 0)$ in $\RR^n$ is called the \dfn{origin}. 
+
+$\RR^n$ cannot be visualized for $n>3$, but many familiar ideas, such as the distance formula, can be generalized to $\RR^n$. 
+
+\subsection*{Distance in $\RR^n$}
+In this section we will establish a formula for the distance between two points in $\RR^n$.  We begin by observing that the distance between two numbers (points) $x_1$ and $x_2$ on the number line is given by $|x_1-x_2|$.  (Why do we use the absolute value brackets?).
+
+We can use the Pythagorean Theorem to establish the distance formula for points of $\RR^2$.
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
-\draw[line width=0.5pt, gray](-2,1)--(0.5,6);  
-\draw[line width=0.5pt, gray](-1,-2)--(3,6);
-\draw[line width=0.5pt, gray](1.5,-2)--(5.5,6);
-\draw[line width=0.5pt, gray](4,-2)--(8,6);
-\draw[line width=0.5pt, gray](6.5,-2)--(8,1);
-\draw[line width=0.5pt, gray](-2, 4.33)--(3,6);
-\draw[line width=0.5pt, gray](-2, 2.66)--(8,6);
-\draw[line width=0.5pt, gray](-2, 1)--(8,4.33);
-\draw[line width=0.5pt, gray](-2, -0.66)--(8,2.66);
-\draw[line width=0.5pt, gray](-1, -2)--(8,1);
-\draw[line width=0.5pt, gray](4,-2)--(8,-0.66);
- \draw[line width=2pt,blue,-stealth](0,0)--(1,2);
-\draw[line width=2pt,red,-stealth](0,0)--(3,1);
-\draw[line width=2pt,-stealth](0,0)--(7,4);
-\node[blue] at (0.5, 1.5)  (p2)    {$\vec{v}_1$};
-\node[red] at (1.6, 0.2)  (p2)    {$\vec{v}_2$};
-\node[] at (3.5, 2.3)  (p2)    {$\vec{x}$};
-\node[] at (-0.2, 0.2)  (p2)    {$\vec{O}$};
- \end{tikzpicture}
- \end{center}
-Vector $\vec{x}$ is visually easy to work with.  In general, one way to express an arbitrary vector as a linear combination of the basis vectors is to solve a system of linear equations, which can be costly.  One reason we like $\{\vec{i},\vec{j}\}$ as a basis of $\RR^2$ is because any vector $\vec{x}$ of $\RR^2$ can be easily expressed as the sum of the orthogonal projections of $\vec{x}$ onto the basis vectors $\vec{i}$ and $\vec{j}$, as shown below.
-\begin{center}
-\begin{tikzpicture}[scale=1.4]
- \draw[<->] (-1,0)--(3.5,0);
-  \draw[<->] (0,-1)--(0,3.5);
-  \draw[line width=6pt,-stealth, black!20!white](0,0)--(2,0);
-  \draw[line width=6pt,-stealth, black!20!white](0,0)--(0,3);
-\draw[line width=2pt,red,-stealth](0,0)--(1,0);  
-\draw[line width=2pt,blue,-stealth](0,0)--(0,1);
-\draw[line width=2pt,-stealth](0,0)--(2,3);  
-\draw[line width=0.5pt,dashed](2,3)--(2,0);  
-\draw[line width=0.5pt,dashed](2,3)--(0,3); 
-\node[] at (1.7, -0.4)  (p2)    {$\mbox{proj}_{\vec{i}}\vec{x}$};
-\node[] at (-0.7, 2.5)  (p2)    {$\mbox{proj}_{\vec{j}}\vec{x}$};
-\node[] at (3, 3.1)  (p2)    {$\vec{x}=\mbox{proj}_{\vec{i}}\vec{x}+\mbox{proj}_{\vec{j}}\vec{x}$};
-\node[red] at (0.5, -0.3)  (p2)    {$\vec{i}$};
-\node[blue] at (-0.3, 0.5)  (p2)    {$\vec{j}$};
+  \draw[line width=2pt,black](-1,0)--(5,0);
+\draw[line width=2pt,black](0,-1)--(0,3);
+    \draw[line width=1pt](1, 1)--(4,2.5);
+ \fill (1,1)node[below right]{$A(x_1,y_1)$} circle (1.1mm);
+\fill (4, 2.5)node[above]{$B(x_2,y_2)$} circle (1.1mm);
+\draw[line width=1pt, dashed](1,1)--(1,0);
+   \draw[line width=1pt, dashed](1,1)--(0,1);
+   \draw[line width=1pt, dashed](4,2.5)--(4,0);
+   \draw[line width=1pt, dashed](4, 2.5)--(0,2.5);
+   \filldraw[blue, opacity=0.3](1,1)--(4,1)--(4,2.5)--cycle;
+    \node[black] at (2.5, -0.4)   (a) {$|x_1-x_2|$};
+    \node[black] at (-0.9, 1.7)   (a) {$|y_1-y_2|$};
  \end{tikzpicture}
 \end{center}
 
-We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ works well.  What if we tilt this coordinate system while preserving the orthogonal relationship between the basis vectors?  The following exploration allows you to investigate the consequences.
+Let $A(x_1, y_1)$ and $B(x_2, y_2)$ be points in $\RR^2$.  By the Pythagorean Theorem we have
+$$AB^2=(x_1-x_2)^2+(y_1-y_2)^2$$
+$$AB=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$$
+Why were we able to drop the absolute value brackets?
 
-\begin{exploration}\label{exp:orth1}
-    In the following GeoGebra interactive, vectors $\vec{v}_1$ and $\vec{v}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors are clearly linearly independent and span $\RR^2$.  Therefore $\{\vec{v}_1,\vec{v}_2\}$ is a basis of $\RR^2$.  
-    
-    Let $\vec{x}$ be an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ are depicted in light grey.
-    \begin{itemize}
-           \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
-        \item Use the tips of $\vec{v}_1$ and $\vec{v}_2$ to change the basis vectors.  What happens when $\vec{v}_1$ and $\vec{v}_2$ are no longer orthogonal?
-        \item Pick another pair of orthogonal vectors $\vec{v}_1$ and $\vec{v}_2$.  Verify that $\vec{x}$ is the sum of its projections.
-    \end{itemize}
+The distance formula for points in $\RR^3$ can also be derived using the Pythagorean Theorem.  Let $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$ be points of $\RR^3$.  Use the navigation bar in the following GeoGebra interactive to walk through the steps of the derivation of the distance formula.
 
-    \begin{center}
-\geogebra{nsqzhsxv}{800}{600}
-\end{center}
-\end{exploration}
-
-
-As you have just discovered in Exploration \ref{exp:orth1}, we can express an arbitrary vector of $\RR^2$ as the sum of its projections onto the basis vectors, provided that the basis is orthogonal. It turns out that this result holds for any subspace of $\RR^n$, making a basis consisting of orthogonal vectors especially useful. 
-
-If an orthogonal set is a basis for a subspace, we call it an
-\dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
-
-
-The following theorem generalizes our observation in Exploration \ref{exp:orth1}.  As you read the statement of the theorem, it will be helpful to recall that the orthogonal projection of vector $\vec{x}$ onto a non-zero vector $\vec{d}$ is given by
-\begin{equation}\label{eq:orthProj}
-\mbox{proj}_{\vec{d}}\vec{x}=\left(\frac{\vec{x}\cdot\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}
-\end{equation}
-(See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Orthogonal Projections}.)
-
-\begin{theorem}\label{th:fourierexpansion}
-Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{f}_1, \vec{f}_2, \ldots, \vec{f}_m \}$
-is an orthogonal basis of $W$.
-Then for every $\vec{x}$ in $W$,
-\begin{equation}
-\vec{x} =
-\left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
-\left(\frac{\vec{x}\dotp \vec{f}_2}{\norm{\vec{f}_2}^2}\right) \vec{f}_2 +
-\cdots +
-\left(\frac{\vec{x}\dotp \vec{f}_m}{\norm{\vec{f}_m}^2}\right) \vec{f}_m.
-\end{equation}\label{FourierEqn}
-\end{theorem}
-
-\begin{proof}
-We may express $\vec{x}$ as a linear combination of the basis elements:
-\[ \vec{x} =
-c_1 \vec{f}_1 +
-c_2 \vec{f}_2 +
-\cdots +
-c_m \vec{f}_m.
-\]
-We claim that $c_i = \frac{\vec{x}\dotp \vec{f}_i}{\norm{\vec{f}_i}^2}$ for $i=1,\ldots,m$. To see this, we take the dot product of
-each side with the vector $\vec{f}_i$ and obtain the following.
-
-\begin{equation*}
-  \vec{x} \dotp \vec{f}_i =  \left(c_1\vec{f}_1 +
-c_2\vec{f}_2 +
-\cdots +
-c_m\vec{f}_m\right) \dotp \vec{f}_i 
-\end{equation*}
-Our basis is orthogonal, so $\vec{f}_j \dotp \vec{f}_i = 0$ for all $j \neq i$, which means after we distribute the dot product, only one term will remain on the right-hand side.  We have 
-\begin{equation*}
-  \vec{x} \dotp \vec{f}_i =  c_i\vec{f}_i \dotp \vec{f}_i 
-\end{equation*}
-
-We now divide both sides by $\vec{f}_i \dotp \vec{f}_i = \norm{\vec{f}_i}^2$, and since our claim holds for $i=1,\ldots,m$, the proof is complete.
-\end{proof}
-
-Theorem~\ref{th:fourierexpansion} shows one important benefit of a basis being orthogonal.  With an orthogonal basis it is easy to represent any vector in terms of the basis vectors.  
-
-\begin{example}\label{fourier}
-Let
-$\vec{f}_1= \begin{bmatrix}
-1 \\ -1 \\ 2
-\end{bmatrix},
-\vec{f}_2= \begin{bmatrix}
-0 \\ 2 \\ 1 
-\end{bmatrix},
-\vec{f}_3 =\begin{bmatrix}
-5 \\ 1 \\ -2
-\end{bmatrix}$,
-and let
-$\vec{x} =\begin{bmatrix}
-1 \\ 1 \\ 1
-\end{bmatrix}$.  
-
-Notice that $\mathcal{B}=\{ \vec{f}_1, \vec{f}_2, \vec{f}_3\}$
-is an orthogonal set of vectors, and $\mathcal{B}$ spans $\RR^3$.  Use this fact to write $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.
-
-\begin{explanation}
-We first observe that $\mathcal{B}$ is a linearly independent set of vectors, and so $\mathcal{B}$ is a basis for $\RR^3$. Next we apply Theorem~\ref{th:fourierexpansion} to express $\vec{x}$ as  a linear combination of the vectors of $\mathcal{B}$.  We wish to write:
-
-\[
-\vec{x}   =
-\left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
-\left(\frac{\vec{x}\dotp \vec{f}_2}{\norm{\vec{f}_2}^2}\right) \vec{f}_2 +
-\left(\frac{\vec{x}\dotp \vec{f}_3}{\norm{\vec{f}_3}^2}\right) \vec{f}_3.
-\]
-
-We readily compute:
-
-\[
-\frac{\vec{x}\dotp\vec{f}_1}{\norm{\vec{f}_1}^2} = \frac{2}{6}, \;
-\frac{\vec{x}\dotp\vec{f}_2}{\norm{\vec{f}_2}^2} = \frac{3}{5},
-\mbox{ and }
-\frac{\vec{x}\dotp\vec{f}_3}{\norm{\vec{f}_3}^2} = \frac{4}{30}.\]
-
-Therefore,
-\[ \begin{bmatrix}
-1 \\ 1 \\ 1
-\end{bmatrix}
-= \frac{1}{3}\begin{bmatrix}
-1 \\ -1 \\ 2
-\end{bmatrix}
-+\frac{3}{5}\begin{bmatrix}
-0 \\ 2 \\ 1
-\end{bmatrix}
-+\frac{2}{15}\begin{bmatrix}
-5 \\ 1 \\ -2
-\end{bmatrix}.\]
-\end{explanation} 
-\end{example}
-
-The formula from Theorem~\ref{th:fourierexpansion} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
-
-\begin{corollary}\label{cor:orthonormal}
-Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
-is an orthonormal basis of $W$.
-Then for any $\vec{x}$ in $W$,
-\[ \vec{x} =
-\left(\vec{x}\dotp \vec{u}_1\right) \vec{u}_1 +
-\left(\vec{x}\dotp \vec{u}_2\right) \vec{u}_2 +
-\cdots +
-\left(\vec{x}\dotp \vec{u}_m\right)  \vec{u}_m.
-\]
-\end{corollary}
-\begin{proof}
-This is a special case of Theorem \ref{th:fourierexpansion}.  Because $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,m$, %where we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in this case 
-the terms are given by 
-$$\left(\frac{\vec{x}\cdot \vec{u}_i}{\norm{\vec{u}_i}^2}\right)\vec{u}_i=\left(\vec{x}\dotp \vec{u}_i\right) \vec{u}_i.$$
-
-\end{proof}
-
-\subsection*{Orthogonal Projection onto a Subspace}
-In the previous section we found that given a subspace $W$ of $\RR^n$ with an orthogonal basis $\mathcal{B}$, every vector $\vec{x}$ in $W$ can be expressed as the sum of the orthogonal projections of $\vec{x}$ onto the elements of $\mathcal{B}$.  Note that our premise was that $\vec{x}$ is in $W$.  In this section, we look into the meaning of the sum of orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $W$ for those vectors $\vec{x}$ of $\RR^n$ that are \emph{not} in $W$.
-
-\begin{exploration}\label{exp:orthProjSub}
-In the GeoGebra interactive below, $W$ is a plane spanned by $\vec{v}_1$ and $\vec{v}_2$, in $\RR^3$.  $W$ is subspace of $\RR^3$.  In the initial set up, $\vec{v}_1$ and $\vec{v}_2$ are orthogonal.  Vector $\vec{x}$ is not in $W$.  
-
-Use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$.  RIGHT-CLICK and DRAG to rotate the image.   
-\begin{center}
-\geogebra{hehqyayz}{950}{800}
+\begin{center} 
+\geogebra{dc267r6v}{800}{600} 
 \end{center}
 
-\begin{question}
-If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position (set $s_1=s_2=0$) to ensure that they are orthogonal.  
-
-\begin{itemize}
-\item Rotate the image to convince yourself that the perpendiculars dropped from the tip of $\vec{x}$ to $\vec{v}_1$ and $\vec{v}_2$ are indeed perpendicular to $\vec{v}_1$ and $\vec{v}_2$ in the diagram. (You'll have to look at it just right to convince yourself of this.)  Are both of these perpendiculars also necessarily perpendicular to the plane? \wordChoice{\choice{Yes}, \choice[correct]{No}}
-
-\item Use sliders $x_1, x_2$ and $x_3$ to manipulate $\vec{x}$.  Rotate the figure for a better view.  What is true about about vector $\vec{p}$?
-    
-    \begin{multipleChoice}
- \choice{$\vec{p}=\vec{x}-(\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x})$.}
- \choice{Vector $\vec{p}$ is orthogonal to $W$.}
- \choice[correct]{All of the above.}
- \end{multipleChoice}
- 
-  \item Rotate the figure so that you're looking directly down at the plane.  If you're looking at it correctly, you will notice that (1) the parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle; (2) the sum of projections of $\vec{x}$ onto the basis vectors, $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$, is located directly underneath $\vec{x}$, like a shadow at midday.
- \end{itemize} 
- \end{question}
-
- \begin{question}
- Use sliders $s_1$ and $s_2$ to manipulate the basis vectors $\vec{v}_1$ and $\vec{v}_2$ so that they are no longer orthogonal.  
-
-\begin{itemize}
- \item 
- Rotate the figure for a better view.  Which of the following is true?
- \begin{multipleChoice}
- \choice[correct]{$\vec{p}=\vec{x}-(\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x})$.}
- \choice{Vector $\vec{p}$ is orthogonal to $W$.}
-  \choice{All of the above.}
- \end{multipleChoice}
- \item
- Rotate your figure so that you're looking directly down at the plane. Which of the following is true?
- \begin{multipleChoice}
- \choice{Parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle.}
- \choice{$\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ is located directly underneath $\vec{x}$.}
-  \choice[correct]{None of the above.}
- \end{multipleChoice}
-\end{itemize}
-\end{question}
-\end{exploration}
-
-In Exploration \ref{exp:orthProjSub}, you discovered that given a plane, spanned by orthogonal vectors $\vec{v}_1,\vec{v}_2$, in $\RR^3$, and a vector $\vec{x}$, not in the plane, we can interpret the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ as a ``shadow" of $\vec{x}$ that lies in the plane directly underneath the vector $\vec{x}$. We say that this ``shadow" is an \dfn{orthogonal projection of $\vec{x}$ onto $W$}. You have also found that if $\vec{v}_1,\vec{v}_2$ are not orthogonal, the parallelogram representing the sum of the orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ will not be a rectangle.  In this case, $\vec{x}$ minus this sum will NOT be orthogonal to the plane.  It is essential that $\vec{v}_1,\vec{v}_2$ are orthogonal for $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ to be considered an orthogonal projection.  
-
-In general, we can define an orthogonal projection of $\vec{x}$ in $\RR^n$ onto a subspace $W$ of $\RR^n$ as the sum of the orthogonal projections of $\vec{x}$ onto the elements of an orthogonal basis of $W$.  %We denote such a projection by $\mbox{proj}_V(\vec{x})$. An important aspect of this definition is that it allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}$, onto $W$ and a vector orthogonal to $\vec{w}$, called $\vec{w}^\perp$.  
-Definition \ref{def:projOntoSubspace} and the subsequent diagram summarize this discussion.
-
-
-\begin{definition}[Projection onto a Subspace of $\RR^n$]\label{def:projOntoSubspace}
-Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. If $\vec{x}$ is in $\RR^n$, the vector
-\begin{equation}
-\vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
-\end{equation}\label{def:projectontoWeasy}
-is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$.  %The vector $\vec{x}-\vec{w}$ is called the \dfn{component of $\vec{x}$ orthogonal to $\vec{w}$}.  We will write $\vec{w}^\perp = \vec{x}-\vec{w}$.
-\end{definition}
-
-An illustration of Definition \ref{def:projOntoSubspace} for a two-dimensional subspace $W$ with orthogonal basis $\{\vec{f}_1,\vec{f}_2\}$ is shown below.
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=0.8]
-\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(6,0,0) ;
-\draw[->,line width=0.4mm, -stealth, blue](0,0,0)--(0,0,6) ;
-\node[label={above:$\vec{f}_1$}] at (6,0,0) {};
-\node[label={above:$W$}] at (5.2,0,5) {};
-\node[label={left:$\vec{f}_2$}] at (0,0,6) {};
-\node[label={above:$\vec{x}$}] at (2,1.5,2) {};
-\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
-\draw[-,line width=0.2mm, dashed](4,3,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](0,0,4)--(4,0,4) ;
-    \draw[-,line width=0.2mm, dashed](4,0,4)--(4,0,0) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(0,0,4) ;
-    \draw[->,line width=1.5mm, -stealth, black,opacity=0.4](0,0,0)--(4,0,0) ;
-   \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,3,4) ;
-    \draw[->,line width=1.5mm, -stealth, red,opacity=0.2](0,0,0)--(4,0,4) ;
-    \node[label={below:$\vec{w}=\mbox{proj}_W\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}$}] at (3,-1,3) {};
-      \end{tikzpicture}
-\end{center}
-
-Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$ in Definition \ref{def:projOntoSubspace} using the following formula.
-\begin{formula}\label{form:orthProjOntoW}
-\begin{equation}
-\vec{w} = \mbox{proj}_W(\vec{x}) =\frac{\vec{x} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} + \frac{\vec{x} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2}+ \dots +\frac{\vec{x} \dotp \vec{f}_{m}}{\norm{\vec{f}_{m}}^2}\vec{f}_{m}
-\end{equation}\label{def:projectontoW}
+\begin{formula}\label{form:distR3}
+Let $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$ be points in $\RR^3$.  The distance between $A$ and $B$ is given by
+$$AB=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}$$
 \end{formula}
 
-\subsection*{Orthogonal Decomposition of $\vec{x}$}
-Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_W\vec{x}$ located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-	\begin{tikzpicture}[scale=0.8]
-\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
-\node[label={above:$\vec{x}$}] at (2,1.5,2) {};
-\node[label={above:$\vec{w}$}] at (2.2,0,3.5) {};
-\node[label={above:$\vec{w}^{\perp}$}] at (5.3,2.2,6) {};
-\draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,3,4) ;
-    \draw[->,line width=1.5mm, -stealth, red,opacity=0.2](0,0,0)--(4,0,4) ;
-\draw[->,line width=1.5mm, -stealth, red,opacity=0.2](4,0,4)--(4,3,4) ;
-    \node[label={below:$\vec{x}=\vec{w}+\vec{w}^{\perp}$}] at (3,-1,3) {};
-    \node[label={above:$W$}] at (5,0,1.9) {};
-      \end{tikzpicture}
-          
-     \end{center}
-You have already met $\vec{w}^\perp$, under the name of $\vec{p}$ in Exploration \ref{exp:orthProjSub}, and observed that this vector is orthogonal to $W$. We will now prove that $\vec{w}^\perp$ is orthogonal to every vector in $W$.  This will be accomplished in two steps.  First, in Theorem \ref{th:orthDecompX} we will prove that $\vec{w}^\perp$ is orthogonal to all of the basis elements of $W$. Next, you will use this result to demonstrate that $\vec{w}^\perp$ is orthogonal to every vector in $W$.
+Observe the similarity of pattern in the distance formulas for $\RR^1$, $\RR^2$ and $\RR^3$.  We will take advantage of this pattern to define the distance between two points of $\RR^n$.
 
-\begin{theorem}\label{th:orthDecompX}
-Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. Let $\vec{x}$ be in $\RR^n$, and define $\vec{w}^\perp$ as
-\begin{equation*}
-\vec{w}^\perp=\vec{x}-\mbox{proj}_W\vec{x} = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
-\end{equation*}
-Then $\vec{w}^\perp$ is orthogonal to $\vec{f}_i$ for $1\leq i\leq m$.
-\end{theorem}
-\begin{proof}
-We will use Formula \ref{form:orthProjOntoW} to show that $\vec{w}^\perp\cdot \vec{f}_i$=0.  Recall that $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$ is an orthogonal basis.  Therefore $\vec{f}_j\dotp\vec{f}_i=0$ for $i\neq j$.  This observation enables us to compute as follows.
-\begin{eqnarray*}
-\vec{w}^\perp\cdot \vec{f}_i&=&\left[\vec{x}-\left(\frac{\vec{x} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} +\dots + \frac{\vec{x} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\vec{f}_{i}+ \dots +\frac{\vec{x} \dotp \vec{f}_{m}}{\norm{\vec{f}_{m}}^2}\vec{f}_{m}\right)\right]\cdot \vec{f}_i\\
-& =& \vec{x}\dotp \vec{f}_i- \frac{\vec{x} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}(\vec{f}_{i}\dotp\vec{f}_i)\\
-&=& \vec{x}\dotp \vec{f}_i- \frac{\vec{x} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\norm{\vec{f}_{i}}^2=\vec{x}\dotp \vec{f}_i-\vec{x}\dotp \vec{f}_i=0
-\end{eqnarray*}
-\end{proof}
-
-We leave the proof of the following Corollary as Practice Problem \ref{prob:proofCor}
-\begin{corollary}\label{cor:orthProjOntoW}
-Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. Let $\vec{x}$ be in $\RR^n$, and define $\vec{w}^\perp$ as
-\begin{equation*}
-\vec{w}^\perp=\vec{x}-\mbox{proj}_W\vec{x} = \vec{x}-(\mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x})
-\end{equation*}
-Then $\vec{w}^\perp$ is orthogonal to every vector in $W$.
-\end{corollary}
+\begin{formula}\label{form:distRn}
+Let $A(a_1, a_2,\ldots ,a_n)$ and $B(b_1, b_2,\ldots ,b_n)$ be points in $\RR^n$.  The distance between $A$ and $B$ is given by
+$$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
+\end{formula}
 
 
-
-The fact that the decomposition of $\vec{x}$ into the sum of $\vec{w}$ and $\vec{w}^\perp$ is unique is the subject of the Orthogonal Decomposition Theorem which we will prove in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0020/main}{Orthogonal Complements and Decompositions}.
-
-Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0015/main}{the next section}.
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:rref_way}
-Retry Example~\ref{fourier} using Gaussian elimination.  Is the method of Example~\ref{fourier} more efficient?
-\end{problem}
-\begin{problem}\label{prob:vec_eq_0}
-    Let $\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\in\RR^n$ and
-suppose $\mbox{span}\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\}=\RR^n$.
-Furthermore, suppose that there exists a vector $\vec{v}\in\RR^n$ for which $\vec{v}\dotp \vec{x}_j=0$ for all $j$, $1\leq j\leq k$.
-Show that $\vec{v}=\vec{0}$.
+\begin{problem}\label{prob:plotpointsr3}
+Find the coordinates of each point.
+
+  \begin{center}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm]
+% The axes
+\draw[->] (xyz cs:x=-13.5) -- (xyz cs:x=13.5) node[above] {$y$};
+\draw[->] (xyz cs:y=-13.5) -- (xyz cs:y=13.5) node[right] {$z$};
+\draw[->] (xyz cs:z=13.5)--(xyz cs:z=-13.5) node[below] {$x$} ;
+% The thin ticks
+\foreach \coo in {-13,-12,...,13}
+{
+  \draw (\coo,-1.5pt) -- (\coo,1.5pt);
+  \draw (-1.5pt,\coo) -- (1.5pt,\coo);
+  \draw (xyz cs:y=-0.15pt,z=\coo) -- (xyz cs:y=0.15pt,z=\coo);
+}
+
+% Dashed lines for the points P
+\draw[dashed,red] 
+  (xyz cs:z=-5) -- 
+  +(0,10) coordinate (u) -- 
+  (xyz cs:y=10) -- 
+  +(5,0) -- 
+  ++(xyz cs:x=5,z=-5) coordinate (v) --
+  +(0,-10) coordinate (w) --
+  cycle;
+\draw[dashed,red] (u) -- (v);
+\draw[dashed,red] (5,10) -- (5,0) -- (w);
+
+% Dots and labels for P
+\node[fill,circle,inner sep=1.5pt,label={right:$P$}] at (v) {};
+
+% Dashed lines for the points Q
+\draw[dashed,blue] 
+  (xyz cs:z=6) -- 
+  +(0,2) coordinate (u1) -- 
+  (xyz cs:y=2) -- 
+  +(3,0) -- 
+  ++(xyz cs:x=3,z=6) coordinate (v1) --
+  +(0,-2) coordinate (w1) --
+  cycle;
+\draw[dashed,blue] (u1) -- (v1);
+\draw[dashed,blue] (3,2) -- (3,0) -- (w1);
+
+% Dots and labels for Q
+\node[fill,circle,inner sep=1.5pt,label={right:$Q$}] at (v1) {};
+
+% Dashed lines for the points R
+\draw[dashed] 
+  (xyz cs:z=-3) -- 
+  +(0,-8) coordinate (u2) -- 
+  (xyz cs:y=-8) -- 
+  +(-5,0) -- 
+  ++(xyz cs:x=-5,z=-3) coordinate (v2) --
+  +(0,8) coordinate (w2) --
+  cycle;
+\draw[dashed] (u2) -- (v2);
+\draw[dashed] (-5,-8) -- (-5,0) -- (w2);
+
+% Dots and labels for R
+\node[fill,circle,inner sep=1.5pt,label={left:$R$}] at (v2) {};
+
+\end{tikzpicture}
+\end{center}
+Answer:
+  $$P(\answer{5}, \answer{5}, \answer{10})$$
+ 
+  $$Q(\answer{-6}, \answer{3}, \answer{2})$$
+
+  $$R(\answer{3}, \answer{-5}, \answer{-8})$$
+
 \end{problem}
 
-\begin{problem}
-Let $\vec{x} = (1, -2, 1, 6)$ in $\RR^4$, and let $W = \mbox{span}\left((2, 1, 3, -4), (1, 2, 0, 1)\right)$.
-\begin{problem}\label{OrthoProj1.1}
-Compute $\mbox{proj}_W(\vec{x})$.
-%ANSWER:  $\frac{1}{10}(-9,3,-21,33) = \frac{3}{10}(-3,1,-7,11)$ 
-\end{problem}
+\begin{problem}\label{prob:geogebrapts}
+Right-click and drag to rotate the image below.  
+\begin{center} 
+\geogebra{bynu3r84}{800}{600} 
+\end{center}
+Find the coordinates of each point.
 
-\begin{problem}\label{OrthoProj1.2}
-Show that $\{(1, 0, 2, -3), (4, 7, 1, 2)\}$ is another orthogonal basis of $W$.
-\end{problem}
+Answer:
+  $$A(\answer{-1}, \answer{4}, \answer{2})$$
+ 
+  $$B(\answer{3}, \answer{2}, \answer{-3})$$
 
-\begin{problem}\label{OrthoProj1.3}
-Use the basis in part (b) to compute $\mbox{proj}_W(\vec{x})$.
-%ANSWER:  $\frac{1}{70}(-63,21,-147,231) = \frac{3}{10}(-3,1,-7,11)$
-\end{problem}
-
-\end{problem}
-\begin{problem}\label{prob:proofCor}
-Prove Corollary \ref{cor:orthProjOntoW}
-\end{problem}
+  $$C(\answer{2}, \answer{-5}, \answer{3})$$
   
-\section*{Text Source}
-A portion of the text in this module is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+  $$D(\answer{-3}, \answer{-2}, \answer{4})$$
 
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 233-238.  
+\end{problem}
 
-\end{document}
+\begin{problem}\label{prob:distR3}
+Find the distance between $A(-2, -1, 4)$ and $B(1, -5, -8)$.
+$$AB=\answer{13}$$
+\end{problem}
+
+\begin{problem}\label{prob:distR4}
+Consider the equation 
+$$x^2+y^2+z^2+w^2=25$$
+
+What can be said about all points $(x, y, z, w)\in \RR^4$ that satisfy this equation?
+
+\begin{multipleChoice}
+ \choice{Such points are equidistant from the origin.}
+ \choice{Such points form a four-dimensional sphere of radius $5$.}
+ \choice{Such points are located 5 units from the origin.}
+ \choice[correct]{All of the above.}
+  \end{multipleChoice}
+
+
+\end{problem}
+
+\end{document} 

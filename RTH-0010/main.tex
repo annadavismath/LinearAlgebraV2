@@ -202,11 +202,11 @@ We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ 
     In the following GeoGebra interactive, vectors $\vec{v}_1$ and $\vec{v}_2$ are orthogonal (slopes of the lines containing them are negative reciprocals of each other).  These vectors are clearly linearly independent and span $\RR^2$.  Therefore $\{\vec{v}_1,\vec{v}_2\}$ is a basis of $\RR^2$.  
     
     Let $\vec{x}$ be an arbitrary vector.  Orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ are depicted in light grey.
-    \begin{enumerate}
-        \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
+    \begin{itemize}
+           \item Use the tip of vector $\vec{x}$ to manipulate the vector and convince yourself that $\vec{x}$ is always the diagonal of the parallelogram (a rectangle!) determined by the projections.
         \item Use the tips of $\vec{v}_1$ and $\vec{v}_2$ to change the basis vectors.  What happens when $\vec{v}_1$ and $\vec{v}_2$ are no longer orthogonal?
         \item Pick another pair of orthogonal vectors $\vec{v}_1$ and $\vec{v}_2$.  Verify that $\vec{x}$ is the sum of its projections.
-    \end{enumerate}
+    \end{itemize}
 
     \begin{center}
 \geogebra{nsqzhsxv}{800}{600}
@@ -346,13 +346,14 @@ In the previous section we found that given a subspace $W$ of $\RR^n$ with an or
 In the GeoGebra interactive below, $W$ is a plane spanned by $\vec{v}_1$ and $\vec{v}_2$, in $\RR^3$.  $W$ is subspace of $\RR^3$.  In the initial set up, $\vec{v}_1$ and $\vec{v}_2$ are orthogonal.  Vector $\vec{x}$ is not in $W$.  
 
 Use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$.  RIGHT-CLICK and DRAG to rotate the image.   
-    \begin{center}
+\begin{center}
 \geogebra{hehqyayz}{950}{800}
 \end{center}
 
+\begin{question}
 If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position (set $s_1=s_2=0$) to ensure that they are orthogonal.  
 
-\begin{enumerate}
+\begin{itemize}
 \item Rotate the image to convince yourself that the perpendiculars dropped from the tip of $\vec{x}$ to $\vec{v}_1$ and $\vec{v}_2$ are indeed perpendicular to $\vec{v}_1$ and $\vec{v}_2$ in the diagram. (You'll have to look at it just right to convince yourself of this.)  Are both of these perpendiculars also necessarily perpendicular to the plane? \wordChoice{\choice{Yes}, \choice[correct]{No}}
 
 \item Use sliders $x_1, x_2$ and $x_3$ to manipulate $\vec{x}$.  Rotate the figure for a better view.  What is true about about vector $\vec{p}$?
@@ -364,11 +365,13 @@ If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default 
  \end{multipleChoice}
  
   \item Rotate the figure so that you're looking directly down at the plane.  If you're looking at it correctly, you will notice that (1) the parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle; (2) the sum of projections of $\vec{x}$ onto the basis vectors, $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$, is located directly underneath $\vec{x}$, like a shadow at midday.
- \end{enumerate} 
- 
+ \end{itemize} 
+ \end{question}
+
+ \begin{question}
  Use sliders $s_1$ and $s_2$ to manipulate the basis vectors $\vec{v}_1$ and $\vec{v}_2$ so that they are no longer orthogonal.  
 
-\begin{enumerate}
+\begin{itemize}
  \item 
  Rotate the figure for a better view.  Which of the following is true?
  \begin{multipleChoice}
@@ -383,7 +386,8 @@ If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default 
  \choice{$\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ is located directly underneath $\vec{x}$.}
   \choice[correct]{None of the above.}
  \end{multipleChoice}
-\end{enumerate}
+\end{itemize}
+\end{question}
 \end{exploration}
 
 In Exploration \ref{exp:orthProjSub}, you discovered that given a plane, spanned by orthogonal vectors $\vec{v}_1,\vec{v}_2$, in $\RR^3$, and a vector $\vec{x}$, not in the plane, we can interpret the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ as a ``shadow" of $\vec{x}$ that lies in the plane directly underneath the vector $\vec{x}$. We say that this ``shadow" is an \dfn{orthogonal projection of $\vec{x}$ onto $W$}. You have also found that if $\vec{v}_1,\vec{v}_2$ are not orthogonal, the parallelogram representing the sum of the orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ will not be a rectangle.  In this case, $\vec{x}$ minus this sum will NOT be orthogonal to the plane.  It is essential that $\vec{v}_1,\vec{v}_2$ are orthogonal for $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$ to be considered an orthogonal projection.  
