@@ -6,7 +6,7 @@
 
 \begin{document}
 \begin{abstract}
- %We introduce the concepts of eigenvalues and eigenvectors of a matrix.
+
 \end{abstract}
 \maketitle
 \section*{Describing Eigenvalues and Eigenvectors Algebraically and Geometrically}
@@ -38,7 +38,8 @@ for some scalar $\lambda$.
 We say that $\lambda$ is an \dfn{eigenvalue} of $A$ associated with the eigenvector $\vec{x}$. %$lambda$.
 \end{definition}
 
-In Exploration \ref{init:eignintro} we observed visually that vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ were eigenvectors, as they changed length but did not change direction under the linear transformation.  To verify this algebraically, observe that all vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ can be written in the form $\begin{bmatrix} a\\ a \end{bmatrix}$, $(a\neq 0)$.  We compute 
+Let's revisit Exploration \ref{init:eignintro} in light of Definition \ref{def:eigen}.  In the exploration, we observed visually that vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ were eigenvectors associated with $A=\begin{bmatrix} 2& 1\\ 1&2
+\end{bmatrix}$, as these vectors changed length but remained parallel to the original vector under the linear transformation induced by $A$.  To verify this algebraically, observe that all vectors parallel to $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ can be written in the form $\begin{bmatrix} a\\ a \end{bmatrix}$, $(a\neq 0)$.  We compute 
 $$\begin{bmatrix} 2& 1\\ 1&2 \end{bmatrix} \begin{bmatrix} a\\ a \end{bmatrix} =
 \begin{bmatrix} 3a\\ 3a \end{bmatrix}= 3 \begin{bmatrix} a\\ a \end{bmatrix}$$
 This shows that any non-zero scalar multiple of $\begin{bmatrix} 1\\ 1 \end{bmatrix}$ is an eigenvector of $A$ which has a corresponding eigenvalue of 3.
@@ -68,6 +69,15 @@ $$\begin{bmatrix} 2& 1\\ 1&2 \end{bmatrix} \begin{bmatrix} 1\\ -1 \end{bmatrix} 
 \begin{bmatrix} 1\\ -1 \end{bmatrix}= 1 \begin{bmatrix} 1\\ -1 \end{bmatrix}$$
 This shows that $\begin{bmatrix} 1\\ -1 \end{bmatrix}$ is a fixed vector and an eigenvector of $A$ which has a corresponding eigenvalue of $1$.
 
+The above discussion leads us to the following result.
+
+\begin{theorem}\label{th:eigenScalarMult}
+    If $\vec{x}$ is an eigenvector of matrix $A$ and $\lambda$ is the corresponding eigenvalue, then every scalar multiple of $\vec{x}$ is also an eigenvector of $A$ 
+ and $\lambda$ is the corresponding eigenvalue.
+\end{theorem}
+\begin{proof}
+See Practice Problem \ref{prob:eigenScalarMult}
+\end{proof}
 
 A couple of finer points of Definition \ref{def:eigen} require clarification.
   \begin{itemize}
@@ -76,7 +86,7 @@ A couple of finer points of Definition \ref{def:eigen} require clarification.
   \end{itemize}
 
 \begin{example}\label{ex:eigen}
-Let $P=\begin{bmatrix} 1& 0\\ 0&0\end{bmatrix}$.  Note that $P$ takes a vector in $\RR^2$ and projects it onto the $x$-axis, as we learned in Practice Problem \ref{} of Module LTR-0020.  Which vectors in $\RR^2$ would be the eigenvectors, and what are the corresponding eigenvalues?
+Let $P=\begin{bmatrix} 1& 0\\ 0&0\end{bmatrix}$.  Note that $P$ takes a vector in $\RR^2$ and projects it onto the $x$-axis, as we learned in Practice Problem \ref{prob:standardmatrix3} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0020/main}{Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$}.  Which vectors in $\RR^2$ would be the eigenvectors, and what are the corresponding eigenvalues?
 \begin{explanation}
 Since $P\vec{x}$ is the projection of $\vec{x}$ onto the $x$-axis, in many cases $P\vec{x}$ and $\vec{x}$ are not parallel.  Notice, however, that all of the red vectors located along the $x$-axis in the diagram are fixed by $P$. So, for any of the red vectors we have $P\vec{x}=\vec{x}=1\vec{x}$, which means that each of the red vectors is an eigenvector of $P$ with the corresponding eigenvalue of $1$.
 \begin{center}
@@ -123,13 +133,31 @@ So each of the blue vectors is an eigenvector of $P$ with the corresponding eige
 \end{explanation}
 \end{example}
 
-A natural question is this: does every square matrix have eigenvalues and eigenvectors?  We will see in Module EIG-0020 that the answer to this question is ``yes", provided that we permit eigenvalues and entries of eigenvectors to be complex numbers.  The next example is one that requires complex numbers.
+\begin{exploration}
+Let $A=\begin{bmatrix}1&6\\1&0\end{bmatrix}$.  The GeoGebra interactive below shows the action of $A$ on several vectors.  (Move the slider to $s=1$ to see the result of the transformation induced by $A$.)  
+\begin{center}
+    \geogebra{vd3fydmg}{900}{600} 
+\end{center}
+Note that vectors $\vec{x}_1=\begin{bmatrix}3\\1\end{bmatrix}$ and $\vec{x}_2=\begin{bmatrix}-2\\1\end{bmatrix}$ (and their scalar multiples) remain positioned along the same line even as they change magnitude and direction.  This indicates that $\vec{x}_1$ and $\vec{x}_2$, along with all of their scalar multiples, are eigenvectors of $A$.  What are the eigenvalues associated with these eigenvectors?
+\begin{hint}
+    The interactive shows the result of multiplication by $A$. 
+ Consider one eigenvector at a time.  Multiplication by what scalar would yield the same result?
+\end{hint}
+
+Eigenvalue associated with $\vec{x}_1$ is $\lambda_1=\answer{3}$.
+
+Eigenvalue associated with $\vec{x}_2$ is $\lambda_2=\answer{-2}$.
+
+\end{exploration}
+
+
+A natural question is this: does every square matrix have eigenvalues and eigenvectors?  We will see in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{Finding Eigenvalues and Eigenvectors} that the answer to this question is ``yes", provided that we permit eigenvalues and entries of eigenvectors to be complex numbers.  The next example is one that requires complex numbers.
 
 \begin{example}\label{ex:eigsrotation}
 Let $M=\begin{bmatrix}
 \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}
-\end{bmatrix}$.  Note that $M$ takes any vector $\vec{x}$ in $\RR^2$ and rotates it $45^{\circ}$, as we saw in Example \ref{ex: rotate45} of Module LTR-0070.  
+\end{bmatrix}$.  Note that $M$ takes any vector $\vec{x}$ in $\RR^2$ and rotates it $45^{\circ}$, as we saw in Example \ref{ex: rotate45} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0070/main}{Geometric Transformations of the Plane}.  
 
 \begin{center}
 \begin{tikzpicture}
@@ -244,7 +272,7 @@ $\answer{1}$
 
 
 
-\begin{problem}\label{prob:eigprojmatrix} Let $Q=\begin{bmatrix} 0& 0\\ 0&1\end{bmatrix}$.  Note that $Q$ takes any vector in $\RR^2$ and projects it onto the $y$-axis, as we learned in Practice Problem \ref{} of Module LTR-0020.  Which vectors in $\RR^2$ would be eigenvectors, and what are the corresponding eigenvalues?
+\begin{problem}\label{prob:eigprojmatrix} Let $Q=\begin{bmatrix} 0& 0\\ 0&1\end{bmatrix}$.  Note that $Q$ takes any vector in $\RR^2$ and projects it onto the $y$-axis, as we learned in Practice Problem \ref{prob:standardmatrix4} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0020/main}{Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$}.  Which vectors in $\RR^2$ would be eigenvectors, and what are the corresponding eigenvalues?
 \end{problem}
 
  
@@ -290,6 +318,11 @@ Can an eigenvalue have multiple eigenvectors associated with it?
   \choice[correct]{No}
     \end{multipleChoice}
 \end{problem}
+
+\begin{problem}\label{prob:prob:eigenScalarMult}
+    Prove Theorem \ref{th:eigenScalarMult}.
+\end{problem}
+
 \section*{Bibliography}
 [Trefethen and  Embree] Trefethen, Lloyd and Embree, Mark, {\it Spectra and Pseudospectra}, Princeton University Press, 2005, p. 5-6
 
