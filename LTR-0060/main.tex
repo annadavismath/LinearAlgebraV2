@@ -5,13 +5,12 @@
 
 \begin{document}
 \begin{abstract}
- % We define isomorphic vector spaces, discuss isomorphisms and their properties, and prove that any vector space of dimension $n$ is isomorphic to $\RR^n$.
 \end{abstract}
 \maketitle
 
 \section*{Isomorphic Vector Spaces}
 
-A vector space is defined as a collection of objects together with operations of addition and scalar multiplication that follow certain rules (Definition \ref{def:vectorspacegeneral} of VSP-0050).  In our study of abstract vector spaces, we have encountered spaces that appeared very different from each other.  Just how different are they?  Does $\mathbb{L}$, a vector space whose elements have the form $mx+b$, have anything in common with $\RR^2$?  Is $\mathbb{P}^3$ fundamentally different from $\mathbb{M}_{2,2}$?
+A vector space is defined as a collection of objects together with operations of addition and scalar multiplication that follow certain rules (Definition \ref{def:vectorspacegeneral} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}).  In our study of abstract vector spaces, we have encountered spaces that appeared very different from each other.  Just how different are they?  Does $\mathbb{L}$, a vector space whose elements have the form $mx+b$, have anything in common with $\RR^2$?  Is $\mathbb{P}^3$ fundamentally different from $\mathbb{M}_{2,2}$?
 
 To answer these questions, we will have to look beyond the superficial appearance of the elements of a vector space and delve into its structure.  The ``structure" of a vector space is determined by how the elements of the vector space interact with each other through the operations of addition and scalar multiplication.  
 
@@ -71,9 +70,9 @@ $T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$.  You may have recognized $T$
 
 Transformation $T$ has several nice properties:
   \begin{enumerate}
-      \item By Theorem \ref{th:coordvectmappinglinear} of LTR-0022, $T$ is linear.
+      \item By Theorem \ref{th:coordvectmappinglinear} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0022/main}{Linear Transformations of Abstract Vector Spaces}, $T$ is linear.
       \item It is easy to verify that $T$ is one-to-one and onto. (See Practice Problem \ref{prob:Tonetooneonto}.)
-      \item By Theorem \ref{th:isomeansinvert} of LTR-0035, $T$ has an inverse.
+      \item By Theorem \ref{th:isomeansinvert} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0035/main}{Existence of the Inverse of a Linear Transformation}, $T$ has an inverse.
   \end{enumerate}
   
   Our goal is to investigate and illustrate what these properties mean for transformation $T$, and for the relationship between $\mathbb{P}^2$ and $\RR^3$.  
@@ -210,7 +209,7 @@ In Exploration \ref{init:isomorph} we defined a transformation $T:\mathbb{P}^2\r
 $T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$. We later observed that  $T$ is an isomorphism.  We will now examine the effect of $T$ on two different basis of $\mathbb{P}^2$.
 
 Let 
-$\mathcal{B}_1=\{1, x, x^2\}$ and $\mathcal{B}_2=\{x, 1+x, x+x^2\}$.  (Recall that $\mathcal{B}_2$ is a basis of $\mathbb{P}^2$ by Example \ref{ex:coordvectorinpolyvectspace2} of VSP-0060.)
+$\mathcal{B}_1=\{1, x, x^2\}$ and $\mathcal{B}_2=\{x, 1+x, x+x^2\}$.  (Recall that $\mathcal{B}_2$ is a basis of $\mathbb{P}^2$ by Example \ref{ex:coordvectorinpolyvectspace2} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces}.)
 
 First,
 $$T(\mathcal{B}_1)=\{T(1), T(x), T(x^2)\}=\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}0\\1\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\end{bmatrix}\right\}$$
