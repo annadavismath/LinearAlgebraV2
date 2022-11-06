@@ -5,7 +5,6 @@
 
 \begin{document}
 \begin{abstract}
-%We define linear transformation for abstract vector spaces, and  illustrate the definition with examples. 
 \end{abstract}
 \maketitle
 
@@ -32,18 +31,18 @@ T({\bf u}+{\bf v})= T({\bf u})+T({\bf v})
 \end{definition}
 
 \begin{example}\label{ex:abstvectsplintransM22}
-Recall that $\mathbb{M}_{n,n}$ is the set of all $n\times n$ matrices.  In Example \ref{ex:setofmatricesvectorspace} of VSP-0050 we demonstrated that $\mathbb{M}_{n,n}$ together with operations of matrix addition and scalar multiplication is a vector space.
+Recall that $\mathbb{M}_{n,n}$ is the set of all $n\times n$ matrices.  In Example \ref{ex:setofmatricesvectorspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces} we demonstrated that $\mathbb{M}_{n,n}$ together with operations of matrix addition and scalar multiplication is a vector space.
 
 Let $T_Q:\mathbb{M}_{n,n}\rightarrow \mathbb{M}_{n,n}$ be a transformation defined by $T_Q(A)=QA$, where $Q$ is fixed $n\times n$ matrix.  Show that $T_Q$ is a linear transformation.
 \begin{explanation}
-We verify the linearity properties using properties of matrix-matrix and matrix-scalar multiplication.  (See Theorem \ref{th:propertiesofmatrixmultiplication} of MAT-0020.)  For $A$ and $B$ in $\mathbb{M}_{n,n}$ and a scalar $k$ we have:
+We verify the linearity properties using properties of matrix-matrix and matrix-scalar multiplication.  (See Theorem \ref{th:propertiesofmatrixmultiplication} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0020/main}{Matrix Multiplication}.)  For $A$ and $B$ in $\mathbb{M}_{n,n}$ and a scalar $k$ we have:
 $$T_Q(kA)=Q(kA)=k(QA)=kT_Q(A)$$
 $$T_Q(A+B)=Q(A+B)=QA+QB=T_Q(A)+T_Q(B)$$
 \end{explanation}
 \end{example}
 
 \begin{example}\label{ex:abstvecsplintrans2}
-Recall that $\mathbb{P}^3$ is the set of polynomials of degree $3$ or less than $3$.  In Example \ref{ex:pnisavectorspace} of VSP-0050 we showed that $\mathbb{P}^3$ together with operations of polynomial addition and scalar multiplication is a vector space. 
+Recall that $\mathbb{P}^3$ is the set of polynomials of degree $3$ or less than $3$.  In Example \ref{ex:pnisavectorspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces} we showed that $\mathbb{P}^3$ together with operations of polynomial addition and scalar multiplication is a vector space. 
 
 Suppose $T:\RR^3\rightarrow\mathbb{P}^3$ is a linear transformation such that 
 $$T(\vec{i})=1+x-2x^2+x^3$$
@@ -74,7 +73,7 @@ Thus, $1=T(A+B)\neq T(A)+T(B)=6$.
 \subsection*{Coordinate Vectors}
 Transformations that map vectors to their coordinate vectors will prove to be of great importance.  In this section we will prove that such transformations are linear and give several examples.
 
-Recall that if $V$ is a vector space, and  $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ is a basis for $V$ then any vector $\vec{v}$ of $V$ can be written as a unique linear combination of the elements of $\mathcal{B}$.  In other words, $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$ for some scalars $a_1, \ldots ,a_n$.  The vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$} and is denoted by $[\vec{v}]_{\mathcal{B}}$.  (Definition \ref{def:coordvector} of VSP-0060.)  
+Recall that if $V$ is a vector space, and  $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ is a basis for $V$ then any vector $\vec{v}$ of $V$ can be written as a unique linear combination of the elements of $\mathcal{B}$.  In other words, $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$ for some scalars $a_1, \ldots ,a_n$.  The vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$} and is denoted by $[\vec{v}]_{\mathcal{B}}$.  (Definition \ref{def:coordvector} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces}.)  
 
 It turns out that the transformation $T:V\rightarrow \RR^n$ defined by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is linear.  Before we prove linearity of $T$, consider the following examples.
 
@@ -89,11 +88,11 @@ $$T\left(\begin{bmatrix}-2&3\\1&-5\end{bmatrix}\right)=\left[\begin{bmatrix}-2&3
 \end{example}
 
 \begin{example}\label{ex:abstvectsplintranspoly}
-Recall that $\mathbb{P}^2$ is the set of polynomials of degree $2$ or less than $2$.  In Example \ref{ex:deg_le_2vectorspace} of VSP-0050 we showed that $\mathbb{P}^2$ is a vector space. 
+Recall that $\mathbb{P}^2$ is the set of polynomials of degree $2$ or less than $2$.  In Example \ref{ex:deg_le_2vectorspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces} we showed that $\mathbb{P}^2$ is a vector space. 
 \begin{enumerate}
     \item \label{item:lintranspolycoordvect1} It is easy to verify that $\mathcal{B}_1=\{1, x, x^{2}\}$ is a basis for $\mathbb{P}^2$.  If $T:\mathbb{P}^2\rightarrow \RR^3$ is given by $T(p)=[p]_{\mathcal{B}_1}$, find $T(2x^2-3x)$.
     \item \label{item:lintranspolycoordvect2}
-In Practice Problem \ref{prob:linindabstractvsp1} of VSP-0060, you demonstrated that $\mathcal{B}_2=\{1 + x, 1 - x, x + x^{2}\}$ is also a basis for $\mathbb{P}^2$.  If $T:\mathbb{P}^2\rightarrow \RR^3$ is given by $T(p)=[p]_{\mathcal{B}_2}$, find $T(2x^2-3x)$.
+In Practice Problem \ref{prob:linindabstractvsp1} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces}, you demonstrated that $\mathcal{B}_2=\{1 + x, 1 - x, x + x^{2}\}$ is also a basis for $\mathbb{P}^2$.  If $T:\mathbb{P}^2\rightarrow \RR^3$ is given by $T(p)=[p]_{\mathcal{B}_2}$, find $T(2x^2-3x)$.
 \end{enumerate}
 \begin{explanation}
 \ref{item:lintranspolycoordvect1}  We express $2x^2-3x$ as a linear combination of elements of $\mathcal{B}_1$.
@@ -119,7 +118,7 @@ $$\begin{array}{ccccccc}
 Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be a basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is a linear transformation.
 \end{theorem}
 \begin{proof}
-First observe that Theorem \ref{th:uniquerep} of VSP-0060 guarantees that there is only one way to represent each element of $V$ as a linear combination of elements of $\mathcal{B}$.  Thus each element of $V$ maps to exactly one element of $\RR^n$, as long as the order in which elements of $\mathcal{B}$ appear is taken into account.  (The order of elements of $\mathcal{B}$ is important as it determines the order of components of the coordinate vectors.)  This proves that $T$ is a function, or a transformation.  We will now prove that $T$ is linear.
+First observe that Theorem \ref{th:uniquerep} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} guarantees that there is only one way to represent each element of $V$ as a linear combination of elements of $\mathcal{B}$.  Thus each element of $V$ maps to exactly one element of $\RR^n$, as long as the order in which elements of $\mathcal{B}$ appear is taken into account.  (The order of elements of $\mathcal{B}$ is important as it determines the order of components of the coordinate vectors.)  This proves that $T$ is a function, or a transformation.  We will now prove that $T$ is linear.
 
 Let $\vec{v}$ be an element of $V$.  We will first show that $T(k\vec{v})=kT(\vec{v})$.  Suppose $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$, then $\vec{v}$ can be written as a unique linear combination:
 $$\vec{v}=a_1\vec{v}_1+ \ldots +a_n\vec{v}_n$$
@@ -179,7 +178,7 @@ Is $T$ a linear transformation?  If so, prove it.  If not, give a counterexample
 \end{problem}
 \end{problem}
 
-\begin{problem}  This problem requires the knowledge of how to compute a $3\times 3$ determinant. (For a quick reminder, see Definition \ref{def:threedetcrossprod} of VEC-0080.)
+\begin{problem}  This problem requires the knowledge of how to compute a $3\times 3$ determinant. (For a quick reminder, see Definition \ref{def:threedetcrossprod} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0080/main}{Cross Product and its Properties}.)
 Define $T:\mathbb{M}_{3,3}\rightarrow \RR$ by $T(A)=\det(A)$.  
 
 \begin{problem}\label{prob:detlintrans1}
@@ -222,7 +221,7 @@ Is $T$ a linear transformation?  If so, prove it.  If not, give a counterexample
 \end{problem}
 
 \begin{problem}\label{prob:symmMatLinTrans}
-Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $\mathbb{M}_{2,2}$.  In Example \ref{ex:symmetricmatsubspace} of VSP-0060 we demonstrated that $\mathcal{B} = \left\{
+Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $\mathbb{M}_{2,2}$.  In Example \ref{ex:symmetricmatsubspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} we demonstrated that $\mathcal{B} = \left\{
 \begin{bmatrix}
 1 & 0 \\
 0 & 0
@@ -255,7 +254,7 @@ $$[\vec{v}]_{\mathcal{B}'}=\begin{bmatrix}\answer{-1}\\\answer{2}\end{bmatrix}$$
 
 
 
-\begin{problem}\label{prob:polylintranscoordvect} In Practice Problem \ref{prob:linindabstractvsp123} of VSP-0060 you demonstrated that
+\begin{problem}\label{prob:polylintranscoordvect} In Practice Problem \ref{prob:linindabstractvsp123} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} you demonstrated that
 $\mathcal{B}=\{x^{2}, x + 1, 1 - x - x^{2}\}$ is a basis for $\mathbb{P}^2$.  Define $T:\mathbb{P}^2\rightarrow \RR^3$ by $T(p(x))=[p(x)]_{\mathcal{B}}$.  Find $T(0)$, $T(x+1)$ and $T(x^2-3x+1)$.
 
 Answer:

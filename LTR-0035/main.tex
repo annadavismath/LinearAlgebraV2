@@ -5,15 +5,12 @@
 
 \begin{document}
 \begin{abstract}
-%  We prove that a linear transformation has an inverse if and only if the transformation is ``one-to-one" and ``onto".
-\end{abstract}
+ \end{abstract}
 \maketitle
-
-Note to Student:  In this module we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
 \section{Existence of the Inverse of a Linear Transformation}
 
-In Exploration \ref{ep:inverse} of LTR-0030 we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
+In Exploration \ref{ep:inverse} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} we examined a linear transformation $T:\RR^2\rightarrow \RR^2$ that doubles all input vectors, and its inverse $S:\RR^2\rightarrow \RR^2$, that halves all input vectors.  We observed that the composite functions $S\circ T$ and $T\circ S$ are both identity transformations.  Diagrammatically, we can represent $T$ and $S$ as follows:
  
 \begin{center}
 \begin{tikzpicture}
@@ -59,7 +56,7 @@ Given an arbitrary linear transformation $T:V\rightarrow W$, ``reversing the arr
  \end{center} 
   
 
-Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, LTR-0030)  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. 
+Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires that the domain of the inverse transformation be $W$. (Definition \ref{def:inverse}, \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations})  If there is a vector $\vec{b}$ in $W$ that is not an image of any vector in $V$, then $\vec{b}$ cannot be in the domain of an inverse transformation. 
 
 \begin{center}
 \begin{tikzpicture}
@@ -295,13 +292,13 @@ Transformation $T$ in Example \ref{ex:subtosub}  is invertible.
 \begin{explanation}
 We demonstrated that $T$ is one-to-one and onto.  By Theorem \ref{th:isomeansinvert}, $T$ has an inverse.  
 
-Recall that $T$ was introduced in Exploration \ref {init:subtosub} of LTR-0030 to demonstrate that Theorem \ref{th:existunique} of LTR-0030 is not always directly applicable.  We now have additional tools. Theorem \ref{th:isomeansinvert} assures us that $T$ has an inverse, but does not help us find it. We will visit this problem again, in LTR-0080, and find an inverse of $T$.
+Recall that $T$ was introduced in Exploration \ref {init:subtosub} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} to demonstrate that Theorem \ref{th:existunique} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} is not always directly applicable.  We now have additional tools. Theorem \ref{th:isomeansinvert} assures us that $T$ has an inverse, but does not help us find it. We will visit this problem again, in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0080/main}{Matrices of Linear Transformations with Respect to an Arbitrary Bases}, and find an inverse of $T$.
 \end{explanation}
 \end{example}
 
 \subsection*{Uniqueness of Inverses}
 
-Definition \ref{def:inverse} of LTR-0030 refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
+Definition \ref{def:inverse} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
 
 \begin{theorem}\label{th:inverseisunique}
 If $T$ is a linear transformation, and $S$ is an inverse of $T$.  Then $S$ is unique.
