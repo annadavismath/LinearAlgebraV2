@@ -6,7 +6,7 @@
 
 \begin{document}
 \begin{abstract}
-%We explore the theory behind finding the eigenvalues and associated eigenvectors of a square matrix.  
+
 \end{abstract}
 \maketitle
 \section*{Finding Eigenvalues and Eigenvectors}
@@ -47,9 +47,8 @@ The characteristic equation $(\lambda-1)(\lambda-3)=0$ has solutions $\lambda_1=
 
 \begin{example}\label{ex:2x2eig2}
 Let $B=\begin{bmatrix} 2& 1\\ 4&2
-\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation.
-
-$\lambda_1=\answer{0}$ and $\lambda_2=\answer{4}$
+\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation. List your answers in increasing order.
+$$\lambda_1=\answer{0}\quad \mbox{and}\quad \lambda_2=\answer{4}$$
 \end{example}
 
 \begin{example}\label{ex:3x3eig}
@@ -68,7 +67,7 @@ Matrix $C$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.
 
 In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice in the characteristic polynomial.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
 
-The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
+The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial over the real numbers.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
 
 \begin{example}\label{ex:3x3_complex_eig}
 Let $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.  Compute the eigenvalues of this matrix.
@@ -84,7 +83,7 @@ So one of the eigenvalues of $D$ is $\lambda=0$.  To get the other eigenvalues w
 \end{example}
 
 \begin{exploration}\label{init:3x3tri}
-Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.
+Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.  List your answers in increasing order.
 
 $$\lambda_1=\answer{1},\quad\lambda_2=\answer{5},\quad\text{and}\quad\lambda_3=\answer{9}$$
 
@@ -114,20 +113,20 @@ See Practice Problem \ref{prob:eigtri}.
 Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on the main diagonal.
 \end{corollary}
 
-One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
+One final note about eigenvalues.  We began this section with the sentence, ``In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
 
 \subsection{Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
 \begin{align}\label{eqn:nullspace}
  (A-\lambda I) \vec{x}=\vec{0}   
 \end{align} 
-For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2})  This motivates the following definition.
+For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it. (See Theorem \ref{th:eigenScalarMult}.)  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2})  This motivates the following definition.
 
 \begin{definition}\label{def:eigspace}
 The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
 \end{definition}
 
-So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module VSP-0040.
+So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}.
 
 Let's return to the examples we did in the first section of this module.
 
@@ -160,10 +159,15 @@ Let's begin by finding a basis for the eigenspace $\mathcal{S}_0$, which is the 
 From this we see that an eigenvector in $\mathcal{S}_0$ has the form $\begin{bmatrix}-1/2\\1\end{bmatrix}t$. %$\begin{bmatrix}x_1\\x_2\end{bmatrix}$ in $\mathcal{S}_0$ satisfies $x_1+\frac{1}{2} x_2=0$, so that $2x_1=-x_2$. 
 This means that $\left\{\begin{bmatrix}-1/2\\1\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_0$.  By letting $t=-2$, we obtain an arguably nicer-looking basis: $\left\{\begin{bmatrix}1\\-2\end{bmatrix}\right\}$. 
 
+See if you can compute a basis for $\mathcal{S}_4$.  Click on the arrow if you need help.
+
+\begin{hint}
 To compute a basis for $\mathcal{S}_4$, the subspace of all eigenvectors associated to the eigenvalue $\lambda_2=4$, we compute:
 \begin{align*}\mbox{rref}(B-4I)=\mbox{rref}\left(\begin{bmatrix}-2&1\\4&-2\end{bmatrix}\right)&=\begin{bmatrix}1&-\frac{1}{2}\\0&0\end{bmatrix},
 \end{align*}
-From this we find that $\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_4$.
+\end{hint}
+
+From this we find that $\left\{\begin{bmatrix}1\\\answer{2}\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_4$.
 \end{explanation}
 \end{example}
 
