@@ -5,7 +5,6 @@
 \begin{document}
 
 \begin{abstract}
-%We revisit the definitions of linear independence, bases, and dimension in the context of abstract vector spaces.
 \end{abstract}
 \maketitle
 
@@ -45,7 +44,7 @@ The only solution is $a = b = c = 0$.  We conclude that $P$ is linearly independ
 
 \subsection*{Bases and Dimension}
 
-Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition \ref{def:basis} we gave in VSP-0030 generalizes to abstract vector spaces as follows.
+Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition \ref{def:basis} we gave in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0030/main}{Introduction to Bases} generalizes to abstract vector spaces as follows.
 
 \begin{definition}\label{def:basisabstract}
 Let $V$ be a vector space.  A set $\mathcal{B}$ of vectors of $V$ is called a \dfn{basis} of $V$  provided that $\mathcal{B}$
@@ -73,7 +72,7 @@ a_1\vec{v}_1+ a_2\vec{v}_2+\ldots+a_n\vec{v}_n-(b_1\vec{v}_1+ b_2\vec{v}_2+\ldot
 Because $\vec{v}_1, \vec{v}_2,\ldots,\vec{v}_n$ are linearly independent, we have $a_i-b_i=0$ for $1\leq i\leq n$. Consequently $a_i=b_i$ for $1\leq i\leq n$.
 \end{proof}
 
-In VSP-0035 we defined the dimension of a subspace of $\RR^n$ to be the number of elements in a basis. (Definition \ref{def:dimension})  We will adopt this definition for abstract vector spaces.  As before, to ensure that \dfn{dimension} is well-defined we need to establish that this definition is independent of our choice of a basis.  The proof of the following theorem is identical to the proof of its counterpart in $\RR^n$.  (Theorem \ref{th:dimwelldefined})
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0035/main}{Bases and Dimension} we defined the dimension of a subspace of $\RR^n$ to be the number of elements in a basis. (Definition \ref{def:dimension})  We will adopt this definition for abstract vector spaces.  As before, to ensure that \dfn{dimension} is well-defined we need to establish that this definition is independent of our choice of a basis.  The proof of the following theorem is identical to the proof of its counterpart in $\RR^n$.  (Theorem \ref{th:dimwelldefined})
 
 \begin{theorem}\label{th:dimwelldefinedabstract}
 Let $V$ be a vector space.  Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $V$.  Then $s=t$.
@@ -92,7 +91,7 @@ In our discussion to this point we have always assumed that a basis is nonempty 
 Our insistence that $\mbox{dim}\{\vec{0}\} = 0$ amounts to saying that the empty set of vectors is a basis of $\{\vec{0}\}$. Thus the statement that ``the dimension of a vector space is the number of vectors in any basis'' holds even for the zero space. 
 
 \begin{example}\label{ex:dimofM}
-Recall that the vector space $\mathbb{M}_{m,n}$ consists of all $m\times n$ matrices. (See Example \ref{ex:MLexamplesofvectspaces} of VSP-0050).  Find a basis and the dimension of $\mathbb{M}_{m,n}$.
+Recall that the vector space $\mathbb{M}_{m,n}$ consists of all $m\times n$ matrices. (See Example \ref{ex:MLexamplesofvectspaces} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}).  Find a basis and the dimension of $\mathbb{M}_{m,n}$.
 \begin{explanation}
 Let $\mathcal{B}$ consist of $m\times n$ matrices 
  with exactly one entry equal to $1$ and all other entries equal to $0$. It is clear that every $m\times n$ matrix can be written as a linear combination of elements of $\mathcal{B}$.  It is also easy to see that the elements of $\mathcal{B}$ are linearly independent.  Thus $\mathcal{B}$ is a basis for $\mathbb{M}_{m,n}$.  The set $\mathcal{B}$ contains $mn$ elements, so $\mbox{dim}(\mathbb{M}_{m,n})=mn$.
@@ -100,7 +99,7 @@ Let $\mathcal{B}$ consist of $m\times n$ matrices
 \end{example}
 
 \begin{example}\label{ex:dimofP}
-Recall that $\mathbb{P}^n$ is the set of all polynomials of degree $n$ or less.  (See Example \ref{ex:pnisavectorspace} of VSP-0050) Show that $\mbox{dim}( \mathbb{P}^{n}) = n + 1$ and that $\{1, x, x^{2}, \dots, x^{n}\}$ is a basis of $\mathbb{P}^{n}$.
+Recall that $\mathbb{P}^n$ is the set of all polynomials of degree $n$ or less.  (See Example \ref{ex:pnisavectorspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}) Show that $\mbox{dim}( \mathbb{P}^{n}) = n + 1$ and that $\{1, x, x^{2}, \dots, x^{n}\}$ is a basis of $\mathbb{P}^{n}$.
 
 \begin{explanation}
 Each polynomial $p(x) = a_{0} + a_{1}x + \ldots + a_{n}x^{n}$ in $\mathbb{P}^{n}$ is clearly a linear combination of $1, x, \dots, x^{n}$, so $\mathbb{P}^{n} = \mbox{span}\{1, x, \dots, x^{n}\}$. 
@@ -116,7 +115,7 @@ C_A = \{X \mbox{ in } \mathbb{M}_{2,2} : AX = XA \}
 \end{equation*}
 of $\mathbb{M}_{2,2}$. 
 
-It was shown in Example \ref{ex:centralizerofA} of VSP-0050 that $C_A$ is a subspace for any choice of the matrix $A$.
+It was shown in Example \ref{ex:centralizerofA} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces} that $C_A$ is a subspace for any choice of the matrix $A$.
 
 Let $A = 
 \begin{bmatrix}
@@ -149,7 +148,7 @@ The set $\mathcal{B}$ is linearly independent. (See Practice Problem \ref{prob:C
 \end{example}
 
 \begin{example}\label{ex:symmetricmatsubspace} 
-In Practice Problem \ref{prob:symmetricsubspace} of VSP-0050 you demonstrated that the set of all symmetric $n\times n$ matrices is a subspace of $\mathbb{M}_{n,n}$.
+In Practice Problem \ref{prob:symmetricsubspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces} you demonstrated that the set of all symmetric $n\times n$ matrices is a subspace of $\mathbb{M}_{n,n}$.
 
 Let $V$ be a subspace of $\mathbb{M}_{2,2}$ consisting of all $2\times 2$ symmetric matrices.  Find the dimension of $V$.
 
@@ -197,7 +196,7 @@ Our definition of dimension of a vector space depends on the vector space having
 A vector space is said to be \dfn{finite-dimensional} if it is spanned by finitely many vectors.
 \end{definition}
 
-Given a finite-dimensional vector space $V$ we will find a basis for $V$ by starting with a linearly independent subset of $V$ and expanding it to a basis.  The following results are more general versions of Lemmas \ref{lemma:atmostnlinindinrn} and \ref{lemma:expandinglinindset}, and Theorem \ref{th:dimwelldefined} of VSP-0035.  The proofs are identical and we will omit them.
+Given a finite-dimensional vector space $V$ we will find a basis for $V$ by starting with a linearly independent subset of $V$ and expanding it to a basis.  The following results are more general versions of Lemmas \ref{lemma:atmostnlinindinrn} and \ref{lemma:expandinglinindset}, and Theorem \ref{th:dimwelldefined} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0035/main}{Bases and Dimension}.  The proofs are identical and we will omit them.
 \begin{lemma}\label{lemma:atmostnlinindinabstract}
 Let $V$ be a vector space spanned by $n$ vectors.  If a linearly independent subset $S$ of $V$ contains $m$ vectors, then $m\leq n$.
 \end{lemma}
@@ -212,9 +211,9 @@ Let $V$ be a finite-dimensional vector space.  Any linearly independent subset o
 
 \subsection*{Coordinate Vectors}
 
-Recall that in the context of $\RR^n$ (and subspaces of $\RR^n$) the requirement that elements of a basis be linearly independent guarantees that every element of the vector space has a {\it unique} representation in terms of the elements of the basis.  (See Theorem \ref{th:linindbasis} of VSP-0030)  We proved the same property for abstract vector spaces in Theorem \ref{th:uniquerep}.
+Recall that in the context of $\RR^n$ (and subspaces of $\RR^n$) the requirement that elements of a basis be linearly independent guarantees that every element of the vector space has a {\it unique} representation in terms of the elements of the basis.  (See Theorem \ref{th:linindbasis} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0030/main}{Introduction to Bases})  We proved the same property for abstract vector spaces in Theorem \ref{th:uniquerep}.
 
-Uniqueness of representation in terms of the elements of a basis allows us to associate every element of a vector space $V$ with a unique \dfn{coordinate vector} with respect to a given basis.  Coordinate vectors were first introduced in VSP-0030.  We now give a formal definition.
+Uniqueness of representation in terms of the elements of a basis allows us to associate every element of a vector space $V$ with a unique \dfn{coordinate vector} with respect to a given basis.  Coordinate vectors were first introduced in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0030/main}{Introduction to Bases}.  We now give a formal definition.
 
 \begin{definition}\label{def:coordvector}
 Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ be a basis for $V$.  If $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$, then the vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$}.  We denote the coordinate vector by $[\vec{v}]_{\mathcal{B}}$ and write:
@@ -291,7 +290,7 @@ $$[A]_{\mathcal{B}}=\begin{bmatrix}2\\1\\-3\end{bmatrix}$$
 \end{example}
 
 
-Coordinate vectors will play a vital role in establishing one of the most fundamental results in linear algebra, that all $n$-dimensional vector spaces have the same structure as $\RR^n$.  In Example \ref{ex:p2isor3} of LTR-0060, for instance, we will show that $\mathbb{P}^2$ is essentially the same as $\RR^3$.  
+Coordinate vectors will play a vital role in establishing one of the most fundamental results in linear algebra, that all $n$-dimensional vector spaces have the same structure as $\RR^n$.  In Example \ref{ex:p2isor3} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0060/main}{Isomorphic Vector Spaces}, for instance, we will show that $\mathbb{P}^2$ is essentially the same as $\RR^3$.  
 
 
 \section*{Practice Problems}
