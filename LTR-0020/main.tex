@@ -42,17 +42,17 @@ For a matrix transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$
 The last point in the summary is so important that it is worth illustrating again.
 
 \begin{example}\label{ex:imageofatransformation}  
-Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{b}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
+Let $T:\RR^3\rightarrow \RR^2$ be a linear transformation. Suppose that the only information we have about this transformation is that $T(\vec{i})=\begin{bmatrix}3\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}0\\4\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}-2\\1\end{bmatrix}$.  Is this information sufficient to determine the image of $\vec{w}=\begin{bmatrix}1\\-3\\6\end{bmatrix}$?
 
 \begin{explanation}  Observe that 
-$$\vec{b}=\vec{i}-3\vec{j}+6\vec{k}$$
-We find $T(\vec{b})$ by using the fact that $T$ is linear.
-$$T(\vec{b})=T(\vec{i}-3\vec{j}+6\vec{k})=T(\vec{i})-3T(\vec{j})+6T(\vec{k})=\begin{bmatrix}3\\-1\end{bmatrix}-3\begin{bmatrix}0\\4\end{bmatrix}+6\begin{bmatrix}-2\\1\end{bmatrix}=\begin{bmatrix}-9\\-7\end{bmatrix}$$
-Because of properties of linear transformations, the information about the images of the standard unit vectors proved to be sufficient for us to determine the image of $\vec{b}$. 
+$$\vec{w}=\vec{i}-3\vec{j}+6\vec{k}$$
+We find $T(\vec{w})$ by using the fact that $T$ is linear.
+$$T(\vec{w})=T(\vec{i}-3\vec{j}+6\vec{k})=T(\vec{i})-3T(\vec{j})+6T(\vec{k})=\begin{bmatrix}3\\-1\end{bmatrix}-3\begin{bmatrix}0\\4\end{bmatrix}+6\begin{bmatrix}-2\\1\end{bmatrix}=\begin{bmatrix}-9\\-7\end{bmatrix}$$
+Because of properties of linear transformations, the information about the images of the standard unit vectors proved to be sufficient for us to determine the image of $\vec{w}$. 
 \end{explanation}
 \end{example}
 
-As Example \ref{ex:imageofatransformation} illustrates, every vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\ldots , \vec{e}_n$.  Therefore, the image of every vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1, \ldots , \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
+In Example \ref{ex:imageofatransformation}, there was nothing particularly special about the vector $\vec{w}$.  Any vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\ldots , \vec{e}_n$.  Therefore, the image of any vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1, \ldots , \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
 
 \begin{theorem}\label{th:matlin} Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation.  Then $T$ is a matrix transformation with
   \begin{equation*} \label{matlintrans}
