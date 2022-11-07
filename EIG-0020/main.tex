@@ -10,9 +10,9 @@
 \end{abstract}
 \maketitle
 \section*{Finding Eigenvalues and Eigenvectors}
-Let $A$ be an $n \times n$ matrix.  In Module EIG-0010 we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
+Let $A$ be an $n \times n$ matrix.  In section \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors} we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
-We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this module we will focus on the process.
+We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on the process.
 
 If a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then it also satisfies the following equations.
 \begin{align*}
@@ -126,9 +126,9 @@ For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associ
 The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
 \end{definition}
 
-So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}.
+So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}.
 
-Let's return to the examples we did in the first section of this module.
+Let's return to the examples we did in the first section of this section.
 
 \begin{example}\label{ex:eigvect2x2eig} (Finding eigenvectors for Example \ref{ex:2x2eig} ) 
 
@@ -281,7 +281,7 @@ Prove Theorem \ref{th:eigtri}.  (HINT:  Proceed by induction on the dimension n.
 \end{problem}
 
 \begin{problem}
-The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use EIG-0010 and LTR-0070 for reference.
+The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors} and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0070/main}{Geometric Transformations of the Plane} for reference.
 \begin{problem}\label{prob:eigvectorstransfr2_1}
 Recall that a vertical stretch/compression of the plane is a linear transformation whose standard matrix is $$M_v=\begin{bmatrix}1&0\\0&k\end{bmatrix}$$
 Find the eigenvalues of $M_v$.  Find a basis for the eigenspace corresponding to each eigenvalue.
@@ -309,7 +309,7 @@ Sketch several vectors in the eigenspace and use geometry to explain why the eig
 Recall that a counterclockwise rotation of the plane through angle $\theta$ is a linear transformation whose standard matrix is $$M_{\theta}=\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}$$
 Verify that the eigenvalues of $M_{\theta}$ are
 $$\lambda=\cos\theta\pm\sqrt{\cos^2\theta-1}$$
-Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of EIG-0010.)
+Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors}.)
 
 Suppose $\theta$ is a muliple of $\pi$.  Then the eigenspaces corresponding to the two eigenvalues are the same.  Which of the following describes the eigenspace?
 \begin{multipleChoice}
