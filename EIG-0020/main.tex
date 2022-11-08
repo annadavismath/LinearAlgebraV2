@@ -17,16 +17,16 @@ We listed a few reasons why we are interested in finding eigenvalues and eigenve
 \begin{exploration}\label{exp:eigenvaluesFind}
 Consider the matrix
 $$A=\begin{bmatrix}-5& -4\\2&4\end{bmatrix}$$
-We would like to find values $\lambda$ and vectors $\vec{x}$ such that $A\vec{x}=\lambda\vec{x}$.
+We would like to find values $\lambda$ and vectors $\vec{x}$ such that $A\vec{x}=\lambda\vec{x}$.  We compute
 \begin{eqnarray*}
 \begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} &=& \lambda\vec{x}\\
 \begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} - \lambda\vec{x}&=&\vec{0}
 \end{eqnarray*}
-To get to the next step, we would like to factor out $\vec{x}$.  
+Next, we would like to factor out $\vec{x}$, but we have to be careful.  
 \begin{eqnarray*}
     \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \lambda {\color{red}\clubsuit}\right)\vec{x}&=&\vec{0}
 \end{eqnarray*}
-The reason we included ${\color{red}\clubsuit}$ in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need to replace ${\color{red}\clubsuit}$ with an expression such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace ${\color{red}\clubsuit}$ with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
+The reason we included ${\color{red}\clubsuit}$ in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need an expression, denoted by ${\color{red}\clubsuit}$, such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace ${\color{red}\clubsuit}$ with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
 
 Now we have the following
 \begin{eqnarray*}
