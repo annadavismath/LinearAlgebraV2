@@ -14,24 +14,60 @@ Let $A$ be an $n \times n$ matrix.  In section \href{https://ximera.osu.edu/oerl
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
 We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on the process.
 
-If a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then it also satisfies the following equations.
+\begin{exploration}\label{exp:eigenvaluesFind}
+Consider the matrix
+$$A=\begin{bmatrix}-5& -4\\2&4\end{bmatrix}$$
+We would like to find values $\lambda$ and vectors $\vec{x}$ such that $A\vec{x}=\lambda\vec{x}$.
+\begin{eqnarray*}
+\begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} &=& \lambda\vec{x}\\
+\begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} - \lambda\vec{x}&=&\vec{0}
+\end{eqnarray*}
+To get to the next step, we would like to factor out $\vec{x}$.  
+\begin{eqnarray*}
+    \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \lambda {\color{red}\clubsuit}\right)\vec{x}&=&\vec{0}
+\end{eqnarray*}
+The reason we included {\color{red}$\clubsuit$} in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need to replace {\color{red}$\clubsuit$} with an expression such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace {\color{red}$\clubsuit$} with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
+
+Now we have the following
+\begin{eqnarray*}
+    \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \begin{bmatrix}\lambda & 0\\0 & \lambda\end{bmatrix}\right)\vec{x}&=&\vec{0}\\
+    \begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}\vec{x}&=&\vec{0}
+\end{eqnarray*}
+
+We know that $\vec{x}=\vec{0}$ is a solution, but the zero vector cannot be an eigenvector (see Observation \ref{obs:finerPointsOfEigDef}).  Therefore the only solutions we are interested in are the non-trivial ones.  These exist if and only  if $\begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}$ is singular, in other words if and only if $$\mbox{det}\begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}=0$$ (see Theorems \ref{th:rankandsolutions}, \ref{th:nonsingularequivalency1} and \ref{th:detofsingularmatrix}).  We will solve this equation for $\lambda$ to find the eigenvalues.
+
+Using the definition of the determinant we compute
+\begin{eqnarray*}
+    (-5-\lambda)(4-\lambda)-(-4)(2)&=&0\\
+    \lambda^2+\lambda-12&=&0\\
+    (\lambda+4)(\lambda-3)&=&0
+\end{eqnarray*}
+We conclude that there are two eigenvalues $\lambda_1=3$ and $\lambda_2=-4$.
+We will discuss how to find eigenvectors later in this section. You will be asked to find the eigenvectors of $A$ in Practice Problem \ref{prob:eigenExploration}.   
+\end{exploration}
+
+\subsection*{Finding Eigenvalues}
+We now generalize the procedure we developed in Exploration \ref{exp:eigenvaluesFind}.  Given a square matrix $A$, if a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then it also satisfies the following equations.
 \begin{align*}
 A\vec{x}-\lambda \vec{x} &= \vec{0} \\
 A\vec{x}-\lambda I\vec{x} &= \vec{0} \\
 (A-\lambda I)\vec{x} &= \vec{0}
 \end{align*}
 
-This shows that any eigenvector $\vec{x}$ of $A$ is in the null space of the related matrix, $A-\lambda I$.  Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)<n$.
+Recall that we are only looking for non-trivial solutions.  A non-trivial solution exists if and only if $(A-\lambda I)$ is singular, i.e. $\mbox{det}(A-\lambda I) = 0$.
 
-If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, Theorem \ref{th:detofsingularmatrix} implies that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
+%This shows that any eigenvector $\vec{x}$ of $A$ is in the null space of the related matrix, $A-\lambda I$.  Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)<n$.
 
-\subsection{Eigenvalues}
-In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
+%If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, Theorem \ref{th:detofsingularmatrix} implies that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
+
 
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
-$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
+\begin{equation}\mbox{det}(A-\lambda I) = 0\end{equation}\label{eqn:chareqn} 
+is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
 \end{definition}
+
+In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
 
 \begin{example}\label{ex:2x2eig}
 Let $A=\begin{bmatrix} 2& 1\\ 1&2
@@ -115,7 +151,7 @@ Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on th
 
 One final note about eigenvalues.  We began this section with the sentence, ``In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
 
-\subsection{Eigenvectors}
+\subsection{Finding Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
 \begin{align}\label{eqn:nullspace}
  (A-\lambda I) \vec{x}=\vec{0}   
@@ -220,6 +256,11 @@ Let $\vec{x}$ and $\vec{y}$ be eigenvectors of $A$ associated with $\lambda$.  S
 \begin{problem}\label{prob:eigenspace2}
 Show that the set of eigenvectors of $A$ associated with $\lambda$ is closed under scalar multiplication.
 \end{problem}
+\end{problem}
+
+\begin{problem}\label{prob:eigenExploration}
+    Find the eigenvectors corresponding to eigenvalues $\lambda_1=3$ and $\lambda_2=-4$ of Exploration \ref{exp:eigenvaluesFind}.
+    $$\vec{v}_1=\begin{bmatrix}-1\\\answer{2}\end{bmatrix}\quad \vec{v}_2=\begin{bmatrix}\answer{-4}\\1\end{bmatrix}$$
 \end{problem}
 
 \begin{problem}
