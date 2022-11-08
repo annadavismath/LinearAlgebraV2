@@ -26,7 +26,7 @@ To get to the next step, we would like to factor out $\vec{x}$.
 \begin{eqnarray*}
     \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \lambda {\color{red}\clubsuit}\right)\vec{x}&=&\vec{0}
 \end{eqnarray*}
-The reason we included {\color{red}$\clubsuit$} in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need to replace {\color{red}$\clubsuit$} with an expression such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace {\color{red}$\clubsuit$} with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
+The reason we included ${\color{red}\clubsuit}$ in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need to replace ${\color{red}\clubsuit}$ with an expression such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace ${\color{red}\clubsuit}$ with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
 
 Now we have the following
 \begin{eqnarray*}
@@ -63,7 +63,9 @@ Recall that we are only looking for non-trivial solutions.  A non-trivial soluti
 
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
-\begin{equation}\mbox{det}(A-\lambda I) = 0\end{equation}\label{eqn:chareqn} 
+\begin{equation}\label{eqn:chareqn}
+\mbox{det}(A-\lambda I) = 0
+\end{equation} 
 is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
 \end{definition}
 
