@@ -17,18 +17,14 @@ We will treat every pixel of an image as a point or a vector in $\RR^2$.  A tran
 \end{image}
 
 Not all transformations are matrix transformations.  Practice Problem \ref{prob:translation_does_not_work} offers a cautionary tale of what happens when we try to find a matrix for a transformation when such a matrix does not exist.
-Luckily, a lot of familiar transformations, such as rotations, scalings, reflections and shears are matrix transformations. We will focus our attention on those.
+Luckily, many familiar transformations are matrix transformations, such as rotations, scalings, reflections, and shears. We will focus our attention on those.
 
-Recall that by Observation \ref{obs:imagesOfijk} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations}, we can find a matrix of a matrix transformation by examining what the transformation does to the standard basis vectors $\vec{i}$ and $\vec{j}$. 
+Recall that by Observation \ref{obs:imagesOfijk} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations}, we can find a matrix for each transformation by examining what the transformation does to the standard basis vectors $\vec{i}$ and $\vec{j}$. 
 
 \subsection*{Horizontal and Vertical Scaling} 
 
-% \begin{initprob} We will attempt to find the standard matrix $M$ of a linear transformation $T$ that stretches the image in Figure \ref{fig:vstretch} vertically by a factor of 2.  The difficulty here is that we are not sure at this point whether this kind of transformation is linear.  So, what we will do is construct a candidate for the standard matrix, and then test it to see whether it accomplishes the stretch.
-
 \begin{exploration}\label{init:vertstretch} Let us attempt to find the standard matrix $M$ of a transformation $T$ that stretches an image vertically by a factor of 2, as shown in the figure below.  
 
-%\begin{figure}[h]
-%\begin{image}[4in]   
 \begin{center}
 		\begin{tikzpicture}[scale=2]
 \node[inner sep=0pt, anchor=base] (gulls) at (6.25mm,0)
@@ -603,6 +599,61 @@ If a matrix transformation is followed by another matrix transformation, the res
 \end{center}
 
 Remember that matrix multiplication is not commutative, so the order in which the matrices are multiplied is of utmost importance.
+
+Consider the following example which incorporates a reflection as well as a rotation of vectors.
+
+\begin{example}\label{exa:rotationreflection}
+\begin{enumerate}
+    \item Find the matrix of the linear transformation which is obtained by first rotating all vectors counterclockwise by an angle of $\pi /6$ and then reflecting across the $x$-axis.
+    \item Multiply the vector $\vec{v}=\begin{bmatrix}
+    1/2 \\ \sqrt{3}/2 \end{bmatrix}$ by the matrix you find to verify it works as it should.
+\end{enumerate}
+
+
+\begin{explanation}
+\begin{enumerate}
+    \item 
+
+Using Formula \ref{form:rotation}, the matrix of the transformation which
+involves rotating through an angle of $\pi /6$ is
+\begin{equation*}
+M_1 =
+\begin{bmatrix}
+\cos \left( \pi /6\right) & -\sin \left( \pi /6\right) \\
+\sin \left( \pi /6\right) & \cos \left( \pi /6\right)
+\end{bmatrix}
+ =
+\begin{bmatrix}
+\frac{1}{2}\sqrt{3} & -\frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2}\sqrt{3}
+\end{bmatrix}
+\end{equation*}
+
+As we learned in Exploration \ref{init:reflectionxyaxes}, the matrix for the transformation which reflects all vectors about the $x$-axis is $M_2 = \begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix}$.
+
+Therefore, the matrix of the linear transformation which first rotates
+through $\pi /6$ and then reflects through the $x$-axis is given by
+\begin{equation*}
+M = M_2 M_1 = 
+\begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix}
+\frac{1}{2}\sqrt{3} & -\frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2}\sqrt{3}
+\end{bmatrix} = \begin{bmatrix}
+\frac{1}{2}\sqrt{3} & \frac{1}{2} \\
+-\frac{1}{2} & -\frac{1}{2}\sqrt{3}
+\end{bmatrix}
+\end{equation*}
+
+\item From unit circle trigonometry, we know that $\vec{v}$ makes a $\pi/3$ angle with the $x$-axis.  If we rotate $\vec{v}$ counterclockwise by $\pi /6$, it will point straight up.  Following the rotation with reflection across the $x$-axis will make it point straight down.  Sure enough, 
+$$M\vec{v} = \begin{bmatrix}
+\frac{1}{2}\sqrt{3} & -\frac{1}{2} \\
+-\frac{1}{2} & -\frac{1}{2}\sqrt{3}
+\end{bmatrix} \begin{bmatrix}
+    1/2 \\ \sqrt{3}/2 \end{bmatrix} = \begin{bmatrix}
+    0 \\ -1 \end{bmatrix}.$$
+\end{enumerate}
+\end{explanation} 
+\end{example}
 
 \begin{exploration}\label{exp:matrixComp}
 You can use the GeoGebra interactive below to decompose a matrix into a product of two matrices corresponding to the basic transformations we discussed above: scalings, rotations, shears and reflections.
