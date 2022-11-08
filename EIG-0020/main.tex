@@ -10,66 +10,36 @@
 \end{abstract}
 \maketitle
 \section*{Finding Eigenvalues and Eigenvectors}
-Let $A$ be an $n \times n$ matrix.  In section \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors} we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation 
+Let $A$ be an $n \times n$ matrix.  In %section 
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors} we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation  
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
-We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on the process.
+We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this module we will focus on the process.
 
-\begin{exploration}\label{exp:eigenvaluesFind}
-Consider the matrix
-$$A=\begin{bmatrix}-5& -4\\2&4\end{bmatrix}$$
-We would like to find values $\lambda$ and vectors $\vec{x}$ such that $A\vec{x}=\lambda\vec{x}$.  We compute
-\begin{eqnarray*}
-\begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} &=& \lambda\vec{x}\\
-\begin{bmatrix}-5& -4\\2&4\end{bmatrix}\vec{x} - \lambda\vec{x}&=&\vec{0}
-\end{eqnarray*}
-Next, we would like to factor out $\vec{x}$, but we have to be careful.  
-\begin{eqnarray*}
-    \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \lambda {\color{red}\clubsuit}\right)\vec{x}&=&\vec{0}
-\end{eqnarray*}
-The reason we included ${\color{red}\clubsuit}$ in the expression is because we know that we cannot subtract $\lambda$, a scalar, from a matrix.  We need an expression, denoted by ${\color{red}\clubsuit}$, such that (a) $\lambda {\color{red}\clubsuit}$ is a $2\times 2$ matrix, and (b) $\lambda {\color{red}\clubsuit}\vec{x}=\lambda\vec{x}$. To make this happen, we should replace ${\color{red}\clubsuit}$ with \wordChoice{\choice{$A$} \choice[correct]{$I$} \choice{1}\choice{the zero vector}}
+\begin{exploration}\label{exp:slowdown}
+If a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then clearly it also satisfies  $A\vec{x}-\lambda \vec{x} =$ \wordChoice{\choice{0} \choice[correct]{$\vec{0}$}}.
 
-Now we have the following
-\begin{eqnarray*}
-    \left(\begin{bmatrix}-5& -4\\2&4\end{bmatrix} - \begin{bmatrix}\lambda & 0\\0 & \lambda\end{bmatrix}\right)\vec{x}&=&\vec{0}\\
-    \begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}\vec{x}&=&\vec{0}
-\end{eqnarray*}
-
-We know that $\vec{x}=\vec{0}$ is a solution, but the zero vector cannot be an eigenvector (see Observation \ref{obs:finerPointsOfEigDef}).  Therefore the only solutions we are interested in are the non-trivial ones.  These exist if and only  if $\begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}$ is singular, in other words if and only if $$\mbox{det}\begin{bmatrix}-5-\lambda & -4\\2&4-\lambda\end{bmatrix}=0$$ (see Theorems \ref{th:rankandsolutions}, \ref{th:nonsingularequivalency1} and \ref{th:detofsingularmatrix}).  We will solve this equation for $\lambda$ to find the eigenvalues.
-
-Using the definition of the determinant we compute
-\begin{eqnarray*}
-    (-5-\lambda)(4-\lambda)-(-4)(2)&=&0\\
-    \lambda^2+\lambda-12&=&0\\
-    (\lambda+4)(\lambda-3)&=&0
-\end{eqnarray*}
-We conclude that there are two eigenvalues $\lambda_1=3$ and $\lambda_2=-4$.
-We will discuss how to find eigenvectors later in this section. You will be asked to find the eigenvectors of $A$ in Practice Problem \ref{prob:eigenExploration}.   
-\end{exploration}
-
-\subsection*{Finding Eigenvalues}
-We now generalize the procedure we developed in Exploration \ref{exp:eigenvaluesFind}.  Given a square matrix $A$, if a vector $\vec{x}$ is an eigenvector satisfying Equation (\ref{def:eigen}), then it also satisfies the following equations.
+It seems natural at this point to try to factor.  We would love to ``factor out'' $\vec{x}$.  Here is the procedure:
 \begin{align*}
 A\vec{x}-\lambda \vec{x} &= \vec{0} \\
 A\vec{x}-\lambda I\vec{x} &= \vec{0} \\
 (A-\lambda I)\vec{x} &= \vec{0}
 \end{align*}
+The middle step was necessary before factoring because \wordChoice{\choice[correct]{we cannot subtract a $1 \times 1$ scalar $\lambda$ from an $n \times n$ matrix $A$} \choice{$\lambda$ is a Greek letter}}.
 
-Recall that we are only looking for non-trivial solutions.  A non-trivial solution exists if and only if $(A-\lambda I)$ is singular, i.e. $\mbox{det}(A-\lambda I) = 0$.
+This shows that any eigenvector $\vec{x}$ of $A$ is in the \wordChoice{\choice{row space}\choice{column space}\choice[correct]{null space}}  of the related matrix, $A-\lambda I$.
 
-%This shows that any eigenvector $\vec{x}$ of $A$ is in the null space of the related matrix, $A-\lambda I$.  Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)<n$.
+Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)$ \wordChoice{\choice{$=$}\choice[correct]{$<$}\choice{$>$}} $n$.
+\end{exploration}
 
-%If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, Theorem \ref{th:detofsingularmatrix} implies that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
+If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, we see that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
 
+\subsection{Eigenvalues}
+In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
 
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
-\begin{equation}\label{eqn:chareqn}
-\mbox{det}(A-\lambda I) = 0
-\end{equation} 
-is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
+$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
 \end{definition}
-
-In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
 
 \begin{example}\label{ex:2x2eig}
 Let $A=\begin{bmatrix} 2& 1\\ 1&2
@@ -85,8 +55,9 @@ The characteristic equation $(\lambda-1)(\lambda-3)=0$ has solutions $\lambda_1=
 
 \begin{example}\label{ex:2x2eig2}
 Let $B=\begin{bmatrix} 2& 1\\ 4&2
-\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation. List your answers in increasing order.
-$$\lambda_1=\answer{0}\quad \mbox{and}\quad \lambda_2=\answer{4}$$
+\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation.
+
+$\lambda_1=\answer{0}$ and $\lambda_2=\answer{4}$
 \end{example}
 
 \begin{example}\label{ex:3x3eig}
@@ -105,7 +76,7 @@ Matrix $C$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.
 
 In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice in the characteristic polynomial.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
 
-The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial over the real numbers.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
+The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
 
 \begin{example}\label{ex:3x3_complex_eig}
 Let $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.  Compute the eigenvalues of this matrix.
@@ -120,8 +91,8 @@ So one of the eigenvalues of $D$ is $\lambda=0$.  To get the other eigenvalues w
 \end{explanation}
 \end{example}
 
-\begin{example}\label{init:3x3tri}
-Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.  List your answers in increasing order.
+\begin{exploration}\label{init:3x3tri}
+Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.
 
 $$\lambda_1=\answer{1},\quad\lambda_2=\answer{5},\quad\text{and}\quad\lambda_3=\answer{9}$$
 
@@ -135,9 +106,9 @@ What property of the matrix makes this ``coincidence" possible?
 \begin{hint}
 $T$ is a triangular matrix.
 \end{hint}
-\end{example}
+\end{exploration}
 
-The matrix in Example \ref{init:3x3tri} is a triangular matrix, and the property you observed holds in general.
+The matrix in Exploration Problem \ref{init:3x3tri} is a triangular matrix, and the property you observed holds in general.
 
 \begin{theorem}\label{th:eigtri}
 Let $T$ be a triangular matrix.  Then the eigenvalues of $T$ are the entries on the main diagonal.
@@ -151,22 +122,22 @@ See Practice Problem \ref{prob:eigtri}.
 Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on the main diagonal.
 \end{corollary}
 
-One final note about eigenvalues.  We began this section with the sentence, ``In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
+One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
 
-\subsection{Finding Eigenvectors}
+\subsection{Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
 \begin{align}\label{eqn:nullspace}
  (A-\lambda I) \vec{x}=\vec{0}   
 \end{align} 
-For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it. (See Theorem \ref{th:eigenScalarMult}.)  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2})  This motivates the following definition.
+For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2})  This motivates the following definition.
 
 \begin{definition}\label{def:eigspace}
 The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
 \end{definition}
 
-So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}.
+So given an eigenvalue $\lambda$, there is an associated eigenspace $\mathcal{S}$, and our goal is to find a basis of $\mathcal{S}$, for then any eigenvector $\vec{x}$ will be a linear combination of the vectors in that basis.  Moreover, we are trying to find a basis for the set of vectors that satisfy Equation \ref{eqn:nullspace}, which means we seek a basis for $\mbox{null}(A-\lambda I)$.  We have already learned how to compute a basis of a null space - see Module VSP-0040.
 
-Let's return to the examples we did in the first section of this section.
+Let's return to the examples we did in the first section of this module.
 
 \begin{example}\label{ex:eigvect2x2eig} (Finding eigenvectors for Example \ref{ex:2x2eig} ) 
 
@@ -260,11 +231,6 @@ Show that the set of eigenvectors of $A$ associated with $\lambda$ is closed und
 \end{problem}
 \end{problem}
 
-\begin{problem}\label{prob:eigenExploration}
-    Find the eigenvectors corresponding to eigenvalues $\lambda_1=3$ and $\lambda_2=-4$ of Exploration \ref{exp:eigenvaluesFind}.
-    $$\vec{v}_1=\begin{bmatrix}-1\\\answer{2}\end{bmatrix}\quad \vec{v}_2=\begin{bmatrix}\answer{-4}\\1\end{bmatrix}$$
-\end{problem}
-
 \begin{problem}
 Compute the eigenvalues of the given matrix and find the corresponding eigenspaces.
 \begin{problem}\label{prob:eigenspace3}
@@ -324,7 +290,7 @@ Prove Theorem \ref{th:eigtri}.  (HINT:  Proceed by induction on the dimension n.
 \end{problem}
 
 \begin{problem}
-The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors} and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0070/main}{Geometric Transformations of the Plane} for reference.
+The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use EIG-0010 and LTR-0070 for reference.
 \begin{problem}\label{prob:eigvectorstransfr2_1}
 Recall that a vertical stretch/compression of the plane is a linear transformation whose standard matrix is $$M_v=\begin{bmatrix}1&0\\0&k\end{bmatrix}$$
 Find the eigenvalues of $M_v$.  Find a basis for the eigenspace corresponding to each eigenvalue.
@@ -352,7 +318,7 @@ Sketch several vectors in the eigenspace and use geometry to explain why the eig
 Recall that a counterclockwise rotation of the plane through angle $\theta$ is a linear transformation whose standard matrix is $$M_{\theta}=\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}$$
 Verify that the eigenvalues of $M_{\theta}$ are
 $$\lambda=\cos\theta\pm\sqrt{\cos^2\theta-1}$$
-Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors}.)
+Explain why $\lambda$ is real number if and only if $\theta$ is a multiple of $\pi$.  (Compare this to Practice Problem \ref{prob:rotmatrixrealeig1} of EIG-0010.)
 
 Suppose $\theta$ is a muliple of $\pi$.  Then the eigenspaces corresponding to the two eigenvalues are the same.  Which of the following describes the eigenspace?
 \begin{multipleChoice}
