@@ -79,11 +79,13 @@ The above discussion leads us to the following result.
 See Practice Problem \ref{prob:eigenScalarMult}
 \end{proof}
 
+\begin{observation}\label{obs:finerPointsOfEigDef}
 A couple of finer points of Definition \ref{def:eigen} require clarification.
   \begin{itemize}
   \item The definition requires that eigenvectors be non-zero.  Imagine what would happen if we allowed $\vec{x}=\vec{0}$ to be an eigenvector of $A$. Clearly $A\vec{0}=\lambda\vec{0}$ for all scalars $\lambda$.  This means that every number would be an eigenvalue of every matrix.  Because eigenvalues are supposed to capture certain information about the matrix, allowing every number to be an eigenvalue of every matrix would defeat the purpose.
   \item Up to now we had talked about  eigenvectors as vectors whose images under a matrix transformation are parallel to the original vectors.  But the algebraic definition allows non-zero vectors that map to zero to be considered eigenvectors.  (What would an eigenvalue of such an eigenvector be?)  The zero vector has no direction, so we cannot say that the image of such an eigenvector is parallel to the original vector.  Example \ref{ex:eigen} will illustrate this point.
   \end{itemize}
+\end{observation}
 
 \begin{example}\label{ex:eigen}
 Let $P=\begin{bmatrix} 1& 0\\ 0&0\end{bmatrix}$.  Note that $P$ takes a vector in $\RR^2$ and projects it onto the $x$-axis, as we learned in Practice Problem \ref{prob:standardmatrix3} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0020/main}{Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$}.  Which vectors in $\RR^2$ would be the eigenvectors, and what are the corresponding eigenvalues?
