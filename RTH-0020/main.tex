@@ -100,8 +100,8 @@ Some of the important subspaces we studied earlier are orthogonal complements of
     \item Its \dfn{column space}, $\mbox{col}(A) = \mbox{span} \{ \mbox{the columns of } A\}$, is a subspace of $\RR^m$.
 \end{enumerate}
 
-\begin{exploration}
-In the following GeoGebra interactive, you can chanage the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Then, since matrix $A$ is defined using $\vec{v}$ and $\vec{w}$ as its rows, we have $\mbox{row}(A) = \mbox{span}\{\vec{v},\vec{w}\}$.  
+\begin{exploration}\label{exp:discoverortho}
+In the following GeoGebra interactive, you can change the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Then, since matrix $A$ is defined using $\vec{v}$ and $\vec{w}$ as its rows, we have $\mbox{row}(A) = \mbox{span}\{\vec{v},\vec{w}\}$.  
    
 \begin{center}
 \geogebra{f6eavqxs}{950}{800}
@@ -111,7 +111,7 @@ In the following GeoGebra interactive, you can chanage the coordinates of the ve
         \item Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$? 
         \end{enumerate}
 
-  It is possible to ``break" this interactive (If you succeeded in doing that, great job, you understand this material!). If $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, then $\mbox{row}(A)$ is a \wordChoice{\choice{Point}, \choice[correct]{Line},\choice{Plane}}, and the dimension of $\mbox{null}(A)$ is \wordChoice{\choice{1}, \choice[correct]{2},\choice{3}}.  The interactive does not accommodate these requirements.  To see what happens when $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, see Practice Problem \ref{prob:brokenInteractive}.
+  It is possible to ``break" this interactive (for certain choices of the sliders). If $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, then $\mbox{row}(A)$ is a \wordChoice{\choice{Point}, \choice[correct]{Line},\choice{Plane}}, and the dimension of $\mbox{null}(A)$ is \wordChoice{\choice{1}, \choice[correct]{2},\choice{3}}.  The interactive does not accommodate this situation.  To see what happens when $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, see Practice Problem \ref{prob:brokenInteractive}.
 \end{exploration}
 
 
@@ -272,9 +272,12 @@ Solve the linear system in Example \ref{ex:023829} and use your result to find a
 \end{problem}
 
 \begin{problem}\label{prob:brokenInteractive}
+In this problem we return to the interactive in Exploration \ref{exp:discoverortho}, and we consider the case where the matrix $A$ is rank 1 (which that interactive could not handle).  This time, the sliders define row 1 of matrix $A$, and row 2 will be 2 times row 1.  Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$?
+
     \begin{center}
 \geogebra{tyntjmdp}{950}{800}
 \end{center}
+
 \end{problem}
 
 \begin{problem}\label{prob:finishex4subspaces}
