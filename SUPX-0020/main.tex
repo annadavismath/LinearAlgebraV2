@@ -9,255 +9,902 @@
 \end{abstract}
 \maketitle
 
-\section*{Supplementary Exercises for Ch 2 Systems of Linear Equations}
+\section*{Exercises for Ch 2 Systems of Linear Equations}
+
+\begin{problem}\label{prb:2.1}
+Graphically, find the point $\left( x_{1},y_{1}\right) $ which
+lies on both lines, $x+3y=1$ and $4x-y=3.$  That is, graph each line
+and see where they intersect.
+
+(Express each coordinate as a simplified fraction.) $x=\answer{\frac{10}{13}},y=\answer{\frac{1}{13}}$
+\end{problem}
 
 
+\begin{problem}\label{prb:2.2}
+Graphically, find the point of intersection of the two lines $
+3x+y=3$ and $x+2y=1.$ That is, graph each line
+and see where they intersect.
 
-\begin{problem}\label{prb:possible}
-We show in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{Planes in $\RR^3$} that the graph of an equation $ax + by + cz = d$ is a plane in space when not all of $a$, $b$, and $c$ are zero.
+ $$x=\answer{1},y=\answer{0}$$
+\end{problem}
+
+\begin{problem}\label{prb:2.3} You have a system of $k$ equations in two variables, $k\geq 2$.
+Explain the geometric significance of
 
 \begin{enumerate}
-\item By examining the possible positions of planes in space, show that three equations in three variables can have zero, one, or infinitely many solutions.
- %ANSWER  No. If the corresponding planes are parallel and distinct, there is no
-%solution. Otherwise they either coincide or have a whole common line of
-%solutions, that is, at least one parameter.
+\item No solution.
 
-\item Can two equations in three variables have a unique solution? Give reasons for your answer.
-\end{enumerate}
-\end{problem}
+\item A unique solution.
 
-\begin{problem}\label{prb:systems_review}
-Find all solutions to the following systems of linear equations.
-
-\begin{enumerate}
-\item
-
-$\begin{array}{rlrlrlrcr}
-	  x_1 & + &  x_2 & + &  x_3 & - &  x_4 & = &  3 \\
-	 3x_1 & + & 5x_2 & - & 2x_3 & + &  x_4 & = &  1 \\
-	-3x_1 & - & 7x_2 & + & 7x_3 & - & 5x_4 & = &  7 \\
-	  x_1 & + & 3x_2 & - & 4x_3 & + & 3x_4 & = & -5 \\
-\end{array}$
-
-%ANSWER \hspace*{0em}\newline $x_1 = \frac{1}{10}(-6s - 6t + 16)$, $x_2 = \frac{1}{10}(4s - t + 1)$, $x_3 = s$, $x_4 = t$
-
-\item
-
-$\begin{array}{rlrlrlrcr}
-	  x_1 & + &  4x_2 & - &   x_3 & + &   x_4 & = &  2 \\
-	 3x_1 & + &  2x_2 & + &   x_3 & + &  2x_4 & = &  5 \\
-	  x_1 & - &  6x_2 & + &  3x_3 &   &       & = &  1 \\
-	  x_1 & + & 14x_2 & - &  5x_3 & + &  2x_4 & = &  3 \\
-\end{array}$
-
+\item An infinite number of solutions.
 \end{enumerate}
 
+%\begin{hint}
+%\end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:no._sol}
-In each case find (if possible) conditions on $a$, $b$, and $c$ such that the system has zero, one, or infinitely many solutions.
-\begin{enumerate}
-\item
-
-$\begin{array}{rlrlrcr}
-	  x & + &  2y & - &  4z & = &  4 \\
-	 3x & - &   y & + & 13z & = &  2 \\
-	 4x & + &   y & + & a^2z & = & a + 3 \\
-\end{array}$
-%ANSWER  If $a = 1$, no solution. If $a = 2$, $x = 2 - 2t$, $y = -t$, $z = t$. If $a \neq 1$ and $a \neq 2$, the unique          solution is $x = \frac{8 - 5a}{3(a - 1)}$, $y = \frac{-2 - a}{3(a - 1)}$, $z = \frac{a + 2}{3}$
-
-\item
-
-$\begin{array}{rlrlrcr}
-	  x & + &   y & + &  3z & = &  a \\
-	 ax & + &   y & + &  5z & = &  4 \\
-	  x & + &  ay & + &  4z & = &  a
-\end{array}$
-\end{enumerate}
-\end{problem}
-
-\begin{problem}\label{prb:elementaryrowops}
-Show that any two rows of a matrix can be interchanged by elementary row transformations of the other two types.
-
-%\begin{supsol}
-%$\leftB \begin{array}{c}
-%	R_1 \\
-%	R_2
-%\end{array} \rightB
-%\to $ \\ $\leftB \begin{array}{c}
-%	R_1 + R_2 \\
-%	R_2
-%\end{array} \rightB
-%\to
-%\leftB \begin{array}{c}
-%	R_1 + R_2 \\
-%	-R_1
-%\end{array} \rightB
-%\to
-%\leftB \begin{array}{c}
-%	R_2 \\
-%	-R_1
-%\end{array} \rightB
-%\to
-%\leftB \begin{array}{c}
-%	R_2 \\
-%	R_1
-%\end{array} \rightB$
-%\end{supsol}
-\end{problem}
-
-\begin{problem}\label{prb:rref_nonsingular}
-If $ad \neq bc$, show that $\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}$ has reduced row-echelon form $\begin{bmatrix}
- 1 & 0 \\
- 0 & 1
- \end{bmatrix}$.
-\end{problem}
-
-\begin{problem}\label{prb:coeffs}
-Find $a$, $b$, and $c$ so that the system
+\begin{problem}\label{prb:2.4}
+\label{Chapter1Q8}Consider the following augmented matrix in which $\ast $ denotes an
+arbitrary number and $\blacksquare $ denotes a nonzero number. Determine
+whether the given augmented matrix is consistent. If consistent, is the
+solution unique?
 \begin{equation*}
-\begin{array}{rlrlrcr}
-	 x & + &  ay & + &  cz & = &  0 \\
-	bx & + &  cy & - &  3z & = &  1 \\
-	ax & + &  2y & + &  bz & = &  5
+\left[
+\begin{array}{ccccc|c}
+\blacksquare & \ast & \ast & \ast & \ast & \ast \\
+0 & \blacksquare & \ast & \ast & 0 & \ast \\
+0 & 0 & \blacksquare & \ast & \ast & \ast \\
+0 & 0 & 0 & 0 & \blacksquare & \ast
 \end{array}
-\end{equation*}
-has the solution $x = 3$, $y = -1$, $z = 2$.
-
-$a = \answer{1}$, $b = \answer{2}$, $c = \answer{-1}$
-
-\end{problem}
-
-\begin{problem}\label{prb:complex}
-Solve the system
-$$
-\begin{array}{rlrlrcr}
-	 x & + &  2y & + &  2z & = & -3 \\
-	2x & + &   y & + &   z & = & -4 \\
-	 x & - &   y & + &  iz & = &  i
-\end{array}
-$$
-where $i^{2} = -1$. 
-\end{problem}
-
-\begin{problem}\label{prb:real_complex}
-Show that the \textit{real} system
-\begin{equation*}
-\left \{
-\begin{array}{rlrlrcr}
-	 x & + &   y & + &   z & = &  5 \\
-	2x & - &   y & - &   z & = &  1 \\
-	-3x& + &  2y & + &  2z & = &  0
-\end{array}
-\right.
-\end{equation*}
-has a \textit{complex} solution: $x = 2$, $y = i$, $z = 3 - i$ where $i^{2} = -1$. Explain. What happens when such a real system has a unique solution?
-
-%ANSWER  The (real) solution is $x = 2$, $y = 3 - t$, $z = t$ where $t$ is a parameter. The given complex solution occurs when $t = 3 - i$ is complex. If the real system has a unique solution, that solution is real because the coefficients and constants are all real.
-
-\end{problem}
-
-\begin{problem}\label{prb:pills}
-A man is ordered by his doctor to take $5$ units of vitamin A, $13$ units of vitamin B, and $23$ units of vitamin C each day. Three brands of vitamin pills are available, and the number of units of each vitamin per pill are shown in the accompanying table.
-
-$$
-\begin{array}{cccc}
-\hline
-		\textbf{Brand} &  \textbf{A} & \textbf{B} & \textbf{C} \\ \hline
-		\textbf{1} & 1 & 2 & 4 \\
-		\textbf{2} & 1 & 1 & 3 \\
-		\textbf{3} & 0 & 1 & 1 \\ \hline
- \end{array}
-$$
-
-\begin{enumerate}
-\item Find all combinations of pills that provide exactly the required amount of vitamins (no partial pills allowed).
-
-\item If brands 1, 2, and 3 cost 3 cents, 2 cents, and 5 cents \ per pill, respectively, find the least expensive treatment.
-
-$\answer{5}$ of brand 1, $\answer{0}$ of brand 2, $\answer{3}$ of brand 3
-
-\end{enumerate}
-\end{problem}
-
-\begin{problem}\label{prb:tables}
-A restaurant owner plans to use $x$ tables seating $4$, $y$ tables seating $6$, and $z$ tables seating $8$, for a total of $20$ tables. When fully occupied, the tables seat $108$ customers. If only half of the $x$ tables, half of the $y$ tables, and one-fourth of the $z$ tables are used, each fully occupied, then $46$ customers will be seated. Find $x$, $y$, and $z$.
-
-\end{problem}
-
-\begin{problem}\label{prb:2x2rref_forms}
-
-\begin{enumerate}
-\item Show that a matrix with two rows and two columns that is in reduced row-echelon form must have one of the following forms:
-\begin{equation*}
-\begin{bmatrix}
-1 & 0 \\
-0 & 1
-\end{bmatrix}
-\begin{bmatrix}
-0 & 1 \\
-0 & 0
-\end{bmatrix}
-\begin{bmatrix}
-0 & 0 \\
-0 & 0
-\end{bmatrix}
-\begin{bmatrix}
-1 & * \\
-0 & 0
-\end{bmatrix}
+\right] 
 \end{equation*}
 
+The solution \wordChoice{\choice[correct]{exists} \choice{does not exist}} and is \wordChoice{\choice{unique} \choice[correct]{not unique}}.
+\end{problem}
+
+\begin{problem}\label{prb:2.5}
+Consider the following augmented matrix in which $\ast $ denotes an arbitrary
+number and $\blacksquare $ denotes a nonzero number. Determine whether the
+given augmented matrix is consistent. If consistent, is the solution unique?
+\begin{equation*}
+\left[
+\begin{array}{ccc|c}
+\blacksquare & \ast & \ast & \ast \\
+0 & \blacksquare & \ast & \ast \\
+0 & 0 & \blacksquare & \ast
+\end{array}
+\right]
+\end{equation*}
+The solution \wordChoice{\choice[correct]{exists} \choice{does not exist}} and is \wordChoice{[correct]\choice{unique} \choice{not unique}}.
+\end{problem}
+
+
+\begin{problem}\label{prb:2.6}
+Consider the following augmented matrix in which $\ast $ denotes an arbitrary
+number and $\blacksquare $ denotes a nonzero number. Determine whether the
+given augmented matrix is consistent. If consistent, is the solution unique?
+\begin{equation*}
+\left[
+\begin{array}{ccccc|c}
+\blacksquare & \ast & \ast & \ast & \ast & \ast \\
+0 & \blacksquare & 0 & \ast & 0 & \ast \\
+0 & 0 & 0 & \blacksquare & \ast & \ast \\
+0 & 0 & 0 & 0 & \blacksquare & \ast
+\end{array}
+\right]
+\end{equation*}
+The solution \wordChoice{\choice[correct]{exists} \choice{does not exist}} and is \wordChoice{\choice{unique} \choice[correct]{not unique}}.
+\end{problem}
+
+\begin{problem}\label{prb:2.7}
+Consider the following augmented matrix in which $\ast $ denotes an arbitrary
+number and $\blacksquare $ denotes a nonzero number. Determine whether the
+given augmented matrix is consistent. If consistent, is the solution unique?
+\begin{equation*}
+\left[
+\begin{array}{ccccc|c}
+\blacksquare & \ast & \ast & \ast & \ast & \ast \\
+0 & \blacksquare & \ast & \ast & 0 & \ast \\
+0 & 0 & 0 & 0 & \blacksquare & 0 \\
+0 & 0 & 0 & 0 & \ast & \blacksquare
+\end{array}
+\right]
+\end{equation*}
 \begin{hint}
- The leading $1$ in the first row must be in column 1 or 2 or not exist.
+There might be a solution. If so, there are infinitely many.
 \end{hint}
-
-\item List the seven reduced row-echelon forms for matrices with two rows and three columns.
-
-\item List the four reduced row-echelon forms for matrices with three rows and two columns.
-
-\end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prb:amusement}
-An amusement park charges \$$7$ for adults, \$$2$ for youths, and \$$0.50$ for
-children. If $150$ people enter and pay a total of \$$100$, find the numbers
-of adults, youths, and children.
+\begin{problem}\label{prb:2.8}
+Suppose a system of equations has fewer equations than variables. Will such a system necessarily be consistent? If so, explain why and if not, give an example
+which is not consistent.
 \begin{hint}
-These numbers are nonnegative \textit{integers}.
+No. Consider $x+y+z=2$ and $x+y+z=1.$
 \end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.9}
+If a system of equations has more equations than variables, can it
+have a solution? If so, give an example and if not, tell why not.
+\begin{hint}
+These can
+have a solution. For example, $x+y=1,2x+2y=2,3x+3y=3$ even has an infinite
+set of solutions.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.10}
+Find $h$ such that
+\begin{equation*}
+\left[
+\begin{array}{rr|r}
+2 & h & 4 \\
+3 & 6 & 7
+\end{array}
+\right]
+\end{equation*}
+is the augmented matrix of an \textit{inconsistent} system.
+
+$h=\answer{4}$
 
 \end{problem}
 
-\begin{problem}\label{prb:quadratic}
-Solve the following system of equations for $x$ and $y$.
-
+\begin{problem}\label{prb:2.11}
+Find $h$ such that
 \begin{equation*}
-\begin{array}{rlrlrcr}
-	  x^2 & + &   xy & - &   y^2 & = &  1 \\
-	 2x^2 & - &   xy & + &  3y^2 & = & 13 \\
-	  x^2 & + &  3xy & + &  2y^2 & = &  0 \\
+\left[
+\begin{array}{rr|r}
+1 & h & 3 \\
+2 & 4 & 6
 \end{array}
+\right]
 \end{equation*}
+is the augmented matrix of a \textit{consistent} system.
 \begin{hint}
-These equations are linear in the new variables $x_{1} = x^{2}$, $x_{2} = xy$, and $x_{3} = y^{2}$.
+ Any $h$ will work.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.12}
+Find $h$ such that
+\begin{equation*}
+\left[
+\begin{array}{rr|r}
+1 & 1 & 4 \\
+3 & h & 12
+\end{array}
+\right]
+\end{equation*}
+is the augmented matrix of a \textit{consistent} system.
+\begin{hint}
+ Any $h$ will work.
 \end{hint}
 \end{problem}
 
 
+\begin{problem}\label{prb:2.13}
+Choose $h$ and $k$ such that the augmented matrix shown has each of the following:
+\begin{enumerate}
+\item one solution
+\item no solution
+\item infinitely many solutions
+\end{enumerate}
+\begin{equation*}
+\left[
+\begin{array}{rr|r}
+1 & h & 2 \\
+2 & 4 & k
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+If $h\neq 2$ there will be a unique solution for any $k$. If $h=2$ and $%
+k\neq 4,$ there are no solutions. If $h=2$ and $k=4,$ then there are
+infinitely many solutions.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:2.14}
+Choose $h$ and $k$ such that the augmented matrix shown has each of the following:
+\begin{enumerate}
+\item one solution
+\item no solution
+\item infinitely many solutions
+\end{enumerate}
+\begin{equation*}
+\left[
+\begin{array}{rr|r}
+1 & 2 & 2 \\
+2 & h & k
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+If $h\neq 4,$ then there is exactly one solution. If $h=4$ and $k\neq 4,$
+then there are no solutions. If $h=4$ and $k=4,$ then there are infinitely
+many solutions.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:2.15}
+Determine if the system is consistent. If so, is the solution unique?
+\begin{equation*}
+\begin{array}{c}
+x+2y+z-w=2 \\
+x-y+z+w=1 \\
+2x+y-z=1 \\
+4x+2y+z=5
+\end{array}
+\end{equation*}
+\begin{hint}
+There is no solution. The system is inconsistent. You can see this from the
+augmented matrix. $\mbox{rref}\left(\left[
+\begin{array}{rrrr|r}
+1 & 2 & 1 & -1 & 2 \\
+1 & -1 & 1 & 1 & 1 \\
+2 & 1 & -1 & 0 & 1 \\
+4 & 2 & 1 & 0 & 5
+\end{array}
+\right]\right) = \left[
+\begin{array}{rrrr|r}
+1 & 0 & 0 & \vspace{0.05in}\frac{1}{3} & 0 \\
+0 & 1 & 0 & -\vspace{0.05in}\frac{2}{3} & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1
+\end{array}
+\right] .$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.16}
+Determine if the system is consistent. If so, is the solution unique?
+\begin{equation*}
+\begin{array}{c}
+x+2y+z-w=2 \\
+x-y+z+w=0 \\
+2x+y-z=1 \\
+4x+2y+z=3
+\end{array}
+\end{equation*}
+\begin{hint}
+Solution is: $ w=\frac{3}{2}y-1, x=\frac{2}{3}-\frac{1}{2}y, z=\frac{1}{3} $
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.17} Determine which matrices are in reduced row-echelon form.
+
+\begin{enumerate}
+\item $\left[
+\begin{array}{rrr}
+1 & 2 & 0 \\
+0 & 1 & 7
+\end{array}
+\right] $ \wordChoice{\choice{yes} \choice[correct]{no}} 
+
+\item $\left[
+\begin{array}{rrrr}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 2 \\
+0 & 0 & 0 & 0
+\end{array}
+\right] $ \wordChoice{\choice[correct]{yes} \choice{no}}
+
+\item $\left[
+\begin{array}{rrrrrr}
+1 & 1 & 0 & 0 & 0 & 5 \\
+0 & 0 & 1 & 2 & 0 & 4 \\
+0 & 0 & 0 & 0 & 1 & 3
+\end{array}
+\right] $ \wordChoice{\choice[correct]{yes} \choice{no}}
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:2.18} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+2 & -1 & 3 & -1 \\
+1 & 0 & 2 & 1 \\
+1 & -1 & 1 & -2
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.19} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+0 & 0 & -1 & -1 \\
+1 & 1 & 1 & 0 \\
+1 & 1 & 0 & -1
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.20} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+3 & -6 & -7 & -8 \\
+1 & -2 & -2 & -2 \\
+1 & -2 & -3 & -4
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.21} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+2 & 4 & 5 & 15 \\
+1 & 2 & 3 & 9 \\
+1 & 2 & 2 & 6
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.22} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+4 & -1 & 7 & 10 \\
+1 & 0 & 3 & 3 \\
+1 & -1 & -2 & 1
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.23} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+3 & 5 & -4 & 2 \\
+1 & 2 & -1 & 1 \\
+1 & 1 & -2 & 0
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.24} Row reduce the following matrix to row echelon form. Then continue to obtain the reduced row echelon form.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+-2 & 3 & -8 & 7 \\
+1 & -2 & 5 & -5 \\
+1 & -3 & 7 & -8
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.25} Find the solution of the system whose augmented matrix is
+\begin{equation*}
+\left[
+\begin{array}{rrr|r}
+1 & 2 & 0 & 2 \\
+1 & 3 & 4 & 2 \\
+1 & 0 & 2 & 1
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.26} Find the solution of the system whose augmented matrix is
+\begin{equation*}
+\left[
+\begin{array}{rrr|r}
+1 & 2 & 0 & 2 \\
+2 & 0 & 1 & 1 \\
+3 & 2 & 1 & 3
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The reduced row echelon form is $\left[
+\begin{array}{rrr|r}
+1 & 0 & \vspace{0.05in}\frac{1}{2} & \vspace{0.05in}\frac{1}{2} \\
+0 & 1 & -\vspace{0.05in}\frac{1}{4} & \vspace{0.05in}\frac{3}{4} \\
+0 & 0 & 0 & 0
+\end{array}
+\right] .$ Therefore, the solution is of the form $z=t,y=\frac{3}{4}+t\left(
+\frac{1}{4}\right) ,x=\frac{1}{2}-\frac{1}{2}t$ where $t\in \mathbb{R}$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.27} Find the solution of the system whose augmented matrix is
+\begin{equation*}
+\left[
+\begin{array}{rrr|r}
+1 & 1 & 0 & 1 \\
+1 & 0 & 4 & 2
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The reduced row echelon form is $\left[
+\begin{array}{rrr|r}
+1 & 0 & 4 & 2 \\
+0 & 1 & -4 & -1
+\end{array}
+\right] $ and so the solution is $z=t,y=4t,x=2-4t.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.28} Find the solution of the system whose augmented matrix is
+\begin{equation*}
+\left[
+\begin{array}{rrrrr|r}
+1 & 0 & 2 & 1 & 1 & 2 \\
+0 & 1 & 0 & 1 & 2 & 1 \\
+1 & 2 & 0 & 0 & 1 & 3 \\
+1 & 0 & 1 & 0 & 2 & 2
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The reduced row echelon form is $\left[
+\begin{array}{rrrrr|r}
+1 & 0 & 0 & 0 & 9 & 3 \\
+0 & 1 & 0 & 0 & -4 & 0 \\
+0 & 0 & 1 & 0 & -7 & -1 \\
+0 & 0 & 0 & 1 & 6 & 1
+\end{array}
+\right] $ and so $x_{5}=t,x_{4}=1-6t,x_{3}=-1+7t,x_{2}=4t,x_{1}=3-9t$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.29} Find the solution of the system whose augmented matrix is
+\begin{equation*}
+\left[
+\begin{array}{rrrrr|r}
+1 & 0 & 2 & 1 & 1 & 2 \\
+0 & 1 & 0 & 1 & 2 & 1 \\
+0 & 2 & 0 & 0 & 1 & 3 \\
+1 & -1 & 2 & 2 & 2 & 0
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The reduced row echelon form is $\left[
+\begin{array}{rrrrr|r}
+1 & 0 & 2 & 0 & -\vspace{0.05in}\frac{1}{2} & \vspace{0.05in}\frac{5}{2} \\
+0 & 1 & 0 & 0 & \vspace{0.05in}\frac{1}{2} & \vspace{0.05in}\frac{3}{2} \\
+0 & 0 & 0 & 1 & \vspace{0.05in}\frac{3}{2} & -\vspace{0.05in}\frac{1}{2} \\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}
+\right] $. Therefore, let $x_{5}=t,x_{3}=s.$ Then the other variables are
+given by $x_{4}=-\frac{1}{2}-\frac{3}{2}t,x_{2}=\frac{3}{2}-t\frac{1}{2}
+,,x_{1}=\frac{5}{2}+\frac{1}{2}t-2s.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.30} Find the solution to the system of equations, $7x+14y+15z=22,
+$ $2x+4y+3z=5,$ and $3x+6y+10z=13.$
+ \begin{align*}
+ x&=\answer{1}-\answer{2}t\\
+ y&=t\\
+ z&=\answer{1}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.31} Find the solution to the system of equations, $3x-y+4z=6,$
+$y+8z=0,$ and $-2x+y=-4.$
+ \begin{align*}
+ x&=\answer{2}-\answer{4}t\\
+ y&=\answer{-8}t\\
+ z&=t\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.32} Find the solution to the system of equations, $9x-2y+4z=-17,
+$ $13x-3y+6z=-25,$ and $-2x-z=3.$
+ \begin{align*}
+ x&=\answer{-1}\\
+ y&=\answer{2}\\
+ z&=\answer{-1}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.33} Find the solution to the system of equations,
+$65x+84y+16z=546,$ $81x+105y+20z=682,$ and $84x+110y+21z=713.$
+ \begin{align*}
+ x&=\answer{2}\\
+ y&=\answer{4}\\
+ z&=\answer{5}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.34} Find the solution to the system of equations,
+$8x+2y+3z=-3,8x+3y+3z=-1,$ and $4x+y+3z=-9.$
+ \begin{align*}
+ x&=\answer{1}\\
+ y&=\answer{2}\\
+ z&=\answer{-5}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.35} Find the solution to the system of equations,
+$-8x+2y+5z=18,-8x+3y+5z=13,$ and $-4x+y+5z=19.$
+ \begin{align*}
+ x&=\answer{-1}\\
+ y&=\answer{-5}\\
+ z&=\answer{4}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.36} Find the solution to the system of equations, $3x-y-2z=3,$
+$y-4z=0,$ and $-2x+y=-2.$
+ \begin{align*}
+ x&=\answer{1}-\answer{2}t\\
+ y&=\answer{4}t\\
+ z&=t\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.37} Find the solution to the system of equations,
+$-9x+15y=66,-11x+18y=79$, $-x+y=4$, and $z=3$.
+ \begin{align*}
+ x&=\answer{1}\\
+ y&=\answer{5}\\
+ z&=\answer{3}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.38} Find the solution to the system of equations, $-19x+8y=-108,$
+$-71x+30y=-404,$ $-2x+y=-12,$ $4x+z=14.$
+ \begin{align*}
+ x&=\answer{4}\\
+ y&=\answer{-4}\\
+ z&=\answer{-2}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.39} Suppose a system of equations has fewer equations than variables and
+you have found a solution to this system of equations. Is it possible that
+your solution is the only one?\ Explain.
+\begin{hint}
+No. Consider $x+y+z=2$ and $x+y+z=1.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.40} Suppose a system of linear equations has a $2\times 4$ augmented
+matrix and the last column is a pivot column. Could the system of linear
+equations be consistent? Explain.
+\begin{hint}
+ No. This would lead to $0=1.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.41} Suppose the coefficient matrix of a system of $n$ equations with $n$
+variables has the property that every column is a pivot column. Does it
+follow that the system of equations must have a solution? If so, must the
+solution be unique? Explain.
+
+The solution \wordChoice{\choice[correct]{exists} \choice{does not exist}} and is \wordChoice{\choice[correct]{unique} \choice{not unique}}.
+\end{problem}
+
+\begin{problem}\label{prb:2.42} Suppose there is a unique solution to a system of linear equations.
+What must be true of the pivot columns in the augmented matrix?
+\begin{hint}
+The last column must not be a pivot column. The remaining columns must each be pivot
+columns.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:2.43} The steady state temperature, $u$, of a plate solves Laplace's
+equation, $\Delta u=0.$ One way to approximate the solution is to divide the plate into a square mesh and require the temperature
+at each node to equal the average of the temperature at the four adjacent
+nodes. In the following picture, the numbers represent the observed
+temperature at the indicated nodes. Find the temperature at
+the interior nodes, indicated by $x,y,z,$ and $w$. One of the equations is
+$z=\vspace{0.05in}\frac{1}{4}\left( 10+0+w+x\right) $.
+
+\begin{picture}(1,60)
+ \put(100,0){\begin{picture}(1,1)
+ %\put(0,0){\line(1,0){90}}
+ \setlength{\unitlength}{.6pt}
+ \put(0,30){\line(1,0){90}}
+ \put(0,60){\line(1,0){90}}
+ \put(30,0){\line(0,1){90}}
+ \put(60,0){\line(0,1){90}}
+ \put(60,0){\circle*{3}}
+ \put(30,0){\circle*{3}}
+ \put(0,60){\circle*{3}}
+ \put(0,30){\circle*{3}}
+ \put(30,30){\circle*{3}}
+  \put(30,60){\circle*{3}}
+   \put(60,30){\circle*{3}}
+    \put(60,60){\circle*{3}}
+     \put(60,90){\circle*{3}}
+      \put(30,90){\circle*{3}}
+   \put(90,30){\circle*{3}}
+    \put(90,60){\circle*{3}}
+     \put(63,-4){$10$}
+ \put(33,-4){$10$}
+ \put(-10,60){$20$}
+ \put(-10,30){$20$}
+ \put(34,34){$x$}
+  \put(34,64){$y$}
+   \put(64,34){$z$}
+    \put(64,64){$w$}
+     \put(64,90){$30$}
+      \put(34,90){$30$}
+   \put(94,30){$0$}
+    \put(94,60){$0$}
+ \end{picture}}
+ \end{picture}
+
+\begin{hint}
+You need 
+\begin{align*}
+&\frac{1}{4}\left( 20+30+w+x\right) -y=0 \\
+&\frac{1}{4}\left( y+30+0+z\right) -w=0 \\
+&\frac{1}{4}\left( 20+y+z+10\right) -x=0 \\
+&\frac{1}{4}\left( x+w+0+10\right) -z=0
+\end{align*}
+\end{hint}
+ \begin{align*}
+ w&=\answer{15}\\
+ x&=\answer{15}\\
+ y&=\answer{20}\\
+ z&=\answer{10}\\
+ \end{align*}
+\end{problem}
+
+\begin{problem}\label{prb:2.44} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+4 & -16 & -1 & -5 \\
+1 & -4 & 0 & -1 \\
+1 & -4 & -1 & -2
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.45} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+3 & 6 & 5 & 12 \\
+1 & 2 & 2 & 5 \\
+1 & 2 & 1 & 2
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.46} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+0 & 0 & -1 & 0 & 3 \\
+1 & 4 & 1 & 0 & -8 \\
+1 & 4 & 0 & 1 & 2 \\
+-1 & -4 & 0 & -1 & -2
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.47} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrr}
+4 & -4 & 3 & -9 \\
+1 & -1 & 1 & -2 \\
+1 & -1 & 0 & -3
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.48} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+2 & 0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 1 & 7 \\
+1 & 0 & 0 & 1 & 7
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.49} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+4 & 15 & 29 \\
+1 & 4 & 8 \\
+1 & 3 & 5 \\
+3 & 9 & 15
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.50} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+0 & 0 & -1 & 0 & 1 \\
+1 & 2 & 3 & -2 & -18 \\
+1 & 2 & 2 & -1 & -11 \\
+-1 & -2 & -2 & 1 & 11
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.51} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+1 & -2 & 0 & 3 & 11 \\
+1 & -2 & 0 & 4 & 15 \\
+1 & -2 & 0 & 3 & 11 \\
+0 & 0 & 0 & 0 & 0
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.52} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+-2 & -3 & -2 \\
+1 & 1 & 1 \\
+1 & 0 & 1 \\
+-3 & 0 & -3
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.53} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+4 & 4 & 20 & -1 & 17 \\
+1 & 1 & 5 & 0 & 5 \\
+1 & 1 & 5 & -1 & 2 \\
+3 & 3 & 15 & -3 & 6
+\end{array}
+\right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.54} Find the rank of the following matrix.
+\begin{equation*}
+\left[
+\begin{array}{rrrrr}
+-1 & 3 & 4 & -3 & 8 \\
+1 & -3 & -4 & 2 & -5 \\
+1 & -3 & -4 & 1 & -2 \\
+-2 & 6 & 8 & -2 & 4
+\end{array}
+ \right]
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.55} Suppose $A$ is an $m\times n$ matrix. Explain why the rank of $A$ is
+always no larger than $\min \left( m,n\right) .$
+\begin{hint}
+It is because you cannot
+have more than $\min \left( m,n\right) $ nonzero rows in the reduced row echelon form. Recall that the number of pivot columns is the same as the
+number of nonzero rows from the description of this reduced row echelon form.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:2.56} State whether each of the following sets of data are possible for the
+matrix equation $A\vec{x}=\vec{b}$. If possible, describe the solution set.
+That is, tell whether there exists a unique solution, no solution or
+infinitely many solutions. Here, $\left[ A |\vec{b} \right]$ denotes the augmented matrix.
+
+\begin{enumerate}
+\item $A$ is a $5\times 6$ matrix, $\mbox{rank}\left( A\right) =4$ and
+$\mbox{rank}\left[ A |\vec{b} \right] =4.$
+\begin{hint}
+This says $B$ is in the span of four of the columns. Thus the columns are not independent. Infinite solution set.
+\end{hint}
+
+\item $A$ is a $3\times 4$ matrix, $\mbox{rank}\left( A\right) =3$ and
+$\mbox{rank}\left[ A |\vec{b} \right] =2.$
+\begin{hint}
+This surely can't happen. If you add in another column, the rank does not get smaller.
+\end{hint}
+
+\item $A$ is a $4\times 2$ matrix, $\mbox{rank}\left( A\right) =4$ and
+$\mbox{rank}\left[ A |\vec{b} \right] =4.$
+\begin{hint}
+This says $B$ is in the span of the columns and the columns must be
+independent. You can't have the rank equal 4 if you only have two columns.
+\end{hint}
+
+\item $A$ is a $5\times 5$ matrix, $\mbox{rank}\left( A\right) =4$ and
+$\mbox{rank}\left[ A |\vec{b} \right] =5.$
+\begin{hint}
+This says $B$ is not in the span of the columns. In this case, there is no solution to the system of equations represented by the augmented matrix.
+\end{hint}
+
+\item $A$ is a $4\times 2$ matrix, $\mbox{rank}\left( A\right) =2$ and
+$\mbox{rank}\left[ A |\vec{b} \right] =2$.
+
+\begin{hint}
+In this case, there is a
+unique solution since the columns of $A$ are independent.
+\end{hint}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:2.57} Consider the system $-5x+2y-z=0$ and $-5x-2y-z=0.$ Both equations
+equal zero and so $-5x+2y-z=-5x-2y-z$ which is equivalent to $y=0.$ Does it follow that $x$
+and $z$ can equal anything?  Notice that when $x=1$, $z=-4,$ and $y=0$ are plugged in
+to the equations, the equations do not equal $0$. Why?
+\begin{hint}
+These are not legitimate row
+operations. They do not preserve the solution set of the system.
+\end{hint}
+\end{problem}
 
 
 
-\section*{Text Source} This section was adapted from the second part of Section 8.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
-W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415 
+\section*{Practice Problem Source}
+These problems come from the end of Chapter 1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
-%\section*{Example Source}
-Example \ref{ex:OrthogDecomp}  was adapted from Example 4.148  of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
-
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 249. 
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 42-49. 
 
 \end{document}
