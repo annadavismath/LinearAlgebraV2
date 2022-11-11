@@ -623,42 +623,40 @@ at each node to equal the average of the temperature at the four adjacent
 nodes. In the following picture, the numbers represent the observed
 temperature at the indicated nodes. Find the temperature at
 the interior nodes, indicated by $x,y,z,$ and $w$. One of the equations is
-$z=\vspace{0.05in}\frac{1}{4}\left( 10+0+w+x\right) $.
+$z=\frac{1}{4}\left( 10+0+w+x\right) $.
 
-\begin{picture}(1,60)
- \put(100,0){\begin{picture}(1,1)
- %\put(0,0){\line(1,0){90}}
- \setlength{\unitlength}{.6pt}
- \put(0,30){\line(1,0){90}}
- \put(0,60){\line(1,0){90}}
- \put(30,0){\line(0,1){90}}
- \put(60,0){\line(0,1){90}}
- \put(60,0){\circle*{3}}
- \put(30,0){\circle*{3}}
- \put(0,60){\circle*{3}}
- \put(0,30){\circle*{3}}
- \put(30,30){\circle*{3}}
-  \put(30,60){\circle*{3}}
-   \put(60,30){\circle*{3}}
-    \put(60,60){\circle*{3}}
-     \put(60,90){\circle*{3}}
-      \put(30,90){\circle*{3}}
-   \put(90,30){\circle*{3}}
-    \put(90,60){\circle*{3}}
-     \put(63,-4){$10$}
- \put(33,-4){$10$}
- \put(-10,60){$20$}
- \put(-10,30){$20$}
- \put(34,34){$x$}
-  \put(34,64){$y$}
-   \put(64,34){$z$}
-    \put(64,64){$w$}
-     \put(64,90){$30$}
-      \put(34,90){$30$}
-   \put(94,30){$0$}
-    \put(94,60){$0$}
- \end{picture}}
- \end{picture}
+\begin{center}
+   \begin{tikzpicture}[scale=1]
+\node[red] at (-0.3, 1)   (a) {$20$};
+\node[red] at (-0.3, 2)   (a) {$20$};
+    \node[red] at (3.3, 1)   (b) {$0$};
+     \node[red] at (3.3, 2)   (b) {$0$};
+     \node[red] at (1, -0.3)   (c) {$10$};
+      \node[red] at (2, -0.3)   (c) {$10$};
+      \node[red] at (1, 3.3)   (c) {$30$};
+      \node[red] at (2, 3.3)   (c) {$30$};
+      \node[] at (1.2, 1.2)   (c) {$x$};
+      \node[] at (2.2, 1.2)   (c) {$z$};
+      \node[] at (1.2, 2.2)   (c) {$y$};
+      \node[] at (2.2, 2.2)   (c) {$w$};
+  \draw[-] (0,2)--(3,2);
+  \draw[-] (0,1)--(3,1);
+  \draw[-] (1,0)--(1,3);
+  \draw[-] (2,0)--(2,3);
+  \fill[] (1,1) circle (0.05cm); 
+  \fill[] (1,2) circle (0.05cm); 
+   \fill[] (2,1) circle (0.05cm); 
+  \fill[] (2,2) circle (0.05cm); 
+   \fill[] (0,1) circle (0.05cm); 
+  \fill[] (0,2) circle (0.05cm); 
+   \fill[] (3,1) circle (0.05cm); 
+  \fill[] (3,2) circle (0.05cm); 
+   \fill[] (1,0) circle (0.05cm); 
+  \fill[] (1,3) circle (0.05cm); 
+   \fill[] (2,0) circle (0.05cm); 
+  \fill[] (2,3) circle (0.05cm); 
+    \end{tikzpicture}
+\end{center}
 
 \begin{hint}
 You need 
