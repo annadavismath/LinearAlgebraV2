@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Iterative Methods for Solving Linear Systems} \license{CC-BY 4.0}
+\title{Iterative Methods for Solving Linear Systems} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -43,22 +43,107 @@ from various starting points $A$.  Now what happens when we try the iterative me
 \subsection*{Jacobi's method}
 As you saw in the Exploration above, iterative methods do not give an exact answer, but an approximate answer.  More iterations give a more accurate answer.
 
-In \dfn{Jacobi's} method for solving a linear system of $n$ equations in $n$ variables, we isolate the first variable in the first equation, we isolate the second variable in the second equation, and in general, we isolate the $i$th variable in the $i$th equation.
+In \dfn{Jacobi's method} for solving a linear system of $n$ equations in $n$ variables, we isolate the first variable in the first equation, we isolate the second variable in the second equation, and in general, we isolate the $i$th variable in the $i$th equation.
 
-Let's return to the system of equations from Exploration \ref{exp:gauss-seidel2x2}.  We solve for a different variable in each of the two equations.  This gives us two formulas, one for each unknown.  We begin with our initial guess $\vec{x}_0$, and use these formulas to compute the next iteration $\vec{x}_1$.  Taking the vector $\vec{x}_1$, and we again apply these formulas to compute the next iteration $\vec{x}_2$.
+Let's return to the system of equations from Exploration \ref{exp:gauss-seidel2x2}.  To use Jacobi's method to approximate the solution to the system, we solve for a different variable in each of the two equations.  This gives us two formulas, one for each unknown.  We begin with our initial guess $\vec{v}_0$, and use these formulas to compute the next iteration $\vec{v}_1$.  Taking the vector $\vec{v}_1$, and we again apply these formulas to compute the next iteration to arrive at $\vec{v}_2$.
 
 
 \begin{equation*}\begin{array}{ccccc}
-      5x_1& -&2x_2&=&10\\
-      x_1 & +&3x_2&= &36 
+      5x& -&2y&=&10\\
+      x & +&3y&= &36 
     \end{array}
  \rightarrow\text{ becomes } \rightarrow
 \begin{array}{ccc}
-      x_1& =&\dfrac{10+2x_2}{5}\\
-      x_2& =&\dfrac{36+x_1}{3}
+      x& =&\dfrac{10+2y}{5}\\
+      y& =&\dfrac{36-x}{3}
     \end{array}
 \end{equation*}
 
-Let's begin with the initial guess $\vec{x}_0 = \begin{bmatrix} 0\\0 \end{bmatrix}$.
+Let's begin with the initial guess $\vec{v}_0 = \begin{bmatrix} 0\\0 \end{bmatrix}$.  Applying the pair of formulas gives
+$$\vec{v}_1 = \begin{bmatrix} x\\y \end{bmatrix} = \begin{bmatrix} \dfrac{10+2(0)}{5}\\\dfrac{36-0}{3} \end{bmatrix}
+= \begin{bmatrix} 2\\12 \end{bmatrix}.$$
+For the next iteration, we apply these same formulas to the $x$ and $y$ values of $\vec{v}_1$.  We get
+$$\vec{v}_2 = \begin{bmatrix} x\\y \end{bmatrix} = \begin{bmatrix} \dfrac{10+2(12)}{5}\\\dfrac{36-2}{3} \end{bmatrix}
+= \begin{bmatrix} 34/5\\34/3 \end{bmatrix}\approx
+\begin{bmatrix} 6.80\\11.33 \end{bmatrix}.$$
+We use this to perform another iteration, giving us 
+$$\vec{v}_3 = \begin{bmatrix} x\\y \end{bmatrix} = \begin{bmatrix} \dfrac{10+2(11.33)}{5}\\\dfrac{36-6.80}{3} \end{bmatrix}
+= \begin{bmatrix} 34/5\\38/3 \end{bmatrix}\approx
+\begin{bmatrix} 6.53\\9.93 \end{bmatrix}.$$
+We observe that at each iteration our approximate solution gets closer to the actual solution to the system, $x=6, y=10$.
+
+\subsection*{The Gauss-Seidel method}
+
+The \dfn{Gauss-Seidel method} for solving a linear system of $n$ equations in $n$ variables, we use the same set of $n$ formulas as we use in Jacobi's method.  The difference is that we implement the formulas \emph{sequentially} rather than simultaneously.
+
+To demonstrate, we return to the same system of equations examined above.
+
+\begin{equation*}\begin{array}{ccccc}
+      5x& -&2y&=&10\\
+      x & +&3y&= &36 
+    \end{array}
+ \rightarrow\text{ becomes } \rightarrow
+      x=\dfrac{10+2y}{5},
+      y=\dfrac{36-x}{3}
+\end{equation*}
+
+Once again we start with the initial guess $\vec{v}_0 = \begin{bmatrix} 0\\0 \end{bmatrix}$.  We apply the first formula and get
+$$x= \dfrac{10+2(0)}{5}=2.$$
+However, we will compute $y$ using this new value $x=2$ rather than using $x=0$.  We get
+$$y=\dfrac{36-2}{3} 
+= 34/3 \approx 11.33.$$  So after our first iteration we have $\vec{v}_1 = \begin{bmatrix} 2\\11.33 \end{bmatrix}$.
+We repeat this procedure to perform another iteration.  We get 
+$$x= \dfrac{10+2(11.33)}{5}\approx 6.53$$
+followed by
+$$y=\dfrac{36-6.53}{3} \approx 9.82,$$
+so we have $\vec{v}_2 \approx \begin{bmatrix} 6.53\\9.82 \end{bmatrix}$.
+
+We observe that in this example the second iteration of the Gauss-Seidel method is closer to the actual solution of $x=6, y=10$ than the third iteration of Jacobi's method.  The Gauss-Seidel method is more efficient than Jacobi's method because it makes use of a better approximation of one coordinate to find another.
+
+\begin{exploration}\label{exp:jacobi&gauss-seidel2x2spreadsheet}
+The Jacobi and Gauss-Seidel methods are easily implemented on a computer.  Below is a link to a spreadsheet which can be used to solve any linear system of 2 equations in 2 unknowns using each of these methods.
+
+To use the spreadsheet, SAVE A COPY of the sheet.  Then you will be able to change the yellow boxes to input a system of equations as well as the initial values.  The video below the link to the spreadsheet gives additional information.
+    
+\href{https://docs.google.com/spreadsheets/d/1_QM-yfkcIHnBi71AXPul3c87erR3wdlgaUlm1SYoHAk/edit?usp=sharing}{Link to Spreadsheet}
+
+\youtube{https://youtu.be/wKEjUZ1fzaw}
+\end{exploration}
+
+Both techniques described above can be used to solve linear systems with more variables.
+
+\begin{example}
+Use direct methods to solve the linear system.  Then try using Jacobi's Method and the Gauss-Seidel method.
+$$\begin{array}{ccccccc}\label{eq:3x3iterative}
+      5x & +&y&+&2z&= &1 \\
+	 2x& +&5y&+&z&=&1\\
+     2x& +&y&+&5z&=&1
+    \end{array}$$
+
+\begin{explanation}
+We perform Gauss-Jordan elimination by applying elementary row operations as described in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank}.  
+\begin{equation*}
+\left[\begin{array}{ccc|c}  5&1&2&1\\2&5&1&1\\2&1&5&1
+ \end{array}\right]
+ \rightarrow\text{ becomes (after a number of steps) } \rightarrow
+\left[\begin{array}{ccc|c}  1&0&0&1/8\\0&1&0&1/8\\0&0&1&1/8
+ \end{array}\right]
+\end{equation*}
+This shows that the three planes in $\RR^3$ share a common intersection point at $\left(\frac{1}{8},\frac{1}{8},\frac{1}{8} \right)$, which is easily verified by looking at the original equations, and can also be seen in the GeoGebra graph below (RIGHT-CLICK AND DRAG TO ROTATE).
+\begin{center}
+\geogebra{nuvt2rde}{800}{650}
+\end{center}
+Now we solve the same linear system using our iterative methods.
+
+ANNA, you can see my work in the same Google Sheet a little lower.  Let's discuss Monday how to present the rest of this example.
+
+\end{explanation}
+\end{example}
+
+\subsection{Convergence of Iterative Methods}
+
+We observed in Exploration \ref{exp:gauss-seidel2x2} that the Gauss-Seidel method converged for the linear system \ref{eq:diagdom1}.  However, when we wrote the same linear system using \ref{eq:diagdom2}, the method failed to converge.  We now take time to address questions about convergence of these two iterative methods we studied.
+
+\href{https://www.jstor.org/stable/2132758}{link to a paper where this fact is proven}
 
 \end{document}
