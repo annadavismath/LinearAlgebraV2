@@ -119,7 +119,6 @@ We know that $\norm{\vec{w}_i}^2  \neq 0$, so it follows that $a_i =0$. Since $i
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%So we understand that an orthogonal basis is very ``nice'', but does every subspace have an orthogonal basis?  It turns out that the answer is YES!  We may simply apply the following procedure to any basis of the subspace.
 The following theorem shows how to start with an arbitrary basis of a subspace $W$ of $\RR^n$ and find an orthogonal basis for $W$.  To better understand the notation and the process presented in this theorem, you may want to match the steps of the theorem to the steps of Exploration \ref{exp:orth3}.
 
 \begin{theorem}[Gram-Schmidt Orthogonalization] \label{th:GS}
@@ -145,8 +144,8 @@ Then we can construct an orthogonal basis $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec
 \end{array}
 \end{equation*}
 
-Then, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal basis for $W$.  %Also, the algorithm converts any basis of $\RR^n$ itself into an orthogonal basis.
-
+Then, $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ will be an orthogonal basis for $W$.  
+\end{theorem}
 \begin{proof}
 Using the definition of projection onto a subspace, the iterative procedure above may be written:
 \begin{equation}\label{eqn:GSproof}
@@ -166,7 +165,7 @@ Repeated application of Corollary \ref{cor:orthProjOntoW} shows that the set
 
 We conclude that $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ is a linearly independent orthogonal set that spans $W$.
 \end{proof}
-\end{theorem}
+
 
 \begin{remark}\label{rem:SchmidtPederson}Erhardt
  Schmidt (1876--1959) was a German mathematician who studied under the
@@ -237,9 +236,9 @@ Suppose instead of $[1,0,0,0]$ we had started with $\vec{v}_4 = [7, -1, 7, -5]$.
   \begin{eqnarray*}
       \vec{f} &=& \vec{v}_{4} - \frac{\vec{v}_{4} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{4} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \frac{\vec{v}_{4} \dotp \vec{f}_{3}}{\norm{\vec{f}_{3}}^2}\vec{f}_{3} \\
       &=& [7, -1, 7, -5] - \frac{4}{4}[1, 1, -1, -1] - \frac{10}{10}[2, 1, 1, 2] - \frac{110}{110}[4, -3, 7, -6] \\
-      &=&[0,0,0,0],
+      &=&[0,0,0,0]
   \end{eqnarray*}
-and we could not add a multiple of $f$ to $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$ to get an orthogonal basis for $\RR^4$.
+We could not add a multiple of $\vec{f}$ to $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$ to get an orthogonal basis for $\RR^4$.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
