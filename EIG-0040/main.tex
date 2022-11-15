@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Similar Matrices and Their Properties} \license{CC-BY 4.0}
+\title{Similar Matrices and Their Properties} \license{CC BY-NC-SA 4.0}
 
 
 \begin{document}
@@ -11,29 +11,36 @@
 
 \section*{Similar Matrices and Their Properties}
 
+Let $A$ and $B$ be $n \times n$ matrices.  Then the products $AB$ and $BA$ are both $n \times n$ matrices.  In most cases the products $AB$ and $BA$ are not equal.
+
+However, for some pairs of $n \times n$ matrices $A$ and $B$, we are able to find an invertible matrix $P$ such that $PB = AP$.  This leads to the following definition.
+
 \begin{definition}
-If $A$ and $B$ are $n \times n$ matrices, we say that $A$ and $B$ are \dfn{similar}, if $B = P^{-1}AP$ for some invertible matrix $P$.  IN this case we write $A \sim B$.
+If $A$ and $B$ are $n \times n$ matrices, we say that $A$ and $B$ are \dfn{similar}, if $B = P^{-1}AP$ for some invertible matrix $P$.  In this case we write $A \sim B$.
 \end{definition}
 
-\begin{remark} 
-We also have $A \sim B$ if  $B = QAQ^{-1}$ where $Q$ is invertible (write $P^{-1} = Q$).
-\end{remark}
+%As we will see, matrices that are similar share many properties. 
 
-As we will see, matrices that are similar share many properties.  The first three properties contained in the following theorem are important enough in mathematics to receive a name.  We say that any relation which is \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive}, is called an \dfn{equivalence relation}.
+%\begin{remark} 
+%We also have $A \sim B$ if  $B = QAQ^{-1}$ where $Q$ is inv ertible (write $P^{-1} = Q$).
+%\end{remark}
+ 
+The following theorem shows that \dfn{similarity} ($\sim$) satisfies \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive} properties.  %The first three properties contained in the following theorem are important enough in mathematics to receive a name.  We say that any relation which is \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive}, is called an \dfn{equivalence relation}.
 
 \begin{theorem}\label{th:{similarityequivalence}}
 Similarity is an \dfn{equivalence relation}, i.e. for $n \times n$ matrices $A,B,$ and $C$,
 \begin{enumerate}
-\item $A \sim A$ (reflexive)
-\item If $A \sim B$, then $B \sim A$ (symmetric)
-\item If $A \sim B$ and $B \sim C$, then $A \sim C$ (transitive)
+\item\label{item:reflexive} $A \sim A$ (reflexive)
+\item\label{item:symmetric} If $A \sim B$, then $B \sim A$ (symmetric)
+\item\label{item:transitive} If $A \sim B$ and $B \sim C$, then $A \sim C$ (transitive)
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-It is clear that $A\sim A$, taking $P=I$.
+\ref{item:reflexive} It is clear that $A\sim A$ (let $P=I$).
 
-Now, if $A\sim B,$ then for some $P$ invertible,
+\ref{item:symmetric}
+Now, if $A\sim B,$ then for some invertible matrix $P$,
 \begin{equation*}
 A=P^{-1}BP
 \end{equation*}
@@ -47,6 +54,7 @@ But then
 \end{equation*}
 which shows that $B\sim A$.
 
+\ref{item:transitive}
 Now suppose $A\sim B$ and $B\sim C$. Then there exist invertible matrices
 $P,Q$ such that
 \begin{equation*}
@@ -59,16 +67,16 @@ A=P^{-1} \left( Q^{-1}CQ \right)P=\left( QP\right) ^{-1}C\left( QP\right)
 showing that $A$ is similar to $C$.
 \end{proof}
 
-This proves that similarity $\sim$ between matrices is an \dfn{equivalence relation}.  Practice Problem \ref{prob:lessthan} gives a good example of a relation that is NOT an equivalence relation.
+Any relation satisfying the reflexive, symmetric and transitive properties is called an  \dfn{equivalence relation}.  Theorem \ref{th:similarityequivalence} proves that similarity between matrices is an \dfn{equivalence relation}.  Practice Problem \ref{prob:lessthan} gives a good example of a relation that is NOT an equivalence relation.
 
-
-We pause to introduce a simple matrix function that will be referred to later.  Given a square matrix, we have learned how to compute the determinant.  Another important quantity we can compute is the \dfn{trace}.
+As we will see later, similar matrices share many properties. 
+ Before proceeding to explore these properties, we pause to introduce a simple matrix function that we will continue to use throughout the course.  %Given a square matrix $A$, we have learned how to compute the determinant $\det(A)$.  Another important quantity we can compute is called the \dfn{trace} of a matrix.
 
 \begin{definition}
-The \dfn{trace} of an $n \times n$ matrix $A$, abbreviated $\mbox{tr} A$, is defined to be the sum of the main diagonal elements of $A$.  In other words, if $ A = [a_{ij}]$, then $\mbox{tr} A = a_{11} + a_{22} + \dots + a_{nn}$.  We may also write $\mbox{tr} A =\sum_{i=1}^n a_{ii}$.
+The \dfn{trace} of an $n \times n$ matrix $A$, abbreviated $\mbox{tr} A$, is defined to be the sum of the main diagonal elements of $A$.  In other words, if $ A = [a_{ij}]$, then $$\mbox{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$$  We may also write $\mbox{tr}(A) =\sum_{i=1}^n a_{ii}$.
 \end{definition}
 
-It is easy to see that $\mbox{tr}(A + B) = \mbox{tr} A + \mbox{tr} B$ and that $\mbox{tr}(cA) = c \mbox{ tr} A$ holds for all $n \times n$ matrices $A$ and $B$ and all scalars $c$. The following fact is more surprising.
+It is easy to see that $\mbox{tr}(A + B) = \mbox{tr} A + \mbox{tr} B$ and that $\mbox{tr}(cA) = c \mbox{ tr}(A)$ holds for all $n \times n$ matrices $A$ and $B$ and all scalars $c$. The following fact is more surprising.
 
 \begin{theorem}\label{th:trAB=trBA}
 Let $A$ and $B$ be $n \times n$ matrices. Then $\mbox{tr}(AB) = \mbox{tr}(BA)$.
@@ -82,7 +90,7 @@ Write $A = [a_{ij}]$ and $B = [b_{ij}]$. For each $i$, the $(i, i)$-entry $d_{i}
 Similarly we have $\mbox{tr}(BA) = \sum_{i}\left(\sum_{j}b_{ij}a_{ji}\right)$. Since these two double sums are the same, the theorem is proved.
 \end{proof}
 
-The following theorem lists a number of other properties shared by similar matrices.
+The following theorem lists a number of properties shared by similar matrices.
 
 \begin{theorem}\label{th:properties_similar}
 If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
@@ -98,7 +106,7 @@ If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
 \begin{proof}
 Let $B = P^{-1}AP$ for some invertible matrix $P$. 
 
-For \ref{th:properties_similar_det}, $\det B = \det(P^{-1}) \det A \det P = \det A$ because $\det(P^{-1}) = 1/ \det P$ and determinants commute (see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0040/main}{Properties of the Determinant}.
+For \ref{th:properties_similar_det}, $\det B = \det(P^{-1}) \det A \det P = \det A$ because $\det(P^{-1}) = 1/ \det P$ (Theorem \ref{th:detofinverse}). %and determinants commute (see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0040/main}{Properties of the Determinant}).
 
 Similarly, for \ref{th:properties_similar_rank} $\mbox{rank} B = \mbox{rank}(P^{-1}AP) = \mbox{rank} A$, because multiplication by an invertible matrix cannot change the rank.  To see this, note that any invertible matrix is a product of elementary matrices.  Multiplying by elementary matrices is equivalent to performing elementary row (column) operations on $A$, which does not change the row (column) space, nor the rank.  It follows that similar matrices have the same rank. 
 
@@ -108,14 +116,14 @@ For \ref{th:properties_similar_trace}, we make use of Theorem~\ref{th:trAB=trBA}
 \end{equation*}
 As for \ref{th:properties_similar_char_poly},
 \begin{align*}
-\det(xI - B) &= \det \{x(P^{-1}P) - P^{-1}AP\} \\
-&= \det \{ P^{-1}(xI - A)P\} \\
-&= \det (xI - A)
+\det(B-\lambda I) &= \det \{P^{-1}AP-\lambda(P^{-1}P)\} \\
+&= \det \{ P^{-1}(A-\lambda I)P\} \\
+&= \det (A-\lambda I)
 \end{align*}
 Finally, \ref{th:properties_similar_char_poly} implies \ref{th:properties_similar_eig} because the eigenvalues of a matrix are the roots of its characteristic polynomial.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:fivePropSim}
 Sharing the five properties in Theorem~\ref{th:properties_similar} does not guarantee that two matrices are similar. The matrices
 $A = \begin{bmatrix}
 1 & 1 \\
@@ -143,7 +151,7 @@ A quick check shows us $\det A = \det B$, and both matrices are seen to be inver
 \end{explanation}
 \end{example}
 
-The next theorem shows that similarity is compatible with inverses, transposes, and powers:
+The next theorem shows that similarity is preserved under inverses, transposes, and powers:
 
 \begin{theorem}\label{th:other_properties_similar}
 If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
@@ -161,7 +169,7 @@ See Practice Problem \ref{}.
 \section*{Practice Problems}
 
 \begin{problem}\label{prob:lessthan}
-At the beginning of this module we mentioned that similarity of $n \times n$ matrices is an \dfn{equivalence relation}.
+At the beginning of this section we mentioned that similarity of $n \times n$ matrices is an \dfn{equivalence relation}.
 
 An equivalence relation is a binary relation $R$ on elements of a set $S$ that has the following properties:
 \begin{enumerate}
@@ -178,6 +186,16 @@ Is the relation ``less than'' symmetric?
 
 \begin{problem}
 Is the relation ``less than'' transitive?
+\end{problem}
+
+\begin{problem}
+Another relation between matrices we have studied in this course is that two matrices can be ``row equivalent''.  Is the relation ``row equivalent'' 
+\begin{enumerate}
+    \item reflexive? \wordChoice{\choice[correct]{Yes}\choice{No}}
+    \item symmetric? \wordChoice{\choice[correct]{Yes}\choice{No}}
+    \item transitive? \wordChoice{\choice[correct]{Yes}\choice{No}}
+\end{enumerate}
+
 \end{problem}
 
 \end{problem}
@@ -375,7 +393,7 @@ c & d
 \end{problem}
 
 \section*{Text Source}
-The text in this module is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
+The text in this section is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 362-364.
 
