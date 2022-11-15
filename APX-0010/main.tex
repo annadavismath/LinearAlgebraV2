@@ -1,0 +1,80 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Triangular Inequality} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+ 
+\end{abstract}
+\maketitle
+
+\section*{Triangular Inequality}
+
+The \dfn{Triangular Inequality} is a simple, yet powerful result used widely in analysis and topology as well as other branches of mathematics.  The triangular inequality has its roots in geometry. It initially appeared as a proposition in the \dfn{Elements} - a treatise comprised of thirteen books covering plane and solid geometry, and number theory - written by Euclid of Alexandria around 300 B.C.
+
+The geometric version of the triangular inequality states that the sum of the lengths of any two sides of a triangle is greater than the length the third side.  
+
+Here we are interested in the vector version of this result.  Given vectors $\vec{v}$ and $\vec{w}$, we have
+$$\norm{\vec{v}+\vec{w}}\leq\norm{\vec{v}}+\norm{\vec{w}}$$
+
+\begin{center}
+    \begin{tikzpicture}
+\draw[line width=1pt,-stealth,red](3,3)--(6,2);
+\draw[line width=1pt,-stealth, blue](-1,1)--(3,3);
+\draw[line width=1pt,-stealth](-1,1)--(6,2);
+
+ \node[blue] at (1, 2.3)   (a) {$\vec{v}$};
+ \node[red] at (4.5, 2.8)   (a) {$\vec{w}$};
+  \node[black] at (2.5, 1.2)   (a) {$\vec{v}+\vec{w}$};
+ \end{tikzpicture}
+\end{center}
+
+Intuitively, we observe that equality occurs when either $\vec{v}$ or $\vec{w}$ (or both) are zero, or when non-zero vectors $\vec{v}$ and $\vec{w}$ point in the same direction, otherwise the inequality is strict.
+
+Proving the triangular inequality requires some preliminary results.
+
+\begin{lemma}\label{lem:triLem}
+    For any vectors $\vec{v}$ and $\vec{w}$ in $\RR^n$,
+    \begin{equation}
+\norm{\vec{v}+\vec{w}}^2=\norm{\vec{v}}^2+2(\vec{v}\dotp\vec{w})+\norm{\vec{w}}^2
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    By Theorem \ref{th:dotproductproperties} we have,
+    \begin{eqnarray*}
+        \norm{\vec{v}+\vec{w}}^2 & = & (\vec{v}+\vec{w})\dotp (\vec{v}+\vec{w})\\
+        &=& \vec{v}\dotp \vec{v}+\vec{v}\dotp\vec{w}+\vec{w}\dotp\vec{v}+\vec{w}\dotp\vec{w}\\
+        &=&\norm{\vec{v}}^2+ 2(\vec{v}\dotp\vec{w})+\norm{\vec{w}}^2
+    \end{eqnarray*}
+\end{proof}
+
+\begin{theorem}[Cauchy-Schwarz Inequality]\label{th:CS}
+    For any vectors $\vec{v}$ and $\vec{w}$ in $\RR^n$,
+    \begin{equation}
+        |\vec{v}\dotp\vec{w}|\leq\norm{\vec{v}}\norm{\vec{w}}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Recall that by Theorem \ref{th:dotproductcosine}, $\vec{v}\dotp\vec{w}=\norm{\vec{v}}\norm{\vec{w}}\cos\theta$, where $\theta$ is the included angle.  Our result follows from the fact that $|\cos\theta |\leq 1$.
+\end{proof}
+
+\begin{theorem}[Triangular Inequality]\label{th:TriIneq}
+    For any vectors $\vec{v}$ and $\vec{w}$ in $\RR^n$,
+    \begin{equation}
+        \norm{\vec{v}+\vec{w}}\leq\norm{\vec{v}}+\norm{\vec{w}}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    We will use Lemma \ref{lem:triLem} and Theorem \ref{th:CS}.
+    \begin{eqnarray*}
+        \norm{\vec{v}+\vec{w}}^2 &=& \norm{\vec{v}}^2+2(\vec{v}\dotp\vec{w})+\norm{\vec{w}}^2\\
+        &\leq& \norm{\vec{v}}^2+2\norm{\vec{v}}\norm{\vec{w}}+\norm{\vec{w}}^2\\
+        &=&\left(\norm{\vec{v}}+\norm{\vec{w}}\right)^2
+    \end{eqnarray*}
+    Taking the square root of both sides yields the desired result.
+    
+\end{proof}
+
+\end{document}
