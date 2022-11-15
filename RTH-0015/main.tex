@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Gram-Schmidt Orthogonalization} \license{CC-BY 4.0}
+\title{Gram-Schmidt Orthogonalization} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -168,13 +168,14 @@ We conclude that $\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$ is a linearly 
 \end{proof}
 \end{theorem}
 
-\remark{Erhardt
+\begin{remark}\label{rem:SchmidtPederson}Erhardt
  Schmidt (1876--1959) was a German mathematician who studied under the
 great David Hilbert. He
  first described the present algorithm in 1907. J\"{o}rgen Pederson Gram
-(1850--1916)\index{Gram, J\"{o}rgen Pederson}  was a Danish actuary.} 
+(1850--1916)\index{Gram, J\"{o}rgen Pederson}  was a Danish actuary.
+\end{remark}
 
-\begin{example}\label{023743}
+\begin{example}\label{exa:023743}
 Find an orthogonal basis of the row space of $A = \begin{bmatrix}
 1 & 1 & -1 & -1\\
 3 & 2 & 0 & 1\\
@@ -183,17 +184,17 @@ Find an orthogonal basis of the row space of $A = \begin{bmatrix}
 
 \begin{explanation}
   Let $\vec{v}_{1}$, $\vec{v}_{2}$, $\vec{v}_{3}$ denote the rows of $A$ and observe that $\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\}$ is linearly independent. Take $\vec{f}_{1} = \vec{v}_{1}$. The algorithm gives
-\begin{align*}
-\vec{f}_{2} &= \vec{v}_{2} - \frac{\vec{v}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = [3, 2, 0, 1] - \frac{4}{4}[1, 1, -1, -1] = [2, 1, 1, 2] \\
-\vec{f}_{3} &= \vec{v}_{3} - \frac{\vec{v}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{v}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}[4, -3, 7, -6]
-\end{align*}
+\begin{eqnarray*}
+\vec{f}_{2} &=& \vec{v}_{2} - \frac{\vec{v}_{2} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} = [3, 2, 0, 1] - \frac{4}{4}[1, 1, -1, -1] = [2, 1, 1, 2] \\
+\vec{f}_{3} &=& \vec{v}_{3} - \frac{\vec{v}_{3} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{3} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} = \vec{v}_{3} - \frac{0}{4}\vec{f}_{1} - \frac{3}{10}\vec{f}_{2} = \frac{1}{10}[4, -3, 7, -6]
+\end{eqnarray*}
 
 Hence $\{[1, 1, -1, -1], [2, 1, 1, 2], \frac{1}{10}[4, -3, 7, -6]\}$ is the orthogonal basis provided by the algorithm. In
 hand calculations it may be convenient to eliminate fractions (see the Remark below), so $\{[1, 1, -1, -1], [2, 1, 1, 2], [4, -3, 7, -6]\}$ is also an orthogonal basis for $\mbox{row}(A)$.
 \end{explanation}
 \end{example}
 
-\begin{remark}
+\begin{remark}\label{rem:scalarMultGS}
 Observe that the vector $\frac{\vec{x} \dotp \vec{f}_{i}}{\norm{\vec{f}_{i}}^2}\vec{f}_{i}$
  is unchanged if a nonzero scalar multiple of $\vec{f}_{i}$ is used in place of $\vec{f}_{i}$. Hence, if a newly constructed $\vec{f}_{i}$ is multiplied by a nonzero scalar at some stage of the Gram-Schmidt algorithm, the subsequent $\vec{f}$s will be unchanged. This is useful in actual calculations.
  \end{remark}
@@ -208,11 +209,49 @@ Let $W$ be a subspace of $\RR^n$.  Then  $W$ has an orthogonal basis.  In fact, 
 Suppose $\{\vec{f}_{1}, \dots , \vec{f}_{m}\}$ is an orthogonal subset of $W$.  If $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right) = W$, it is already a basis. Otherwise, there exists $\vec{x}$ in $W$ outside $\mbox{span}\left(\vec{f}_{1}, \dots , \vec{f}_{m}\right)$. Using the Gram-Schmidt procedure we define $\vec{f}_{m+1} = \vec{x} - \mbox{proj}_{W_{m}}(\vec{x})$, where $W_m = \mbox{span}\{\vec{f}_{1},\vec{f}_{2},\ldots,\vec{f}_{m}\}$. If $\mbox{span}\left(\vec{f}_{1}, \dots, \vec{f}_{m}, \vec{f}_{m+1}\right) = W$, we are done. Otherwise, the process continues to create larger and larger orthogonal subsets of $W$. They are all linearly independent by Theorem~\ref{th:GS}, so we have a basis when we reach a subset containing $\mbox{dim}(W)$ vectors.
 \end{proof}
 
+The process described in the proof of this theorem is used in this final example.
+
+\begin{example}\label{ex:GSextend}
+In Example~\ref{exa:023743}, given $A = \begin{bmatrix}
+1 & 1 & -1 & -1\\
+3 & 2 & 0 & 1\\
+1 & 0 & 1 & 0
+\end{bmatrix}$, we showed that an orthogonal basis for $\mbox{row}(A)$ is given by $$\{\vec{f}_1=[1, 1, -1, -1], \vec{f}_2=[2, 1, 1, 2], \vec{f}_3=[4, -3, 7, -6]\}.$$
+
+Choose any vector $\vec{v}_4 \in \RR^4$ not in $\mbox{span}\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$, and apply the Gram-Schmidt algorithm to produce a vector $\vec{f}_4$ such that $\{\vec{f}_1, \vec{f}_2, \vec{f}_3, \vec{f}_4\}$ is an orthogonal basis for $\RR^4$.
+
+
+\begin{explanation}
+  Let $\vec{v}_4 = [1, 0, 0, 0]$.  (How would you check that $\vec{v}_4$ is not in $\mbox{span}\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$?)  To get a vector $\vec{f}$ orthogonal to the row space, we perform an iteration of Gram-Schmidt:
+  \begin{eqnarray*}
+      \vec{f} &=& \vec{v}_{4} - \frac{\vec{v}_{4} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{4} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \frac{\vec{v}_{4} \dotp \vec{f}_{3}}{\norm{\vec{f}_{3}}^2}\vec{f}_{3} \\
+      &=& [1, 0, 0, 0] - \frac{1}{4}[1, 1, -1, -1] - \frac{2}{10}[2, 1, 1, 2] - \frac{4}{110}[4, -3, 7, -6] \\
+      &=&\frac{1}{44}[9, -15, -9, 3]
+  \end{eqnarray*}
+  Since any multiple of $\vec{f}$ will suffice, we are free to choose $\vec{f}_{4} = 44\vec{f} = [9, -15, -9, 3]$ to get rid of the fraction.  It is easy to check that $\{\vec{f}_1, \vec{f}_2, \vec{f}_3, \vec{f}_4\}$ is an orthogonal set, and it follows from Theorem~\ref{orthbasis} that this set is a basis for $\RR^4$.
+\end{explanation}
+\end{example}
+
+\begin{remark}\label{rem:vectorInSpan}
+Suppose instead of $[1,0,0,0]$ we had started with $\vec{v}_4 = [7, -1, 7, -5]$.  This vector $\vec{v}_4$ is in $\mbox{span}\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$, as it is the sum of those three vectors.  But if we were to try to proceed as above, we would get 
+  \begin{eqnarray*}
+      \vec{f} &=& \vec{v}_{4} - \frac{\vec{v}_{4} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} - \frac{\vec{v}_{4} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2} - \frac{\vec{v}_{4} \dotp \vec{f}_{3}}{\norm{\vec{f}_{3}}^2}\vec{f}_{3} \\
+      &=& [7, -1, 7, -5] - \frac{4}{4}[1, 1, -1, -1] - \frac{10}{10}[2, 1, 1, 2] - \frac{110}{110}[4, -3, 7, -6] \\
+      &=&[0,0,0,0],
+  \end{eqnarray*}
+and we could not add a multiple of $f$ to $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}$ to get an orthogonal basis for $\RR^4$.
+\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Practice Problems}
 
-\begin{problem}
+\begin{problem}\label{prob:extend}
+
+    \item Try Example 2 again starting with some other vector $v_4 \in \RR^4$.
+
+\end{problem}
+
+\begin{problem}\label{GS}
 In each case, use the Gram-Schmidt algorithm to convert the given basis $\mathcal{B}$ of $V$ into an orthogonal basis.  
 
 \begin{problem}\label{GS1}
@@ -233,54 +272,17 @@ $V = \RR^3$, $\mathcal{B} = \{(0, 1, 1), (1, 1, 1), (1, -2, 2)\}$
 \end{problem}
 
 \begin{problem}
-Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal. [\textit{Hint}: Let $R$ be the row-echelon form of $A$, and use the Gram-Schmidt process on the nonzero rows of $R$ from the bottom up. Use Lemma~\ref{004537}.]
+Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal.
+\begin{hint}
+Let $R$ be the row-echelon form of $A$, and use the Gram-Schmidt process on the nonzero rows of $R$ from the bottom up.
+\end{hint}
 \end{problem}
 
-\begin{problem}
-Let $A$ be an $(n - 1) \times n$ matrix with rows $\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{n-1}$ and let $A_{i}$ denote the \\ $(n - 1) \times (n - 1)$ matrix obtained from $A$ by deleting column $i$. Define the vector $\vec{y}$ in $\RR^n$ by \begin{equation*}
-\vec{y} = \begin{bmatrix}
-\det A_{1} \\ -\det A_{2} \\ \det A_{3} \\ \cdots \\ (-1)^{n+1} \det A_{n}
-\end{bmatrix}
-\end{equation*} Show that:
 
-
-\begin{enumerate}[label={\alph*.}]
-\item $\vec{x}_{i} \dotp \vec{y} = 0$ for all $i = 1, 2, \dots , n - 1$. 
-\begin{hint}
-Write $B_{i} = \begin{bmatrix}
-x_{i} \\ A
-\end{bmatrix}$
-and show that $\det B_{i} = 0$.
-\end{hint}
-
-\item $\vec{y} \neq \vec{0}$ if and only if $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{n-1}\}$ is linearly independent.
-\begin{hint}
-If some $\det A_{i} \neq 0$, the rows of $A_{i}$ are linearly independent. Conversely, if the $\vec{x}_{i}$ are independent, consider $A = UR$ where $R$ is in reduced row-echelon form
-\end{hint}
-
-\item If $\{\vec{x}_{1}, \vec{x}_{2}, \dots , \vec{x}_{n-1}\}$ is linearly independent, use Theorem~\ref{023885}(3) to show that all solutions to the system of $n - 1$ homogeneous equations
-\begin{equation*}
-A\vec{x}^T = \vec{0}
-\end{equation*}
-are given by $t\vec{y}$, $t$ a parameter.
-
-\end{enumerate}
-\end{problem}
 
 \section*{Text Source} This section was adapted from the first part of Section 8.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415 
-
-%\section*{Example Source}
-%Examples \ref{ex:polyindset} and \ref{ex:CAbasis} were adapted from Examples 6.3.1 and 6.3.10 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
-
-%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 346, 350
-
-%\section*{Exercise Source}
-%Practice Problems \ref{prob:linindabstractvsp1}, \ref{prob:linindabstractvsp2} and \ref{prob:linindabstractvsp3} are Exercises 6.3(a)(b)(c) from Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
-
-%W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 351
-
 
 
 \end{document}
