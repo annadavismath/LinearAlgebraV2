@@ -1,8 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis \and Paul Bender} \title{Diagonalizable Matrices and Multiplicity} \license{CC-BY 4.0}
-
+\title{Diagonalizable Matrices and Multiplicity} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -24,7 +23,25 @@ D =
 \end{equation*}
 where $*$ is a number which might not be zero.
 
-%The following is the formal definition of a diagonalizable matrix.
+
+Diagonal matrices have some nice properties, as we demonstrate below.
+
+\begin{exploration}\label{init:multiplydiag}
+Let
+$M =\begin{bmatrix}1 & 2 & 3\\ 4&5&6\\7&8&9\end{bmatrix}$ and let $D =\begin{bmatrix}2 & 0 & 0\\ 0&-5&0\\0&0&10\end{bmatrix}$.  Compute $MD$ and $DM$ using Octave.
+
+%\begin{octave}
+M=[1 2 3; 4 5 6; 7 8 9]
+D=diag([2 -5 10]) 
+%The function diag(vector) creates a square matrix with diagonal vector and the remaining entries zero. The function diag() can also be used to return the diagonal of a matrix.  For example, diag(M) would return [1;5;9].
+M*D
+D*M
+%\end{octave}
+
+%$$MD = \begin{bmatrix} \answer{2} & \answer{-10} & \answer{30}\\ \answer{8}&\answer{-25}&\answer{60}\\\answer{14}&\answer{-40}&\answer{90}\end{bmatrix} \quad DM= \begin{bmatrix} \answer{2} & \answer{4} & \answer{6}\\ \answer{-20}&\answer{-25}&\answer{-30}\\\answer{70}&\answer{80}&\answer{90}\end{bmatrix}$$
+
+Notice the patterns present in the product matrices.  Each row of $DM$ is the same as its corresponding row of $M$ multiplied by the scalar which is the corresponding diagonal element of $D$.  In the product $MD$, it is the columns of $M$ that have been multiplied by the diagonal elements. These patterns hold in general for any diagonal matrix, and they are fundamental to understanding diagonalization, the process we discuss below.
+\end{exploration}
 
 \begin{definition}\label{def:diagonalizable}
 Let $A$ be an $n\times n$ matrix. Then $A$ is said to be \dfn{diagonalizable} if there exists an invertible matrix $P$ such that
@@ -36,18 +53,6 @@ where $D$ is a diagonal matrix.  In other words, a matrix $A$ is diagonalizable 
 
 % Notice that the above equation can be rearranged as $A=PDP^{-1}$. Suppose we wanted to compute $A^{100}$. By diagonalizing $A$ first it suffices to then compute $\left(PDP^{-1}\right)^{100}$, which reduces to $PD^{100}P^{-1}$. This last computation is much simpler than $A^{100}$. While this process is described in detail later, it provides motivation for diagonalization. 
 
-Diagonal matrices have some nice properties, as we demonstrate below.
-
-\begin{exploration}\label{init:multiplydiag}
-Let
-$M =\begin{bmatrix}1 & 2 & 3\\ 4&5&6\\7&8&9\end{bmatrix}$ and let $D =\begin{bmatrix}2 & 0 & 0\\ 0&-5&0\\0&0&10\end{bmatrix}$.  Compute $MD$ and $DM$.
-
-$$MD = \begin{bmatrix} \answer{2} & \answer{-10} & \answer{30}\\ \answer{8}&\answer{-25}&\answer{60}\\\answer{14}&\answer{-40}&\answer{90}\end{bmatrix} \quad DM= \begin{bmatrix} \answer{2} & \answer{4} & \answer{6}\\ \answer{-20}&\answer{-25}&\answer{-30}\\\answer{70}&\answer{80}&\answer{90}\end{bmatrix}$$
-
-Notice the patterns present in the product matrices.  Each row of $DM$ is the same as its corresponding row of $M$ multiplied by the scalar which is the corresponding diagonal element of $D$.  In the product $MD$, it is the columns of $M$ that have been multiplied by the diagonal elements. These patterns hold in general for any diagonal matrix, and they are fundamental to understanding diagonalization.
-\end{exploration}
-
-  
 
 If we are given a matrix $A$ that is diagonalizable, then we can write $P^{-1}AP=D$ for some matrix $P$, or, equivalently,
 \begin{equation}\label{eq:understand_diag}
@@ -284,7 +289,68 @@ P^{-1}AP &=&\begin{bmatrix}
 You can see that the result here is a diagonal matrix where the entries on the main diagonal are the eigenvalues of $A$. Notice that eigenvalues on the main diagonal {\it must} be in the same order as the corresponding eigenvectors in $P$.
 \end{explanation}
 \end{example}
-Consider the next important theorem.
+
+It is often easier to work with matrices that are diagonalizable, as the next Exploration demonstrates.  
+
+\begin{exploration}\label{exp:motivate_diagonalization}
+Let $A=\begin{bmatrix}
+2 & 0 & 0 \\
+1 & 4 & -1 \\
+-2 & -4 & 4
+\end{bmatrix}$ and let $D=\begin{bmatrix}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 6
+\end{bmatrix}$.  
+Would it be easier to compute $A^5$ or $D^5$ if you had to do so by hand, without a computer?  Certainly $D^5$ is easier, due to the number of zero entries!  Let's use Octave to compute both.
+
+%\begin{octave}
+A=[2 0 0; 1 4 -1; -2 -4 4]
+D=diag([2 2 6]) 
+%HARD = A^5
+%EZ = D^5
+%\end{octave}
+
+We see that raising a diagonal matrix to a power amounts to simply raising each entry to that same power, whereas computing $A^5$ requires many more calculations.  However, we learned in Example~\ref{ex:diagonalizematrix} that $A$ is similar to $D$, and we can use this to make our computation easier.  This is because
+\begin{align*}
+    A^5&=\left(PDP^{-1}\right)^5 \\
+       &=(PDP^{-1})(PDP^{-1})(PDP^{-1})(PDP^{-1})(PDP^{-1}) \\
+       &=PD(P^{-1}P)D(P^{-1}P)D(P^{-1}P)D(P^{-1}P)DP^{-1} \\
+       &=PD(I)D(I)D(I)D(I)DP^{-1} \\
+       &=PD^5P^{-1}
+\end{align*}
+With this in mind, it is not as daunting to calculate $A^5$ by hand.  We can compute the product $PD^5$ quite easily since $D^5$ is diagonal, as we learned in Exploration~\ref{init:multiplydiag}.  That leaves just one product of $3 \times 3$ matrices to compute by hand to compute $A^5$.  And the savings in work would certainly be more pronounced for larger matrices or for powers larger that 5.
+
+%\begin{octave}
+A=[2 0 0; 1 4 -1; -2 -4 4]
+D=diag([2 2 6])
+P=[-2 1 0; 1 0 1; 0 1 -2]
+%EZ = D^5
+%P*EZ*P^{-1}
+%HARD = A^5
+%\end{octave}
+\end{exploration}  
+
+In Exploration~\ref{exp:motivate_diagonalization}, because matrix $A$ was diagonalizable, we were able to cut down on computations.  When we chose to work with $D$ and $P$ instead of $A$ we worked with the eigenvalues and eigenvectors of $A$.  Each column of $P$ is an eigenvector of $A$, and so we repeatedly made use of the following theorem (with $m=5$).
+
+\begin{theorem}\label{th:eigpowers}
+Let $A$ be an $n \times n$ matrix and suppose $Ax=\lambda x$.  Then $A^m x = \lambda^m x$
+\end{theorem}
+
+\begin{proof}
+We prove this theorem by induction on $m$.  Clearly $A^m x = \lambda^m x$ holds when $m=1$, as that was given.  For the inductive step, suppose that we know $A^{m-1} x = \lambda^{m-1} x$.  Then
+\begin{align*}
+    A^m x &= (A A^{m-1}) x \\
+          &= A (A^{m-1} x) \\
+          &= A (\lambda^{m-1} x) \\
+          &= \lambda^{m-1} Ax \\
+          &= \lambda^{m-1} \lambda x \\
+          &= \lambda^m x
+\end{align*}
+as desired.
+\end{proof}
+
+Matrix $A$ from the explorations had a repeated eigenvalue of 2.  The next theorem and corollary show that matrices which have \emph{distinct} eigenvalues (where none are repeated) have desirable properties.
 
 \begin{theorem}\label{th:linindepeigenvectors}
 Let $A$ be an $n\times n$ matrix, and suppose that $A$
@@ -395,7 +461,9 @@ In other words, the geometric multiplicity of an eigenvalue is less than or equa
 \begin{proof}
 Let $k$ be the geometric multiplicity of $\lambda_1$, i.e., $k=\mbox{dim}(\mathcal{S}_{\lambda_1})$.  Suppose $\left\{\vec{x}_1, \vec{x}_2, \ldots ,\vec{x}_k\right\}$ is a basis for the eigenspace $\mathcal{S}_{\lambda_1}$.  Let $P$ be any invertible matrix having $\vec{x}_1,  \vec{x}_2, \ldots ,\vec{x}_k$ as its first $k$ columns, say 
 $$P=\begin{bmatrix}
-\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_k & \vec{x}_{k+1} & \cdots & \vec{x}_n
+| & | &  & | & | & & | \\
+\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_k & \vec{x}_{k+1} & \cdots & \vec{x}_n \\
+| & | &  & | & | & & |
 \end{bmatrix}.$$  
 In block form we may write 
 $$P=\begin{bmatrix}
@@ -437,7 +505,7 @@ O & EAC
  \end{array}\right]  
 \end{equation*}
 We finish the proof by comparing the characteristic polynomials on both sides of this equation, and making use of the fact that similar matrices have the same characteristic polynomials.  
-$$\det(A-\lambda I) = \det(P^{-1}AP-\lambda I)=\det(\lambda_1 - \lambda)^k \det(EAC)$$
+$$\det(A-\lambda I) = \det(P^{-1}AP-\lambda I)=(\lambda_1 - \lambda)^k \det(EAC)$$
 We see that the characteristic polynomial of $A$ has $(\lambda_1 - \lambda)^k$ as a factor.  This tells us that algebraic multiplicity of $\lambda_1$ is at least $k$, proving the desired inequality. 
 \end{proof}
 
@@ -587,7 +655,10 @@ If $A$ is $2 \times 2$ and diagonalizable, show that $C(A) = \{X \mid XA = AX\}$
 \end{problem}
 
 \begin{problem}
-If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (see Example~\ref{exa:009262}). In particular, show $c_{A}(A) = 0$. [\textit{Remark}: $c_{A}(A) = 0$ for \textit{all} square matrices $A$---this is the Cayley-Hamilton theorem, see Theorem~\ref{thm:033262}.]
+If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (here, the final 0 is the zero matrix the same size as $A$).
+\begin{remark}
+The characteristic polynomial of $A$ certainly satisfies the requirement that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$.  In solving this problem you have proved a special case of the Cayley-Hamilton theorem, see Theorem~\ref{th:Cayley_Hamilton}.  In fact, if $p(\lambda)$ is the characteristic polynomial of $A$, then $p(A) = 0$ whether or not $A$ is diagonalizable.
+\end{remark}
 \end{problem}
 
 \begin{problem}
@@ -595,7 +666,7 @@ Let $A$ be $n \times n$ with $n$ distinct real eigenvalues. If $AC = CA$, show t
 \end{problem}
 
 \section*{Text Source}
-The text in this module is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
+The text in this section is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 362-364.
 
