@@ -20,13 +20,24 @@
 \subsection{C}
 
 \subsection{D}
-Distance in $\RR^n$
+Distance in $\RR^n$ (\ref{form:distRn})
 \begin{expandable}
-\begin{formula}
+%\begin{formula}
 Let $A(a_1, a_2,\ldots ,a_n)$ and $B(b_1, b_2,\ldots ,b_n)$ be points in $\RR^n$.  The distance between $A$ and $B$ is given by
 $$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
-\end{formula}
-\ref{form:distRn}
+%\end{formula}
+\end{expandable}
+
+Dot Product (\ref{def:dotproduct})
+\begin{expandable}
+ %   \begin{definition}
+  Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$.  The \dfn{dot
+    product} of $\vec{u}$ and $\vec{v}$, denoted by
+  $\vec{u}\dotp \vec{v}$, is given by
+  \begin{align*}
+\vec{u}\dotp\vec{v}=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\dotp\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}=u_1v_1+u_2v_2+\ldots+u_nv_n.
+  \end{align*}
+%\end{definition}
 \end{expandable}
 
 \subsection{E}
@@ -36,16 +47,16 @@ $$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
 \subsection{G}
 
 \subsection{H}
-Head - Tail Formula
+Head - Tail Formula (\ref{form:headminustailrn})
 \begin{expandable}
-    \begin{formula}
+%    \begin{formula}
   [``Head - Tail'' Formula in $\RR^n$]
 Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's head is at $B(b_1, b_2, \ldots ,b_n)$, then 
 \begin{equation*}
 \overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\ \vdots \\b_n-a_n\end{bmatrix}
 \end{equation*}
-\end{formula}
-\ref{form:headminustailrn}
+%\end{formula}
+
 \end{expandable}
 
 \subsection{I}
@@ -57,15 +68,14 @@ Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's 
 \subsection{L}
 
 \subsection{M}
-Magnitude of a Vector
+Magnitude of a Vector (\ref{def:normrn})
 \begin{expandable}
-    \begin{definition}
+  %  \begin{definition}
 Let $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$ be a vector in $\RR^n$, then the \dfn{length}, or the \dfn{magnitude}, of $\vec{v}$ is given by
 \begin{equation*}  
 \norm{\vec{v}}=\sqrt{v_1^2+v_2^2+\ldots +v_n^2}
 \end{equation*}
-\end{definition}
-\ref{def:normrn}
+%\end{definition}
 \end{expandable}
     
 
@@ -73,6 +83,12 @@ Let $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$ be a vector i
 \subsection{N}
 
 \subsection{O}
+Orthogonal vectors (\ref{def:orthovectors}) 
+\begin{expandable}
+ %   \begin{definition}
+Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$. We say $\vec{u}$ and $\vec{v}$ are \dfn{orthogonal} if $\vec{u}\dotp \vec{v}=0$.
+%\end{definition}
+\end{expandable}
 
 \subsection{P}
 
@@ -83,9 +99,9 @@ Let $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$ be a vector i
 \subsection{S}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Scalar} 
 
-Standard Unit Vectors
+Standard Unit Vectors (\ref{def:standardunitvecrn})
 \begin{expandable}
-    \begin{definition}
+    %\begin{definition}
   Let $\vec{e}_i$ denote a vector that has $1$ as the $i^{th}$ component and zeros elsewhere.  In other words, $$\vec{e}_i=\begin{bmatrix}
 0\\
 0\\
@@ -95,8 +111,7 @@ Standard Unit Vectors
 0
 \end{bmatrix}$$ 
   where $1$ is in the $i^{th}$ position.  We say that  $\vec{e}_i$ is a \dfn{standard unit vector of $\RR^n$}.
-\end{definition}
-\ref{def:standardunitvecrn} 
+%\end{definition}
 \end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{Subtraction of vectors}
@@ -106,6 +121,7 @@ Standard Unit Vectors
 \subsection{T}
 
 \subsection{U}
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0036/main}{Unit vector}
 
 \subsection{V}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Vector}
