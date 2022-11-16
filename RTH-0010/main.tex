@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonality and Projections} \license{CC-BY 4.0}
+ \title{Orthogonality and Projections} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -46,15 +46,7 @@ If every vector in an orthogonal set of vectors is also a unit vector, then we s
 \node[] at (-1.8, 2)  (p2)    {1};
 \node[] at (1.3, 2.5)  (p2)    {1};
  \end{tikzpicture}
- \quad\quad\quad
-%\tdplotsetmaincoords{70}{130}
-%\begin{tikzpicture}[scale=0.25]
-%	\draw[line width=2pt,red,-stealth](0,0,0)--(5,0,0);
- %   \draw[line width=2pt,blue,-stealth](0,0,0)--(0,5,0);
- %   \draw[line width=2pt,black,-stealth](0,0,0)--(0,0,5);
- %   \node[] at (3, -3,0)  (p2)    {Orthonormal vectors in $\RR^3$};
- %   \end{tikzpicture}
-\end{center}
+ \end{center}
 
 Formally, we can define orthogonal and orthonormal vectors as follows.
 
@@ -106,7 +98,7 @@ vectors. On the other hand one can compute that ${\norm{\vec{v}_1}}= {\norm{\vec
 To find a corresponding orthonormal set, we need to
 normalize each vector. 
 \begin{eqnarray*}
-\vec{u}_1 &=& \frac{1}{\norm{\vec{v}_1}}\vec{v}_1\\
+\vec{q}_1 &=& \frac{1}{\norm{\vec{v}_1}}\vec{v}_1\\
 &=& \frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 1
@@ -120,7 +112,7 @@ normalize each vector.
 
 Similarly,
 \begin{eqnarray*}
-\vec{u}_2 &=& \frac{1}{\norm{\vec{v}_2}}\vec{v}_2\\
+\vec{q}_2 &=& \frac{1}{\norm{\vec{v}_2}}\vec{v}_2\\
 &=& \frac{1}{\sqrt{2}} \begin{bmatrix}
 -1 \\
 1
@@ -134,7 +126,7 @@ Similarly,
 
 Therefore the corresponding orthonormal set is
 \[
-\left\{ \vec{u}_1, \vec{u}_2 \right\} =
+\left\{ \vec{q}_1, \vec{q}_2 \right\} =
 \left\{
 \begin{bmatrix}
 \frac{1}{\sqrt{2}} \\
@@ -322,20 +314,20 @@ Therefore,
 The formula from Theorem~\ref{th:fourierexpansion} is easy to use, and it becomes even easier when our basis is \emph{orthonormal}.
 
 \begin{corollary}\label{cor:orthonormal}
-Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{u}_1, \vec{u}_2, \ldots, \vec{u}_m \}$
+Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{q}_1, \vec{q}_2, \ldots, \vec{q}_m \}$
 is an orthonormal basis of $W$.
 Then for any $\vec{x}$ in $W$,
 \[ \vec{x} =
-\left(\vec{x}\dotp \vec{u}_1\right) \vec{u}_1 +
-\left(\vec{x}\dotp \vec{u}_2\right) \vec{u}_2 +
+\left(\vec{x}\dotp \vec{q}_1\right) \vec{q}_1 +
+\left(\vec{x}\dotp \vec{q}_2\right) \vec{q}_2 +
 \cdots +
-\left(\vec{x}\dotp \vec{u}_m\right)  \vec{u}_m.
+\left(\vec{x}\dotp \vec{q}_m\right)  \vec{q}_m.
 \]
 \end{corollary}
 \begin{proof}
 This is a special case of Theorem \ref{th:fourierexpansion}.  Because $\norm{\vec{u_i}} = 1$ for $i=1,\ldots,m$, %where we can compute the coefficients of $x$ with respect to the basis by simply taking the dot product with each basis vector, for in this case 
 the terms are given by 
-$$\left(\frac{\vec{x}\cdot \vec{u}_i}{\norm{\vec{u}_i}^2}\right)\vec{u}_i=\left(\vec{x}\dotp \vec{u}_i\right) \vec{u}_i.$$
+$$\left(\frac{\vec{x}\cdot \vec{q}_i}{\norm{\vec{q}_i}^2}\right)\vec{q}_i=\left(\vec{x}\dotp \vec{q}_i\right) \vec{q}_i.$$
 
 \end{proof}
 
@@ -482,7 +474,7 @@ Then $\vec{w}^\perp$ is orthogonal to every vector in $W$.
 
 The fact that the decomposition of $\vec{x}$ into the sum of $\vec{w}$ and $\vec{w}^\perp$ is unique is the subject of the Orthogonal Decomposition Theorem which we will prove in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0020/main}{Orthogonal Complements and Decompositions}.
 
-Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0015/main}{the next section}.
+Throughout this section we have worked with orthogonal bases of subspaces.  Does every subspace of $\RR^n$ have an orthogonal basis?  If so, how do we find one?  These questions will be addressed in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0015/main}{Gram-Schmidt Orthogonalization}.
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:rref_way}
@@ -517,7 +509,7 @@ Prove Corollary \ref{cor:orthProjOntoW}
 \end{problem}
   
 \section*{Text Source}
-A portion of the text in this module is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+A portion of the text in this section is an adaptation of Section 4.11.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 233-238.  
 

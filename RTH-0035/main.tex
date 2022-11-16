@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonal Matrices and Symmetric Matrices} \license{CC-BY 4.0}
+\title{Orthogonal Matrices and Symmetric Matrices} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -10,6 +10,7 @@
 \end{abstract}
 \maketitle
 
+\section*{Orthogonal Matrices and Symmetric Matrices}
 Recall that an $n \times n$ matrix $A$ is diagonalizable if and only if it has $n$ linearly independent eigenvectors.  (see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0050/main}{Diagonalizable Matrices and Multiplicity}) Moreover, the matrix $P$ with these eigenvectors as columns is a diagonalizing matrix for $A$, that is
 \begin{equation*}
 P^{-1}AP \mbox{ is diagonal.}
@@ -17,28 +18,28 @@ P^{-1}AP \mbox{ is diagonal.}
 As we have seen, the really nice bases of $\RR^n$ are the orthogonal ones, so a natural question is: which $n \times n$ matrices have $n$ orthogonal eigenvectors, so that columns of $P$ form an orthogonal basis for $\RR^n$? These turn out to be precisely the \dfn{symmetric matrices} (matrices for which $A=A^T$), and this is the main result of this section.
 
 \section*{Orthogonal Matrices}
-Before proceeding, recall that an orthogonal set of vectors is called \dfn{orthonormal} if $\norm{\vec{u}} = 1$ for each vector $\vec{u}$ in the set, and that any orthogonal set $\{\vec{v}_{1}, \vec{v}_{2}, \dots, \vec{v}_{k}\}$ can be ``\textit{normalized}'', that is converted into an orthonormal set $\left\{ \frac{1}{\norm{\vec{v}_{1}}}\vec{v}_{1}, \frac{1}{\norm{\vec{v}_{2}}}\vec{v}_{2}, \dots, \frac{1}{\norm{\vec{v}_{k}}}\vec{v}_{k} \right\}$. In particular, if a matrix $A$ has $n$ orthogonal eigenvectors, they can (by normalizing) be taken to be orthonormal. The corresponding diagonalizing matrix (we will use $U$ instead of $P$) has orthonormal columns, and such matrices are very easy to invert.
+Before proceeding, recall that an orthogonal set of vectors is called \dfn{orthonormal} if $\norm{\vec{q}} = 1$ for each vector $\vec{q}$ in the set, and that any orthogonal set $\{\vec{v}_{1}, \vec{v}_{2}, \dots, \vec{v}_{k}\}$ can be ``\textit{normalized}'', that is converted into an orthonormal set $\left\{ \frac{1}{\norm{\vec{v}_{1}}}\vec{v}_{1}, \frac{1}{\norm{\vec{v}_{2}}}\vec{v}_{2}, \dots, \frac{1}{\norm{\vec{v}_{k}}}\vec{v}_{k} \right\}$. In particular, if a matrix $A$ has $n$ orthogonal eigenvectors, they can (by normalizing) be taken to be orthonormal. The corresponding diagonalizing matrix (we will use $Q$ instead of $P$) has orthonormal columns, and such matrices are very easy to invert.
 
 
 \begin{theorem}\label{th:orthogonal_matrices}
-The following conditions are equivalent for an $n \times n$ matrix $U$.
+The following conditions are equivalent for an $n \times n$ matrix $Q$.
 
 \begin{enumerate}
-\item\label{th:orthogonal_matrices_a} $U$ is invertible and $U^{-1} = U^{T}$.
+\item\label{th:orthogonal_matrices_a} $Q$ is invertible and $Q^{-1} = Q^{T}$.
 
-\item\label{th:orthogonal_matrices_b} The rows of $U$ are orthonormal.
+\item\label{th:orthogonal_matrices_b} The rows of $Q$ are orthonormal.
 
-\item\label{th:orthogonal_matrices_c} The columns of $U$ are orthonormal.
+\item\label{th:orthogonal_matrices_c} The columns of $Q$ are orthonormal.
 
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-First note that condition \ref{th:orthogonal_matrices_a} is equivalent to $U^{T}U = I$. Let $\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{n}$ denote the columns of $U$. Then $\vec{u}_{i}^{T}$ is the $i$th row of $U^{T}$, so the $(i, j)$-entry of $U^{T}U$ is $\vec{u}_{i} \dotp \vec{u}_{j}$. Thus $U^{T}U = I$ means that $\vec{u}_{i} \dotp \vec{u}_{j} = 0$ if $i \neq j$ and $\vec{u}_{i} \dotp \vec{u}_{j} = 1$ if $i = j$. Hence condition \ref{th:orthogonal_matrices_a} is equivalent to \ref{th:orthogonal_matrices_c}. The proof of the equivalence of \ref{th:orthogonal_matrices_a} and \ref{th:orthogonal_matrices_b} is similar.
+First note that condition \ref{th:orthogonal_matrices_a} is equivalent to $Q^{T}Q = I$. Let $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ denote the columns of $Q$. Then $\vec{q}_{i}^{T}$ is the $i$th row of $Q^{T}$, so the $(i, j)$-entry of $Q^{T}Q$ is $\vec{q}_{i} \dotp \vec{q}_{j}$. Thus $Q^{T}Q = I$ means that $\vec{q}_{i} \dotp \vec{q}_{j} = 0$ if $i \neq j$ and $\vec{q}_{i} \dotp \vec{q}_{j} = 1$ if $i = j$. Hence condition \ref{th:orthogonal_matrices_a} is equivalent to \ref{th:orthogonal_matrices_c}. The proof of the equivalence of \ref{th:orthogonal_matrices_a} and \ref{th:orthogonal_matrices_b} is similar.
 \end{proof}
 
 \begin{definition}[Orthogonal Matrices]\label{def:orthogonal matrices}
-An $n \times n$ matrix $U$ is called an \dfn{orthogonal matrix} if it satisfies one (and hence all) of the conditions in Theorem~\ref{th:orthogonal_matrices}.
+An $n \times n$ matrix $Q$ is called an \dfn{orthogonal matrix} if it satisfies one (and hence all) of the conditions in Theorem~\ref{th:orthogonal_matrices}.
 \end{definition}
 
 
@@ -89,20 +90,20 @@ A=[2 1 1; -1 1 1; 0 -1 1]
     A(3,:)*A(3,:)' 
     
     \end{hint}
-    \item Create a matrix $U$ by normalizing each of the rows of $A$.
+    \item Create a matrix $Q$ by normalizing each of the rows of $A$.
     \begin{hint}
-    u1=A(1,:)/norm(A(1,:)); 
+    q1=A(1,:)/norm(A(1,:)); 
     
-    u2=A(2,:)/norm(A(2,:));
+    q2=A(2,:)/norm(A(2,:));
     
-    u3=A(3,:)/norm(A(3,:));
+    q3=A(3,:)/norm(A(3,:));
     
-    U = [u1;u2;u3]
+    Q = [q1;q2;q3]
     
     \end{hint}
-    \item Check that $U$ is an orthogonal matrix.
+    \item Check that $Q$ is an orthogonal matrix.
     \begin{hint}
-    You should get $U = \begin{bmatrix}
+    You should get $Q = \begin{bmatrix}
 \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{6}} \\
 \frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} \\
 0 & \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
@@ -142,10 +143,10 @@ We now shift our focus from orthogonal matrices to another important class of $n
 When we began our study of eigenvalues and eigenvectors, we saw numerous examples of matrices with entries that were real numbers with eigenvalues that were complex numbers.  It can be shown that symmetric matrices only have real eigenvalues.  We also learned that some matrices are diagonalizable while other matrices are not.  It turns out that every symmetric matrix is diagonalizable.  In fact, we can say more, but first we need the following definition.
 
 \begin{definition}
-An $n \times n$ matrix $A$ is said to be \dfn{orthogonally diagonalizable} when an orthogonal matrix $U$ can be found such that  $U^{-1}AU = U^{T}AU$ is diagonal.
+An $n \times n$ matrix $A$ is said to be \dfn{orthogonally diagonalizable} when an orthogonal matrix $Q$ can be found such that  $Q^{-1}AQ = Q^{T}AQ$ is diagonal.
 \end{definition}
 
-We have learned earlier that when we diagonalize a matrix $A$, we write $P^{-1}AP=D$ for some matrix $P$ where $D$ is diagonal, and the diagonal entries are the eigenvalues of $A$.  We have also learned that the columns of the matrix $P$ are the corresponding eigenvectors of $A$.  So when a matrix is orthogonally diagonalizable, we are able to accomplish the diagonalization using a matrix $U$ consisting of $n$ eigenvectors that form an orthonormal basis for $\RR^n$.  The following remarkable theorem shows that the matrices that have this property are precisely the symmetric matrices.
+We have learned earlier that when we diagonalize a matrix $A$, we write $P^{-1}AP=D$ for some matrix $P$ where $D$ is diagonal, and the diagonal entries are the eigenvalues of $A$.  We have also learned that the columns of the matrix $P$ are the corresponding eigenvectors of $A$.  So when a matrix is orthogonally diagonalizable, we are able to accomplish the diagonalization using a matrix $Q$ consisting of $n$ eigenvectors that form an orthonormal basis for $\RR^n$.  The following remarkable theorem shows that the matrices that have this property are precisely the symmetric matrices.
 
 \begin{theorem}\label{th:PrinAxes}
 Let  $A$ be an $n \times n$ matrix.  Then $A$ is symmetric if and only if $A$ is orthogonally diagonalizable.
@@ -153,19 +154,19 @@ Let  $A$ be an $n \times n$ matrix.  Then $A$ is symmetric if and only if $A$ is
 \begin{proof}
 If $A$ is orthogonally diagonalizable, then it is an easy exercise to prove that it is symmetric.  You are asked to do this in Practice Problem \ref{prob:ortho_diag_implies_symmetric}.
 
-To prove the ``only if'' part of this theorem, we assume $A$ is symmetric, and we need to show it is orthogonally diagonalizable.  We proceed by induction on $n$, the size of the symmetric matrix. If $n = 1$, $A$ is already diagonal. If $n > 1$, assume that we know the ``only if'' statement holds for $(n - 1) \times (n - 1)$ symmetric matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $A\vec{x}_{1} = \lambda_{1}\vec{x}_{1}$, where $\norm{\vec{x}_{1}} = 1$. Next, set $\vec{u}_{1}=\vec{x}_{1}$, and use the Gram-Schmidt algorithm to find an orthonormal basis $\{\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{n}\}$ for $\RR^n$. Let $U_{1} = \begin{bmatrix}
-\vec{u}_{1} & \vec{u}_{2} & \dots & \vec{u}_{n}
+To prove the ``only if'' part of this theorem, we assume $A$ is symmetric, and we need to show it is orthogonally diagonalizable.  We proceed by induction on $n$, the size of the symmetric matrix. If $n = 1$, $A$ is already diagonal. If $n > 1$, assume that we know the ``only if'' statement holds for $(n - 1) \times (n - 1)$ symmetric matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $A\vec{x}_{1} = \lambda_{1}\vec{x}_{1}$, where $\norm{\vec{x}_{1}} = 1$. Next, set $\vec{q}_{1}=\vec{x}_{1}$, and use the Gram-Schmidt algorithm to find an orthonormal basis $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}\}$ for $\RR^n$. Let $U_{1} = \begin{bmatrix}
+\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
 \end{bmatrix}$, so that $U_{1}$ is an orthogonal matrix.  We have
 \begin{align*}
 U_{1}^TAU_{1} &= \begin{bmatrix}
-\vec{u}_{1}^T \\ \vec{u}_{2}^T \\ \vdots \\ \vec{u}_{n}^T
+\vec{q}_{1}^T \\ \vec{q}_{2}^T \\ \vdots \\ \vec{q}_{n}^T
 \end{bmatrix} A \begin{bmatrix}
-\vec{u}_{1} & \vec{u}_{2} & \dots & \vec{u}_{n}
+\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
 \end{bmatrix} \\
 &= \begin{bmatrix}
-\vec{u}_{1}^T \\ \vec{u}_{2}^T \\ \vdots \\ \vec{u}_{n}^T
+\vec{q}_{1}^T \\ \vec{q}_{2}^T \\ \vdots \\ \vec{q}_{n}^T
 \end{bmatrix} \begin{bmatrix}
-A \vec{u}_{1} & A \vec{u}_{2} & \dots & A \vec{u}_{n}
+A \vec{q}_{1} & A \vec{q}_{2} & \dots & A \vec{q}_{n}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
@@ -176,29 +177,29 @@ A \vec{u}_{1} & A \vec{u}_{2} & \dots & A \vec{u}_{n}
 where the block $B$ has dimensions $1 \times (n-1)$, and the block under $\lambda_1$ is a $(n-1) \times 1$ zero matrix, because of the orthogonality of the basis vectors.
 
 Next, using the fact that $A$ is symmetric, we notice that
-$$(U_{1}^TAU_{1})^T = U_{1}^T A^T (U_{1}^T)^T = U_{1}^TAU_{1},$$ so $U_{1}^TAU_{1}$ is symmetric.  It follows that $B$ is also a zero matrix and that $A_{1}$ is symmetric.  Since $A_{1}$ is an $(n - 1) \times (n - 1)$ symmetric matrix, we may apply the inductive hypothesis, so there exists an $(n - 1) \times (n - 1)$ orthogonal matrix $U$ such that $U^{T}A_{1}U = D_{1}$ is diagonal. We observe that $U_{2} = \begin{bmatrix}
+$$(Q_{1}^TAQ_{1})^T = Q_{1}^T A^T (Q_{1}^T)^T = Q_{1}^TAQ_{1},$$ so $Q_{1}^TAQ_{1}$ is symmetric.  It follows that $B$ is also a zero matrix and that $A_{1}$ is symmetric.  Since $A_{1}$ is an $(n - 1) \times (n - 1)$ symmetric matrix, we may apply the indQctive hypothesis, so there exists an $(n - 1) \times (n - 1)$ orthogonal matrix $Q$ such that $Q^{T}A_{1}Q = D_{1}$ is diagonal. We observe that $Q_{2} = \begin{bmatrix}
  1 & 0\\
- 0 & U
+ 0 & Q
  \end{bmatrix}$
  is orthogonal, and we compute:
 \begin{align*}
-(U_{1}U_{2})^TA(U_{1}U_{2}) &= U_{2}^T(U_{1}^TAU_{1})U_{2} \\
+(Q_{1}Q_{2})^TA(Q_{1}Q_{2}) &= Q_{2}^T(Q_{1}^TAQ_{1})Q_{2} \\
 &= \begin{bmatrix}
 1 & 0 \\
-0 & U^T
+0 & Q^T
 \end{bmatrix} \begin{bmatrix}
 \lambda_{1} & 0 \\
 0 & A_{1}
 \end{bmatrix}\begin{bmatrix}
 1 & 0 \\
-0 & U
+0 & Q
 \end{bmatrix}\\
 &= \begin{bmatrix}
 \lambda_{1} & 0 \\
 0 & D_{1}
 \end{bmatrix}
 \end{align*}
-is diagonal. Because $U_{1}U_{2}$ is orthogonal by Theorem \ref{th:orthogonal_product_inverse}\ref{th:orthogonal_product}, this completes the proof.
+is diagonal. Because $Q_{1}Q_{2}$ is orthogonal by Theorem \ref{th:orthogonal_product_inverse}\ref{th:orthogonal_product}, this completes the proof.
 \end{proof}
 
 
@@ -212,7 +213,7 @@ Because the eigenvalues of a real symmetric matrix are real, Theorem~\ref{th:Pri
 
 
 \begin{example}\label{ex:DiagonalizeSymmetricMatrix}
-Find an orthogonal matrix $U$ such that $U^{-1}AU$ is diagonal, where $A = \begin{bmatrix}
+Find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal, where $A = \begin{bmatrix}
 1 & 0 & -1 \\
 0 & 1 & 2 \\
 -1 & 2 & 5
@@ -312,7 +313,7 @@ Orthogonally diagonalize the symmetric matrix $A = \begin{bmatrix}
 \end{bmatrix}$.
 
 
-\begin{solution}
+\begin{explanation}
   The characteristic polynomial is
 \begin{equation*}
 c_{A}(x) = \det  \begin{bmatrix}
@@ -323,7 +324,7 @@ x-8 & 2 & -2 \\
 \end{equation*}
 Hence the distinct eigenvalues are $0$ and $9$ are of algebraic multiplicity $1$ and $2$, respectively.  The geometric multiplicities must be the same, for $A$ is diagonalizable, being symmetric. It follows that $\mbox{dim}(\mathcal{S}_0) = 1$ and $\mbox{dim}(\mathcal{S}_9) = 2$.  Gaussian elimination gives
 \begin{equation*}
-\mathcal{S}_{0}(A) = \mbox{span}\{\vec{x}_{1}\}, \enskip \vec{x}_{1} = \begin{bmatrix}
+\mathcal{S}_{0}(A) = \mbox{span}\{\vec{x}_{1}\}, \quad \vec{x}_{1} = \begin{bmatrix}
 1 \\
 2 \\
 -2
@@ -351,7 +352,7 @@ The eigenvectors in $\mathcal{S}_{9}$ are both orthogonal to $\vec{x}_{1}$ as Th
 \end{equation*}
 Normalizing gives orthonormal vectors $\{\frac{1}{3}\vec{x}_{1}, \frac{1}{\sqrt{5}}\vec{f}_{2}, \frac{1}{3\sqrt{5}}\vec{f}_{3}\}$, so
 \begin{equation*}
-U = \begin{bmatrix}
+Q = \begin{bmatrix}
 \frac{1}{3}\vec{x}_{1} & \frac{1}{\sqrt{5}}\vec{f}_{2} & \frac{1}{3\sqrt{5}}\vec{f}_{3}
 \end{bmatrix} = \frac{1}{3\sqrt{5}}\begin{bmatrix}
 \sqrt{5} & -6 & 2 \\
@@ -359,10 +360,10 @@ U = \begin{bmatrix}
 -2\sqrt{5} & 0 & 5
 \end{bmatrix}
 \end{equation*}
-is an orthogonal matrix such that $U^{-1}AU$ is diagonal.
+is an orthogonal matrix such that $Q^{-1}AQ$ is diagonal.
 
 
-It is worth noting that other, more convenient, diagonalizing matrices $U$ exist. For example, $\vec{y}_{2} = \begin{bmatrix}
+It is worth noting that other, more convenient, diagonalizing matrices $Q$ exist. For example, $\vec{y}_{2} = \begin{bmatrix}
 2 \\
 1 \\
 2
@@ -373,7 +374,7 @@ It is worth noting that other, more convenient, diagonalizing matrices $U$ exist
 \end{bmatrix}$
  lie in $\mathcal{S}_{9}(A)$ and they are orthogonal. Moreover, they both have norm $3$ (as does $\vec{x}_{1}$), so
 \begin{equation*}
-\hat{U} = \begin{bmatrix}
+\hat{Q} = \begin{bmatrix}
 \frac{1}{3}\vec{x}_{1} & \frac{1}{3}\vec{y}_{2} & \frac{1}{3}\vec{y}_{3}
 \end{bmatrix} = \frac{1}{3}\begin{bmatrix}
 1 & 2 & -2 \\
@@ -381,23 +382,23 @@ It is worth noting that other, more convenient, diagonalizing matrices $U$ exist
 -2 & 2 & 1
 \end{bmatrix}
 \end{equation*}
-is a nicer orthogonal matrix with the property that $\hat{U}^{-1}A\hat{U}$ is diagonal.
-\end{solution}
+is a nicer orthogonal matrix with the property that $\hat{Q}^{-1}A\hat{Q}$ is diagonal.
+\end{explanation}
 \end{example}
 
 \begin{theorem}\label{th:PrinAxesOtherStuff}
 Let $A$ be an $n \times n$ matrix.  $A$ has an orthonormal set of $n$ eigenvectors if and only if $A$ is orthogonally diagonalizable.
 
 \begin{proof}
-($\Rightarrow$) Let $\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{n}$ be orthonormal eigenvectors of $A$. Then $U = \begin{bmatrix}
-\vec{u}_{1} & \vec{u}_{2} & \dots & \vec{u}_{n}
+($\Rightarrow$) Let $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ be orthonormal eigenvectors of $A$. Then $Q = \begin{bmatrix}
+\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
 \end{bmatrix}$ is orthogonal, and $U^{-1}AU$ is diagonal by Theorem~\ref{thm:009214}. 
 
-($\Leftarrow$) Let $U^{-1}AU=D$ be diagonal where $U$ is orthogonal. If $\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{n}$ are the columns of $U$ then $\{\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{n}\}$ is an orthonormal basis of $\RR^n$ that consists of eigenvectors of $A$, as can be seen by analyzing the columns of $AU=UD$.
+($\Leftarrow$) Let $Q^{-1}AQ=D$ be diagonal where $Q$ is orthogonal. If $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ are the columns of $Q$ then $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}\}$ is an orthonormal basis of $\RR^n$ that consists of eigenvectors of $A$, as can be seen by analyzing the columns of $AU=UD$.
 $$\begin{bmatrix}
-A \vec{u}_{1} & A \vec{u}_{2} & \dots & A \vec{u}_{n}
+A \vec{q}_{1} & A \vec{q}_{2} & \dots & A \vec{q}_{n}
 \end{bmatrix} = \begin{bmatrix}
-\lambda_1 \vec{u}_{1} & \lambda_2 \vec{u}_{2} & \dots & \lambda_n \vec{u}_{n}
+\lambda_1 \vec{q}_{1} & \lambda_2 \vec{q}_{2} & \dots & \lambda_n \vec{q}_{n}
 \end{bmatrix}$$
 
 \end{proof}
@@ -406,7 +407,7 @@ A \vec{u}_{1} & A \vec{u}_{2} & \dots & A \vec{u}_{n}
 If we are willing to replace ``diagonal'' by ``upper triangular'' in the real spectral theorem, we can weaken the requirement that $A$ is symmetric to insisting only that $A$ has real eigenvalues.
 
 \begin{theorem}[Schur Triangularization Theorem]\label{th:Schur}
-If $A$ is an $n \times n$ matrix with $n$ real eigenvalues, an orthogonal matrix $U$ exists such that $U^{T}AU$ is upper triangular.
+If $A$ is an $n \times n$ matrix with $n$ real eigenvalues, an orthogonal matrix $Q$ exists such that $Q^{T}AQ$ is upper triangular.
 \end{theorem}
 \remark{There is also a lower triangular version.}
 
@@ -414,7 +415,7 @@ If $A$ is an $n \times n$ matrix with $n$ real eigenvalues, an orthogonal matrix
 See Practice Problem \ref{prob:SchurChallenge}
 \end{proof}
 
-The eigenvalues of an upper triangular matrix are displayed along the main diagonal. Because $A$ and $U^{T}AU$ have the same determinant and trace whenever $U$ is orthogonal, Theorem~\ref{th:Schur} gives:
+The eigenvalues of an upper triangular matrix are displayed along the main diagonal. Because $A$ and $Q^{T}AQ$ have the same determinant and trace whenever $Q$ is orthogonal, Theorem~\ref{th:Schur} gives:
 
 \begin{corollary}\label{cor:det_and_tr}
 If $A$ is an $n \times n$ matrix with real eigenvalues $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$ (possibly not all distinct), then $\det A = \lambda_{1}\lambda_{2} \dots \lambda_{n}$ and $\mbox{tr} A = \lambda_{1} + \lambda_{2} + \dots  + \lambda_{n}$.
@@ -524,48 +525,48 @@ $A = \begin{bmatrix}
 \end{problem}
 
 \begin{problem}\label{prob:triag_orthogonal}
-If $P$ is a triangular orthogonal matrix, show that $P$ is diagonal and that all diagonal entries are $1$ or $-1$.
+If $Q$ is a triangular orthogonal matrix, show that $Q$ is diagonal and that all diagonal entries are $1$ or $-1$.
 
 \begin{hint}
-We have $P^{T} = P^{-1}$; the first step is to show that $P$ is lower triangular and also upper triangular, and so is diagonal. But then $P = P^{T} = P^{-1}$, so $P^{2} = I$. This implies that the diagonal entries of $P$ are all $\pm 1$.
+We have $Q^{T} = Q^{-1}$; the first step is to show that $Q$ is lower triangular and also upper triangular, and so is diagonal. But then $Q = Q^{T} = Q^{-1}$, so $Q^{2} = I$. This implies that the diagonal entries of $Q$ are all $\pm 1$.
 \end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:scalar_othogonal}
-If $P$ is orthogonal, show that $kP$ is orthogonal if and only if $k = 1$ or $k = -1$.
+If $Q$ is orthogonal, show that $kQ$ is orthogonal if and only if $k = 1$ or $k = -1$.
 \end{problem}
 
 \begin{problem}\label{prob:thirdrow}
 If the first two rows of an orthogonal matrix are $(\frac{1}{3}, \frac{2}{3}, \frac{2}{3})$ and $(\frac{2}{3}, \frac{1}{3}, \frac{-2}{3})$, find all possible third rows.
 \end{problem}
 
-\begin{problem}\label{prob:findU}
-For each matrix $A$, find an orthogonal matrix $U$ such that $U^{-1}AU$ is diagonal.
+\begin{problem}\label{prob:findQ}
+For each matrix $A$, find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal.
 
 \begin{enumerate}
-\item\label{prob:findUa} $A = \begin{bmatrix}
+\item\label{prob:findQa} $A = \begin{bmatrix}
 0 & 1 \\
 1 & 0
 \end{bmatrix}$
 
-\item\label{prob:findUb} $A = \begin{bmatrix}
+\item\label{prob:findQb} $A = \begin{bmatrix}
 1 & -1 \\
 -1 & 1
 \end{bmatrix}$
 
-\item\label{prob:findUc} $A = \begin{bmatrix}
+\item\label{prob:findQc} $A = \begin{bmatrix}
 3 & 0 & 0 \\
 0 & 2 & 2 \\
 0 & 2 & 5
 \end{bmatrix}$
 
-\item\label{prob:findUd} $A = \begin{bmatrix}
+\item\label{prob:findQd} $A = \begin{bmatrix}
 3 & 0 & 7 \\
 0 & 5 & 0 \\
 7 & 0 & 3
 \end{bmatrix}$
 
-\item\label{prob:findUe} $A = \begin{bmatrix}
+\item\label{prob:findQe} $A = \begin{bmatrix}
 1 & 1 & 0 \\
 1 & 1 & 0 \\
 0 & 0 & 2
@@ -576,14 +577,14 @@ For each matrix $A$, find an orthogonal matrix $U$ such that $U^{-1}AU$ is diago
 -2 & 8 & -2\\
 -4 & -2 & 5
 \end{bmatrix}$
-\item\label{prob:findUf} (challenging problem) $A = \begin{bmatrix}
+\item\label{prob:findQf} (challenging problem) $A = \begin{bmatrix}
 5 & 3 & 0 & 0 \\
 3 & 5 & 0 & 0 \\
 0 & 0 & 7 & 1 \\
 0 & 0 & 1 & 7
 \end{bmatrix}$
 
-\item\label{prob:findUg} (challenging problem) $A = \begin{bmatrix}
+\item\label{prob:findQg} (challenging problem) $A = \begin{bmatrix}
 3 & 5 & -1 & 1 \\
 5 & 3 & 1 & -1 \\
 -1 & 1 & 3 & 5 \\
@@ -635,7 +636,7 @@ Consider $A = \begin{bmatrix}
 a & 0 & c \\
 0 & c & 0
 \end{bmatrix}$
- where one of $a, c \neq 0$. Show that $c_{A}(x) = x(x - k)(x + k)$, where $k = \sqrt{a^2 + c^2}$ and find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+ where one of $a, c \neq 0$. Show that $c_{A}(x) = x(x - k)(x + k)$, where $k = \sqrt{a^2 + c^2}$ and find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal.
 
 %\begin{sol}
 %$P = \frac{1}{\sqrt{2}k}\begin{bmatrix}
@@ -651,7 +652,7 @@ Consider $A = \begin{bmatrix}
 0 & 0 & a \\
 0 & b & 0 \\
 a & 0 & 0
-\end{bmatrix}$. Show that $c_{A}(x) = (x - b)(x - a)(x + a)$ and find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+\end{bmatrix}$. Show that $c_{A}(x) = (x - b)(x - a)(x + a)$ and find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal.
 \end{problem}
 
 \begin{problem}\label{prob:ortho13}
@@ -666,11 +667,11 @@ Consider $A = \begin{bmatrix}
 b & 0 & a \\
 0 & b & 0 \\
 a & 0 & b
-\end{bmatrix}$. Show that $c_{A}(x) = (x - b)(x - b - a)(x - b + a)$ and find an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal.
+\end{bmatrix}$. Show that $c_{A}(x) = (x - b)(x - b - a)(x - b + a)$ and find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal.
 \end{problem}
 
 
-\begin{problem}\label{prob:ortho15}
+\begin{problem}\label{prob:ortho15a}
 Show that the following are equivalent for a symmetric matrix $A$.
 
 
@@ -713,7 +714,7 @@ We call matrices $A$ and $B$ \dfn{orthogonally similar} (and write $A \stackrel{
 \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:ortho14}
+\begin{problem}\label{prob:ortho14a}
 Assume that $A$ and $B$ are orthogonally similar (Exercise \ref{ex:8_2_12}).
 
 
@@ -761,14 +762,17 @@ If $A$ has real eigenvalues, show that $A = B + C$ where $B$ is symmetric and $C
 \end{problem}
 
 \begin{problem}\label{prob:ortho19}
-Let $P$ be an orthogonal matrix.
+Let $Q$ be an orthogonal matrix.
 
 \begin{enumerate}
-\item Show that $\det P = 1$ or $\det P = -1$.
+\item Show that $\det Q = 1$ or $\det Q = -1$.
 
-\item Give $2 \times 2$ examples of $P$ such that $\det P = 1$ and $\det  P = -1$.
+\item Give $2 \times 2$ examples of $Q$ such that $\det Q = 1$ and $\det  Q = -1$.
 
-\item If $\det  P = -1$, show that $I + P$ has no inverse. [\textit{Hint}: $P^{T}(I + P) = (I + P)^{T}$.]
+\item If $\det  Q = -1$, show that $I + Q$ has no inverse.
+\begin{hint}
+$Q^{T}(I + Q) = (I + Q)^{T}$.
+\end{hint}
 
 \item If $P$ is $n \times n$ and $\det P \neq (-1)^{n}$, show that $I - P$ has no inverse.
 
@@ -802,11 +806,11 @@ We call a square matrix $E$ a \dfn{projection matrix} if $E^{2} = E = E^{T}$.
 
 
 \begin{enumerate} 
-\item If $E$ is a projection matrix, show that $P = I - 2E$ is orthogonal and symmetric.
+\item If $E$ is a projection matrix, show that $Q = I - 2E$ is orthogonal and symmetric.
 
-\item If $P$ is orthogonal and symmetric, show that \\ $E = \frac{1}{2}(I - P)$ is a projection matrix.
+\item If $Q$ is orthogonal and symmetric, show that \\ $E = \frac{1}{2}(I - Q)$ is a projection matrix.
 
-\item If $U$ is $m \times n$ and $U^{T}U = I$ (for example, a unit column in $\RR^n$), show that $E = UU^{T}$ is a projection matrix.
+\item If $Q$ is $m \times n$ and $Q^{T}Q = I$ (for example, a unit column in $\RR^n$), show that $E = QQ^{T}$ is a projection matrix.
 
 \end{enumerate}
 \end{problem}
@@ -850,7 +854,7 @@ Let $A$ be a skew-symmetric matrix; that is, $A^{T} = -A$. Assume that $A$ is an
 \begin{enumerate} 
 \item Show that $I + A$ is invertible. [\textit{Hint}: By Theorem~\ref{thm:004553}, it suffices to show that $(I + A)\vec{x} = \vec{0}$, $\vec{x}$ in $\RR^n$, implies $\vec{x} = \vec{0}$. Compute $\vec{x} \dotp \vec{x} = \vec{x}^{T}\vec{x}$, and use the fact that $A\vec{x} = -\vec{x}$ and $A^{2}\vec{x} = \vec{x}$.]
 
-\item Show that $P = (I - A)(I + A)^{-1}$ is orthogonal.
+\item Show that $Q = (I - A)(I + A)^{-1}$ is orthogonal.
 
 \item Show that every orthogonal matrix $P$ such that $I + P$ is invertible arises as in part (b) from some skew-symmetric matrix $A$. \newline [\textit{Hint}: Solve $P = (I - A)(I + A)^{-1}$ for $A$.]
 
@@ -869,16 +873,16 @@ Show that the following are equivalent for an $n \times n$ matrix $P$.
 
 
 \begin{enumerate} 
-\item $P$ is orthogonal.
+\item $Q$ is orthogonal.
 
-\item $\norm{P\vec{x}} = \norm{\vec{x}}$ for all columns $\vec{x}$ in $\RR^n$.
+\item $\norm{Q\vec{x}} = \norm{\vec{x}}$ for all columns $\vec{x}$ in $\RR^n$.
 
-\item $\norm{ P\vec{x} - P\vec{y}} = \norm{\vec{x} - \vec{y}}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
+\item $\norm{ Q\vec{x} - Q\vec{y}} = \norm{\vec{x} - \vec{y}}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
 
-\item $(P\vec{x}) \dotp (P\vec{y}) = \vec{x} \dotp \vec{y}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
+\item $(Q\vec{x}) \dotp (Q\vec{y}) = \vec{x} \dotp \vec{y}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
 
 \begin{hint}
-For (c) $\Rightarrow$ (d), see Exercise \ref{ex:5_3_14}(a). For (d) $\Rightarrow$ (a), show that column $i$ of $P$ equals $P\vec{e}_{i}$, where $\vec{e}_{i}$ is column $i$ of the identity matrix.
+For (c) $\Rightarrow$ (d), see Exercise \ref{ex:5_3_14}(a). For (d) $\Rightarrow$ (a), show that column $i$ of $Q$ equals $Q\vec{e}_{i}$, where $\vec{e}_{i}$ is column $i$ of the identity matrix.
 \end{hint}
 \end{enumerate}
 \end{problem}

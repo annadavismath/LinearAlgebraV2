@@ -1,7 +1,6 @@
 \documentclass{ximera}
 \input{../preamble.tex}
-
-\author{Paul Zachlin \and Anna Davis} \title{Orthogonal Complements and Decompositions} \license{CC-BY 4.0}
+ \title{Orthogonal Complements and Decompositions} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -11,7 +10,7 @@
 
 \section*{Orthogonal Complements and Decompositions}
 \subsection*{Orthogonal Complements}
-We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \mbox{ is a real number}\}$ is an orthogonal complement of $\{a\vec{i}+b\vec{j} \mid a, b \mbox{ are real numbers}\}$.
+We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \in\RR\}$ is an orthogonal complement of $\{a\vec{i}+b\vec{j} \mid a, b \in\RR\}$.
 
   \begin{definition}[Orthogonal Complement of a Subspace of $\RR^n$]\label{def:023776}
 If $W$ is a subspace of $\RR^n$, define the \dfn{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
@@ -147,7 +146,7 @@ Verify each of the statements in Theorem~\ref{th:4subspaces}.
  and
  $$\mbox{row}(A)=\mbox{span}\Big(\begin{bmatrix}1&0&3&0&-9\end{bmatrix},
 \begin{bmatrix}0&1&5&0&-31\end{bmatrix},
-\begin{bmatrix}0&0&0&1&3\end{bmatrix}\Big).$$  (See the examples in \link[Subspaces of $\RR^n$ Associated with Matrices]{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main} for the details.) It is easy to check that each of the basis vectors of $\mbox{null}(A)$ is orthogonal to each of the basis vectors of $\mbox{row}(A)$, demonstrating the first part of Theorem~\ref{th:4subspaces}.  You will be asked to demonstrate the second part of Theorem~\ref{th:4subspaces} for this example in Practice Problem \ref{prob:finishex4subspaces}.
+\begin{bmatrix}0&0&0&1&3\end{bmatrix}\Big).$$  (See examples in \link[Subspaces of $\RR^n$ Associated with Matrices]{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main} for the details.) It is easy to check that each of the basis vectors of $\mbox{null}(A)$ is orthogonal to each of the basis vectors of $\mbox{row}(A)$, demonstrating the first part of Theorem~\ref{th:4subspaces}.  You will be asked to demonstrate the second part of Theorem~\ref{th:4subspaces} for this example in Practice Problem \ref{prob:finishex4subspaces}.
 \end{explanation}
 \end{example}
 
@@ -248,19 +247,19 @@ T(\vec{x}) = \mbox{proj}_W(\vec{x}) \quad \mbox{ for all }\vec{x}\mbox{ in }\RR^
 If $W = \{\vec{0}\}$, then $W^\perp = \RR^n$, and so $T(\vec{x}) = \vec{0}_\vec{x} = \vec{0}$ for all $\vec{x}$. Thus $T = 0$ is the zero (linear) operator, so \ref{th:ProjLinTran_a}, \ref{th:ProjLinTran_b}, and \ref{th:ProjLinTran_c} hold. Hence assume that $W \neq \{\vec{0}\}$.
 
 \begin{enumerate}
-\item If $\{\vec{u}_{1}, \vec{u}_{2}, \dots, \vec{u}_{m}\}$ is an orthonormal basis of $W$, then
+\item If $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{m}\}$ is an orthonormal basis of $W$, then
 \begin{equation}\label{orthonormalUeq}
-T(\vec{x}) = (\vec{x} \dotp \vec{u}_{1})\vec{u}_{1} + (\vec{x} \dotp \vec{u}_{2})\vec{u}_{2} + \dots + (\vec{x} \dotp \vec{u}_{m})\vec{u}_{m} \quad \mbox{ for all }\vec{x} \mbox{ in } \RR^n
+T(\vec{x}) = (\vec{x} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{x} \dotp \vec{q}_{2})\vec{q}_{2} + \dots + (\vec{x} \dotp \vec{q}_{m})\vec{q}_{m} \quad \mbox{ for all }\vec{x} \mbox{ in } \RR^n
 \end{equation}
 by the definition of the projection. Thus $T$ is a linear transformation because
 \begin{equation*}
-(\vec{x} + \vec{y}) \dotp \vec{u}_{i} = \vec{x} \dotp \vec{u}_{i} + \vec{y} \dotp \vec{u}_{i} \quad \mbox{ and } \quad (r\vec{x}) \dotp \vec{u}_{i} = r(\vec{x} \dotp \vec{u}_{i}) \quad \mbox{ for each } i.
+(\vec{x} + \vec{y}) \dotp \vec{q}_{i} = \vec{x} \dotp \vec{q}_{i} + \vec{y} \dotp \vec{q}_{i} \quad \mbox{ and } \quad (r\vec{x}) \dotp \vec{q}_{i} = r(\vec{x} \dotp \vec{q}_{i}) \quad \mbox{ for each } i.
 \end{equation*}
 
 \item %This proof is correct, but perhaps written at a higher level than most of the proofs in our book.
-We have the image of $T$ is a subset of $W$ by (\ref{orthonormalUeq}) because each $\vec{u}_{i}$ is in $W$. But if $\vec{x}$ is in $W$, then $\vec{x} = T(\vec{x})$ by (\ref{orthonormalUeq}) and Theorem \ref{th:fourierexpansion} applied to the space $W$. This shows that $W$ is a subset of the image of $T$, so the image of $T$ is $W$.
+We have the image of $T$ is a subset of $W$ by (\ref{orthonormalUeq}) because each $\vec{q}_{i}$ is in $W$. But if $\vec{x}$ is in $W$, then $\vec{x} = T(\vec{x})$ by (\ref{orthonormalUeq}) and Theorem \ref{th:fourierexpansion} applied to the space $W$. This shows that $W$ is a subset of the image of $T$, so the image of $T$ is $W$.
 
-Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{u}_{i} = 0$ for each $i$ (again because each $\vec{u}_{i}$ is in $W$) so $\vec{x}$ is in the kernel of $T$ by (\ref{th:023783}). Hence $W^\perp$ is in the kernel of $T$. On the other hand, Theorem~\ref{th:023783} shows that $\vec{x} - T(\vec{x})$ is in $W^\perp$ for all $\vec{x}$ in $\RR^n$, and it follows that the kernel of $T$ is in $W^\perp$. Hence the kernel of $T$ is $W^\perp$, proving \ref{th:ProjLinTran_b}.
+Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{q}_{i} = 0$ for each $i$ (again because each $\vec{q}_{i}$ is in $W$) so $\vec{x}$ is in the kernel of $T$ by (\ref{th:023783}). Hence $W^\perp$ is in the kernel of $T$. On the other hand, Theorem~\ref{th:023783} shows that $\vec{x} - T(\vec{x})$ is in $W^\perp$ for all $\vec{x}$ in $\RR^n$, and it follows that the kernel of $T$ is in $W^\perp$. Hence the kernel of $T$ is $W^\perp$, proving \ref{th:ProjLinTran_b}.
 
 \item This follows from \ref{th:ProjLinTran_a}, \ref{th:ProjLinTran_b}, and the Rank-Nullity theorem (Theorem~\ref{th:ranknullityforT}).
 \end{enumerate}
@@ -355,7 +354,7 @@ Write $\vec{w} = \mbox{proj}_W(\vec{x})$. Then $\vec{w}$ is in $W$ by definition
 If $W$ is a subspace of $\RR^n$, show that $\mbox{proj}_W(\vec{x}) = \vec{x}$ for all $\vec{x}$ in $W$.
 
 \begin{hint}
-Let $\{\vec{u}_{1}, \vec{u}_{2}, \dots , \vec{u}_{m}\}$ be an orthonormal basis of $W$. If $\vec{x}$ is in $W$ the expansion theorem gives $\vec{x} = (\vec{x} \dotp \vec{u}_{1})\vec{u}_{1} + (\vec{x} \dotp \vec{u}_{2})\vec{u}_{2} + \dots  + (\vec{x} \dotp \vec{u}_{m})\vec{u}_{m} = \mbox{proj}_W(\vec{x})$.
+Let $\{\vec{q}_{1}, \vec{q}_{2}, \dots , \vec{q}_{m}\}$ be an orthonormal basis of $W$. If $\vec{x}$ is in $W$ the expansion theorem gives $\vec{x} = (\vec{x} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{x} \dotp \vec{q}_{2})\vec{q}_{2} + \dots  + (\vec{x} \dotp \vec{q}_{m})\vec{q}_{m} = \mbox{proj}_W(\vec{x})$.
 \end{hint}
 \end{problem}
 
