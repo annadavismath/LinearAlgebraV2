@@ -1,0 +1,1122 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Additional Exercises for Ch 7} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+\section*{Exercises for Ch 7 Determinants}
+
+\begin{problem}\label{prb:7.1} Find the determinants of the following matrices.
+
+\begin{enumerate}
+\item $\left[
+\begin{array}{rr}
+1 & 3 \\
+0 & 2
+\end{array}
+\right]$
+
+\item $\left[
+\begin{array}{rr}
+0 & 3 \\
+0 & 2
+\end{array}
+\right]$
+
+\item $\left[
+\begin{array}{rr}
+4 & 3 \\
+6 & 2
+\end{array}
+\right]$
+\end{enumerate}
+%\begin{hint}
+%\begin{enumerate}
+%\item
+%\end{enumerate}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.2} Let $A = \left[ \begin{array}{rrr}
+1 & 2 & 4 \\
+0 & 1 & 3 \\
+-2 & 5 & 1
+\end{array} \right]$. Find the following.
+\begin{enumerate}
+\item $minor(A)_{11}$
+\item $minor(A)_{21}$
+\item $minor(A)_{32}$
+\item $\mbox{cof}(A)_{11}$
+\item $\mbox{cof}(A)_{21}$
+\item $\mbox{cof}(A)_{32}$
+\end{enumerate}
+%\begin{hint}
+%\begin{enumerate}
+%\item
+%\end{enumerate}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.3} Find the determinants of the following matrices.
+\begin{enumerate}
+\item $\left[
+\begin{array}{rrr}
+1 & 2 & 3 \\
+3 & 2 & 2 \\
+0 & 9 & 8
+\end{array}
+\right] $
+\item $\left[
+\begin{array}{rrr}
+4 & 3 & 2 \\
+1 & 7 & 8 \\
+3 & -9 & 3
+\end{array}
+\right] $
+\item $\left[
+\begin{array}{rrrr}
+1 & 2 & 3 & 2 \\
+1 & 3 & 2 & 3 \\
+4 & 1 & 5 & 0 \\
+1 & 2 & 1 & 2
+\end{array}
+\right] $
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}
+\item The answer is $31$.
+\item The answer is $375$.
+\item The answer is $-2$.
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.4} Find the following determinant by expanding along the first row and
+second column.
+\begin{equation*}
+\left|
+\begin{array}{rrr}
+1 & 2 & 1 \\
+2 & 1 & 3 \\
+2 & 1 & 1
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{ccc}
+1 & 2 & 1 \\
+2 & 1 & 3 \\
+2 & 1 & 1
+\end{array}
+\right| =  6
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.5} Find the following determinant by expanding along the first column and
+third row.
+\begin{equation*}
+\left|
+\begin{array}{rrr}
+1 & 2 & 1 \\
+1 & 0 & 1 \\
+2 & 1 & 1
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{ccc}
+1 & 2 & 1 \\
+1 & 0 & 1 \\
+2 & 1 & 1
+\end{array}
+\right| =  2
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.6} Find the following determinant by expanding along the second row and
+first column.
+\begin{equation*}
+\left|
+\begin{array}{rrr}
+1 & 2 & 1 \\
+2 & 1 & 3 \\
+2 & 1 & 1
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{ccc}
+1 & 2 & 1 \\
+2 & 1 & 3 \\
+2 & 1 & 1
+\end{array}
+\right| = 6
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.7} Compute the determinant by cofactor expansion. Pick the easiest row or
+column to use.
+\begin{equation*}
+\left|
+\begin{array}{rrrr}
+1 & 0 & 0 & 1 \\
+2 & 1 & 1 & 0 \\
+0 & 0 & 0 & 2 \\
+2 & 1 & 3 & 1
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{cccc}
+1 & 0 & 0 & 1 \\
+2 & 1 & 1 & 0 \\
+0 & 0 & 0 & 2 \\
+2 & 1 & 3 & 1
+\end{array}
+\right| = -4
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.8} Find the determinant of the following matrices.
+
+\begin{enumerate}
+\item
+$A = \left[ \begin{array}{rr}
+1 & -34 \\
+0 & 2
+\end{array} \right] $
+
+\item
+$A = \left[ \begin{array}{rrr}
+4 & 3 & 14 \\
+ 0 & -2 & 0 \\
+0 & 0 & 5
+\end{array} \right]$
+
+\item
+$A = \left[ \begin{array}{rrrr}
+2 & 3 & 15 & 0 \\
+0 & 4 & 1 & 7 \\
+0 & 0 & -3 & 5 \\
+0 & 0 & 0 & 1
+\end{array} \right]$
+\end{enumerate}
+
+%\begin{hint}
+%\begin{enumerate}
+%\item
+%\end{enumerate}
+%\end{hint}
+
+\end{problem}
+
+\begin{problem}\label{prb:7.9} An operation is done to get from the first matrix to the second.
+Identify what was done and tell how it will affect the value of the
+determinant.
+\begin{equation*}
+\left[
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right]  \rightarrow \cdots \rightarrow \left[
+\begin{array}{cc}
+a & c \\
+b & d
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+It does not change the determinant. This was just taking the transpose.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.10} An operation is done to get from the first matrix to the second.
+Identify what was done and tell how it will affect the value of the
+determinant.
+\begin{equation*}
+\left[
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right] \rightarrow \cdots \rightarrow \left[
+\begin{array}{cc}
+c & d \\
+a & b
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+In this case two rows were switched and so the resulting determinant is $-1$
+times the first.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.11} An operation is done to get from the first matrix to the second.
+Identify what was done and tell how it will affect the value of the
+determinant.
+\begin{equation*}
+\left[
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right] \rightarrow \cdots \rightarrow \left[
+\begin{array}{cc}
+a & b \\
+a+c & b+d
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The determinant is unchanged. It was just the first row added to the second.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.12} An operation is done to get from the first matrix to the second.
+Identify what was done and tell how it will affect the value of the
+determinant.
+\begin{equation*}
+\left[
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right] \rightarrow \cdots \rightarrow \left[
+\begin{array}{cc}
+a & b \\
+2c & 2d
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+The second row was multiplied by 2 so the determinant of the result is 2
+times the original determinant.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.13} An operation is done to get from the first matrix to the second.
+Identify what was done and tell how it will affect the value of the
+determinant.
+\begin{equation*}
+\left[
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right] \rightarrow \cdots \rightarrow \left[
+\begin{array}{cc}
+b & a \\
+d & c
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+In this case the two columns were switched so the determinant of the second
+is $-1$ times the determinant of the first.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.14} Let $A$ be an $r\times r$ matrix and suppose there are $r-1$ rows
+(columns) such that all rows (columns) are linear combinations of these $r-1$
+rows (columns). Show $\det \left( A\right) =0.$
+\begin{hint}
+If the determinant is nonzero, then it will remain nonzero with row operations applied to the matrix.
+However, by assumption, you can obtain a row of zeros by doing row
+operations. Thus the determinant must have been zero after all.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.15} Show $\det \left( aA\right) =a^{n}\det \left( A\right) $ for an $n \times n $ matrix $A
+$ and scalar $a$.
+\begin{hint}
+$\det \left( aA\right) =\det
+\left( aIA\right) =\det \left( aI\right) \det \left( A\right) =a^{n}\det
+\left( A\right) .$ The matrix which has $a$ down the main diagonal has
+determinant equal to $a^{n}$.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.16} Construct $2\times 2$ matrices $A$ and $B$ to show that the
+$\det A \det B = \det (AB)$.
+\begin{hint}
+\[
+\det
+\left( \left[
+\begin{array}{cc}
+1 & 2 \\
+3 & 4
+\end{array}
+\right] \left[
+\begin{array}{rr}
+-1 & 2 \\
+-5 & 6
+\end{array}
+\right] \right) = -8
+\]
+\[
+\det \left[
+\begin{array}{cc}
+1 & 2 \\
+3 & 4
+\end{array}
+\right] \det \left[
+\begin{array}{rr}
+-1 & 2 \\
+-5 & 6
+\end{array}
+\right] = -2 \times 4 = -8
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.17} Is it true that $\det \left( A+B\right) =\det \left( A\right) +\det
+\left( B\right) ?$ If this is so, explain why. If it is not so,
+give a counter example.
+\begin{hint}
+This is not true at all. Consider $A=\left[
+\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right] ,B=\left[
+\begin{array}{rr}
+-1 & 0 \\
+0 & -1
+\end{array}
+\right] .$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.18} An $n\times n$ matrix is called \textbf{nilpotent}
+\index{nilpotent} if for some positive integer, $k$ it follows $A^{k}=0.$ If
+$A$ is a nilpotent matrix and $k$ is the smallest possible integer such that
+$A^{k}=0,$ what are the possible values of $\det \left( A\right) ?$
+\begin{hint}
+It must
+be 0 because $0=\det \left( 0\right) =\det \left( A^{k}\right) =\left( \det
+\left( A\right) \right) ^{k}.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.19} \label{exerorthogonal}A matrix is said to be \textbf{orthogonal} \index{matrix!orthogonal} if
+$A^{T}A=I.$ Thus the inverse of an orthogonal matrix is just its transpose.
+What are the possible values of $\det \left( A\right) $ if $A$ is an
+orthogonal matrix?
+\begin{hint}
+You would need $\det \left( AA^{T}\right) =\det
+\left( A\right) \det \left( A^{T}\right) =\det \left( A\right) ^{2}=1$ and
+so $\det \left( A\right) =1,$ or $-1$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.20} Let $A$ and $B$ be two $n\times n$ matrices. $A\sim B$
+($A$ is \textbf{similar} to $B$) means there exists an invertible matrix $P$
+such that $A=P^{-1}BP.$ Show that if $A\sim B,$ then
+$\det \left( A\right) =\det \left( B\right) .$
+\begin{hint}
+$\det \left( A\right) =\det
+\left( S^{-1}BS\right) =\det \left( S^{-1}\right) \det \left( B\right) \det
+\left( S\right) =\det \left( B\right) \det \left( S^{-1}S\right) =\det
+\left( B\right) $.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.21} Tell whether each statement is true or false. If true, provide a proof. If false, provide a counter example.
+\begin{enumerate}
+\item If $A$ is a $3\times 3$ matrix with a zero determinant, then one
+column must be a multiple of some other column.
+
+\item If any two columns of a square matrix are equal, then the determinant
+of the matrix equals zero.
+
+\item For two $n\times n$ matrices $A$ and $B$, $\det \left( A+B\right)
+=\det \left( A\right) +\det \left( B\right) .$
+
+\item For an $n\times n$ matrix $A$, $\det \left( 3A\right) =3\det \left(
+A\right) $
+
+\item If $A^{-1}$ exists then $\det \left( A^{-1}\right) =\det \left(
+A\right) ^{-1}.$
+
+\item If $B$ is obtained by multiplying a single row of $A$ by $4$ then $%
+\det \left( B\right) =4\det \left( A\right) .$
+
+\item For $A$ an $n\times n$ matrix, $\det \left( -A\right) =\left(
+-1\right) ^{n}\det \left( A\right) .$
+
+\item If $A$ is a real $n\times n$ matrix, then $\det \left( A^{T}A\right)
+\geq 0.$
+
+\item If $A^{k}=0$ for some positive integer $k,$ then $\det \left(
+A\right) =0.$
+
+\item If $AX=0$ for some $X \neq 0,$ then $\det \left(
+A\right) =0.$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}
+\item False. Consider $\left[
+\begin{array}{rrr}
+1 & 1 & 2 \\
+-1 & 5 & 4 \\
+0 & 3 & 3
+\end{array}
+\right] $
+\item True.
+\item False.
+\item False.
+\item True.
+\item True.
+\item True.
+\item True.
+\item True.
+\item True.
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.22} Find the determinant using row operations to first simplify.
+\begin{equation*}
+\left|
+\begin{array}{rrr}
+1 & 2 & 1 \\
+2 & 3 & 2 \\
+-4 & 1 & 2
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{rrr}
+1 & 2 & 1 \\
+2 & 3 & 2 \\
+-4 & 1 & 2
+\end{array}
+\right| = -6
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.23} Find the determinant using row operations to first simplify.
+\begin{equation*}
+\left|
+\begin{array}{rrr}
+2 & 1 & 3 \\
+2 & 4 & 2 \\
+1 & 4 & -5
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+\[
+\left|
+\begin{array}{rrr}
+2 & 1 & 3 \\
+2 & 4 & 2 \\
+1 & 4 & -5
+\end{array}
+\right| = -32
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.24} Find the determinant using row operations to first simplify.
+\begin{equation*}
+\left|
+\begin{array}{rrrr}
+1 & 2 & 1 & 2 \\
+3 & 1 & -2 & 3 \\
+-1 & 0 & 3 & 1 \\
+2 & 3 & 2 & -2
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+One can row reduce this using only row operation 3 to
+\[
+\left[
+\begin{array}{rrrr}
+1 & 2 & 1 & 2 \\
+0 & -5 & -5 & -3 \\
+0 & 0 & 2 & \frac{9}{5} \\
+0 & 0 & 0 & -\frac{63}{10}
+\end{array}
+\right]
+\]
+and therefore, the determinant is $-63.$
+\[
+\left|
+\begin{array}{rrrr}
+1 & 2 & 1 & 2 \\
+3 & 1 & -2 & 3 \\
+-1 & 0 & 3 & 1 \\
+2 & 3 & 2 & -2
+\end{array}
+\right| = 63
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.25} Find the determinant using row operations to first simplify.
+\begin{equation*}
+\left|
+\begin{array}{rrrr}
+1 & 4 & 1 & 2 \\
+3 & 2 & -2 & 3 \\
+-1 & 0 & 3 & 3 \\
+2 & 1 & 2 & -2
+\end{array}
+\right|
+\end{equation*}
+\begin{hint}
+One can row reduce this using only row operation 3 to$\allowbreak $%
+\[
+\left[
+\begin{array}{rrrr}
+1 & 4 & 1 & 2 \\
+0 & -10 & -5 & -3 \\
+0 & 0 & 2 & \frac{19}{5} \\
+0 & 0 & 0 & -\frac{211}{20}
+\end{array}
+\right]
+\]
+Thus the determinant is given by
+\[
+\left|
+\begin{array}{rrrr}
+1 & 4 & 1 & 2 \\
+3 & 2 & -2 & 3 \\
+-1 & 0 & 3 & 3 \\
+2 & 1 & 2 & -2
+\end{array}
+\right| = 211
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.26} Let
+\begin{equation*}
+A=
+\left[
+\begin{array}{rrr}
+1 & 2 & 3 \\
+0 & 2 & 1 \\
+3 & 1 & 0
+\end{array}
+\right]
+\end{equation*}
+Determine whether the matrix $A$ has an inverse by finding whether the
+determinant is non zero. If the determinant is nonzero, find the inverse
+using the formula for the inverse which involves the cofactor matrix.
+\begin{hint}
+$\det
+\left[
+\begin{array}{ccc}
+1 & 2 & 3 \\
+0 & 2 & 1 \\
+3 & 1 & 0
+\end{array}
+\right] = -13$ and so it has an inverse. This inverse is
+\begin{eqnarray*}
+\frac{1}{-13}\left[
+\begin{array}{rrr}
+\left\vert
+\begin{array}{cc}
+2 & 1 \\
+1 & 0
+\end{array}
+\right\vert  & -\left\vert
+\begin{array}{cc}
+0 & 1 \\
+3 & 0
+\end{array}
+\right\vert  & \left\vert
+\begin{array}{cc}
+0 & 2 \\
+3 & 1
+\end{array}
+\right\vert  \\
+-\left\vert
+\begin{array}{cc}
+2 & 3 \\
+1 & 0
+\end{array}
+\right\vert  & \left\vert
+\begin{array}{cc}
+1 & 3 \\
+3 & 0
+\end{array}
+\right\vert  & -\left\vert
+\begin{array}{cc}
+1 & 2 \\
+3 & 1
+\end{array}
+\right\vert  \\
+\left\vert
+\begin{array}{cc}
+2 & 3 \\
+2 & 1
+\end{array}
+\right\vert  & -\left\vert
+\begin{array}{cc}
+1 & 3 \\
+0 & 1
+\end{array}
+\right\vert  & \left\vert
+\begin{array}{cc}
+1 & 2 \\
+0 & 2
+\end{array}
+\right\vert
+\end{array}
+\right] ^{T} &=&\frac{1}{-13}\left[
+\begin{array}{rrr}
+-1 & 3 & -6 \\
+3 & -9 & 5 \\
+-4 & -1 & 2
+\end{array}
+\right] ^{T} \\
+&=& \left[
+\begin{array}{rrr}
+\vspace{0.05in}\frac{1}{13} & -\vspace{0.05in}\frac{3}{13} & \vspace{0.05in}\frac{4}{13} \\
+-\vspace{0.05in}\frac{3}{13} & \vspace{0.05in}\frac{9}{13} & \vspace{0.05in}\frac{1}{13} \\
+\vspace{0.05in}\frac{6}{13} & -\vspace{0.05in}\frac{5}{13} & -\vspace{0.05in}\frac{2}{13}
+\end{array}
+\right]
+\end{eqnarray*}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.27} Let
+\begin{equation*}
+A=
+\left[
+\begin{array}{rrr}
+1 & 2 & 0 \\
+0 & 2 & 1 \\
+3 & 1 & 1
+\end{array}
+\right]
+\end{equation*}
+Determine whether the matrix $A$ has an inverse by finding whether the
+determinant is non zero. If the determinant is nonzero, find the inverse
+using the formula for the inverse.
+\begin{hint}
+$\det
+\left[
+\begin{array}{ccc}
+1 & 2 & 0 \\
+0 & 2 & 1 \\
+3 & 1 & 1
+\end{array}
+\right] = 7$ so it has an inverse. This inverse is $\frac{1}{7}
+\left[
+\begin{array}{rrr}
+1 & 3 & -6 \\
+-2 & 1 & 5 \\
+2 & -1 & 2
+\end{array}
+\right]^{T} = \left[
+\begin{array}{rrr}
+\vspace{0.05in}\frac{1}{7} & -\vspace{0.05in}\frac{2}{7} & \vspace{0.05in}\frac{2}{7} \\
+\vspace{0.05in}\frac{3}{7} & \vspace{0.05in}\frac{1}{7} & -\vspace{0.05in}\frac{1}{7} \\
+-\vspace{0.05in}\frac{6}{7} & \vspace{0.05in}\frac{5}{7} & \vspace{0.05in}\frac{2}{7}
+\end{array}
+\right] $
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.28} Let
+\begin{equation*}
+A=
+\left[
+\begin{array}{rrr}
+1 & 3 & 3 \\
+2 & 4 & 1 \\
+0 & 1 & 1
+\end{array}
+\right]
+\end{equation*}
+Determine whether the matrix $A$ has an inverse by finding whether the
+determinant is non zero. If the determinant is nonzero, find the inverse
+using the formula for the inverse.
+\begin{hint}
+\[
+\det \left[
+\begin{array}{ccc}
+1 & 3 & 3 \\
+2 & 4 & 1 \\
+0 & 1 & 1
+\end{array}
+\right] = 3
+\]
+so it has an inverse which is
+\[
+\left[
+\begin{array}{rrr}
+1 & 0 & -3 \\
+-\vspace{0.05in}\frac{2}{3} & \vspace{0.05in}\frac{1}{3} & \vspace{0.05in}\frac{5}{3} \\
+\vspace{0.05in}\frac{2}{3} & -\vspace{0.05in}\frac{1}{3} & -\vspace{0.05in}\frac{2}{3}
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.29} Let
+\begin{equation*}
+A =
+\left[
+\begin{array}{rrr}
+1 & 2 & 3 \\
+0 & 2 & 1 \\
+2 & 6 & 7
+\end{array}
+\right]
+\end{equation*}
+Determine whether the matrix $A$ has an inverse by finding whether the
+determinant is non zero. If the determinant is nonzero, find the inverse
+using the formula for the inverse.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.30} Let
+\begin{equation*}
+A =
+\left[
+\begin{array}{rrr}
+1 & 0 & 3 \\
+1 & 0 & 1 \\
+3 & 1 & 0
+\end{array}
+\right]
+\end{equation*}
+Determine whether the matrix $A$ has an inverse by finding whether the
+determinant is non zero. If the determinant is nonzero, find the inverse
+using the formula for the inverse.
+\begin{hint}
+\[
+\det \left[
+\begin{array}{rrr}
+1 & 0 & 3 \\
+1 & 0 & 1 \\
+3 & 1 & 0
+\end{array}
+\right] = 2
+\]
+and so it has an inverse. The inverse turns out to equal
+\[
+\left[
+\begin{array}{rrr}
+-\vspace{0.05in}\frac{1}{2} & \vspace{0.05in}\frac{3}{2} & 0 \\
+\vspace{0.05in}\frac{3}{2} & -\vspace{0.05in}\frac{9}{2} & 1 \\
+\vspace{0.05in}\frac{1}{2} & -\vspace{0.05in}\frac{1}{2} & 0
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.31} For the following matrices, determine if they are invertible. If so, use the formula for the inverse in terms of the cofactor matrix to
+find each inverse. If the inverse does not exist, explain why.
+\begin{enumerate}
+\item
+$\left[
+\begin{array}{rr}
+1 & 1 \\
+1 & 2
+\end{array}
+\right]$
+\item
+$\left[
+\begin{array}{rrr}
+1 & 2 & 3 \\
+0 & 2 & 1 \\
+4 & 1 & 1
+\end{array}
+\right]$
+\item
+$\left[
+\begin{array}{rrr}
+1 & 2 & 1 \\
+2 & 3 & 0 \\
+0 & 1 & 2
+\end{array}
+\right] $
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}
+\item $\left\vert
+\begin{array}{cc}
+1 & 1 \\
+1 & 2
+\end{array}
+\right\vert = 1$
+\item $\left\vert
+\begin{array}{ccc}
+1 & 2 & 3 \\
+0 & 2 & 1 \\
+4 & 1 & 1%
+\end{array}
+\right\vert = -15$
+\item $\left\vert
+\begin{array}{ccc}
+1 & 2 & 1 \\
+2 & 3 & 0 \\
+0 & 1 & 2
+\end{array}
+\right\vert = 0$
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.32} Consider the matrix
+\begin{equation*}
+A =
+\left[
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & \cos t & -\sin t \\
+0 & \sin t & \cos t
+\end{array}
+\right]
+\end{equation*}
+Does there exist a value of $t$ for which this matrix fails to have an
+inverse? Explain.
+\begin{hint}
+ No. It has a nonzero determinant for all $t$
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:7.33} Consider the matrix
+\begin{equation*}
+A =
+\left[
+\begin{array}{rrr}
+1 & t & t^{2} \\
+0 & 1 & 2t \\
+t & 0 & 2
+\end{array}
+\right]
+\end{equation*}
+Does there exist a value of $t$ for which this matrix fails to have an
+inverse? Explain.
+\begin{hint}
+\[
+\det \left[
+\begin{array}{ccc}
+1 & t & t^{2} \\
+0 & 1 & 2t \\
+t & 0 & 2
+\end{array}
+\right] = t^{3}+2
+\]
+and so it has no inverse when $t=-\sqrt[3]{2}$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.34} Consider the matrix
+\begin{equation*}
+A =
+\left[
+\begin{array}{ccc}
+e^{t} & \cosh t & \sinh t \\
+e^{t} & \sinh t & \cosh t \\
+e^{t} & \cosh t & \sinh t
+\end{array}
+\right]
+\end{equation*}
+Does there exist a value of $t$ for which this matrix fails to have an
+inverse? Explain.
+\begin{hint}
+\[
+\det \left[
+\begin{array}{ccc}
+e^{t} & \cosh t & \sinh t \\
+e^{t} & \sinh t & \cosh t \\
+e^{t} & \cosh t & \sinh t
+\end{array}
+\right] = 0
+\]
+and so this matrix fails to have a nonzero determinant at any value of $t$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.35} Consider the matrix
+\begin{equation*}
+A =
+\left[
+\begin{array}{ccc}
+e^{t} & e^{-t}\cos t & e^{-t}\sin t \\
+e^{t} & -e^{-t}\cos t-e^{-t}\sin t & -e^{-t}\sin t+e^{-t}\cos t \\
+e^{t} & 2e^{-t}\sin t & -2e^{-t}\cos t
+\end{array}
+\right]
+\end{equation*}
+Does there exist a value of $t$ for which this matrix fails to have an
+inverse? Explain.
+\begin{hint}
+\[
+\det \left[
+\begin{array}{ccc}
+e^{t} & e^{-t}\cos t & e^{-t}\sin t \\
+e^{t} & -e^{-t}\cos t-e^{-t}\sin t & -e^{-t}\sin t+e^{-t}\cos t \\
+e^{t} & 2e^{-t}\sin t & -2e^{-t}\cos t%
+\end{array}
+\right] = 5e^{-t} \neq 0
+\]
+and so this matrix is always invertible.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.36} \label{exerdeterminant3}Show that if $\det \left( A\right) \neq 0$ for $A$
+an $n\times n$ matrix, it follows that if $AX=0,$ then $X=0$.
+\begin{hint}
+If $\det \left( A\right) \neq 0,$ then $A^{-1}$ exists and so you could
+multiply on both sides on the left by $A^{-1}$ and obtain that $X=0$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.37} Suppose $A,B$ are $n\times n$ matrices and that $AB=I.$ Show that then
+$BA=I.$ \textbf{Hint:\ } First explain why
+$\det \left( A\right) ,\det \left( B\right) $ are both nonzero. Then $\left(
+AB\right) A=A$ and then show $BA\left( BA-I\right) =0.$ From this use what
+is given to conclude $A\left( BA-I\right) =0.$ Then use Problem
+\ref{prb:7.36}.
+\begin{hint}
+You have $1=\det \left( A\right) \det \left( B\right) $.
+Hence both $A$ and $B$ have inverses. Letting $X$ be given,
+\[
+A\left( BA-I\right) X=\left( AB\right) AX-AX=AX-AX = 0
+\]
+and so it follows from the above problem that $\left( BA-I\right)X=0.$ Since $X$ is arbitrary, it follows that $BA=I.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.38} Use the formula for the inverse in terms of the cofactor matrix to
+find the inverse of the matrix
+\begin{equation*}
+A=\left[
+\begin{array}{ccc}
+e^{t} & 0 & 0 \\
+0 & e^{t}\cos t & e^{t}\sin t \\
+0 & e^{t}\cos t-e^{t}\sin t & e^{t}\cos t+e^{t}\sin t
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+\[
+\det \left[
+\begin{array}{ccc}
+e^{t} & 0 & 0 \\
+0 & e^{t}\cos t & e^{t}\sin t \\
+0 & e^{t}\cos t-e^{t}\sin t & e^{t}\cos t+e^{t}\sin t
+\end{array}
+\right] = e^{3t}.
+\]
+Hence the inverse is
+\begin{eqnarray*}
+&&e^{-3t}\left[
+\begin{array}{ccc}
+e^{2t} & 0 & 0 \\
+0 & e^{2t}\cos t+e^{2t}\sin t & -\left( e^{2t}\cos t-e^{2t}\sin \right) t \\
+0 & -e^{2t}\sin t & e^{2t}\cos \left( t\right)
+\end{array}
+\right] ^{T} \\
+&=& \left[
+\begin{array}{ccc}
+e^{-t} & 0 & 0 \\
+0 & e^{-t}\left( \cos t+\sin t\right)  & -\left( \sin t\right) e^{-t} \\
+0 & -e^{-t}\left( \cos t-\sin t\right)  & \left( \cos t\right) e^{-t}
+\end{array}
+\right]
+\end{eqnarray*}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.39} Find the inverse, if it exists, of the matrix
+\begin{equation*}
+A =
+\left[
+\begin{array}{ccc}
+e^{t} & \cos t & \sin t \\
+e^{t} & -\sin t & \cos t \\
+e^{t} & -\cos t & -\sin t
+\end{array}
+\right]
+\end{equation*}
+\begin{hint}
+\begin{eqnarray*}
+&&\left[
+\begin{array}{ccc}
+e^{t} & \cos t & \sin t \\
+e^{t} & -\sin t & \cos t \\
+e^{t} & -\cos t & -\sin t
+\end{array}
+\right] ^{-1} \\
+&=&\left[
+\begin{array}{ccc}
+\frac{1}{2}e^{-t} & 0 & \frac{1}{2}e^{-t} \\
+\frac{1}{2}\cos t+\frac{1}{2}\sin t & -\sin t & \frac{1}{2}\sin t-\frac{1}{2}
+\cos t \\
+\frac{1}{2}\sin t-\frac{1}{2}\cos t & \cos t & -\frac{1}{2}\cos t-\frac{1}{2}
+\sin t
+\end{array}
+\right]
+\end{eqnarray*}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.40} Suppose $A$ is an upper triangular matrix. Show that $A^{-1}$ exists
+if and only if all elements of the main diagonal are non zero. Is it true
+that $A^{-1}$ will also be upper triangular? Explain. Could the same be concluded for lower triangular matrices?
+\begin{hint}
+The given condition is what it takes for the
+determinant to be non zero. Recall that the determinant of an upper
+triangular matrix is just the product of the entries on the main diagonal.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:7.41} If $A,B,$ and $C$ are each $n\times n$ matrices and $ABC$ is
+invertible, show why each of $A,B,$ and $C$ are invertible.
+\begin{hint}
+This follows
+because $\det \left( ABC\right) =\det \left( A\right) \det \left( B\right)
+\det \left( C\right) $ and if this product is nonzero, then each determinant
+in the product is nonzero and so each of these matrices is invertible.
+\end{hint}
+\end{problem}
+
+\section*{Practice Problem Source}
+These problems come from Chapter 3 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 272--315.   
+
+\end{document}
