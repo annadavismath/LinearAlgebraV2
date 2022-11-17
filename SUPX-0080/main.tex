@@ -1,0 +1,753 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Additional Exercises for Ch 8} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+\section*{Exercises for Ch 8 Eigenvalues and Eigenvectors}
+
+
+\begin{problem}\label{prb:8.1} If $A$ is an invertible $n\times n$ matrix, compare the eigenvalues of
+$A$ and $A^{-1}$. More generally, for $m$ an arbitrary integer, compare the
+eigenvalues of $A$ and $A^{m}$.
+\begin{hint}
+$A^{m}X=\lambda ^{m}X$ for
+any integer. In the case of $-1,A^{-1}\lambda X=AA^{-1}X=X$
+so $A^{-1}X =\lambda ^{-1}X$. Thus the eigenvalues of $A^{-1}$ are just $\lambda ^{-1}$ where $\lambda $ is an eigenvalue of $A$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.2} If $A$ is an $n\times n$ matrix and $c$ is a nonzero constant, compare
+the eigenvalues of $A$ and $cA$. \vspace{1mm}
+\begin{hint}
+Say $AX=\lambda X.$ Then $
+cAX=c\lambda X$ and so the eigenvalues of $cA$ are just $
+c\lambda $ where $\lambda $ is an eigenvalue of $A$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.3} Let $A,B$ be invertible $n\times n$ matrices which commute. That is, $AB=BA$. Suppose $X$ is an eigenvector of $B$. Show that then
+$AX$ must also be an eigenvector for $B$. \vspace{1mm}
+\begin{hint}
+ $BAX=ABX
+=A\lambda X=\lambda AX$. Here it is assumed that $BX=\lambda X$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.4} Suppose $A$ is an $n\times n$ matrix and it satisfies $A^{m}=A$ for
+some $m$ a positive integer larger than 1. Show that if $\lambda $ is an
+eigenvalue of $A$ then $\left\vert \lambda \right\vert $ equals either 0 or $
+1$. \vspace{1mm}
+\begin{hint}
+Let $X$ be the eigenvector. Then $A^{m}X=\lambda ^{m}
+X,A^{m}X=AX=\lambda X$ and so
+\[
+\lambda ^{m}=\lambda
+\]
+Hence if $\lambda \neq 0,$ then
+\[
+\lambda ^{m-1}=1
+\]
+and so $\left\vert \lambda \right\vert =1.$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.5} Show that if $AX=\lambda X$ and $AY=\lambda Y$, then whenever $k,p$ are scalars,
+\begin{equation*}
+A\left( kX+pY\right) =\lambda \left( kX+pY\right)
+\end{equation*}
+Does this imply that $kX+pY$ is an eigenvector? Explain.
+\vspace{1mm}
+\begin{hint}
+The formula follows from properties of matrix multiplications. However,
+this vector might not be an eigenvector because it might equal $0$
+and eigenvectors cannot equal $0$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.6} Suppose $A$ is a $3\times 3$ matrix and the following information is
+available.
+\begin{eqnarray*}
+A\left[
+\begin{array}{r}
+0 \\
+-1 \\
+-1
+\end{array}
+\right] &=&0\left[
+\begin{array}{r}
+0 \\
+-1 \\
+-1
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] &=&-2\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+-2 \\
+-3 \\
+-2
+\end{array}
+\right] &=&-2\left[
+\begin{array}{r}
+-2 \\
+-3 \\
+-2
+\end{array}
+\right]
+\end{eqnarray*}
+Find $A\left[
+\begin{array}{r}
+1 \\
+-4 \\
+3
+\end{array}
+\right]. $
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.7} Suppose $A$ is a $3\times 3$ matrix and the following information is
+available.
+\begin{eqnarray*}
+A\left[
+\begin{array}{r}
+-1 \\
+-2 \\
+-2
+\end{array}
+\right] &=&1\left[
+\begin{array}{r}
+-1 \\
+-2 \\
+-2
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] &=& 0\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+-1 \\
+-4 \\
+-3
+\end{array}
+\right] &=&2\left[
+\begin{array}{r}
+-1 \\
+-4 \\
+-3
+\end{array}
+\right]
+\end{eqnarray*}
+Find $A\left[
+\begin{array}{r}
+3 \\
+-4 \\
+3
+\end{array}
+\right]. $
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.8} Suppose $A$ is a $3\times 3$ matrix and the following information is
+available.
+\begin{eqnarray*}
+A\left[
+\begin{array}{r}
+0 \\
+-1 \\
+-1
+\end{array}
+\right] &=&2\left[
+\begin{array}{r}
+0 \\
+-1 \\
+-1
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] &=& 1\left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] \\
+A\left[
+\begin{array}{r}
+-3 \\
+-5 \\
+-4
+\end{array}
+\right] &=&-3\left[
+\begin{array}{r}
+-3 \\
+-5 \\
+-4
+\end{array}
+\right]
+\end{eqnarray*}
+Find $A\left[
+\begin{array}{r}
+2 \\
+-3 \\
+3
+\end{array}
+\right]. $ \vspace{1mm}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.9} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+-6 & -92 & 12 \\
+0 & 0 & 0 \\
+-2 & -31 & 4
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-2$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:8.10} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+-2 & -17 & -6 \\
+0 & 0 & 0 \\
+1 & 9 & 3
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $1.$
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.11} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+9 & 2 & 8 \\
+2 & -6 & -2 \\
+-8 & 2 & -5
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-3.$
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.12} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+6 & 76 & 16 \\
+-2 & -21 & -4 \\
+2 & 64 & 17
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-2.$
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.13} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+3 & 5 & 2 \\
+-8 & -11 & -4 \\
+10 & 11 & 3
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is -3.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.14} Is it possible for a nonzero matrix to have only $0$ as an eigenvalue?
+
+\begin{hint}
+Yes. $\left[
+\begin{array}{cc}
+0 & 1 \\
+0 & 0%
+\end{array}
+\right] $ works.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.15} If $A$ is the matrix of a linear transformation which rotates all
+vectors in $\mathbb{R}^{2}$ through $60^{\circ },$ explain why $A$ cannot
+have any real eigenvalues. Is there an angle such that rotation through this
+angle would have a real eigenvalue? What eigenvalues would be obtainable in
+this way? \vspace{1mm}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:8.16} Let $A$ be the $2\times 2$ matrix of the linear transformation which
+rotates all vectors in $\mathbb{R}^{2}$ through an angle of $\theta $. For
+which values of $\theta $ does $A$ have a real eigenvalue?
+\begin{hint}
+When you think of this geometrically, it is clear that the only two values
+of $\theta $ are 0 and $\pi $ or these added to integer multiples of $2\pi $
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:8.17} Let $T\,$\ be the linear transformation which reflects vectors about
+the $x$ axis. Find a matrix for $T$ and then find its eigenvalues and
+eigenvectors.
+\begin{hint}
+The matrix of $T$ is $\left[
+\begin{array}{rr}
+1 & 0 \\
+0 & -1
+\end{array}
+\right]$. The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+0 \\
+1
+\end{array}
+\right] \right\} \leftrightarrow -1,\left\{ \left[
+\begin{array}{c}
+1 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 1
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.18} Let $T\,$be the linear transformation which rotates all vectors in
+$\mathbb{R}^{2}$ counterclockwise through an angle of $\pi /2.$ Find a matrix
+of $T$ and then find eigenvalues and eigenvectors.
+\begin{hint}
+The matrix of $T$ is $\left[
+\begin{array}{rr}
+0 & -1 \\
+1 & 0
+\end{array}
+\right]$. The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{r}
+-i \\
+1
+\end{array}
+\right] \right\} \leftrightarrow -i,\left\{ \left[
+\begin{array}{c}
+i \\
+1
+\end{array}
+\right] \right\} \leftrightarrow i
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.19} Let $T$ be the linear transformation which reflects all vectors in $
+\mathbb{R}^{3}$ through the $xy$ plane. Find a matrix for $T$ and then
+obtain its eigenvalues and eigenvectors.
+\begin{hint}
+The matrix of $T$ is $\left[
+\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{array}
+\right]$
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+0 \\
+0 \\
+1
+\end{array}
+\right] \right\} \leftrightarrow -1,\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+0
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 1
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.20} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+5 & -18 & -32 \\
+0 & 5 & 4 \\
+2 & -5 & -11
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $1.$ Diagonalize if possible.
+\begin{hint}
+The eigenvalues are $-1, -1, 1$. The eigenvectors corresponding to the eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+10 \\
+-2 \\
+3
+\end{array}
+\right] \right\} \leftrightarrow -1,  \left\{ \left[
+\begin{array}{c}
+7 \\
+-2 \\
+2
+\end{array}
+\right] \right\} \leftrightarrow 1
+\]
+Therefore this matrix is not diagonalizable.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.21} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+-13 & -28 & 28 \\
+4 & 9 & -8 \\
+-4 & -8 & 9
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $3.$ Diagonalize if possible.
+\begin{hint}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+2 \\
+0 \\
+1
+\end{array}
+\right] \right\} \leftrightarrow 1, \left\{ \left[
+\begin{array}{c}
+-2 \\
+1 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 1, \left\{ \left[
+\begin{array}{c}
+7 \\
+-2 \\
+2
+\end{array}
+\right] \right\} \leftrightarrow 3
+\]
+The matrix $P$ needed to diagonalize the above matrix is
+\[
+\left[
+\begin{array}{rrr}
+2 & -2 & 7 \\
+0 & 1 & -2 \\
+1 & 0 & 2
+\end{array}
+\right]
+\]
+and the diagonal matrix $D$ is
+\[
+\left[
+\begin{array}{rrr}
+1 & 0 & 0  \\
+0 & 1 & 0 \\
+0 & 0 & 3
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.22} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+89 & 38 & 268 \\
+14 & 2 & 40 \\
+-30 & -12 & -90
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-3.$ Diagonalize if possible.
+\begin{hint}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+-6 \\
+-1 \\
+-2
+\end{array}
+\right] \right\} \leftrightarrow 6, \left\{ \left[
+\begin{array}{c}
+-5 \\
+-2 \\
+2
+\end{array}
+\right] \right\} \leftrightarrow -3, \left\{ \left[
+\begin{array}{c}
+-8 \\
+-2 \\
+3
+\end{array}
+\right] \right\} \leftrightarrow -2
+\]
+The matrix $P$ needed to diagonalize the above matrix is
+\[
+\left[
+\begin{array}{rrr}
+-6 & -5 & -8 \\
+-1 & -2 & -2 \\
+2 & 2 & 3
+\end{array}
+\right]
+\]
+and the diagonal matrix $D$ is
+\[
+\left[
+\begin{array}{rrr}
+6 & 0 & 0  \\
+0 & -3 & 0 \\
+0 & 0 & -2
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.23} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+1 & 90 & 0 \\
+0 & -2 & 0 \\
+3 & 89 & -2
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $1.$ Diagonalize if possible.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.24} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+11 & 45 & 30 \\
+10 & 26 & 20 \\
+-20 & -60 & -44
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $1.$ Diagonalize if possible.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.25} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+95 & 25 & 24 \\
+-196 & -53 & -48 \\
+-164 & -42 & -43
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $5.$ Diagonalize if possible.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.26} Suppose $A$ is an $n\times n$ matrix and let $V$ be an
+eigenvector such that $AV=\lambda V$. Also suppose the
+characteristic polynomial of $A$ is
+\begin{equation*}
+\det \left( x I-A\right) =x ^{n}+a_{n-1} x ^{n-1}+\cdots
++a_{1}x +a_{0}
+\end{equation*}
+Explain why
+\begin{equation*}
+\left( A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I\right) V=0
+\end{equation*}
+If $A$ is diagonalizable, give a proof of the Cayley Hamilton
+theorem based on this. This theorem says $A$ satisfies its
+characteristic equation,
+\begin{equation*}
+A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I=0
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.27} Suppose the characteristic polynomial of an $n\times n$ matrix $A$ is
+$1-X ^{n}$. Find $A^{mn}$ where $m$ is an integer.
+\begin{hint}
+The eigenvalues are distinct because
+they are the $n^{th}$ roots of $1$. Hence if $X$ is a given vector with
+\[
+X=\sum_{j=1}^{n}a_{j}V_{j}
+\]
+then
+\[
+A^{nm}X=A^{nm}\sum_{j=1}^{n}a_{j}V_{j}=
+\sum_{j=1}^{n}a_{j}A^{nm}V_{j}=\sum_{j=1}^{n}a_{j}V_{j}=X
+\]
+so $A^{nm}=I$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.28} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+15 & -24 & 7 \\
+-6 & 5 & -1 \\
+-58 & 76 & -20
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-2. $ Diagonalize if possible. 
+\begin{hint}
+This one has some complex eigenvalues.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.29} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+15 & -25 & 6 \\
+-13 & 23 & -4 \\
+-91 & 155 & -30
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $2.$ Diagonalize if possible.  
+\begin{hint}
+This one has some complex eigenvalues.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.30} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+-11 & -12 & 4 \\
+8 & 17 & -4 \\
+-4 & 28 & -3
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $1.$ Diagonalize if possible.  
+\begin{hint}
+This one has some complex eigenvalues.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.31} Find the eigenvalues and eigenvectors of the matrix
+\begin{equation*}
+\left[
+\begin{array}{rrr}
+14 & -12 & 5 \\
+-6 & 2 & -1 \\
+-69 & 51 & -21
+\end{array}
+\right]
+\end{equation*}
+One eigenvalue is $-3.$ Diagonalize if possible.  
+\begin{hint}
+This one has some complex eigenvalues.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.32} Suppose $A$ is an $n\times n$ matrix consisting entirely of real
+entries but $a+ib$ is a complex eigenvalue having the eigenvector, $\vec{x}+i\vec{y}$ Here $\vec{x}$ and $\vec{y}$ are real vectors. Show
+that then $a-ib$ is also an eigenvalue with the eigenvector, $\vec{x}-i\vec{y}$.
+
+\begin{hint}
+You should remember that the conjugate of a
+product of complex numbers equals the product of the conjugates. Here $a+ib$
+is a complex number whose conjugate equals $a-ib.$
+
+
+Click the arrow to see the answer.
+\begin{expandable}
+$AX=\left(
+a+ib\right)X$. Now take conjugates of both sides. Since $A$ is
+real,
+\[
+A\overline{X}=\left( a-ib\right) \overline{X}
+\]
+\end{expandable}
+ 
+\end{hint}
+\end{problem}
+
+
+\section*{Practice Problem Source}
+These problems come from Chapter 7 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 359--401. 
+
+\end{document}

@@ -1,0 +1,667 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Additional Exercises for Ch 9} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+\section*{Exercises for Ch 9 Orthogonality}
+
+ \begin{problem}\label{prb:9.1} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+11 & -1 & -4 \\
+-1 & 11 & -4 \\
+-4 & -4 & 14
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+Two eigenvalues are 12 and 18.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \frac{1}{\sqrt{3}}\left[
+\begin{array}{c}
+1 \\
+1 \\
+1
+\end{array}
+\right] \right\} \leftrightarrow 6,\left\{ \frac{1}{\sqrt{2}}\left[
+\begin{array}{r}
+-1 \\
+1 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 12,\left\{ \frac{1}{\sqrt{6}}\left[
+\begin{array}{r}
+-1 \\
+-1 \\
+2
+\end{array}
+\right] \right\} \leftrightarrow 18
+\]
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.2} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+4 & 1 & -2 \\
+1 & 4 & -2 \\
+-2 & -2 & 7
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+One eigenvalue is 3.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \frac{1}{\sqrt{2}}\left[
+\begin{array}{r}
+-1 \\
+1 \\
+0
+\end{array}
+\right] ,\frac{1}{\sqrt{3}}\left[
+\begin{array}{c}
+1 \\
+1 \\
+1
+\end{array}
+\right] \right\} \leftrightarrow 3,\left\{ \frac{1}{\sqrt{6}}\left[
+\begin{array}{r}
+-1 \\
+-1 \\
+2
+\end{array}
+\right] \right\} \leftrightarrow 9
+\]
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.3} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+-1 & 1 & 1 \\
+1 & -1 & 1 \\
+1 & 1 & -1
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+One eigenvalue is -2.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 1,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2} \\
+0
+\end{array}
+\right] ,\allowbreak \left[
+\begin{array}{c}
+-\frac{1}{6}\sqrt{6} \\
+-\frac{1}{6}\sqrt{6} \\
+\frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow -2
+\]
+\begin{eqnarray*}
+&&\left[
+\begin{array}{ccc}
+\sqrt{3}/3 & -\sqrt{2}/2 & -\sqrt{6}/6 \\
+\sqrt{3}/3 & \sqrt{2}/2 & -\sqrt{6}/6 \\
+\sqrt{3}/3 & 0 & \frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right]^{T}\left[
+\begin{array}{rrr}
+-1 & 1 & 1 \\
+1 & -1 & 1 \\
+1 & 1 & -1
+\end{array}
+\right]  \\
+&&\cdot \left[
+\begin{array}{ccc}
+\sqrt{3}/3 & -\sqrt{2}/2 & -\sqrt{6}/6 \\
+\sqrt{3}/3 & \sqrt{2}/2 & -\sqrt{6}/6 \\
+\sqrt{3}/3 & 0 & \frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right]
+\end{eqnarray*}
+\[
+=\left[
+\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & -2 & 0 \\
+0 & 0 & -2
+\end{array}
+\right]
+\]
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.4} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+17 & -7 & -4 \\
+-7 & 17 & -4 \\
+-4 & -4 & 14
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+Two eigenvalues are $18$ and $24$.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 6,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{6}\sqrt{6} \\
+-\frac{1}{6}\sqrt{6} \\
+\frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 18,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2} \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 24
+\]
+The matrix $Q$ has these as its columns.
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.5} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+13 & 1 & 4 \\
+1 & 13 & 4 \\
+4 & 4 & 10
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} Two eigenvalues are $12$ and 18.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+-\frac{1}{6}\sqrt{6} \\
+-\frac{1}{6}\sqrt{6} \\
+\frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 6,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2} \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 12,\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{3}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 18.
+\]
+The matrix $Q$ has these as its columns.
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.6} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+
+\begin{equation*}
+A=\left[
+\begin{array}{ccc}
+- \frac{5}{3} &  \frac{1}{15}\sqrt{6}\sqrt{5} &
+ \frac{8}{15}\sqrt{5} \\
+ \frac{1}{15}\sqrt{6}\sqrt{5} & - \frac{14}{5} &
+- \frac{1}{15}\sqrt{6} \\
+ \frac{8}{15}\sqrt{5} & - \frac{1}{15}\sqrt{6} &
+ \frac{7}{15}
+\end{array} \right]
+\end{equation*}
+
+\begin{hint} 
+The eigenvalues are $-3,-2,1.$
+
+Click the arrow to see the answer. \begin{expandable}
+eigenvectors:
+\[
+\left\{ \left[
+\begin{array}{c}
+\frac{1}{6}\sqrt{6} \\
+0 \\
+\frac{1}{6}\sqrt{5}\sqrt{6}
+\end{array}
+\right] \right\} \leftrightarrow 1,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{3}\sqrt{2}\sqrt{3} \\
+-\frac{1}{5}\sqrt{5} \\
+\frac{1}{15}\sqrt{2}\sqrt{15}
+\end{array}
+\right] \right\} \leftrightarrow -2,\left\{ \left[
+\begin{array}{c}
+-\frac{1}{6}\sqrt{6} \\
+\frac{2}{5}\sqrt{5} \\
+\frac{1}{30}\sqrt{30}
+\end{array}
+\right] \right\} \leftrightarrow -3
+\]
+These vectors are the columns of $Q$.
+\end{expandable} \end{hint}
+\end{problem}
+
+
+ \begin{problem}\label{prb:9.7} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.\
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+3 & 0 & 0 \\
+0 &  \frac{3}{2} &  \frac{1}{2} \\
+0 &  \frac{1}{2} &  \frac{3}{2}
+\end{array}
+\right]
+\end{equation*}
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are: $\left\{ \left[
+\begin{array}{c}
+0 \\
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2}
+\end{array}
+\right] \right\} \leftrightarrow 1,\left\{ \left[
+\begin{array}{c}
+0 \\
+\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2}
+\end{array}
+\right] \right\} \leftrightarrow 2,\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 3.$ These vectors are the columns of the
+matrix $Q$.
+\end{expandable} 
+%\begin{hint} 
+%\end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.8} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+\begin{equation*}
+A=\left[
+\begin{array}{rrr}
+2 & 0 & 0 \\
+0 & 5 & 1 \\
+0 & 1 & 5
+\end{array}
+\right]
+\end{equation*}
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+0
+\end{array}
+\right] \right\} \leftrightarrow 2,\left\{ \left[
+\begin{array}{c}
+0 \\
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2}
+\end{array}
+\right] \right\} \leftrightarrow 4,\left\{ \left[
+\begin{array}{c}
+0 \\
+\frac{1}{2}\sqrt{2} \\
+\frac{1}{2}\sqrt{2}
+\end{array}
+\right] \right\} \leftrightarrow 6.
+\]
+These vectors are the columns of $Q$.
+\end{expandable} 
+%\begin{hint} 
+%\end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.9} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+
+\begin{equation*}
+A=\left[
+\begin{array}{ccc}
+ \frac{4}{3} &  \frac{1}{3}\sqrt{3}\sqrt{2} &
+ \frac{1}{3}\sqrt{2} \\
+ \frac{1}{3}\sqrt{3}\sqrt{2} & 1 & - \frac{1}{3}
+\sqrt{3} \\
+ \frac{1}{3}\sqrt{2} & - \frac{1}{3}\sqrt{3} &
+ \frac{5}{3}
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+The eigenvalues are $0,2,2$ where $2$ is listed twice because it is a root of multiplicity 2.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+-\frac{1}{5}\sqrt{2}\sqrt{5} \\
+\frac{1}{5}\sqrt{3}\sqrt{5} \\
+\frac{1}{5}\sqrt{5}
+\end{array}
+\right] \right\} \leftrightarrow 0,\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+0 \\
+\frac{1}{3}\sqrt{2}\sqrt{3}%
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+\frac{1}{5}\sqrt{2}\sqrt{5} \\
+\frac{1}{5}\sqrt{3}\sqrt{5} \\
+-\frac{1}{5}\sqrt{5}
+\end{array}
+\right] \right\} \leftrightarrow 2.
+\]
+The columns are these vectors.
+\end{expandable} \end{hint}
+\end{problem}
+
+
+
+ \begin{problem}\label{prb:9.10} Find the eigenvalues and an orthonormal basis of eigenvectors for $A.$
+Diagonalize $A$ by finding an orthogonal matrix $Q$ and a diagonal matrix $D$
+such that $Q^{T}AQ=D$.
+
+\begin{equation*}
+A=\left[
+\begin{array}{ccc}
+1 &  \frac{1}{6}\sqrt{3}\sqrt{2} &  \frac{1}{6}
+\sqrt{3}\sqrt{6} \\
+ \frac{1}{6}\sqrt{3}\sqrt{2} &  \frac{3}{2} &
+ \frac{1}{12}\sqrt{2}\sqrt{6} \\
+ \frac{1}{6}\sqrt{3}\sqrt{6} &  \frac{1}{12}
+\sqrt{2}\sqrt{6} &  \frac{1}{2}
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+The eigenvalues are $2,1,0.$
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+-\frac{1}{3}\sqrt{3} \\
+0 \\
+\frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow 0,\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+-\frac{1}{2}\sqrt{2} \\
+\frac{1}{6}\sqrt{6}
+\end{array}
+\right] \right\} \leftrightarrow 1,\allowbreak \left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{2}\sqrt{2} \\
+\frac{1}{6}\sqrt{6}
+\end{array}
+\right] \right\} \leftrightarrow 2.
+\]
+The columns are these vectors.
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.11} Find the eigenvalues and an orthonormal basis of eigenvectors for the
+matrix
+
+\begin{equation*}
+A = \left[
+\begin{array}{ccc}
+ \frac{1}{3} &  \frac{1}{6}\sqrt{3}\sqrt{2} & -
+ \frac{7}{18}\sqrt{3}\sqrt{6} \\
+ \frac{1}{6}\sqrt{3}\sqrt{2} &  \frac{3}{2} & -
+ \frac{1}{12}\sqrt{2}\sqrt{6} \\
+- \frac{7}{18}\sqrt{3}\sqrt{6} & - \frac{1}{12}
+\sqrt{2}\sqrt{6} & - \frac{5}{6}
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+The eigenvalues are $1,2,-2.$
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors:
+\[
+\left\{ \left[
+\begin{array}{c}
+-\frac{1}{3}\sqrt{3} \\
+\frac{1}{2}\sqrt{2} \\
+\frac{1}{6}\sqrt{6}
+\end{array}
+\right] \right\} \leftrightarrow 1,\left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+0 \\
+\frac{1}{3}\sqrt{2}\sqrt{3}
+\end{array}
+\right] \right\} \leftrightarrow -2,\allowbreak \left\{ \left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{3} \\
+\frac{1}{2}\sqrt{2} \\
+-\frac{1}{6}\sqrt{6}
+\end{array}
+\right] \right\} \leftrightarrow 2.
+\]
+Then the columns of $Q$ are these vectors
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.12} Find the eigenvalues and an orthonormal basis of eigenvectors for the
+matrix
+
+\begin{equation*}
+A = \left[
+\begin{array}{ccc}
+- \frac{1}{2} & - \frac{1}{5}\sqrt{6}\sqrt{5} &
+ \frac{1}{10}\sqrt{5} \\
+- \frac{1}{5}\sqrt{6}\sqrt{5} &  \frac{7}{5} & -
+ \frac{1}{5}\sqrt{6} \\
+ \frac{1}{10}\sqrt{5} & - \frac{1}{5}\sqrt{6} & -
+ \frac{9}{10}
+\end{array}
+\right]
+\end{equation*}
+
+\begin{hint} 
+The eigenvalues are $-1,2,-1$ where $-1$ is listed twice
+because it has multiplicity 2 as a zero of the characteristic equation.
+
+Click the arrow to see the answer. \begin{expandable}
+The eigenvectors and eigenvalues are:
+\[
+\left\{ \left[
+\begin{array}{c}
+-\frac{1}{6}\sqrt{6} \\
+0 \\
+\frac{1}{6}\sqrt{5}\sqrt{6}
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+\frac{1}{3}\sqrt{2}\sqrt{3} \\
+\frac{1}{5}\sqrt{5} \\
+\frac{1}{15}\sqrt{2}\sqrt{15}
+\end{array}
+\right] \right\} \leftrightarrow -1,\left\{ \left[
+\begin{array}{c}
+\frac{1}{6}\sqrt{6} \\
+-\frac{2}{5}\sqrt{5} \\
+\frac{1}{30}\sqrt{30}
+\end{array}
+\right] \right\} \leftrightarrow 2 .
+\]
+The columns of $Q$ are these vectors.
+\[
+\left[
+\begin{array}{ccc}
+-\frac{1}{6}\sqrt{6} & \frac{1}{3}\sqrt{2}\sqrt{3} & \frac{1}{6}\sqrt{6} \\
+0 & \frac{1}{5}\sqrt{5} & -\frac{2}{5}\sqrt{5} \\
+\frac{1}{6}\sqrt{5}\sqrt{6} & \frac{1}{15}\sqrt{2}\sqrt{15} & \frac{1}{30}
+\sqrt{30}
+\end{array}
+\right] ^{T}\left[
+\begin{array}{ccc}
+- \frac{1}{2} & - \frac{1}{5}\sqrt{6}\sqrt{5} &
+ \frac{1}{10}\sqrt{5} \\
+- \frac{1}{5}\sqrt{6}\sqrt{5} &  \frac{7}{5} & -
+ \frac{1}{5}\sqrt{6} \\
+ \frac{1}{10}\sqrt{5} & - \frac{1}{5}\sqrt{6} & -
+ \frac{9}{10}
+\end{array}
+\right] \cdot
+\]
+\[
+\left[
+\begin{array}{ccc}
+-\frac{1}{6}\sqrt{6} & \frac{1}{3}\sqrt{2}\sqrt{3} & \frac{1}{6}\sqrt{6} \\
+0 & \frac{1}{5}\sqrt{5} & -\frac{2}{5}\sqrt{5} \\
+\frac{1}{6}\sqrt{5}\sqrt{6} & \frac{1}{15}\sqrt{2}\sqrt{15} & \frac{1}{30}
+\sqrt{30}
+\end{array}
+\right] =\left[
+\begin{array}{rrr}
+-1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 2
+\end{array}
+\right]
+\]
+\end{expandable} \end{hint}
+\end{problem}
+
+
+ \begin{problem}\label{prb:9.13} Explain why a matrix $A$ is symmetric if and only if there exists an
+orthogonal matrix $Q$ such that $A=Q^{T}DQ$ for $D$ a diagonal matrix.
+\begin{hint} Click the arrow to see the answer. \begin{expandable}
+If $A$ is given by the formula, then
+\[
+A^{T}=Q^{T}D^{T}Q=Q^{T}DQ=A
+\]
+Next suppose $A=A^{T}.$ Then by the theorems on symmetric matrices, there
+exists an orthogonal matrix $Q$ such that
+\[
+QAQ^{T}=D
+\]
+for $D$ diagonal. Hence
+\[
+A=Q^{T}DQ
+\]
+\end{expandable} \end{hint}
+\end{problem}
+
+ \begin{problem}\label{prb:9.14} Show that if $A$ is a real symmetric matrix and
+$\lambda $ and $\mu $ are two different eigenvalues, then if $\vec{x}$ is
+an eigenvector for $\lambda $ and $\vec{y}$ is an eigenvector for $\mu ,$
+then $\vec{x}\dotp \vec{y}=0.$ Also all eigenvalues are real. Supply reasons
+for each step in the following argument. First
+\begin{equation*}
+\lambda \vec{x}^{T}\overline{\vec{x}}=\left( A\vec{x}\right) ^{T}
+\overline{\vec{x}}=\vec{x}^{T}A\overline{\vec{x}}=\vec{x}^{T}
+\overline{A\vec{x}}=\vec{x}^{T}\overline{\lambda }\overline{\vec{x}}
+=\overline{\lambda }\vec{x}^{T}\overline{\vec{x}}
+\end{equation*}
+and so $\lambda =\overline{\lambda }.$ This shows that all eigenvalues are
+real. It follows all the eigenvectors are real. Why? Now let $\vec{x},\vec{y}
+,\mu $ and $\lambda $ be given as above. \
+\begin{equation*}
+\lambda \left( \vec{x}\dotp \vec{y}\right) =\lambda \vec{x}\dotp \vec{y}=A\vec{x}\dotp \vec{y}=\vec{x}\dotp A\vec{y}=\vec{x}\dotp \mu \vec{y}=\mu \left(
+\vec{x}\dotp \vec{y}\right) =\mu \left( \vec{x}\dotp \vec{y}\right)
+\end{equation*}
+and so
+\begin{equation*}
+\left( \lambda -\mu \right) \vec{x}\dotp \vec{y}=0
+\end{equation*}
+Why does it follow that $\vec{x}\dotp \vec{y}=0?$
+
+Click the arrow to see the answer. \begin{expandable}
+Since $\lambda \neq \mu ,$ it follows $X \dotp \vec{y} =0.$
+\end{expandable} 
+%\begin{hint} 
+%\end{hint}
+\end{problem}
+
+
+
+
+\section*{Text Source} This section was adapted from the second part of Section 8.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415 
+
+%\section*{Example Source}
+Example \ref{ex:OrthogDecomp}  was adapted from Example 4.148  of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 249. 
+
+\end{document}
