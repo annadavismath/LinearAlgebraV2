@@ -154,19 +154,25 @@ Let  $A$ be an $n \times n$ matrix.  Then $A$ is symmetric if and only if $A$ is
 \begin{proof}
 If $A$ is orthogonally diagonalizable, then it is an easy exercise to prove that it is symmetric.  You are asked to do this in Practice Problem \ref{prob:ortho_diag_implies_symmetric}.
 
-To prove the ``only if'' part of this theorem, we assume $A$ is symmetric, and we need to show it is orthogonally diagonalizable.  We proceed by induction on $n$, the size of the symmetric matrix. If $n = 1$, $A$ is already diagonal. If $n > 1$, assume that we know the ``only if'' statement holds for $(n - 1) \times (n - 1)$ symmetric matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $A\vec{x}_{1} = \lambda_{1}\vec{x}_{1}$, where $\norm{\vec{x}_{1}} = 1$. Next, set $\vec{q}_{1}=\vec{x}_{1}$, and use the Gram-Schmidt algorithm to find an orthonormal basis $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}\}$ for $\RR^n$. Let $U_{1} = \begin{bmatrix}
-\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
-\end{bmatrix}$, so that $U_{1}$ is an orthogonal matrix.  We have
+To prove the ``only if'' part of this theorem, we assume $A$ is symmetric, and we need to show it is orthogonally diagonalizable.  We proceed by induction on $n$, the size of the symmetric matrix. If $n = 1$, $A$ is already diagonal. If $n > 1$, assume that we know the ``only if'' statement holds for $(n - 1) \times (n - 1)$ symmetric matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $A\vec{x}_{1} = \lambda_{1}\vec{x}_{1}$, where $\norm{\vec{x}_{1}} = 1$. Next, set $\vec{q}_{1}=\vec{x}_{1}$, and use the Gram-Schmidt algorithm to find an orthonormal basis $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}\}$ for $\RR^n$. Let $Q_{1} = \begin{bmatrix}
+| & | &   & | \\
+\vec{q}_1 & \vec{q}_2  & \cdots & \vec{q}_n \\
+| & | &   & |
+\end{bmatrix}$, so that $Q_{1}$ is an orthogonal matrix.  We have
 \begin{align*}
-U_{1}^TAU_{1} &= \begin{bmatrix}
-\vec{q}_{1}^T \\ \vec{q}_{2}^T \\ \vdots \\ \vec{q}_{n}^T
+Q_{1}^TAQ_{1} &= \begin{bmatrix}
+-- & \vec{q}_{1}^T & -- \\ -- & \vec{q}_{2}^T & -- \\ & \vdots & \\ -- & \vec{q}_{n}^T & --
 \end{bmatrix} A \begin{bmatrix}
-\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
+| & | &   & | \\
+\vec{q}_1 & \vec{q}_2  & \cdots & \vec{q}_n \\
+| & | &   & |
 \end{bmatrix} \\
 &= \begin{bmatrix}
-\vec{q}_{1}^T \\ \vec{q}_{2}^T \\ \vdots \\ \vec{q}_{n}^T
+-- & \vec{q}_{1}^T & -- \\ -- & \vec{q}_{2}^T & -- \\ & \vdots & \\ -- & \vec{q}_{n}^T & --
 \end{bmatrix} \begin{bmatrix}
-A \vec{q}_{1} & A \vec{q}_{2} & \dots & A \vec{q}_{n}
+| & | &   & | \\
+A\vec{q}_1 & A\vec{q}_2  & \cdots & A\vec{q}_n \\
+| & | &   & |
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
@@ -390,17 +396,23 @@ is a nicer orthogonal matrix with the property that $\hat{Q}^{-1}A\hat{Q}$ is di
 Let $A$ be an $n \times n$ matrix.  $A$ has an orthonormal set of $n$ eigenvectors if and only if $A$ is orthogonally diagonalizable.
 
 \begin{proof}
-($\Rightarrow$) Let $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ be orthonormal eigenvectors of $A$. Then $Q = \begin{bmatrix}
-\vec{q}_{1} & \vec{q}_{2} & \dots & \vec{q}_{n}
-\end{bmatrix}$ is orthogonal, and $U^{-1}AU$ is diagonal by Theorem~\ref{thm:009214}. 
-
-($\Leftarrow$) Let $Q^{-1}AQ=D$ be diagonal where $Q$ is orthogonal. If $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ are the columns of $Q$ then $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}\}$ is an orthonormal basis of $\RR^n$ that consists of eigenvectors of $A$, as can be seen by analyzing the columns of $AU=UD$.
-$$\begin{bmatrix}
-A \vec{q}_{1} & A \vec{q}_{2} & \dots & A \vec{q}_{n}
+Let $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ be orthonormal eigenvectors of $A$ with corresponding eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$ .  We must show $A$ is orthogonally diagonalizable. Let $Q = \begin{bmatrix}
+| & | &   & | \\
+\vec{q}_1 & \vec{q}_2  & \cdots & \vec{q}_n \\
+| & | &   & |
+\end{bmatrix}$ so that $Q$ is orthogonal.  We have
+$$AQ = \begin{bmatrix}
+| & | &   & | \\
+A\vec{q}_1 & A\vec{q}_2  & \cdots & A\vec{q}_n \\
+| & | &   & |
 \end{bmatrix} = \begin{bmatrix}
-\lambda_1 \vec{q}_{1} & \lambda_2 \vec{q}_{2} & \dots & \lambda_n \vec{q}_{n}
-\end{bmatrix}$$
+| & | &   & | \\
+\lambda_1 \vec{q}_{1} & \lambda_2 \vec{q}_{2} & \dots & \lambda_n \vec{q}_{n} \\
+| & | &   & |
+\end{bmatrix}=QD, $$
+where $D$ is the diagonal matrix with diagonal entries $\lambda_1, \lambda_2, \ldots, \lambda_n$.  But then $Q^TAQ=D$, proving this half of the theorem.
 
+For the converse, if $A$ is orthogonally diagonalizable, then by Theorem \ref{th:PrinAxes} it is symmetric.  But then Theorem~\ref{th:symmetric_has_ortho_ev} tells us that eigenvectors corresponding to distinct eigenvalues are orthogonal.  Because $A$ is (orthogonally) diagonalizable, we know the geometric multiplicity of each eigenvalue is equal to its algebraic multiplicity.  This implies that e can use Gram-Schmidt on each eigenspace of dimension > 1 to get a full set of $n$ orthogonal eigenvectors.
 \end{proof}
 \end{theorem}
 
@@ -409,13 +421,13 @@ If we are willing to replace ``diagonal'' by ``upper triangular'' in the real sp
 \begin{theorem}[Schur Triangularization Theorem]\label{th:Schur}
 If $A$ is an $n \times n$ matrix with $n$ real eigenvalues, an orthogonal matrix $Q$ exists such that $Q^{T}AQ$ is upper triangular.
 \end{theorem}
-\remark{There is also a lower triangular version.}
+\remark{There is also a lower triangular version of this theorem.}
 
 \begin{proof}
 See Practice Problem \ref{prob:SchurChallenge}
 \end{proof}
 
-The eigenvalues of an upper triangular matrix are displayed along the main diagonal. Because $A$ and $Q^{T}AQ$ have the same determinant and trace whenever $Q$ is orthogonal, Theorem~\ref{th:Schur} gives:
+The eigenvalues of an upper triangular matrix are displayed along the main diagonal. Because $A$ and $Q^{T}AQ$ have the same determinant and trace whenever $Q$ is orthogonal (for they are similar matrices), Theorem~\ref{th:Schur} gives:
 
 \begin{corollary}\label{cor:det_and_tr}
 If $A$ is an $n \times n$ matrix with real eigenvalues $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$ (possibly not all distinct), then $\det A = \lambda_{1}\lambda_{2} \dots \lambda_{n}$ and $\mbox{tr} A = \lambda_{1} + \lambda_{2} + \dots  + \lambda_{n}$.
@@ -842,7 +854,7 @@ a_{ij}
 \item $AA^{T}$ is an invertible, diagonal matrix.
 
 \end{enumerate}
-\item Show that an $n \times n$ matrix $A$ has orthogonal rows if and only if $A$ can be factored as $A = DP$, where $P$ is orthogonal and $D$ is diagonal and invertible.
+\item Show that an $n \times n$ matrix $A$ has orthogonal rows if and only if $A$ can be factored as $A = DQ$, where $Q$ is orthogonal and $D$ is diagonal and invertible.
 
 \end{enumerate}
 \end{problem}
@@ -869,7 +881,7 @@ Let $A$ be a skew-symmetric matrix; that is, $A^{T} = -A$. Assume that $A$ is an
 \end{problem}
 
 \begin{problem}\label{prob:ortho25}
-Show that the following are equivalent for an $n \times n$ matrix $P$.
+Show that the following are equivalent for an $n \times n$ matrix $Q$.
 
 
 \begin{enumerate} 
@@ -911,7 +923,7 @@ For (c) $\Rightarrow$ (d), see Exercise \ref{ex:5_3_14}(a). For (d) $\Rightarrow
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:SchurChallenge}
 Modify the proof of Theorem~\ref{th:PrinAxes} to prove Theorem \ref{th:Schur}.
 %If $A\vec{x}_{1} = \lambda_{1}\vec{x}_{1}$ where $\norm{\vec{x}_{1}} = 1$, let $\{\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{n}\}$ be an orthonormal basis of $\RR^n$, and let $P_{1} = \begin{bmatrix}
 %\vec{x}_{1} & \vec{x}_{2} & \cdots &  \vec{x}_{n}
