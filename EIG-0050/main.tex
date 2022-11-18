@@ -69,11 +69,11 @@ Of course, Equation (\ref{eq:ev_ew_diag}) is very familiar!  We see that if we a
 \begin{theorem}\label{th:eigenvectorsanddiagonalizable}
 An $n\times n$ matrix $A$ is diagonalizable if and only if there is an
 invertible matrix $P$ given by
-\begin{equation*}
-P=\begin{bmatrix}
-\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_n
-\end{bmatrix}
-\end{equation*}
+$$P=\begin{bmatrix}
+| & | &   & | \\
+\vec{x}_1 & \vec{x}_2  & \cdots & \vec{x}_n \\
+| & | &   & |
+\end{bmatrix},$$
 where the columns $\vec{x}_i$ are eigenvectors of $A$.
 
 Moreover, if $A$ is diagonalizable, the corresponding eigenvalues of $A$ are the
@@ -81,85 +81,29 @@ diagonal entries of the diagonal matrix $D$.
 \end{theorem}
 
 \begin{proof}
-% Suppose $P$ is given as above as an invertible matrix whose columns are eigenvectors of $A$. Then $P^{-1}$
-% is of the form
-% \begin{equation*}
-% P^{-1}=\begin{bmatrix}
-% \begin{array}{c}
-% w_{1}^{T} \\
-% w_{2}^{T} \\
-% \vdots \\
-% w_{n}^{T}
-% \end{array}
-% \end{bmatrix}
-% \end{equation*}
-% where $w_{k}^{T}x_{j}=\delta _{kj},$ which is the Kronecker's symbol defined by
-% \begin{equation*}
-% \delta _{ij}=\left\{
-% \begin{array}{c}
-% 1
-% \text{ if }i=j \\
-% 0\text{ if }i\neq j
-% \end{array}
-% \right.
-% \end{equation*}
-
-% Then
-% \begin{eqnarray*}
-% P^{-1}AP & = &
-% \begin{bmatrix}
-% \begin{array}{c}
-% w_{1}^{T} \\
-% w_{2}^{T} \\
-% \vdots \\
-% w_{n}^{T}
-% \end{array}
-% \end{bmatrix} \begin{bmatrix}
-% \begin{array}{cccc}
-% A\vec{x}_1 & A\vec{x}_2 & \cdots & A\vec{x}_n
-% \end{array}
-% \end{bmatrix} \\
-% & = &
-% \begin{bmatrix}
-% \begin{array}{c}
-% w_{1}^{T} \\
-% w_{2}^{T} \\
-% \vdots \\
-% w_{n}^{T}
-% \end{array}
-% \end{bmatrix} \begin{bmatrix}
-% \begin{array}{cccc}
-% \lambda _{1}\vec{x}_1 & \lambda _{2}\vec{x}_2 & \cdots & \lambda
-% _{n}\vec{x}_n
-% \end{array}
-% \end{bmatrix} \\
-% &=&
-% \begin{bmatrix}
-% \begin{array}{ccc}
-% \lambda _{1} &  & 0 \\
-% & \ddots &  \\
-% 0 &  & \lambda _{n}
-% \end{array}
-% \end{bmatrix} \\
-% \end{eqnarray*}
-
 Suppose $P$ is given as above as an invertible matrix whose columns are eigenvectors of $A$. To show that $A$ is diagonalizable, we will show 
 $$AP=PD,$$
 which is equivalent to $P^{-1}AP=D$.  We have
 $$AP=\begin{bmatrix}
-A\vec{x}_1 & A\vec{x}_2 & \cdots & A\vec{x}_n
-\end{bmatrix}$$
+| & | &   & | \\
+A\vec{x}_1 & A\vec{x}_2  & \cdots & A\vec{x}_n \\
+| & | &   & |
+\end{bmatrix},$$
 while
 \begin{equation*}
 PD=\begin{bmatrix}
-\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_n
+| & | &   & | \\
+\vec{x}_1 & \vec{x}_2  & \cdots & \vec{x}_n \\
+| & | &   & |
 \end{bmatrix} 
 \begin{bmatrix}
 \lambda _{1} &  & 0 \\
 & \ddots &  \\
 0 &  & \lambda _{n}
 \end{bmatrix}=\begin{bmatrix}
-\lambda _{1}\vec{x}_1 & \lambda _{2}\vec{x}_2 & \cdots & \lambda_{n}\vec{x}_n
+| & | &   & | \\
+\lambda _{1}\vec{x}_1 & \lambda _{2}\vec{x}_2 & \cdots & \lambda_{n}\vec{x}_n \\
+| & | &   & | 
 \end{bmatrix}
 \end{equation*}
 We can complete this half of the proof by comparing columns, and noting that 
@@ -171,7 +115,9 @@ for $i=1,\ldots,n$ since the $ \vec{x}_i$ are eigenvectors of $A$ and the $\lamb
 Conversely, suppose $A$ is diagonalizable so that $P^{-1}AP=D.$ Let
 \begin{equation*}
 P=\begin{bmatrix}
-\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_n
+| & | &   & | \\
+\vec{x}_1 & \vec{x}_2  & \cdots & \vec{x}_n \\
+| & | &   & |
 \end{bmatrix}
 \end{equation*}
  where the columns are the vectors $\vec{x}_i$ and
@@ -185,7 +131,9 @@ D=\begin{bmatrix}
 Then
 \begin{equation*}
 AP=PD=\begin{bmatrix}
-\vec{x}_1 & \vec{x}_2 & \cdots & \vec{x}_n
+| & | &   & | \\
+\vec{x}_1 & \vec{x}_2  & \cdots & \vec{x}_n \\
+| & | &   & |
 \end{bmatrix} \begin{bmatrix}
 \lambda _{1} &  & 0 \\
 & \ddots &  \\
@@ -195,9 +143,13 @@ AP=PD=\begin{bmatrix}
 and so
 \begin{equation*}
 \begin{bmatrix}
-A\vec{x}_1 & A\vec{x}_2 & \cdots & A\vec{x}_n
+| & | &   & | \\
+A\vec{x}_1 & A\vec{x}_2  & \cdots & A\vec{x}_n \\
+| & | &   & |
 \end{bmatrix} =\begin{bmatrix}
-\lambda _{1}\vec{x}_1 & \lambda _{2}\vec{x}_2 & \cdots & \lambda_{n}\vec{x}_n
+| & | &   & | \\
+\lambda _{1}\vec{x}_1 & \lambda _{2}\vec{x}_2 & \cdots & \lambda_{n}\vec{x}_n \\
+| & | &   & | 
 \end{bmatrix}
 \end{equation*}
 showing the $\vec{x}_i$ are eigenvectors of $A$ and the $\lambda _{i}$
