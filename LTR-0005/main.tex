@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin} \title{Matrix Transformations} \license{CC-BY 4.0}
+\title{Matrix Transformations} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
@@ -29,9 +29,6 @@ We will now consider functions that map $\RR^n$ into $\RR^m$.  We will refer to 
 
 \subsection*{Examples of Matrix Transformations}
 Consider the matrix $A=\begin{bmatrix}1&0.5\\0&1\end{bmatrix}$.  The product of $A$ with a $2\times 1$ vector is a $2\times 1$ vector.  We can define a transformation $T:\RR^2\longrightarrow\RR^2$ by $T(\vec{x})=A\vec{x}$.  This transformation can be applied to every vector of $\RR^2$. We will now look at what it does to five vectors.  You can use matrix multiplication to verify that the following is true
-$$T\left(\begin{bmatrix}0\\3\end{bmatrix}\right)=\begin{bmatrix}1.5\\3\end{bmatrix};\quad T\left(\begin{bmatrix}1\\2\end{bmatrix}\right)=\begin{bmatrix}2\\2\end{bmatrix};\quad T\left(\begin{bmatrix}2\\1\end{bmatrix}\right)=\begin{bmatrix}2.5\\1\end{bmatrix}$$
-$$T\left(\begin{bmatrix}2\\0\end{bmatrix}\right)=\begin{bmatrix}2\\0\end{bmatrix};\quad T\left(\begin{bmatrix}1\\-1\end{bmatrix}\right)=\begin{bmatrix}0.5\\-1\end{bmatrix}$$
-The original vectors and their images are shown below.
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
 \draw[thin,gray!40] (-2,-2) grid (4,4);
@@ -128,14 +125,14 @@ We immediately see that the $y$ component of the vector remains unchanged.  We a
 \begin{exploration}\label{exp:shapeTransformation}
 Make your own shape by moving points $A, B, C, D, E, F, G$ in the left pane.  (You can also move the entire figure by clicking and dragging the whole polygon.)  The images of the points and the polygon under the transformation induced by $M$ are shown on the right.
 
+\begin{center}
+\geogebra{cvxdwput}{950}{700}
+\end{center}
+
 Try each of the following matrices to determine what each transformation accomplishes.
 $$M_1=\begin{bmatrix}1&0\\0&2\end{bmatrix},\quad M_2=\begin{bmatrix}1/2&0\\0&1\end{bmatrix},\quad M_3=\begin{bmatrix}1&2\\0&1\end{bmatrix}$$
 $$M_4=\begin{bmatrix}\cos(\pi)&-\sin(\pi)\\\sin(\pi)&\cos(\pi)\end{bmatrix},\quad M_5=\begin{bmatrix}\cos\left(\pi/4\right)&-\sin\left(\pi/4\right)\\\sin\left(\pi/4\right)&\cos\left(\pi/4\right)\end{bmatrix}$$
 $$M_6=\begin{bmatrix}1&0\\0&-1\end{bmatrix},\quad M_7=\begin{bmatrix}0&1\\1&0\end{bmatrix},\quad M_8=\begin{bmatrix}1&1\\1&1\end{bmatrix}$$
-
-\begin{center}
-\geogebra{cvxdwput}{950}{700}
-\end{center}
 
 Match the description of each transformation with the matrix that induces it.
 
@@ -251,7 +248,7 @@ Why is it that knowing the images of standard unit vectors under a matrix transf
     \end{explanation}
 \end{example}
 
-Example \ref{ex:imageOfBasisVectors} illustrates that a linear transformation $T:\RR^n\longrightarrow\RR^m$ is \dfn{completely determined} by where it maps the standard unit vectors.  This is true because we can express every vector $\vec{v}$ in $\RR^n$ as a linear combination of the standard unit vectors, then use (\ref{eq:matrixTransProp1}, \ref{eq:matrixTransProp2}) to find the image of $\vec{v}$.  The following GeoGebra interactive illustrates this point.
+Example \ref{ex:imageOfBasisVectors} illustrates that a matrix transformation $T:\RR^n\longrightarrow\RR^m$ is \dfn{completely determined} by where it maps the standard unit vectors.  This is true because we can express every vector $\vec{v}$ in $\RR^n$ as a linear combination of the standard unit vectors, then use (\ref{eq:matrixTransProp1}, \ref{eq:matrixTransProp2}) to find the image of $\vec{v}$.  The following GeoGebra interactive illustrates this point.
 \begin{exploration}\label{exp:linCombStUnitVectors}
 Let $T:\RR^2\longrightarrow \RR^2$ be a matrix transformation induced by the matrix $A$.  The GeoGebra window on the left shows the domain of $T$, with standard unit vectors $\vec{i}$ and $\vec{j}$, and a vector $\vec{x}$.  The window  on the right shows the codomain of $T$, with the images of $\vec{i}$, $\vec{j}$ and $\vec{x}$ plotted.  To use this interactive, you can 
 \begin{itemize}
