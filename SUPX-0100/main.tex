@@ -1,0 +1,2552 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Additional Exercises for Ch 10} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+\section*{Exercises for Ch 10 Abstract Vector Spaces}
+
+
+\begin{problem}\label{prb:10.1} Suppose you have $\mathbb{R}^{2}$ and the $+$ operation is as
+follows:\
+\begin{equation*}
+\left( a,b\right) +\left( c,d\right) =\left( a+d,b+c\right) .
+\end{equation*}
+Scalar multiplication is defined in the usual way. Is this a vector space?
+Explain why or why not.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.2} Suppose you have $\mathbb{R}^{2}$ and the $+$ operation is defined as
+follows.
+\begin{equation*}
+\left( a,b\right) +\left( c,d\right) =\left( 0,b+d\right)
+\end{equation*}
+Scalar multiplication is defined in the usual way. Is this a vector space?
+Explain why or why not.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.3} Suppose you have $\mathbb{R}^{2}$ and scalar multiplication is defined
+as $c\left( a,b\right) =\left( a,cb\right) $ while vector addition is
+defined as usual. Is this a vector space? Explain why or why not.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.4} Suppose you have $\mathbb{R}^{2}$ and the $+$ operation is defined as
+follows.
+\begin{equation*}
+\left( a,b\right) +\left( c,d\right) =\left( a-c,b-d\right)
+\end{equation*}
+Scalar multiplication is same as usual. Is this a vector space? Explain why
+or why not.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.5} \label{functions}Consider all the functions defined on a non empty set
+which have values in $\mathbb{R}$. Is this a vector space? Explain.
+The operations are defined as follows. Here $f,g$ signify functions and $a$
+is a scalar.
+\begin{eqnarray*}
+\left( f+g\right) \left( x\right) &=&f\left( x\right) +g\left( x\right) \\
+\left( af\right) \left( x\right) &=&a\left( f\left( x\right) \right)
+\end{eqnarray*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.6} Denote by $\mathbb{R}^{\mathbb{N}}$ the set of real valued sequences.
+For $\vec{a}\equiv \left\{ a_{n}\right\} _{n=1}^{\infty },\vec{b}\equiv
+\left\{ b_{n}\right\} _{n=1}^{\infty }$ two of these, define their sum to be
+given by
+\begin{equation*}
+\vec{a}+\vec{b} =  \left\{ a_{n}+b_{n}\right\} _{n=1}^{\infty }
+\end{equation*}
+and define scalar multiplication by
+\begin{equation*}
+c\vec{a}=\left\{ ca_{n}\right\} _{n=1}^{\infty }\text{ where }\vec{a}
+=\left\{ a_{n}\right\} _{n=1}^{\infty }
+\end{equation*}
+Is this a special case of Problem \ref{prb:10.5}? Is this a vector space?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.7} Let $\mathbb{C}^{2}$ be the set of ordered pairs of complex numbers.
+Define addition and scalar multiplication in the usual way.
+\begin{equation*}
+\left( z,w\right) +\left( \hat{z},\hat{w}\right) = \left( z+\hat{z},w+
+\hat{w}\right) ,\ u\left( z,w\right) \equiv \left( uz,uw\right)
+\end{equation*}
+Here the scalars are from $\mathbb{C}$. Show this is a vector space.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.8} Let $V$ be the set of functions defined on a nonempty set which have
+values in a vector space $W.$ Is this a vector space? Explain.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.9} Consider the space of $m\times n$ matrices with operation of addition
+and scalar multiplication defined the usual way. That is, if $A,B$ are two $
+m\times n$ matrices and $c$ a scalar,
+\begin{equation*}
+\left( A+B\right) _{ij}=A_{ij}+B_{ij},\ \left( cA\right) _{ij}\equiv c\left(
+A_{ij}\right)
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.10} Consider the set of $n\times n$ symmetric matrices. That is, $A=A^{T}.$
+In other words, $A_{ij}=A_{ji}$. Show that this set of symmetric matrices is
+a vector space and a subspace of the vector space of $n\times n$ matrices.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.11} Consider the set of all vectors in $\mathbb{R}^{2},\left( x,y\right) $
+such that $x+y\geq 0.$ Let the vector space operations be the usual ones. Is
+this a vector space? Is it a subspace of $\mathbb{R}^{2}$?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.12} Consider the vectors in $\mathbb{R}^{2},\left( x,y\right) $ such that $xy=0$. Is this a subspace of $\mathbb{R}^{2}?$ Is it a vector space? The
+addition and scalar multiplication are the usual operations.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.13} Define the operation of vector addition on $\mathbb{R}^{2}$ by $\left(
+x,y\right) +\left( u,v\right) =\left( x+u,y+v+1\right) .$ Let scalar
+multiplication be the usual operation. Is this a vector space with these
+operations? Explain.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.14} Let the vectors be real numbers. Define vector space operations in the
+usual way. That is $x+y$ means to add the two numbers and $xy$ means to
+multiply them. Is $\mathbb{R}$ with these operations a vector space? Explain.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.15} Let the scalars be the rational numbers and let the vectors be
+real numbers which are the form $a+b\sqrt{2}$ for $a,b$ rational numbers.
+Show that with the usual operations, this is a vector space.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.16} Let $\mathbb{P}_{2}$ be the set of all polynomials of degree 2 or
+less. That is, these are of the form $a+bx+cx^{2}$. Addition is defined as
+\begin{equation*}
+\left( a+bx+cx^{2}\right) +\left( \hat{a}+\hat{b}x+\hat{c}x^{2}\right)
+=\left( a+\hat{a}\right) +\left( b+\hat{b}\right) x+\left( c+\hat{c}\right)
+x^{2}
+\end{equation*}
+and scalar multiplication is defined as
+\begin{equation*}
+d\left( a+bx+cx^{2}\right) =da+dbx+cdx^{2}
+\end{equation*}
+Show that, with this definition of the vector space operations that $\mathbb{
+P}_{2}$ is a vector space. Now let $V$ denote those polynomials $a+bx+cx^{2}$
+such that $a+b+c=0$. Is $V$ a subspace of $\mathbb{P}_{2}?$ Explain.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.17} Let $M,N$ be subspaces of a vector space $V$ and consider $M+N$
+defined as the set of all $m+n$ where $m\in M$ and $n\in N$. Show that $M+N$
+is a subspace of $V$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.18} Let $M,N$ be subspaces of a vector space $V$. Then $M\cap N$ consists
+of all vectors which are in both $M$ and $N$. Show that $M\cap N$ is a
+subspace of $V$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.19} Let $M,N$ be subspaces of a vector space $\mathbb{R}^{2}.$ Then $N\cup
+M$ consists of all vectors which are in either $M$ or $N$. Show that $N\cup
+M $ is not necessarily a subspace of $\mathbb{R}^{2}$ by giving an example
+where $N\cup M$ fails to be a subspace.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.20} \label{4julyprob1}Let $X$ consist of the real valued functions which
+are defined on an interval $\left[ a,b\right] .$ For $f,g\in X,\;f+g$ is the
+name of the function which satisfies $\left( f+g\right) \left( x\right)
+=f\left( x\right) +g\left( x\right)$. For $s$ a real number, $
+\left( s f\right) \left( x\right) = s \left( f\left( x\right)
+\right) $. Show this is a vector space.
+\begin{hint}
+The axioms of a vector space all hold because they
+hold for a vector space. The only thing left to verify is the
+assertions about the things which are supposed to exist. $0$ would
+be the zero function which sends everything to $0$. This is an additive
+identity. Now if $f$ is a function, $-f\left( x\right) \equiv \left(
+-f\left( x\right) \right) $. Then
+\[
+\left( f+\left( -f\right) \right) \left( x\right) \equiv f\left( x\right)
++\left( -f\right) \left( x\right) \equiv f\left( x\right) +\left( -f\left(
+x\right) \right) =0
+\]
+Hence $f+-f=\mathbf{0}$. For each $x\in \left[ a,b\right] ,$ let $%
+f_{x}\left( x\right) =1$ and $f_{x}\left( y\right) =0$ if $y\neq x.$ Then
+these vectors are obviously linearly independent.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.21} Consider functions defined on $\left\{ 1,2,\cdots ,n\right\} $ having
+values in $\mathbb{R}$. Explain how, if $V$ is the set of all such
+functions, $V$ can be considered as $\mathbb{R}^{n}$.
+\begin{hint}
+Let $f\left( i\right) $ be the $i^{th}$ component of a vector $
+\vec{x}\in \mathbb{R}^{n}$. Thus a typical element in $\mathbb{R}^{n}$ is $
+\left( f\left( 1\right) ,\cdots ,f\left( n\right) \right) $.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.22} Let the vectors be polynomials of degree no more than 3. Show that
+with the usual definitions of scalar multiplication and addition wherein,
+for $p\left( x\right) $ a polynomial, $\left( a p\right) \left(
+x\right) = a p\left( x\right) $ and for $p,q$ polynomials $\left(
+p+q\right) \left( x\right) =  p\left( x\right) +q\left( x\right) ,$ this
+is a vector space.
+\begin{hint}
+This is just a subspace of the vector space of functions
+because it is closed with respect to vector addition and scalar
+multiplication. Hence this is a vector space.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.23} Let $V$ be a vector space and suppose $\left\{ \vec{x}_{1},\cdots ,
+\vec{x}_{k}\right\}$ is a set of vectors in $V$. Show that $\vec{0}$
+is in $\mbox{span}\left\{ \vec{x}_{1},\cdots ,\vec{x}_{k}\right\} .$
+\begin{hint}
+$\sum_{i=1}^{k}0\vec{x}_{k}=\vec{0}$
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.24} Determine if $p(x) = 4x^2-x$ is in the span given by
+\[
+\mbox{span} \left\{ x^2+x, x^2-1, -x + 2 \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.25} Determine if $p(x) = - x^2 + x + 2 $ is in the span given by
+\[
+\mbox{span} \left\{ x^2 + x + 1, 2x^2 + x \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.26} \label{spanmatrices} Determine if $A = \left[ \begin{array}{rr}
+1 & 3 \\
+0 & 0
+\end{array} \right]$ is in the span given by
+\[
+\mbox{span} \left\{
+\left[ \begin{array}{rr}
+1 & 0 \\
+0 & 1
+\end{array} \right], \left[ \begin{array}{rr}
+0 & 1 \\
+1 & 0
+\end{array} \right], \left[ \begin{array}{rr}
+1 & 0 \\
+1 & 1
+\end{array} \right], \left[ \begin{array}{rr}
+0 & 1 \\
+1 & 1
+\end{array} \right]
+\right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.27} Show that the spanning set in Question \ref{prb:10.26} is a spanning set for $M_{22}$, the vector space of all $2 \times 2$ matrices.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.28} Consider the vector space of polynomials of degree at most $2,$ $%
+\mathbb{P}_{2}$. Determine whether the following is a basis for $\mathbb{P}%
+_{2}$.
+\begin{equation*}
+\left\{ x^{2}+x+1,2x^{2}+2x+1,x+1\right\}
+\end{equation*}
+\textbf{Hint:\ }There is a isomorphism from $\mathbb{R}^{3}$ to $\mathbb{P}
+_{2}$. It is defined as follows:\
+\begin{equation*}
+T\vec{e}_{1}=1,T\vec{e}_{2}=x,T\vec{e}_{3}=x^{2}
+\end{equation*}
+Then extend $T$ linearly. Thus
+\begin{equation*}
+T\left[
+\begin{array}{c}
+1 \\
+1 \\
+1
+\end{array}
+\right] =x^{2}+x+1,T\left[
+\begin{array}{c}
+1 \\
+2 \\
+2
+\end{array}
+\right] =2x^{2}+2x+1,T\left[
+\begin{array}{c}
+1 \\
+1 \\
+0
+\end{array}
+\right] =1+x
+\end{equation*}
+It follows that if
+\begin{equation*}
+\left\{ \left[
+\begin{array}{c}
+1 \\
+1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+1 \\
+2 \\
+2
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+1 \\
+1 \\
+0
+\end{array}
+\right] \right\}
+\end{equation*}
+is a basis for $\mathbb{R}^{3},$ then the polynomials will be a basis for $
+\mathbb{P}_{2}$ because they will be independent. Recall that an isomorphism
+takes a linearly independent set to a linearly independent set. Also, since $
+T$ is an isomorphism, it preserves all linear relations.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.29} Find a basis in $\mathbb{P}_{2}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{ 1+x+x^{2},1+2x,1+5x-3x^{2}\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others. \textbf{Hint:\ }This is the situation in
+which you have a spanning set and you want to cut it down to form a linearly
+independent set which is also a spanning set. Use the same isomorphism
+above. Since $T$ is an isomorphism, it preserves all linear relations so if
+such can be found in $\mathbb{R}^{3},$ the same linear relations will be
+present in $\mathbb{P}_{2}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.30} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+1+x-x^{2}+x^{3},1+2x+3x^{3},-1+3x+5x^{2}+7x^{3},1+6x+4x^{2}+11x^{3}\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.31} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+1+x-x^{2}+x^{3},1+2x+3x^{3},-1+3x+5x^{2}+7x^{3},1+6x+4x^{2}+11x^{3}\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.32} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-2x^{2}+x+2,3x^{3}-x^{2}+2x+2,7x^{3}+x^{2}+4x+2,5x^{3}+3x+2\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.33} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}+2x^{2}+x-2,3x^{3}+3x^{2}+2x-2,3x^{3}+x+2,3x^{3}+x+2\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.34} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-5x^{2}+x+5,3x^{3}-4x^{2}+2x+5,5x^{3}+8x^{2}+2x-5,11x^{3}+6x+5\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one of them as a
+linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.35} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-3x^{2}+x+3,3x^{3}-2x^{2}+2x+3,7x^{3}+7x^{2}+3x-3,7x^{3}+4x+3\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.36} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-x^{2}+x+1,3x^{3}+2x+1,4x^{3}+x^{2}+2x+1,3x^{3}+2x-1\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.37} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-x^{2}+x+1,3x^{3}+2x+1,13x^{3}+x^{2}+8x+4,3x^{3}+2x-1\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.38} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-3x^{2}+x+3,3x^{3}-2x^{2}+2x+3,-5x^{3}+5x^{2}-4x-6,7x^{3}+4x-3\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.39} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-2x^{2}+x+2,3x^{3}-x^{2}+2x+2,7x^{3}-x^{2}+4x+4,5x^{3}+3x-2\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.40} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-2x^{2}+x+2,3x^{3}-x^{2}+2x+2,3x^{3}+4x^{2}+x-2,7x^{3}-x^{2}+4x+4\right
+\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.41} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-4x^{2}+x+4,3x^{3}-3x^{2}+2x+4,-3x^{3}+3x^{2}-2x-4,-2x^{3}+4x^{2}-2x-4
+\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.42} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}+2x^{2}+x-2,3x^{3}+3x^{2}+2x-2,5x^{3}+x^{2}+2x+2,10x^{3}+10x^{2}+6x-6
+\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.43} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}+x^{2}+x-1,3x^{3}+2x^{2}+2x-1,x^{3}+1,4x^{3}+3x^{2}+2x-1\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.44} Find a basis in $\mathbb{P}_{3}$ for the subspace
+\begin{equation*}
+\mbox{span}\left\{
+x^{3}-x^{2}+x+1,3x^{3}+2x+1,x^{3}+2x^{2}-1,4x^{3}+x^{2}+2x+1\right\}
+\end{equation*}
+If the above three vectors do not yield a basis, exhibit one
+of them as a linear combination of the others.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.45} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}+x^{2}-x-1,3x^{3}+2x^{2}+2x-1\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.46} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}-2x^{2}-x+2,3x^{3}-x^{2}+2x+2\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.47} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}-3x^{2}-x+3,3x^{3}-2x^{2}+2x+3\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.48} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}-2x^{2}-3x+2,3x^{3}-x^{2}-6x+2,-8x^{3}+18x+10\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.49} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}-3x^{2}-3x+3,3x^{3}-2x^{2}-6x+3,-8x^{3}+18x+40\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.50} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}-x^{2}+x+1,3x^{3}+2x+1,4x^{3}+2x+2\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.51} Here are some vectors.
+\begin{equation*}
+\left\{ x^{3}+x^{2}+2x-1,3x^{3}+2x^{2}+4x-1,7x^{3}+8x+23\right\}
+\end{equation*}
+If these are linearly independent, extend to a basis for all of $\mathbb{P}
+_{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.52} Determine if the following set is linearly independent. If it is linearly dependent, write one vector as a linear combination of the other vectors in the set.
+\[
+\left\{ x+1, x^2 + 2, x^2 - x -3 \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.53} Determine if the following set is linearly independent. If it is linearly dependent, write one vector as a linear combination of the other vectors in the set.
+\[
+\left\{ x^2 + x, -2x^2 -4x -6 , 2x - 2 \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.54} Determine if the following set is linearly independent. If it is linearly dependent, write one vector as a linear combination of the other vectors in the set.
+\[
+\left\{ \left[ \begin{array}{rr}
+1 & 2 \\
+0 & 1
+\end{array} \right], \left[ \begin{array}{rr}
+-7 & 2 \\
+-2 & -3
+\end{array} \right], \left[ \begin{array}{rr}
+4 & 0 \\
+1 & 2
+\end{array} \right]
+ \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.55} Determine if the following set is linearly independent. If it is linearly dependent, write one vector as a linear combination of the other vectors in the set.
+\[
+\left\{ \left[ \begin{array}{rr}
+1 & 0 \\
+0 & 1
+\end{array} \right], \left[ \begin{array}{rr}
+0 & 1 \\
+0 & 1
+\end{array} \right], \left[ \begin{array}{rr}
+1 & 0 \\
+1 & 0
+\end{array} \right], \left[ \begin{array}{rr}
+0 & 0 \\
+1 & 1
+\end{array} \right]
+ \right\}
+\]
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.56} If you have $5$ vectors in $\mathbb{R}^{5}$ and the vectors are
+linearly independent, can it always be concluded they span $\mathbb{R}^{5}?$
+\begin{hint}
+Yes. If not, there would exist a vector not in the span. But then
+you could add in this vector and obtain a linearly independent set of
+vectors with more vectors than a basis.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.57} If you have $6$ vectors in $\mathbb{R}^{5},$ is it possible they are
+linearly independent? Explain.
+\begin{hint}
+No. They can't be.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.58} Let $\mathbb{P}_3$ be the polynomials of degree no more than 3. Determine which
+of the following are bases for this vector space.
+
+\begin{enumerate}
+\item $\left\{ x+1,x^{3}+x^{2}+2x,x^{2}+x,x^{3}+x^{2}+x\right\} $
+
+\item $\left\{ x^{3}+1,x^{2}+x,2x^{3}+x^{2},2x^{3}-x^{2}-3x+1\right\} $
+\end{enumerate}
+
+\begin{hint}
+\begin{enumerate}
+\item
+\item
+Suppose
+\[
+c_{1}\left( x^{3}+1\right) +c_{2}\left( x^{2}+x\right) +c_{3}\left(
+2x^{3}+x^{2}\right) +c_{4}\left( 2x^{3}-x^{2}-3x+1\right) =0
+\]
+Then combine the terms according to power of $x.$
+\[
+\left( c_{1}+2c_{3}+2c_{4}\right) x^{3}+\left( c_{2}+c_{3}-c_{4}\right)
+x^{2}+\left( c_{2}-3c_{4}\right) x+\left( c_{1}+c_{4}\right) =0
+\]
+Is there a non zero solution to the system $
+\begin{array}{c}
+c_{1}+2c_{3}+2c_{4}=0 \\
+c_{2}+c_{3}-c_{4}=0 \\
+c_{2}-3c_{4}=0 \\
+c_{1}+c_{4}=0
+\end{array}
+$, Solution is:
+\[
+\left[ c_{1}=0,c_{2}=0,c_{3}=0,c_{4}=0\right]
+\]
+Therefore, these are linearly independent.
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.59} In the context of the above problem, consider polynomials
+\begin{equation*}
+\left\{ a_{i}x^{3}+b_{i}x^{2}+c_{i}x+d_{i},\ i=1,2,3,4\right\}
+\end{equation*}
+Show that this collection of polynomials is linearly independent on an
+interval $\left[ s,t\right] $ if and only if
+\begin{equation*}
+\left[
+\begin{array}{cccc}
+a_{1} & b_{1} & c_{1} & d_{1} \\
+a_{2} & b_{2} & c_{2} & d_{2} \\
+a_{3} & b_{3} & c_{3} & d_{3} \\
+a_{4} & b_{4} & c_{4} & d_{4}
+\end{array}
+\right]
+\end{equation*}
+is an invertible matrix.
+\begin{hint}
+Let $p_{i}\left( x\right) $ denote the $i^{th}$ of
+these polynomials. Suppose $\sum_{i}C_{i}p_{i}\left( x\right) =0.$ Then
+collecting terms according to the exponent of $x,$ you need to have
+\begin{eqnarray*}
+C_{1}a_{1}+C_{2}a_{2}+C_{3}a_{3}+C_{4}a_{4} &=&0 \\
+C_{1}b_{1}+C_{2}b_{2}+C_{3}b_{3}+C_{4}b_{4} &=&0 \\
+C_{1}c_{1}+C_{2}c_{2}+C_{3}c_{3}+C_{4}c_{4} &=&0 \\
+C_{1}d_{1}+C_{2}d_{2}+C_{3}d_{3}+C_{4}d_{4} &=&0
+\end{eqnarray*}
+The matrix of coefficients is just the transpose of the above matrix. There
+exists a non trivial solution if and only if the determinant of this matrix
+equals 0.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.60} Let the field of scalars be $\mathbb{Q}$, the rational numbers and let
+the vectors be of the form $a+b\sqrt{2}$ where $a,b$ are rational numbers.
+Show that this collection of vectors is a vector space with field of scalars
+$\mathbb{Q}$ and give a basis for this vector space.
+\begin{hint}
+When you add two of these you get one and when you multiply one of these by
+a scalar, you get another one. A basis is $\left\{ 1,\sqrt{2}\right\} $. By
+definition, the span of these gives the collection of vectors. Are they
+independent? Say $a+b\sqrt{2}=0$ where $a,b$ are rational numbers. If $a\neq
+0,$ then $b\sqrt{2}=-a$ which can't happen since $a$ is rational. If $b\neq
+0,$ then $-a=b\sqrt{2}$ which again can't happen because on the left is a
+rational number and on the right is an irrational. Hence both $a,b=0$ and so
+this is a basis.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.61} Suppose $V$ is a finite dimensional vector space. Based on the
+exchange theorem above, it was shown that any two bases have the same number
+of vectors in them. Give a different proof of this fact using the earlier
+material in the book. \textbf{Hint: }Suppose $\left\{ \vec{x}_{1}\vec{
+,\cdots ,x}_{n}\right\} $ and $\left\{ \vec{y}_{1}\vec{,\cdots ,y}
+_{m}\right\} $ are two bases with $m<n.$ Then define
+\begin{equation*}
+\phi :\mathbb{R}^{n}\mapsto V,\psi :\mathbb{R}^{m}\mapsto V
+\end{equation*}
+by
+\begin{equation*}
+\phi \left( \vec{a}\right) = \sum_{k=1}^{n}a_{k}\vec{x}
+_{k},\;\psi \left( \vec{b}\right) = \sum_{j=1}^{m}b_{j}\vec{y}_{j}
+\end{equation*}
+Consider the linear transformation, $\psi ^{-1}\circ \phi .$ Argue it is a
+one to one and onto mapping from $\mathbb{R}^{n}$ to $\mathbb{R}^{m}.$ Now
+consider a matrix of this linear transformation and its reduced row echelon form.
+\begin{hint}
+This is obvious because
+when you add two of these you get one and when you multiply one of these by
+a scalar, you get another one. A basis is $\left\{ 1,\sqrt{2}\right\} $. By
+definition, the span of these gives the collection of vectors. Are they
+independent? Say $a+b\sqrt{2}=0$ where $a,b$ are rational numbers. If $a\neq
+0,$ then $b\sqrt{2}=-a$ which can't happen since $a$ is rational. If $b\neq
+0,$ then $-a=b\sqrt{2}$ which again can't happen because on the left is a
+rational number and on the right is an irrational. Hence both $a,b=0$ and so
+this is a basis.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.62} Let $M=\left\{ \vec{u}=\left( u_{1},u_{2},u_{3},u_{4}\right) \in
+\mathbb{R}^{4}:\left| u_{1}\right| \leq 4\right\} .$ Is $M$ a subspace of $\mathbb{R}^4$?
+\begin{hint}
+This is not a subspace. $\left[ \begin{array}{r}
+1 \\
+1 \\
+1 \\
+1
+\end{array}
+\right] $ is in
+it, but $20\left[
+\begin{array}{r}
+1 \\
+1 \\
+1 \\
+1
+\end{array}
+\right] $ is not.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.63} Let $M=\left\{ \vec{u}=\left( u_{1},u_{2},u_{3},u_{4}\right) \in
+\mathbb{R}^{4}:\sin \left( u_{1}\right) =1\right\} .$ Is $M$ a subspace of $\mathbb{R}^4$?
+\begin{hint}
+This is not a subspace.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.64} Let $W$ be a subset of $M_{22}$ given by
+\[
+W = \left\{ A | A \in M_{22}, A^T = A \right\}
+\]
+In words, $W$ is the set of all symmetric $2 \times 2$ matrices. Is $W$ a subspace of $M_{22}$?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.65} Let $W$ be a subset of $M_{22}$ given by
+\[
+W = \left\{ \left[ \begin{array}{rr}
+a  & b \\
+c & d
+\end{array} \right] | a,b,c,d \in \mathbb{R}, a + b = c + d \right\}
+\]
+Is $W$ a subspace of $M_{22}$?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.66} Let $W$ be a subset of $P_3$ given by
+\[
+W = \left\{
+ax^3 + bx^2 + cx + d | a,b,c,d \in \mathbb{R}, d = 0 \right\}
+\]
+Is $W$ a subspace of $P_3$?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.67} Let $W$ be a subset of $P_3$ given by
+\[
+W = \left\{
+p(x) = ax^3 + bx^2 + cx + d | a,b,c,d \in \mathbb{R}, p(2) = 1 \right\}
+\]
+Is $W$ a subspace of $P_3$?
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.68}
+Let $T:\mathbb{P}_2 \to \mathbb{R}$ be a linear transformation such that
+\[ T(x^2)=1; T(x^2+x)=5; T(x^2+x+1)=-1.\]
+Find $T(ax^2+bx+c)$.
+\begin{hint}
+By linearity we have
+$T(x^2)=1$, $T(x) = T(x^2+x - x^2)= T(x^2+x) - T(x^2)= 5-1=5$, and
+$T(1) = T(x^2+x+1 -(x^2+x))=T(x^2+x+1) -T(x^2+x))= -1-5=-6$.
+
+Thus$T(ax^2+bx+c) = aT(x^2) + bT(x) + cT(1) = a+5b-6c$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.69} Consider the following functions $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{2}.$
+Explain why each of these functions $T$ is not linear.
+
+\begin{enumerate}
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z+1 \\
+2y-3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y^{2}+3z \\
+2y+3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+\sin x+2y+3z \\
+2y+3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z \\
+2y+3x-\ln z
+\end{array}
+\right] $
+\end{enumerate}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.70} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+1 \\
+-7
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+3 \\
+3 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+0 \\
+6
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+2 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+2
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+3 \\
+-1
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+3 & 1 & 1 \\
+3 & 2 & 3 \\
+3 & 3 & -1
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+6 & 2 & 1 \\
+5 & 2 & 1 \\
+6 & 1 & 1
+\end{array}
+\right] =\allowbreak \left[
+\begin{array}{ccc}
+29 & 9 & 5 \\
+46 & 13 & 8 \\
+27 & 11 & 5
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.71} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+2 \\
+-18
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+5 \\
+2 \\
+5
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+-1 \\
+15
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+3 \\
+3 \\
+5
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+4
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+2 \\
+5 \\
+-2
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+5 & 3 & 2 \\
+2 & 3 & 5 \\
+5 & 5 & -2
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+11 & 4 & 1 \\
+10 & 4 & 1 \\
+12 & 3 & 1
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+109 & 38 & 10 \\
+112 & 35 & 10 \\
+81 & 34 & 8
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.72} Consider the following functions $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{2}$.
+Show that each is a linear transformation and determine for each the matrix $A$ such that
+$T(\vec{x})=A\vec{x}$.
+
+\begin{enumerate}
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z \\
+2y-3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+7x+2y+z \\
+3x-11y+2z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+3x+2y+z \\
+x+2y+6z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+2y-5x+z \\
+x+y+z
+\end{array}
+\right] $
+\end{enumerate}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.73} Suppose
+\begin{equation*}
+\left[
+\begin{array}{ccc}
+A_{1} & \cdots & A_{n}
+\end{array}
+\right] ^{-1}
+\end{equation*}
+ exists where each $A_{j}\in \mathbb{R}^{n}$ and let
+vectors  $\left\{ B_{1},\cdots ,B_{n}\right\} $ in $\mathbb{R}^{m}$ be given.
+Show that there \textbf{always }exists a linear
+transformation $T$ such that $T(A_{i})=B_{i}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.74} Let $V$ and $W$ be subspaces of $\mathbb{R}^{n}$ and $\mathbb{R}^{m}$
+respectively and let $T:V\rightarrow W$ be a linear transformation. Suppose
+that $\left\{ T\vec{v}_{1},\cdots ,T\vec{v}_{r}\right\} $ is linearly
+independent. Show that it must be the case that $\left\{ \vec{v}_{1},\cdots ,
+\vec{v}_{r}\right\} $ is also linearly independent.
+\begin{hint}
+If $\sum_i^r a_i \vec{v}_r =0$, then using linearity properties of $T$ we get
+\[ 0 = T(0) =  T(\sum_i^r a_i \vec{v}_r) =
+\sum_i^r a_i T(\vec{v}_r).\]
+Since we assume that  $\left\{ T\vec{v}_{1},\cdots ,T\vec{v}_{r}\right\} $ is linearly
+independent, we must have all $a_i=0$, and therefore we conclude that
+ $\left\{ \vec{v}_{1},\cdots ,
+\vec{v}_{r}\right\} $ is also linearly independent.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.75} Let
+\begin{equation*}
+V=\mbox{span}\left\{ \left[
+\begin{array}{c}
+1 \\
+1 \\
+2 \\
+0
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+1 \\
+1 \\
+0 \\
+1
+\end{array}
+\right] \right\}
+\end{equation*}
+Let $T\vec{x}=A\vec{x}$ where $A$ is the matrix
+\begin{equation*}
+\left[
+\begin{array}{cccc}
+1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 \\
+0 & 1 & 2 & 1 \\
+1 & 1 & 1 & 2
+\end{array}
+\right]
+\end{equation*}
+Give a basis for $\mbox{im}\left( T\right) $.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.76} Let
+\begin{equation*}
+V=\mbox{span}\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+0 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+1 \\
+1 \\
+1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+1 \\
+4 \\
+4 \\
+1
+\end{array}
+\right] \right\}
+\end{equation*}
+Let $T\vec{x}=A\vec{x}$ where $A$ is the matrix
+\begin{equation*}
+\left[
+\begin{array}{cccc}
+1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 \\
+0 & 1 & 2 & 1 \\
+1 & 1 & 1 & 2
+\end{array}
+\right]
+\end{equation*}
+Find a basis for $\mbox{im}\left( T\right) $. In this case, the original
+vectors do not form an independent set.
+
+\begin{hint}
+Since the third vector is a linear combinations of the first two, then
+the image of the third vector will also be a linear combinations of
+the image of the first two.  However the image of the first two
+vectors are linearly independent (check!), and hence form a basis of
+the image.
+
+Thus a basis for $\mbox{im}\left( T\right) $ is:
+
+\begin{equation*}
+V=\mbox{span}\left\{ \left[
+\begin{array}{c}
+2 \\
+0 \\
+1 \\
+3
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+4 \\
+2 \\
+4 \\
+5
+\end{array}
+\right]  \right\}
+\end{equation*}
+
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.77} If $\left\{ \vec{v}_{1},\cdots ,\vec{v}_{r}\right\} $ is linearly
+independent and $T$ is a one to one linear transformation, show that $
+\left\{ T\vec{v}_{1},\cdots ,T\vec{v}_{r}\right\} $ is also linearly
+independent. Give an example which shows that if $T$ is only linear, it can
+happen that, although $\left\{ \vec{v}_{1},\cdots ,\vec{v}_{r}\right\} $ is
+linearly independent, $\left\{ T\vec{v}_{1},\cdots ,T\vec{v}_{r}\right\} $
+is not. In fact, show that it can happen that each of the $T\vec{v}_{j}$
+equals 0.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.78} Let $V$ and $W$ be subspaces of $\mathbb{R}^{n}$ and $\mathbb{R}^{m}$
+respectively and let $T:V\rightarrow W$ be a linear transformation. Show
+that if $T$ is onto $W$ and if $\left\{ \vec{v}_{1},\cdots ,\vec{v}
+_{r}\right\} $ is a basis for $V,$ then $\mbox{span}\left\{ T\vec{v}
+_{1},\cdots ,T\vec{v}_{r}\right\} =W$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.79} Define $T:\mathbb{R}^{4}\rightarrow \mathbb{R}^{3}$ as follows.
+\begin{equation*}
+T\vec{x}=\left[
+\begin{array}{rrrr}
+3 & 2 & 1 & 8 \\
+2 & 2 & -2 & 6 \\
+1 & 1 & -1 & 3
+\end{array}
+\right] \vec{x}
+\end{equation*}
+Find a basis for $\mbox{im}\left( T\right) $. Also find a basis for $\ker
+\left( T\right) .$
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.80} Define $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{3}$ as follows.
+\begin{equation*}
+T\vec{x}=\left[
+\begin{array}{ccc}
+1 & 2 & 0 \\
+1 & 1 & 1 \\
+0 & 1 & 1
+\end{array}
+\right] \vec{x}
+\end{equation*}
+where on the right, it is just matrix multiplication of the vector $\vec{x}$
+which is meant. Explain why $T$ is an isomorphism of $\mathbb{R}^{3}$ to $
+\mathbb{R}^{3}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.81} Suppose $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{3}$ is a linear
+transformation given by
+\begin{equation*}
+T\vec{x}=A\vec{x}
+\end{equation*}
+where $A$ is a $3\times 3$ matrix. Show that $T$ is an isomorphism if and
+only if $A$ is invertible.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.82} Suppose $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$ is a linear
+transformation given by
+\begin{equation*}
+T\vec{x}=A\vec{x}
+\end{equation*}
+where $A$ is an $m\times n$ matrix. Show that $T$ is never an isomorphism if
+$m\neq n$. In particular, show that if $m>n,$ $T$ cannot be onto and if $
+m<n, $ then $T$ cannot be one to one.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.83} Define $T:\mathbb{R}^{2}\rightarrow \mathbb{R}^{3}$ as follows.
+\begin{equation*}
+T\vec{x}=\left[
+\begin{array}{cc}
+1 & 0 \\
+1 & 1 \\
+0 & 1
+\end{array}
+\right] \vec{x}
+\end{equation*}
+where on the right, it is just matrix multiplication of the vector $\vec{x}$
+which is meant. Show that $T$ is one to one. Next let $W=\mbox{im}\left(
+T\right) .$ Show that $T$ is an isomorphism of $\mathbb{R}^{2}$ and $\mbox{im
+}\left( T\right) $.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.84} In the above problem, find a $2\times 3$ matrix $A$ such that the
+restriction of $A$ to $\mbox{im}\left( T\right) $ gives the same result as $
+T^{-1}$ on $\mbox{im}\left( T\right) $. \textbf{Hint:\ }You might let $A$ be
+such that
+\begin{equation*}
+A\left[
+\begin{array}{c}
+1 \\
+1 \\
+0
+\end{array}
+\right] =\left[
+\begin{array}{c}
+1 \\
+0
+\end{array}
+\right] ,\ A\left[
+\begin{array}{c}
+0 \\
+1 \\
+1
+\end{array}
+\right] =\left[
+\begin{array}{c}
+0 \\
+1
+\end{array}
+\right]
+\end{equation*}
+now find another vector $\vec{v}\in \mathbb{R}^{3}$ such that
+\begin{equation*}
+\left\{ \left[
+\begin{array}{c}
+1 \\
+1 \\
+0
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+1
+\end{array}
+\right] ,\vec{v}\right\}
+\end{equation*}
+is a basis. You could pick
+\begin{equation*}
+\vec{v}=\left[
+\begin{array}{c}
+0 \\
+0 \\
+1
+\end{array}
+\right]
+\end{equation*}
+for example. Explain why this one works or one of your choice works. Then
+you could define $A\vec{v}$ to equal some vector in $\mathbb{R}^{2}.$
+Explain why there will be more than one such matrix $A$ which will deliver
+the inverse isomorphism $T^{-1}$ on $\mbox{im}\left( T\right) $.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.85} Now let $V$ equal $\mbox{span}\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+1
+\end{array}
+\right] \right\} $ and let $T:V\rightarrow W$ be a linear transformation
+where
+\begin{equation*}
+W=\mbox{span}\left\{ \left[
+\begin{array}{c}
+1 \\
+0 \\
+1 \\
+0
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+1 \\
+1
+\end{array}
+\right] \right\}
+\end{equation*}
+$\ $\ and
+\begin{equation*}
+T\left[
+\begin{array}{c}
+1 \\
+0 \\
+1
+\end{array}
+\right] =\left[
+\begin{array}{c}
+1 \\
+0 \\
+1 \\
+0
+\end{array}
+\right] ,T\left[
+\begin{array}{c}
+0 \\
+1 \\
+1
+\end{array}
+\right] =\left[
+\begin{array}{c}
+0 \\
+1 \\
+1 \\
+1
+\end{array}
+\right]
+\end{equation*}
+Explain why $T$ is an isomorphism. Determine a matrix $A$ which, when
+multiplied on the left gives the same result as $T$ on $V$ and a matrix $B$
+which delivers $T^{-1}$ on $W$. \textbf{Hint:\ }You need to have
+\begin{equation*}
+A\left[
+\begin{array}{cc}
+1 & 0 \\
+0 & 1 \\
+1 & 1
+\end{array}
+\right] =\left[
+\begin{array}{cc}
+1 & 0 \\
+0 & 1 \\
+1 & 1 \\
+0 & 1
+\end{array}
+\right]
+\end{equation*}
+Now enlarge $\left[
+\begin{array}{c}
+1 \\
+0 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{c}
+0 \\
+1 \\
+1
+\end{array}
+\right] $ to obtain a basis for $\mathbb{R}^{3}$. You could add in $\left[
+\begin{array}{c}
+0 \\
+0 \\
+1
+\end{array}
+\right] $ for example, and then pick another vector in $\mathbb{R}^{4}$ and
+let $A\left[
+\begin{array}{c}
+0 \\
+0 \\
+1
+\end{array}
+\right] $ equal this other vector. Then you would have
+\begin{equation*}
+A\left[
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 1 & 1
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 1 & 0 \\
+0 & 1 & 1
+\end{array}
+\right]
+\end{equation*}
+This would involve picking for the new vector in $\mathbb{R}^{4}$ the vector
+$\left[
+\begin{array}{cccc}
+0 & 0 & 0 & 1
+\end{array}
+\right] ^{T}.$ Then you could find $A$. You can do something similar to find
+a matrix for $T^{-1}$ denoted as $B$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.86}
+Let $V=\mathbb{R}^{3}$ and let
+\begin{equation*}
+W=\mbox{span} \left( S \right),  \mbox{ where } S=\left\{ \left[
+\begin{array}{r}
+1 \\
+-1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{r}
+-2 \\
+2 \\
+-2
+\end{array}
+\right],\left[
+\begin{array}{r}
+-1 \\
+1 \\
+1
+\end{array}
+\right],\left[
+\begin{array}{r}
+1 \\
+-1 \\
+3
+\end{array}
+\right] \right\}
+\end{equation*}
+Find a basis of $W$ consisting of vectors in $S$.
+
+\begin{hint}
+In this case $\dim (W)=1$ and a basis for $W$ consisting of vectors in $S$ can be obtained by taking any (nonzero) vector from $S$.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.87}
+ Let $T$ be a linear transformation given by
+\[
+T \left[ \begin{array}{r}
+x\\
+y
+\end{array}\right] = \left[ \begin{array}{rrr}
+1 &1  \\
+1 & 1
+\end{array}\right]
+\left[ \begin{array}{r}
+x\\
+y
+\end{array}\right]
+\]
+Find a basis for $\ker \left( T\right)$ and $\mbox{im} \left( T\right) $.
+
+\begin{hint}
+A basis for $\ker \left( T\right)$ is
+$\left\{ \left[
+\begin{array}{r}
+1 \\
+-1
+\end{array}
+\right] \right\}$
+and a basis for $\mbox{im} \left( T\right)$ is
+$\left\{ \left[
+\begin{array}{r}
+1 \\
+1
+\end{array}
+\right] \right\}$. \\
+There are many other possibilities for the specific bases, but in this case
+$\dim \left( \ker \left( T\right) \right)=1 $ and $\dim \left( \mbox{im} \left( T\right) \right)=1$.
+\end{hint}
+
+\end{problem}
+
+
+\begin{problem}\label{prb:10.88}
+ Let $T$ be a linear transformation given by
+\[
+T \left[ \begin{array}{r}
+x\\
+y
+\end{array}\right] = \left[ \begin{array}{rrr}
+1 & 0  \\
+1 & 1
+\end{array}\right]
+\left[ \begin{array}{r}
+x\\
+y
+\end{array}\right]
+\]
+Find a basis for $\ker \left( T\right)$ and $\mbox{im}
+\left( T\right) $.
+
+\begin{hint}
+In this case $\ker \left( T\right) =\{0\}$
+and $\mbox{im} \left( T\right) = \mathbb{R}^2$ (pick any basis of $\mathbb{R}^2$).
+\end{hint}
+
+\end{problem}
+
+
+
+\begin{problem}\label{prb:10.89}
+Let $V=\mathbb{R}^{3}$ and let
+\begin{equation*}
+W=\mbox{span}\left\{ \left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{r}
+-1 \\
+2 \\
+-1
+\end{array}
+\right] \right\}
+\end{equation*}
+Extend this basis of $W$ to a basis of $V$.
+
+\begin{hint}
+There are many possible such extensions, one is (how do we know?):
+\begin{equation*}
+\left\{ \left[
+\begin{array}{r}
+1 \\
+1 \\
+1
+\end{array}
+\right] ,\left[
+\begin{array}{r}
+-1 \\
+2 \\
+-1
+\end{array}
+\right] ,\left[
+\begin{array}{r}
+0  \\
+0\\
+1
+\end{array}
+\right]
+\right\}
+\end{equation*}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.90}
+ Let $T$ be a linear transformation given by
+\[
+T \left[ \begin{array}{r}
+x\\
+y \\
+z
+\end{array}\right] = \left[ \begin{array}{rrr}
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{array}\right]
+\left[ \begin{array}{r}
+x\\
+y \\
+z
+\end{array}\right]
+\]
+What is $\dim  ( \ker \left( T \right) )$?
+
+\begin{hint}
+We can easily see that $\dim  ( \mbox{im} \left( T \right) ) =1$, and thus
+$\dim  ( \ker \left( T \right) ) = 3 - \dim  ( \mbox{im} \left( T \right) ) = 3- 1 = 2$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.91} \label{exerlineartransf}
+Consider the following functions which map $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$.
+
+\begin{enumerate}
+\item $T$ multiplies the $j^{th}$ component of $\vec{x}$ by a nonzero
+number $b.$
+
+\item $T$ replaces the $i^{th}$ component of $\vec{x}$ with $b$ times the
+$j^{th}$ component added to the $i^{th}$ component.
+
+\item $T$ switches the $i^{th}$ and $j^{th}$ components.
+\end{enumerate}
+
+Show these functions are linear transformations and describe their matrices $A$ such that $T\left(\vec{x}\right) = A\vec{x}$.
+\begin{hint}
+\begin{enumerate}
+\item The matrix of $T$ is the elementary matrix which multiplies
+the $j^{th}$ diagonal entry of the identity matrix by $b$.
+\item The matrix of $T$ is the
+elementary matrix which takes $b$ times the $j^{th}$ row and adds to the $%
+i^{th}$ row.
+\item The matrix of $T$ is the elementary matrix which switches the $%
+i^{th}$ and the $j^{th}$ rows where the two components are in the $i^{th}$
+and $j^{th}$ positions.
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.92} You are given a linear transformation $T:\mathbb{R}^{n}\rightarrow
+\mathbb{R}^{m}$ and you know that
+\begin{equation*}
+T\left(A_{i}\right)=B_{i}
+\end{equation*}
+where $\left[
+\begin{array}{ccc}
+A_{1} & \cdots & A_{n}
+\end{array}
+\right] ^{-1}$ exists. Show that the matrix of $T$ is of the form
+\begin{equation*}
+\left[
+\begin{array}{ccc}
+B_{1} & \cdots & B_{n}
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+A_{1} & \cdots & A_{n}
+\end{array}
+\right] ^{-1}
+\end{equation*}
+\begin{hint}
+Suppose
+\[
+\left[
+\begin{array}{c}
+\vec{c}_{1}^{T} \\
+\vdots \\
+\vec{c}_{n}^{T}
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+\vec{a}_{1} & \cdots & \vec{a}_{n}
+\end{array}
+\right]^{-1}
+\]
+Thus $\vec{c}_{i}^{T}\vec{a}_{j}=\delta _{ij}$. Therefore,
+\begin{eqnarray*}
+\left[
+\begin{array}{ccc}
+\vec{b}_{1} & \cdots & \vec{b}_{n}
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+\vec{a}_{1} & \cdots & \vec{a}_{n}
+\end{array}
+\right] ^{-1}\vec{a}_{i} &=&
+\left[
+\begin{array}{ccc}
+\vec{b}_{1} & \cdots & \vec{b}_{n}
+\end{array}
+\right] \left[
+\begin{array}{c}
+\vec{c}_{1}^{T} \\
+\vdots \\
+\vec{c}_{n}^{T}
+\end{array}
+\right] \vec{a}_{i} \\
+&=&\left[
+\begin{array}{ccc}
+\vec{b}_{1} & \cdots & \vec{b}_{n}
+\end{array}
+\right] \vec{e}_{i} \\
+&=&\vec{b}_{i}
+\end{eqnarray*}
+Thus $T\vec{a}_{i}=\left[
+\begin{array}{ccc}
+\vec{b}_{1} & \cdots & \vec{b}_{n}
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+\vec{a}_{1} & \cdots & \vec{a}_{n}
+\end{array}
+\right] ^{-1}\vec{a}_{i} =  A\vec{a}_{i}.$ If $\vec{x}$ is
+arbitrary, then since the matrix $\left[
+\begin{array}{ccc}
+\vec{a}_{1} & \cdots & \vec{a}_{n}
+\end{array}
+\right] $ is invertible, there exists a unique $\vec{y}$ such that $
+\left[
+\begin{array}{ccc}
+\vec{a}_{1} & \cdots & \vec{a}_{n}
+\end{array}
+\right] \vec{y}=\vec{x}$ Hence
+\[
+T\vec{x}=T\left( \sum_{i=1}^{n}y_{i}\vec{a}_{i}\right)
+=\sum_{i=1}^{n}y_{i}T\vec{a}_{i}=\sum_{i=1}^{n}y_{i}A\vec{a}
+_{i}=A\left( \sum_{i=1}^{n}y_{i}\vec{a}_{i}\right) =A\vec{x}
+\]
+
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.93} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+2 \\
+-6
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+5 \\
+1 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+-1 \\
+5
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+1 \\
+5
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+2
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+5 \\
+3 \\
+-2
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+5 & 1 & 5 \\
+1 & 1 & 3 \\
+3 & 5 & -2
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+3 & 2 & 1 \\
+2 & 2 & 1 \\
+4 & 1 & 1
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+37 & 17 & 11 \\
+17 & 7 & 5 \\
+11 & 14 & 6
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.94} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+1 \\
+-8
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+3 \\
+1
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+0 \\
+6
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+2 \\
+4 \\
+1
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+3
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+6 \\
+1 \\
+-1
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+1 & 2 & 6 \\
+3 & 4 & 1 \\
+1 & 1 & -1
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+6 & 3 & 1 \\
+5 & 3 & 1 \\
+6 & 2 & 1
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+52 & 21 & 9 \\
+44 & 23 & 8 \\
+5 & 4 & 1
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.95} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+3 \\
+-7
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+-3 \\
+1 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+-2 \\
+6
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+3 \\
+-3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+2
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+5 \\
+3 \\
+-3
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}\vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+-3 & 1 & 5 \\
+1 & 3 & 3 \\
+3 & -3 & -3
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+2 & 2 & 1 \\
+1 & 2 & 1 \\
+4 & 1 & 1
+\end{array}
+\right] = \left[
+\begin{array}{rrr}
+15 & 1 & 3 \\
+17 & 11 & 7 \\
+-9 & -3 & -3
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.96} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+1 \\
+-7
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+3 \\
+3 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+0 \\
+6
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+2 \\
+3
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+2
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+1 \\
+3 \\
+-1
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+3 & 1 & 1 \\
+3 & 2 & 3 \\
+3 & 3 & -1
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+6 & 2 & 1 \\
+5 & 2 & 1 \\
+6 & 1 & 1
+\end{array}
+\right] =\allowbreak \left[
+\begin{array}{ccc}
+29 & 9 & 5 \\
+46 & 13 & 8 \\
+27 & 11 & 5
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.97} Suppose $T$ is a linear transformation such that
+\begin{eqnarray*}
+T\left[
+\begin{array}{r}
+1 \\
+2 \\
+-18
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+5 \\
+2 \\
+5
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+-1 \\
+-1 \\
+15
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+3 \\
+3 \\
+5
+\end{array}
+\right] \\
+T\left[
+\begin{array}{r}
+0 \\
+-1 \\
+4
+\end{array}
+\right] &=&\left[
+\begin{array}{r}
+2 \\
+5 \\
+-2
+\end{array}
+\right]
+\end{eqnarray*}
+Find the matrix of $T$. That is find $A$ such that $T(\vec{x})=A\vec{x}$. \vspace{1mm}
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+5 & 3 & 2 \\
+2 & 3 & 5 \\
+5 & 5 & -2
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+11 & 4 & 1 \\
+10 & 4 & 1 \\
+12 & 3 & 1
+\end{array}
+\right] =\left[
+\begin{array}{ccc}
+109 & 38 & 10 \\
+112 & 35 & 10 \\
+81 & 34 & 8
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.98} Consider the following functions $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{2}$.
+Show that each is a linear transformation and determine for each the matrix $A$ such that
+$T(\vec{x})=A\vec{x}$.
+
+\begin{enumerate}
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z \\
+2y-3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+7x+2y+z \\
+3x-11y+2z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+3x+2y+z \\
+x+2y+6z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+2y-5x+z \\
+x+y+z
+\end{array}
+\right] $
+\end{enumerate}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.99} Consider the following functions $T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{2}.$
+Explain why each of these functions $T$ is not linear.
+
+\begin{enumerate}
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z+1 \\
+2y-3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y^{2}+3z \\
+2y+3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+\sin x+2y+3z \\
+2y+3x+z
+\end{array}
+\right] $
+
+\item $T\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] =\left[
+\begin{array}{c}
+x+2y+3z \\
+2y+3x-\ln z
+\end{array}
+\right] $
+\end{enumerate}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.100} Suppose
+\begin{equation*}
+\left[
+\begin{array}{ccc}
+A_{1} & \cdots & A_{n}
+\end{array}
+\right] ^{-1}
+\end{equation*}
+ exists where each $A_{j}\in \mathbb{R}^{n}$ and let
+vectors  $\left\{ B_{1},\cdots ,B_{n}\right\} $ in $\mathbb{R}^{m}$ be given.
+Show that there \textbf{always }exists a linear
+transformation $T$ such that $T(A_{i})=B_{i}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.101}  Find the matrix for $T\left(\vec{w} \right) = \mbox{proj}_{\vec{v}}\left( \vec{w}\right) $
+where $\vec{v}=\left[
+\begin{array}{rrr}
+1 & -2 & 3
+\end{array}
+\right] ^{T}.$
+\begin{hint}
+ Recall that $\mbox{proj}_{\vec{u}}\left( \vec{v}\right) =\frac{\vec{v}\dotp\vec{u} }{\norm{\vec{u}}^{2}}\vec{u}$ and so the desired matrix
+has $i^{th}$ column equal to $\mbox{proj}_{\vec{u}}\left( \vec{e}_{i}\right) .$ Therefore, the matrix desired is
+\[
+\frac{1}{14}\left[
+\begin{array}{rrr}
+1 & -2 & 3 \\
+-2 & 4 & -6 \\
+3 & -6 & 9
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.102}  Find the matrix for $T\left(\vec{w} \right) = \mbox{proj}_{\vec{v}}\left( \vec{w}\right) $
+where $\vec{v}=\left[
+\begin{array}{rrr}
+1 & 5 & 3
+\end{array}
+\right] ^{T}.$
+\begin{hint}
+\[
+\frac{1}{35}\left[
+\begin{array}{rrr}
+1 & 5 & 3 \\
+5 & 25 & 15 \\
+3 & 15 & 9
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:10.103} Find the matrix for $T\left(\vec{w} \right) = \mbox{proj}_{\vec{v}}\left( \vec{w}\right) $
+where $\vec{v}=\left[
+\begin{array}{rrr}
+1 & 0 & 3
+\end{array}
+\right] ^{T}.$
+\begin{hint}
+\[
+\frac{1}{10}\left[
+\begin{array}{ccc}
+1 & 0 & 3 \\
+0 & 0 & 0 \\
+3 & 0 & 9
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+
+
+
+
+\begin{problem}\label{prb:10.104}
+Let $B = \left\{ \left[ \begin{array}{r}
+2 \\
+-1
+\end{array} \right], \left[ \begin{array}{r}
+3 \\
+2
+\end{array} \right] \right\}$ be a basis of $\mathbb{R}^2$ and let $\vec{x} = \left[
+\begin{array}{r}
+5 \\
+-7
+\end{array}
+\right]$ be a vector in $\mathbb{R}^2$. Find $C_B(\vec{x})$.
+\end{problem}
+
+\begin{problem}\label{prb:10.105}
+Let $B = \left\{ \left[ \begin{array}{r}
+1 \\
+-1 \\
+2
+\end{array} \right], \left[ \begin{array}{r}
+2 \\
+1 \\
+2
+ \end{array} \right], \left[ \begin{array}{r}
+-1 \\
+0 \\
+2
+\end{array} \right] \right\}$
+be a basis of $\mathbb{R}^3$ and let $\vec{x} = \left[
+\begin{array}{r}
+5 \\
+-1 \\
+4
+\end{array}
+\right]$ be a vector in $\mathbb{R}^2$. Find $C_B(\vec{x})$.
+\begin{hint}
+ $C_B(\vec{x}) =
+\left[ \begin{array}{r}
+2 \\
+1 \\
+-1
+ \end{array} \right] $.
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:10.106}
+Let $T: \mathbb{R}^2 \mapsto \mathbb{R}^2$ be a linear transformation defined by $T \left( \left[ \begin{array}{r}
+a \\
+b
+\end{array} \right] \right) = \left[ \begin{array}{r}
+a+b \\
+a-b
+\end{array} \right]$.
+
+Consider the two bases
+\[
+B_1 = \left\{ \vec{v}_{1}, \vec{v}_{2} \right\} = \left\{ \left[ \begin{array}{r}
+1 \\
+0
+\end{array}\right], \left[ \begin{array}{r}
+-1 \\
+1
+\end{array}
+\right]
+\right\}
+\]
+ and
+\[
+B_2 = \left\{ \left[ \begin{array}{r}
+1 \\
+1
+\end{array}
+\right], \left[ \begin{array}{r}
+1 \\
+-1
+\end{array}
+\right]
+\right\}
+\]
+
+Find the matrix $M_{B_2,B_1}$ of $T$ with respect to the bases $B_1$ and $B_2$.
+\begin{hint}
+$
+M_{B_{2} B_{1}} = \left[
+\begin{array}{rr}
+ 1 & 0 \\
+ -1 & 1
+\end{array}
+\right] $
+\end{hint}
+\end{problem}
+
+
+
+
+\section*{Practice Problem Source}
+These problems come from Chapter 9 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 469--535.  
+
+\end{document}
