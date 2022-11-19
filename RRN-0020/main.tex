@@ -1,18 +1,17 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{Parametric Equations of Lines} \license{CC-BY 4.0}
+ \title{Parametric Equations of Lines} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
-%  We use parametric equations to represent lines in $\RR^2$, $\RR^3$ and $\RR^n$.
-\end{abstract}
+  \end{abstract}
 \maketitle
 
 \section*{Parametric Equations of Lines}
 
-At this point you should be very familiar with graphing linear equations of the form $y=mx+b$, where $m$ is the slope of the line and $b$ is the $y$-intercept.  Unfortunately, there is no equivalent way of representing lines in $\RR^3$, or better yet, $\RR^n$.  In this module we will develop an alternative way of representing lines.
+At this point you should be very familiar with graphing linear equations of the form $y=mx+b$, where $m$ is the slope of the line and $b$ is the $y$-intercept.  Unfortunately, there is no equivalent way of representing lines in $\RR^3$, or better yet, $\RR^n$.  In this section we will develop an alternative way of representing lines.
 
 \subsection*{Parametric Lines in $\RR^2$}
 \begin{exploration}\label{init:paramline2d}
@@ -114,8 +113,6 @@ $$\begin{array}{|c|c|c|}
  \end{array}$$
 
 Observe that every time $t$ increases by $1$, $x$ increases by $2$ and $y$ decreases by $3$.  An increase by $2$ in the $x$-coordinate combined with a decrease of $3$ in the $y$-coordinate corresponds to the coefficients $2$ and $-3$ of $t$ in the parametric equations.  Our findings are in agreement with the fact that the slope of the line is $-\frac{2}{3}$.  
-
-%When only two coefficients are involved, it is convenient to use the ratio of the two coefficients, $m=\frac{\text{rise}}{\text{run}}$, but thinking ahead to higher dimensions (and more coordinates given by parametric equations), we need to find another way to communicate the same information.  
 
 We will capture the ``rise" and ``run" aspect of the line by using vector $\vec{v}=\begin{bmatrix}2\\-3\end{bmatrix}$. Sketching $\vec{v}$ together with the line, we find that the vector is parallel to the line.  
 
@@ -227,8 +224,6 @@ Observe that every time $t$ increases by $1$, $x$ increases by $4$, $y$ increase
 \end{tikzpicture}
 \end{center}
 
-%Combining numbers $4, 8, 5$ into one ratio, like we did with ``rise" over ``run," is not possible, so w
-
 We will use a direction vector $\vec{v}=\begin{bmatrix}4\\8\\5\end{bmatrix}$ to represent the direction of the line.  Note that the components of  $\vec{v}$ are the same as the coefficients of $t$ in the parametric equations.  
 
 \begin{align*}
@@ -283,6 +278,56 @@ x_2&=v_2t+a_2\\
 x_n&=v_nt+a_n
 \end{align*}
 \end{formula}
+
+\subsection*{From Parametric Equations to Vector Equations}
+Consider again the parametric equations from Exploration \ref{init:paramline2d}.
+\begin{align*}
+x&=2t-1\\
+y&=-3t+6
+\end{align*}
+These equations describe the line by providing coordinates of individual points on the line, as shown in the left figure below.
+
+ \begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-3,-4) grid (6,7);
+  \draw[<->] (-3,0)--(6,0);
+  \draw[<->] (0,-4)--(0,7);
+  \draw[line width=2pt,blue](-1,6)--(5,-3) ;
+\fill[red] (-1,6) node[above right]{$t=0$} circle (0.2cm);
+\fill[red] (1,3) node[above right]{$t=1$} circle (0.2cm);
+\fill[red] (3,0) node[above right]{$t=2$} circle (0.2cm);
+\fill[red] (5,-3) node[above right]{$t=3$} circle (0.2cm);
+ \end{tikzpicture}
+ \quad
+ \quad
+ \begin{tikzpicture}[scale=0.5]
+\draw[thin,gray!40] (-3,-4) grid (6,7);
+  \draw[<->] (-3,0)--(6,0);
+  \draw[<->] (0,-4)--(0,7);
+  \draw[line width=2pt,blue](-1,6)--(5,-3) ;
+  \draw[line width=1pt,red,-stealth](0,0)--(-1,6) ;
+  \draw[line width=1pt,red,-stealth](0,0)--(1,3) ;
+  \draw[line width=1pt,red,-stealth](0,0)--(3,0) ;
+  \draw[line width=1pt,red,-stealth](0,0)--(5,-3) ;
+\fill[red] (-1,6) node[above right]{$t=0$} circle (0.1cm);
+ \fill[red] (1,3) node[above right]{$t=1$} circle (0.1cm);
+ \fill[red] (3,0) node[above right]{$t=2$} circle (0.1cm);
+ \fill[red] (5,-3) node[above right]{$t=3$} circle (0.1cm);
+ \end{tikzpicture}
+\end{center}
+
+If we consider the points on the line to be heads of vectors, then we can think of the line as being ``traced" by a vector as $t$ changes  (See above, right).  We can capture this algebraically by using a \dfn{vector equation} for the line:
+$$\vec{x}(t)=\begin{bmatrix}2t-1\\-3t+6\end{bmatrix}=\begin{bmatrix}2\\-3\end{bmatrix}t+\begin{bmatrix}-1\\6\end{bmatrix}$$
+Note that the direction vector $\begin{bmatrix}2\\-3\end{bmatrix}$ and the point $(-1, 6)$, now vector $\begin{bmatrix}-1\\6\end{bmatrix}$, are easily identifiable.
+
+In general, we can use vector equations to describe line in $\RR^n$.
+
+\begin{formula}\label{form:vectorlinend}
+Let $\vec{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}$ be a direction vector for line $l$ in $\RR^n$, and let $(a_1, a_2,\ldots , a_n)$ be an arbitrary point on $l$.  Then the following vector equation describes $l$:
+$$\vec{x}(t)=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}t+\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}$$
+\end{formula}
+
+
 
 
 \section*{Practice Problems}
