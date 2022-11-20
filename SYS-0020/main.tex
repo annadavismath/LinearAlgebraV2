@@ -1,13 +1,12 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Paul Bender \and Rosemarie Emanuele} \title{Augmented Matrix Notation and Elementary Row Operations} \license{CC-BY-NC-SA}
+\title{Augmented Matrix Notation and Elementary Row Operations} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
-%  We introduce the augmented matrix notation and solve linear system by carrying augmented matrices to row-echelon or reduced row-echelon form.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 \section*{Augmented Matrix Notation and Elementary Row Operations}
@@ -22,9 +21,9 @@ Recall that the following three operations performed on a linear system are call
 \end{itemize}
 
 
-In SYS-0010 we discussed why applying elementary row operations to a linear system results in an equivalent system - a linear system with the same solution set.
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{Introduction to Systems of Linear Equations} we discussed why applying elementary row operations to a linear system results in an equivalent system - a linear system with the same solution set.
 
-In this module we seek an efficient method for recording our computations and arriving at a solution using elementary row operations. 
+In this section we seek an efficient method for recording our computations as we perform elementary row operations. 
 
 \begin{exploration}\label{init:augmentedmatrixex}
 Consider the linear system
@@ -44,85 +43,63 @@ Our goal is to use elementary row operations to transform this system into an eq
      & &&&&&w&=&d
     \end{array}
     \end{equation}
- We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later), but it does exist in this case, and we would like to find a more efficient way of finding it than having to write and rewrite our equations at each step.   
+ We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later).  However, it does exist in this case, and we would like to implement a more efficient way of getting to it than having to write and rewrite our equations at each step.   
  
-In this problem, we prompt you to perform elementary row operations and ask you to fill in the coefficients in the resulting equations.
-\begin{center} 
-$\begin{array}{c}
- \\
- \xrightarrow{R_2-2R_1}\\
-\\
-\\
- \end{array}$
-$\begin{matrix}
+In this problem, we prompt you to perform elementary row operations and ask you to fill in the coefficients in the resulting equations.  This is a multi-step process.  Steps will unfold automatically as you enter correct answers.
+\begin{problem}
+We start by subtracting twice row 1 from row 2. ($R_2-2R_1\rightarrow R_2$)
+
+$$\begin{matrix}
       x &- &y&+&0z&+&0w&= &0 \\
 	 0x& +&0y&+& 1z&+& 2w&=& 4\\
      0x& +&y&+&0z&+&w&=&0\\
      0x&+&0y&+&2z&+&w&=&5
-    \end{matrix}$
-    
- $\begin{array}{c}
- \xrightarrow{R_1+R_3}\\
-\\
-\\
-\\
- \end{array}$
-$\begin{matrix}
+    \end{matrix}$$
+Next, we add row 3 to row 1. ($R_1+R_3\rightarrow R_1$)  
+\begin{prompt}
+ $$\begin{matrix}
       x &+ & \answer{0}y&+&\answer{0}z&+& \answer{1}w&= & \answer{0} \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
      0x&+&0y&+&2z&+&w&=&5
-    \end{matrix}$
- 
-
-$\begin{array}{c}
-\\
-\\
- \\
-\xrightarrow{R_4-2R_2}\\
- \end{array}$
-$\begin{matrix}
-      x &+ &\answer{0}y&+&\answer{0}z&+&\answer{1}w&= &\answer{0} \\
+    \end{matrix}$$
+\end{prompt} 
+\begin{problem}
+\begin{prompt} Subtract twice row 2 from row 4. ($R_4-2R_2\rightarrow R_4$)
+$$\begin{matrix}
+      x &+ &0y&+&0z&+&1w&= &0 \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
      \answer{0}x&+&\answer{0}y&+& \answer{0}z&+& \answer{-3}w&=& \answer{-3}
-    \end{matrix}$
-
-
-$\begin{array}{c}
-\\
- \\
- \\
-\xrightarrow{-\frac{1}{3}R_4}\\
- \end{array}$
-$\begin{matrix}
-      x &+ &\answer{0}y&+&\answer{0}z&+&\answer{1}w&= &\answer{0} \\
+    \end{matrix}$$
+\end{prompt}
+\begin{problem}
+\begin{prompt} Divide row 4 by $-3$. ($-\frac{1}{3}R_4$)
+$$\begin{matrix}
+      x &+ &0y&+&0z&+&1w&= &0 \\
 	 0x& +&0y&+&z&+&2w&=&4\\
      0x& +&y&+&0z&+&w&=&0\\
      \answer{0}x&+&\answer{0}y&+&\answer{0}z&+& \answer{1}w&=&\answer{1}
-    \end{matrix}$
-    
-
-$\begin{array}{c}
- \xrightarrow{R_1-R_4}\\
- \xrightarrow{R_2-2R_4}\\
-\xrightarrow{R_3-R_4}\\
-\\
- \end{array}$
-$\begin{matrix}
+    \end{matrix}$$
+\end{prompt}    
+\begin{problem}
+\begin{prompt} We will do three operations in one step.
+$$R_1-R_4\rightarrow R_1$$
+$$R_2-2R_4\rightarrow R_2$$
+$$R_3-R_4\rightarrow R_3$$
+$$\begin{matrix}
       x &+ &\answer{0}y&+&\answer{0}z&+& \answer{0}w&= & \answer{-1} \\
 	 \answer{0}x& +&\answer{0}y&+&\answer{1}z&+& \answer{0}w&=& \answer{2}\\
      \answer{0}x& +&\answer{1}y&+&\answer{0}z&+& \answer{0}w&=& \answer{-1}\\
-     \answer{0}x&+&\answer{0}y&+&\answer{0}z&+&\answer{1}w&=&\answer{1}
-    \end{matrix}$
-\end{center}    
-
+     0x&+&0y&+&0z&+&1w&=&1
+    \end{matrix}$$
+\end{prompt}    
+\end{problem}
+\end{problem}
+\end{problem}
+\end{problem}
+We now exchange rows 2 and 3. ($R_2\leftrightarrow R_3$)
 \begin{equation}\label{eq:sys20rref1}
-\begin{array}{c}
-\\
-\xrightarrow{R_2\leftrightarrow R_3}\\
-\\
- \end{array}
 \begin{array}{ccccccccc}
       x &+ &0y&+&0z&+&0w&= &-1 \\
    0x& +&y&+&0z&+&0w&=&-1\\
@@ -146,7 +123,7 @@ $$\left[\begin{array}{cccc|c}
  1&-1&0&0&0\\2&-2&1&2&4\\0&1&0&1&0\\0&0&2&1&5
  \end{array}\right]$$
  
- This array is called an \dfn{augmented matrix}.  The side to the left of the vertical bar is called the \dfn{coefficient matrix}, while the side to the right of the vertical bar corresponds to the constants on the right side of the system.
+   The side to the left of the vertical bar is called the \dfn{coefficient matrix}, while the side to the right of the bar is a vector that consists of constants on the right side of the system.  The coefficient matrix, together with the vector, is called an \dfn{augmented matrix}.
  
  We can capture all of the elementary row operations we performed earlier as follows:
 
@@ -235,7 +212,7 @@ We will sometimes use the following notation to represent an augmented matrix.
 $$\left[\begin{array}{c|c}  
  A & \vec{b}\\
  \end{array}\right]$$
-
+The same elementary row operations that we perform on a system of equations can be performed on a matrix (or an augmented matrix).  If a matrix (augmented matrix) was obtained from another matrix (augmented matrix) by means of elementary row operations, we say that the two matrices are \dfn{row-equivalent}.  
 \begin{exploration}\label{init:backsub}
 Consider the system
 $$\begin{array}{ccccccc}
@@ -348,11 +325,8 @@ $$\begin{bmatrix}
  \fbox{1}&0\\0&\fbox{1}\\0&0
  \end{bmatrix}$$
  
- 
-
-When solving linear systems using elementary row operations and the augmented matrix notation, our goal will be to transform the initial coefficient matrix $A$ into its row-echelon or reduced row-echelon form.  The row-echelon form of $A$ and the reduced row-echelon form of $A$ are denoted by 
-$$\mbox{ref}(A)\quad\text{and}\quad\mbox{rref}(A)$$
-respectively.
+ When solving linear systems using the augmented matrix notation, our goal will be to transform the augmented matrix $M=[A|\vec{b}]$ into a row-echelon or reduced row-echelon form.  The reduced row-echelon form of $M$ is denoted by 
+$\mbox{rref}(M)$.  As we transform the augmented matrix $M$ to its reduced row-echelon form, the coefficient matrix $A$ (the matrix to the left of the bar) also gets transformed to its reduced row-echelon form, $\mbox{rref}(A)$. 
 
 
 
@@ -367,7 +341,7 @@ We begin by rewriting the system in the augmented matrix form.
 $$\left[\begin{array}{cccc|c}  
  1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
  \end{array}\right]$$
- Our goal is to carry this matrix to its reduced row-echelon form by means of elementary row operations.  To do this, we will proceed from left to right and use leading entries to wipe out all entries above and below them.
+ Our goal is to convert this matrix to its reduced row-echelon form by means of elementary row operations.  To do this, we will proceed from left to right and use leading entries to wipe out all entries above and below them.
  
  $$\left[\begin{array}{cccc|c}  
  1&-2&1&0&2\\-2&1&-1&1&0\\1&4&0&1&1
