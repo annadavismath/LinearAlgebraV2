@@ -28,13 +28,26 @@ This result follows from the properties of matrix multiplication.
 \vec{v}\right) $ is also a linear transformation.
 \begin{hint}
 \begin{eqnarray*}
-T_{\vec{u}}\left( a\vec{v}+b\vec{w}\right) &=&a\vec{v}+b\vec{w}-\frac{\left( a\vec{v}+b\vec{w}\dotp \vec{u}\right) }{\norm{ \vec{u}
+T_{\vec{u}}\left( a\vec{v}+b\vec{w}\right) &=&a\vec{v}+b\vec{w}-\frac{\left( a\vec{v}+b\vec{w}\right)\dotp \vec{u} }{\norm{ \vec{u}
 } ^{2}}\vec{u} \\
 &=&a\vec{v}-a\frac{\left( \vec{v}\dotp \vec{u}\right) }{\norm{ \vec{u} } ^{2}}\vec{u}+b\vec{w}-b\frac{\left( \vec{w}\dotp \vec{u}
 \right) }{\norm{ \vec{u}} ^{2}}\vec{u} \\
 &=&aT_{\vec{u}}\left( \vec{v}\right) +bT_{\vec{u}}\left( \vec{w}
 \right)
 \end{eqnarray*}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:6.4} Show that if a function $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$
+is linear, then it is \textbf{always }the case that $T\left(\vec{0}\right) = \vec{0}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:linesToLines} Show that if a function $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$
+is linear, then it is \textbf{always }the case that $T$ maps a line to a line (or the origin).
+\begin{hint}
+A line in $\RR^n$ can be expressed as $\vec{x}(t)=\vec{v}t+\vec{v}_0$.
 \end{hint}
 \end{problem}
 
@@ -48,161 +61,6 @@ Linear
 transformations take $\vec{0}$ to $\vec{0}$ which $T$ does not. Also $T_{\vec{a}}\left( \vec{u}+\vec{v}\right) \neq T_{\vec{a}}\vec{u}+T_{\vec{a}}
 \vec{v}.$
 \end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:6.4} Show that if a function $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$
-is linear, then it is \textbf{always }the case that $T\left(\vec{0}\right) = \vec{0}$.
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:6.5} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
-3 & 1 \\
--1 & 2
-\end{array}\right]$ and $S$ a linear transformation induced by $B = \left[ \begin{array}{rr}
-0 & -2 \\
-4 & 2
-\end{array}\right]$. Find matrix of $S \circ T$ and find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
-2 \\
--1
-\end{array} \right]$.
-\begin{hint}
-The matrix of $S \circ T$ is given by $BA$.
-\[
-\left[ \begin{array}{rr}
-0 & -2 \\
-4 & 2
-\end{array}\right] \left[ \begin{array}{rr}
-3 & 1 \\
--1 & 2
-\end{array}\right] = \left[
-\begin{array}{rr}
-2 & -4 \\
-10 & 8
-\end{array}
-\right]
-\]
-
-Now, $\left( S \circ T \right) \left( \vec{x} \right) = (BA) \vec{x}$.
-\[
- \left[
-\begin{array}{rr}
-2 & -4 \\
-10 & 8
-\end{array}
-\right]
-\left[ \begin{array}{r}
-2 \\
--1
-\end{array} \right]
-=
-\left[
-\begin{array}{r}
-8 \\
-12
-\end{array}
-\right]
-\]
-
-\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:6.6} Let $T$ be a linear transformation and suppose $T \left( \left[ \begin{array}{r}
-1 \\
--4
-\end{array} \right] \right) = \left[ \begin{array}{r}
-2 \\
--3
-\end{array} \right]$. Suppose $S$ is a linear transformation induced by the matrix $B = \left[ \begin{array}{rr}
-1 & 2 \\
--1 & 3
-\end{array} \right]$. Find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
-1 \\
--4
-\end{array} \right]$.
-\begin{hint}
-To find $\left( S \circ T \right) \left( \vec{x} \right)$ we compute $S(T(\vec{x}))$.
-\[
-\left[ \begin{array}{rr}
-1 & 2 \\
--1 & 3
-\end{array} \right]
-\left[ \begin{array}{r}
-2 \\
--3
-\end{array} \right]
- = \left[
-\begin{array}{r}
--4 \\
--11
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:6.7}  Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
-2 & 3 \\
-1 & 1
-\end{array}\right]$ and $S$ a linear transformation induced by $B = \left[ \begin{array}{rr}
--1 & 3 \\
-1 & -2
-\end{array}\right]$. Find matrix of $S \circ T$ and find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
-5 \\
-6
-\end{array} \right]$.
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:6.8} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
-2 & 1 \\
-5 & 2
-\end{array} \right]$. Find the matrix of $T^{-1}$.
-\begin{hint}
-The matrix of $T^{-1}$ is $A^{-1}$.
-\[
-\left[ \begin{array}{rr}
-2 & 1 \\
-5 & 2
-\end{array} \right] ^{-1} =
-\left[
-\begin{array}{rr}
--2 & 1 \\
-5 & -2
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:6.9} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
-4 & -3 \\
-2 & -2
-\end{array} \right]$. Find the matrix of $T^{-1}$.
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:6.10} Let $T$ be a linear transformation and suppose $T \left( \left[ \begin{array}{r}
-1 \\
-2
-\end{array}\right] \right) = \left[ \begin{array}{r}
-9 \\
-8
-\end{array} \right]$, $T \left( \left[ \begin{array}{r}
-0 \\
--1
-\end{array}\right] \right) = \left[ \begin{array}{r}
--4 \\
--3
-\end{array}\right]$.
-Find the matrix of $T^{-1}$.
-%\begin{hint}
-%\end{hint}
 \end{problem}
 
 \begin{problem}\label{prb:6.11}  Find the matrix for the linear transformation which
@@ -567,6 +425,156 @@ reflects through the $xy$ plane.
 \end{hint}
 \end{problem}
 
+\begin{problem}\label{prb:6.5} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
+3 & 1 \\
+-1 & 2
+\end{array}\right]$ and $S$ a linear transformation induced by $B = \left[ \begin{array}{rr}
+0 & -2 \\
+4 & 2
+\end{array}\right]$. Find matrix of $S \circ T$ and find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
+2 \\
+-1
+\end{array} \right]$.
+\begin{hint}
+The matrix of $S \circ T$ is given by $BA$.
+\[
+\left[ \begin{array}{rr}
+0 & -2 \\
+4 & 2
+\end{array}\right] \left[ \begin{array}{rr}
+3 & 1 \\
+-1 & 2
+\end{array}\right] = \left[
+\begin{array}{rr}
+2 & -4 \\
+10 & 8
+\end{array}
+\right]
+\]
+
+Now, $\left( S \circ T \right) \left( \vec{x} \right) = (BA) \vec{x}$.
+\[
+ \left[
+\begin{array}{rr}
+2 & -4 \\
+10 & 8
+\end{array}
+\right]
+\left[ \begin{array}{r}
+2 \\
+-1
+\end{array} \right]
+=
+\left[
+\begin{array}{r}
+8 \\
+12
+\end{array}
+\right]
+\]
+
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:6.6} Let $T$ be a linear transformation and suppose $T \left( \left[ \begin{array}{r}
+1 \\
+-4
+\end{array} \right] \right) = \left[ \begin{array}{r}
+2 \\
+-3
+\end{array} \right]$. Suppose $S$ is a linear transformation induced by the matrix $B = \left[ \begin{array}{rr}
+1 & 2 \\
+-1 & 3
+\end{array} \right]$. Find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
+1 \\
+-4
+\end{array} \right]$.
+\begin{hint}
+To find $\left( S \circ T \right) \left( \vec{x} \right)$ we compute $S(T(\vec{x}))$.
+\[
+\left[ \begin{array}{rr}
+1 & 2 \\
+-1 & 3
+\end{array} \right]
+\left[ \begin{array}{r}
+2 \\
+-3
+\end{array} \right]
+ = \left[
+\begin{array}{r}
+-4 \\
+-11
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:6.7}  Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
+2 & 3 \\
+1 & 1
+\end{array}\right]$ and $S$ a linear transformation induced by $B = \left[ \begin{array}{rr}
+-1 & 3 \\
+1 & -2
+\end{array}\right]$. Find matrix of $S \circ T$ and find $\left( S \circ T \right) \left( \vec{x} \right)$ for $\vec{x} = \left[ \begin{array}{r}
+5 \\
+6
+\end{array} \right]$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
+\begin{problem}\label{prb:6.8} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
+2 & 1 \\
+5 & 2
+\end{array} \right]$. Find the matrix of $T^{-1}$.
+\begin{hint}
+The matrix of $T^{-1}$ is $A^{-1}$.
+\[
+\left[ \begin{array}{rr}
+2 & 1 \\
+5 & 2
+\end{array} \right] ^{-1} =
+\left[
+\begin{array}{rr}
+-2 & 1 \\
+5 & -2
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:6.9} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
+4 & -3 \\
+2 & -2
+\end{array} \right]$. Find the matrix of $T^{-1}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:6.10} Let $T$ be a linear transformation and suppose $T \left( \left[ \begin{array}{r}
+1 \\
+2
+\end{array}\right] \right) = \left[ \begin{array}{r}
+9 \\
+8
+\end{array} \right]$, $T \left( \left[ \begin{array}{r}
+0 \\
+-1
+\end{array}\right] \right) = \left[ \begin{array}{r}
+-4 \\
+-3
+\end{array}\right]$.
+Find the matrix of $T^{-1}$.
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+
 \begin{problem}\label{prb:6.26} Let $\vec{u}=\left[
 \begin{array}{r}
 a \\
@@ -585,8 +593,8 @@ this vector, as shown in the following picture.
 \end{tikzpicture}
 \end{center}
 
-
-\textbf{Hint:\ }Notice that $\left[
+\begin{hint}
+Notice that $\left[
 \begin{array}{r}
 a \\
 b
@@ -598,7 +606,7 @@ b
 \end{array}
 \right] $ for some $\theta .$ First rotate through $-\theta .$ Next reflect through the $x$ axis. Finally rotate
 through $\theta $.
-\begin{hint}
+
 \begin{eqnarray*}
 &&\left[
 \begin{array}{cc}
@@ -651,41 +659,41 @@ a^{2}-b^{2} & 2ab \\
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:6.27}
-Let $V=\mathbb{R}^{3}$ and let
-\begin{equation*}
-W=\mbox{span} \left( S \right),  \mbox{ where } S=\left\{ \left[
-\begin{array}{r}
-1 \\
--1 \\
-1
-\end{array}
-\right] ,\left[
-\begin{array}{r}
--2 \\
-2 \\
--2
-\end{array}
-\right],\left[
-\begin{array}{r}
--1 \\
-1 \\
-1
-\end{array}
-\right],\left[
-\begin{array}{r}
-1 \\
--1 \\
-3
-\end{array}
-\right] \right\}
-\end{equation*}
-Find a basis of $W$ consisting of vectors in $S$.
+% \begin{problem}\label{prb:6.27}
+% Let $V=\mathbb{R}^{3}$ and let
+% \begin{equation*}
+% W=\mbox{span} \left( S \right),  \mbox{ where } S=\left\{ \left[
+% \begin{array}{r}
+% 1 \\
+% -1 \\
+% 1
+% \end{array}
+% \right] ,\left[
+% \begin{array}{r}
+% -2 \\
+% 2 \\
+% -2
+% \end{array}
+% \right],\left[
+% \begin{array}{r}
+% -1 \\
+% 1 \\
+% 1
+% \end{array}
+% \right],\left[
+% \begin{array}{r}
+% 1 \\
+% -1 \\
+% 3
+% \end{array}
+% \right] \right\}
+% \end{equation*}
+% Find a basis of $W$ consisting of vectors in $S$.
 
-\begin{hint}
-In this case $\dim (W)=1$ and a basis for $W$ consisting of vectors in $S$ can be obtained by taking any (nonzero) vector from $S$.
-\end{hint}
-\end{problem}
+% \begin{hint}
+% In this case $\dim (W)=1$ and a basis for $W$ consisting of vectors in $S$ can be obtained by taking any (nonzero) vector from $S$.
+% \end{hint}
+% \end{problem}
 
 
 \begin{problem}\label{prb:6.28}
@@ -754,51 +762,51 @@ and $\mbox{im} \left( T\right) = \mathbb{R}^2$ (pick any basis of $\mathbb{R}^2$
 
 
 
-\begin{problem}\label{prb:6.30}
-Let $V=\mathbb{R}^{3}$ and let
-\begin{equation*}
-W=\mbox{span}\left\{ \left[
-\begin{array}{r}
-1 \\
-1 \\
-1
-\end{array}
-\right] ,\left[
-\begin{array}{r}
--1 \\
-2 \\
--1
-\end{array}
-\right] \right\}
-\end{equation*}
-Extend this basis of $W$ to a basis of $V$.
+% \begin{problem}\label{prb:6.30}
+% Let $V=\mathbb{R}^{3}$ and let
+% \begin{equation*}
+% W=\mbox{span}\left\{ \left[
+% \begin{array}{r}
+% 1 \\
+% 1 \\
+% 1
+% \end{array}
+% \right] ,\left[
+% \begin{array}{r}
+% -1 \\
+% 2 \\
+% -1
+% \end{array}
+% \right] \right\}
+% \end{equation*}
+% Extend this basis of $W$ to a basis of $V$.
 
-\begin{hint}
-There are many possible such extensions, one is (how do we know?):
-\begin{equation*}
-\left\{ \left[
-\begin{array}{r}
-1 \\
-1 \\
-1
-\end{array}
-\right] ,\left[
-\begin{array}{r}
--1 \\
-2 \\
--1
-\end{array}
-\right] ,\left[
-\begin{array}{r}
-0  \\
-0\\
-1
-\end{array}
-\right]
-\right\}
-\end{equation*}
-\end{hint}
-\end{problem}
+% \begin{hint}
+% There are many possible such extensions, one is (how do we know?):
+% \begin{equation*}
+% \left\{ \left[
+% \begin{array}{r}
+% 1 \\
+% 1 \\
+% 1
+% \end{array}
+% \right] ,\left[
+% \begin{array}{r}
+% -1 \\
+% 2 \\
+% -1
+% \end{array}
+% \right] ,\left[
+% \begin{array}{r}
+% 0  \\
+% 0\\
+% 1
+% \end{array}
+% \right]
+% \right\}
+% \end{equation*}
+% \end{hint}
+% \end{problem}
 
 \begin{problem}\label{prb:6.31}
  Let $T$ be a linear transformation given by
@@ -824,9 +832,6 @@ We can easily see that $\dim  ( \mbox{im} \left( T \right) ) =1$, and thus
 $\dim  ( \ker \left( T \right) ) = 3 - \dim  ( \mbox{im} \left( T \right) ) = 3- 1 = 2$.
 \end{hint}
 \end{problem}
-
-
-
 
 
 \section*{Practice Problem Source}
