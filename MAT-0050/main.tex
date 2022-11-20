@@ -1,11 +1,11 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Rosemarie Emanuele \and Paul Zachlin \and Paul Bender} \title{The Inverse of a Matrix} \license{CC-BY 4.0}
+\title{The Inverse of a Matrix} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
-% We develop a method for finding the inverse of a square matrix, discuss when the inverse does not exist, and use matrix inverses to solve matrix equations.
+ 
 \end{abstract}
 \maketitle
 \section*{The Inverse of a Matrix}
@@ -126,7 +126,7 @@ Each $\vec{v}_i$ is a unique solution of $A\vec{v}_i=\vec{e}_i$, and we conclude
 		|&| & &|
          \end{bmatrix}$$ is a solution to $AB=I$.  
  
-By Problem \ref{prob:elemrowopsreverse} of SYS-0010, we can reverse the elementary row operations to obtain
+By Problem \ref{prob:elemrowopsreverse}, we can reverse the elementary row operations to obtain
 $$[I|B]\rightsquigarrow [A|I]$$
 But the same row operations would also give us
 $$[B|I]\rightsquigarrow [I|A]$$
@@ -253,7 +253,7 @@ $$\left[\begin{array}{ccc|ccc}
 \end{explanation}
 \end{example}
 \begin{remark}
-Recall that a square matrix whose reduced row-echelon form is the identity matrix is called \dfn{nonsingular}. (Definition \ref{def:nonsingularmatrix} of SYS-0030)
+Recall that a square matrix whose reduced row-echelon form is the identity matrix is called \dfn{nonsingular}. (Definition \ref{def:nonsingularmatrix})
 According to Corollary \ref{cor:rrefI}, a matrix is invertible if and only if it is nonsingular.  For this reason many linear algebra texts use the terms \dfn{invertible} and \dfn{nonsingular} as synonyms.
 \end{remark}
 
@@ -318,43 +318,12 @@ $$\vec{x}=\begin{bmatrix}\answer{17}\\\answer{-8}\\\answer{-11}\end{bmatrix}$$
 
 \end{problem}
 
-\begin{problem}
-If possible, find the inverse of each matrix by using the row-reduction procedure.  If you find that $A$ does not have an inverse, leave the answer matrix blank.
-  \begin{problem}\label{prob:findinverse1}
+\begin{problem}\label{prob:findinverse1}
+Find the inverse of each matrix by using the row-reduction procedure.  
+
   $$A=\begin{bmatrix}1&-1&2\\-1&0&0\\1&-2&3\end{bmatrix}$$
   $$A^{-1}=\begin{bmatrix}\answer{0} & \answer{-1} & \answer{0} \\ \answer{3} & \answer{1} & \answer{-2}\\ \answer{2} & \answer{1} & \answer{-1}\end{bmatrix}$$
-  
- 
- \begin{multipleChoice}
-  \choice[correct]{$A$ is invertible}
-  \choice{$A$ is not invertible}
-\end{multipleChoice}
-  \end{problem}
-  
 
-  \begin{problem}\label{prob:findinverse2}
-  $$A=\begin{bmatrix}1&3&5\\-2&5&1\\1&-1&1\end{bmatrix}$$
-  $$A^{-1}=\begin{bmatrix}\answer{} &\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\end{bmatrix}$$
-  
- 
- \begin{multipleChoice}
-  \choice{$A$ is invertible}
-  \choice[correct]{$A$ is not invertible}
-\end{multipleChoice}
-  \end{problem}  
-  
-\begin{problem}\label{prob:findinverse3}
-  $$A=\begin{bmatrix}2&-1&-2\\1&1&-1\\1&1&1\end{bmatrix}$$
-  $$A^{-1}=\begin{bmatrix}\answer{1/3} & \answer{-1/6} & \answer{1/2} \\  \answer{-1/3} & \answer{2/3} & \answer{0}\\\answer{0} & \answer{-1/2} & \answer{1/2}\end{bmatrix}$$
-  
- 
- 
- \begin{multipleChoice}
-  \choice[correct]{$A$ is invertible}
-  \choice{$A$ is not invertible}
-\end{multipleChoice}
-  \end{problem}   
-  
 \end{problem}
 
 
@@ -409,7 +378,7 @@ and $A\neq -I.$
 \end{problem}
 
 \begin{problem}\label{prob:invofsymm}
-Suppose $A$ is a symmetric, invertible matrix.  Does it follow that $A^{-1}$ is symmetric?  What if we change ``symmetric" to ``skew symmetric"?  (See Definition \ref{def:symmetricandskewsymmetric} of MAT-0025.)
+Suppose $A$ is a symmetric, invertible matrix.  Does it follow that $A^{-1}$ is symmetric?  What if we change ``symmetric" to ``skew symmetric"?  (See Definition \ref{def:symmetricandskewsymmetric}.)
 \end{problem}
 
 \begin{problem}\label{prob:sumofinvertible} Suppose $A$ and $B$ are invertible $n\times n$ matrices.  Does it follow that $(A+B)$ is invertible?
