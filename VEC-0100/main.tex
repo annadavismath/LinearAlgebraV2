@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{Linear Independence} \license{CC-BY 4.0}
+ \title{Linear Independence} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -457,25 +457,6 @@ $$2\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
 \begin{problem}
 Each diagram below shows a collection of vectors.  Are the vectors linearly dependent or independent?
 
-\begin{problem}\label{prob:linindmultchoice8}
-\begin{multipleChoice}
- \choice{The vectors are linearly independent}
-  \choice[correct]{The vectors are linearly dependent }
-  \choice{There is not enough information given to make a determination }
- \end{multipleChoice}
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}
-	\draw[->](-2,0,0)--(3,0,0) node[below left]{$y$};
-    \draw[->](0,-2,0)--(0,3,0) node[below left]{$z$};
-    \draw[->](0,0,-2)--(0,0,3) node[below left]{$x$};
-    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(0,2,1);
-    \draw[->, line width=2pt,red, -stealth](0,0,0)--(1,2,0);
-    \draw[->, line width=2pt, -stealth](0,0,0)--(0.5,1,0);
-    
-\end{tikzpicture}
-\end{center}
-\end{problem}
 
 \begin{problem}\label{prob:linindmultchoice9}
 \begin{multipleChoice}
@@ -515,30 +496,11 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
 \end{problem}
 
 
-\begin{problem}\label{prob:linindmultchoice11}
-\begin{multipleChoice}
- \choice{The vectors are linearly independent}
-  \choice[correct]{The vectors are linearly dependent }
-  \choice{There is not enough information given to make a determination }
- \end{multipleChoice}
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}
-	\draw[->](-2,0,0)--(2,0,0) node[below left]{$y$};
-    \draw[->](0,-2,0)--(0,2,0) node[below left]{$z$};
-    \draw[->](0,0,-2)--(0,0,2) node[below left]{$x$};
-    \draw[->, line width=2pt,blue, -stealth](0,0,0)--(0,-1,0);
-    \draw[->, line width=2pt,red, -stealth](0,0,0)--(1,0,0);
-    \draw[->, line width=2pt,orange, -stealth](0,0,0)--(0,1,0);
-    
-\end{tikzpicture}
-\end{center}
-\end{problem}
 
 \end{problem}
 
 \begin{problem}\label{prob:Adding1OK}
-suppose $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and that $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$.  Prove that $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
+Suppose $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and that $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$.  Prove that $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.
 \end{problem}
 
 \begin{problem}\label{prob:OtherLinearComb}
