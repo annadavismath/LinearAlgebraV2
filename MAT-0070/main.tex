@@ -305,7 +305,7 @@ Let $L$ be a lower (upper) triangular matrix $m\times m$
 which has ones down the main diagonal. Then $L^{-1}$ also is a lower (upper)
 triangular matrix which has ones down the main diagonal. In the case that $L$
 is of the form
-\begin{equation}
+\begin{equation}\label{4nove1h}
 L=
 \begin{bmatrix}
 1 &  &  &  \\
@@ -313,7 +313,7 @@ a_{1} & 1 &  &  \\
 \vdots &  & \ddots &  \\
 a_{n} &  &  & 1
 \end{bmatrix}, 
-\end{equation}\label{4nove1h}
+\end{equation}
 where all entries are zero except for the left column and main diagonal, it
 is also the case that $L^{-1}$ is obtained from $L$ by simply multiplying each entry below the main diagonal in $L$ by $-1$. The same is true if the single nonzero column is in another position.
 \end{lemma}
@@ -382,8 +382,8 @@ multiplication by a matrix of the form
 \begin{equation*}
 E_{2}=
 \begin{bmatrix}
-1 & \mathbf{0} \\
-\mathbf{0} & E
+1 & \vec{0} \\
+\vec{0} & E
 \end{bmatrix}
 \end{equation*}
 where $E$ is an $( m-1)\times ( m-1)$
@@ -460,8 +460,8 @@ consists entirely of ones. This will give us $L$ as we create $U$ using row oper
 
 The above procedure shows that if a matrix can be reduced to row-echelon form without swapping any rows, then we can find an $LU$ factorization.  But what about the general case?
 
-\begin{theorem}
-Suppose an $m \times n$ matrix $A$ is carried to a row-echelon matrix $U$ using Gaussian elimination. Let $P_1, P_2, \ldots, P_s$ be the elementary matrices corresponding (in order) to the row interchanges used,
+\begin{theorem}\label{th:LUPA}
+Suppose an $m \times n$ matrix $A$ is transformed to a row-echelon matrix $U$ using Gaussian elimination. Let $P_1, P_2, \ldots, P_s$ be the elementary matrices corresponding (in order) to the row interchanges used,
 and write $P=P_s \cdots P_2 P_1$ . (If no interchanges are used take $P = I_M$.) Then:
 1. $PA$ is the matrix obtained from $A$ by doing these interchanges (in order) to A.
 2. $PA$ has an $LU$-factorization.
@@ -474,7 +474,7 @@ The matrix $P$ in the above theorem is called a $permutation matrix$.  These mat
 
 \section*{Practice Problems}
 
-\begin{problem}
+\begin{problem}\label{prob:LU1}
 Use the given $LU$ factorization of the coefficient matrix using to solve the system of equations.
 \begin{equation*}
 \begin{array}{c}
@@ -506,7 +506,7 @@ Observe that an $LU$ factorization of the coefficient matrix is
 
 \begin{problem}
 Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
-\begin{problem}
+\begin{problem}\label{prob:LU2a}
 \begin{equation*}
 \begin{array}{c}
 x+2y=5 \\
@@ -515,7 +515,7 @@ x+2y=5 \\
 \end{equation*}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:LU2b}
 \begin{equation*}
 \begin{array}{c}
 x+2y+z=1 \\
@@ -536,19 +536,19 @@ y+3z=2 \\
 %\end{problem}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:LU4}
 Is there only one $LU$ factorization for a given matrix?
 
-\textbf{
-Hint:\ }Consider the equation
+\begin{hint}Consider the equation
 $$
 \begin{bmatrix}0 & 1 \\0 & 1\end{bmatrix}=\begin{bmatrix}1& 0 \\1 & 1\end{bmatrix} \begin{bmatrix}0 & 1 \\0 & 0\end{bmatrix}
 $$
 
 Look for all possible $LU$ factorizations.
+\end{hint}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:LU5}
 Can you show that every permutation matrix is invertible?  If so, What does the inverse of a permutation matrix look like?
 \end{problem}
 
