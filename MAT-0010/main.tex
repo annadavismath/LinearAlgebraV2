@@ -2,7 +2,7 @@
 \input{../preamble.tex}
 
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele \and Paul Bender} \title{Addition and Scalar Multiplication of Matrices} \license{CC-BY 4.0}
+\title{Addition and Scalar Multiplication of Matrices} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -43,18 +43,21 @@ as $$A= \begin{bmatrix} a_{ij} \end{bmatrix}=\begin{bmatrix}
 		a_{m1}&a_{m2}&\dots &a_{mj}&\dots &a_{mn}
          \end{bmatrix}$$. 
 
-We denote the $j^{th}$ column of a matrix $A$ 
-by $\vec{a}_{j}$ and write
-$$A=\begin{bmatrix}|&|&&|\\\vec{a}_1& \vec{a}_2 &\ldots & \vec{a}_n\\|&|&&|\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}\vec{a}_1& \vec{a}_2 &\ldots & \vec{a}_n\end{bmatrix}$$
+Occasionally it will be convenient to talk about columns and rows of a matrix $A$ as vectors.  We will use the following notation:
+$$A=\begin{bmatrix}|&|&&|\\\vec{c}_1& \vec{c}_2 &\ldots & \vec{c}_n\\|&|&&|\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}\vec{c}_1& \vec{c}_2 &\ldots & \vec{c}_n\end{bmatrix}$$
 
-A matrix $B=\begin{bmatrix}b_{ij}\end{bmatrix}$ which has size $n \times n$ is called a \dfn{square matrix}. 
-In other words, $B$ is a square matrix if it has the same number of rows and columns.  In a square matrix, entries of the form $b_{ii}$ are said to lie on the \dfn{main diagonal}.  For example, if $$B=\begin{bmatrix}1&2&3\\4&5&6\\7&4&9\end{bmatrix}$$
+$$A=\begin{bmatrix}
+- & \vec{r}_1 & - \\ - & \vec{r}_2 & - \\ & \vdots & \\ - & \vec{r}_m & -
+\end{bmatrix}\quad\text{or}\quad A=\begin{bmatrix}\vec{r}_1\\\vec{r}_2\\\vdots\\\vec{r}_m\end{bmatrix}$$
+
+A matrix is called a \dfn{square matrix} if it has the same number of rows and columns.
+If $B=\begin{bmatrix}b_{ij}\end{bmatrix}$ is an $n \times n$ square matrix, the entries of the form $b_{ii}$ are said to lie on the \dfn{main diagonal}.  For example, if $$B=\begin{bmatrix}1&2&3\\4&5&6\\7&4&9\end{bmatrix}$$
 then the main diagonal consists of entries $b_{11}=1$, $b_{22}=5$ and $b_{33}=9$.
 
 There are various operations which are done on matrices of appropriate 
 sizes. Matrices can be added to and subtracted from other matrices,
 multiplied by a scalar, and multiplied by other matrices. We will
-never divide a matrix by another matrix, but we will see later how matrix inverses play a similar role. 
+never divide a matrix by another matrix, but we will see later how multiplication by a matrix inverse (if an inverse exists) plays a similar role to division. 
 
 In doing arithmetic with matrices, we often define the action by what
 happens in terms of the entries (or components) of the
@@ -262,7 +265,7 @@ Prove Theorem \ref{th:propertiesscalarmult}.
 \end{problem}
 
 \section*{Text Source}
-The text in this module is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+The text in this section is an adaptation of Section 2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 53-58.
 
