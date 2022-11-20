@@ -1,11 +1,11 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis \and Paul Bender} \title{LU Factorization} \license{CC-BY 4.0}
+ \title{LU Factorization} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
- 
+
 \end{abstract}
 \maketitle
 \section*{$LU$ factorization}
@@ -77,7 +77,7 @@ The process of taking a matrix $A$ and expressing it as a product $A=LU$ of a lo
 %where  $L$ is a lower triangular square matrix and $U$ is an upper triangular matrix.  
 We also adopt the (common) convention that $L$ is a matrix with a diagonal consisting entirely of $1$'s, which is often called a \dfn{lower unit triangular} matrix.
 
-Let's look at another example, where we solve the same system solve in the Exploration from \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank}.
+For our next example we return to the same system we solved in Exploration \ref{init:gaussianelim1}.
 
 \begin{example}\label{ex:usingLU}
 Consider the system
@@ -142,7 +142,7 @@ By now you are quite used to solving this kind of problem...
 $$x_1=\answer{0},\quad x_2=\answer{-1},\quad x_3=\answer{-1}$$
 \end{example}
 
-You may have noticed a couple of differences when comparing the system we just solved to the one in the Exploration from \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank}, although neither change affected the solution.  The first was a change in notation, to make it easier to demonstrate how to solve a system using $LU$ factorization.  Indeed the solution we came up with in the earlier module was $x=0,y=-1,\text{ and } z=-1$, which matches what we got above.  
+You may have noticed a couple of differences when comparing the system we just solved to the one in Exploration \ref{init:gaussianelim1}, although neither change affected the solution.  The first was a change in notation, to make it easier to demonstrate how to solve a system using $LU$ factorization.  Indeed the solution we came up with in the earlier section was $x=0,y=-1,\text{ and } z=-1$, which matches what we got above.  
 
 The other difference is that we switched the order of the first two equations.  Without making this change, the matrix would not have an $LU$ factorization, but switching the order of the first two equations resulted in a coefficient matrix that does.  We will see that any matrix which can be reduced to row echelon form without switching the order of its rows will have an $LU$ factorization.
 
@@ -525,15 +525,15 @@ y+3z=2 \\
 \end{equation*}
 \end{problem}
 
-\begin{problem}
-\begin{equation*}
-\begin{array}{c}
-x+2y+3z=5 \\
-2x+3y+z=6 \\
-x-y+z=2
-\end{array}
-\end{equation*}
-\end{problem}
+%\begin{problem}
+%\begin{equation*}
+%\begin{array}{c}
+%x+2y+3z=5 \\
+%2x+3y+z=6 \\
+%x-y+z=2
+%\end{array}
+%\end{equation*}
+%\end{problem}
 \end{problem}
 
 \begin{problem}
@@ -553,7 +553,7 @@ Can you show that every permutation matrix is invertible?  If so, What does the 
 \end{problem}
 
 \section*{Text Source}
-The text in this module is an adaptation of Section 2.2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+The text in this section is an adaptation of Section 2.2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, p. 99-106.
 
