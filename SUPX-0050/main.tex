@@ -326,7 +326,7 @@ u_{2} \\
 u_{3} \\
 u_{4}
 \end{array}\right] \in
-\mathbb{R}^{4}:\norm{u_{1}} \leq 4\right\} .$ Is $M$ a
+\mathbb{R}^{4}:|u_{1}| \leq 4\right\} .$ Is $M$ a
 subspace? Explain.
 \begin{hint}
 No. $\left[
@@ -661,50 +661,87 @@ p+q-n\leq k
 \end{hint}
 \end{problem}
 
+\begin{problem}
+Let
+$$C=\begin{bmatrix}-2&0&1&1\\-1&3&2&2\\0&2&1&1\\3&3&0&1\end{bmatrix}$$ 
+
+\begin{problem}\label{prob:colrowmatrixC1}
+Find $\mbox{rref}(C)$.
+$$\mbox{rref}(C)=\begin{bmatrix}\answer{1}&\answer{0}&\answer{-1/2}&\answer{0}\\\answer{0}&\answer{1}&\answer{1/2}&\answer{0}\\\answer{0}&\answer{0}&\answer{0}&\answer{1}\\\answer{0}&\answer{0}&\answer{0}&\answer{0}\end{bmatrix}$$
+\end{problem}
+
+\begin{problem}\label{prob:colrowmatrixC2}
+$$\mbox{rank}(C)=\mbox{dim}(\mbox{row}(C))=\mbox{dim}(\mbox{col}(C))=\answer{3}$$
+\end{problem}
+
+\begin{problem}\label{prob:colrowmatrixC3}
+Use $\mbox{rref}(C)$ and the procedure outlined in Example \ref{ex:basisrowspace} to find a basis for $\mbox{row}(C)$.
+
+Basis for $\mbox{row}(C):$
+$$\left\{\begin{bmatrix}\answer{1}& \answer{0}& \answer{-1/2}&\answer{0}\end{bmatrix},\begin{bmatrix}\answer{0} & \answer{1}& \answer{1/2}&\answer{0}\end{bmatrix}, \begin{bmatrix}\answer{0}&\answer{0}&\answer{0}&\answer{1}\end{bmatrix} \right\}$$
+\end{problem}
+
+\begin{problem}\label{prob:colrowmatrixC4}
+Use Procedure \ref{proc:colspace} to find a basis for $\mbox{col}(C)$.
+
+Basis for $\mbox{col}(C):\quad
+\left\{ \begin{bmatrix}\answer{-2}\\\answer{-1}\\\answer{0}\\\answer{3}\end{bmatrix}, \begin{bmatrix}\answer{0}\\\answer{3}\\\answer{2}\\\answer{3}\end{bmatrix}, \begin{bmatrix}\answer{1}\\\answer{2}\\\answer{1}\\\answer{1}\end{bmatrix}\right\}$
+\end{problem}
+
+\begin{problem}\label{prob:nullABC3}
+Find a basis for $\mbox{null}(C)$.
+
+Basis for $\mbox{null}(C):\quad \left\{ \begin{bmatrix}\answer{1/2}\\\answer{-1/2}\\1\\\answer{0}\end{bmatrix}\right\}$
+
+Demonstrate that the Rank-Nullity Theorem (Theorem \ref{th:matrixranknullity} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}) 
+holds for $C$.
+\end{problem}
+\end{problem}
+
 \begin{problem}\label{prb:5.30} Suppose $A$ is an $m\times n$ matrix and $B$ is an $n\times p$ matrix.
 Show that
 \begin{equation*}
-\dim \left( \ker \left( AB\right) \right) \leq \dim \left( \ker \left(
-A\right) \right) +\dim \left( \ker \left( B\right) \right) .
+\dim \left( \mbox{null} \left( AB\right) \right) \leq \dim \left( \mbox{null} \left(
+A\right) \right) +\dim \left( \mbox{null} \left( B\right) \right) .
 \end{equation*}
 \begin{hint}
 Consider the subspace, $B\left( \mathbb{R}^{p}\right) \cap
-\ker \left( A\right) $ and suppose a basis for this subspace is $\left\{
+\mbox{null} \left( A\right) $ and suppose a basis for this subspace is $\left\{
 \vec{w}_{1},\cdots ,\vec{w}_{k}\right\} .$ Now suppose $\left\{
-\vec{u}_{1},\cdots ,\vec{u}_{r}\right\} $ is a basis for $\ker \left(
+\vec{u}_{1},\cdots ,\vec{u}_{r}\right\} $ is a basis for $\mbox{null} \left(
 B\right) .$ Let $\left\{ \vec{z}_{1},\cdots ,\vec{z}_{k}\right\} $ be
 such that $B\vec{z}_{i}=\vec{w}_{i}$ and argue that
 \begin{equation*}
-\ker \left( AB\right) \subseteq \mbox{span}\left\{ \vec{u}_{1},\cdots ,
+\mbox{null} \left( AB\right) \subseteq \mbox{span}\left\{ \vec{u}_{1},\cdots ,
 \vec{u}_{r},\vec{z}_{1},\cdots ,\vec{z}_{k}\right\} .
 \end{equation*}
 
 Click the arrow to see the answer.
 \begin{expandable}
-Suppose $AB\vec{x}=\vec{0}.$ Then $B\vec{x}\in \ker
+Suppose $AB\vec{x}=\vec{0}.$ Then $B\vec{x}\in \mbox{null}
 \left( A\right) \cap B\left( \mathbb{R}^{p}\right) $ and so $B\vec{x}
 =\sum_{i=1}^{k}B\vec{z}_{i}$ showing that
 \[
-\vec{x}-\sum_{i=1}^{k}\vec{z}_{i}\in \ker \left( B\right)
+\vec{x}-\sum_{i=1}^{k}\vec{z}_{i}\in \mbox{null} \left( B\right)
 \]
-Consider $B\left( \mathbb{R}^{p}\right) \cap \ker \left( A\right) $ and let
+Consider $B\left( \mathbb{R}^{p}\right) \cap \mbox{null} \left( A\right) $ and let
 a basis be $\left\{ \vec{w}_{1},\cdots ,\vec{w}_{k}\right\} .$ Then
 each $\vec{w}_{i}$ is of the form $B\vec{z}_{i}=\vec{w}_{i}$.
 Therefore, $\left\{ \vec{z}_{1},\cdots ,\vec{z}_{k}\right\} $ is
 linearly independent and $AB\vec{z}_{i}=0.$ Now let $\left\{ \vec{u}
-_{1},\cdots ,\vec{u}_{r}\right\} $ be a basis for $\ker \left( B\right) .$
-If $AB\vec{x}=\vec{0}$, then $B\vec{x} \in \ker \left( A\right) \cap B\left(
+_{1},\cdots ,\vec{u}_{r}\right\} $ be a basis for $\mbox{null} \left( B\right) .$
+If $AB\vec{x}=\vec{0}$, then $B\vec{x} \in \mbox{null} \left( A\right) \cap B\left(
 \mathbb{R}^{p}\right) $ and so $B\vec{x}=\sum_{i=1}^{k}c_{i}B\vec{z}
 _{i}$ which implies
 \[
-\vec{x}-\sum_{i=1}^{k}c_{i}\vec{z}_{i}\in \ker \left( B\right)
+\vec{x}-\sum_{i=1}^{k}c_{i}\vec{z}_{i}\in \mbox{null} \left( B\right)
 \]
 and so it is of the form
 \[
 \vec{x}-\sum_{i=1}^{k}c_{i}\vec{z}_{i}=\sum_{j=1}^{r}d_{j}\vec{u}
 _{j}
 \]
-It follows that if $AB\vec{x}=\vec{0}$ so that $\vec{x}\in \ker \left(
+It follows that if $AB\vec{x}=\vec{0}$ so that $\vec{x}\in \mbox{null} \left(
 AB\right) ,$ then
 \[
 \vec{x}\in \mbox{span}\left( \vec{z}_{1},\cdots ,\vec{z}_{k},
@@ -712,10 +749,10 @@ AB\right) ,$ then
 \]
 Therefore,
 \begin{eqnarray*}
-\dim \left( \ker \left( AB\right) \right)  &\leq &k+r=\dim \left( B\left(
-\mathbb{R}^{p}\right) \cap \ker \left( A\right) \right) +\dim \left( \ker
+\dim \left( \mbox{null} \left( AB\right) \right)  &\leq &k+r=\dim \left( B\left(
+\mathbb{R}^{p}\right) \cap \mbox{null} \left( A\right) \right) +\dim \left( \mbox{null}
 \left( B\right) \right)  \\
-&\leq &\dim \left( \ker \left( A\right) \right) +\dim \left( \ker \left(
+&\leq &\dim \left( \mbox{null} \left( A\right) \right) +\dim \left( \mbox{null} \left(
 B\right) \right)
 \end{eqnarray*}
 \end{expandable}
@@ -723,15 +760,15 @@ B\right) \right)
 \end{problem}
 
 
-\begin{problem}\label{prb:5.31} Show that if $A$ is an $m\times n$ matrix, then $\ker \left( A\right) $
+\begin{problem}\label{prb:5.31} Show that if $A$ is an $m\times n$ matrix, then $\mbox{null} \left( A\right) $
 is a subspace of $\mathbb{R}^n$.
 \begin{hint}
-If $\vec{x},\vec{y}\in \ker \left( A\right) $ then
+If $\vec{x},\vec{y}\in \mbox{null} \left( A\right) $ then
 \[
 A\left( a\vec{x}+b\vec{y}\right) =aA\vec{x}+bA\vec{y}=a\vec{0}
 +b\vec{0}=\vec{0}
 \]
-and so $\ker \left( A\right) $ is closed under linear combinations. Hence it
+and so $\mbox{null} \left( A\right) $ is closed under linear combinations. Hence it
 is a subspace.
 \end{hint}
 \end{problem}
