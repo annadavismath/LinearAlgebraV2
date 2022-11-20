@@ -15,15 +15,14 @@ Let $A$ and $B$ be $n \times n$ matrices.  Then the products $AB$ and $BA$ are b
 
 However, for some pairs of $n \times n$ matrices $A$ and $B$, we are able to find an invertible matrix $P$ such that $PB = AP$.  This leads to the following definition.
 
-\begin{definition}
+\begin{definition}\label{def:similar}
 If $A$ and $B$ are $n \times n$ matrices, we say that $A$ and $B$ are \dfn{similar}, if $B = P^{-1}AP$ for some invertible matrix $P$.  In this case we write $A \sim B$.
 \end{definition}
 
 %As we will see, matrices that are similar share many properties. 
 
-%\begin{remark} 
-%We also have $A \sim B$ if  $B = QAQ^{-1}$ where $Q$ is inv ertible (write $P^{-1} = Q$).
-%\end{remark}
+
+%%Note that we also have $A \sim B$ if  $B = QAQ^{-1}$ where $Q$ is invertible (write $P^{-1} = Q$).
  
 The following theorem shows that \dfn{similarity} ($\sim$) satisfies \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive} properties.  %The first three properties contained in the following theorem are important enough in mathematics to receive a name.  We say that any relation which is \dfn{reflexive}, \dfn{symmetric}, and \dfn{transitive}, is called an \dfn{equivalence relation}.
 
@@ -72,7 +71,7 @@ Any relation satisfying the reflexive, symmetric and transitive properties is ca
 As we will see later, similar matrices share many properties. 
  Before proceeding to explore these properties, we pause to introduce a simple matrix function that we will continue to use throughout the course.  %Given a square matrix $A$, we have learned how to compute the determinant $\det(A)$.  Another important quantity we can compute is called the \dfn{trace} of a matrix.
 
-\begin{definition}
+\begin{definition}\label{def:trace}
 The \dfn{trace} of an $n \times n$ matrix $A$, abbreviated $\mbox{tr} A$, is defined to be the sum of the main diagonal elements of $A$.  In other words, if $ A = [a_{ij}]$, then $$\mbox{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$$  We may also write $\mbox{tr}(A) =\sum_{i=1}^n a_{ii}$.
 \end{definition}
 
@@ -87,7 +86,7 @@ Write $A = [a_{ij}]$ and $B = [b_{ij}]$. For each $i$, the $(i, i)$-entry $d_{i}
 \begin{equation*}
 \mbox{tr}(AB) = d_1 + d_2 + \dots + d_n = \sum_{i}d_i = \sum_{i}\left(\sum_{j}a_{ij}b_{ji}\right)
 \end{equation*}
-Similarly we have $\mbox{tr}(BA) = \sum_{i}\left(\sum_{j}b_{ij}a_{ji}\right)$. Since these two double sums are the same, the theorem is proved.
+Similarly we have $\mbox{tr}(BA) = \sum_{i}\left(\sum_{j}b_{ij}a_{ji}\right)$. Since these two double sums are the same, we have proven the theorem.
 \end{proof}
 
 The following theorem lists a number of properties shared by similar matrices.
@@ -136,7 +135,7 @@ $A = \begin{bmatrix}
 
 Even though the properties in Theorem~\ref{th:properties_similar} cannot be used to show two matrices are similar, these properties come in handy for showing that two matrices are NOT similar.
 
-\begin{example}
+\begin{example}\label{ex:areTheySimilar}
 Are the matrices $A =
 \begin{bmatrix}
 2 & 1 \\
@@ -163,12 +162,12 @@ If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
 \end{theorem}
 
 \begin{proof}
-See Practice Problem \ref{}.
+See Practice Problem~\ref{prob:similarproperties}.
 \end{proof}
 
 \section*{Practice Problems}
 
-\begin{problem}\label{prob:lessthan}
+\begin{problem}
 At the beginning of this section we mentioned that similarity of $n \times n$ matrices is an \dfn{equivalence relation}.
 
 An equivalence relation is a binary relation $R$ on elements of a set $S$ that has the following properties:
@@ -180,15 +179,15 @@ An equivalence relation is a binary relation $R$ on elements of a set $S$ that h
 
 Let $S$ be the set of all positive integers.  We can show that the relation ``less than'' (symbolized by $<$) is NOT an equivalence relation on this set.  To see this, note that ``less than'' is not reflexive, because $s<s$ is not true for any positive integer $s$.
 
-\begin{problem}
+\begin{problem}\label{prob:lessthan1}
 Is the relation ``less than'' symmetric?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lessthan2}
 Is the relation ``less than'' transitive?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:lessthan3}
 Another relation between matrices we have studied in this course is that two matrices can be ``row equivalent''.  Is the relation ``row equivalent'' 
 \begin{enumerate}
     \item reflexive? \wordChoice{\choice[correct]{Yes}\choice{No}}
@@ -200,7 +199,7 @@ Another relation between matrices we have studied in this course is that two mat
 
 \end{problem}
 
-\begin{problem}\label{prob:notsimilar}
+\begin{problem}
 By computing the trace, determinant, and rank, show that $A$ and $B$ are \textit{not} similar in each case.
 
 \begin{problem}\label{prob:notsimilar_a}
@@ -295,16 +294,7 @@ Show that $\begin{bmatrix}
 \end{problem}
 
 \begin{problem}\label{prob:similarproperties}
-If $A \sim B$, show that:
-\begin{enumerate}
-\item\label{prob:similarproperties_inverses} $A^{-1} \sim B^{-1}$
-\begin{hint}
-If $B = P^{-1}AP$, then $B^{-1} = (P^{-1}AP)^{-1} = \ldots$.
-\end{hint}
-\item\label{prob:similarproperties_scalars} $rA \sim rB$ for $r$ in $\RR$
-\item\label{prob:similarproperties_powers} $A^{n} \sim B^{n}$ for $n \geq 1$
-\item\label{prob:similarproperties_transposes} $A^{T} \sim B^{T}$
-\end{enumerate}
+Prove Theorem \ref{th:other_properties_similar}
 \end{problem}
 
 \begin{problem}\label{prob:similarproperties_invertible}
@@ -319,78 +309,7 @@ Show that the only matrix similar to a scalar matrix $A = rI$, $r$ in $\RR$, is 
 Let $\lambda$ be an eigenvalue of $A$ with corresponding eigenvector $\vec{x}$. If $B = P^{-1}AP$ is similar to $A$, show that $P^{-1}\vec{x}$ is an eigenvector of $B$ corresponding to $\lambda$.
 \end{problem}
 
-\begin{problem}\label{prob:moresimilarproperties}
-If $A \sim B$ and $A$ has any of the following properties, show that $B$ has the same property.
 
-\begin{enumerate}
-\item\label{prob:moresimilarproperties_idempotent} A is \dfn{Idempotent}, that is $A^{2} = A$.
-
-\item\label{prob:moresimilarproperties_nilpotent} A is \dfn{Nilpotent}, that is $A^{k} = 0$ for some $k \geq 1$.
-
-\item\label{prob:moresimilarproperties_invertible} A is Invertible.
-
-\end{enumerate}
-%\begin{sol}
-%\item  If $B = P^{-1}AP$ and $A^{k} = 0$, then $B^{k} = (P^{-1}AP)^{k} = P^{-1}A^{k}P = P^{-1}0P = 0$.
-%\end{sol}
-\end{problem}
-
-\begin{problem}\label{prob:similar_poly_eval}
-Given a polynomial $p(x) = r_{0} + r_{1}x + \dots + r_{n}x^{n}$ and a square matrix $A$, the matrix $p(A) = r_{0}I + r_{1}A + \dots  + r_{n}A^{n}$ is called the \dfn{evaluation} of $p(x)$ at $A$. Let $B = P^{-1}AP$. Show that $p(B) = P^{-1}p(A)P$ for all polynomials $p(x)$.
-\end{problem}
-
-\begin{problem}\label{prob:5_5_12}
-Let $P$ be an invertible $n \times n$ matrix. If $A$ is any $n \times n$ matrix, write $T_{P}(A) = P^{-1}AP$. Verify that:
-
-%\begin{enumerate}[label={\alph*.}]
-\begin{enumerate}
-\item\label{prob:5_5_12a} $T_{P}(I) = I$
-\item\label{prob:5_5_12b} $T_{P}(AB) = T_{P}(A)T_{P}(B)$
-%Solution $T_{P}(A)T_{P}(B) = (P^{-1}AP)(P^{-1}BP) = P^{-1}(AB)P = T_{P}(AB)$.
-\item\label{prob:5_5_12c} $T_{P}(A + B) = T_{P}(A) + T_{P}(B)$
-\item\label{prob:5_5_12d} $T_{P}(rA) = rT_{P}(A)$
-\item\label{prob:5_5_12e} $T_{P}(A^{k}) = [T_{P}(A)]^{k}$ for $k \geq 1$
-\item\label{prob:5_5_12f} If $A$ is invertible, $T_{P}(A^{-1}) = [T_{P}(A)]^{-1}$.
-\item\label{prob:5_5_12g} If $Q$ is invertible, $T_{Q}[T_{P}(A)] = T_{PQ}(A)$.
-\end{enumerate}
-
-\end{problem}
-
-
-
-\begin{problem}
-Let $A = \begin{bmatrix}
-0 & a & b \\
-a & 0 & c \\
-b & c & 0	
-\end{bmatrix}$ and $B =
-\begin{bmatrix}
-c & a & b \\
-a & b & c \\
-b & c & a
-\end{bmatrix}$.
-
-\begin{enumerate}
-\item Show that $x^{3} - (a^{2} + b^{2} + c^{2})x - 2abc$ has real roots by considering $A$.
-
-\item Show that $a^{2} + b^{2} + c^{2} \geq ab + ac + bc$ by considering $B$.
-%\item  $c_{B}(x) = [x - (a + b + c)][x^{2} - k]$ where $k = a^{2} + b^{2} + c^{2} - [ab + ac + bc]$. Use Theorem~\ref{thm:016397}.
-\end{enumerate}
-\end{problem}
-
-\begin{problem}
-Assume the $2 \times 2$ matrix $A$ is similar to an upper triangular matrix. If $\mbox{tr} A = 0 = \mbox{tr} A^{2}$, show that $A^{2}$ is equal to the zero matrix.
-\end{problem}
-
-\begin{problem}
-Show that $A$ is similar to $A^{T}$ for all $2 \times 2$ matrices $A$. 
-\begin{hint}
-Let $A =\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}$. If $c = 0$ treat the cases $b = 0$ and $b \neq 0$ separately. If $c \neq 0$, reduce to the case $c = 1$ using Exercise~\ref{prob:5_5_12}~\ref{prob:5_5_12d}.
-\end{hint}
-\end{problem}
 
 \section*{Text Source}
 The text in this section is a compilation of material from Section 7.2.1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra} (CC-BY) and Section 5.5 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
