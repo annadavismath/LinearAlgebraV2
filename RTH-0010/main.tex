@@ -222,13 +222,13 @@ The following theorem generalizes our observation in Exploration \ref{exp:orth1a
 Let $W$ be a subspace of $\RR^n$ and suppose $\{ \vec{f}_1, \vec{f}_2, \ldots, \vec{f}_m \}$
 is an orthogonal basis of $W$.
 Then for every $\vec{x}$ in $W$,
-\begin{equation}
+\begin{equation}\label{FourierEqn}
 \vec{x} =
 \left(\frac{\vec{x}\dotp \vec{f}_1}{\norm{\vec{f}_1}^2}\right) \vec{f}_1 +
 \left(\frac{\vec{x}\dotp \vec{f}_2}{\norm{\vec{f}_2}^2}\right) \vec{f}_2 +
 \cdots +
 \left(\frac{\vec{x}\dotp \vec{f}_m}{\norm{\vec{f}_m}^2}\right) \vec{f}_m.
-\end{equation}\label{FourierEqn}
+\end{equation}
 \end{theorem}
 
 \begin{proof}
@@ -390,9 +390,9 @@ Definition \ref{def:projOntoSubspace} and the subsequent diagram summarize this 
 
 \begin{definition}[Projection onto a Subspace of $\RR^n$]\label{def:projOntoSubspace}
 Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. If $\vec{x}$ is in $\RR^n$, the vector
-\begin{equation}
+\begin{equation}\label{def:projectontoWeasy}
 \vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
-\end{equation}\label{def:projectontoWeasy}
+\end{equation}
 is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$.  %The vector $\vec{x}-\vec{w}$ is called the \dfn{component of $\vec{x}$ orthogonal to $\vec{w}$}.  We will write $\vec{w}^\perp = \vec{x}-\vec{w}$.
 \end{definition}
 
@@ -421,9 +421,9 @@ An illustration of Definition \ref{def:projOntoSubspace} for a two-dimensional s
 
 Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$ in Definition \ref{def:projOntoSubspace} using the following formula.
 \begin{formula}\label{form:orthProjOntoW}
-\begin{equation}
+\begin{equation}\label{def:projectontoW}
 \vec{w} = \mbox{proj}_W(\vec{x}) =\frac{\vec{x} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} + \frac{\vec{x} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2}+ \dots +\frac{\vec{x} \dotp \vec{f}_{m}}{\norm{\vec{f}_{m}}^2}\vec{f}_{m}
-\end{equation}\label{def:projectontoW}
+\end{equation}
 \end{formula}
 
 \subsection*{Orthogonal Decomposition of $\vec{x}$}
