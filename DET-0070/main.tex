@@ -1,71 +1,72 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele \and Paul Bender} \title{Determinants as Areas and Volumes} \license{CC-BY 4.0}
+\title{Determinants as Areas and Volumes} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
- %We interpret a $2\times 2$ determinant as the area of a parallelogram, and a $3\times 3$ determinant as the volume of a parallelepiped.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 \section*{Determinants as Areas and Volumes}
 
-Determinants can be interpreted geometrically as areas and volumes.  This might make intuitive sense if we observe that $\begin{vmatrix}1&0\\0&1\end{vmatrix}=1$ is the area of a parallelogram determined by $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$.    
+% Determinants can be interpreted geometrically as areas and volumes.  This might make intuitive sense if we observe that $\begin{vmatrix}1&0\\0&1\end{vmatrix}=1$ is the area of a parallelogram determined by $\begin{bmatrix}1\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$.    
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-\draw[thin,gray!40] (-1,-1) grid (3,3);
-  \draw[<->] (-1,0)--(3,0);
-  \draw[<->] (0,-1)--(0,3);
+% \begin{center}
+% \begin{tikzpicture}[scale=1]
+% \draw[thin,gray!40] (-1,-1) grid (3,3);
+%   \draw[<->] (-1,0)--(3,0);
+%   \draw[<->] (0,-1)--(0,3);
   
-  \filldraw[blue, opacity=0.3](0,0)--(1,0)--(1,1)--(0,1)--cycle;
+%   \filldraw[blue, opacity=0.3](0,0)--(1,0)--(1,1)--(0,1)--cycle;
   
-\draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
+% \draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
 
- \draw[line width=2pt,blue,-stealth](0,0)--(0,1) node[left]{$\begin{bmatrix}0\\1\end{bmatrix}$};
+%  \draw[line width=2pt,blue,-stealth](0,0)--(0,1) node[left]{$\begin{bmatrix}0\\1\end{bmatrix}$};
  
-\end{tikzpicture}
-\end{center}
-We are used to working with column vectors.  In this section, however, when we use vectors to form a matrix we will regard them as row vectors.  So, the vector $\begin{bmatrix}{\color{red}1}\\{\color{red}0}\end{bmatrix}$ forms the first row, $\begin{bmatrix}{\color{red}1}&{\color{red}0}\end{bmatrix}$, of the matrix $\begin{bmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}1}\end{bmatrix}$.
+% \end{tikzpicture}
+% \end{center}
+% We are used to working with column vectors.  In this section, however, when we use vectors to form a matrix we will regard them as row vectors.  So, the vector $\begin{bmatrix}{\color{red}1}\\{\color{red}0}\end{bmatrix}$ forms the first row, $\begin{bmatrix}{\color{red}1}&{\color{red}0}\end{bmatrix}$, of the matrix $\begin{bmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}1}\end{bmatrix}$.
 
-If we double one of the vectors, the determinant doubles, and so does the area of the parallelogram.  
-$$\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}2}\end{vmatrix}=2\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}1}\end{vmatrix}$$
-\begin{center}
-\begin{tikzpicture}[scale=1]
-\draw[thin,gray!40] (-1,-1) grid (3,3);
-  \draw[<->] (-1,0)--(3,0);
-  \draw[<->] (0,-1)--(0,3);
+% If we double one of the vectors, the determinant doubles, and so does the area of the parallelogram.  
+% $$\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}2}\end{vmatrix}=2\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}0}&{\color{blue}1}\end{vmatrix}$$
+% \begin{center}
+% \begin{tikzpicture}[scale=1]
+% \draw[thin,gray!40] (-1,-1) grid (3,3);
+%   \draw[<->] (-1,0)--(3,0);
+%   \draw[<->] (0,-1)--(0,3);
   
-  \filldraw[blue, opacity=0.3](0,0)--(1,0)--(1,2)--(0,2)--cycle;
+%   \filldraw[blue, opacity=0.3](0,0)--(1,0)--(1,2)--(0,2)--cycle;
   
-\draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
+% \draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
 
- \draw[line width=2pt,blue,-stealth](0,0)--(0,2) node[left]{$\begin{bmatrix}0\\2\end{bmatrix}$};
+%  \draw[line width=2pt,blue,-stealth](0,0)--(0,2) node[left]{$\begin{bmatrix}0\\2\end{bmatrix}$};
  
-\end{tikzpicture}
-\end{center}
+% \end{tikzpicture}
+% \end{center}
 
-If we shear the figure, the area is not affected (why?), but neither is the determinant.
-$$\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}k}&{\color{blue}1}\end{vmatrix}=1$$
+% If we shear the figure, the area is not affected. (Why?)
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-\draw[thin,gray!40] (-1,-1) grid (3,3);
-  \draw[<->] (-1,0)--(3,0);
-  \draw[<->] (0,-1)--(0,3);
+% \begin{center}
+% \begin{tikzpicture}[scale=1]
+% \draw[thin,gray!40] (-1,-1) grid (3,3);
+%   \draw[<->] (-1,0)--(3,0);
+%   \draw[<->] (0,-1)--(0,3);
   
-  \filldraw[blue, opacity=0.3](0,0)--(1,0)--(2.3,1)--(1.3,1)--cycle;
+%   \filldraw[blue, opacity=0.3](0,0)--(1,0)--(2.3,1)--(1.3,1)--cycle;
   
-\draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
+% \draw[line width=2pt,red,-stealth](0,0)--(1,0) node[below right]{$\begin{bmatrix}1\\0\end{bmatrix}$};
 
- \draw[line width=2pt,blue,-stealth](0,0)--(1.3,1) node[above left]{$\begin{bmatrix}k\\1\end{bmatrix}$};
+%  \draw[line width=2pt,blue,-stealth](0,0)--(1.3,1) node[above left]{$\begin{bmatrix}k\\1\end{bmatrix}$};
  
-\end{tikzpicture}
-\end{center}
+% \end{tikzpicture}
+% \end{center}
 
-Three-by-three determinants can be interpreted as volumes in a similar way.  We will now proceed to derive the relationship between determinants, area and volume more formally.
+% The determinant also remains unchanged.
+% $$\begin{vmatrix}{\color{red}1}&{\color{red}0}\\{\color{blue}k}&{\color{blue}1}\end{vmatrix}=1$$
+
+% Three-by-three determinants can be interpreted as volumes in a similar way.  We will now proceed to derive the relationship between determinants, area and volume more formally.
 
 
 \subsection*{$2\times 2$ Determinant and the Area of a Parallelogram}
@@ -107,6 +108,26 @@ We have established the following formula.
 $$\mbox{Area}=\norm{\vec{u}\times\vec{v}}$$
 \end{formula}
 
+\begin{example}
+    Use Formula \ref{form:areaofparallelogram} to find the area of a parallelogram determined by vectors 
+    $$\vec{u}=\begin{bmatrix}-2\\1\\3\end{bmatrix},\quad \vec{v}=\begin{bmatrix}1\\6\\2\end{bmatrix}$$
+\begin{explanation}
+    We can start by visualizeing the parallelogram in GeoGebra.  RIGHT-CLICK and DRAG to rotate the image below.  The area of the parallelogram, rounded to two decimal places, is displayed inside the parallelogram.
+\begin{center}
+\geogebra{g7g6kjqm}{600}{400}
+\end{center}
+    To find the exact area we compute
+    $$\vec{u}\times \vec{v}=\begin{bmatrix}-2\\1\\3\end{bmatrix}\times \begin{bmatrix}1\\6\\2\end{bmatrix}=\begin{vmatrix}\vec{i} &\vec{j} &\vec{k}\\-2 & 1 & 3\\1 & 6 & 2\end{vmatrix}=\begin{bmatrix}\answer{-16}\\\answer{7}\\\answer{-13}\end{bmatrix}$$
+
+    $$\mbox{Area}=\norm{\vec{u}\times\vec{v}}=\sqrt{\answer{474}}$$
+\end{explanation}
+\end{example}
+
+
+
+
+Formula \ref{form:areaofparallelogram} can be easily adapted to parallelograms determined by vectors in $\RR^2$, as illustrated by the following example.
+
 \begin{example}\label{ex:areaofparallelogram}
 Find the area of the parallelogram in the diagram.
 \begin{center}
@@ -134,18 +155,75 @@ $$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\12\end{bmatrix}}=12$$
 \end{explanation}
 \end{example}
 
-Example \ref{ex:areaofparallelogram} illustrates an important phenomenon.  Observe that the zeros in the last column of the determinant ensure that the $\vec{i}$ and $\vec{j}$ components of the cross product are zero, while the last component is the determinant of the $2\times 2$ matrix whose rows are the two vectors that determine the parallelogram in $\RR^2$.  In general, if the parallelogram is determined by vectors 
+Example \ref{ex:areaofparallelogram} illustrates an important phenomenon.  Observe that the zeros in the last column of the determinant ensure that the $\vec{i}$ and $\vec{j}$ components of the cross product are zero, while the last component is the determinant of the $2\times 2$ matrix whose rows (or columns) are the two vectors that determine the parallelogram in $\RR^2$.  In general, if the parallelogram is determined by vectors 
 $$\begin{bmatrix}a\\b\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}c\\d\end{bmatrix}$$
 then the area of the parallelogram can be computed as follows:
 $$\begin{bmatrix}a\\b\\0\end{bmatrix}\times\begin{bmatrix}c\\d\\0\end{bmatrix}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\a&b&0\\c&d&0\end{vmatrix}=\vec{k}\begin{vmatrix}a&b\\c&d\end{vmatrix}=\vec{k}\Big((a)(d)-(b)(c)\Big)=\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}$$
 
-$$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}}=|ad-bc|=\Big|\det\begin{bmatrix}a&b\\c&d\end{bmatrix}\Big|$$
+$$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}}=|ad-bc|=\Big|\det\begin{bmatrix}a&b\\c&d\end{bmatrix}\Big|=\Big|\det\begin{bmatrix}a&c\\b&d\end{bmatrix}\Big|$$
 
-So the area of the parallelogram turns out to be the absolute value of the determinant of the matrix whose rows are the two vectors that determine the parallelogram. 
+So the area of the parallelogram turns out to be the absolute value of the determinant of the matrix whose rows (or columns) are the two vectors that determine the parallelogram. 
 The following formula summarizes our discussion.
 \begin{formula}\label{form:areaofparallelogramdeterminant} Let $\vec{u}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}c\\d\end{bmatrix}$ be vectors of $\RR^2$.  The area of the parallelogram determined by $\vec{u}$ and $\vec{v}$ is given by
-$$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|$$
+$$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|=\Big|\det\begin{bmatrix}a&c\\b&d\end{bmatrix}\Big|$$
 \end{formula}
+
+\begin{example}
+    Use Formula \ref{form:areaofparallelogramdeterminant} to find the area of the polygon shown below.
+  \begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[thin,gray!40] (-3,-2) grid (3,4);
+  \draw[<->] (-3,0)--(3,0);
+  \draw[<->] (0,-2)--(0,4);
+  \filldraw[blue, opacity=0.3](-1,-1)--(-2,2)--(-1,3)--(1,2)--(2,0)--cycle;
+%\draw[line width=2pt,red,-stealth](0,0)--(4,2);
+% \draw[line width=2pt,blue,-stealth](0,0)--(-2,2);
+ \end{tikzpicture}
+\end{center}  
+\begin{explanation}
+    We will start by splitting this region into triangles.
+    \begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[thin,gray!40] (-3,-2) grid (3,4);
+  \draw[<->] (-3,0)--(3,0);
+  \draw[<->] (0,-2)--(0,4);
+  \filldraw[blue, opacity=0.3](-1,-1)--(-2,2)--(-1,3)--(1,2)--(2,0)--cycle;
+\draw[line width=1pt,red,-stealth](0,0)--(-1,-1);
+\draw[line width=1pt,red,-stealth](0,0)--(-2,2);
+\draw[line width=1pt,red,-stealth](0,0)--(-1,3);
+\draw[line width=1pt,red,-stealth](0,0)--(1,2);
+\draw[line width=1pt,red,-stealth](0,0)--(2,0);
+\node[] at (1, 0.6)   (b) {$A_1$};
+\node[] at (0.2, 1.9)   (b) {$A_2$};
+\node[] at (-1, 1.5)   (b) {$A_3$};
+\node[] at (-1, 0.2)   (b) {$A_4$};
+\node[] at (0.5, -0.4)   (b) {$A_5$};
+ \end{tikzpicture}
+\end{center} 
+    We can find the total area of the polygon by finding the area of each triangle.  The area of each triangle is half of the area of the corresponding parallelogram.  For instance, $A_1$ is half of the area of the parallelogram depicted below. 
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[thin,gray!40] (-3,-2) grid (3,4);
+  \draw[<->] (-3,0)--(3,0);
+  \draw[<->] (0,-2)--(0,4);
+  \filldraw[blue, opacity=0.3](-1,-1)--(-2,2)--(-1,3)--(1,2)--(2,0)--cycle;
+\draw[line width=1pt,red,-stealth](0,0)--(-1,-1);
+\draw[line width=1pt,red,-stealth](0,0)--(-2,2);
+\draw[line width=1pt,red,-stealth](0,0)--(-1,3);
+\draw[line width=1pt,red,-stealth](0,0)--(1,2);
+\draw[line width=1pt,red,-stealth](0,0)--(2,0);
+\filldraw[orange, opacity=0.3](2,0)--(0,0)--(1,2)--(3,2)--cycle;
+ \end{tikzpicture}
+\end{center} 
+We compute
+$$A_1=\frac{1}{2}\left|\det\begin{bmatrix}2 & 1\\0 & 2\end{bmatrix}\right |=\answer{2}$$
+$$A_2=\frac{1}{2}\left|\det\begin{bmatrix}1 & -1\\2 & 3\end{bmatrix}\right |=\answer{2.5}$$
+$$A_3=\frac{1}{2}\left|\det\begin{bmatrix}-1 & -2\\3 & 2\end{bmatrix}\right |=\answer{2}$$
+$$A_4=\frac{1}{2}\left|\det\begin{bmatrix}-2 & -1\\2 & -1\end{bmatrix}\right |=\answer{2}$$
+$$A_5=\frac{1}{2}\left|\det\begin{bmatrix}-1 & 2\\-1 & 0\end{bmatrix}\right |=\answer{1}$$
+The total area of the polygon is $\answer{9.5}$.
+\end{explanation}
+\end{example}
 
 
 \subsection*{$3\times 3$ Determinant and the Volume of a Parallelepiped}
@@ -253,6 +331,24 @@ The expression in (\ref{eq:boxproduct}) is sometimes referred to as the \dfn{box
 Let $\vec{u}=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix},\quad\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix},\quad\vec{w}=\begin{bmatrix}w_1\\w_2\\w_3\end{bmatrix}$ be vectors in $\RR^3$.  Then the volume of the parallelepiped determined by $\vec{u}$, $\vec{v}$ and $\vec{w}$ is given by 
 $$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{bmatrix}\Big|$$
 \end{formula}
+
+\subsection*{Determinants and Linear Transformations}
+We will now turn our attention to the determinant of a matrix of a linear transformation.  
+\begin{exploration}
+The following GeoGebra interactive shows a polygon $P$ located in the domain of a linear transformation $T$ induced by the matrix $M$.  The right-hand side shows the image of $P$ under $T$.  The number inside each polygon indicates its area.
+\begin{center}
+\geogebra{nr8jsz4w}{950}{700}
+\end{center}
+\begin{question}
+Let $M=\begin{bmatrix}1&1\\-1&2\end{bmatrix}$.  Find the determinant of $M$.
+$$\det{M}=\answer{3}$$
+Drag the vertices of $P$ to change the polygon.  Make a note of how the area of $P$ and the area of the image change.  How are the areas related to each other?
+$$\mbox{Area}(T(P))=\answer{3}\mbox{Area}(P)$$
+\end{question}
+Change the matrix $M$ to a matrix whose determinant is 1.  Compare the areas of $P$ and $T(P)$.  Try matrices whose determinant is 0 or negative.  What do you observe about the areas?
+
+Formulate a hypothesis about the relationship between the area of the polygon and the area of its image under a linear transformation.
+\end{exploration}
 
 \section*{Practice Problems}
 
