@@ -168,7 +168,7 @@ The following formula summarizes our discussion.
 $$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|=\Big|\det\begin{bmatrix}a&c\\b&d\end{bmatrix}\Big|$$
 \end{formula}
 
-\begin{example}
+\begin{example}\label{exp:polyArea}
     Use Formula \ref{form:areaofparallelogramdeterminant} to find the area of the polygon shown below.
   \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -334,7 +334,7 @@ $$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\en
 
 \subsection*{Determinants and Linear Transformations}
 We will now turn our attention to the determinant of a matrix of a linear transformation.  
-\begin{exploration}
+\begin{exploration}\label{exp:LinTransAreaDet}
 The following GeoGebra interactive shows a polygon $P$ located in the domain of a linear transformation $T$ induced by the matrix $M$.  The right-hand side shows the image of $P$ under $T$.  The number inside each polygon indicates its area.
 \begin{center}
 \geogebra{nr8jsz4w}{950}{700}
@@ -347,8 +347,24 @@ $$\mbox{Area}(T(P))=\answer{3}\mbox{Area}(P)$$
 \end{question}
 Change the matrix $M$ to a matrix whose determinant is 1.  Compare the areas of $P$ and $T(P)$.  Try matrices whose determinant is 0 or negative.  What do you observe about the areas?
 
-Formulate a hypothesis about the relationship between the area of the polygon and the area of its image under a linear transformation.
+Formulate a conjecture about the relationship between the area of the polygon and the area of its image under a linear transformation.
 \end{exploration}
+A formal discussion of the concept of area is beyond the scope of this class, so we will not prove your conjecture in Exploration \ref{exp:LinTransAreaDet} for arbitrary figures.  We can, however, tackle the problem of how linear transformations affect areas of parallelograms.  This is the topic of our next example.
+
+\begin{example}
+    Let $T:\RR^2\longrightarrow\RR^2$ be a linear transformation induced by matrix $M$.  Suppose $\vec{u}$ and $\vec{v}$ are vectors in $\RR^2$.  Let $P$ be a parallelogram determined by $\vec{u}$ and $\vec{v}$.  Show that 
+    $$\mbox{Area}(T(P))=\left|\det{M}\right|\mbox{Area}(P)$$
+    \begin{explanation}
+        Let $\vec{u}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}c\\d\end{bmatrix}$, and let $M=\begin{bmatrix}m & n\\p & q\end{bmatrix}$.  By Formula \ref{form:areaofparallelogramdeterminant}, $\mbox{Area}(P)=ad-bc$.  Applying $M$ to $\vec{u}$ and $\vec{v}$ we get 
+        $$T(\vec{u})=\begin{bmatrix}am+bn\\ap+bq\end{bmatrix}\quad\mbox{and}\quad T(\vec{v})=\begin{bmatrix}cm+dn\\cp+dq\end{bmatrix}$$
+        Using Formula \ref{form:areaofparallelogramdeterminant}, we compute
+        \begin{align*}
+        \mbox{Area}(T(P))=&|(am+bn)(cp+dq)-(ap+bq)(cm+dn)|\\
+        =&|(mq-np)(ad-bc)|\\
+        =&|\det{M}|\mbox{Area}(P)
+        \end{align*}
+    \end{explanation}
+\end{example}
 
 \section*{Practice Problems}
 
