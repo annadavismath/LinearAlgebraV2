@@ -514,27 +514,31 @@ Show that computing the inverse of $P$ is not really necessary by comparing the 
 \begin{problem}
 In each case, decide whether the matrix $A$ is diagonalizable. If so, find $P$ such that $P^{-1}AP$ is diagonal.
 
-\begin{problem}
+\begin{problem}\label{prb:diagonalizable}
 \item $\begin{bmatrix}
 1 & 0 & 0 \\
 1 & 2 & 1 \\
 0 & 0 & 1
 \end{bmatrix}$
+\wordChoice{[correct]\choice{Diagonalizable}\choice{Not Diagonalizable}}
 \item $\begin{bmatrix}
 3 &  0 & 6 \\
 0 & -3 & 0 \\
 5 &  0 & 2
 \end{bmatrix}$
+\wordChoice{[correct]\choice{Diagonalizable}\choice{Not Diagonalizable}}
 \item $\begin{bmatrix}
  3 &  1 &  6 \\
  2 &  1 &  0 \\
 -1 &  0 & -3
 \end{bmatrix}$
+\wordChoice{[correct]\choice{Diagonalizable}\choice{Not Diagonalizable}}
 \item $\begin{bmatrix}
 4 & 0 & 0 \\
 0 & 2 & 2 \\
 2 & 3 & 1
 \end{bmatrix}$
+\wordChoice{\choice{Diagonalizable}\choice[correct]{Not Diagonalizable}}
 \end{problem}
 
 %\setcounter{enumi}{1}
@@ -554,14 +558,17 @@ In each case, decide whether the matrix $A$ is diagonalizable. If so, find $P$ s
 %problem  No, $c_{A}(x) = (x + 1)(x - 4)^{2}$ so $\lambda = 4$ has multiplicity 2. But $\func{dim}(E_{4}) = 1$ so Theorem~\ref{thm:016250} applies.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prb:upper_triangular_case}
 Let $A$ denote an $n \times n$ upper triangular matrix.
 \begin{enumerate}
 
 \item If all the main diagonal entries of $A$ are distinct, show that $A$ is diagonalizable.
 
 \item If all the main diagonal entries of $A$ are equal, show that $A$ is diagonalizable only if it is \textit{already} diagonal.
-%The eigenvalues of $A$ are all equal (they are the diagonal elements), so if $P^{-1}AP = D$ is diagonal, then $D = \lambda I$. Hence $A = P^{-1}(\lambda I)P = \lambda I$.
+Click the arrow to see the answer.
+\begin{expandable}
+The eigenvalues of $A$ are all equal (they are the diagonal elements), so if $P^{-1}AP = D$ is diagonal, then $D = \lambda I$. Hence $A = P^{-1}(\lambda I)P = \lambda I$.
+\end{expandable}
 
 \item Show that $\begin{bmatrix}
 1 & 0 & 1 \\
@@ -577,7 +584,7 @@ Let $A$ denote an $n \times n$ upper triangular matrix.
 
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prb:det_and_tr_diagonalizable}
 Let $A$ be a diagonalizable $n \times n$ matrix with eigenvalues $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$ (including multiplicities). Show that:
 
 \begin{enumerate}
@@ -586,7 +593,7 @@ Let $A$ be a diagonalizable $n \times n$ matrix with eigenvalues $\lambda_{1}, \
 \end{enumerate}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prb:A_sim_A^T_diagonalizable}
 \begin{enumerate}
 
 \item Show that two diagonalizable matrices are similar if and only if they have the same eigenvalues with the same multiplicities.
@@ -600,21 +607,6 @@ Let $A$ be a diagonalizable $n \times n$ matrix with eigenvalues $\lambda_{1}, \
  \end{bmatrix}$
 
 \end{enumerate}
-\end{problem}
-
-\begin{problem}
-If $A$ is $2 \times 2$ and diagonalizable, show that $C(A) = \{X \mid XA = AX\}$ has dimension $2$ or $4$. [\textit{Hint}: If $P^{-1}AP = D$, show that $X$ is in $C(A)$ if and only if $P^{-1}XP$ is in $C(D)$.]
-\end{problem}
-
-\begin{problem}
-If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (here, the final 0 is the zero matrix the same size as $A$).
-\begin{remark}
-The characteristic polynomial of $A$ certainly satisfies the requirement that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$.  In solving this problem you have proved a special case of the Cayley-Hamilton theorem, see Theorem~\ref{th:Cayley_Hamilton}.  In fact, if $p(\lambda)$ is the characteristic polynomial of $A$, then $p(A) = 0$ whether or not $A$ is diagonalizable.
-\end{remark}
-\end{problem}
-
-\begin{problem}
-Let $A$ be $n \times n$ with $n$ distinct real eigenvalues. If $AC = CA$, show that $C$ is diagonalizable.
 \end{problem}
 
 \section*{Text Source}
