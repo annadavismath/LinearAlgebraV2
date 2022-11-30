@@ -1,13 +1,13 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{Bases and Dimension} \license{CC-BY-NC-SA}
+ \title{Bases and Dimension} \license{CC BY-NC-SA 4.0}
 
 
 
 \begin{document}
 \begin{abstract}
-%We discuss existence of bases of $\RR^n$ and subspaces of $\RR^n$, and define dimension.
+
 \end{abstract}
 \maketitle
 
@@ -77,7 +77,7 @@ For all $1\leq j\leq t$.
 This gives us a system of $t$ equations and $s$ unknowns.  We can write the system as a matrix equation.
 $$\begin{bmatrix}a_{11}&a_{12}&\ldots &a_{1s}\\a_{21}&a_{22}&\ldots &a_{2s}\\\vdots&\vdots&\ddots&\vdots\\a_{t1}&a_{t2}&\ldots&a_{ts}\end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_s\end{bmatrix}=\vec{0}$$
 
-Recall our assumption that $s<t$.  By Theorem \ref{th:rankandsolutions} of SYS-0030 we know that the system has infinitely many solutions.  This shows that equation (\ref{eq:sizeofbases}) has a nontrivial solution.  But this shows that $\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ is linearly dependent and contradicts our assumption that $\mathcal{C}$ is a basis of $V$.  We conclude that $s=t$.
+Recall our assumption that $s<t$.  By Theorem \ref{th:rankandsolutions}, we know that the system has infinitely many solutions.  This shows that equation (\ref{eq:sizeofbases}) has a nontrivial solution.  But this shows that $\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ is linearly dependent and contradicts our assumption that $\mathcal{C}$ is a basis of $V$.  We conclude that $s=t$.
 \end{proof}
 
 
@@ -117,19 +117,12 @@ This means that (\ref{eq:expandinglinindset}) has only the trivial solution, and
 Let $V$ be a subspace of $\RR^n$.  Any linearly independent subset of $V$ can be expanded to a basis of $V$.
 \end{theorem}
 \begin{proof}
-Suppose that $I=\{\vec{v}_1,\ldots ,\vec{v}_k\}$ is a linearly independent subset of $V$. If $\mbox{span}(I) = V$ then $I$ is already a basis of $V$. If $\mbox{span}(I) \neq V$, choose $\vec{u}_1$ in $V$ such that $\vec{u}_1$ is not in $\mbox{span}(I)$. The set $\{\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent by Lemma \ref{lemma:expandinglinindset}. 
+Suppose that $X=\{\vec{v}_1,\ldots ,\vec{v}_k\}$ is a linearly independent subset of $V$. If $\mbox{span}(X) = V$ then $X$ is already a basis of $V$. If $\mbox{span}(X) \neq V$, choose $\vec{u}_1$ in $V$ such that $\vec{u}_1$ is not in $\mbox{span}(X)$. The set $\{\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent by Lemma \ref{lemma:expandinglinindset}. 
 
 If $\mbox{span}(\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k) = V$ we are done; otherwise choose $\vec{u}_{2} \in V$ such that $\vec{u}_{2}$ is not in $\mbox{span}(\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k)$. Then $\{\vec{u}_1,\vec{u}_2, \vec{v}_1,\ldots ,\vec{v}_k\}$ is linearly independent, and the process continues. We claim that a basis of $V$ will be reached eventually. If no basis of $V$ is ever reached, the process creates arbitrarily large independent sets in $\RR^n$. But this is impossible by Lemma \ref{lemma:atmostnlinindinrn}.
 \end{proof}
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:atmostnlinindinrnproof}
-Prove Lemma \ref{lemma:atmostnlinindinrn}.
-\begin{hint}
-Look at the proof of Theorem \ref{th:dimwelldefined}.
-\end{hint}
-\end{problem}
-
 \begin{problem}
 For each given set $S$ of vectors, find $\mbox{dim}(\mbox{span}(S))$.
 \begin{hint}
@@ -153,6 +146,13 @@ Answer: $\mbox{dim}(\mbox{span}(S))=\answer{3}$
 
 \end{problem}
 
+\begin{problem}\label{prob:atmostnlinindinrnproof}
+Prove Lemma \ref{lemma:atmostnlinindinrn}.
+\begin{hint}
+Look at the proof of Theorem \ref{th:dimwelldefined}.
+\end{hint}
+\end{problem}
+
 \begin{problem}\label{prob:matrixtimesbasisvectors} 
 Let $\mathcal{B}=\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ be a basis of $\RR^3$.  Suppose $A$ is a nonsingular $3\times 3 $ matrix.  Show that $\mathcal{C}=\{A\vec{v}_1, A\vec{v}_2, A\vec{v}_3\}$ is also a basis of $\RR^3$. 
 \begin{hint}
@@ -160,6 +160,8 @@ To show that $\mathcal{C}$ spans $\RR^3$, express $A^{-1}\vec{v}$ as a linear co
 \end{hint}
 
 \end{problem}
+
+
 
 \section*{Exercise Source}
 Practice Problem \ref{prob:matrixtimesbasisvectors} is adopted from Keith Nicholson's Example 5.2.12  \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
