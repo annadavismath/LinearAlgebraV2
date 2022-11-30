@@ -11,6 +11,8 @@
 
 \section*{Exercises for Ch 2 Systems of Linear Equations}
 
+\subsection*{Review Exercises}
+
 \begin{problem}\label{prb:2.2}
 Graphically, find the point of intersection of the two lines $
 3x+y=3$ and $x+2y=1.$ That is, graph each line
@@ -99,7 +101,7 @@ given augmented matrix is consistent. If consistent, is the solution unique?
 \right]
 \end{equation*}
 \begin{hint}
-There might be a solution. If so, there are infinitely many.
+The third equation implies that $x_5 = 0$.  The fourth equation implies that $x_5 \ne 0$.  We conclude that the system is inconsistent.
 \end{hint}
 \end{problem}
 
@@ -875,9 +877,273 @@ unique solution since the columns of $A$ are independent.
 \end{enumerate}
 \end{problem}
 
-\section*{Practice Problem Source}
-These problems come from the end of Chapter 1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+\subsection*{Challenge Exercises}
+
+\begin{problem}\label{prb:possible}
+We show in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{Planes in $\RR^3$} that the graph of an equation $ax + by + cz = d$ is a plane in space when not all of $a$, $b$, and $c$ are zero.
+
+\begin{enumerate}
+\item By examining the possible positions of planes in space, show that three equations in three variables can have zero, one, or infinitely many solutions.
+ %ANSWER  No. If the corresponding planes are parallel and distinct, there is no
+%solution. Otherwise they either coincide or have a whole common line of
+%solutions, that is, at least one parameter.
+
+\item Can two equations in three variables have a unique solution? Give reasons for your answer.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:systems_review}
+Find all solutions to the following systems of linear equations.
+
+\begin{enumerate}
+\item
+
+$\begin{array}{rlrlrlrcr}
+	  x_1 & + &  x_2 & + &  x_3 & - &  x_4 & = &  3 \\
+	 3x_1 & + & 5x_2 & - & 2x_3 & + &  x_4 & = &  1 \\
+	-3x_1 & - & 7x_2 & + & 7x_3 & - & 5x_4 & = &  7 \\
+	  x_1 & + & 3x_2 & - & 4x_3 & + & 3x_4 & = & -5 \\
+\end{array}$
+
+%ANSWER \hspace*{0em}\newline $x_1 = \frac{1}{10}(-6s - 6t + 16)$, $x_2 = \frac{1}{10}(4s - t + 1)$, $x_3 = s$, $x_4 = t$
+
+\item
+
+$\begin{array}{rlrlrlrcr}
+	  x_1 & + &  4x_2 & - &   x_3 & + &   x_4 & = &  2 \\
+	 3x_1 & + &  2x_2 & + &   x_3 & + &  2x_4 & = &  5 \\
+	  x_1 & - &  6x_2 & + &  3x_3 &   &       & = &  1 \\
+	  x_1 & + & 14x_2 & - &  5x_3 & + &  2x_4 & = &  3 \\
+\end{array}$
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{problem}\label{prb:no._sol}
+In each case find (if possible) conditions on $a$, $b$, and $c$ such that the system has zero, one, or infinitely many solutions.
+\begin{enumerate}
+\item
+
+$\begin{array}{rlrlrcr}
+	  x & + &  2y & - &  4z & = &  4 \\
+	 3x & - &   y & + & 13z & = &  2 \\
+	 4x & + &   y & + & a^2z & = & a + 3 \\
+\end{array}$
+%ANSWER  If $a = 1$, no solution. If $a = 2$, $x = 2 - 2t$, $y = -t$, $z = t$. If $a \neq 1$ and $a \neq 2$, the unique          solution is $x = \frac{8 - 5a}{3(a - 1)}$, $y = \frac{-2 - a}{3(a - 1)}$, $z = \frac{a + 2}{3}$
+
+\item
+
+$\begin{array}{rlrlrcr}
+	  x & + &   y & + &  3z & = &  a \\
+	 ax & + &   y & + &  5z & = &  4 \\
+	  x & + &  ay & + &  4z & = &  a
+\end{array}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:elementaryrowops}
+Show that any two rows of a matrix can be interchanged by elementary row transformations of the other two types.
+
+%\begin{supsol}
+%$\leftB \begin{array}{c}
+%	R_1 \\
+%	R_2
+%\end{array} \rightB
+%\to $ \\ $\leftB \begin{array}{c}
+%	R_1 + R_2 \\
+%	R_2
+%\end{array} \rightB
+%\to
+%\leftB \begin{array}{c}
+%	R_1 + R_2 \\
+%	-R_1
+%\end{array} \rightB
+%\to
+%\leftB \begin{array}{c}
+%	R_2 \\
+%	-R_1
+%\end{array} \rightB
+%\to
+%\leftB \begin{array}{c}
+%	R_2 \\
+%	R_1
+%\end{array} \rightB$
+%\end{supsol}
+\end{problem}
+
+\begin{problem}\label{prb:rref_nonsingular}
+If $ad \neq bc$, show that $\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$ has reduced row-echelon form $\begin{bmatrix}
+ 1 & 0 \\
+ 0 & 1
+ \end{bmatrix}$.
+\end{problem}
+
+\begin{problem}\label{prb:coeffs}
+Find $a$, $b$, and $c$ so that the system
+\begin{equation*}
+\begin{array}{rlrlrcr}
+	 x & + &  ay & + &  cz & = &  0 \\
+	bx & + &  cy & - &  3z & = &  1 \\
+	ax & + &  2y & + &  bz & = &  5
+\end{array}
+\end{equation*}
+has the solution $x = 3$, $y = -1$, $z = 2$.
+
+$a = \answer{1}$, $b = \answer{2}$, $c = \answer{-1}$
+
+\end{problem}
+
+\begin{problem}\label{prb:complex}
+Solve the system
+$$
+\begin{array}{rlrlrcr}
+	 x & + &  2y & + &  2z & = & -3 \\
+	2x & + &   y & + &   z & = & -4 \\
+	 x & - &   y & + &  iz & = &  i
+\end{array}
+$$
+where $i^{2} = -1$. 
+\end{problem}
+
+\begin{problem}\label{prb:real_complex}
+Show that the \textit{real} system
+\begin{equation*}
+\left \{
+\begin{array}{rlrlrcr}
+	 x & + &   y & + &   z & = &  5 \\
+	2x & - &   y & - &   z & = &  1 \\
+	-3x& + &  2y & + &  2z & = &  0
+\end{array}
+\right.
+\end{equation*}
+has a \textit{complex} solution: $x = 2$, $y = i$, $z = 3 - i$ where $i^{2} = -1$. Explain. What happens when such a real system has a unique solution?
+
+%ANSWER  The (real) solution is $x = 2$, $y = 3 - t$, $z = t$ where $t$ is a parameter. The given complex solution occurs when $t = 3 - i$ is complex. If the real system has a unique solution, that solution is real because the coefficients and constants are all real.
+
+\end{problem}
+
+\begin{problem}\label{prb:pills}
+A man is ordered by his doctor to take $5$ units of vitamin A, $13$ units of vitamin B, and $23$ units of vitamin C each day. Three brands of vitamin pills are available, and the number of units of each vitamin per pill are shown in the accompanying table.
+
+$$
+\begin{array}{cccc}
+\hline
+		\textbf{Brand} &  \textbf{A} & \textbf{B} & \textbf{C} \\ \hline
+		\textbf{1} & 1 & 2 & 4 \\
+		\textbf{2} & 1 & 1 & 3 \\
+		\textbf{3} & 0 & 1 & 1 \\ \hline
+ \end{array}
+$$
+
+\begin{enumerate}
+\item Find all combinations of pills that provide exactly the required amount of vitamins (no partial pills allowed).
+
+\item If brands 1, 2, and 3 cost 3 cents, 2 cents, and 5 cents \ per pill, respectively, find the least expensive treatment.
+
+$\answer{5}$ of brand 1, $\answer{0}$ of brand 2, $\answer{3}$ of brand 3
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:tables}
+A restaurant owner plans to use $x$ tables seating $4$, $y$ tables seating $6$, and $z$ tables seating $8$, for a total of $20$ tables. When fully occupied, the tables seat $108$ customers. If only half of the $x$ tables, half of the $y$ tables, and one-fourth of the $z$ tables are used, each fully occupied, then $46$ customers will be seated. Find $x$, $y$, and $z$.
+
+\end{problem}
+
+\begin{problem}\label{prb:2x2rref_forms}
+
+\begin{enumerate}
+\item Show that a matrix with two rows and two columns that is in reduced row-echelon form must have one of the following forms:
+\begin{equation*}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 & * \\
+0 & 0
+\end{bmatrix}
+\end{equation*}
+
+\begin{hint}
+ The leading $1$ in the first row must be in column 1 or 2 or not exist.
+\end{hint}
+
+\item List the seven reduced row-echelon forms for matrices with two rows and three columns.
+
+\item List the four reduced row-echelon forms for matrices with three rows and two columns.
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prb:amusement}
+An amusement park charges \$$7$ for adults, \$$2$ for youths, and \$$0.50$ for
+children. If $150$ people enter and pay a total of \$$100$, find the numbers
+of adults, youths, and children.
+\begin{hint}
+These numbers are nonnegative \textit{integers}.
+\end{hint}
+
+\end{problem}
+
+\begin{problem}\label{prb:quadratic}
+Solve the following system of equations for $x$ and $y$.
+
+\begin{equation*}
+\begin{array}{rlrlrcr}
+	  x^2 & + &   xy & - &   y^2 & = &  1 \\
+	 2x^2 & - &   xy & + &  3y^2 & = & 13 \\
+	  x^2 & + &  3xy & + &  2y^2 & = &  0 \\
+\end{array}
+\end{equation*}
+\begin{hint}
+These equations are linear in the new variables $x_{1} = x^{2}$, $x_{2} = xy$, and $x_{3} = y^{2}$.
+\end{hint}
+\end{problem}
+
+
+\subsection*{Octave Exercises}
+\begin{problem}\label{oct:rref}
+Use the Octave window below to check your work on Problems \ref{prb:2.18} to \ref{prb:2.38}.  The command $\mbox{rref}(A)$ is an easy way to obtain the reduced row echelon form of a matrix.  It is more challenging to go through the steps of Gaussian elimination, but it can be done.  The first two steps of \ref{prb:2.18} are done in the Octave window.  See if you can add one more command which will put the matrix into row echelon form.
+
+%\begin{octave}
+A=[2 -1 3 -1; 1 0 2 1; 1 -1 1 -2];
+R=rref(A)
+A
+A(2,:)=-1/2*A(1,:)+A(2,:)
+A(3,:)=-1/2*A(1,:)+A(3,:)
+%\end{octave}
+\end{problem}
+
+\begin{problem}\label{oct:rref}
+Use the Octave window below to check your work on Problems \ref{prb:2.44} to \ref{prb:2.54}.  The command $\mbox{rank}(A)$ is an easy to obtain the rank of a matrix.  Of course, you can also use $\mbox{rref}(A)$ and you obtain even more information!  Problem \ref{prb:2.44} is entered below.
+
+%\begin{octave}
+A=[4 -16 -1 -5; 1 -4 0 -1; 1 -4 -1 -2]
+r=rank(A)
+R=rref(A)
+%\end{octave}
+\end{problem}
+
+\section*{Bibliography}
+The Review Exercises come from the end of Chapter 1 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 42--49. 
+
+The Challenge Exercises come from the end of Chapter 1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 33--34. 
 
 \end{document}
