@@ -10,11 +10,12 @@
 \maketitle
 
 \section*{Complex Numbers}
-The fact that the square of every real number is non-negative shows that the equation $x^{2} + 1 = 0$ has no real root; in other words, there is no real number $u$ such that $u^{2} = -1$. So the set of real numbers is inadequate for finding all roots of all polynomials. This kind of problem arises with other number systems as well. The set of integers contains no solution of the equation $3x + 2 = 0$, and the rational numbers had to be invented to solve such
-equations. But the set of rational numbers is also incomplete because,
-for example, it contains no root of the polynomial $x^{2} - 2$. Hence the real numbers were invented. In the same way, the set of
-complex numbers was invented, which contains all real numbers together
-with a root of the equation $x^{2} + 1 = 0$. However, the process ends here: the complex numbers have the property that \textit{every} polynomial with complex coefficients has a (complex) root. This fact is known as the fundamental theorem of algebra.
+%The fact that the square of every real number is non-negative shows that the equation $x^{2} + 1 = 0$ has no real root; in other words, there is no real number $u$ such that $u^{2} = -1$. So the set of real numbers is inadequate for finding all roots of all polynomials. This kind of problem arises with other number systems as well. The set of integers contains no solution of the equation $3x + 2 = 0$, and the rational numbers had to be invented to solve such
+%equations. But the set of rational numbers is also incomplete because,
+%for example, it contains no root of the polynomial $x^{2} - 2$. Hence the real numbers were invented. In the same way, the set of
+%complex numbers was invented, which contains all real numbers together
+%with a root of the equation $x^{2} + 1 = 0$. However, the process ends here: t
+The complex numbers, denoted $\mathbb{C}$, have the wonderful property that \textit{every} polynomial with complex coefficients has a (complex) root. This fact is known as the \dfn{Fundamental Theorem of Algebra}.
 
 One pleasant aspect of the complex
 numbers is that, whereas describing the real numbers in terms of the
@@ -23,7 +24,7 @@ quite easy to describe in terms of real numbers. Every \dfn{complex number} has 
 \begin{equation*}
 a + bi
 \end{equation*}
-where $a$ and $b$ are real numbers, and $i$ is a root of the polynomial $x^{2} + 1$. Here $a$ and $b$ are called the \dfn{real part} and the \dfn{imaginary part}of the complex number, respectively. The real numbers are now regarded as special complex numbers of the form $a + 0i = a$, with zero imaginary part. The complex numbers of the form $0 + bi = bi$ with zero real part are called \dfn{pure imaginary} numbers. The complex number $i$ itself is called the \dfn{imaginary unit} and is distinguished by the fact that
+where $a$ and $b$ are real numbers, and $i$ is a root of the polynomial $x^{2} + 1$. Here $a$ and $b$ are called the \dfn{real part} and the \dfn{imaginary part} of the complex number, respectively. The real numbers are now regarded as special complex numbers of the form $a + 0i = a$, with zero imaginary part. The complex numbers of the form $0 + bi = bi$ with zero real part are called \dfn{pure imaginary} numbers. The complex number $i$ itself is called the \dfn{imaginary unit} and is distinguished by the fact that
 \begin{equation*}
 i^2 = -1
 \end{equation*}
@@ -117,14 +118,14 @@ With these notions in hand, we can describe the technique applied in Example~\re
  of complex numbers to the form $a + bi$, multiply top and bottom by the conjugate  $\overline{w}$ of the denominator.
 
 The following list contains the most important properties of conjugates and absolute values. Throughout, $z$ and $w$ denote complex numbers.
-\begin{equation*}
+\begin{equation*}\label{eqn:complex_number_properties}
 \begin{array}{llcll}
 C1. & \overline{z \pm w} = \overline{z} \pm \overline{w} & \quad & C7. & \frac{1}{z} = \frac{1}{|z|^2}\overline{z} \\
 C2. & \overline{zw} = \overline{z}~\overline{w} & \quad & C8. & |z| \geq 0 \mbox{ for all complex numbers } z \\
 C3. & \overline{\left(\frac{z}{w}\right)} = \frac{\overline{z}}{\hspace{0.05em}\overline{w}\hspace{0.05em}} & \quad & C9. & |z| = 0 \mbox{ if and only if } z=0 \\
 C4. & \overline{(\overline{z})} = z & \quad & C10. & |zw| = |z||w| \\
 C5. & z \mbox{ is real if and only if } \overline{z} =z  & \quad & C11. & |\frac{z}{w}| = \frac{|z|}{|w|} \\
-C6. & z\overline{z} = |z|^2 & \quad & C12. & |z+w| \leq |z|+|w| \mbox{ (\dfn{triangle inequality})} \\
+C6. & z\overline{z} = |z|^2 & \quad & C12. & |z+w| \leq |z|+|w| \mbox{(the Triangle Inequality)} \\
 \end{array}
 \end{equation*}
 All these properties (except property C12) can (and should) be verified by the reader for arbitrary complex numbers $z = a + bi$ and $w = c + di$. They are not independent; for example, property C10 follows from properties C2 and C6.
@@ -176,9 +177,9 @@ absolute value and conjugate of a complex number $z = a + bi$. The absolute valu
 \end{center}
 
 Given two complex numbers $z_{1} = a_{1} + b_{1}i = (a_{1}, b_{1})$ and $z_{2} = a_{2} + b_{2}i = (a_{2}, b_{2})$, the absolute value of their difference
-\begin{equation*}
+\begin{equation}\label{eqn:distance_formula}
 |z_1 - z_2| = \sqrt{(a_1-a_2)^2 + (b_1 - b_2)^2}
-\end{equation*}
+\end{equation}
 is just the distance between them. This gives the \dfn{complex distance formula}:
 
 \begin{equation*}
@@ -249,6 +250,16 @@ Similarly, the lines from $z$ to $z + w$ and from $0$ to $w$ are also parallel, 
  of complex addition. Readers who have studied mechanics will recall
 that velocities and accelerations add in the same way; in fact, these
 are all special cases of \textit{vector} addition.
+
+\begin{exploration}\label{exp:geometry_complex_numbers}
+In this exploration we return to the complex numbers of Example \ref{ex:033865}, and we analyze them from a geometric point of view.  Let $z = 2 - 3i$ and $w = -1 + i$.  
+\begin{enumerate}
+    \item Plot $z$, $w$, and $z+w$ in the on the same plane to see an example of the \dfn{parallelogram law} of complex addition.
+    \item What happens geometrically when you multiply a complex number by $i$?  What if you multiply by $i$ a second time?  Verify that this is the same as multiplying by $i^2$.
+    
+\end{enumerate}
+
+\end{exploration}
 
 \subsection*{Polar Form}
 The geometric description of what
@@ -682,7 +693,7 @@ numbers are the culmination of a long search by mathematicians to find a
 fact that the complex numbers have this property was first proved by
 Gauss in 1797 when he was 20 years old. The proof is omitted.
 
-\begin{theorem}[Fundamental Theorem of Algebra]{th:034196}
+\begin{theorem}[Fundamental Theorem of Algebra]\label{th:034196}
 Every polynomial of positive degree with complex coefficients has a complex root.
 \end{theorem}
 
