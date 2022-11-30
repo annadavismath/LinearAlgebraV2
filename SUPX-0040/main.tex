@@ -11,6 +11,8 @@
 
 \section*{Exercises for Ch 4 Matrices}
 
+\subsection*{Review Exercises}
+
 \begin{problem}\label{prb:4.1} For the following pairs of matrices, determine if the sum $A + B$ is defined. If so, find the sum.
 \begin{enumerate}
 \item
@@ -1720,286 +1722,8 @@ Let $A = \left[ \begin{array}{rrr}
 %\end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.61} Find an $LU$ factorization of $\left[
-\begin{array}{rrr}
-1 & 2 & 0 \\
-2 & 1 & 3 \\
-1 & 2 & 3
-\end{array}
-\right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{ccc}
-1 & 2 & 0 \\
-2 & 1 & 3 \\
-1 & 2 & 3
-\end{array}
-\right] = \left[
-\begin{array}{ccc}
-1 & 0 & 0 \\
-2 & 1 & 0 \\
-1 & 0 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrr}
-1 & 2 & 0 \\
-0 & -3 & 3 \\
-0 & 0 & 3
-\end{array}
-\right]
-\]
 
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.62} Find an $LU$ factorization of $\left[
-\begin{array}{rrrr}
-1 & 2 & 3 & 2 \\
-1 & 3 & 2 & 1 \\
-5 & 0 & 1 & 3
-\end{array}
-\right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{cccc}
-1 & 2 & 3 & 2 \\
-1 & 3 & 2 & 1 \\
-5 & 0 & 1 & 3
-\end{array}
-\right] = \left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
-1 & 1 & 0 \\
-5 & -10 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrrr}
-1 & 2 & 3 & 2 \\
-0 & 1 & -1 & -1 \\
-0 & 0 & -24 & -17
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:4.63} Find an $LU$ factorization of the matrix $\left[
-\begin{array}{rrrr}
-1 & -2 & -5 & 0 \\
--2 & 5 & 11 & 3 \\
-3 & -6 & -15 & 1
-\end{array}
-\right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{rrrr}
-1 & -2 & -5 & 0 \\
--2 & 5 & 11 & 3 \\
-3 & -6 & -15 & 1
-\end{array}
-\right] = \left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
--2 & 1 & 0 \\
-3 & 0 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrrr}
-1 & -2 & -5 & 0 \\
-0 & 1 & 1 & 3 \\
-0 & 0 & 0 & 1
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.64} Find an $LU$ factorization of the matrix $\left[
-\begin{array}{rrrr}
-1 & -1 & -3 & -1 \\
--1 & 2 & 4 & 3 \\
-2 & -3 & -7 & -3
-\end{array} \right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{rrrr}
-1 & -1 & -3 & -1 \\
--1 & 2 & 4 & 3 \\
-2 & -3 & -7 & -3
-\end{array} \right] = \left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
--1 & 1 & 0 \\
-2 & -1 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrrr}
-1 & -1 & -3 & -1 \\
-0 & 1 & 1 & 2 \\
-0 & 0 & 0 & 1
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.65} Find an $LU$ factorization of the matrix $ 
-\left[
-\begin{array}{rrrr}
-1 & -3 & -4 & -3 \\
--3 & 10 & 10 & 10 \\
-1 & -6 & 2 & -5
-\end{array}
- \right] .$
-\begin{hint}
-\[
- \left[
-\begin{array}{rrrr}
-1 & -3 & -4 & -3 \\
--3 & 10 & 10 & 10 \\
-1 & -6 & 2 & -5
-\end{array} \right] = \left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
--3 & 1 & 0 \\
-1 & -3 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrrr}
-1 & -3 & -4 & -3 \\
-0 & 1 & -2 & 1 \\
-0 & 0 & 0 & 1
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:4.66} Find an $LU$ factorization of the matrix
-$\left[
-\begin{array}{rrrr}
-1 & 3 & 1 & -1 \\
-3 & 10 & 8 & -1 \\
-2 & 5 & -3 & -3
-\end{array}
- \right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{rrrr}
-1 & 3 & 1 & -1 \\
-3 & 10 & 8 & -1 \\
-2 & 5 & -3 & -3
-\end{array}
- \right] = \left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
-3 & 1 & 0 \\
-2 & -1 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrrr}
-1 & 3 & 1 & -1 \\
-0 & 1 & 5 & 2 \\
-0 & 0 & 0 & 1
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.67} Find an $LU$ factorization of the matrix $\left[
-\begin{array}{rrr}
-3 & -2 & 1 \\
-9 & -8 & 6 \\
--6 & 2 & 2 \\
-3 & 2 & -7
-\end{array}
-\right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{rrr}
-3 & -2 & 1 \\
-9 & -8 & 6 \\
--6 & 2 & 2 \\
-3 & 2 & -7
-\end{array}
-\right] = \left[
-\begin{array}{rrrr}
-1 & 0 & 0 & 0 \\
-3 & 1 & 0 & 0 \\
--2 & 1 & 1 & 0 \\
-1 & -2 & -2 & 1
-\end{array}
-\right]  \left[
-\begin{array}{rrr}
-3 & -2 & 1 \\
-0 & -2 & 3 \\
-0 & 0 & 1 \\
-0 & 0 & 0
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-
-\begin{problem}\label{prb:4.68} Find an $LU$ factorization of the matrix $\left[
-\begin{array}{rrr}
--3 & -1 & 3 \\
-9 & 9 & -12 \\
-3 & 19 & -16 \\
-12 & 40 & -26
-\end{array}
-\right] .$
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.69} Find an $LU$ factorization of the matrix $\left[
-\begin{array}{rrr}
--1 & -3 & -1 \\
-1 & 3 & 0 \\
-3 & 9 & 0 \\
-4 & 12 & 16
-\end{array}
-\right] .$
-\begin{hint}
-\[
-\left[
-\begin{array}{rrr}
--1 & -3 & -1 \\
-1 & 3 & 0 \\
-3 & 9 & 0 \\
-4 & 12 & 16
-\end{array}
-\right] = \left[
-\begin{array}{rrrr}
-1 & 0 & 0 & 0 \\
--1 & 1 & 0 & 0 \\
--3 & 0 & 1 & 0 \\
--4 & 0 & -4 & 1
-\end{array}
-\right] \left[
-\begin{array}{rrr}
--1 & -3 & -1 \\
-0 & 0 & -1 \\
-0 & 0 & -3 \\
-0 & 0 & 0
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:4.70} Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
+\begin{problem}\label{prb:4.70} Find an $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
 \begin{equation*}
 \begin{array}{c}
 x+2y=5 \\
@@ -2078,7 +1802,7 @@ which says that $y=4$ and $x=-3.$
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.71} Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
+\begin{problem}\label{prb:4.71} Find an $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
 \begin{equation*}
 \begin{array}{c}
 x+2y+z=1 \\
@@ -2157,7 +1881,7 @@ This yields $z=6,y=-16,x=27.$
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.72} Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
+\begin{problem}\label{prb:4.72} Find an $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
 \begin{equation*}
 \begin{array}{c}
 x+2y+3z=5 \\
@@ -2169,7 +1893,7 @@ x-y+z=2
 %\end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.73} Find the $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
+\begin{problem}\label{prb:4.73} Find an $LU$ factorization of the coefficient matrix and use it to solve the system of equations.
 \begin{equation*}
 \begin{array}{c}
 x+2y+3z=5 \\
@@ -2322,12 +2046,291 @@ appears that the following equation gives another $LU$ factorization.
 \end{hint}
 \end{problem}
 
+\subsection*{Challenge Exercises}
+
+
+\begin{problem}
+Solve for the matrix $X$ if:
+\begin{enumerate}
+\item $PXQ = R$;
+\item $XP = S$;
+\end{enumerate}
+where
+$
+P = \left[ \begin{array}{rr}
+1 & 0 \\
+2 & -1 \\
+0 & 3
+\end{array} \right]$, $
+Q = \left[ \begin{array}{rrr}
+1 & 1 & -1 \\
+2 & 0 & 3
+\end{array} \right]$, \\ $
+R = \left[ \begin{array}{rrr}
+-1 & 1 & -4 \\
+-4 & 0 & -6 \\
+6 & 6 & -6
+\end{array} \right]$, $
+S = \left[ \begin{array}{rr}
+1 & 6\\
+3 & 1
+\end{array} \right]$
+\end{problem}
+
+\begin{problem}
+Consider \begin{equation*}
+p(X) = X^{3} - 5X^{2} + 11X - 4I.
+\end{equation*}
+
+
+\begin{enumerate}[label={\alph*.}]
+\item If $p(U) = \left[ \begin{array}{rr}
+1 & 3 \\
+-1 & 0
+\end{array} \right]$
+ compute $p(U^{T})$.
+
+\item If $p(U) = 0$ where $U$ is $n \times n$, find $U^{-1}$ in terms of $U$.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}[label={\alph*.}]
+\setcounter{enumi}{1}
+\item  $U^{-1} = \frac{1}{4}(U^{2} - 5U + 11I)$.
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}
+Show that, if a (possibly nonhomogeneous) system of equations is consistent and has more variables than equations, then it must have infinitely many solutions. [\textit{Hint}: Use Theorem~\ref{thm:002811} and Theorem~\ref{thm:001473}.]
+
+\end{problem}
+
+\begin{problem}
+Assume that a system $A\vec{x} = \vec{b}$ of linear equations has at least two distinct solutions $\vec{y}$ and $\vec{z}$.
+
+
+\begin{enumerate}[label={\alph*.}]
+\item Show that $\vec{x}_{k} = \vec{y} + k(\vec{y} - \vec{z})$ is a solution for every $k$.
+
+\item Show that $\vec{x}_{k} = \vec{x}_{m}$ implies $k = m$. [\textit{Hint}: See Example~\ref{exa:002159}.]
+
+\item Deduce that $A\vec{x} = \vec{b}$ has infinitely many solutions.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}[label={\alph*.}]
+\setcounter{enumi}{1}
+\item  If $\vec{x}_{k} = \vec{x}_{m}$, then $\vec{y} + k(\vec{y} - \vec{z}) = \vec{y} + m(\vec{y} - \vec{z})$. So $(k - m)(\vec{y} - \vec{z}) = \vec{0}$. But $\vec{y} - \vec{z}$ is not zero (because $\vec{y}$ and $\vec{z}$ are distinct), so $k - m = 0$ by Example~~\ref{exa:002159}.
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+
+\begin{problem}
+
+\begin{enumerate}[label={\alph*.}]
+\item Let $A$ be a $3 \times 3$ matrix with all entries on and below the main diagonal zero. Show that $A^{3} = 0$.
+
+\item Generalize to the $n \times n$ case and prove your answer.
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{ex:ex2_suppl_6}
+Let $I_{pq}$ denote the $n \times n$ matrix with $(p, q)$-entry equal to $1$ and all other entries $0$. Show that:
+
+
+\begin{enumerate}[label={\alph*.}]
+\item $I_{n} = I_{11} + I_{22} + \cdots  + I_{nn}$.
+
+\item $I_{pq}I_{rs} = \left\lbrace \begin{array}{cl}
+I_{ps} & \mbox{if } q = r \\
+0 & \mbox{if } q \neq r
+\end{array} \right.$.
+
+\item If $A = \left[ a_{ij} \right]$ is $n \times n$, then $A = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}I_{ij}$.
+
+
+\item If $A = \left[ a_{ij} \right]$, then $I_{pq}AI_{rs} = a_{qr}I_{ps}$ for all $p$, $q$, $r$, and $s$.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}[label={\alph*.}]
+\setcounter{enumi}{3}
+\item  Using parts \textbf{(c)} and \textbf{(b)} gives $I_{pq}AI_{rs} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}I_{pq}I_{ij}I_{rs}$. The only nonzero term occurs when $i = q$ and $j = r$, so $I_{pq}AI_{rs} = a_{qr}I_{ps}$.
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}
+A matrix of the form $aI_{n}$, where $a$ is a number, is called an $n \times n$ \textbf{scalar matrix}\index{scalar matrix}\index{square matrix ($n \times n$ matrix)!scalar matrix}.
+
+
+\begin{enumerate}[label={\alph*.}]
+\item Show that each $n \times n$ scalar matrix commutes with every $n \times n$ matrix.
+
+\item Show that $A$ is a scalar matrix if it commutes with every $n \times n$ matrix. [\textit{Hint}: See part (d.) of Exercise~\ref{ex:ex2_suppl_6}.]
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}[label={\alph*.}]
+\setcounter{enumi}{1}
+\item  If $A = \left[a_{ij}\right] = \sum_{ij}a_{ij}I_{ij}$, then $I_{pq}AI_{rs} = a_{qr}I_{ps}$ by 6(d). But then $a_{qr}I_{ps} = AI_{pq}I_{rs} = 0$ if $q \neq r$, so $a_{qr} = 0$ if $q \neq r$. If $q = r$, then $a_{qq}I_{ps} = AI_{pq}I_{rs} = AI_{ps}$ is independent of $q$. Thus $a_{qq} = a_{11}$ for all $q$.
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}
+Let $M = \left[ \begin{array}{rr}
+A & B \\
+C & D
+\end{array} \right]$,
+ where $A$, $B$, $C$, and $D$ are all $n \times n$ and each commutes with all the others. If $M^{2} = 0$, show that $(A + D)^{3} = 0$. [\textit{Hint}: First show that $A^{2} = -BC = D^{2}$ and that
+\begin{equation*}
+B(A + D) = 0 = C(A + D).]
+\end{equation*}
+
+
+\end{problem}
+
+\begin{problem}
+If $A$ is $2 \times 2$, show that $A^{-1} = A^{T}$ if and only if $A = \left[ \begin{array}{rr}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{array} \right]$
+ for some $\theta$ or \newline $A = \left[ \begin{array}{rr}
+ \cos \theta & \sin \theta \\
+ \sin \theta & -\cos \theta
+ \end{array} \right]$
+ for some $\theta$.
+
+
+[\textit{Hint}: If $a^{2} + b^{2} = 1$, then $a = \cos \theta$, $b = \sin \theta$ for some $\theta$. Use
+\begin{equation*}
+\cos(\theta - \phi) = \cos \theta \cos \phi + \sin \theta \sin \phi.]
+\end{equation*}
+
+\end{problem}
+
+\begin{problem}
+
+\begin{enumerate}[label={\alph*.}]
+\item If $A = \left[ \begin{array}{rr}
+0 & 1 \\
+1 & 0
+\end{array} \right]$,
+ show that $A^{2} = I$.
+
+\item What is wrong with the following argument? If $A^{2} = I$, then $A^{2} - I = 0$, so $(A - I)(A + I) = 0$, whence $A = I$ or $A = -I$.
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Let $E$ and $F$ be elementary matrices obtained from the identity matrix by adding multiples of row $k$ to rows $p$ and $q$. If $k \neq p$ and $k \neq q$, show that $EF = FE$.
+
+\end{problem}
+
+\begin{problem}
+If $A$ is a $2 \times 2$ real matrix, $A^{2} = A$ and $A^{T} = A$, show that either $A$ is one of $\left[ \begin{array}{rr}
+0 & 0 \\
+0 & 0
+\end{array} \right]$, \\ $\left[ \begin{array}{rr}
+1 & 0 \\
+0 & 0
+\end{array} \right]$, $\left[ \begin{array}{rr}
+0 & 0 \\
+0 & 1
+\end{array} \right]$, $\left[ \begin{array}{rr}
+1 & 0 \\
+0 & 1
+\end{array} \right]$, or $A = \left[ \begin{array}{cc}
+a & b \\
+b & 1 - a
+\end{array} \right]$
+ where $a^{2} + b^{2} = a$, $-\frac{1}{2} \leq b \leq \frac{1}{2}$ and $b \neq 0$.
+
+\end{problem}
+
+\begin{problem}
+Show that the following are equivalent for matrices $P$, $Q$:
+
+
+\begin{enumerate}
+\item $P$, $Q$, and $P + Q$ are all invertible and
+\begin{equation*}
+(P + Q)^{-1} = P^{-1} + Q^{-1}
+\end{equation*}
+
+\item $P$ is invertible and $Q = PG$ where $G^{2} + G + I = 0$.
+
+\end{enumerate}
+\end{problem}
 
 
 
-\section*{Practice Problem Source}
-These problems come from Chapter 2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+\subsection*{Octave Exercises}
+\begin{problem}\label{oct:matr_mult}
+Use the Octave window below to check your work on Problems \ref{prb:4.9} to \ref{prb:4.11}.  The first steps of \ref{prb:4.9} are done in the Octave window.  See if you can finish the rest of the problem.
+
+%\begin{octave}
+A=[1 2 3; 2 1 7];
+B=[3 -1 2; -3 2 1];
+C=[1 2; 3 1];
+
+-3*A
+3*B-A
+A*C %This is not possible.  
+%After the error, remove this and try C*B
+%\end{octave}
+\end{problem}
+
+\begin{problem}\label{oct:matr_ops}
+Use the Octave window below to check your work on Problems \ref{prb:4.24} to \ref{prb:4.27}.  The first steps of \ref{prb:4.27} are done in the Octave window.  See if you can finish the rest of the problem.
+
+%\begin{octave}
+A=[1 2 ; 3 2; 1 -1];
+B=[2 -5 2; -3 2 1];
+C=[1 2; 5 0];
+D=[-1 1; 4 -3];
+E=[1;3];
+
+-3*A'
+3*B-A'
+E'*B
+E*E'
+
+%\end{octave}
+\end{problem}
+
+\begin{problem}\label{oct:matr_inv}
+Use the Octave window below to check your work on Problems \ref{prb:4.35} to \ref{prb:4.38} and Problems \ref{prb:4.40} to \ref{prb:4.44}.  Problem \ref{prb:4.36} is done in the Octave window.  
+
+%\begin{octave}
+A=[0 1; 5 3];
+% We can find an inverse by augmenting with the identity matrix and performing Gauss-Jordan elimination.
+M = [A eye(length(A))]
+rref(M)
+% We can also use the Octave command to compute the inverse.
+inv(A)
+% and, to check our work...
+ans*A
+%\end{octave}
+\end{problem}
+
+
+\section*{Bibliography}
+The Review Exercises come from the end of Chapter 2 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 90--98, 104--106.  
+
+The Challenge Exercises come from the end of Chapter 2 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 143--144. 
 
 \end{document}

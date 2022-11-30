@@ -11,6 +11,7 @@
 
 \section*{Exercises for Ch 8 Eigenvalues and Eigenvectors}
 
+\subsection*{Review Exercises}
 
 \begin{problem}\label{prb:8.1} If $A$ is an invertible $n\times n$ matrix, compare the eigenvalues of
 $A$ and $A^{-1}$. More generally, for $m$ an arbitrary integer, compare the
@@ -259,21 +260,6 @@ One eigenvalue is $-2$.
 \right]
 \end{equation*}
 One eigenvalue is $1.$
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:8.11} Find the eigenvalues and eigenvectors of the matrix
-\begin{equation*}
-\left[
-\begin{array}{rrr}
-9 & 2 & 8 \\
-2 & -6 & -2 \\
--8 & 2 & -5
-\end{array}
-\right]
-\end{equation*}
-One eigenvalue is $-3.$
 %\begin{hint}
 %\end{hint}
 \end{problem}
@@ -619,44 +605,6 @@ One eigenvalue is $5.$ Diagonalize if possible.
 %\end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:8.26} Suppose $A$ is an $n\times n$ matrix and let $V$ be an
-eigenvector such that $AV=\lambda V$. Also suppose the
-characteristic polynomial of $A$ is
-\begin{equation*}
-\det \left( x I-A\right) =x ^{n}+a_{n-1} x ^{n-1}+\cdots
-+a_{1}x +a_{0}
-\end{equation*}
-Explain why
-\begin{equation*}
-\left( A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I\right) V=0
-\end{equation*}
-If $A$ is diagonalizable, give a proof of the Cayley Hamilton
-theorem based on this. This theorem says $A$ satisfies its
-characteristic equation,
-\begin{equation*}
-A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I=0
-\end{equation*}
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:8.27} Suppose the characteristic polynomial of an $n\times n$ matrix $A$ is
-$1-X ^{n}$. Find $A^{mn}$ where $m$ is an integer.
-\begin{hint}
-The eigenvalues are distinct because
-they are the $n^{th}$ roots of $1$. Hence if $X$ is a given vector with
-\[
-X=\sum_{j=1}^{n}a_{j}V_{j}
-\]
-then
-\[
-A^{nm}X=A^{nm}\sum_{j=1}^{n}a_{j}V_{j}=
-\sum_{j=1}^{n}a_{j}A^{nm}V_{j}=\sum_{j=1}^{n}a_{j}V_{j}=X
-\]
-so $A^{nm}=I$.
-\end{hint}
-\end{problem}
-
 \begin{problem}\label{prb:8.28} Find the eigenvalues and eigenvectors of the matrix
 \begin{equation*}
 \left[
@@ -721,6 +669,27 @@ This one has some complex eigenvalues.
 \end{hint}
 \end{problem}
 
+\begin{problem}\label{prob:moresimilarproperties}
+If $A \sim B$ and $A$ has any of the following properties, show that $B$ has the same property.
+
+\begin{enumerate}
+\item\label{prob:moresimilarproperties_idempotent} A is \dfn{Idempotent}, that is $A^{2} = A$.
+
+\item\label{prob:moresimilarproperties_nilpotent} A is \dfn{Nilpotent}, that is $A^{k} = 0$ for some $k \geq 1$.
+
+Click the arrow to see the answer.
+\begin{expandable}
+If $B = P^{-1}AP$ and $A^{k} = 0$, then $B^{k} = (P^{-1}AP)^{k} = P^{-1}A^{k}P = P^{-1}0P = 0$.
+\end{expandable}
+
+\item\label{prob:moresimilarproperties_invertible} A is Invertible.
+
+\end{enumerate}
+
+\end{problem}
+
+\subsection*{Challenge Exercises}
+
 \begin{problem}\label{prb:8.32} Suppose $A$ is an $n\times n$ matrix consisting entirely of real
 entries but $a+ib$ is a complex eigenvalue having the eigenvector, $\vec{x}+i\vec{y}$ Here $\vec{x}$ and $\vec{y}$ are real vectors. Show
 that then $a-ib$ is also an eigenvalue with the eigenvector, $\vec{x}-i\vec{y}$.
@@ -745,7 +714,168 @@ A\overline{X}=\left( a-ib\right) \overline{X}
 \end{problem}
 
 
-\section*{Practice Problem Source}
+
+\begin{problem}\label{prb:2x2diagonalizable}
+If $A$ is $2 \times 2$ and diagonalizable, show that $C(A) = \{X \mid XA = AX\}$ has dimension $2$ or $4$. [\textit{Hint}: If $P^{-1}AP = D$, show that $X$ is in $C(A)$ if and only if $P^{-1}XP$ is in $C(D)$.]
+\end{problem}
+
+\begin{problem}\label{prb:2x2diagonalizable_poly}
+If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (here, the final 0 is the zero matrix the same size as $A$).
+\begin{remark}
+The characteristic polynomial of $A$ certainly satisfies the requirement that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$.  In solving this problem you have proved a special case of the Cayley-Hamilton theorem, see Theorem~\ref{th:Cayley_Hamilton}.  In fact, if $p(\lambda)$ is the characteristic polynomial of $A$, then $p(A) = 0$ whether or not $A$ is diagonalizable.
+\end{remark}
+\end{problem}
+
+\begin{problem}
+Let $A$ be $n \times n$ with $n$ distinct real eigenvalues. If $AC = CA$, show that $C$ is diagonalizable.
+\end{problem}
+
+\begin{problem}\label{prob:similar_poly_eval}
+Given a polynomial $p(x) = r_{0} + r_{1}x + \dots + r_{n}x^{n}$ and a square matrix $A$, the matrix $p(A) = r_{0}I + r_{1}A + \dots  + r_{n}A^{n}$ is called the \dfn{evaluation} of $p(x)$ at $A$. Let $B = P^{-1}AP$. Show that $p(B) = P^{-1}p(A)P$ for all polynomials $p(x)$.
+\end{problem}
+
+\begin{problem}\label{prob:5_5_12}
+Let $P$ be an invertible $n \times n$ matrix. If $A$ is any $n \times n$ matrix, write $T_{P}(A) = P^{-1}AP$. Verify that:
+
+%\begin{enumerate}[label={\alph*.}]
+\begin{enumerate}
+\item\label{prob:5_5_12a} $T_{P}(I) = I$
+\item\label{prob:5_5_12b} $T_{P}(AB) = T_{P}(A)T_{P}(B)$
+%Solution $T_{P}(A)T_{P}(B) = (P^{-1}AP)(P^{-1}BP) = P^{-1}(AB)P = T_{P}(AB)$.
+\item\label{prob:5_5_12c} $T_{P}(A + B) = T_{P}(A) + T_{P}(B)$
+\item\label{prob:5_5_12d} $T_{P}(rA) = rT_{P}(A)$
+\item\label{prob:5_5_12e} $T_{P}(A^{k}) = [T_{P}(A)]^{k}$ for $k \geq 1$
+\item\label{prob:5_5_12f} If $A$ is invertible, $T_{P}(A^{-1}) = [T_{P}(A)]^{-1}$.
+\item\label{prob:5_5_12g} If $Q$ is invertible, $T_{Q}[T_{P}(A)] = T_{PQ}(A)$.
+\end{enumerate}
+
+\end{problem}
+
+
+
+\begin{problem}
+Let $A = \begin{bmatrix}
+0 & a & b \\
+a & 0 & c \\
+b & c & 0	
+\end{bmatrix}$ and $B =
+\begin{bmatrix}
+c & a & b \\
+a & b & c \\
+b & c & a
+\end{bmatrix}$.
+
+\begin{enumerate}
+\item Show that $x^{3} - (a^{2} + b^{2} + c^{2})x - 2abc$ has real roots by considering $A$.
+
+\item Show that $a^{2} + b^{2} + c^{2} \geq ab + ac + bc$ by considering $B$.
+%\item  $c_{B}(x) = [x - (a + b + c)][x^{2} - k]$ where $k = a^{2} + b^{2} + c^{2} - [ab + ac + bc]$. Use Theorem~\ref{thm:016397}.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Assume the $2 \times 2$ matrix $A$ is similar to an upper triangular matrix. If $\mbox{tr} A = 0 = \mbox{tr} A^{2}$, show that $A^{2}$ is equal to the zero matrix.
+\end{problem}
+
+\begin{problem}
+Show that $A$ is similar to $A^{T}$ for all $2 \times 2$ matrices $A$. 
+\begin{hint}
+Let $A =\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}$. If $c = 0$ treat the cases $b = 0$ and $b \neq 0$ separately. If $c \neq 0$, reduce to the case $c = 1$ using Exercise~\ref{prob:5_5_12}~\ref{prob:5_5_12d}.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.26} Suppose $A$ is an $n\times n$ matrix and let $V$ be an
+eigenvector such that $AV=\lambda V$. Also suppose the
+characteristic polynomial of $A$ is
+\begin{equation*}
+\det \left( x I-A\right) =x ^{n}+a_{n-1} x ^{n-1}+\cdots
++a_{1}x +a_{0}
+\end{equation*}
+Explain why
+\begin{equation*}
+\left( A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I\right) V=0
+\end{equation*}
+If $A$ is diagonalizable, give a proof of the Cayley Hamilton
+theorem based on this. This theorem says $A$ satisfies its
+characteristic equation,
+\begin{equation*}
+A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I=0
+\end{equation*}
+%\begin{hint}
+%\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:8.27} Suppose the characteristic polynomial of an $n\times n$ matrix $A$ is
+$1-\lambda^{n}$. Find $A^{mn}$ where $m$ is an integer.
+\begin{hint}
+The eigenvalues are distinct because
+they are the $n^{th}$ roots of $1$. Hence if $\vec{x}$ is a given vector with
+\[
+\vec{x}=\sum_{j=1}^{n}a_{j}\vec{v}_{j}
+\]
+then
+\[
+A^{nm}\vec{x}=A^{nm}\sum_{j=1}^{n}a_{j}\vec{v}_{j}=
+\sum_{j=1}^{n}a_{j}A^{nm}\vec{v}_{j}=\sum_{j=1}^{n}a_{j}\vec{v}_{j}=\vec{x}
+\]
+so $A^{nm}=I$.
+\end{hint}
+\end{problem}
+
+
+\subsection*{Octave Exercises}
+\begin{problem}\label{oct:char_poly}
+Use the Octave window below to check your work on Problems \ref{prb:8.9} to \ref{prb:8.12}.  The first steps of \ref{prb:8.9} are done in the Octave window.  See if you can finish the rest of the problem.
+
+%\begin{octave}
+A=[-6 -92 12; 0 0 0; -2 -31 4];
+poly(A)
+% We should interpret this result as
+% z^3+2z^2+0+0 = z^2(z+2), we interpret the super-small number as zeros.
+% It was caused by rounding errors in the poly() algorithm
+
+% Then we compute a basis for each eigenspace.
+
+%To check our work, we can write:
+[P,D]=eig(A)
+
+% If we try to diagonalize P, we are warned that P is singular.
+inv(P)*A*P
+% This is because columns 2 and 3 of P are the same.
+% The eigenvalue 0 has algebraic multiplicity 2, but geometric multiplicity 1
+% This matrix A is NOT diagonalizable
+
+\end{problem}
+
+\begin{problem}\label{oct:diagonalize}
+Use the Octave window below to check your work on Problems \ref{prb:8.20} to \ref{prb:8.31}.  The first steps of \ref{prb:8.31} are done in the Octave window.  See if you can finish the rest of the problem.
+
+%\begin{octave}
+A=[14 -12 5; -6 2 -1; -69 51 -21];
+poly(A)
+% We can use synthetic division to determine
+% z^3+5z^2+16z+30 = (z+3)(z^2+2z+10), and use the
+% quadratic formula to determine the two complex eigenvalues.
+% Then we compute a basis for each eigenspace.
+
+%To check our work, we can write:
+[P,D]=eig(A)
+%Notice that complex numbers are written as ordered pairs in Octave.
+
+% Now to diagonalize A, we observe
+inv(P)*A*P
+% This is D, if we interpret the super-small numbers as zeros.
+% They were caused by rounding errors in the eig() algorithm
+
+
+%\end{octave}
+\end{problem}
+
+
+\section*{Bibliography}
 These problems come from Chapter 7 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
 Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 359--401. 

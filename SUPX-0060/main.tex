@@ -11,9 +11,7 @@
 
 \section*{Exercises for Ch 6 Linear Transformations}
 
-
-
-
+\subsection*{Review Exercises}
 
 \begin{problem}\label{prb:6.1} Show the map $T:\mathbb{R}^{n}\mapsto \mathbb{R}^{m}$ defined by
 $T\left( \vec{x} \right) =A\vec{x}$ where $A$ is an $m\times n$ matrix
@@ -394,36 +392,7 @@ Note that it doesn't matter about the order in this case.
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:6.25} Find the matrix of the linear transformation which rotates every
-vector in $\mathbb{R}^{3}$ counter clockwise about the $z$ axis when viewed
-from the positive $z$ axis through an angle of 30$^{\circ }$ and then
-reflects through the $xy$ plane.
-\begin{hint}
-\[
-\left[
-\begin{array}{rrr}
-1 & 0 & 0 \\
-0 & 1 & 0 \\
-0 & 0 & -1
-\end{array}
-\right] \left[
-\begin{array}{ccc}
-\cos \left( \frac{\pi }{6}\right)  & -\sin \left( \frac{\pi }{6}\right)  & 0
-\\
-\sin \left( \frac{\pi }{6}\right)  & \cos \left( \frac{\pi }{6}\right)  & 0
-\\
-0 & 0 & 1
-\end{array}
-\right] = \left[
-\begin{array}{ccc}
-\frac{1}{2}\sqrt{3} & -\frac{1}{2} & 0 \\
-\frac{1}{2} & \frac{1}{2}\sqrt{3} & 0 \\
-0 & 0 & -1
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
+
 
 \begin{problem}\label{prb:6.5} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
 3 & 1 \\
@@ -575,89 +544,6 @@ Find the matrix of $T^{-1}$.
 \end{problem}
 
 
-\begin{problem}\label{prb:6.26} Let $\vec{u}=\left[
-\begin{array}{r}
-a \\
-b
-\end{array}
-\right] $ be a unit vector in $\mathbb{R}^{2}.$ Find the matrix
-\index{reflection!across a given vector} which reflects all vectors across
-this vector, as shown in the following picture.
-
-\begin{center}
-\begin{tikzpicture}
-\draw[->](0,0)--(0.75,1.5);
-\draw[blue, ->](0,0)--(2,2);
-\draw[->](0,0)--(1.5,0.75);
-\node[right] at (2,2){$\vec{u}$};
-\end{tikzpicture}
-\end{center}
-
-\begin{hint}
-Notice that $\left[
-\begin{array}{r}
-a \\
-b
-\end{array}
-\right] =\left[
-\begin{array}{c}
-\cos \theta  \\
-\sin \theta
-\end{array}
-\right] $ for some $\theta .$ First rotate through $-\theta .$ Next reflect through the $x$ axis. Finally rotate
-through $\theta $.
-
-\begin{eqnarray*}
-&&\left[
-\begin{array}{cc}
-\cos \left( \theta \right) & -\sin \left( \theta \right) \\
-\sin \left( \theta \right) & \cos \left( \theta \right)
-\end{array}
-\right] \left[
-\begin{array}{rr}
-1 & 0 \\
-0 & -1
-\end{array}
-\right] \left[
-\begin{array}{cc}
-\cos \left( -\theta \right) & -\sin \left( -\theta \right) \\
-\sin \left( -\theta \right) & \cos \left( -\theta \right)
-\end{array}
-\right] \\
-&=& \left[
-\begin{array}{cc}
-\cos ^{2}\theta -\sin ^{2}\theta & 2\cos \theta \sin \theta \\
-2\cos \theta \sin \theta & \sin ^{2}\theta -\cos ^{2}\theta%
-\end{array}
-\right]
-\end{eqnarray*}
-Now to write in terms of $\left( a,b\right) ,$ note that $a/\sqrt{a^{2}+b^{2}
-}=\cos \theta ,b/\sqrt{a^{2}+b^{2}}=\sin \theta .$ Now plug this in to the
-above. The result is
-\[
-\left[
-\begin{array}{cc}
-\frac{a^{2}-b^{2}}{a^{2}+b^{2}} & 2\frac{ab}{a^{2}+b^{2}} \\
-2\frac{ab}{a^{2}+b^{2}} & \frac{b^{2}-a^{2}}{a^{2}+b^{2}}
-\end{array}
-\right] =\frac{1}{a^{2}+b^{2}}\left[
-\begin{array}{cc}
-a^{2}-b^{2} & 2ab \\
-2ab & b^{2}-a^{2}
-\end{array}
-\right]
-\]
-Since this is a unit vector, $a^{2}+b^{2}=1$ and so you get
-\[
-\left[
-\begin{array}{cc}
-a^{2}-b^{2} & 2ab \\
-2ab & b^{2}-a^{2}
-\end{array}
-\right]
-\]
-\end{hint}
-\end{problem}
 
 % \begin{problem}\label{prb:6.27}
 % Let $V=\mathbb{R}^{3}$ and let
@@ -830,6 +716,123 @@ What is $\dim  ( \ker \left( T \right) )$?
 \begin{hint}
 We can easily see that $\dim  ( \mbox{im} \left( T \right) ) =1$, and thus
 $\dim  ( \ker \left( T \right) ) = 3 - \dim  ( \mbox{im} \left( T \right) ) = 3- 1 = 2$.
+\end{hint}
+\end{problem}
+
+\subsection*{Challenge Exercises}
+
+\begin{problem}\label{prb:6.25} Find the matrix of the linear transformation which rotates every
+vector in $\mathbb{R}^{3}$ counter clockwise about the $z$ axis when viewed
+from the positive $z$ axis through an angle of 30$^{\circ }$ and then
+reflects through the $xy$ plane.
+\begin{hint}
+\[
+\left[
+\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{array}
+\right] \left[
+\begin{array}{ccc}
+\cos \left( \frac{\pi }{6}\right)  & -\sin \left( \frac{\pi }{6}\right)  & 0
+\\
+\sin \left( \frac{\pi }{6}\right)  & \cos \left( \frac{\pi }{6}\right)  & 0
+\\
+0 & 0 & 1
+\end{array}
+\right] = \left[
+\begin{array}{ccc}
+\frac{1}{2}\sqrt{3} & -\frac{1}{2} & 0 \\
+\frac{1}{2} & \frac{1}{2}\sqrt{3} & 0 \\
+0 & 0 & -1
+\end{array}
+\right]
+\]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:6.26} Let $\vec{u}=\left[
+\begin{array}{r}
+a \\
+b
+\end{array}
+\right] $ be a unit vector in $\mathbb{R}^{2}.$ Find the matrix
+\index{reflection!across a given vector} which reflects all vectors across
+this vector, as shown in the following picture.
+
+\begin{center}
+\begin{tikzpicture}
+\draw[->](0,0)--(0.75,1.5);
+\draw[blue, ->](0,0)--(2,2);
+\draw[->](0,0)--(1.5,0.75);
+\node[right] at (2,2){$\vec{u}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{hint}
+Notice that $\left[
+\begin{array}{r}
+a \\
+b
+\end{array}
+\right] =\left[
+\begin{array}{c}
+\cos \theta  \\
+\sin \theta
+\end{array}
+\right] $ for some $\theta .$ First rotate through $-\theta .$ Next reflect through the $x$ axis. Finally rotate
+through $\theta $.
+
+\begin{eqnarray*}
+&&\left[
+\begin{array}{cc}
+\cos \left( \theta \right) & -\sin \left( \theta \right) \\
+\sin \left( \theta \right) & \cos \left( \theta \right)
+\end{array}
+\right] \left[
+\begin{array}{rr}
+1 & 0 \\
+0 & -1
+\end{array}
+\right] \left[
+\begin{array}{cc}
+\cos \left( -\theta \right) & -\sin \left( -\theta \right) \\
+\sin \left( -\theta \right) & \cos \left( -\theta \right)
+\end{array}
+\right] \\
+&=& \left[
+\begin{array}{cc}
+\cos ^{2}\theta -\sin ^{2}\theta & 2\cos \theta \sin \theta \\
+2\cos \theta \sin \theta & \sin ^{2}\theta -\cos ^{2}\theta%
+\end{array}
+\right]
+\end{eqnarray*}
+Now to write in terms of $\left( a,b\right) ,$ note that $a/\sqrt{a^{2}+b^{2}
+}=\cos \theta ,b/\sqrt{a^{2}+b^{2}}=\sin \theta .$ Now plug this in to the
+above. The result is
+\[
+\left[
+\begin{array}{cc}
+\frac{a^{2}-b^{2}}{a^{2}+b^{2}} & 2\frac{ab}{a^{2}+b^{2}} \\
+2\frac{ab}{a^{2}+b^{2}} & \frac{b^{2}-a^{2}}{a^{2}+b^{2}}
+\end{array}
+\right] =\frac{1}{a^{2}+b^{2}}\left[
+\begin{array}{cc}
+a^{2}-b^{2} & 2ab \\
+2ab & b^{2}-a^{2}
+\end{array}
+\right]
+\]
+Since this is a unit vector, $a^{2}+b^{2}=1$ and so you get
+\[
+\left[
+\begin{array}{cc}
+a^{2}-b^{2} & 2ab \\
+2ab & b^{2}-a^{2}
+\end{array}
+\right]
+\]
 \end{hint}
 \end{problem}
 
