@@ -43,7 +43,7 @@ Our goal is to use elementary row operations to transform this system into an eq
      & &&&&&w&=&d
     \end{array}
     \end{equation}
- We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later).  However, it does exist in this case, and we would like to implement a more efficient way of getting to it than having to write and rewrite our equations at each step.   
+ We have to keep in mind that given an arbitrary system, an equivalent system of this form may not exist (we will talk a lot more about this later).  However, it does exist in this case, and we would like to find a more efficient way of getting to it than having to write and rewrite our equations at each step.   
  
 In this problem, we prompt you to perform elementary row operations on (\ref{eq:sys20originalsystem1}) and ask you to fill in the coefficients in the resulting equations.  This is a multi-step process.  Steps will unfold automatically as you enter correct answers.
 \begin{problem}
@@ -212,7 +212,7 @@ We will sometimes use the following notation to represent an augmented matrix.
 $$\left[\begin{array}{c|c}  
  A & \vec{b}\\
  \end{array}\right]$$
-The same elementary row operations that we perform on a system of equations can be performed on a matrix (or an augmented matrix).  If a matrix (augmented matrix) was obtained from another matrix (augmented matrix) by means of elementary row operations, we say that the two matrices are \dfn{row-equivalent}.  
+The same elementary row operations that we perform on a system of equations can be performed on the corresponding augmented matrix, or any matrix for that matter.  If a matrix can be obtained from another matrix by means of elementary row operations, we say that the two matrices are \dfn{row-equivalent}.  
 \begin{exploration}\label{init:backsub}
 Consider the system
 $$\begin{array}{ccccccc}
