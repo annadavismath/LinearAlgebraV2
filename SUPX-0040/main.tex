@@ -106,10 +106,10 @@ $A = \left[ \begin{array}{rrr}
 
 \begin{problem}\label{prb:4.5} \label{addinvrstunique} Using only the properties given in Theorem~\ref{th:propertiesofaddition}
  and Theorem~\ref{th:propertiesscalarmult},
-show $-A$ is unique.
+show that the additive inverse of $A$, $-A$, is unique.
 
 \begin{hint}
- Suppose $B$ also works. Then
+ Suppose $B$ is also an additive inverse of $A$. Then
 \[
 -A=-A+\left( A+B\right) =\left( -A+A\right) +B=0+B=B
 \]
@@ -118,20 +118,19 @@ show $-A$ is unique.
 
 \begin{problem}\label{prb:4.6} Using only the properties given in Theorem~\ref{th:propertiesofaddition}
  and Theorem~\ref{th:propertiesscalarmult},
-show $0$ is unique.
+show that the $n\times m$ zero matrix, $\vec{O}$, is unique.
 
 \begin{hint}
-Suppose $0^{\prime }$ also works. Then $0^{\prime }=0^{\prime }+0=0.$
+Suppose $\vec{O}^{\prime }$ is also an $n\times m$ additive identity. Then $\vec{O}^{\prime }=\vec{O}^{\prime }+\vec{O}=\vec{O}.$
 \end{hint}
 \end{problem}
 
 \begin{problem}\label{prb:4.7} Using only the properties given in Theorem~\ref{th:propertiesofaddition}
- and Theorem~\ref{th:propertiesscalarmult}, show $0A=0.$ Here
-the $0$ on the left is the scalar $0$ and the $0$ on the right is the zero matrix of appropriate size.
+ and Theorem~\ref{th:propertiesscalarmult}, show that $0A=\vec{O}.$ 
 
 \begin{hint}
 $0A=\left( 0+0\right) A=0A+0A.$ Now add $-\left(
-0A\right) $ to both sides. Then $0=0A$.
+0A\right) $ to both sides. Then $\vec{O}=0A$.
 \end{hint}
 \end{problem}
 
@@ -141,7 +140,7 @@ problems, show $\left( -1\right) A=-A.$
 
 \begin{hint}
 $A+\left( -1\right) A=\left( 1+\left(
--1\right) \right) A=0A=0.$ Therefore, from the uniqueness of the additive
+-1\right) \right) A=0A=\vec{O}.$ Therefore, from the uniqueness of the additive
 inverse proved in the above Problem \ref{addinvrstunique}, it follows that $
 -A=\left( -1\right) A$.
 \end{hint}
@@ -425,7 +424,7 @@ $\left[
 3 & 3
 \end{array}
 \right] $. Find all $2\times 2$ matrices, $B$
-such that $AB=0.$
+such that $AB=\vec{O}.$
 \begin{hint}
 \begin{eqnarray*}
 \left[
@@ -651,13 +650,13 @@ Let $A = \left[
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.17} Give an example of matrices (of any size), $A,B,C$ such that $B\neq C$, $A\neq 0,$
+\begin{problem}\label{prb:4.17} Give an example of matrices (of any size), $A,B,C$ such that $B\neq C$, $A\neq \vec{O},$
 and yet $AB=AC.$
 %\begin{hint}
 %\end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.18} Find $2 \times 2$ matrices $A$ and $B$ such that $A \neq 0$ and $B \neq 0$ but $AB = 0$.
+\begin{problem}\label{prb:4.18} Find $2 \times 2$ matrices $A$ and $B$ such that $A \neq \vec{O}$ and $B \neq \vec{O}$ but $AB = \vec{O}$.
 \begin{hint}
 Let $A = \left[
 \begin{array}{rr}
@@ -691,7 +690,7 @@ Let $A = \left[
 \end{hint}
 \end{problem}
 
-\begin{problem}\label{prb:4.19} Give an example of matrices (of any size), $A,B$ such that $A \neq 0$ and $B \neq 0$ but  $AB=0.$
+\begin{problem}\label{prb:4.19} Give an example of matrices (of any size), $A,B$ such that $A \neq \vec{O}$ and $B \neq \vec{O}$ but  $AB=\vec{O}.$
 %\begin{hint}
 %\end{hint}
 \end{problem}
@@ -1091,8 +1090,8 @@ $\left[
 \end{array}
 \right]^{-1}= \left[
 \begin{array}{rr}
-\vspace{0.05in}\frac{3}{7} & -\vspace{0.05in}\frac{1}{7} \\
-\vspace{0.05in}\frac{1}{7} & \vspace{0.05in}\frac{2}{7}
+ \frac{3}{7} & - \frac{1}{7} \\
+ \frac{1}{7} &  \frac{2}{7}
 \end{array}
 \right]$
 \end{hint}
@@ -1116,7 +1115,7 @@ $\left[
 \end{array}
 \right]^{-1}= \left[
 \begin{array}{cc}
--\vspace{0.05in}\frac{3}{5} & \vspace{0.05in}\frac{1}{5} \\
+- \frac{3}{5} &  \frac{1}{5} \\
 1 & 0
 \end{array}
 \right]$
@@ -1141,8 +1140,8 @@ $\left[
 \end{array}
 \right]^{-1}= \left[
 \begin{array}{cc}
-0 & \vspace{0.05in}\frac{1}{3} \\
-1 & -\vspace{0.05in}\frac{2}{3}
+0 &  \frac{1}{3} \\
+1 & - \frac{2}{3}
 \end{array}
 \right]$
 \end{hint}
@@ -1167,7 +1166,7 @@ $\left[
 \right]^{-1}$ does not exist. The reduced row echelon form of this matrix
 is $\left[
 \begin{array}{cc}
-1 & \vspace{0.05in}\frac{1}{2} \\
+1 &  \frac{1}{2} \\
 0 & 0
 \end{array}
 \right]$
@@ -1223,6 +1222,33 @@ $\left[
 \end{hint}
 \end{problem}
 
+\begin{problem}
+If possible, find the inverse of each matrix by using the row-reduction procedure.  If you find that $A$ does not have an inverse, leave the answer matrix blank.
+
+  \begin{problem}\label{prob:findinverse2}
+  $$A=\begin{bmatrix}1&3&5\\-2&5&1\\1&-1&1\end{bmatrix}$$
+  $$A^{-1}=\begin{bmatrix}\answer{} &\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\\\answer{}&\answer{}&\answer{}\end{bmatrix}$$
+  
+ 
+ \begin{multipleChoice}
+  \choice{$A$ is invertible}
+  \choice[correct]{$A$ is not invertible}
+\end{multipleChoice}
+  \end{problem}  
+  
+\begin{problem}\label{prob:findinverse3}
+  $$A=\begin{bmatrix}2&-1&-2\\1&1&-1\\1&1&1\end{bmatrix}$$
+  $$A^{-1}=\begin{bmatrix}\answer{1/3} & \answer{-1/6} & \answer{1/2} \\  \answer{-1/3} & \answer{2/3} & \answer{0}\\\answer{0} & \answer{-1/2} & \answer{1/2}\end{bmatrix}$$
+  
+ 
+ 
+ \begin{multipleChoice}
+  \choice[correct]{$A$ is invertible}
+  \choice{$A$ is not invertible}
+\end{multipleChoice}
+  \end{problem}   
+\end{problem}
+
 \begin{problem}\label{prb:4.41}Let
 \begin{equation*}
 A=\left[
@@ -1244,7 +1270,7 @@ $\left[
 \right]^{-1}= \left[
 \begin{array}{rrr}
 -2 & 0 & 3 \\
-0 & \vspace{0.05in}\frac{1}{3} & -\vspace{0.05in}\frac{2}{3} \\
+0 &  \frac{1}{3} & - \frac{2}{3} \\
 1 & 0 & -1
 \end{array}
 \right]$
@@ -1266,8 +1292,8 @@ Find $A^{-1}$ if possible. If $A^{-1}$ does not exist, explain why.
 The reduced row echelon form is
 $\left[
 \begin{array}{ccc}
-1 & 0 & \vspace{0.05in}\frac{5}{3} \\
-0 & 1 & \vspace{0.05in}\frac{2}{3} \\
+1 & 0 &  \frac{5}{3} \\
+0 & 1 &  \frac{2}{3} \\
 0 & 0 & 0
 \end{array}
 \right]$. There is no inverse.
@@ -1296,10 +1322,10 @@ $\left[
 \end{array}
 \right]^{-1}= \left[
 \begin{array}{rrrr}
--1 & \vspace{0.05in}\frac{1}{2} &  \vspace{0.05in}\frac{1}{2} &  \vspace{0.05in}\frac{1}{2} \\
-3 &  \vspace{0.05in}\frac{1}{2} & - \vspace{0.05in}\frac{1}{2} & - \vspace{0.05in}\frac{5}{2} \\
+-1 &  \frac{1}{2} &   \frac{1}{2} &   \frac{1}{2} \\
+3 &   \frac{1}{2} & -  \frac{1}{2} & -  \frac{5}{2} \\
 -1 & 0 & 0 & 1 \\
--2 & - \vspace{0.05in}\frac{3}{4} &  \vspace{0.05in}\frac{1}{4} &  \vspace{0.05in}\frac{9}{4}
+-2 & -  \frac{3}{4} &   \frac{1}{4} &   \frac{9}{4}
 \end{array}
 \right]$
 \end{hint}
@@ -1407,7 +1433,7 @@ z
 \right] =\left[
 \begin{array}{c}
 1 \\
--\vspace{0.05in}\frac{2}{3} \\
+- \frac{2}{3} \\
 0
 \end{array}
 \right]$
@@ -1663,7 +1689,7 @@ Let $A = \left[ \begin{array}{rrr}
 \end{array}\right]$. Suppose a row operation is applied to $A$ and the result is $B = \left[ \begin{array}{rrr}
 1 & 2 & 1\\
 0 & 5 & 1 \\
-1 & -\vspace{0.05in}\frac{1}{2} & 2
+1 & - \frac{1}{2} & 2
 \end{array}\right]$.
 \begin{enumerate}
 \item Find the elementary matrix $E$ such that $EA = B$.
