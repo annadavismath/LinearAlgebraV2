@@ -1,0 +1,452 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{QR Factorization} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+
+One of the main virtues of orthogonal
+matrices is that they can be easily inverted---the transpose is the
+inverse. This fact, combined with the factorization theorem in this
+section, provides a useful way to simplify many matrix calculations (for
+ example, in least squares approximation).
+
+
+\begin{definition}\label{def:QR-factorization}
+Let $A$ be an $m \times n$ matrix with independent columns. A \dfn{QR-factorization} of $A$ expresses it as $A = QR$ where $Q$ is $m \times n$ with orthonormal columns and $R$ is an invertible and upper triangular matrix with positive diagonal entries.
+\end{definition}
+
+The importance of the factorization
+lies in the fact that there are computer algorithms that accomplish it
+with good control over round-off error, making it particularly useful in
+ matrix calculations. The factorization is a matrix version of the Gram-Schmidt process.
+
+
+Suppose $A = \left[ \begin{array}{cccc}
+|&|& &| \\
+\vec{c}_{1} & \vec{c}_{2} & \cdots &  \vec{c}_{n}\\
+|&|& &|
+\end{array}\right]$ is an $m \times n$ matrix with linearly independent columns $\vec{c}_{1}, \vec{c}_{2}, \dots, \vec{c}_{n}$. The Gram-Schmidt algorithm can be applied to these columns to provide orthogonal columns $\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{n}$ where $\vec{f}_{1} = \vec{c}_{1}$ and
+\begin{equation*}
+\vec{f}_{k} = \vec{c}_{k} - \frac{\vec{c}_{k} \dotp \vec{f}_{1}}{\norm{ \vec{f}_{1} }^2}\vec{f}_{1} + \frac{\vec{c}_{k} \dotp \vec{f}_{2}}{\norm{ \vec{f}_{2} }^2}\vec{f}_{2} - \dots - \frac{\vec{c}_{k} \dotp \vec{f}_{k-1}}{\norm{ \vec{f}_{k-1} }^2}\vec{f}_{k-1}
+\end{equation*}
+for each $k = 2, 3, \dots, n$. Now write $\vec{q}_{k} = \frac{1}{\norm{ \vec{f}_{k} }}\vec{f}_{k}$ for each $k$. Then $\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{n}$ are orthonormal columns, and the above equation becomes
+\begin{equation*}
+\norm{ \vec{f}_{k} } \vec{q}_{k} = \vec{c}_{k} - (\vec{c}_{k} \dotp \vec{q}_{1})\vec{q}_{1} - (\vec{c}_{k} \dotp \vec{q}_{2})\vec{q}_{2} - \dots - (\vec{c}_{k} \dotp \vec{q}_{k-1})\vec{q}_{k-1}
+\end{equation*}
+Using these equations, express each $\vec{c}_{k}$ as a linear combination of the $\vec{q}_{i}$:
+\begin{equation*}
+\begin{array}{ccl}
+\vec{c}_{1} &=& \norm{ \vec{f}_{1} } \vec{q}_{1} \\
+\vec{c}_{2} &=& (\vec{c}_{2} \dotp \vec{q}_{1})\vec{q}_{1} + \norm{ \vec{f}_{2} } \vec{q}_{2} \\
+\vec{c}_{3} &=& (\vec{c}_{3} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{c}_{3} \dotp \vec{q}_{2})\vec{q}_{2} + \norm{ \vec{f}_{3} } \vec{q}_{3} \\
+\vdots && \vdots \\
+\vec{c}_{n} &=& (\vec{c}_{n} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{c}_{n} \dotp \vec{q}_{2})\vec{q}_{2} + (\vec{c}_{n} \dotp \vec{q}_{3})\vec{q}_{3} + \dots + \norm{ \vec{f}_{n} } \vec{q}_{n}
+\end{array}
+\end{equation*}
+These equations have a matrix form that gives the required factorization:
+\begin{align}
+A & = \left[ \begin{array}{ccccc}
+|&|&|& &| \\
+\vec{c}_{1} & \vec{c}_{2} & \vec{c}_{3} &\cdots &  \vec{c}_{n}\\
+|&|&|& &|
+\end{array}\right] \nonumber \\
+&= \left[ \begin{array}{ccccc}
+|&|&|& &| \\
+\vec{q}_{1} & \vec{q}_{2} & \vec{q}_{3} & \cdots &  \vec{q}_{n}\\
+|&|&|& &|
+\end{array}\right] \left[ \begin{array}{ccccc}
+\norm{ \vec{f}_{1} } & \vec{c}_{2} \dotp \vec{q}_{1} & \vec{c}_{3} \dotp \vec{q}_{1} & \cdots & \vec{c}_{n} \dotp \vec{q}_{1} \\
+0 & \norm{ \vec{f}_{2} } & \vec{c}_{3} \dotp \vec{q}_{2} & \cdots & \vec{c}_{n} \dotp \vec{q}_{2} \\
+0 & 0 & \norm{ \vec{f}_{3} } & \cdots & \vec{c}_{n} \dotp \vec{q}_{3} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & \norm{ \vec{f}_{n} }
+\end{array} \right] \label{matrixFactEq}
+\end{align}
+Here the first factor $Q = \left[ \begin{array}{ccccc}
+|&|&|& &| \\
+\vec{q}_{1} & \vec{q}_{2} & \vec{q}_{3} & \cdots &  \vec{q}_{n}\\
+|&|&|& &|
+\end{array}\right]$ has orthonormal columns, and the second factor is an $n \times n$ upper triangular matrix $R$ with positive diagonal entries (and so is invertible). We record this in the following theorem.
+
+\begin{theorem}[QR-Factorization]\label{th:QR-025133}
+Every $m \times n$ matrix $A$ with linearly independent columns has a QR-factorization $A = QR$ where $Q$ has orthonormal columns and $R$ is upper triangular with positive diagonal entries.
+\end{theorem}
+
+The matrices $Q$ and $R$ in Theorem~\ref{th:QR-025133} are uniquely determined by $A$; we return to this below.
+
+\begin{example}\label{ex:QR4x3-025139}
+Find the QR-factorization of $A = \left[ \begin{array}{rrr}
+1 & 1 & 0 \\
+-1 & 0 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{array}\right]$.
+
+\begin{explanation}
+  Denote the columns of $A$ as $\vec{c}_{1}$, $\vec{c}_{2}$, and $\vec{c}_{3}$, and observe that $\{\vec{c}_{1}, \vec{c}_{2}, \vec{c}_{3}\}$ is independent. If we apply the Gram-Schmidt algorithm to these columns, the result is:
+\begin{equation*}
+\vec{f}_{1} = \vec{c}_{1} = \left[ \begin{array}{r}
+1  \\
+-1  \\
+0  \\
+0
+\end{array}\right], \quad \vec{f}_{2} = \vec{c}_{2} - \frac{1}{2}\vec{f}_{1} = \left[ \def\arraystretch{1.2} \begin{array}{r}
+\frac{1}{2}  \\
+\frac{1}{2}  \\
+1  \\
+0
+\end{array}\right], \mbox{ and } \quad \vec{f}_{3} = \vec{c}_{3} + \frac{1}{2}\vec{f}_{1} - \vec{f}_{2} = \left[ \begin{array}{r}
+0  \\
+0  \\
+0  \\
+1
+\end{array}\right].
+\end{equation*}
+Write $\vec{q}_{j} = \frac{1}{\norm{ \vec{f}_{j} }^2}\vec{f}_{j}$
+ for each $j$, so $\{\vec{q}_{1}, \vec{q}_{2}, \vec{q}_{3}\}$ is orthonormal. Then equation (\ref{matrixFactEq}) preceding Theorem~\ref{th:QR-025133} gives $A = QR$ where
+\begin{align*}
+Q &= \left[ \begin{array}{ccc} | & | & | \\
+\vec{q}_{1} & \vec{q}_{2} & \vec{q}_{3} \\
+| & | & |
+\end{array}\right] = \left[ \def\arraystretch{1.3}\begin{array}{ccc}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} & 0 \\
+\frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{6}} & 0 \\
+0 & \frac{2}{\sqrt{6}} & 0 \\
+0 & 0 & 1
+\end{array}\right]  = \frac{1}{\sqrt{6}} \left[ \begin{array}{ccc}
+\sqrt{3} & 1 & 0 \\
+-\sqrt{3} & 1 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & \sqrt{6}
+\end{array} \right]
+\\
+R &= \left[ \begin{array}{ccc}
+\norm{ \vec{f}_{1} } & \vec{c}_{2} \dotp \vec{q}_{1} & \vec{c}_{3} \dotp \vec{q}_{1} \\
+0 & \norm{ \vec{f}_{2} } & \vec{c}_{3} \dotp \vec{q}_{2} \\
+0 & 0 & \norm{ \vec{f}_{3} } \\
+\end{array} \right] = \left[ \def\arraystretch{1.5} \begin{array}{ccc}
+\sqrt{2} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\
+0 & \frac{\sqrt{3}}{\sqrt{2}} & \frac{\sqrt{3}}{\sqrt{2}} \\
+0 & 0 & 1
+\end{array} \right] = \frac{1}{\sqrt{2}}\left[ \begin{array}{ccc}
+2 & 1 & -1 \\
+0 & \sqrt{3} & \sqrt{3} \\
+0 & 0 & \sqrt{2}
+\end{array} \right]
+\end{align*}
+
+The reader can verify that indeed $A = QR$.
+\end{explanation}
+\end{example}
+
+If a matrix $A$ has independent rows and we apply QR-factorization to $A^{T}$, the result is:
+
+\begin{corollary}\label{cor:QR-transpose-025162}
+If $A$ has independent rows, then $A$ factors uniquely as $A = LP$ where $P$ has orthonormal rows and $L$ is an invertible lower triangular matrix with positive main diagonal entries.
+\end{corollary}
+
+Since a square matrix with orthonormal columns is orthogonal, we have
+
+\begin{theorem}\label{th:025166}
+Every square invertible matrix $A$ has factorizations $A = QR$ and $A = LP$ where $Q$ and $P$ are orthogonal, $R$ is upper triangular with positive diagonal entries, and $L$ is lower triangular with positive diagonal entries.
+\end{theorem}
+
+We now take the time to prove the uniqueness of the QR-factorization.
+
+\begin{theorem}\label{th:QR-unique-025187}
+Let $A$ be an $m \times n$ matrix with independent columns. If $A = QR$ and $A = Q_{1}R_{1}$ are QR-factorizations of $A$, then $Q_{1} = Q$ and $R_{1} = R$.
+\end{theorem}
+
+\begin{proof}
+Write $Q = \left[ \begin{array}{cccc}
+|&|& &| \\
+\vec{c}_{1} & \vec{c}_{2} & \cdots &  \vec{c}_{n}\\
+|&|& &|
+\end{array}\right]$  and $Q_{1} =  \left[ \begin{array}{cccc}
+|&|& &| \\
+\vec{d}_{1} & \vec{d}_{2} & \cdots &  \vec{d}_{n}\\
+|&|& &|
+\end{array}\right]$ in terms of their columns, and observe first that $Q^TQ = I_{n} = Q_{1}^TQ_{1}$ because $Q$ and $Q_{1}$ have orthonormal columns. Hence it suffices to show that $Q_{1} = Q$ (then $R_{1} = Q_{1}^TA = Q^TA = R$). Since $Q_{1}^TQ_{1} = I_{n}$, the equation $QR = Q_{1}R_{1}$ gives $Q_{1}^TQ = R_{1}R^{-1}$; for convenience we write this matrix as
+\begin{equation*}
+Q_{1}^TQ = R_{1}R^{-1} = \left[ \begin{array}{c} t_{ij} \end{array}\right]
+\end{equation*}
+This matrix is upper triangular with positive diagonal elements (since this is true for $R$ and $R_{1}$), so $t_{ii} > 0$ for each $i$ and $t_{ij} = 0$ if $i > j$. On the other hand, the $(i, j)$-entry of $Q_{1}^TQ$ is $\vec{d}_{i}^T\vec{c}_{j} = \vec{d}_{i} \dotp \vec{c}_{j}$, so we have $\vec{d}_{i} \dotp \vec{c}_{j} = t_{ij}$ for all $i$ and $j$. But each $\vec{c}_{j}$ is in $\mbox{span}\{\vec{d}_{1}, \vec{d}_{2}, \dots, \vec{d}_{n}\}$ because $Q = Q_{1}(R_{1}R^{-1})$. We know how to write a vector as a linear combination of an orthonormal basis (using Corollary~\ref{cor:orthonormal} from \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonality and Projections}):
+\begin{equation*}
+\vec{c}_{j} = (\vec{d}_{1} \dotp \vec{c}_{j})\vec{d}_{1} + (\vec{d}_{2} \dotp \vec{c}_{j})\vec{d}_{2} + \dots + (\vec{d}_{n} \dotp \vec{c}_{j})\vec{d}_{n} = t_{1j}\vec{d}_{1} + t_{2j}\vec{d}_{2} + \dots + t_{jj}\vec{d}_{i},
+\end{equation*}
+because $\vec{d}_{i} \dotp \vec{c}_{j} = t_{ij} = 0$ if $i > j$. The first few equations here are
+\begin{equation*}
+\begin{array}{ccl}
+\vec{c}_{1} &=& t_{11}\vec{d}_{1} \\
+\vec{c}_{2} &=& t_{12}\vec{d}_{1} + t_{22}\vec{d}_{2} \\
+\vec{c}_{3} &=& t_{13}\vec{d}_{1} + t_{23}\vec{d}_{2} + t_{33}\vec{d}_{3} \\
+\vec{c}_{4} &=& t_{14}\vec{d}_{1} + t_{24}\vec{d}_{2} + t_{34}\vec{d}_{3} + t_{44}\vec{d}_{4} \\
+\vdots && \vdots
+\end{array}
+\end{equation*}
+The first of these equations gives $1 = \norm{ \vec{c}_{1} } = \norm{ t_{11}\vec{d}_{1} } = | t_{11} | \norm{ \vec{d}_{1} } = t_{11}$, whence $\vec{c}_{1} = \vec{d}_{1}$. But then we have $t_{12} = \vec{d}_{1} \dotp \vec{c}_{2} = \vec{c}_{1} \dotp \vec{c}_{2} = 0$, so the second equation becomes $\vec{c}_{2} = t_{22}\vec{d}_{2}$. Now a similar argument gives $\vec{c}_{2} = \vec{d}_{2}$, and then $t_{13} = 0$ and $t_{23} = 0$ follows in the same way. Hence $\vec{c}_{3} = t_{33}\vec{d}_{3}$ and $\vec{c}_{3} = \vec{d}_{3}$. Continue in this way to get $\vec{c}_{i} = \vec{d}_{i}$ for all $i$. This proves that $Q_{1} = Q$.
+\end{proof}
+
+\section*{QR-Algorithm for approximating eigenvalues}\label{sec:QRalgorithm}
+
+In \href{}{The Power Method and the Dominant Eigenvalue}, we learned about an iterative method for computing eigenvalues.  We also mentioned that a better method for approximating the eigenvalues of an invertible matrix $A$ depends on the QR-factorization of $A$.  While it is beyond the scope of this book to pursue a detailed discussion of this methods, we give an example and conclude with some remarks on the QR-algorithm. The interested reader is referred to
+ J. M. Wilkinson, \textit{The Algebraic Eigenvalue Problem} (Oxford, England: Oxford University Press, 1965)\index{\textit{The Algebraic Eigenvalue Problem} (Wilkinson)} or G. W. Stewart, \textit{Introduction to Matrix Computations} (New York: Academic Press, 1973)\index{\textit{Introduction to Matrix Computations} (Stewart)}.
+
+The \dfn{QR-algorithm} uses QR-factorization repeatedly to create a sequence of matrices $A_{1} =A, A_{2}, A_{3}, \dots,$ as follows:
+
+\begin{enumerate}
+\item Define $A_{1} = A$ and factor it as $A_{1} = Q_{1}R_{1}$.
+
+\item Define $A_{2} = R_{1}Q_{1}$ and factor it as $A_{2} = Q_{2}R_{2}$.
+
+\item Define $A_{3} = R_{2}Q_{2}$ and factor it as $A_{3} = Q_{3}R_{3}$.
+\\ \hspace*{4em} $\vdots$
+
+
+\end{enumerate}
+
+In general, $A_{k}$ is factored as $A_{k} = Q_{k}R_{k}$ and we define $A_{k + 1} = R_{k}Q_{k}$. Then $A_{k + 1}$ is similar to $A_{k}$ [in fact, $A_{k+1} = R_{k}Q_{k} = (Q_{k}^{-1}A_{k})Q_{k}$], and hence each $A_{k}$ has the same eigenvalues as $A$. If the eigenvalues of $A$ are real and have distinct absolute values, the remarkable thing is that the sequence of matrices $A_{1}, A_{2}, A_{3}, \dots$ converges to an upper triangular matrix with these eigenvalues on the main diagonal. [See below for the case of complex eigenvalues.]
+
+\begin{example}\label{QR-algortihm-2x2-025425}
+If $A = \left[ \begin{array}{rr}
+1 & 1 \\
+2 & 0
+\end{array}\right]$ as in Example~\ref{ex:2x2PowerMethod025326} of \href{}{The Power Method and the Dominant Eigenvalue}, use the QR-algorithm to approximate the eigenvalues.
+
+\begin{explanation}
+  The matrices $A_{1}$, $A_{2}$, and $A_{3}$ are as follows:
+\begin{align*}
+A_{1} = & \left[ \begin{array}{rr}
+1 & 1 \\
+2 & 0
+\end{array}\right] = Q_{1}R_{1} \quad \mbox{ where } Q_{1} = \frac{1}{\sqrt{5}}\left[ \begin{array}{rr}
+1 & 2 \\
+2 & -1
+\end{array}\right] \mbox{ and } R_{1} =  \frac{1}{\sqrt{5}}\left[ \begin{array}{rr}
+5 & 1 \\
+0 & 2
+\end{array}\right] \\
+A_{2} = & \frac{1}{5}\left[ \begin{array}{rr}
+7 & 9 \\
+4 & -2
+\end{array}\right] = \left[ \begin{array}{rr}
+1.4 & -1.8 \\
+-0.8 & -0.4
+\end{array}\right]= Q_{2}R_{2} \\
+&\mbox{ where } Q_{2} = \frac{1}{\sqrt{65}}\left[ \begin{array}{rr}
+7 & 4 \\
+4 & -7
+\end{array}\right] \mbox{ and } R_{2} =  \frac{1}{\sqrt{65}}\left[ \begin{array}{rr}
+13 & 11 \\
+0 & 10
+\end{array}\right] \\
+A_{3} = &\frac{1}{13}\left[ \begin{array}{rr}
+27 & -5 \\
+8 & -14
+\end{array}\right] = \left[ \begin{array}{rr}
+2.08 & -0.38 \\
+0.62 & -1.08
+\end{array}\right]
+\end{align*}
+This is converging to $\left[ \begin{array}{rr}
+2 & \ast \\
+0 & -1
+\end{array}\right]$ and so is approximating the eigenvalues $2$ and $-1$ on the main diagonal.
+\end{explanation}
+\end{example}
+
+\textbf{Shifting.} We first learned about the concept of \dfn{shifting} in \href{}{The Power Method and the Dominant Eigenvalue}.  Convergence is accelerated if, at stage $k$ of the algorithm, a number $\tau_{k}$ is chosen and $A_{k} - \tau_{k}I$ is factored in the form $Q_{k}R_{k}$ rather than $A_{k}$ itself. Then
+\begin{equation*}
+Q_{k}^{-1}A_{k}Q_{k} = Q_{k}^{-1}(Q_{k}R_{k} + \tau_{k}I)Q_{k} = R_{k}Q_{k} + \tau_{k}I
+\end{equation*}
+so we take $A_{k+1} = R_{k}Q_{k} + \tau_{k}I$. If the shifts $\tau_{k}$ are carefully chosen, convergence can be greatly improved.
+
+\textbf{Preliminary Preparation.} A matrix such as
+\begin{equation*}
+\left[ \begin{array}{rrrrr}
+\ast  & \ast & \ast & \ast & \ast  \\
+\ast  & \ast & \ast & \ast & \ast  \\
+0  & \ast & \ast & \ast & \ast  \\
+0  & 0 & \ast & \ast & \ast  \\
+0  & 0 & 0 & \ast & \ast  \\
+\end{array}\right]
+\end{equation*}
+is said to be in \dfn{upper Hessenberg} form, and the QR-factorizations of such matrices are greatly simplified. Given an $n \times n$ matrix $A$, a series of orthogonal matrices $H_{1}, H_{2}, \dots, H_{m}$ (called \dfn{Householder matrices} can be easily constructed such that
+\begin{equation*}
+B = H_{m}^T \cdots H_{1}^TAH_{1} \cdots H_{m}
+\end{equation*}
+is in upper Hessenberg form. Then the QR-algorithm can be efficiently applied to $B$ and, because $B$ is similar to $A$, it produces the eigenvalues of $A$.
+
+\textbf{Complex Eigenvalues.} If some of the eigenvalues of a real matrix $A$ are not real, the QR-algorithm converges to a block upper triangular matrix where the diagonal blocks are either $1 \times 1$ (the real eigenvalues) or $2 \times 2$ (each providing a pair of conjugate complex eigenvalues of $A$).
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:findQR}
+In each case find the QR-factorization of $A$.
+
+\begin{enumerate}
+\item $A = \left[ \begin{array}{rr}
+1 & -1 \\
+-1 & 0
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rr}
+2 & 1 \\
+1 &1
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rrr}
+1 & 1 & 1 \\
+1 & 1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 0
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rrr}
+1 & 1 & 0 \\
+-1 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & -1 & 0
+\end{array}\right]$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item  $Q = \frac{1}{\sqrt{5}}\left[ \begin{array}{rr}
+2 & -1 \\
+1 & 2
+\end{array}\right]$,
+ $R = \frac{1}{\sqrt{5}}\left[ \begin{array}{rr}
+5 & 3 \\
+0 & 1
+\end{array}\right]$
+
+\setcounter{enumi}{3}
+\item  $Q = \frac{1}{\sqrt{3}}\left[ \begin{array}{rrr}
+1 & 1 & 0 \\
+-1 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & -1 & 1
+\end{array}\right]$, \\
+$R = \frac{1}{\sqrt{3}}\left[ \begin{array}{rrr}
+3 & 0 & -1 \\
+0 & 3 & 1 \\
+0 & 0 & 2
+\end{array}\right]$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:indcolumns}
+Let $A$ and $B$ denote matrices.
+
+
+\begin{enumerate} 
+\item If $A$ and $B$ have independent columns, show that $AB$ has independent columns. [\textit{Hint}: Theorem~\ref{thm:015672}.]
+
+\item Show that $A$ has a QR-factorization if and only if $A$ has independent columns.
+
+\item If $AB$ has a QR-factorization, show that the same is true of $B$ but not necessarily $A$.
+
+
+[\textit{Hint}: Consider $AA^{T}$ where $A = \left[ \begin{array}{rrr}
+1 & 0 & 0 \\
+1 & 1 & 1
+\end{array}\right]$.]
+
+\end{enumerate}
+\begin{hint}
+If $A$ has a QR-factorization, use (a). For the converse use Theorem~\ref{thm:025133}.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:take_diag_positive}
+If $R$ is upper triangular and invertible, show that there exists a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $R_{1} = DR$ is invertible, upper triangular, and has positive diagonal entries.
+\end{problem}
+
+\begin{problem}\label{prob:fullQR}
+If $A$ has independent columns, let \\ $A = QR$ where $Q$ has orthonormal columns and $R$ is invertible and upper triangular. [Some authors call \textit{this} a QR-factorization of $A$.] Show that there is a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $A = (QD)(DR)$ is the QR-factorization of $A$.
+\begin{hint}
+\ref{prob:take_diag_positive}
+\end{hint}
+\end{problem}
+
+\begin{problem}
+In each case, find the exact eigenvalues and then approximate them using the QR-algorithm.
+
+
+\begin{enumerate}
+\item $A = \left[ \begin{array}{rr}
+1 & 1 \\
+1 & 0
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rr}
+3 & 1 \\
+1 & 0
+\end{array}\right]$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+\setcounter{enumi}{1}
+\item  Eigenvalues $\lambda_{1} = \frac{1}{2}(3 + \sqrt{13}) = 3.302776$, $\lambda_{2} = \frac{1}{2}(3 - \sqrt{13}) = -0.302776$
+
+$A_{1} = \left[ \begin{array}{rr}
+3 & 1 \\
+1 & 0
+\end{array}\right]$, $Q_{1} = \frac{1}{\sqrt{10}}\left[ \begin{array}{rr}
+3 & -1 \\
+1 & 3
+\end{array}\right]$, $R_{1} = \frac{1}{\sqrt{10}}\left[ \begin{array}{rr}
+10 & 3 \\
+0 & -1
+\end{array}\right]$ \\
+$A_{2} = \frac{1}{10}\left[ \begin{array}{rr}
+33 & -1 \\
+-1 & -3
+\end{array}\right]$, \\ $Q_{2} = \frac{1}{\sqrt{1090}}\left[ \begin{array}{rr}
+33 & 1 \\
+-1 & 33
+\end{array}\right]$, \\ $R_{2} = \frac{1}{\sqrt{1090}}\left[ \begin{array}{rr}
+109 & -3 \\
+0 & -10
+\end{array}\right]$ \\
+$A_{3} = \frac{1}{109}\left[ \begin{array}{rr}
+360 & 1 \\
+1 & -33
+\end{array}\right]$ \\ ${} = \left[ \begin{array}{rr}
+3.302775 & 0.009174 \\
+0.009174 & -0.302775
+\end{array}\right]$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:QR-symmetric}
+If $A$ is symmetric, show that each matrix $A_{k}$ in the QR-algorithm is also symmetric. Deduce that they converge to a diagonal matrix.
+
+\begin{hint}
+Use induction on $k$. If $k = 1$, $A_{1} = A$. In general $A_{k+1} = Q_{k}^{-1}A_{k}Q_{k} = Q_{k}^{T}A_{k}Q_{k}$, so the fact that $A_{k}^{T} = A_{k}$ implies $A_{k+1}^{T} = A_{k+1}$. The eigenvalues of $A$ are all real (Theorem \ref{thm:016145}), so the $A_{k}$ converge to an upper triangular matrix $T$. But $T$ must also be symmetric (it is the limit of symmetric matrices), so it is diagonal.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{QR-special-2x2}
+Apply the QR-algorithm to \\ $A = \left[ \begin{array}{rr}
+2 & -3 \\
+1 & -2
+\end{array}\right]$. Explain.
+\end{problem}
+
+\begin{problem}\label{prob:analyzeQRalgorithm}
+Given a matrix $A$, let $A_{k}$, $Q_{k}$, and $R_{k}$, $k \geq 1$, be the matrices constructed in the QR-algorithm. Show that $A_{k} = (Q_{1}Q_{2} \cdots Q_{k})(R_{k} \cdots R_{2}R_{1})$ for each $k \geq 1$ and hence that this is a QR-factorization of $A_{k}$. 
+\begin{hint}
+Show that $Q_{k}R_{k} = R_{k-1}Q_{k-1}$ for each $k \geq 2$, and use this equality to compute $(Q_{1}Q_{2} \cdots Q_{k})(R_{k} \cdots R_{2}R_{1})$ ``from the centre out.'' Use the fact that $(AB)^{n+1} = A(BA)^{n}B$ for any square matrices $A$ and $B$.
+\end{hint}
+\end{problem}
+
+
+\end{document}

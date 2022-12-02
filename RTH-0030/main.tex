@@ -1,0 +1,21 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Least-Squares Approximation} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+
+This is from Nicholson's section on QR, and may be helpful:
+
+In Section~\ref{sec:5_6} we found how to find a best approximation $\vec{z}$ to a solution of a (possibly inconsistent) system $A\vec{x} = \vec{b}$ of linear equations: take $\vec{z}$ to be any solution of the ``normal'' equations $(A^{T}A)\vec{z} = A^{T}\vec{b}$. If $A$ has independent columns this $\vec{z}$ is unique ($A^{T}A$ is invertible by Theorem~\ref{thm:015672}), so it is often desirable to compute $(A^{T}A)^{-1}$. This is particularly useful in least squares approximation (Section~\ref{sec:5_6}). This is simplified if we have a QR-factorization of $A$ (and is one of the main reasons for the importance of Theorem~\ref{th:QR-025133}). For if $A = QR$ is such a factorization, then $Q^{T}Q = I_{n}$ because $Q$ has orthonormal columns (verify), so we obtain
+\begin{equation*}
+A^TA = R^TQ^TQR = R^TR
+\end{equation*}
+Hence computing $(A^{T}A)^{-1}$ amounts to finding $R^{-1}$, and this is a routine matter because $R$ is upper triangular. Thus the difficulty in computing $(A^{T}A)^{-1}$ lies in obtaining the QR-factorization of $A$.
+
+\end{document}
