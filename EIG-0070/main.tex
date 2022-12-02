@@ -1,0 +1,427 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+ \title{The Power Method and the Dominant Eigenvalue} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+In practice, the problem of finding
+eigenvalues of a matrix is virtually never solved by finding the roots
+of the characteristic polynomial. This is difficult for large matrices
+and iterative methods are much better. The Power Method and some variations are described in this section, which is merely an introduction to the iterative methods used to compute eigenvalues and eigenvectors.  The QR-algorithm \ref{sec:QRalgorithm} is a better iterative method for approximating the eigenvalues of an invertible matrix. 
+
+\section*{Finding the Dominant Eigenvalue using the Power Method}
+
+In Exploration \ref{exp:motivate_diagonalization} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0050/main}{Diagonalizable Matrices and Multiplicity},
+ our initial rationale for diagonalizing matrices was to be able to
+compute the powers of a square matrix, and the eigenvalues were needed
+to do this. In this section, we are interested in efficiently computing
+eigenvalues, and it may come as no surprise that the first method we
+discuss uses the powers of a matrix.
+
+\begin{definition}\label{def:dominant ew,ev}
+An eigenvalue $\lambda$ of an $n \times n$ matrix $A$ is called a \dfn{dominant eigenvalue} if $\lambda$ has multiplicity $1$, and
+\begin{equation*}
+|\lambda| > |\mu| \quad \mbox{ for all eigenvalues } \mu \neq \lambda
+\end{equation*}
+Any corresponding eigenvector is called a \dfn{dominant eigenvector} of $A$.
+\end{definition}
+
+When such an eigenvalue exists, one technique for finding it is as follows: Let $\vec{x}_{0}$ in $\RR^n$ be a first approximation to a dominant eigenvector $\lambda$, and compute successive approximations $\vec{x}_{1}, \vec{x}_{2}, \dots$  as follows:
+\begin{equation*}
+\vec{x}_{1} = A\vec{x}_{0} \quad \vec{x}_{2} = A\vec{x}_{1} \quad \vec{x}_{3} = A\vec{x}_{2} \quad \cdots
+\end{equation*}
+In general, we define
+\begin{equation*}
+\vec{x}_{k+1} = A\vec{x}_{k} \quad \mbox{ for each } k \geq 0
+\end{equation*}
+We will see in this section that if the first estimate $\vec{x}_{0}$ is good enough, these vectors $\vec{x}_{n}$ will approximate the dominant eigenvector $\lambda$. This technique is called the \dfn{Power Method} (because $\vec{x}_{k} = A^{k}\vec{x}_{0}$ for each $k \geq 1$). Observe that if $\vec{z}$ is any eigenvector corresponding to $\lambda$, then
+\begin{equation*}
+\frac{\vec{z} \dotp (A\vec{z})}{\norm{ \vec{z} }^2} = \frac{\vec{z} \dotp (\lambda\vec{z})}{\norm{ \vec{z} }^2} = \lambda
+\end{equation*}
+Because the vectors $\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{n}, \dots$  approximate dominant eigenvectors, this suggests that we define the \dfn{Rayleigh quotients} as follows:
+\begin{equation*}
+r_{k} = \frac{\vec{x}_{k} \dotp \vec{x}_{k+1}}{\norm{ \vec{x}_{k} }^2} \quad \mbox{ for } k \geq 1
+\end{equation*}
+Then the numbers $r_{k}$ approximate the dominant eigenvalue $\lambda$.
+
+\begin{exploration}\label{exp:2x2PowerMethod}
+Use the power method to approximate a dominant eigenvector and eigenvalue of $A = \left[ \begin{array}{rr}
+1 & 1 \\
+2 & 0
+\end{array}\right]$.
+
+The eigenvalues of $A$ are $2$ and $-1$, with eigenvectors $\left[ \begin{array}{rr}
+  1 \\
+  1
+  \end{array}\right]$ and $\left[ \begin{array}{rr}
+  1 \\
+  -2
+  \end{array}\right]$, as we can verify in the Octave window below. 
+
+%\begin{octave}
+A=[1 1; 2 0]
+[EIGENVECTORS,EIGENVALUES] = eig(A)
+%\end{octave}
+  
+If we take $\vec{x}_{0} = \left[ \begin{array}{rr}
+  1 \\
+  0
+  \end{array}\right]$ as the first approximation and compute $\vec{x}_{1}, \vec{x}_{2}, \dots,$ successively, from $\vec{x}_{1} = A\vec{x}_{0}, \vec{x}_{2} = A\vec{x}_{1}, \dots$, the result is
+\begin{equation*}
+\vec{x}_{1} = \left[ \begin{array}{rr}
+1 \\
+2
+\end{array}\right], \
+\vec{x}_{2} = \left[ \begin{array}{rr}
+3 \\
+2
+\end{array}\right], \
+\vec{x}_{3} = \left[ \begin{array}{rr}
+5 \\
+6
+\end{array}\right], \
+\vec{x}_{4} = \left[ \begin{array}{rr}
+11 \\
+10
+\end{array}\right], \
+\vec{x}_{3} = \left[ \begin{array}{rr}
+21 \\
+22
+\end{array}\right], \ \dots
+\end{equation*}
+These vectors are approaching scalar multiples of the dominant eigenvector $\left[ \begin{array}{rr}
+1 \\
+1
+\end{array}\right]$. Moreover, we will find that the Rayleigh quotients are
+\begin{equation*}
+r_{1} = \frac{7}{5}, r_{2} = \frac{27}{13}, r_{3} = \frac{115}{61}, r_{4} = \frac{451}{221}, \dots
+\end{equation*}
+and these are approaching the dominant eigenvalue $2$.
+
+\begin{enumerate}
+    \item\label{exp:2x2PowerMethod_a} Verify the above calculations using the following Octave window.
+    \item\label{exp:2x2PowerMethod_b} Try a different starting vector.  Do we still get convergence?
+    \item\label{exp:2x2PowerMethod_c} What happens if the starting vector is changed to $\vec{x}_{0} = \left[ \begin{array}{rr}
+  1 \\
+  -2
+  \end{array}\right]$?  Why doesn't this method work in this case?
+  \item\label{exp:2x2PowerMethod_d} Try using $\vec{x}_{0} = \left[ \begin{array}{rr}
+  1 \\
+  -2.01
+  \end{array}\right]$.  You may need to increase the number of iterations to see convergence.
+\end{enumerate}
+
+
+%\begin{octave}
+A=[1 1; 2 0]; %Input a square matrix
+%x_0=[1;0]; %Input an initial vector
+maxit =5; %Choose number iterations
+%x = x_0;
+count = 0;
+r=0;
+    while count < maxit
+    y=x;
+    x = A*y;
+        if count > 0; 
+        r=(y'*x)/(y'*y);
+        RQUOTIENTS(count)=r;
+        end
+    count = count + 1;
+    VECTORS(:,count)=x;
+end
+VECTORS
+RQUOTIENTS
+%\end{octave}
+\end{exploration}
+
+
+To see why the power method works, let $\lambda_{1}, \lambda_{2}, \dots, \lambda_{m}$ be eigenvalues of $A$ with $\lambda_{1}$ dominant and let $\vec{y}_{1}, \vec{y}_{2}, \dots, \vec{y}_{m}$ be corresponding eigenvectors. What is required is that the first approximation $\vec{x}_{0}$ be a linear combination of these eigenvectors:
+\begin{equation*}
+\vec{x}_{0} = a_{1}\vec{y}_{1} + a_{2}\vec{y}_{2} + \dots + a_{m}\vec{y}_{m} \quad \mbox{ with } a_{1} \neq 0
+\end{equation*}
+If $k \geq 1$, the fact that $\vec{x}_{k} = A^{k}\vec{x}_{0}$ and $A^k\vec{y}_{i} = \lambda_{i}^k\vec{y}_{i}$ for each $i$ gives
+\begin{equation*}
+\vec{x}_{k} = a_{1}\lambda_{1}^k\vec{y}_{1} + a_{2}\lambda_{2}^k\vec{y}_{2} + \dots + a_{m}\lambda_{m}^k\vec{y}_{m} \quad \mbox{ for } k \geq 1
+\end{equation*}
+Hence
+\begin{equation*}
+\frac{1}{\lambda_{1}^k}\vec{x}_{k} = a_{1}\vec{y}_{1} + a_{2}\left(\frac{\lambda_{2}}{\lambda_{1}}\right)^k\vec{y}_{2} + \dots + a_{m}\left(\frac{\lambda_{m}}{\lambda_{1}}\right)^k\vec{y}_{m}
+\end{equation*}
+The right side approaches $a_{1}\vec{y}_{1}$ as $k$ increases because $\lambda_{1}$ is dominant 
+
+$\left( \left|\frac{\lambda_{i}}{\lambda_{1}} \right| < 1 \mbox{ for each } i > 1 \right)$. Because $a_{1} \neq 0$, this means that $\vec{x}_{k}$ approximates the dominant eigenvector $a_{1}\lambda_{1}^k\vec{y}_{1}$.
+
+
+The power method requires that the first approximation $\vec{x}_{0}$ be a linear combination of eigenvectors. In Example~\ref{exp:2x2PowerMethod}, the eigenvectors form a basis of $\RR^2$. But even in this case, the method fails if $a_{1} = 0$, where $a_{1}$ is the coefficient of the dominant eigenvector (as we saw in part \ref{exp:2x2PowerMethod_c}). In general, the rate of convergence is quite slow if any of the ratios $\left| \frac{\lambda_{i}}{\lambda_{1}} \right|$ is near $1$ (as we saw in part \ref{exp:2x2PowerMethod_d}). 
+
+%Also, because the method requires repeated multiplications by $A$, it is not recommended unless these multiplications are easy to carry out (for example, if most of the entries of $A$ are zero).
+
+\begin{exploration}\label{exp:3x3PowerMethod}
+Use the power method to approximate a dominant eigenvector and eigenvalue of $A = \left[ \begin{array}{rrr}
+9 & 2 & 8 \\
+2 & -6 & -2 \\
+-8 & 2 & -5
+\end{array}\right]$
+
+You can use the Octave window below to employ the power method.  We observe that the Rayleigh quotients approach -3, which is the dominant eigenvalue, as we confirm using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector, and we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
+
+%\begin{octave}
+A=[9 2 8; 2 -6 -2; -8 2 -5]; %Input a square matrix
+%x_0=[1;1;1]; %Input an initial vector
+maxit =15; %Choose number iterations
+%x = x_0;
+count = 0;
+r=0;
+    while count < maxit
+    y=x;
+    x = A*y;
+        if count > 0; 
+        r=(y'*x)/(y'*y);
+        RQUOTIENTS(count)=r;
+        end
+    count = count + 1;
+    VECTORS(:,count)=x;
+end
+VECTORS
+RQUOTIENTS
+[EIGENVECTORS, EIGENVALUES]=eig(A)
+VECTORS(:,maxit)/norm(VECTORS(:,maxit))
+%\end{octave}
+\end{exploration}
+
+\section*{Finding Other Eigenvalues}
+
+If the Power Method converges to the dominant eigenvalue, how can we determine other eigenvalues of a matrix?  This section is devoted to some variations of the Power Method that address this problem.  Many of the ideas in this section can be employed in other settings.
+
+\subsection*{The Inverse Power Method}
+
+The Inverse Power Method is based upon the following theorem.
+
+\begin{theorem}\label{th:eig_inverse}
+Let $M$ be an invertible $n \times n$ matrix.  Then the eigenvalues of $M^{-1}$ are reciprocals of the eigenvalues of $M$.
+\end{theorem}
+
+\begin{proof}
+The proof is left as an exercise.  See Practice Problem \ref{prob:complete_eig_proofs}.
+\end{proof}
+
+We return to the matrix in Exploration \ref{exp:3x3PowerMethod}.  Let $M=\left[ \begin{array}{rrr}
+9 & 2 & 8 \\
+2 & -6 & -2 \\
+-8 & 2 & -5
+\end{array}\right]$ and let $A=M^{-1}$.  In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+17/3 & 13/3 & 22/3 \\
+13/3 & 19/6 & 17/3 \\
+-22/3 & -17/3 & -29/3
+\end{array}\right]$ and that the eigenvalues of $A$ are indeed the reciprocals of the eigenvalues of $M$.
+
+%\begin{octave}
+M=[9 2 8; 2 -6 -2; -8 2 -5];
+eig(M)
+A=inv(M)
+eig(A)
+%\end{octave}
+
+If we now apply the Power Method to $A$, the Rayleigh quotients converge toward the dominant eigenvalue of $A$, which is -1.  If we take the reciprocal of the dominant eigenvalue of $A$, we will have found the ``least dominant'' eigenvalue of $M$, i.e., the eigenvalue closest to zero.  Sure enough, the reciprocal of -1 is -1, which is the eigenvalue of $M$ closest to zero.
+
+
+\subsection*{The Shifted Power Method}
+Again, we begin with a theorem.
+
+\begin{theorem}\label{th:eig_shifted}
+Let $M$ be an invertible $n \times n$ matrix and let $z$ be any number (real or complex).  If $\lambda$ is an eigenvalue of $M$, then $\lambda - z$ is an eigenvalue of $M - cI$.
+\end{theorem}
+
+\begin{proof}
+The proof is left as an exercise.  See Practice Problem \ref{prob:complete_eig_proofs}.
+\end{proof}
+
+Once again, let $M=\left[ \begin{array}{rrr}
+9 & 2 & 8 \\
+2 & -6 & -2 \\
+-8 & 2 & -5
+\end{array}\right]$ and let $A=M - (-3)I$.  In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+12 & 2 & 8 \\
+2 & -3 & -2 \\
+-8 & 2 & -2
+\end{array}\right]$ and that the eigenvalues of $A$ are obtained by subtracting $c=-3$ from (i.e. by adding 3 to) each eigenvalue of $M$.  The dominant eigenvalue of $M$ gives us an eigenvalue of zero for $A$ (you may find it gives a number very close to zero, due to rounding error).  So if we apply the Power Method to $A$ to find its dominant eigenvalue (which is 5), we can add -3 to get the ``second largest'' eigenvalue of $M$ (i.e., the eigenvalue second-farthest from zero), which is 2.
+
+%\begin{octave}
+M=[9 2 8; 2 -6 -2; -8 2 -5];
+eig(M)
+c=-3;
+A=M-c*eye(3) %I love the fact that eye(n) is the command for the identity matrix
+eig(A)
+%x_0=[1;1;1]; %Input an initial vector
+maxit =15; %Choose number iterations
+%x = x_0;
+count = 0;
+r=0;
+    while count < maxit
+    y=x;
+    x = A*y;
+        if count > 0; 
+        r=(y'*x)/(y'*y);
+        RQUOTIENTS(count)=r;
+        end
+    count = count + 1;
+    VECTORS(:,count)=x;
+end
+VECTORS
+RQUOTIENTS
+RQUOTIENTS(maxit-1)+c
+%\end{octave}
+
+\subsection*{The Shifted Inverse Power Method}
+
+The Shifted Inverse Power method combines the two ideas we just studied.  Using the Inverse Power method, we know how to find the eigenvalue closest to zero.  We also know that we can change which eigenvalue is the dominant eigenvalue using the Shifted Power method.  With the Shifted Inverse Power method, we are able to find the eigenvalue closest to a target $\tau$, where $\tau$ can be any number, real or complex.    We begin with the following theorem.
+
+\begin{theorem}\label{th:eig_shifted_inverse}
+Let $M$ be an $n \times n$ matrix and let $\lambda$ be an eigenvalue of $M$.  If $\tau$ is any number (real or complex) other than an eigenvalue of $M$, then $\frac{1}{\lambda - \tau}$ is an eigenvalue of $(M - \tau I)^{-1}$.
+\end{theorem}
+
+\begin{proof}
+Suppose $M\vec{x}=\lambda\vec{x}$.  By Theorem \ref{th:eig_shifted} we have 
+$$(M - \tau I)\vec{x}=(\lambda-\tau)\vec{x}.$$  
+Since $\tau$ is not an eigenvalue, $\det (M - \tau I) \ne 0$, so $M - \tau I$ is invertible.  Also, since $\tau$ is not an eigenvalue, $\lambda \ne \tau$.  We multiply both sides on the left by $(M - \tau I)^{-1}$ and divide both sides by the nonzero scalar $\lambda - \tau$.  We arrive at 
+$$\frac{1}{\lambda - \tau}\vec{x} = (M - \tau I)^{-1}\vec{x}$$
+as desired.
+\end{proof}
+
+Again we let $M=\left[ \begin{array}{rrr}
+9 & 2 & 8 \\
+2 & -6 & -2 \\
+-8 & 2 & -5
+\end{array}\right]$.  We will use the Shifted Inverse Power Method to compute the eigenvalue of $M$ closest to the target $\tau = 1$. 
+
+In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+5.75 & 3.5 & 6.5 \\
+3.5 & 2 & 4 \\
+-6.5 & -4 & -7.5
+\end{array}\right]$.  When we apply the Power Method to $A$ to find its dominant eigenvalue, our Rayleigh quotients approach 1.  This means that the eigenvalue of $M$ closest to our target $\tau = 1$ is $1+\tau$, or 2.
+
+%\begin{octave}
+M=[9 2 8; 2 -6 -2; -8 2 -5];
+eig(M)
+tau=1;
+A=inv(M-tau*eye(3)) %I love the fact that eye(n) is the command for the identity matrix
+eig(A)
+%x_0=[1;1;1]; %Input an initial vector
+maxit =15; %Choose number iterations
+%x = x_0;
+count = 0;
+r=0;
+    while count < maxit
+    y=x;
+    x = A*y;
+        if count > 0; 
+        r=(y'*x)/(y'*y);
+        RQUOTIENTS(count)=r;
+        end
+    count = count + 1;
+    VECTORS(:,count)=x;
+end
+VECTORS
+RQUOTIENTS
+RQUOTIENTS(maxit-1)+tau
+%\end{octave}
+
+\section*{Practice Problems}
+
+\begin{problem}\label{prob:complete_eig_proofs}
+
+\begin{enumerate}
+    \item Prove Theorem \ref{th:eig_inverse}.
+    \begin{hint}
+    Let $\lambda$ be an eigenvalue of $M$.  Write down what this means.  Then try to show $M^{-1}\vec{x} = \frac{1}{\lambda}\vec{x}$ for some vector $\vec{x}$.
+    \end{hint}
+    
+    \item Prove Theorem \ref{th:eig_shifted}.
+    \begin{hint}
+    If $\vec{x}$ is the eigenvector of $M$ corresponding to $\lambda$, it will also be the eigenvalue of $M-cI$ corresponding to $\lambda - c$. 
+    \end{hint}
+\end{enumerate}
+
+\end{problem}
+
+\begin{problem}\label{prob:employ_power}
+In each case, find the exact eigenvalues and determine corresponding eigenvectors. Then start with $\vec{x}_{0} = \left[ \begin{array}{rr}
+1  \\
+1
+\end{array}\right]$ and compute $\vec{x}_{4}$ and $r_{3}$ using the power method.
+
+
+\begin{enumerate}
+\item $A = \left[ \begin{array}{rr}
+2 & -4 \\
+-3 & 3
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rr}
+5 & 2 \\
+-3 & -2
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rr}
+1 & 2 \\
+2 & 1
+\end{array}\right]$
+\item $A = \left[ \begin{array}{rr}
+3 & 1 \\
+1 & 0
+\end{array}\right]$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate}[label={\alph*.}]
+\setcounter{enumi}{1}
+\item Eigenvalues $4$, $-1$; eigenvectors
+$\left[ \begin{array}{rr}
+2  \\
+-1
+\end{array}\right]$,
+$\left[ \begin{array}{rr}
+1 \\
+-3
+\end{array}\right]$;
+$\vec{x}_{4} = \left[ \begin{array}{rr}
+409  \\
+-203
+\end{array}\right]$;
+$r_{3} = 3.94$
+
+\setcounter{enumi}{3}
+\item Eigenvalues $\lambda_{1} = \frac{1}{2}(3 + \sqrt{13})$, $\lambda_{2} = \frac{1}{2}(3 - \sqrt{13})$;
+eigenvectors $\left[ \begin{array}{c}
+\lambda_{1}  \\
+1
+\end{array}\right]$,
+$\left[ \begin{array}{c}
+\lambda_{2}  \\
+1
+\end{array}\right]$;
+$\vec{x}_{4} = \left[ \begin{array}{rr}
+142  \\
+43
+\end{array}\right]$;
+$r_{3} = 3.3027750$
+(The true value is $\lambda_{1} = 3.3027756$, to seven decimal places.)
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:power_method_trouble}
+Apply the power method to \\ $A = \left[ \begin{array}{rr}
+0 & 1 \\
+-1 & 0
+\end{array}\right]$, starting at $\vec{x}_{0} = \left[ \begin{array}{rr}
+1 \\
+1
+\end{array}\right]$. Does it converge? Explain.
+\end{problem}
+
+
+
+\end{document}

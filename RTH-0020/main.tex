@@ -286,27 +286,12 @@ In this problem you are asked to finish Example \ref{ex:4subspaces}.  More speci
 \begin{problem}
 In each case, write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
 
-\begin{problem}\label{OrthoDecomp1}
-$\vec{x} = (1, 5, 7)$, $W = \mbox{span}\left((1, -2, 3), (-1, 1, 1)\right)$
-%ANSWER:  $\vec{x} = \frac{1}{182}(271,-221,1030)  + \frac{1}{182}(93,403,62)$
-\end{problem}
-
 \begin{problem}\label{OrthoDecomp2}
 $\vec{x} = (2, 1, 6)$, $W = \mbox{span}\left((3, -1, 2), (2, 0, -3)\right)$
 \end{problem}
 
-\begin{problem}\label{OrthoDecomp3}
-$\vec{x} = (3, 1, 5, 9)$, \\ $W = \mbox{span}\left((1, 0, 1, 1), (0, 1, -1, 1), (-2, 0, 1, 1)\right)$
-%ANSWER:  $\vec{x}= \frac{1}{4}(1, 7, 11, 17) + \frac{1}{4}(7, -7, -7, 7)$
-\end{problem}
-
 \begin{problem}\label{OrthoDecomp4}
 $\vec{x} = (2, 0, 1, 6)$, \\ \hspace*{-1em}$W = \mbox{span}\left\{(1, 1, 1, 1), (1, 1, -1, -1), (1, -1, 1, -1)\right\}$
-\end{problem}
-
-\begin{problem}\label{OrthoDecomp5}
-$\vec{x} = (a, b, c, d)$, \\ $W = \mbox{span}\left((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0)\right)$
-%ANSWER:  $\vec{x} = \frac{1}{12}(5a - 5b + c - 3d, -5a + 5b - c + 3d, a - b + 11c + 3d, -3a + 3b + 3c + 3d) + \frac{1}{12}(7a + 5b - c + 3d, 5a + 7b + c - 3d, -a + b + c -3d, 3a - 3b - 3c + 9d)$
 \end{problem}
 
 \begin{problem}\label{OrthoDecomp6}
@@ -366,63 +351,10 @@ If $W$ is a subspace of $\RR^n$, show that $\vec{x} = \mbox{proj}_W(\vec{x}) + \
 If $\{\vec{v}_{1}, \dots, \vec{v}_{n}\}$ is an orthogonal basis of $\RR^n$ and $W = \mbox{span}\left(\vec{v}_{1}, \dots, \vec{v}_{m}\right)$, show that \\ $W^\perp = \mbox{span}\left(\vec{v}_{m + 1}, \dots, \vec{v}_{n}\right)$.
 \end{problem}
 
-\begin{problem}\label{prob:8_1_13}
-If $W$ is a subspace of $\RR^n$, show that $\left(U^{\perp}\right)^\perp = U$. [\textit{Hint}: Show that $W \subseteq \left(U^{\perp}\right)^\perp$, then use Theorem~\ref{023953} (3) twice.]
-\end{problem}
-
-\begin{problem}\label{prob:8_1_14}
-If $W$ is a subspace of $\RR^n$, show how to find an $n \times n$ matrix $A$ such that $W = \{\vec{x} \mid A\vec{x} = \vec{0}\}$. [\textit{Hint}: Practice Problem~\ref{prob:8_1_13}.]
-
-\begin{hint}
-Let $\{\vec{y}_{1}, \vec{y}_{2}, \dots, \vec{y}_{m}\}$ be a basis of $W^\perp$, and let $A$ be the $n \times n$ matrix with rows $\vec{y}^T_1, \vec{y}^T_2, \dots, \vec{y}^T_m, 0, \dots, 0$. Then $A\vec{x} = \vec{0}$ if and only if $\vec{y}_{i} \dotp \vec{x} = 0$ for each $i = 1, 2, \dots, m$; if and only if $\vec{x}$ is in $W^{\perp \perp} = U$.
-\end{hint}
-\end{problem}
-
-\begin{problem}\label{prob:8_1_16}
-If $U$ and $W$ are subspaces, show that $(U + W)^\perp = U^\perp \cap W^\perp$. [See Practice Problem \ref{prob:5_1_22}.]
-\end{problem}
-
-\begin{problem}
-Think of $\RR^n$ as consisting of rows.
-
-\begin{problem}\label{prob:8_1_17.1}
-\item Let $E$ be an $n \times n$ matrix, and let \\ $W = \{\vec{x} E \mid \vec{x} \mbox{ in } \RR^n\}$. Show that the following are equivalent.
-
-
-\begin{enumerate}[label={\roman*.}]
-\item $E^{2} = E = E^{T}$ ($E$ is a \dfn{projection matrix}.
-
-\item $(\vec{x} - \vec{x}E) \dotp (\vec{y}E) = 0$ for all $\vec{x}$ and $\vec{y}$ in $\RR^n$.
-
-\item $\mbox{proj}_W(\vec{x}) = \vec{x}E$ for all $\vec{x}$ in $\RR^n$.
-\begin{hint}
-For (ii) implies (iii): Write $\vec{x} = \vec{x}E + (\vec{x} - \vec{x}E)$ and use the uniqueness argument preceding the definition of $\mbox{proj}_W(\vec{x})$. For (iii) implies (ii): $\vec{x} - \vec{x}E$ is in $W^\perp$ for all $\vec{x}$ in $\RR^n$.
-\end{hint}
-\end{enumerate}
-\end{problem}
-
-\begin{problem}\label{prob:8_1_17.2}
-If $E$ is a projection matrix, show that $I - E$ is also a projection matrix.
-\end{problem}
-
-\begin{problem}\label{prob:8_1_17.3}
-If $EF = 0 = FE$ and $E$ and $F$ are projection matrices, show that $E + F$ is also a projection matrix.
-
-\end{problem}
-
-\begin{problem}\label{prob:8_1_17.4}
-If $A$ is $m \times n$ and $AA^{T}$ is invertible, show that $E = A^{T}(AA^{T})^{-1}A$ is a projection matrix.
-%ANSWER $E^T = A^T[(AA^T)^-1]^T(A^T)^T  = A^T[(AA^T)^T]^{-1}A = A^T[AA^T]^{-1}A = E$
-\end{problem}
-
-\end{problem}
-
-
-
 
 \section*{Text Source} This section was adapted from the second part of Section 8.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
-W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415 
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 415--423. 
 
 %\section*{Example Source}
 Example \ref{ex:OrthogDecomp}  was adapted from Example 4.148  of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
