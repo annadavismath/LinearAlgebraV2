@@ -1,28 +1,26 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Rosemarie Emanuele \and Paul Bender} \title{Properties of the Determinant} \license{CC-BY 4.0}
+\title{Properties of the Determinant} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
-% We summarize the properties of the determinant that we already proved, and prove that a matrix is singular if and only if its determinant is zero, the determinant of a product is the product of the determinants, and the determinant of the transpose is equal to the determinant of the matrix.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 \section*{Properties of the Determinant}
-\subsection*{Summary of Results}
-We first defined the determinant of a matrix using cofactor expansion along the first row. (Definition \ref{def:toprowexpansion} of DET-0010)  We then introduced an alternative definition in terms of cofactor expansion along the first column and proved that the two definitions are equivalent. (Definition \ref{def:firstcolexpansion1} of DET-0020)  We also proved the following simple but useful results:
-\begin{enumerate}
+We begin by summarizing the properties of determinants we introduced in previous sections.
+%We first defined the determinant of a matrix using cofactor expansion along the first row. (Definition \ref{def:toprowexpansion} of DET-0010)  We then introduced an alternative definition in terms of cofactor expansion along the first column and proved that the two definitions are equivalent. (Definition \ref{def:firstcolexpansion1} of DET-0020)  We also proved the following simple but useful results:
+\begin{summary}
+\begin{itemize}
 \item The determinant of the identity matrix is equal to 1. (Lemma \ref{lemma:detofid})
-%\item The determinant of a triangular matrix is equal to the product of the main diagonal entries. (Lemma \ref{lemma:triangulardet})
+\item The determinant of a triangular matrix is equal to the product of the main diagonal entries. (Lemma \ref{lemma:triangulardet})
 
 \item If a matrix contains a row of zeros, then its determinant is equal to 0. (Lemma \ref{lemma:det0lemma})
 \item If two rows of a matrix are the same, then the determinant of the matrix is equal to 0.  (Lemma \ref{lemma:det0lemma})
 \item If one row of a matrix is a scalar multiple of another row, then the determinant of the matrix is equal to 0. (Lemma \ref{lemma:det0lemma})
-\end{enumerate}
-We also found that elementary row operations affect the determinant as follows:
-\begin{enumerate}
+
 \item
 If $B$ is obtained from $A$ by interchanging two different rows, then $$\det{B}=-\det{A}$$
 \item 
@@ -30,8 +28,9 @@ If $B$ is obtained from $A$ by multiplying one of the rows of $A$ by a non-zero 
 \item 
 If $B$ is obtained from $A$ by adding a multiple of one row of $A$ to another row, then
 $$\det{B}=\det{A}$$
-\end{enumerate}
-(Theorem \ref{th:elemrowopsanddet} of DET-0030)
+\end{itemize}
+(The last three properties comprise Theorem \ref{th:elemrowopsanddet})
+\end{summary}
 
 In this module we will prove the following important results:
 \begin{enumerate}
@@ -174,6 +173,24 @@ By Lemma \ref{lemma:detofelementarymat}, $\det{E_i^T}=\det{E_i}$ for $1\leq i\le
 &=\det{A}
 \end{align*}
 \end{proof}
+
+Because $\det{A}=\det{A^T}$, we have the following counterpart of Theorem \ref{th:elemrowopsanddet} for columns.
+
+\begin{theorem}[Elementary Column Operations and the Determinant]\label{th:elemcolopsanddet}
+Let $A$ be an $n\times n$ matrix.  
+\begin{enumerate}
+\item\label{item:colswapanddet}
+If $B$ is obtained from $A$ by interchanging two different columns, then $$\det{B}=-\det{A}$$
+\item \label{item:colconstantmultanddet}
+If $B$ is obtained from $A$ by multiplying one of the columns of $A$ by a non-zero constant $k$.  Then $$\det{B}=k\det{A}$$
+\item \label{item:addmultothercoldet}
+If $B$ is obtained from $A$ by adding a multiple of one column of $A$ to another column, then
+$$\det{B}=\det{A}$$
+\end{enumerate}
+\end{theorem}
+% \begin{proof}
+% This is a direct consequence of the fact that $\det{A^T}=\det{A}$. (Theorem \ref{th:detoftrans})
+%\end{proof}
 
 \section*{Practice Problems}
 \begin{problem}

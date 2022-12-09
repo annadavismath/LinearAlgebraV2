@@ -11,13 +11,13 @@
 \maketitle
 
 \section*{Finding the Determinant}
-In this module we will define a function that assigns to each square matrix $A$ a scalar output called the \dfn{determinant of $A$}.  We will denote the determinant of $A$ by $\det{A}$.  For a matrix with real number entries, the output of the determinant function will be a real number.
+In this section we will define a function that assigns to each square matrix $A$ a scalar output called the \dfn{determinant of $A$}.  We will denote the determinant of $A$ by $\det{A}$.  For a matrix with real number entries, the output of the determinant function will always be a real number.
 
-One important property of the determinant is its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.
+One important property of the determinant is its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.  This property will be addressed in detail in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0040/main}{Poperties of the Determinant}, and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0060/main}{Determinants and Inverses of Nonsingular Matrices}.
 
-Geometrically speaking, the determinant of a matrix of a linear transformation is the factor by which the area (volume or hypervolume) is scaled by the transformation.
+Geometrically speaking, the determinant of a matrix of a linear transformation is the factor by which the area (volume or hypervolume) is scaled by the transformation.  This will be discussed in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0070/main}{Determinants as Areas and Volumes}. 
 
-\subsection*{Finding the Determinant: Expansion Along the Top Row}
+\subsection*{Cofactor Expansion Along the Top Row}
 To start from the beginning, let us define the determinant of a $1\times 1$ matrix.
 \begin{definition}\label{def:onebyonedet} Let
 $A=\begin{bmatrix}a\end{bmatrix}$.  Define the \dfn{determinant} of $A$ by $\det{A}=a$.
@@ -26,7 +26,7 @@ It is important to note that this definition is consistent with our goal of maki
 
 Now we proceed to $2\times 2$ matrices.  According to Formula \ref{form:detinverse}, the inverse of a nonsingular matrix $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ is given by
 $$A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
-Observe that $A^{-1}$ exists if and only if $ad-bc\neq 0$.  We will call the number $ad-bc$ the \dfn{determinant} of $A$.
+Observe that $A^{-1}$ exists if and only if $ad-bc\neq 0$.  We will call the number $ad-bc$ the determinant of $A$.
 
 \begin{definition}\label{def:twobytwodet}
 Let $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$.  The determinant of $A$ is defined by 
@@ -65,13 +65,13 @@ The \dfn{determinant} of $A$ is given by
 \end{align}
 \end{definition}
 
-We would like to reiterate several important features of this definition:
+We will now reiterate several important features of this definition and introduce some vocabulary:
 \begin{itemize}
 \item The coefficients $a$, $b$ and $c$ are the entries of the first row of matrix $A$.  Coefficients in the formula follow an alternating sign pattern: $+a$, $-b$, $+c$.  This pattern will persist in the determinant formulas for determinants of larger matrices.
 \item When using equation (\ref{eq:det3by3}), we compute determinants of three matrices:
 $$\begin{bmatrix}e&f\\h&i\end{bmatrix},\quad \begin{bmatrix}d&f\\g&i\end{bmatrix},\quad \begin{bmatrix}d&e\\g&h\end{bmatrix}$$
-These matrices are called \dfn{cofactors}.  To form each cofactor,
-cross out the row and column that the corresponding coefficient is in.  For example, the cofactor corresponding to coefficient $b$ is found by crossing out the row and column that $b$ is in.
+These matrices are called \dfn{minor} matrices.  To form each minor matrix,
+cross out the row and column that the corresponding coefficient is in.  For example, the minor matrix corresponding to coefficient $b$ is found by crossing out the row and column that $b$ is in.
 \begin{center}
 \begin{tikzpicture}
   \matrix (m)[
@@ -89,6 +89,7 @@ cross out the row and column that the corresponding coefficient is in.  For exam
   \draw[blue](m-2-2.north) -- (m-3-2.south);
  \end{tikzpicture}
  \end{center} 
+ \item The process for finding the determinant described in Definition \ref{def:threebythreedet} is referred to as a \dfn{cofactor expansion along the top row}. % we will explain this term in more detail in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Proof of the Laplace Expansion Theorem}.
 \end{itemize}
 
 
@@ -110,7 +111,7 @@ We are starting to observe a certain pattern in the process of computing the det
     $$A=\begin{bmatrix} 2 & 3 & -2 & -5\\0 & 1& -2& 0\\1& 3 & 0 &-1\\2&0& 1&1\end{bmatrix}$$
 
 \begin{explanation}
-As you watch the video below, pay particular attention to the same patterns as you saw in the case of $3\times 3$ matrices: the alternating sign pattern and the process of forming cofactors.
+As you watch the video below, pay particular attention to the same patterns as you saw in the case of $3\times 3$ matrices: the alternating sign pattern and the process of forming minor matrices.
 
 \begin{align*}
 \det{A}
@@ -139,8 +140,8 @@ Just like in the case of a $3 \times 3$ matrix in Example \ref{ex:threebythreede
 \end{explanation}
 \end{example}
 
-\subsection*{Finding the Determinant: Expansion Along the First Column}
-Earlier in this section, we computed the determinant by expanding along the top row.  We will now mimic this process, but expand along the first column instead of the first row.  Surprisingly, our new approach to will yield the same result as the original definition.  We will omit a formal presentation of this process for now, and instead illustrate the process by revisiting Examples \ref{ex:threebythreedet1} and \ref{ex:expansiontoprow}. 
+\subsection*{Cofactor Expansion Along the First Column}
+We defined the determinant of a matrix in terms of cofactor expansion along the top row.  We will now see what happens when we expand along the first \textit{column} instead.  We will refer to this process as \dfn{cofactor expansion along the first column}.  Surprisingly, both expansions yield the same result.  To illustrate this, let's revisit Examples \ref{ex:threebythreedet1} and \ref{ex:expansiontoprow}. 
 
 \begin{example}\label{init:expansionfirstcol1}
 Let 
@@ -172,16 +173,18 @@ When computing determinants of the four $3\times 3$ matrices below, try differen
 \end{align*}
 \end{exploration}
 
-\subsection*{Finding the Determinant: Expansion Along an Arbitrary Row or Column}
+In Example \ref{init:expansionfirstcol1} and Exploration \ref{init:expansionfirstcol2} we were careful not to claim at the outset that we were finding the determinant of the matrix by cofactor expansion along the first column; we merely observed that the resulting value was equal to the determinant.  It is possible to prove that both expansions produce the same result. (Theorem \ref{th:rowcolexpequivalence})  Therefore the determinant of a matrix can be defined in terms of cofactor expansion along the first row or column.  
 
-We originally defined the determinant of a matrix via expansion along the top row of the matrix.  We later observed that expansion along the first column produces the same result.  Surprisingly, the value of the determinant can be computed by expanding along any row or column.  
+\subsection*{Cofactor Expansion Along Any Row or Column}
+
+We originally defined the determinant of a matrix via expansion along the top row of the matrix.  We later observed that expansion along the first column produces the same result.  It turns out that the value of the determinant can be computed by expanding along any row or column.  This result is known as the \dfn{Laplace Expansion Theorem} (\ref{th:laplace1}).
 
 When expanding along an arbitrary row or column, we will continue to follow the two patterns we observed earlier.
 \begin{itemize}
     \item The alternating sign pattern for coefficients will follow the checker board pattern below.
  $$\begin{bmatrix}+&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\
  +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
- \item Cofactor matrices will be formed by eliminating the row and column that the corresponding coefficient is in.
+ \item Minor matrices will be formed by eliminating the row and column that the corresponding coefficient is in.
 \end{itemize}
 
 To illustrate this, let's take another look at matrix $A$ from Example \ref{ex:expansiontoprow}. 
@@ -216,28 +219,37 @@ $$A=\begin{bmatrix}4&0&0&0&2\\0&-1&1&0&0\\2&0&0&-5&3\\0&1&4&0&-1\\1&1&5&0&0\end{
 The fourth column contains the most zeros, so we will expand along that column.  The  $(3, 4)$-entry is the only non-zero entry in the fourth column.  Following the checker board pattern, we see that the sign in front of $-5$ is a minus.  
 $$\det{A}=-(-5)\begin{vmatrix}4&0&0&2\\0&-1&1&0\\0&1&4&-1\\1&1&5&0\end{vmatrix}
 $$
-Next we will expand the cofactor matrix along the top row.
+Next we will expand the minor matrix along the top row.
 $$\det{A}=5\left(4\begin{vmatrix}-1&1&0\\1&4&-1\\1&5&0\end{vmatrix}-2\begin{vmatrix}0&-1&1\\0&1&4&\\1&1&5\end{vmatrix}\right)$$
 Try the next step on your own.  We suggest that you expand the first matrix along the last column and expand the second matrix along the first column.
 $$\det(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
 \end{explanation}
 \end{example}
 
-\subsection*{A Note on Equivalency of Definitions}
-We initially introduced the determinant of a matrix via expansion along the top row.  We later observed that expanding along any row or column produces the same result.  We have to be careful, however, not to use a few examples to support a general claim that different approaches will always yield the same result.  Such claims need to be carefully supported with proofs.  We will prove the equivalency of all approaches presented in this section in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{The Laplace Expansion Theorem}.
+\subsection*{A Note on Equivalency}
+We initially introduced the determinant of a matrix via cofactor expansion along the top row.  We later observed that cofactor expansion along any row or column produces the same result.  We have to be careful, however, not to use a few examples as ``proof" that all cofactor expansions are equivalent.  Such claims need to be carefully supported with general proofs.  Unfortunately, in this case, the proofs are tedious and conceptually unenlightening.  An interested reader can find them in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Tedious Proofs Concerning Determinants}.
 
+\subsection*{Determinants of Triangular Matrices}
+As we observed earlier, having zeros in a matrix makes it easier for us to compute its determinant.  An example of one such matrix is the identity matrix.
+\begin{lemma}\label{lemma:detofid} Let $I$ be the identity matrix, then
+ $$\det{I}=1$$
+ \end{lemma}
+ \begin{proof} Left to the reader.
+ \end{proof}
 
+Recall that that a square matrix is \dfn{upper-triangular} if all of the entries below the main diagonal are zero.  Similarly, a square matrix is called \dfn{lower-triangular} if all of the entries above the main diagonal are zero.  Together, upper and lower triangular matrices are categorized as \dfn{triangular} matrices.
 
+\begin{lemma}\label{lemma:triangulardet}
+If $A$ is a triangular matrix, then $\det{A}$ is equal to the product of its diagonal entries.
+\end{lemma}
+\begin{proof}
+We proceed by induction.  It is easy to see that this result holds for $n=1, 2$.  Suppose that the result holds for $(n-1)\times (n-1)$ triangular matrices.  We need to show that it holds for $n\times n$ triangular matrices.  Suppose $A=[a_{ij}]$ is a triangular matrix. 
+ Then the first row or column or $A$ will consist of zeros, with a possible exception of $a_{11}$.  We will take advantage of these zeros and expand along the first row (or column) of $A$.  As we do so, we obtain a single product of $a_{11}$ and the determinant of a minor matrix obtained by crossing out the first row and column of $A$.  But this minor $(n-1)\times (n-1)$ matrix is also a triangular matrix with diagonal etries $a_{22}, a_{33},\ldots, a_{nn}$.  By induction hypothesis, its determinant is equal to the product of its diagonal entries, $a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn}$.  Therefore $$\det{A}=a_{11}(a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn})$$
+ This completes the proof.
+\end{proof}
 
-% \begin{lemma}\label{lemma:detofid} Let $I$ be the identity matrix, then
-% $$\det{I}=1$$
-% \end{lemma}
-% \begin{proof} Left to the reader.
-% \end{proof}
+BLOCK-TRIANGULAR MATRICES LEMMA GOES HERE.
 
-%\begin{lemma}\label{lemma:triangulardet}
-%{\color{red}NEED LEMMA ON TRIANGULAR MATRICES}
-%\end{lemma}
 \section*{Practice Problems}
 
 \begin{problem}
@@ -253,7 +265,15 @@ Find the determinant of each matrix.
   Answer:
   $$\text{det}(B)=\answer{22}$$
   \end{problem}
+
+  \begin{problem}\label{prob:laplace}
+  $$C=\begin{bmatrix}1&-2&0&0&0\\0&-4&1&1&0\\3&0&-1&0&1\\0&0&4&1&0\\-1&-2&0&0&0\end{bmatrix}$$
+   Answer:
+  $$\det(C)=\answer{12}$$
+ \end{problem}
 \end{problem}
+
+
 
 \begin{problem}\label{prob:toprowexp2x2}
 Show that Definition \ref{def:toprowexpansion} is consistent with Definition \ref{def:twobytwodet} by verifying that both produce the same result when applied to a $2\times 2$ matrix.
