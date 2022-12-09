@@ -10,16 +10,96 @@
 \maketitle
 
 \section*{Gershgorin's Theorem}
-We have seen that eigenvalues are the roots of the characteristic polynomial, and therefore may be complex numbers, even when a matrix has entries that are real.  This section is devoted to a remarkable theorem proved in 1931 called Gersgorin's theorem, which says that the $n$ eigenvalues of an $n \times n$ matrix can be found in a region in the complex plane consisting of $n$ disks.  We explore the theorem for the case $n=3$ before proving the result.  
-
+We have seen that eigenvalues are the roots of the characteristic polynomial, and therefore may be complex numbers, even when a matrix has entries that are real.  This section is devoted to a remarkable theorem proved in 1931 called Gershgorin's theorem, which says that the $n$ eigenvalues of an $n \times n$ matrix can be found in a region in the complex plane consisting of $n$ disks.  We explore the theorem for the case $n=3$ before proving the result.  If you have never plotted complex numbers before, you may wish to try Exploration \ref{exp:geometry_complex_numbers} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} before proceeding.
 
 \begin{exploration}\label{init:GershDisks3x3}
+In the GeoGebra exploration below, you can adjust any of the entries of the $3 \times 3$ matrix $A$.  The three eigenvalues are plotted as dots on the complex plane.  The Gershgorin region is the union of three disks, and the boundaries of those disks are plotted in red.  Notice that the eigenvalues are always in the Gershgorin region.
 
+As you experiment with the interactive, see if you can answer the following questions.
 
+\begin{enumerate}
+    \item Is it always true that each disk contains an eigenvalue?  \wordChoice{\choice{Yes}\choice[correct]{No}}
+    \item What is the center of each disk?
+    \item What is the radius of each disk?
+    \item Are there some matrices for which one of the disks does not intersect the others?  Where none of the disks intersect?
+\end{enumerate}
 \begin{center}
 \geogebra{a5jpgbnp}{800}{600}
 \end{center}
-
 \end{exploration}
+
+In the exploration above you were able to see the eigenvalues of a $3 \times 3$ matrix contained in the Gershgorin region, which consisted of three disks.  In general, for an $n \times n$ matrix $A=[a_{ij}]$, the Gershgorin region consists of $n$ disks in the complex plane.  The centers of the disks are given by the $n$ diagonal entries of $A$.  We get the radius of the disk with center $a_{ii}$ by adding the absolute values of each of the other elements in row $i$.  We state this all formally in the following theorem.
+
+
+\begin{theorem}[Gershgorin]\label{th:Gershgorin}
+Let $A=[a_{ij}]$ be an $n\times n$ complex matrix.  Then for $1<i<n$, we define the \dfn{absolute deleted row sum} to be
+$$
+r_i(A):= \sum_{i \ne j} |a_{ij}|.
+$$
+Now we can define the $i$th \dfn{Gershgorin disk} of $A$ to be
+\begin{equation}\label{eqn:Gersh_disk}
+\Gamma_i(A) := \{ z \in \mathbb{C} : |z-a_{ii}| \le r_i(A) \}.
+\end{equation}
+ The \dfn{Gershgorin region} of $A$ is defined to be the union of the Gershgorin disks, i.e.,
+$$
+\Gamma(A) := \bigcup_{1 \le i \le n} \Gamma_i(A).
+$$
+Then the eigenvalues of $A$ are contained in the Gershgorin region $\Gamma(A)$.
+\end{theorem}
+
+The fact that (\ref{eqn:Gersh_disk}) represents a disk in the complex plane is a direct result of the complex distance formula \ref{eqn:distance_formula}. Before proving Gershgorin's theorem, we provide an example and a video to aid in understanding exactly what the theorem says.
+\youtube{}
+
+\begin{example}
+Plot the eigenvalues and the Gershgorin region of each of the following matrices.
+\begin{enumerate}
+    \item $A=\begin{bmatrix}
+    1 & 1 \\
+    2 & 0 \end{bmatrix}$
+    \item $B=\begin{bmatrix}
+    1+i & 1 & i & 0\\ 
+    0 & 4 & 1+i & 0\\ 
+    0 & 0 & 2 & -1 \\
+    0 & 0 & 0 & -1\end{bmatrix}$
+\end{enumerate}
+
+\begin{explanation}
+ 
+
+\begin{enumerate}
+    \item $\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and -1, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
+    \item Since $B$ is upper triangular, its eigenvalues are its diagonal entries.  These are the centers of the Gershgorin disks, which proves that the eigenvalues of $B$ are contained in $\Gamma(B)$.  $\Gamma(B)$ consists of four disks.  The first is centered at 1+i with a radius of $2$, since the absolute value of $i$ is 1.   The second is centered at 4 with a radius of $\sqrt{2}$.  The third disk is centered at 2 with a radius of 1.  The fourth disk is centered at -1 with a radius of zero, so in fact, consists only of the eigenvalue -1.
+\end{enumerate}
+
+\end{explanation}
+\end{example}
+
+
+
+\begin{proof}
+Let $\lambda$ be an eigenvalue of $A$ with corresponding eigenvector $\vec{x}=\begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}$ so that $A\vec{x}=\lambda\vec{x}$. Let $x_k$ be an entry of $\vec{x}$ such that $|x_k|$ is greater than or equal to the absolute value of every other entry in $\vec{x}$.  Then considering row $k$ of the equation $$A\begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}=\lambda\begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}$$ gives us 
+$$\sum_{j=1}^n a_{kj} x_j = \lambda x_k.$$
+Subtracting yields 
+$$\sum_{j\ne k} a_{kj} x_j = (\lambda - a_{kk}) x_k.$$
+Taking the absolute value of both sides, we have
+\begin{align}
+    |\lambda - a_{kk} x_k| &= |\lambda - a_{kk}| |x_k|\label{eqn:pr1} \\ 
+    &= \left|\sum_{j\ne k} a_{kj} x_j\right| \label{eqn:pr2} \\ 
+    &\le \sum_{j\ne k} |a_{kj} x_j| \label{eqn:pr3} \\ 
+    &= \sum_{j\ne k} |a_{kj}| |x_j| \label{eqn:pr4}\\ 
+    &\le \sum_{j\ne k} |a_{kj}| |x_k| \label{eqn:pr5}
+\end{align}
+Here equations \ref{eqn:pr1} and \ref{eqn:pr4} follow from property C2 of \ref{eqn:complex_number_properties}, inequality \ref{eqn:pr3} follows from the Triangle Inequality (C12 of \ref{eqn:complex_number_properties}), and we arrive at inequality \ref{eqn:pr5} by replacing each $\vec{x}_j$ in inequality \ref{eqn:pr4} by $\vec{x}_k$.
+
+These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so $\lambda \in \Gamma_k(A)$, and hence $\lambda \in \Gamma(A)$, as desired.
+
+
+\end{proof}
 
 \end{document}
