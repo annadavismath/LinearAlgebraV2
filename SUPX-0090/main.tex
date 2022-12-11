@@ -1076,7 +1076,7 @@ Think of $\RR^n$ as consisting of rows.
 \item Let $E$ be an $n \times n$ matrix, and let \\ $W = \{\vec{x} E \mid \vec{x} \mbox{ in } \RR^n\}$. Show that the following are equivalent.
 
 
-\begin{enumerate}[label={\roman*.}]
+\begin{enumerate}
 \item $E^{2} = E = E^{T}$ ($E$ is a \dfn{projection matrix}.
 
 \item $(\vec{x} - \vec{x}E) \dotp (\vec{y}E) = 0$ for all $\vec{x}$ and $\vec{y}$ in $\RR^n$.
@@ -1240,45 +1240,6 @@ b & 0 & a \\
 0 & b & 0 \\
 a & 0 & b
 \end{bmatrix}$. Show that the characteristic polynomial is given by $c_{A}(x) = (x - b)(x - b - a)(x - b + a)$, and find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal.
-\end{problem}
-
-
-\begin{problem}\label{prb:8.26} Suppose $A$ is an $n\times n$ matrix and let $V$ be an
-eigenvector such that $AV=\lambda V$. Also suppose the
-characteristic polynomial of $A$ is
-\begin{equation*}
-\det \left( x I-A\right) =x ^{n}+a_{n-1} x ^{n-1}+\cdots
-+a_{1}x +a_{0}
-\end{equation*}
-Explain why
-\begin{equation*}
-\left( A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I\right) V=0
-\end{equation*}
-If $A$ is diagonalizable, give a proof of the Cayley Hamilton
-theorem based on this. This theorem says $A$ satisfies its
-characteristic equation,
-\begin{equation*}
-A^{n}+a_{n-1}A^{n-1}+\cdots +a_{1}A+a_{0}I=0
-\end{equation*}
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:8.27} Suppose the characteristic polynomial of an $n\times n$ matrix $A$ is
-$1-\lambda^{n}$. Find $A^{mn}$ where $m$ is an integer.
-\begin{hint}
-The eigenvalues are distinct because
-they are the $n^{th}$ roots of $1$. Hence if $\vec{x}$ is a given vector with
-\[
-\vec{x}=\sum_{j=1}^{n}a_{j}\vec{v}_{j}
-\]
-then
-\[
-A^{nm}\vec{x}=A^{nm}\sum_{j=1}^{n}a_{j}\vec{v}_{j}=
-\sum_{j=1}^{n}a_{j}A^{nm}\vec{v}_{j}=\sum_{j=1}^{n}a_{j}\vec{v}_{j}=\vec{x}
-\]
-so $A^{nm}=I$.
-\end{hint}
 \end{problem}
 
 

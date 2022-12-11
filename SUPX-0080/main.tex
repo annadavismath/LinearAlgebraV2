@@ -737,7 +737,7 @@ Given a polynomial $p(x) = r_{0} + r_{1}x + \dots + r_{n}x^{n}$ and a square mat
 \begin{problem}\label{prob:5_5_12}
 Let $P$ be an invertible $n \times n$ matrix. If $A$ is any $n \times n$ matrix, write $T_{P}(A) = P^{-1}AP$. Verify that:
 
-%\begin{enumerate}[label={\alph*.}]
+
 \begin{enumerate}
 \item\label{prob:5_5_12a} $T_{P}(I) = I$
 \item\label{prob:5_5_12b} $T_{P}(AB) = T_{P}(A)T_{P}(B)$
@@ -825,7 +825,6 @@ so $A^{nm}=I$.
 \end{hint}
 \end{problem}
 
-
 \subsection*{Octave Exercises}
 \begin{problem}\label{oct:char_poly}
 Use the Octave window below to check your work on Problems \ref{prb:8.9} to \ref{prb:8.12}.  The first steps of \ref{prb:8.9} are done in the Octave window.  See if you can finish the rest of the problem.
@@ -847,6 +846,7 @@ inv(P)*A*P
 % This is because columns 2 and 3 of P are the same.
 % The eigenvalue 0 has algebraic multiplicity 2, but geometric multiplicity 1
 % This matrix A is NOT diagonalizable
+%\end{octave}
 
 \end{problem}
 
