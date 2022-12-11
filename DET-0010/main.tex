@@ -230,25 +230,57 @@ $$\det(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
 We initially introduced the determinant of a matrix via cofactor expansion along the top row.  We later observed that cofactor expansion along any row or column produces the same result.  We have to be careful, however, not to use a few examples as ``proof" that all cofactor expansions are equivalent.  Such claims need to be carefully supported with general proofs.  Unfortunately, in this case, the proofs are tedious and conceptually unenlightening.  An interested reader can find them in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Tedious Proofs Concerning Determinants}.
 
 \subsection*{Determinants of Triangular Matrices}
-As we observed earlier, having zeros in a matrix makes it easier for us to compute its determinant.  An example of one such matrix is the identity matrix.
-\begin{lemma}\label{lemma:detofid} Let $I$ be the identity matrix, then
- $$\det{I}=1$$
- \end{lemma}
- \begin{proof} Left to the reader.
- \end{proof}
+As we observed earlier, having zeros in a matrix makes it easier for us to compute its determinant.  Recall that that a square matrix is \dfn{upper-triangular} if all of the entries below the main diagonal are zero.  Similarly, a square matrix is called \dfn{lower-triangular} if all of the entries above the main diagonal are zero.  Together, upper and lower triangular matrices are categorized as \dfn{triangular} matrices.
 
-Recall that that a square matrix is \dfn{upper-triangular} if all of the entries below the main diagonal are zero.  Similarly, a square matrix is called \dfn{lower-triangular} if all of the entries above the main diagonal are zero.  Together, upper and lower triangular matrices are categorized as \dfn{triangular} matrices.
-
-\begin{lemma}\label{lemma:triangulardet}
+\begin{theorem}\label{lemma:triangulardet}
 If $A$ is a triangular matrix, then $\det{A}$ is equal to the product of its diagonal entries.
-\end{lemma}
+\end{theorem}
 \begin{proof}
-We proceed by induction.  It is easy to see that this result holds for $n=1, 2$.  Suppose that the result holds for $(n-1)\times (n-1)$ triangular matrices.  We need to show that it holds for $n\times n$ triangular matrices.  Suppose $A=[a_{ij}]$ is a triangular matrix. 
+We proceed by induction on $n$, where $A$ is an $n\times n$ matrix.  It is easy to see that this result holds for $n=1, 2$.  Suppose that the result holds for $(n-1)\times (n-1)$ triangular matrices.  We need to show that it holds for $n\times n$ triangular matrices.  Suppose $A=[a_{ij}]$ is a triangular matrix. 
  Then the first row or column or $A$ will consist of zeros, with a possible exception of $a_{11}$.  We will take advantage of these zeros and expand along the first row (or column) of $A$.  As we do so, we obtain a single product of $a_{11}$ and the determinant of a minor matrix obtained by crossing out the first row and column of $A$.  But this minor $(n-1)\times (n-1)$ matrix is also a triangular matrix with diagonal etries $a_{22}, a_{33},\ldots, a_{nn}$.  By induction hypothesis, its determinant is equal to the product of its diagonal entries, $a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn}$.  Therefore $$\det{A}=a_{11}(a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn})$$
  This completes the proof.
 \end{proof}
 
-BLOCK-TRIANGULAR MATRICES LEMMA GOES HERE.
+As an immediate consequence of this theorem, we have the following result.
+
+\begin{corollary}\label{lemma:detofid} Let $I$ be the identity matrix, then
+ $$\det{I}=1$$
+ \end{corollary}
+
+ We first introduced block matrices in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{Block Matrix Multiplication}.  Matrices of the form $\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and $\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices, are said to be \dfn{block triangular}.  The following theorem makes it easy to compute determinants of such matrices.
+
+ \begin{theorem}
+     Consider block triangular matrices $\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and $\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices.  Then
+     $$\det{\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}}=\det{A}\det{B}\quad\mbox{and}\quad\det{\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}}=\det{A}\det{B}$$
+ \end{theorem}
+\begin{proof}
+    Write $T=\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and proceed by induction on $k$, where $A$ is $k\times k$.  If $k=1$, then the result follows from cofactor expansion along the first column.  In general, let $S_i(T)$ denote the matrix obtained from $T$ by deleting row $i$ and column 1. Then the cofactor expansion along the first column is
+    $$\det{T}=a_{11}\det{S_1(T)}-a_{21}\det{S_2(T)}+\dots + (-1)^{k+1}\det{S_k(T)}$$
+    where $a_{11}, a_{21},\dots , a_{k1}$ are the entries in the first column of $A$.  Observe that 
+    $$S_i(T)=\begin{bmatrix}S_i(A) & C_i\\\vec{O}& B\end{bmatrix}$$
+    where $i=1,2,\dots , k$, $S_i(A)$ denotes matrix $A$ with column 1 and row $i$ deleted, and $C_i$ denotes matrix $C$ with with row $i$ deleted.
+    
+    Since $S_i(A)$ is a $(k-1)\times (k-1)$ matrix, by the induction hypothesis,
+    $$\det{S_i(T)}=\det{S_i(A)}\cdot \det{B}$$
+    This gives us
+    \begin{align*}
+        \det{T}=&a_{11}\det{S_1(T)}-a_{21}\det{S_2(T)}+\dots + (-1)^{k+1}\det{S_k(T)}\\
+        =&a_{11}\det{S_1(A)}\cdot\det{B}-a_{21}\det{S_2(A)}\cdot\det{B}+\dots \\
+        &\dots+ (-1)^{k+1}\det{S_k(A)}\cdot\det{B}\\
+        =&\Big(a_{11}\det{S_1(A)}-a_{21}\det{S_2(A)}+\dots + (-1)^{k+1}\det{S_k(A)}\Big)\det{B}\\
+        =&\det{A}\det{B}
+    \end{align*}
+    The lower triangular case is similar.
+\end{proof}
+
+\begin{example}
+    Find the $\det{A}$ if 
+    $$A=\begin{bmatrix}2&1&3&3\\1&-1&-2&1\\0&0&1&1\\0&0&4&1\end{bmatrix}$$
+  \begin{explanation}
+      $$\begin{vmatrix}2&1&3&3\\1&-1&-2&1\\0&0&1&1\\0&0&4&1\end{vmatrix}=\begin{vmatrix}2&1\\1&-1\end{vmatrix}\begin{vmatrix}1&1\\4&1\end{vmatrix}=\answer{9}$$
+  \end{explanation}  
+\end{example}
+
 
 \section*{Practice Problems}
 
@@ -315,7 +347,7 @@ Is it true that
 $\det{(A+B)}=\det{A}+\det{B}$?
 \end{problem}
 
-\begin{problem}\label{prob:detIproof}
-Use mathematical induction to prove Lemma \ref{lemma:detofid}.
-\end{problem}
+\section*{Text Source}
+The text in this section partially comes from Section 3.1  of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications} (CC-BY-NC-SA).
+
 \end{document} 
