@@ -1,28 +1,35 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis \and Paul Zachlin \and Paul Bender} \title{Block Matrix Multiplication} \license{CC-BY-NC-SA}
+ \title{Block Matrix Multiplication} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
-%We present and practice block matrix multiplication. 
+
 \end{abstract}
 \maketitle
 
 \section*{Block Matrix Multiplication}
-\begin{definition}\label{def:blockmat}
-It is often useful to consider matrices whose entries are themselves matrices, called \dfn{blocks}. A matrix viewed in this way is said to be \dfn{partitioned into blocks}
-\end{definition}
 
-For example, writing a matrix $B$ in the form
+It is often useful to partition a matrix into smaller matrices, called \dfn{blocks}. A matrix viewed in this way is said to be \dfn{partitioned into blocks}.  For example, each column of a matrix can be considered to be a block.  Writing a matrix $B$ in the form
 \begin{equation*}
 B = \begin{bmatrix}
 \vec{b}_{1} & \vec{b}_{2} & \ldots & \vec{b}_{k}
 \end{bmatrix} \mbox{ where the } \vec{b}_{j} \mbox{ are the columns of } B
 \end{equation*}
-is such a block partition of $B$. Here is another example.
+is a block partition of $B$. 
 
-Consider the matrices
+Here is another example.  Consider matrix $A$.
+\begin{equation*}
+A = \left[ \begin{array}{rrrrr}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+2 & -1 & 4 & 2 & 1 \\
+3 & 1 & -1 & 7 & 5
+\end{array} \right]
+\end{equation*}
+There is a natural way to partition $A$. Observe the $2\times 2$ identity matrix, $I_2$, in the upper left corner.  There is also a $2\times 3$ zero matrix, $O_{23}$, in the upper right corner.  We will take advantage of these features to partition $A$ as follows.
+
 \begin{equation*}
 A = \left[ \begin{array}{rr|rrr}
 1 & 0 & 0 & 0 & 0 \\
@@ -35,6 +42,22 @@ I_{2} & O_{23} \\
 P & Q
 \end{array} \right]
 \end{equation*}
+
+This notation is particularly useful when we are multiplying two matrices because the product can be computed in block form.
+
+Consider matrix $B$.
+\begin{equation*}
+B = \left[ \begin{array}{rr}
+4 & -2 \\
+5 & 6 \\
+7 & 3 \\
+-1 & 0 \\
+1 & 6
+\end{array} \right]
+\end{equation*}
+We will compute the product $AB$ by ordinary matrix multiplication, using blocks as entries. The only requirement is that the blocks be compatible. That is, the sizes of the blocks must be such that all matrix products of blocks that occur make sense. This means that the number of columns in each block of $A$ must equal the number of rows in the corresponding block of $B$.
+
+To find the product $AB$, we need to partition $B$ so that block $I_2$ corresponds to a $2\times 2$ block of $B$, and block $O_{23}$ of $A$ corresponds to a $3\times 2$ block of $B$.  We partition $B$ as follows.
 \begin{equation*}
 B = \left[ \begin{array}{rr}
 4 & -2 \\
@@ -48,7 +71,9 @@ X \\
 Y
 \end{array} \right]
 \end{equation*}
-where the blocks have been labelled as indicated. This is a natural way to partition $A$ into blocks in view of the blocks $I_{2}$ and the two-by-three zero matrix, denoted by $O_{23}$, that occur. This notation is particularly useful when we are multiplying the matrices $A$ and $B$ because the product $AB$ can be computed in block form as follows:
+
+Then,
+
 \begin{equation*}
 AB = \left[ \begin{array}{cc}
 I & O \\
@@ -72,7 +97,7 @@ PX + QY
 \end{equation*}
 This is easily checked to be the product $AB$, computed in the conventional manner.
 
-In other words, we can compute the product $AB$ by ordinary matrix multiplication, using blocks as entries. The only requirement is that the blocks be compatible. That is, the sizes of the blocks must be such that all matrix products of blocks that occur make sense. This means that the number of columns in each block of $A$ must equal the number of rows in the corresponding block of $B$.
+
 
 
 \begin{theorem}\label{th:blockmatmult}
@@ -191,8 +216,141 @@ AB = \left[ \begin{array}{rr|r}
 
 \end{problem}
 
+\begin{problem}\label{prob:block_powers}
+In each case give formulas for all powers $A, A^{2}, A^{3}, \dots$ of $A$ using the block decomposition indicated.
+
+
+\begin{enumerate}
+\item
+$A = \left[ \begin{array}{r|rr}
+1 & 0 & 0 \\
+\hline
+1 & 1  & -1\\
+1 & -1 & 1
+\end{array} \right]
+$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$
+A^{2k} = \left[ \begin{array}{rc|rr}
+1 & -2k & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array} \right]$ for $k = 0, 1, 2, \dots$
+\end{expandable}
+
+\item
+$A = \left[ \begin{array}{rr|rr}
+1 & -1 & 2 & -1 \\
+0 & 1 & 0 & 0 \\
+\hline
+0 & 0 & -1 & 1 \\
+0 & 0 & 0 & 1
+\end{array} \right]
+$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$A^{2k + 1} = A^{2k}A = \left[ \begin{array}{rc|rr}
+1 & -(2k + 1) & 2 & -1 \\
+0 & 1 & 0 & 0 \\
+\hline
+0 & 0 & -1 & 1 \\
+0 & 0 & 0 & 1
+\end{array} \right]$ for $k = 0, 1, 2, \dots$
+\end{expandable}
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}\label{prob:blockmatmult_vars}
+Compute the following using block multiplication (all blocks are $k \times k$).
+
+\begin{enumerate}
+\item
+$\left[ \begin{array}{rr}
+I & X \\
+-Y & I
+\end{array} \right] \left[ \begin{array}{rr}
+I & 0 \\
+Y & I
+\end{array} \right]
+$
+
+\item
+$\left[ \begin{array}{rr}
+I & X \\
+0 & I
+\end{array} \right] \left[ \begin{array}{rr}
+I & -X \\
+0 & I
+\end{array} \right]
+$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\left[ \begin{array}{cc}
+I & 0 \\
+0 & I
+\end{array} \right] = I_{2k}$
+\end{expandable}
+
+\item
+$\left[ \begin{array}{cc}
+I & X
+\end{array} \right] \left[ \begin{array}{cc}
+I & X
+\end{array} \right]^{T}
+$
+
+\item
+$\left[ \begin{array}{cc}
+I & X^{T}
+\end{array} \right] \left[ \begin{array}{cc}
+-X & I
+\end{array} \right]^{T}
+$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$0_{k}$
+\end{expandable}
+
+\item %challenging
+$\left[ \begin{array}{cc}
+I & X \\
+0 & -I
+\end{array} \right]^{n}
+$ any $n \geq 1$
+
+\item %challenging
+$\left[ \begin{array}{cc}
+0 & X \\
+I & 0
+\end{array} \right]^{n}
+$ any $n \geq 1$
+\end{enumerate}
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\left[ \begin{array}{cc}
+X^{m} & 0 \\
+0 & X^{m}
+\end{array} \right]$ if $n = 2m$;
+$\left[ \begin{array}{cc}
+0 & X^{m + 1} \\
+X^{m} & 0
+\end{array} \right]$ if $n = 2m + 1$
+\end{expandable}
+
+
+\end{problem}
+
 \section*{Text Source}
-The text in this module is an adaptation of Section 2.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+The text in this section is an adaptation of Section 2.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
 
 W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p 73-74.
 
