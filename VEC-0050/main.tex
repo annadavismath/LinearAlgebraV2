@@ -1,11 +1,10 @@
 \documentclass{ximera}
 \input{../preamble.tex}
-\author{Anna Davis \and Rosemarie Emanuele \and Paul Bender} \title{Dot Product and its Properties} \license{CC-BY 4.0}
+\title{Dot Product and its Properties} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
-%  We define the dot product and prove its algebraic properties.
-\end{abstract}
+ \end{abstract}
 \maketitle
 
 \section*{Dot Product and its Properties}
@@ -103,6 +102,15 @@ We will illustrate Property~\ref{item:norm} with an example.
   $$\norm{\vec{u}}^2=(-2)^2+3^2=(-2)(-2)+(3)(3)=\vec{u}\dotp\vec{u}$$
   \end{explanation}
 \end{example}
+
+If we take the square root of both sides of the equation in Property~\ref{item:norm}, we get an alternative way to think of the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0020/main}{length of a vector}.
+
+\begin{corollary}[Length of a Vector]\label{cor:length_via_dotprod}
+    Let $\vec{v}$ be a vector in $\RR^n$, then the \dfn{length}, or the \dfn{magnitude}, of $\vec{v}$ is given by
+\begin{equation*} \label{eq:norm_dotp} 
+\norm{\vec{v}}=\sqrt{\vec{v} \dotp \vec{v}}
+\end{equation*}
+\end{corollary}
 
 \subsection*{Practice Problems}
 
