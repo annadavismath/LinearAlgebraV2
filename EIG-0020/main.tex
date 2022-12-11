@@ -1,5 +1,5 @@
 \documentclass{ximera}
-\input{../preamble.tex}
+\input{..\preamble.tex}
 
  \title{The Characteristic Equation} \license{CC BY-NC-SA 4.0}
 
@@ -12,7 +12,7 @@
 \section*{The Characteristic Equation}
 Let $A$ be an $n \times n$ matrix.  In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors Algebraically and Geometrically} we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation  
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
-We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on a process which can be used for small matrices.  For larger matrices, the best methods we have are iterative methods, and we will explore some of these in \href{}{The Power Method and the Dominant Eigenvalue}.
+We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on a process which can be used for small matrices.  For larger matrices, the best methods we have are iterative methods, and we will explore some of these in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{The Power Method and the Dominant Eigenvalue}.
 
 For an $n \times n$ matrix, we will see that the eigenvalues are the roots of a polynomial called the \dfn{characteristic polynomial}.  So finding eigenvalues is equivalent to solving a polynomial equation of degree $n$.  Finding the corresponding eigenvectors turns out to be a matter of computing the null space of a matrix, as the following exploration demonstrates.
 
@@ -219,6 +219,16 @@ There is one free variable.  Setting $x_3=t$, we get $x_1=0$ and $x_2=ti$.  From
 We ask you in Practice Problem \ref{prob:3x3_complex_ev} to show that $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$ is a basis for $\mathcal{S}_{1-i}$.
 \end{explanation}
 \end{example}
+
+We conclude this section by establishing the significance of a matrix having an eigenvalue of zero.
+
+\begin{theorem}\label{th:zero_ew}
+A square matrix has an eigenvalue of zero if and only if it is singular.
+\end{theorem}
+
+\begin{proof}
+A square matrix $A$ is singular if and only if $\det{A}=0$.(see  \ref{th:detofsingularmatrix}).  But $\det{A}=0$ if and only if $\det{A-0I}=0$, which is true if and only if zero is an eigenvalue of $A$.
+\end{proof}
 
 \section*{Practice Problems}
 
