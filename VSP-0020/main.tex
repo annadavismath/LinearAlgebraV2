@@ -1,18 +1,17 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis \and Paul Bender} \title{Subspaces of $\mathbb{R}^n$} \license{CC-BY 4.0}
+ \title{$\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 \begin{abstract}
-%We define closure under addition and scalar multiplication, and we demonstrate how to determine whether a subset of vectors in $\RR^n$ is a subspace of $\RR^n$.
 \end{abstract}
 
 \maketitle
-\section*{Subspaces of $\mathbb{R}^n$}
+\section*{$\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$}
 \subsection*{Closure}
 
-We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties. (See Theorem \ref{th:vecproperties} of VEC-0030) These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Before we can give a formal definition of a vector space we need to introduce the concept of \dfn{closure} under an operation.
+We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties (see Theorem \ref{th:vecproperties}). These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Before we can give a formal definition of a vector space we need to introduce the concept of \dfn{closure} under an operation.
 
  \begin{definition} \label{def:closedunderaddition}
   A set $V$ is said to be \dfn{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
@@ -78,7 +77,7 @@ In other words, $Y$ is the set of vectors in $\RR^2$ that are either in the firs
 
 \subsection*{$\RR^n$ as a Vector Space}
 
-In Theorem \ref{th:vecproperties} of VEC-0030 we learned that vector addition and scalar multiplication in $\RR^n$ satisfy the following eight properties:
+In Theorem \ref{th:vecproperties} we learned that vector addition and scalar multiplication in $\RR^n$ satisfy the following eight properties:
 \begin{enumerate}
  \item 
   Commutative Property of Addition:\quad
@@ -113,7 +112,7 @@ In Theorem \ref{th:vecproperties} of VEC-0030 we learned that vector addition an
 \end{itemize}      
       The eight properties of vector operations, together with closure, constitute the criteria for a set with two operations to be considered a \dfn{vector space}. So, $\RR^n$ is a vector space.  
       
-      We will encounter other vector spaces later. Any vector space must be closed under both operations, and must satisfy the other eight properties in the list above.  We will see (in module VSP-0050, for instance) that there is a wide variety of sets, with a wide variety of operations, that are vector spaces (which is one of the reasons we study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the elements under the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
+      We will encounter other vector spaces later. Any vector space must be closed under both operations, and must satisfy the other eight properties in the list above.  We will see (in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}, for instance) that a wide variety of sets, with a wide variety of operations, are vector spaces (one important reason to study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the elements under the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
 
 
 \subsection*{Subspaces of $\RR^n$}
@@ -122,7 +121,7 @@ Now that we understand what it means for a set to be closed under addition and s
 
 \begin{definition}\label{def:subspace} Suppose that $V$ is a nonempty subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
 \end{definition}
-We use the term \dfn{subspace} because it turns out that any subset of $\RR^n$ closed under both addition and scalar multiplication is also a vector space in its own right.  In other words, by satisfying the properties of closure, a subset of $\RR^n$ will automatically satisfy the eight vector space properties listed above.  We will prove this in VSP-0050.
+We use the term \dfn{subspace} because it turns out that any subset of $\RR^n$ closed under both addition and scalar multiplication is also a vector space in its own right.  In other words, by satisfying the properties of closure, a subset of $\RR^n$ will automatically satisfy the eight vector space properties listed above.  We will prove this in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}.
 
 \begin{example} \label{y-axis_subspace}
 Let $V$ be the set of vectors in $\RR^3$ on the $y-$axis.  Then $V$ is a subspace of $\RR^3$.  
@@ -133,7 +132,7 @@ To verify this, note that any vector in $V$ is of the form $\begin{bmatrix}0\\y\
 \end{example}
 
 
-Recall that the \dfn{span} of a set of vectors is the set of all linear combinations of those vectors. (See Definition \ref{def:span} in VEC-0090)  It is easy to see from this definition, that the span of any set of vectors in $\RR^n$ must be closed under both addition and scalar multiplication, and therefore the span of those vectors is a subspace of $\RR^n$.  This argument proves the following result, giving us an abundance of examples of subspaces:
+Recall that the \dfn{span} of a set of vectors is the set of all linear combinations of those vectors (see Definition \ref{def:span}).  It is easy to see from this definition, that the span of any set of vectors in $\RR^n$ must be closed under both addition and scalar multiplication, and therefore the span of those vectors is a subspace of $\RR^n$.  This argument proves the following result, giving us an abundance of examples of subspaces:
 
 \begin{theorem} \label{th:span_is_subspace}
 Let $S$ be any set of vectors in $\RR^n$.  Then $\mbox{span}(S)$ is a subspace of $\RR^n$.
