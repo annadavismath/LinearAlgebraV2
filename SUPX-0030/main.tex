@@ -11,6 +11,8 @@
 
 \section*{Exercises for Ch 3 Big Ideas about Vectors}
 
+\subsection*{Review Exercises}
+
 \begin{problem}\label{prb:3.1} Find $-3
 \begin{bmatrix}
 5 \\
@@ -1435,9 +1437,51 @@ these vectors.
 \end{problem}
 
 
-\section*{Practice Problem Source}
-These problems come from Chapter 4 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+\subsection*{Challenge Exercises}
 
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 151--152, 220--227.  
+
+
+\subsection*{Octave Exercises}
+\begin{problem}\label{oct:lincomb}
+Use the Octave window below to check your work on Problems \ref{prb:3.8} to \ref{prb:3.13}.  The first steps of \ref{prb:3.8} are done in the Octave window.  See if you can interpret the result to answer the question.
+
+%\begin{octave}
+v1=[1 0 -2]';
+%the apostrophe stands for conjugate transpose, turning this into a column matrix
+v1
+v2=[1 1 -2]';
+v3=[2 -2 -3]';
+v4=[-1 4 2]';
+b=[-1 -4 -2]';
+M=[v1 v2 v3 v4 b]
+R=rref(M)
+% After viewing R, I added the following to check my work: 
+19*v1-12*v2-4*v3
+%\end{octave}
+\end{problem}
+
+\begin{problem}\label{oct:lindep}
+Use the Octave window below to check your work on Problems \ref{prb:3.15} to \ref{prb:3.35}.  The first steps of \ref{prb:3.15} are done in the Octave window.  See if you can interpret the result to answer the question.
+
+%\begin{octave}
+v1=[1 3 -1 1]';
+v2=[1 4 -1 1]';
+v3=[1 4 0 1]';
+v4=[1 10 2 1]';
+A=[v1 v2 v3 v4]
+R=rref(A)
+% After viewing R, I added the following to check my work: 
+-6*v1+4*v2+3*v3
+%\end{octave}
+\end{problem}
+
+\section*{Bibliography}
+The Review Exercises come from the end of Chapter 4 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 151--152, 220--237. 
+
+The Challenge Exercises come from the end of Chapter 1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 33--34. 
 
 \end{document}
