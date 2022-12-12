@@ -48,9 +48,9 @@ Then the eigenvalues of $A$ are contained in the Gershgorin region $\Gamma(A)$.
 \end{theorem}
 
 The fact that (\ref{eqn:Gersh_disk}) represents a disk in the complex plane is a direct result of the complex distance formula \ref{eqn:distance_formula}. Before proving Gershgorin's theorem, we provide an example and a video to aid in understanding exactly what the theorem says.
-\youtube{}
+\youtube{SnKmmQwcjys}
 
-\begin{example}
+\begin{example}\label{exa:plot_Gersh}
 Plot the eigenvalues and the Gershgorin region of each of the following matrices.
 \begin{enumerate}
     \item $A=\begin{bmatrix}
@@ -64,7 +64,6 @@ Plot the eigenvalues and the Gershgorin region of each of the following matrices
 \end{enumerate}
 
 \begin{explanation}
- 
 
 \begin{enumerate}
     \item $\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and -1, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
@@ -73,8 +72,6 @@ Plot the eigenvalues and the Gershgorin region of each of the following matrices
 
 \end{explanation}
 \end{example}
-
-
 
 \begin{proof}
 Let $\lambda$ be an eigenvalue of $A$ with corresponding eigenvector $\vec{x}=\begin{bmatrix}
@@ -99,7 +96,68 @@ Here equations \ref{eqn:pr1} and \ref{eqn:pr4} follow from property C2 of \ref{e
 
 These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so $\lambda \in \Gamma_k(A)$, and hence $\lambda \in \Gamma(A)$, as desired.
 
-
 \end{proof}
 
+\begin{example}\label{ex:does_Gersh_contain_zero}
+    Sketch the Gerhgorin region for each matrix and use it as an aid for determining whether or not the matrix is singular.
+\begin{enumerate}
+    \item $A=\left[\begin{array}{ccc}  4&1&2\\2&5&1\\2&1&6
+ \end{array}\right]$
+    \item $B=\left[\begin{array}{ccc}  2&-1&0\\1&1&-2\\-3&0&2
+ \end{array}\right]$
+\end{enumerate}
+
+\begin{explanation}
+    We can check our sketches of the Gershgorin regions using the GeoGebra interactive in Exploration \ref{init:GershDisks3x3}.
+    
+\begin{enumerate}
+    \item If we sketch the Gershgorin region of matrix $A$, we see that the zero vector is not contained in it.  It follows that zero cannot be an eigenvalue of matrix $A$, and we conclude that $A$ is nonsingular.
+
+    \item The Gershgorin region of matrix $B$ contains the zero vector, so there we cannot determine from the Gershgorin region whether or not $B$ is singular.  Instead, if we perform Gaussian elimination on matrix $B$, we will see it is not of full rank, and so $B$ is singular.
+\end{enumerate}
+\end{explanation}
+\end{example}
+
+\section{Practice Problems}
+
+\begin{problem}\label{prob:Gersh}
+    Sketch the Gerhgorin region for each matrix and use it as an aid for determining whether or not the matrix is singular.
+
+\begin{enumerate}
+\item $A = \left[ \begin{array}{rr}
+1 & i\\
+-i & 1
+\end{array}\right]$
+
+\item $B = \left[ \begin{array}{cc}
+4 & 3 - i \\
+3 + i & 1
+\end{array}\right]$
+
+\item $C = \left[ \begin{array}{cc}
+2 & 1 + i\\
+1 - i & 3
+\end{array}\right]$
+
+\item $D = \left[ \begin{array}{ccc}
+1 & 0 &  1 + i\\
+0 & 2 & 0 \\
+1 - i & 0 & 0
+\end{array}\right]$
+
+\item $E = \left[ \begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 1 + i\\
+0 & 1 - i & 2
+\end{array}\right]$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:prove_diag_dom_nonsingular}
+    Prove that if a matrix is \dfn{strictly diagonally dominant} (see \ref{def:strict_diag_dom}), that it is nonsingular.
+
+    \begin{hint}
+    Show that the Gershgorin region cannot contain zero.
+    \end{hint}
+\end{problem}
 \end{document}
