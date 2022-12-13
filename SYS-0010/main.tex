@@ -9,34 +9,11 @@
 \end{abstract}
 \maketitle
 \section*{Introduction to Systems of Linear Equations}
-You have certainly studied linear equations for many years now.  Perhaps the easiest way to characterize linear equations is that they are polynomial equations where each term is either a constant or has degree 1.
 
-\begin{definition}\label{def:lineq}
-A \dfn{linear equation} in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
-$$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
-where $a_1,\ldots ,a_n$ and $b$ are constants.
-\end{definition}
-
-
-An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.  In $\RR^n$ for $n>3$, we say that the graph of a linear equation is a \dfn{hyperplane}. A hyperplane cannot be visualized, but we can still talk about intersections of hyperplanes and their other attributes in algebraic terms.  
-
-In linear algebra, we often look for solutions to \dfn{systems of linear equations} or \dfn{linear systems}.  
-A linear system of $m$ equations and $n$ unknowns is typically written as follows
-
-$$\begin{array}{ccccccccc}
-      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
-	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
-     &&&&\vdots&&&& \\
-     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
-    \end{array}$$
-
-
-A \dfn{solution to a system} of linear equations in $n$ variables is an $n$-tuple that satisfies every equation in  the system.  All solutions to a system of equations, taken together, form a \dfn{solution set}.
-We will focus on algebraic methods for finding solution sets, but we will also consider the geometric aspect of systems to gain additional insights.
+You are probably familiar with the concept of a \dfn{system of linear equations} and with some methods for solving such systems.  In this section, we will look at the algebra and geometry of finding and interpreting solutions of systems of linear equations.  We will start with two-variable and three-variable systems, then move on to systems involving more variables.  
 
 \subsection*{Algebra of Linear Systems}
-
-You are probably familiar with two algebraic methods for solving systems of linear equations.  One method requires us to solve for one variable in terms of the other(s), then substitute.  The second method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  The second method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration Problem \ref{init:systwoeqs1} illustrates how the second method works.
+The most commonly taught method for solving systems of linear equations, when students are first introduced to systems, is to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration Problem \ref{init:systwoeqs1} illustrates how the second method works.
 
 \begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
 \begin{equation}\label{eq:step1}
@@ -53,7 +30,7 @@ We will begin by adding twice the first row to the second row and replacing the 
  \end{array}
  \begin{array}{ccccc}
       2x& -&y&=&-4\\
-      7x & +&0y&= &-7  
+      7x & +&0y&= &\answer{-7}  
     \end{array}
 \end{equation}
 Note that this step eliminates $y$ from the second equation.  Next we divide both sides of the second equation by $7$.  This gives us
@@ -65,7 +42,7 @@ Note that this step eliminates $y$ from the second equation.  Next we divide bot
  \begin{array}{ccccc}
       
       2x& -&y&=&-4\\
-      x & &&= &-1
+      x & &&= &\answer{-1}
 	 
     \end{array}
     \end{equation}
@@ -76,7 +53,7 @@ Our next goal is to eliminate $x$ from the first equation.  To this end, we subt
  \\
  \end{array}
  \begin{array}{ccccc}
-	 0x& -&y&=&-2\\
+	 0x& -&y&=&\answer{-2}\\
      x & &&= &-1 \\
     \end{array}
 \end{equation}
@@ -239,7 +216,7 @@ $$\begin{array}{ccccccc}
 The short answer to this question is no.  The existence of an equivalent system of this form implies that the original system has a unique solution.  However, it is possible for a system to have no solutions or to have infinitely many solutions.  We will study these different possibilities from an algebraic perspective in subsequent sections.  For now, we will attempt to gain insight into existence and uniqueness of solutions through geometry.     
 
 \subsection*{Geometry of Linear Systems in Two Variables}
-Exploration Problem \ref{init:systwoeqs1} offers an example of a linear system of two equations and two unknowns with a unique solution.  
+Exploration Problem \ref{init:systwoeqs1} offers an example of a linear system of two equations and two unknowns (variables) with a unique solution.  
 
 $$\begin{array}{ccccc}
       2x& -&y&=&-4\\
@@ -374,7 +351,7 @@ Given a linear system in two variables and more than two equations, we have a va
 \end{tikzpicture}
 \end{center}
 
-Second, it is possible for the graphs to have no points in common.
+Second, it is possible for the graphs to have no points common to all of them.
 
 %\begin{center}[3in]
 \begin{center}
@@ -488,7 +465,35 @@ There are four ways for a system to be inconsistent.  They are depicted below.
 	\end{tikzpicture}
 %    \end{center}     
 \end{center}
-\subsection*{Equivalent Systems and Elementary Row Operations}
+
+\subsection*{General Systems of Linear Equations}
+
+%You have certainly studied linear equations for many years now.  Perhaps the easiest way to characterize linear equations is that they are polynomial equations where each term is either a constant or has degree 1.
+
+\begin{definition}\label{def:lineq}
+A \dfn{linear equation} in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
+$$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
+where $a_1,\ldots ,a_n$ and $b$ are constants.
+\end{definition}
+
+
+An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.  In $\RR^n$ for $n>3$, we say that the graph of a linear equation is a \dfn{hyperplane}. A hyperplane cannot be visualized, but we can still talk about intersections of hyperplanes and their other attributes in algebraic terms.  
+
+A linear system of $m$ equations and $n$ unknowns is typically written as follows
+
+$$\begin{array}{ccccccccc}
+      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &b_1 \\
+	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &b_2 \\
+     &&&&\vdots&&&& \\
+     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &b_m
+    \end{array}$$
+
+
+A \dfn{solution to a system} of linear equations in $n$ variables is an $n$-tuple that satisfies every equation in  the system.  All solutions to a system of equations, taken together, form a \dfn{solution set}.
+%We will focus on algebraic methods for finding solution sets, but we will also consider the geometric aspect of systems to gain additional insights.
+
+
+%\subsection*{Equivalent Systems and Elementary Row Operations}
 
 In Exploration Problem \ref{init:systwoeqs1} we introduced elementary row operations and equivalent systems. We now make these definitions formal.
 
@@ -504,137 +509,7 @@ The following three operations performed on a linear system are called \dfn{elem
 \begin{definition}\label{def:equivsystems} Two systems of linear equations are said to be equivalent if they have the same solution set.
 \end{definition}
 
-It is not difficult to see that performing a sequence of elementary row operations on a system of equations produces an equivalent system.  We can justify this by considering the row operations one at a time.  Clearly, the order of equations down does not affect the solution set, so \ref{item:rowswap} produces an equivalent system.  Next, you learned years ago that multiplying both sides of an equation by a non-zero constant does not change its solution set, which establishes that \ref{item:constantmult} produces an equivalent system.  It is also true that \ref{item:addrow} produces an equivalent system.  To see this, note that a multiple of an equation is still an equation, so if we add a multiple of an equation to another equation in the system, we are adding the same thing to both sides, which does not change the solution set of that equation, nor of the system.
-
-% We would like to show that if a linear system $(A)$ is transformed into linear system $(B)$ through a sequence of elementary row operations then system $(A)$ is equivalent to system $(B)$.  We will illustrate this with a system of two equations and two unknowns.
-
-% Consider the system
-% \begin{equation}\label{eq:equivsystem1}
-% \begin{array}{ccccc}
-%       a_1x& +&b_1y&=&c_1\\
-%       a_2x & +&b_2y&= &c_2 
-%     \end{array}
-%     \end{equation}
-%     Suppose $(x', y')$ is a solution to this system.  
-    
-%     Let's switch the order of the two equations.
-%     \begin{equation}\label{eq:equivsystem2}
-% \begin{array}{ccccc}
-%       a_2x & +&b_2y&= &c_2 \\
-%       a_1x& +&b_1y&=&c_1
-%     \end{array}
-%     \end{equation}
-% Clearly $(x', y')$ satisfies each equation in (\ref{eq:equivsystem2}) and is a solution to the system.  It is also clear that if $(x'',y'')$ is a solution to (\ref{eq:equivsystem2}), then $(x'', y'')$ is also a solution to (\ref{eq:equivsystem1}).  We conclude that systems (\ref{eq:equivsystem1}) and (\ref{eq:equivsystem2}) are equivalent.
-    
-%  If we multiply both sides of one equation (we'll pick the first one) by a non-zero constant $k$, we get
-%  \begin{equation}\label{eq:equivsystem3}\begin{array}{ccccc}
-%       ka_1x& +&kb_1y&=&kc_1\\
-%       a_2x & +&b_2y&= &c_2 
-%     \end{array}
-%     \end{equation}
-    
-%     $$ka_1x'+kb_1y'=k(a_1x'+b_1y')=k(c_1)$$
-%     So, $(x', y')$ satisfies (\ref{eq:equivsystem3}).  Now suppose $(x'', y'')$ satisfies (\ref{eq:equivsystem3}), then 
-%     $$a_1x''+b_1y''=\frac{1}{k}(kc_1)=c_1$$
-%     Therefore $(x'', y'')$ satisfies (\ref{eq:equivsystem1}).  Thus, systems (\ref{eq:equivsystem1}) and (\ref{eq:equivsystem3}) are equivalent.
-    
-%     Finally, let's add a multiple of the first row to the second row.
-%     \begin{equation}\label{eq:equivsystem4}
-% \begin{array}{cccccccccc}
-%       a_1x& +&b_1y&&&&&=&c_1&\\
-%       a_2x & +&b_2y&+&k(a_1x& +&b_1y)&= &c_2& +kc_1
-%     \end{array}
-%     \end{equation}
-% We leave it as an exercise to show that systems (\ref{eq:equivsystem1}) and (\ref{eq:equivsystem4}) are equivalent.
-
-%We will use $E_i$ to represent the left-hand side of the $i$th linear equation $a_{i1}x_1+a_{i2}x_2+\ldots +a_{in}x_n=b_i$ of a system.
-
-%{\color{red}The following theorem and proof were adapted from Kuttler's text. systemsofequationsAlgebraicProceduresElementaryOperations.tex} \href{https://github.com/annadavismath/Kuttlers-Text/blob/6d9aa9e4e9fee0f8eff47d8c10405de89df12c4a/systemsofequationsAlgebraicProceduresElementaryOperations#L184}{Clickable Kuttler Ref.}
-
-%\begin{theorem}[Elementary Operations and Solutions]\label{th:elementaryoperationsandsolns}
-%Suppose a linear system includes equations:
-%\begin{equation}
-% \begin{array}{c}
- % E_i=b_i\\
- % E_j=b_j
-%\end{array} \label{eq:system}
-%\end{equation}
-%Then the following systems have the same solution set as (\ref{eq:system}): 
-%\begin{enumerate}
-%\item\label{item:rowswap}   The original system with equations $i$ and $j$ switched.
-%\begin{equation}
-%	\begin{array}{c}
-%	E_j=b_j\\
-%	E_i=b_i
-%	\end{array}
-%	\label{eq:rowswap}
-%	\end{equation}
-%\item\label{item:constantmult}  The original system with equation $j$ replaced with a non-zero scalar multiple of $j$.
-%\begin{equation}
-%	\begin{array}{c}
-%	E_i=b_i \\
-%	kE_j=kb_j        
-%	\end{array}
-%	\label{eq:constantmult}
-%\end{equation}
- % for any scalar $k$, provided $k\neq0$.
-%\item\label{item:addmultrow} The original system with equation $j$ replaced with the sum of equation $j$ and a scalar multiple of equation $i$.
-%\begin{equation}
- %     \begin{array}{c}
-  %     E_i=b_i \\
-   %    E_j+kE_i=b_j+kb_i
-    %   \end{array}  
-%	\label{eq:addmultrow}
-%\end{equation}
-%	for any scalar  $k$ (including $k=0$).
-%\end{enumerate}
-%\end{theorem}
-
-
-%\begin{proof}[Proof of Property~\ref{item:rowswap}:] 
-%We need to show that systems (\ref{eq:system}) and (\ref{eq:rowswap}) have the
-%same solution set. 
-%This is clear, because the system in (\ref{eq:rowswap}) is the original
-%system, but listed in a different order. Changing the order does not
-%affect the solution set. So if $( x_{1},\ldots ,x_{n})$ is a
-%solution to one of (\ref{eq:system}) and (\ref{eq:rowswap}), then $( x_{1},\ldots ,x_{n}) $ is also a solution to the other.
-%\end{proof}
-%\begin{proof}[Proof of Property~\ref{item:constantmult}:] 
-%Next we want to prove that systems (\ref{eq:system}) and (\ref{eq:constantmult}) have the
-%same solution set. Let $( x_{1},\ldots ,x_{n})$ be a
-%solution of $E_i=b_i,E_j=b_j,$. We want to show that it is a solution to $E_i=b_i,kE_j=kb_j$.
-%Notice that the only difference between these two systems is that the second involves
-%multiplying the equation, $E_j=b_j$ by the scalar $k$. Recall that when you multiply both sides of an 
-%equation by the same number, the sides are still equal to each other. Hence if  $( x_{1},\ldots ,x_{n})$
-%is a solution to $E_j=b_j$, then it will also be a solution to $kE_j=kb_j$. Hence, $( x_{1},\ldots ,x_{n})$ is also
-%a solution to (\ref{eq:constantmult}). 
-
-%Similarly, let $( x_{1},\ldots ,x_{n})$ be a solution of $E_i=b_i,kE_j=kb_j$. Then we can 
-%multiply the equation $kE_j=kb_j$ by the scalar $1/k$, which is possible only because we have required that $k\neq
-%0$. Just as above, this action preserves equality.
-%Hence $( x_{1},\ldots ,x_{n})$ is also a solution to  $E_i=b_i,E_j=b_j.$ 
-%\end{proof}
-%\begin{proof}[Proof of Property~\ref{item:addmultrow}:]
-%Finally, we will prove that the systems (\ref{eq:system}) and
-%(\ref{eq:addmultrow}) have the same solution set. We will show that any
-%solution of $E_i=b_i,E_j=b_j$ is also a solution of
-%\ref{eq:addmultrow}. Then, we will show that any solution of \ref{eq:addmultrow}
-%is also a solution of $E_i=b_i,E_j=b_j$.  Let $( x_{1},\ldots ,x_{n})$ be a solution to
-%$E_i=b_i,E_j=b_j$. Then in particular it satisfies $E_i =
-%b_i$. Hence, it satisfies the first equation in (\ref{eq:addmultrow}).
-%Similarly, it also satisfies $E_j = b_j$. By our proof of
-%(\ref{eq:constantmult}), it also satisfies $kE_i=kb_i$.  Notice that if we add
-%$E_j$ and $kE_i$, the sum is equal to $b_j + kb_i$. Therefore, if
-%$( x_{1},\ldots ,x_{n})$ satisfies $E_i=b_i,E_j=b_j$
-%it must also satisfy $E_j+kE_i=b_j+kb_i$.
-
-%Now suppose $( x_{1},\ldots ,x_{n})$  is a solution to the system 
-%$E_i=b_i, E_j+kE_i=b_j+kb_i$. Then, in particular, it satisfies $E_i = b_i$. Again by our proof of (\ref{eq:constantmult}),
- %it is also a solution to $kE_i=kb_i$. Now if we subtract these equal quantities from both sides of 
-%$E_j+kE_i=b_j+kb_i$ we obtain $E_j=b_j$, which shows that the solution also satisfies
-%$E_i=b_i,E_j=b_j.$ 
-
-%\end{proof}
+It is not difficult to see that performing a sequence of elementary row operations on a system of equations produces an equivalent system.  We can justify this by considering the row operations one at a time.  Clearly, the order of equations down does not affect the solution set, so \ref{item:rowswap} produces an equivalent system.  Next, you learned years ago that multiplying both sides of an equation by a non-zero constant does not change its solution set, which establishes that \ref{item:constantmult} produces an equivalent system.  To see that \ref{item:addrow} produces an equivalent system, note that if we add a multiple of an equation to another equation in the system, we are adding the same thing to both sides, which does not change the solution set of that equation, nor of the system.
 
 
 
