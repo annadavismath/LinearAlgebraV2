@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis \and Paul Bender} \title{Abstract Vector Spaces} \license{CC-BY-NC-SA}
+\title{Abstract Vector Spaces} \license{CC BY-NC-SA 4.0}
 \begin{document}
 
 \begin{abstract}
@@ -10,12 +10,12 @@
 
 
 \section*{Abstract Vector Spaces}
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0020/main}{Subspaces of $\RR^n$} we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
+In this section we will consider sets other than $\RR^n$ that have two operations and satisfy the same properties as $\RR^n$.  Such sets, together with the operations of addition and scalar multiplication, will also be called vector spaces.
+
 \subsection*{Properties of Vector Spaces} 
 
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0020/main}{Subspaces of $\RR^n$} we discussed $\RR^n$ as a vector space and introduced the notion of a subspace of $\RR^n$.  
-In this module we will consider sets other than $\RR^n$ that have two operations and satisfy the same properties.  Such sets, together with the operations of addition and scalar multiplication, will also be called vector spaces.
-
-Recall that $\RR^n$ was said to be a vector space because
+Recall that $\RR^n$ is said to be a vector space because
 \begin{itemize}
     \item[] $\RR^n$ is closed under vector addition
     \item[] $\RR^n$ is closed under scalar multiplication
@@ -60,7 +60,7 @@ Observe that the sum of two $m\times n$ matrices is also an $m\times n$ matrix. 
     \item[] $\mathbb{M}_{m,n}$ is closed under scalar multiplication
 \end{itemize}
 
-In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalarmult} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{Addition and Scalar Multiplication of Matrices} give us the following properties of matrix addition and scalar multiplication.  Note that these properties are analogous to the eight vector properties.
+In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalarmult} give us the following properties of matrix addition and scalar multiplication.  Note that these properties are analogous to the eight vector properties above.
 \begin{enumerate}
   \item 
   Commutative Property of Addition:  $\quad A+B=B+A$
@@ -149,7 +149,7 @@ The additive inverse of $f_1$ is a function $-f_1$ given by $-f_1(x)=-mx+(-b)$. 
 
 \subsection*{Definition of a Vector Space}
 
-Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace} show us that there are many times in mathematics when we encounter a set with two operations (that we call addition and scalar multiplication) that satisfies the same properties as $\RR^n$.  We will refer to such sets as \dfn{vector spaces}.
+Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace} show us that there are many times in mathematics when we encounter a set with two operations (that we call addition and scalar multiplication) such that the set is closed under the two operations, and satisfies the same eight properties as $\RR^n$.  We will refer to such sets as \dfn{vector spaces}.
 
   \begin{definition}\label{def:vectorspacegeneral} 
   Let $V$ be a nonempty set.  Suppose that elements of $V$ can be added together and multiplied by scalars.  The set $V$, together with operations of addition and scalar multiplication, is called a \dfn{vector space} provided that 
@@ -195,7 +195,7 @@ Sets of polynomials provide an important source of examples, so we review some b
 \begin{equation*}
 p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_nx^n
 \end{equation*}
-where $a_{0}, a_{1}, a_{2}, \ldots, a_{n}$ are real numbers called the \dfn{coefficients} of the polynomial. If all the coefficients are zero, the polynomial is called the \dfn{zero polynomial} and is denoted simply as $0$. If $p(x) \neq 0$, the highest power of $x$ with a nonzero coefficient is called the \dfn{degree} of $p(x)$ denoted as $\mbox{deg} p(x)$. The coefficient itself is called the \dfn{leading coefficient} of $p(x)$. Hence $\mbox{deg}(3 + 5x) = 1$, $\mbox{deg}(1 + x + x^{2}) = 2$, and $\mbox{deg}(4) = 0$. (The degree of the zero polynomial is not defined.)
+where $a_{0}, a_{1}, a_{2}, \ldots, a_{n}$ are real numbers called the \dfn{coefficients} of the polynomial. If all the coefficients are zero, the polynomial is called the \dfn{zero polynomial} and is denoted simply as $0$. If $p(x) \neq 0$, the highest power of $x$ with a nonzero coefficient is called the \dfn{degree} of $p(x)$ denoted as $\mbox{deg}(p(x))$. The coefficient itself is called the \dfn{leading coefficient} of $p(x)$. Hence $\mbox{deg}(3 + 5x) = 1$, $\mbox{deg}(1 + x + x^{2}) = 2$, and $\mbox{deg}(4) = 0$. (The degree of the zero polynomial is not defined.)
 
 Let $\mathbb{P}$ denote the set of all polynomials and suppose that
 \begin{align*}
@@ -410,7 +410,7 @@ Is the subset of all invertible $n\times n$ matrices a subspace of $\mathbb{M}_{
 \end{problem}
 
 \begin{problem}\label{prob:symmetricsubspace}
-Is the subset of all symmetric (See Definition \ref{def:symmetricandskewsymmetric} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0025/main}{Transpose of a Matrix}) $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  Prove your claim. 
+Is the subset of all symmetric $n\times n$ matrices a subspace of $\mathbb{M}_{n,n}$?  (See Definition \ref{def:symmetricandskewsymmetric}.)  Prove your claim. 
 \end{problem}
 
 \begin{problem}\label{prob:abstractvectspace8}
