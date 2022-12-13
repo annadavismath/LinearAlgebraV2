@@ -13,7 +13,7 @@
 You are probably familiar with the concept of a \dfn{system of linear equations} and with some methods for solving such systems.  In this section, we will look at the algebra and geometry of finding and interpreting solutions of systems of linear equations.  We will start with two-variable and three-variable systems, then move on to systems involving more variables.  
 
 \subsection*{Algebra of Linear Systems}
-The most commonly taught method for solving systems of linear equations, when students are first introduced to systems, is to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration Problem \ref{init:systwoeqs1} illustrates how the second method works.
+The most commonly taught method for solving systems of linear equations, when students are first introduced to systems, is to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration \ref{init:systwoeqs1} illustrates how the second method works.
 
 \begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
 
@@ -34,14 +34,12 @@ $$\begin{matrix}
     \end{matrix}$$
 
 Note that this step eliminates $y$ from the second equation.  Next we divide both sides of the second equation by $7$.  This gives us
-$$
-\begin{matrix}
+$$\begin{matrix}
 \\
  \xrightarrow{\frac{1}{7}R_2}\\
  \end{matrix}\quad
  \begin{matrix}
-      
-      2x& -&y&=&-4\\
+       2x& -&y&=&-4\\
       x & &&= &\answer{-1}
 	   \end{matrix}$$
   
@@ -57,28 +55,27 @@ $$\begin{matrix}
     \end{matrix}$$
 
 Next we multiply both sides of the first equation by $-1$. This gives us
-\begin{equation*}
-\begin{array}{c}
+
+$$\begin{matrix}
  \xrightarrow{(-1)R_1}\\
  \\
- \end{array}
- \begin{array}{ccccc}
+ \end{matrix}\quad
+ \begin{matrix}
       & &y&=&2\\
       x & &&= &-1
-    \end{array}
-\end{equation*}    
+    \end{matrix}$$
+ 
     
 Finally, we can switch the order of equations in order to display $x$ in the top row.  This gives us
-\begin{equation*}
-\begin{array}{c}
- \xrightarrow{R_1\leftrightarrow R_2}\\
- 
- \end{array}
-\begin{array}{ccccc}
+
+$$\begin{matrix}\\
+ \xrightarrow{R_1\leftrightarrow R_2}
+  \end{matrix}\quad
+\begin{matrix}
       x & &&= &-1\\
       & &y&=&2      
-    \end{array}
-\end{equation*}    
+    \end{matrix}$$
+  
 This solution can be written as an ordered pair $(-1, 2)$.  
 \end{exploration}
 
