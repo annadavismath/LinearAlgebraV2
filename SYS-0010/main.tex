@@ -16,49 +16,48 @@ You are probably familiar with the concept of a \dfn{system of linear equations}
 The most commonly taught method for solving systems of linear equations, when students are first introduced to systems, is to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration Problem \ref{init:systwoeqs1} illustrates how the second method works.
 
 \begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
-\begin{equation}\label{eq:step1}
-\begin{array}{ccccc}
+
+$$\begin{matrix}
       2x& -&y&=&-4\\
       3x & +&2y&= &1 
-    \end{array}
-\end{equation}
+    \end{matrix}$$
+
 We will begin by adding twice the first row to the second row and replacing the second row with the sum.  This gives us
-\begin{equation}\label{eq:step2}
-\begin{array}{c}
+
+$$\begin{matrix}
 \\
  \xrightarrow{R_2+2R_1}\\
- \end{array}
- \begin{array}{ccccc}
+ \end{matrix}\quad
+ \begin{matrix}
       2x& -&y&=&-4\\
-      7x & +&0y&= &-7  
-    \end{array}
-\end{equation}
+      7x & +&0y&= &\answer{-7}  
+    \end{matrix}$$
+
 Note that this step eliminates $y$ from the second equation.  Next we divide both sides of the second equation by $7$.  This gives us
-\begin{equation}\label{eq:step3}
-\begin{array}{c}
+$$
+\begin{matrix}
 \\
  \xrightarrow{\frac{1}{7}R_2}\\
- \end{array}
- \begin{array}{ccccc}
+ \end{matrix}\quad
+ \begin{matrix}
       
       2x& -&y&=&-4\\
-      x & &&= &-1
-	 
-    \end{array}
-    \end{equation}
+      x & &&= &\answer{-1}
+	   \end{matrix}$$
+  
 Our next goal is to eliminate $x$ from the first equation.  To this end, we subtract twice the second row from the first row and replace the first row with the difference. This gives us
-\begin{equation}\label{eq:step4}
-\begin{array}{c}
+
+$$\begin{matrix}
  \xrightarrow{R_1-2R_2}\\
  \\
- \end{array}
- \begin{array}{ccccc}
-	 0x& -&y&=&-2\\
+ \end{matrix}\quad
+ \begin{matrix}
+	 0x& -&y&=&\answer{-2}\\
      x & &&= &-1 \\
-    \end{array}
-\end{equation}
+    \end{matrix}$$
+
 Next we multiply both sides of the first equation by $-1$. This gives us
-\begin{equation}\label{eq:step5}
+\begin{equation*}
 \begin{array}{c}
  \xrightarrow{(-1)R_1}\\
  \\
@@ -67,10 +66,10 @@ Next we multiply both sides of the first equation by $-1$. This gives us
       & &y&=&2\\
       x & &&= &-1
     \end{array}
-\end{equation}    
+\end{equation*}    
     
 Finally, we can switch the order of equations in order to display $x$ in the top row.  This gives us
-\begin{equation}\label{eq:step6}
+\begin{equation*}
 \begin{array}{c}
  \xrightarrow{R_1\leftrightarrow R_2}\\
  
@@ -79,17 +78,17 @@ Finally, we can switch the order of equations in order to display $x$ in the top
       x & &&= &-1\\
       & &y&=&2      
     \end{array}
-\end{equation}    
+\end{equation*}    
 This solution can be written as an ordered pair $(-1, 2)$.  
 \end{exploration}
 
-To obtain the solution to Exploration Problem \ref{init:systwoeqs1} we utilized three \dfn{elementary row operations}.  These operations are:
+To obtain the solution to Exploration \ref{init:systwoeqs1} we utilized three \dfn{elementary row operations}.  These operations are:
 \begin{itemize}
 \item Switching the order of two equations
 \item Multiplying both sides of an equation by the same non-zero constant
 \item Adding a multiple of one equation to another
 \end{itemize}
-At each stage of the process, the system of equations looked different from the original system, but a quick check will convince you that all six systems have the same solution: $(-1, 2)$.  Systems (\ref{eq:step1})-(\ref{eq:step6}) are said to be \dfn{equivalent}.  
+At each stage of the process, the system of equations looked different from the original system, but a quick check will convince you that all six systems have the same solution: $(-1, 2)$.  The six systems are said to be \dfn{equivalent}.  
 
 
 It turns out that if a system of equations is transformed into another system through a sequence of elementary row operations, the new system will be equivalent to the original system, in other words, both systems will have the same solution set.  We will formalize this statement at the end of this section.
