@@ -11,7 +11,9 @@
 
 \section*{Exercises for Ch 9 Orthogonality}
 
-\begin{problem} Find an orthonormal basis for the span of each of the following sets of
+\begin{problem}\label{prob:find_ortho_basis_span}
+
+Find an orthonormal basis for the span of each of the following sets of
 vectors.
 
 \begin{enumerate}
@@ -152,7 +154,8 @@ Click the arrow to see the answer.
 \end{expandable}
 \end{problem}
 
-\begin{problem} Using the Gram Schmidt process find an
+\begin{problem}\label{prob:use_GS_on_span}
+Using the Gram Schmidt process find an
 orthonormal basis for the following span:
  \[
 \mbox{span} \left\{ \left[
@@ -201,7 +204,8 @@ A solution is
 \end{hint}
 \end{problem}
 
-\begin{problem} Using the Gram Schmidt process find an
+\begin{problem}\label{prob:use_GS_on_span_2} 
+Using the Gram Schmidt process find an
 orthonormal basis for the following span:
 \[
 \mbox{span}\left\{ \left[
@@ -257,7 +261,8 @@ A solution is
 \end{hint}
 \end{problem}
 
-\begin{problem} The set $V =  \left\{ \left[
+\begin{problem}\label{prob:find_orthonormal_subspace_variables}  
+The set $V =  \left\{ \left[
 \begin{array}{r}
  x \\
 y \\
@@ -340,7 +345,7 @@ $\vec{x} = \frac{1}{12}(5a - 5b + c - 3d, -5a + 5b - c + 3d, a - b + 11c + 3d, -
 
 \end{problem}
 
-\begin{problem}\label{prob:make_ortho_matrix}
+\begin{problem}\label{prob:make_ortho_matrix_reprise}
 Normalize the rows to make each of the following matrices orthogonal.
 
 \begin{problem}\label{prob:make_ortho_matrix2} 
@@ -1104,102 +1109,6 @@ If $A$ is $m \times n$ and $AA^{T}$ is invertible, show that $E = A^{T}(AA^{T})^
 
 \end{problem}
 
-\begin{problem}\label{prb:8.32} Suppose $A$ is an $n\times n$ matrix consisting entirely of real
-entries but $a+ib$ is a complex eigenvalue having the eigenvector, $\vec{x}+i\vec{y}$ Here $\vec{x}$ and $\vec{y}$ are real vectors. Show
-that then $a-ib$ is also an eigenvalue with the eigenvector, $\vec{x}-i\vec{y}$.
-
-\begin{hint}
-You should remember that the conjugate of a
-product of complex numbers equals the product of the conjugates. Here $a+ib$
-is a complex number whose conjugate equals $a-ib.$
-
-
-Click the arrow to see the answer.
-\begin{expandable}
-$AX=\left(
-a+ib\right)X$. Now take conjugates of both sides. Since $A$ is
-real,
-\[
-A\overline{X}=\left( a-ib\right) \overline{X}
-\]
-\end{expandable}
- 
-\end{hint}
-\end{problem}
-
-
-
-\begin{problem}\label{prb:2x2diagonalizable}
-If $A$ is $2 \times 2$ and diagonalizable, show that $C(A) = \{X \mid XA = AX\}$ has dimension $2$ or $4$. [\textit{Hint}: If $P^{-1}AP = D$, show that $X$ is in $C(A)$ if and only if $P^{-1}XP$ is in $C(D)$.]
-\end{problem}
-
-\begin{problem}\label{prb:2x2diagonalizable_poly}
-If $A$ is diagonalizable and $p(x)$ is a polynomial such that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$, show that $p(A) = 0$ (here, the final 0 is the zero matrix the same size as $A$).
-\begin{remark}
-The characteristic polynomial of $A$ certainly satisfies the requirement that $p(\lambda) = 0$ for all eigenvalues $\lambda$ of $A$.  In solving this problem you have proved a special case of the Cayley-Hamilton theorem, see Theorem~\ref{th:Cayley_Hamilton}.  In fact, if $p(\lambda)$ is the characteristic polynomial of $A$, then $p(A) = 0$ whether or not $A$ is diagonalizable.
-\end{remark}
-\end{problem}
-
-\begin{problem}
-Let $A$ be $n \times n$ with $n$ distinct real eigenvalues. If $AC = CA$, show that $C$ is diagonalizable.
-\end{problem}
-
-\begin{problem}\label{prob:similar_poly_eval}
-Given a polynomial $p(x) = r_{0} + r_{1}x + \dots + r_{n}x^{n}$ and a square matrix $A$, the matrix $p(A) = r_{0}I + r_{1}A + \dots  + r_{n}A^{n}$ is called the \dfn{evaluation} of $p(x)$ at $A$. Let $B = P^{-1}AP$. Show that $p(B) = P^{-1}p(A)P$ for all polynomials $p(x)$.
-\end{problem}
-
-\begin{problem}\label{prob:5_5_12}
-Let $P$ be an invertible $n \times n$ matrix. If $A$ is any $n \times n$ matrix, write $T_{P}(A) = P^{-1}AP$. Verify that:
-
-%\begin{enumerate}[label={\alph*.}]
-\begin{enumerate}
-\item\label{prob:5_5_12a} $T_{P}(I) = I$
-\item\label{prob:5_5_12b} $T_{P}(AB) = T_{P}(A)T_{P}(B)$
-%Solution $T_{P}(A)T_{P}(B) = (P^{-1}AP)(P^{-1}BP) = P^{-1}(AB)P = T_{P}(AB)$.
-\item\label{prob:5_5_12c} $T_{P}(A + B) = T_{P}(A) + T_{P}(B)$
-\item\label{prob:5_5_12d} $T_{P}(rA) = rT_{P}(A)$
-\item\label{prob:5_5_12e} $T_{P}(A^{k}) = [T_{P}(A)]^{k}$ for $k \geq 1$
-\item\label{prob:5_5_12f} If $A$ is invertible, $T_{P}(A^{-1}) = [T_{P}(A)]^{-1}$.
-\item\label{prob:5_5_12g} If $Q$ is invertible, $T_{Q}[T_{P}(A)] = T_{PQ}(A)$.
-\end{enumerate}
-
-\end{problem}
-
-
-
-\begin{problem}
-Let $A = \begin{bmatrix}
-0 & a & b \\
-a & 0 & c \\
-b & c & 0	
-\end{bmatrix}$ and $B =
-\begin{bmatrix}
-c & a & b \\
-a & b & c \\
-b & c & a
-\end{bmatrix}$.
-
-\begin{enumerate}
-\item Show that $x^{3} - (a^{2} + b^{2} + c^{2})x - 2abc$ has real roots by considering $A$.
-
-\item Show that $a^{2} + b^{2} + c^{2} \geq ab + ac + bc$ by considering $B$.
-%\item  $c_{B}(x) = [x - (a + b + c)][x^{2} - k]$ where $k = a^{2} + b^{2} + c^{2} - [ab + ac + bc]$. Use Theorem~\ref{thm:016397}.
-\end{enumerate}
-\end{problem}
-
-\begin{problem}
-Assume the $2 \times 2$ matrix $A$ is similar to an upper triangular matrix. If $\mbox{tr} A = 0 = \mbox{tr} A^{2}$, show that $A^{2}$ is equal to the zero matrix.
-\end{problem}
-
-\begin{problem}
-Show that $A$ is similar to $A^{T}$ for all $2 \times 2$ matrices $A$. 
-\begin{hint}
-Let $A =\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}$. If $c = 0$ treat the cases $b = 0$ and $b \neq 0$ separately. If $c \neq 0$, reduce to the case $c = 1$ using Exercise~\ref{prob:5_5_12}~\ref{prob:5_5_12d}.
-\end{hint}
-\end{problem}
 
 \begin{problem}\label{prob:ortho11}
 Consider $A = \begin{bmatrix}
