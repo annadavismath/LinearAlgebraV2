@@ -418,7 +418,7 @@ $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & 
   a_{(i+1)1} & a_{(i+1)2} & \ldots & a_{(i+1)(j-1)} & a_{(i+1)j} & a_{(i+1)(j+1)} & \ldots & a_{(i+1)n}\\
   \vdots & \vdots &  & \vdots & \vdots & \vdots &  & \vdots  \\
    a_{n1} & a_{n2} & \dots & a_{n(j-1)} & a_{nj} & a_{n(j+1)} & \dots & a_{nn}\end{bmatrix}$$
-   define $A_{ij}$ to be an $(n-1)\times (n-1)$ matrix obtained from $A$ by deleting the $i^{th}$ row and the $j^{th}$ column of $A$.
+   define the \dfn{minor} $A_{ij}$ to be an $(n-1)\times (n-1)$ matrix obtained from $A$ by deleting the $i^{th}$ row and the $j^{th}$ column of $A$.
 \begin{center}
 \begin{tikzpicture}
   \matrix (m)[
