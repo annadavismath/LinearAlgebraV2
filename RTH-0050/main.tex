@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\title{Complex Matrices} \license{CC-BY 4.0}
+\title{Complex Matrices} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -9,12 +9,13 @@
 \end{abstract}
 \maketitle
 
+\section*{Complex Matrices}
 If $A$ is an $n \times n$ matrix, the characteristic polynomial $c_{A}(x)$ is a polynomial of degree $n$ and the eigenvalues of $A$ are just the roots of $c_{A}(x)$. In most of our examples these roots have been \textit{real} numbers (in fact, the examples have been carefully chosen so this will be the case!); but it need not happen, even when the characteristic polynomial has real coefficients. For example, if $A = \left[ \begin{array}{rr}
 0 & 1 \\
 -1 & 0
 \end{array}\right]$ then $c_{A}(x) = x^{2} + 1$ has roots $i$ and $-i$, where $i$ is a complex number satisfying $i^{2} = -1$. Therefore, we have to deal with the possibility that the eigenvalues of a (real) square matrix might be complex numbers.
 
-In fact, nearly everything in this book would remain true if the phrase \textit{real number}\index{real numbers} were replaced by \textit{complex number}
+In fact, nearly everything in this book would remain true if the phrase \textit{real number} were replaced by \textit{complex number}
  wherever it occurs. Then we would deal with matrices with complex
 entries, systems of linear equations with complex coefficients (and
 complex solutions), determinants of complex matrices, and vector spaces
@@ -36,7 +37,7 @@ With these definitions, $\mathbb{C}^n$ satisfies the axioms for a vector space (
 
 \subsection*{The Standard Inner Product}
 
-There is a natural generalization to $\mathbb{C}^n$ of the dot product in $\RR^n$.
+There is a natural generalization to $\mathbb{C}^n$ of the dot product in $\RR^n$ called the \dfn{standard inner product}.  For more on inner products, see \href{}{Inner Product Spaces}.
 
 \begin{definition}{Standard Inner Product in $\RR^n$}\label{def:025549}
 Given $\vec{z} = (z_{1}, z_{2}, \ldots, z_{n})$ and $\vec{w} = (w_{1}, w_{2}, \ldots, w_{n})$ in $\mathbb{C}^n$, define their \dfn{standard inner product} $\langle \vec{z}, \vec{w} \rangle$ by
@@ -117,7 +118,7 @@ $\norm{\vec{z}} = \sqrt{2+1+4+25} = \sqrt{32} = 4\sqrt{2}$, so take $\vec{u} = \
 \end{explanation}
 \end{example}
 
-A matrix $A = \left[ a_{ij} \right]$ is called a \textbf{complex matrix}\index{complex matrix!defined} if every entry $a_{ij}$ is a complex number. The notion of conjugation for complex numbers extends to matrices as follows: Define the \textbf{conjugate}\index{complex matrix!conjugate}\index{conjugate} of $A = \left[ a_{ij} \right]$ to be the matrix
+A matrix $A = \left[ a_{ij} \right]$ is called a \dfn{complex matrix} if every entry $a_{ij}$ is a complex number. The notion of conjugation for complex numbers extends to matrices as follows: Define the \dfn{conjugate} of $A = \left[ a_{ij} \right]$ to be the matrix
 \begin{equation*}
 \overline{A} = \left[ \begin{array}{c} \overline{a}_{ij} \end{array}\right]
 \end{equation*}
@@ -137,7 +138,10 @@ A^H = (\overline{A})^T = \overline{(A^T)}
 \end{equation*}
 \end{definition}
 
-\noindent Observe that $A^{H} = A^{T}$ when $A$ is real.\footnote{Other notations for $A^{H}$ are $A^\ast$ and $A^\dagger$.}
+Observe that $A^{H} = A^{T}$ when $A$ is real.
+\begin{remark}
+    Other notations for $A^{H}$ are $A^\ast$ and $A^\dagger$.
+\end{remark}
 
 \begin{example}\label{ex:025654}
 \begin{equation*}
@@ -228,7 +232,7 @@ To prove the converse, let $\vec{e}_{j}$ denote column $j$ of the identity matri
 Hence $\overline{A} = A^T$, so $A$ is Hermitian.
 \end{proof}
 
-Let $A$ be an $n \times n$ complex matrix. As in the real case, a complex number $\lambda$ is called an \textbf{eigenvalue}\index{eigenvalues!complex matrix}\index{complex matrix!eigenvalues} of $A$ if $A\vec{x} = \lambda \vec{x}$ holds for some column $\vec{x} \neq \vec{0}$ in $\mathbb{C}^n$. In this case $\vec{x}$ is called an \dfn{eigenvector} of $A$ corresponding to $\lambda$. The \dfn{characteristic polynomial} $c_{A}(x)$ is defined by
+Let $A$ be an $n \times n$ complex matrix. As in the real case, a complex number $\lambda$ is called an \dfn{eigenvalue} of $A$ if $A\vec{x} = \lambda \vec{x}$ holds for some column $\vec{x} \neq \vec{0}$ in $\mathbb{C}^n$. In this case $\vec{x}$ is called an \dfn{eigenvector} of $A$ corresponding to $\lambda$. The \dfn{characteristic polynomial} $c_{A}(x)$ is defined by
 \begin{equation*}
 c_{A}(x) = \mbox{det}(xI - A)
 \end{equation*}
@@ -245,13 +249,10 @@ c_{A}(x) = (x -\lambda_{1})(x -\lambda_{2}) \cdots (x -\lambda_{n})
 \end{equation*}
 where $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}$ are the eigenvalues of $A$ (with possible repetitions due to multiple roots).
 
-The next result shows that, for
-Hermitian matrices, the eigenvalues are actually real. Because symmetric
- real matrices are Hermitian, this re-proves Theorem~\ref{th:PrinAxes}. It also extends Theorem~\ref{th:symmetric_has_ortho_ev},
+The next result extends Theorem~\ref{th:symmetric_has_ortho_ev},
  which asserts that eigenvectors of a symmetric real matrix
-corresponding to distinct eigenvalues are actually orthogonal. In the
-complex context, two $n$-tuples $\vec{z}$ and $\vec{w}$ in $\mathbb{C}^n$ are said to be \textbf{orthogonal} if $\langle \vec{z}, \vec{w} \rangle = 0$.
-
+corresponding to distinct eigenvalues are orthogonal. In the
+complex context, two $n$-tuples $\vec{z}$ and $\vec{w}$ in $\mathbb{C}^n$ are said to be \dfn{orthogonal} if $\langle \vec{z}, \vec{w} \rangle = 0$.
 
 \begin{theorem}\label{th:025729}
 Suppose $A$ is a Hermitian matrix.
@@ -265,11 +266,19 @@ Suppose $A$ is a Hermitian matrix.
 \end{theorem}
 
 \begin{proof}
-Let $\lambda$ and $\mu$ be eigenvalues of $A$ with (nonzero) eigenvectors $\vec{z}$ and $\vec{w}$. Then $A\vec{z} = \lambda \vec{z}$ and $A\vec{w} = \mu \vec{w}$, so Theorem~\ref{thm:025697} gives
+Let $\lambda$ and $\mu$ be eigenvalues of $A$ with (nonzero) eigenvectors $\vec{z}$ and $\vec{w}$. Then $A\vec{z} = \lambda \vec{z}$ and $A\vec{w} = \mu \vec{w}$, so Theorem~\ref{th:025697} gives
 \begin{equation} \label{eigenvalEq}
 \lambda \langle \vec{z}, \vec{w} \rangle = \langle \lambda \vec{z}, \vec{w} \rangle = \langle A\vec{z}, \vec{w} \rangle = \langle \vec{z}, A\vec{w} \rangle = \langle \vec{z}, \mu \vec{w} \rangle = \overline{\mu} \langle \vec{z}, \vec{w} \rangle
 \end{equation}
 If $\mu = \lambda$ and $\vec{w} = \vec{z}$, this becomes $\lambda \langle \vec{z}, \vec{z} \rangle  = \overline{\lambda} \langle \vec{z}, \vec{z} \rangle$. Because $\langle \vec{z}, \vec{z} \rangle = \norm{\vec{z}}^{2} \neq 0$, this implies $\lambda = \overline{\lambda}$. Thus $\lambda$ is real, proving (1). Similarly, $\mu$ is real, so equation (\ref{eigenvalEq}) gives $\lambda \langle \vec{z}, \vec{w} \rangle = \mu \langle \vec{z}, \vec{w} \rangle$. If $\lambda \neq \mu$, this implies $\langle \vec{z}, \vec{w} \rangle = 0$, proving (2).
+\end{proof}
+
+\begin{corollary}\label{cor:ews_symmetric_real}
+    Let $A$ be a real symmetric matrix.  Then the eigenvalues of $A$ are real.
+\end{corollary}
+
+\begin{proof}
+    Symmetric real matrices are Hermitian, and so the result follows immediately from \ref{th:025729}.
 \end{proof}
 
 The Real Spectral Theorem (\ref{th:PrinAxes}) asserts that every real symmetric matrix $A$ is orthogonally diagonalizable---that is $U^{T}AU$ is diagonal where $U$ is an orthogonal matrix $(U^{-1} = U^{T})$. The next theorem identifies the complex analogs of these orthogonal real matrices.
@@ -314,7 +323,7 @@ The matrix $A = \left[ \begin{array}{rr}
 \end{array}\right]$.
 \end{example}
 
-Given a real symmetric matrix $A$, we saw in RTH-0035 a procedure for finding an orthogonal matrix $U$ such that $U^{T}AU$ is diagonal (see Example~\ref{exa:024374}). The following example illustrates Theorem~\ref{th:025729} and shows that the technique works for complex matrices.
+Given a real symmetric matrix $A$, we saw in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Orthogonal Matrices and Symmetric Matrices} a procedure for finding an orthogonal matrix $U$ such that $U^{T}AU$ is diagonal (see Example~\ref{exa:024374}). The following example illustrates Theorem~\ref{th:025729} and shows that the technique works for complex matrices.
 
 \begin{example}\label{ex:025794}
 Consider the Hermitian matrix $A = \left[ \begin{array}{cc}
@@ -354,7 +363,7 @@ Then $U^HAU = \left[ \begin{array}{rr}
 
 An $n \times n$ complex matrix $A$ is called \dfn{unitarily diagonalizable} if $U^{H}AU$ is diagonal for some unitary matrix $U$. As Example~\ref{ex:025794} suggests, we are going to prove that every Hermitian matrix is unitarily diagonalizable. However, with only a little extra effort, we can get a very important theorem that has this result as an easy consequence.
 
-A complex matrix is called \textbf{upper triangular} if every entry below the main diagonal is zero. We owe the following theorem to Issai Schur.
+A complex matrix is called \dfn{upper triangular} if every entry below the main diagonal is zero. We owe the following theorem to Issai Schur.
 \begin{remark}
 Issai
  Schur (1875--1941) was a German mathematician who did fundamental work
@@ -370,9 +379,11 @@ is upper triangular. Moreover, the entries on the main diagonal of $T$ are the e
 \end{theorem}
 
 \begin{proof}
-We use induction on $n$. If $n = 1$, $A$ is already upper triangular. If $n > 1$, assume the theorem is valid for $(n - 1) \times (n - 1)$ complex matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $\vec{y}_{1}$ be an eigenvector with $\norm{\vec{y}_{1}} = 1$. Then $\vec{y}_{1}$ is part of a basis of $\mathbb{C}^n$ (by the analog of Theorem~\ref{thm:019430}), so the (complex analog of the) Gram-Schmidt process provides $\vec{y}_{2}, \ldots, \vec{y}_{n}$ such that $\{\vec{y}_{1}, \vec{y}_{2}, \ldots, \vec{y}_{n}\}$ is an orthonormal basis of $\mathbb{C}^n$. If $U_{1} = \left[ \begin{array}{cccc}
-\vec{y}_{1} & \vec{y}_{2} & \cdots & \vec{y}_{n}
-\end{array}\right]$ is the matrix with these vectors as its columns, then (see )
+We use induction on $n$, mirroring the form of \ref{th:PrinAxes}. If $n = 1$, $A$ is already upper triangular. If $n > 1$, assume the theorem is valid for $(n - 1) \times (n - 1)$ complex matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $\vec{y}_{1}$ be an eigenvector with $\norm{\vec{y}_{1}} = 1$. Next, use the (complex analog of the) Gram-Schmidt process provides $\vec{y}_{2}, \ldots, \vec{y}_{n}$ such that $\{\vec{y}_{1}, \vec{y}_{2}, \ldots, \vec{y}_{n}\}$ is an orthonormal basis of $\mathbb{C}^n$. If $U_{1} = \left[ \begin{array}{cccc}
+| & | & & | \\
+\vec{y}_{1} & \vec{y}_{2} & \cdots & \vec{y}_{n} \\
+| & | & & |
+\end{array}\right]$ is the matrix with these vectors as its columns, then
 \begin{equation*}
 U_{1}^HAU_{1} = \left[ \begin{array}{cc}
 \lambda_{1} & X_{1} \\
@@ -401,7 +412,7 @@ U^HAU &= U_{2}^H(U_{1}^HAU_{1})U_{2} \\
 	   0 & T_{1}
 	   \end{array}\right]
 \end{align*}
-is upper triangular. Finally, $A$ and $U^{H}AU = T$ have the same eigenvalues by (the complex version of) Theorem~\ref{th:016008}, and they are the diagonal entries of $T$ because $T$ is upper triangular.
+is upper triangular. Finally, $A$ and $U^{H}AU = T$ have the same eigenvalues by (the complex version of) Theorem~\ref{th:properties_similar_eig}, and they are the diagonal entries of $T$ because $T$ is upper triangular.
 \end{proof}
 
 The fact that similar matrices have the same traces and determinants gives the following consequence of Schur's theorem.
@@ -467,7 +478,7 @@ There is a very simple way to characterize those complex matrices that are unita
 	-1 & 0
 \end{array}\right]$ in Example~\ref{exa:025874}. In fact we have the following result.
 
-\begin{theorem}{}{025890}
+\begin{theorem}\label{025890}
 An $n \times n$ complex matrix $A$ is unitarily diagonalizable if and only if $A$ is normal.
 \end{theorem}
 
@@ -555,7 +566,7 @@ In each case, determine whether the two vectors are orthogonal.
 \end{problem}
 
 \begin{problem}\label{prb:complex_matrices3}
-A subset $U$ of $\mathbb{C}^n$ is called a \textbf{complex subspace} of $\mathbb{C}^n$ if it contains $0$ and if, given $\vec{v}$ and $\vec{w}$ in $U$, both $\vec{v} + \vec{w}$ and $z\vec{v}$ lie in $U$ ($z$ any complex number). In each case, determine whether $U$ is a complex subspace of $\mathbb{C}^3$.
+A subset $U$ of $\mathbb{C}^n$ is called a \dfn{complex subspace} of $\mathbb{C}^n$ if it contains $0$ and if, given $\vec{v}$ and $\vec{w}$ in $U$, both $\vec{v} + \vec{w}$ and $z\vec{v}$ lie in $U$ ($z$ any complex number). In each case, determine whether $U$ is a complex subspace of $\mathbb{C}^3$.
 
 
 \begin{enumerate}
@@ -784,7 +795,7 @@ If $Z$ is any complex $n \times n$ matrix, show that $ZZ^{H}$ and $Z + Z^{H}$ ar
 \end{problem}
 
 \begin{problem}\label{prb:complex_matrices14}
-A complex matrix $B$ is called \textbf{skew-Hermitian}\index{skew-Hermitian}\index{complex matrix!skew-Hermitian} if $B^{H} = -B$.
+A complex matrix $B$ is called \dfn{skew-Hermitian} if $B^{H} = -B$.
 
 \begin{enumerate}[label={\alph*.}]
 \item Show that $Z - Z^{H}$ is skew-Hermitian for any square complex matrix $Z$.
