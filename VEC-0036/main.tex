@@ -9,7 +9,7 @@
 \end{abstract}
 \maketitle
 \section*{Unit Vector in the Direction of a Given Vector}
-Recall that a {\it unit} vector is a vector of length 1.  Given a non-zero vector $\vec{v}$, we can find a unit vector in the same direction by scaling the ``legs" of the triangle with hypotenuse $\vec{v}$ by an appropriate constant.  If $\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\norm{\vec{v}}=3$, then a unit vector $\vec{u}$ in the same direction is given by $\vec{u}=\begin{bmatrix}a/3\\b/3\end{bmatrix}=\begin{bmatrix}a/\norm{\vec{v}}\\b/\norm{\vec{v}}\end{bmatrix}$. 
+Recall that a {\it unit} vector is a vector of length 1.  Given a non-zero vector $\vec{v}$, we can find a unit vector in the same direction by multiplying $\vec{v}$ by an appropriate scalar.  For example, if $\vec{v}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\norm{\vec{v}}=3$, then a unit vector $\vec{u}$ in the same direction is given by $\vec{u}=\begin{bmatrix}a/3\\b/3\end{bmatrix}=\begin{bmatrix}a/\norm{\vec{v}}\\b/\norm{\vec{v}}\end{bmatrix}$. 
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -20,6 +20,7 @@ Recall that a {\it unit} vector is a vector of length 1.  Given a non-zero vecto
    \draw[line width=0.5pt,dashed, red](3,1)--(0,1);
     \node[red] at (3, -0.2)   (b) {$a$};
     \node[red] at (-0.2, 1)   (b) {$b$};
+    \node[red] at (2.2, 0.3)   (b) {$\norm{\vec{v}}=3$};
   \end{tikzpicture}
 \end{center}
 

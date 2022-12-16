@@ -36,7 +36,7 @@ A quick examination of Example \ref{ex:dotex} will convince you that the dot pro
 
 \begin{theorem}\label{th:dotproductproperties} The following properties hold for
   vectors $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $\RR^n$ and scalar
-  $k$.
+  $k$ in $\RR$.
   \begin{enumerate}
   \item\label{item:commutative}
     $\vec{u}\dotp\vec{v}=\vec{v}\dotp\vec{u}$
@@ -92,14 +92,12 @@ v_n
 \end{align*}
 \end{proof}
 
-%\youtube{858cSuHqF-Q}
-
 We will illustrate Property~\ref{item:norm} with an example.
 \begin{example}\label{ex:exprop6}
   Let $\vec{u}=\begin{bmatrix}-2\\3\end{bmatrix}$.  Use $\vec{u}$ to illustrate Property~\ref{item:norm} of Theorem~\ref{th:dotproductproperties}.
   \begin{explanation}
   
-  $$\norm{\vec{u}}^2=(-2)^2+3^2=(-2)(-2)+(3)(3)=\vec{u}\dotp\vec{u}$$
+  $$\norm{\vec{u}}^2=(-2)^2+3^2=(-2)(-2)+(3)(3)=\begin{bmatrix}-2\\3\end{bmatrix}\dotp\begin{bmatrix}-2\\3\end{bmatrix}=\vec{u}\dotp\vec{u}$$
   \end{explanation}
 \end{example}
 

@@ -12,11 +12,11 @@
 
 \section*{Planes in $\RR^3$}
 
-You are probably familiar with the expression ``two points determine a line."  A line is also determined by one point and a vector parallel to the line.  You are probably also familiar with the fact that three non-collinear points determine a plane (This is why photographers use tripods for stability, while four-legged chairs often wobble!)  Is there another way to determine a plane?  
+You are probably familiar with the expression ``two points determine a line."  This means that given two distinct points, there is exactly one line that passes through both of them.  There are other ways to describe a line.  For example, as we saw in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0020/main}{Parametric Equations of Lines}, a single point together with a direction vector also determine a line. 
 
-It is evident geometrically that among all planes that are perpendicular 
-to a given straight line there is exactly one containing any given 
-point. The diagram below shows several planes perpendicular to vector $\vec{u}$.  There are infinitely many such planes, but only one contains point $P$.
+You are probably also familiar with the fact that three non-collinear points determine a plane. (This is why photographers use tripods for stability, while four-legged chairs often wobble!)  Is there another way to determine a plane?  
+
+The diagram below shows several planes perpendicular to vector $\vec{n}$.  In fact, there are infinitely many such planes.  Vector $\vec{n}$ does not determine a plane, but if we know of a point $P$ contained in the plane, then together, $P$ and $\vec{n}$ describe a unique plane.
 
  \begin{center}
 \tdplotsetmaincoords{70}{130}
@@ -30,7 +30,7 @@ point. The diagram below shows several planes perpendicular to vector $\vec{u}$.
 
     \draw[->,line width=1mm, -stealth, blue](0,-1,-2)--(0.8,0.6,-2) ;%normal to grey
     \node[fill,circle,inner sep=1.5pt,label={$P$}] at (-2,1.5,2) {};
-    \node[label={below right:$\vec{u}$}] at (0.8,0.6,-2) {};
+    \node[label={below right:$\vec{n}$}] at (0.8,0.6,-2) {};
      \end{tikzpicture}
           
      \end{center}
@@ -82,7 +82,7 @@ Given a point $P_{0} = P_{0}(x_{0}, y_{0}, z_{0})$ and a nonzero vector $\vec{n}
 
 This fact can be used to give a very simple description of a 
 plane.
- Observe that a point $P = P(x, y, z)$ lies on this plane if and only if the vector $\overrightarrow{P_{0}P}$ is orthogonal to $\vec{n}$---that is, if and only if $\vec{n} \dotp \overrightarrow{P_{0}P} = 0$. 
+ Observe that a point $P = P(x, y, z)$ lies on this plane if and only if the vector $\overrightarrow{P_{0}P}$ is orthogonal to $\vec{n}$ (i.e. $P$ lies in the plane if and only if $\vec{n} \dotp \overrightarrow{P_{0}P} = 0$). 
  
  \begin{center}
 \tdplotsetmaincoords{70}{130}
@@ -102,7 +102,7 @@ plane.
           
      \end{center}
  
-Let $\vec{n}=\begin{bmatrix}a\\b\\c\end{bmatrix}$.  By ``head-tail" formula (Formula \ref{form:headminustailr3} of VEC-0010), we have: $\overrightarrow{P_{0}P} = \begin{bmatrix}
+Let $\vec{n}=\begin{bmatrix}a\\b\\c\end{bmatrix}$.  By ``head-tail" formula (Formula \ref{form:headminustailr3}), we have: $\overrightarrow{P_{0}P} = \begin{bmatrix}
 x - x_{0}\\
 y - y_{0}\\
 z - z_{0}
@@ -177,6 +177,20 @@ The plane with equation $2x -3y = 6$ has normal $\vec{n} =
 \end{bmatrix}$. Because the two planes are parallel, $\vec{n}$ serves as a normal for the plane we seek, so the equation is $2x - 3y = d$ for some $d$ by (\ref{eq:eqofline}). Insisting that $P_{0}(3, -1, 2)$ lies on the plane determines $d$; that is, $d = 2 \cdot 3 - 3(-1) = 9$. Hence, the equation is $2x - 3y = 9$.
 \end{explanation}
 \end{example}
+
+\subsection*{Linear Equations and their Graphs: From Lines to Hyperplanes}
+An equation of the form $ax+by=d$ is a linear equation whose graph is a line in $\RR^2$. If we solve for $y$ in terms of $x$, we obtain a more familiar form of this equation, $y=-\frac{a}{b}x+\frac{d}{b}$.  The slope of the corresponding line is $m=-\frac{a}{b}$.  Observe that a line perpendicular to this line has the slope $\frac{b}{a}$.  If we interpret $a$ as a horizontal ``run" and $b$ as a vertical ``rise", we see that the vector $\begin{bmatrix}a\\b\end{bmatrix}$ is perpendicular to the line $ax+by=d$.  You can use the following GeoGebra interactive to solidify your understanding of this.
+
+\begin{center} 
+\geogebra{tg2duwqk}{900}{800} 
+\end{center}
+
+The idea of coefficients in front of variables forming components of a normal vector should be very familiar to you.  Recall that the graph of $ax+by+cz=d$ is a plane in $\RR^3$ with a normal vector $\vec{n}=\begin{bmatrix}a\\b\\c\end{bmatrix}$.
+
+Lines and planes may seem very different, but they are all graphs of linear equations, just in different dimensions.  In general, an equation of the form
+$$a_1x_1+a_2x_2+\dots +a_nx_n=d$$
+is called a \dfn{linear equation} in $n$ variables.  The graph of such an equation, for $n>3$, is called a \dfn{hyperplane}.  The vector in $\RR^n$ whose components are the coefficients $a_1, a_2, \dots ,a_n$ is orthogonal to every vector in the hyperplane.  Unfortunately, hyperplanes are impossible to see, but we can often use insights we gain from working with lines and planes and generalize them to the invisible world of higher dimensions.
+
 
 \section{Practice Problems}
 
