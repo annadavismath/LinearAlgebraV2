@@ -1,331 +1,921 @@
 \documentclass{ximera}
 \input{../preamble.tex}
-
-\title{Cross Product and its Properties} \license{CC BY-NC-SA 4.0}
-
+\title{Inner Product Spaces} \license{CC BY-NC-SA 4.0}
 \begin{document}
-
 \begin{abstract}
-\end{abstract}
+ \end{abstract}
 \maketitle
-\section*{Cross Product and its Properties}
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0050/main}{Dot Product and its Properties} we introduced the \dfn{dot product}, one of two important products for vectors.  We will now introduce the second type of product, called the \dfn{cross product}.  There are several important distinctions to keep in mind.  First, the dot product is defined for two vectors of $\RR^n$, for any  natural number $n$; the cross-product will only be defined for vectors of $\RR^3$.  Second, the dot product is a scalar; the cross product of two vectors will be a vector.  Finally, we will find that unlike the dot product, the cross product is not commutative.  
 
-The cross product has many applications in physics and engineering.  It also has important geometric properties which will be addressed in this section and in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0070/main}{Determinants as Areas and Volumes}.
+\section*{Inner Product Spaces}
 
-\subsection*{Preliminaries}
-In order to define the cross product in a convenient way we need to define $2\times 2$ and $3\times 3$ determinants.  If you know how to find such determinants you may skip this section and proceed directly to the definition.
+We have used the dot product in $\RR^n$ to compute the length of vectors (\ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The plan in this section is to define an \dfn{inner product} on an arbitrary real vector space $V$ (of which the dot product is an example in $\RR^n$) and use it to introduce these concepts in $V$.
 
-\begin{definition}[$2\times 2$ Determinant]\label{def:twodetcrossprod}
-A $2\times 2$ \dfn{determinant} is a number associated with a $2\times 2$ matrix
-
-$$\det{\begin{bmatrix}
-a & b\\
-c & d
-\end{bmatrix}}=\begin{vmatrix}
-a & b\\
-c & d
-\end{vmatrix} =ad-bc$$
-
+\begin{definition}\label{def:innerproductspace}
+An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following axioms are satisfied.
 \end{definition}
+\begin{itemize}
+\item[\textit{P1.}]\label{prop:inner_prod_1}  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
 
-\begin{example} \label{ex:twodetcrossprod}
-$$\begin{vmatrix}
-2 & 4\\
--5 & 3
-\end{vmatrix} =(2)(3)-(4)(-5)=6+20=26$$
+\item[\textit{P2.}]\label{prop:inner_prod_2}  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
+
+\item[\textit{P3.}]\label{prop:inner_prod_3}  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
+
+\item[\textit{P4.}]\label{prop:inner_prod_4} $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
+
+\item[\textit{P5.}]\label{prop:inner_prod_5}  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
+
+\end{itemize}
+
+A real vector space $V$ with an inner product $\langle\ , \rangle$ will be called an \dfn{inner product space}.  Note that every subspace of an inner product space is again an inner product space using the same inner product.
+\begin{remark}
+    If we regard $\mathbb{C}^n$ as a vector space over the field $\mathbb{C}$  of complex numbers, then the ``standard inner product'' on $\mathbb{C}^n$ defined in Section~\ref{sec:8_6} does not satisfy Axiom P4 (see Theorem~\ref{thm:025575}(3)).
+\end{remark}
+
+\begin{example}\label{exa:030303}
+$\RR^n$ is an inner product space with the dot product as inner product:
+\begin{equation*}
+\langle \vec{v}, \vec{w} \rangle = \vec{v} \dotp \vec{w} \quad \mbox{ for all } \vec{v},  \vec{w} \in \RR^n
+\end{equation*}
+See Theorem~\ref{th:dotproductproperties}. This is also called the
+\dfn{euclidean} inner product, and
+$\RR^n$, equipped with the dot product, is called \dfn{euclidean}
+$n$-\dfn{space}.
 \end{example}
 
-\begin{definition}[$3\times 3$ Determinant]\label{def:threedetcrossprod}
-A $3\times 3$ \dfn{determinant} is a number associated with a $3\times 3$ matrix
-$$\det{\begin{bmatrix}
-a_1 & a_2 & a_3\\
-b_1 & b_2 &b_3\\
-c_1 &c_2 &c_3
-\end{bmatrix}}=
-\begin{vmatrix}
-a_1 & a_2 & a_3\\
-b_1 & b_2 &b_3\\
-c_1 &c_2 &c_3
-\end{vmatrix} =a_1
-\begin{vmatrix}
-b_2 & b_3\\
-c_2 & c_3
-\end{vmatrix} -a_2
-\begin{vmatrix}
-b_1 & b_3\\
-c_1 & c_3
-\end{vmatrix} +a_3
-\begin{vmatrix}
-b_1 & b_2\\
-c_1 & c_2
-\end{vmatrix}
-$$
-\end{definition}
+\begin{example}\label{exa:030310}
+If $A$ and $B$ are $m \times n$ matrices, define $\langle A, B\rangle = \mbox{tr}(AB^{T})$ where $\mbox{tr}(X)$ is the trace of the square matrix $X$. Show that $\langle\ , \rangle$ is an inner product in $\mathbb{M}_{mn}$.
 
-\begin{example} \label{ex:threedetcrossprod}
-\begin{align*}
-\begin{vmatrix}
-4 & 2 & 1\\
-5 & -3 &0\\
--2 &3 &2
-\end{vmatrix}&=4
-\begin{vmatrix}
--3 & 0\\
-3 & 2
-\end{vmatrix} -2
-\begin{vmatrix}
-5 & 0\\
--2 & 2
-\end{vmatrix} +1
-\begin{vmatrix}
-5 & -3\\
--2 & 3
-\end{vmatrix}\\
-&=4\Big ((-3)(2)-(0)(3)\Big)-2\Big((5)(2)-(0)(-2)\Big)+\Big((5)(3)-(-3)(-2)\Big)\\
-&=(4)(-6)-(2)(10)+(15-6)\\
-&=-35
-\end{align*}
+\begin{explanation}
+P1 is clear. Since $\mbox{tr}(P) = \mbox{tr}(P^{T})$ for every square matrix $P$, we have P2:
+\begin{equation*}
+\langle A, B \rangle = \mbox{tr}(AB^T) = \mbox{tr}[(AB^T)^T] = \mbox{tr}(BA^T) = \langle B, A \rangle
+\end{equation*}
+Next, P3 and P4 follow because trace is a linear transformation $\mathbb{M}_{mn} \to \RR$ (Practice Problem \ref{ex:10_1_19}). Turning to P5, let $\vec{r}_{1}, \vec{r}_{2}, \dots, \vec{r}_{m}$ denote the rows of the matrix $A$. Then the $(i, j)$-entry of $AA^{T}$ is $\vec{r}_{i} \dotp \vec{r}_{j}$, so
+\begin{equation*}
+\langle A, A \rangle = \mbox{tr}(AA^T) =
+\vec{r}_1 \dotp \vec{r}_1 +
+\vec{r}_2 \dotp \vec{r}_2 + \dots +
+\vec{r}_m \dotp \vec{r}_m
+\end{equation*}
+But $\vec{r}_{j} \dotp \vec{r}_{j}$ is the sum of the squares of
+the entries of $\vec{r}_{j}$, so this shows that $\langle A, A\rangle$ is the sum of the squares of all $nm$ entries of $A$. Axiom P5 follows.
+\end{explanation}
 \end{example}
 
-For more help on $3 \times 3$ determinants, see Example \ref{ex:threebythreedet1} and the video located there.
+The next example is important in analysis.
 
-\subsection*{Definition of the Cross Product}
+\begin{example}\label{exa:030334}
+Let $\mathcal{C}[a, b]$ denote the vector space of
+continuous functions from $[a, b]$ to $\RR$, a subspace of $\mathcal{F}[a, b]$. Show that
+\begin{equation*}
+\langle f, g \rangle = \int_{a}^{b} f(x)g(x)dx
+\end{equation*}
+defines an inner product on $\mathcal{C}[a, b]$.
 
-\begin{definition}\label{def:crossproduct} Let $\vec{u=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix}}$ and $\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}$ be vectors in $\RR^3$.  The \dfn{cross product} of $\vec{u}$ and $\vec{v}$, denoted by $\vec{u}\times\vec{v}$, is given by
+\begin{remark}
+    This example (and others later that refer to it) can be omitted with no loss of continuity by students with no calculus background.
+\end{remark}
+
+\begin{explanation}
+Axioms P1 and P2 are clear. As to axiom P4,
+\begin{equation*}
+\langle rf, g \rangle = \int_{a}^{b} rf(x)g(x)dx = r\int_{a}^{b} f(x)g(x)dx =
+r\langle f, g \rangle
+\end{equation*}
+Axiom P3 is similar. Finally, theorems of calculus show that $\langle f, f \rangle = \int_{a}^{b} f(x)^2dx \geq 0$ and, if $f$ is continuous, that this is zero if and only if $f$ is the zero function. This gives axiom P5.
+\end{explanation}
+\end{example}
+
+
+If $\vec{v}$ is any vector, then, using axiom P3, we get
+\begin{equation*}
+\langle \vec{0}, \vec{v} \rangle = \langle \vec{0} + \vec{0}, \vec{v} \rangle =
+\langle \vec{0}, \vec{v} \rangle + \langle \vec{0}, \vec{v} \rangle
+\end{equation*}
+and it follows that the number $\langle\vec{0}, \vec{v}\rangle$ must be zero. This observation is recorded for reference in the following theorem, along with several other properties of inner products. The other proofs are left as Practice Problem \ref{ex:10_1_20}.
+
+\begin{theorem}\label{thm:030346}
+Let $\langle\ , \rangle$ be an inner product on a space $V$; let $\vec{v}$, $\vec{u}$, and $\vec{w}$ denote vectors in $V$; and let $r$ denote a real number.
+
+\begin{enumerate}
+\item\label{030346a} $\langle \vec{u}, \vec{v} + \vec{w}\rangle =
+  \langle\vec{u}, \vec{v}\rangle + \langle\vec{u}, \vec{w}\rangle$
+
+\item\label{030346b} $\langle\vec{v}, r\vec{w}\rangle =  r\langle\vec{v}, \vec{w}\rangle = \langle r\vec{v}, \vec{w}\rangle$
+
+\item\label{030346c} $\langle\vec{v}, \vec{0}\rangle = 0 = \langle\vec{0}, \vec{v} \rangle $
+
+\item\label{030346d} $\langle\vec{v}, \vec{v}\rangle = 0$ if and only if $\vec{v} = \vec{0}$
+
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    If $r$ is a complex number, then \ref{030346b} must be modified.  See Theorem \ref{th:025575}.
+\end{remark}
+
+If $\langle\ , \rangle$ is an inner product on a space $V$, then, given $\vec{u}$, $\vec{v}$, and $\vec{w}$ in $V$,
+\begin{equation*}
+\langle r\vec{u} + s\vec{v}, \vec{w} \rangle = \langle r\vec{u}, \vec{w} \rangle + \langle s\vec{v}, \vec{w} \rangle = r\langle \vec{u}, \vec{w} \rangle + s\langle \vec{v}, \vec{w} \rangle
+\end{equation*}
+for all $r$ and $s$ in $\RR$ by axioms P3 and P4. Moreover, there is nothing special about the fact that there are two terms in the linear combination or that it is in the first component:
+\begin{equation*}
+\langle r_1\vec{v}_1 + r_2\vec{v}_2 + \dots + r_n\vec{v}_n, \vec{w} \rangle =
+r_1\langle \vec{v}_1, \vec{w} \rangle +
+r_2\langle \vec{v}_2, \vec{w} \rangle + \dots +
+r_n\langle \vec{v}_n, \vec{w} \rangle
+\end{equation*}
+and
+\begin{equation*}
+\langle \vec{v}, s_1\vec{w}_1 + s_2\vec{w}_2 + \dots + s_m\vec{w}_m \rangle =
+s_1\langle \vec{v}, \vec{w}_1 \rangle +
+s_2\langle \vec{v}, \vec{w}_2 \rangle + \dots +
+s_m\langle \vec{v}, \vec{w}_m \rangle
+\end{equation*}
+hold for all $r_{i}$ and $s_{i}$ in $\RR$ and all $\vec{v}$, $\vec{w}$, $\vec{v}_{i}$, and $\vec{w}_{j}$ in $V$. These results are described by saying that inner products ``preserve'' linear combinations. For example,
 \begin{align*}
-\vec{u}\times\vec{v}&=(u_2v_3-u_3v_2)\vec{i}-(u_1v_3-u_3v_1)\vec{j}+(u_1v_2-u_2v_1)\vec{k} \\
-&=(u_2v_3-u_3v_2)\begin{bmatrix}1\\0\\0\end{bmatrix}-(u_1v_3-u_3v_1)\begin{bmatrix}0\\1\\0\end{bmatrix}+(u_1v_2-u_2v_1)\begin{bmatrix}0\\0\\1\end{bmatrix}=\begin{bmatrix}u_2v_3-u_3v_2\\-u_1v_3+u_3v_1\\u_1v_2-u_2v_1\end{bmatrix}
+\langle 2\vec{u} - \vec{v}, 3\vec{u} + 2\vec{v} \rangle &=
+\langle 2\vec{u}, 3\vec{u} \rangle + \langle 2\vec{u}, 2\vec{v} \rangle + \langle -\vec{v}, 3\vec{u} \rangle + \langle -\vec{v}, 2\vec{v} \rangle \\
+&= 6 \langle \vec{u}, \vec{u} \rangle + 4 \langle \vec{u}, \vec{v} \rangle -3 \langle \vec{v}, \vec{u} \rangle - 2 \langle \vec{v}, \vec{v} \rangle \\
+&= 6 \langle \vec{u}, \vec{u} \rangle + \langle \vec{u}, \vec{v} \rangle - 2 \langle \vec{v}, \vec{v} \rangle
 \end{align*}
+
+If $A$ is a symmetric $n \times n$ matrix and $\vec{x}$ and $\vec{y}$ are columns in $\RR^n$, we regard the $1 \times 1$ matrix $\vec{x}^{T}A\vec{y}$ as a number. If we write
+\begin{equation*}
+\langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y} \quad \mbox{ for all columns } \vec{x}, \vec{y} \mbox{ in } \RR^n
+\end{equation*}
+then axioms P1--P4 follow from matrix arithmetic (only P2 requires that $A$ is symmetric). Axiom P5 reads
+\begin{equation*}
+\vec{x}^TA \vec{x} > 0 \quad \mbox{ for all columns } \vec{x} \neq \vec{0} \mbox{ in } \RR^n
+\end{equation*}
+and this condition characterizes the positive definite matrices  (Theorem~\ref{thm:024830}). This proves the first assertion in the next theorem.
+
+\begin{theorem}\label{thm:030372}
+If $A$ is any $n \times n$ positive definite matrix, then
+\begin{equation*}
+\langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y} \mbox{ for all columns } \vec{x}, \vec{y} \mbox{ in } \RR^n
+\end{equation*}
+defines an inner product on $\RR^n$, and every inner product on $\RR^n$ arises in this way.
+\end{theorem}
+
+\begin{proof}
+Given an inner product $\langle\ , \rangle$ on $\RR^n$, let $\{\vec{e}_{1}, \vec{e}_{2}, \dots, \vec{e}_{n}\}$ be the standard basis of $\RR^n$. If $\vec{x} = \displaystyle \sum_{i = 1}^{n} x_i\vec{e}_i$ and $\vec{y} = \displaystyle \sum_{j = 1}^{n} y_j\vec{e}_j$ are two vectors in $\RR^n$, compute $\langle\vec{x}, \vec{y}\rangle$ by adding the inner product of each term $x_{i}\vec{e}_{i}$ to each term $y_{j}\vec{e}_{j}$. The result is a double sum.
+\begin{equation*}
+\langle \vec{x}, \vec{y} \rangle = \displaystyle \sum_{i = 1}^{n} \sum_{j = 1}^{n} \langle x_i \vec{e}_i, y_j\vec{e}_j \rangle =
+\displaystyle \sum_{i = 1}^{n} \sum_{j = 1}^{n} x_i \langle \vec{e}_i, \vec{e}_j \rangle y_j
+\end{equation*}
+As the reader can verify, this is a matrix product:
+\begin{equation*}
+\langle \vec{x}, \vec{y} \rangle =
+\left[ \begin{array}{cccc}
+x_1 & x_2 & \cdots & x_n \\
+\end{array} \right]
+\left[ \begin{array}{cccc}
+\langle \vec{e}_1, \vec{e}_1 \rangle & \langle \vec{e}_1, \vec{e}_2 \rangle & \cdots & \langle \vec{e}_1, \vec{e}_n \rangle \\
+\langle \vec{e}_2, \vec{e}_1 \rangle & \langle \vec{e}_2, \vec{e}_2 \rangle & \cdots & \langle \vec{e}_2, \vec{e}_n \rangle \\
+\vdots & \vdots & \ddots & \vdots \\
+\langle \vec{e}_n, \vec{e}_1 \rangle & \langle \vec{e}_n, \vec{e}_2 \rangle & \cdots & \langle \vec{e}_n, \vec{e}_n \rangle \\
+\end{array} \right]
+\left[ \begin{array}{c}
+	y_1 \\
+	y_2 \\
+	\vdots \\
+	y_n
+\end{array} \right]
+\end{equation*}
+Hence $\langle\vec{x}, \vec{y}\rangle = \vec{x}^{T}A\vec{y}$, where $A$ is the $n \times n$ matrix whose $(i, j)$-entry is $\langle\vec{e}_{i}, \vec{e}_{j} \rangle$. The fact that
+\begin{equation*}
+\langle\vec{e}_{i}, \vec{e}_{j}\rangle = \langle\vec{e}_{j}, \vec{e}_{i}\rangle\end{equation*}
+shows that $A$ is symmetric. Finally, $A$ is positive definite by Theorem~\ref{thm:024830}.
+\end{proof}
+
+Thus, just as every linear operator $\RR^n \to \RR^n$ corresponds to an $n \times n$ matrix, every inner product on $\RR^n$ corresponds to a positive definite $n \times n$ matrix. In particular, the dot product corresponds to the identity matrix $I_{n}$.
+
+\begin{remark}
+    If we refer to the inner product space $\RR^n$ without specifying the inner product, we mean that the dot product is to be used.
+\end{remark}
+
+\begin{example}\label{exa:030413}
+Let the inner product $\langle\ , \rangle$ be defined on $\RR^2$ by
+\begin{equation*}
+\left \langle
+\left[ \begin{array}{c}
+v_1 \\
+v_2
+\end{array} \right], \left[ \begin{array}{c}
+w_1 \\
+w_2
+\end{array} \right]
+\right \rangle
+= 2v_1w_1 - v_1w_2 - v_2w_1 + v_2w_2
+\end{equation*}
+Find a symmetric $2 \times 2$ matrix $A$ such that $\langle\vec{x}, \vec{y}\rangle = \vec{x}^{T}A\vec{y}$ for all $\vec{x}$, $\vec{y}$ in $\RR^2$.
+
+\begin{explanation}
+The $(i, j)$-entry of the matrix $A$ is the coefficient of $v_{i}w_{j}$ in the expression, so
+$ A =
+\left[ \begin{array}{rr}
+2 & -1 \\
+-1 & 1
+\end{array} \right]$. Incidentally, if
+$\vec{x} =
+\left[ \begin{array}{r}
+x \\
+y
+\end{array} \right]$, then
+\begin{equation*}
+\langle \vec{x}, \vec{x} \rangle = 2x^2 - 2xy + y^2 = x^2 +(x - y)^2 \geq 0
+\end{equation*}
+
+for all $\vec{x}$, so $\langle\vec{x}, \vec{x}\rangle = 0$ implies
+$\vec{x} = \vec{0}$. Hence $\langle\ , \rangle$ is indeed an inner product, so $A$ is positive definite.
+\end{explanation}
+\end{example}
+
+Let $\langle\ , \rangle$ be an inner product on $\RR^n$ given as in Theorem~\ref{thm:030372} by a positive definite matrix $A$. If $\vec{x} =
+\left[ \begin{array}{cccc}
+x_1 & x_2 & \cdots & x_n
+\end{array} \right]^T $, then $\langle\vec{x}, \vec{x}\rangle = \vec{x}^{T}A\vec{x}$ is an expression in the variables
+$x_{1}, x_{2}, \dots, x_{n}$ called a \dfn{quadratic form}. For more on quadratic forms, see Section~\ref{sec:8_8} of [Nicholson], pp. 472--482.
+
+\subsection*{Norm and Distance}
+
+\begin{definition}\label{def:030438}
+As in $\RR^n$, if $\langle\ , \rangle$ is an inner product on a space $V$, the \dfn{norm}
+ $\norm{\vec{v}}$ of a vector $\vec{v}$ in $V$ is defined by
+\begin{equation*}
+\norm{ \vec{v} } = \sqrt{\langle \vec{v}, \vec{v} \rangle}
+\end{equation*}
+We define the \dfn{distance} between vectors $\vec{v}$ and $\vec{w}$ in an inner product space $V$ to be
+\begin{equation*}
+\mbox{d}(\vec{v}, \vec{w}) = \norm{ \vec{v} - \vec{w} }
+\end{equation*}
 \end{definition}
+\begin{remark}
+ If the dot product is used in $\RR^n$, the norm $\norm{\vec{x}}$ of a vector $\vec{x}$ is usually called the \dfn{length} of $\vec{x}$.   
+\end{remark}
 
-This formula is much easier to remember when stated symbolically in terms of determinants.
-$$\vec{u}\times \vec{v}=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix}\times\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}=\vec{i}\begin{vmatrix}u_2&u_3\\v_2&v_3\end{vmatrix}-\vec{j}\begin{vmatrix}u_1&u_3\\v_1&v_3\end{vmatrix}+\vec{k}\begin{vmatrix}u_1&u_2\\v_1&v_2\end{vmatrix} $$
 
-\begin{example}\label{ex:crossproduct}
-Find the cross product of $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}$.
+Note that axiom P5 guarantees that
+$\langle\vec{v}, \vec{v}\rangle \geq 0$, so $\norm{\vec{v}}$ is a real number.
+
+\begin{example}\label{exa:030446}
+%NEED FIGURE
+
+The norm of a continuous function $f = f(x)$ in $\mathcal{C}[a, b]$ (with the inner product from Example~\ref{exa:030334}) is given by
+\begin{equation*}
+\norm{ f } = \sqrt{\int_{a}^{b} f(x)^2dx}
+\end{equation*}
+Hence $\norm{ f}^{2}$ is the area beneath the graph of $y = f(x)^{2}$ between $x = a$ and $x = b$ (shaded in the diagram).
+\end{example}
+
+\begin{example}\label{030454}
+Show that $\langle\vec{u} + \vec{v}, \vec{u} - \vec{v}\rangle = \norm{\vec{u}}^{2} - \norm{\vec{v}}^{2}$ in any inner product space.
+
 \begin{explanation}
 \begin{align*}
-\vec{u}\times \vec{v}&=
-\begin{vmatrix}
-\vec{i} & \vec{j} & \vec{k}\\
-3 & -10 &2\\
--2 &4 &7
-\end{vmatrix} =\vec{i}
-\begin{vmatrix}
--10 & 2\\
-4 & 7
-\end{vmatrix} -\vec{j}
-\begin{vmatrix}
-3 & 2\\
--2 & 7
-\end{vmatrix} +\vec{k}
-\begin{vmatrix}
-3 & -10\\
--2 & 4
-\end{vmatrix}\\
-&=\vec{i}\Big((-10)(7)-(2)(4)\Big)-\vec{j}\Big((3)(7)-(2)(-2)\Big)+\vec{k}\Big((3)(4)-(-10)(-2)\Big)\\
-&=-78\vec{i}-25\vec{j}-8\vec{k}
-=\begin{bmatrix}-78\\ -25\\ -8\end{bmatrix}
+\langle \vec{u} + \vec{v}, \vec{u} - \vec{v} \rangle &= \langle \vec{u}, \vec{u} \rangle - \langle \vec{u}, \vec{v} \rangle + \langle \vec{v}, \vec{u} \rangle - \langle \vec{v}, \vec{v} \rangle \\
+&= \norm{ \vec{u} }^2 - \langle \vec{u}, \vec{v} \rangle + \langle \vec{u}, \vec{v} \rangle - \norm{ \vec{v} }^2 \\
+&= \norm{ \vec{u} }^2 - \norm{ \vec{v} }^2
 \end{align*}
 \end{explanation}
 \end{example}
 
-\subsection*{Properties of the Cross Product}
+A vector $\vec{v}$ in an inner product space $V$ is called a \dfn{unit vector} if $\norm{\vec{v}} = 1$. The set of all unit vectors in $V$ is called the \dfn{unit ball} in $V$. For example, if $V = \RR^2$ (with the dot product) and $\vec{v} = (x, y)$, then
+\begin{equation*}
+\norm{ \vec{v} }^2 = 1 \quad \mbox{ if and only if } \quad x^2 + y^2 = 1
+\end{equation*}
+Hence the unit ball in $\RR^2$ is the \dfn{unit circle} $x^{2} + y^{2} = 1$ with centre at the origin and radius $1$. However, the shape of the unit ball varies with the choice of inner product.
 
-% In the next example, we will use vectors $\vec{u}$ and $\vec{v}$ of Example \ref{ex:crossproduct}, and compute $\vec{v}\times\vec{u}$ to illustrate that the cross product is not commutative and to find a relationship between $\vec{u}\times\vec{v}$ and $\vec{v}\times \vec{u}$.  If you have already studied the effect that switching two rows of a matrix has on its determinant, you should be able to guess the outcome of the upcoming computation.
+\begin{example}\label{030469}
+%NEED FIGURE
 
-\begin{exploration}\label{init:crossproduct2}
-What would happen if we took the cross product of the vectors in Example \ref{ex:crossproduct} but reversed the order?
 
-Let $\vec{v}=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}$ and $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$.
-Recall that $\vec{u}\times\vec{v}=\begin{bmatrix}-78\\-25\\-8\end{bmatrix}$.  We need to compute $\vec{v}\times\vec{u}$.  If you have already studied the effect that switching two rows of a matrix has on its determinant, you should be able to guess the outcome of the upcoming computation.
-\begin{align*}
-\vec{v}\times \vec{u}&=
-\begin{vmatrix}
-\vec{i} & \vec{j} & \vec{k}\\
--2 &4 &7\\
-3 & -10 &2
-\end{vmatrix} =\vec{i}
-\begin{vmatrix}
-4 & 7\\
--10 & 2
-\end{vmatrix} -\vec{j}
-\begin{vmatrix}
--2 & 7\\
-3 & 2
-\end{vmatrix} +\vec{k}
-\begin{vmatrix}
--2 & 4\\
-3 & -10
-\end{vmatrix}\\
-&=\vec{i}\Big((4)(2)-(7)(-10)\Big)-\vec{j}\Big((-2)(2)-(7)(3)\Big)+\vec{k}\Big((-2)(-10)-(4)(3)\Big)\\
-&=78\vec{i}+25\vec{j}+8\vec{k}
-=\begin{bmatrix}78\\ 25\\ 8\end{bmatrix}=-(\vec{u}\times\vec{v})
-\end{align*}
+Let $a > 0$ and $b > 0$. If $\vec{v} = (x, y)$ and $\vec{w} = (x_{1}, y_{1})$, define an inner product on $\RR^2$ by
+\begin{equation*}
+\langle \vec{v}, \vec{w} \rangle = \frac{xx_1}{a^2} + \frac{yy_1}{b^2}
+\end{equation*}
+The reader can verify (Practice Problem \ref{ex:10_1_5}) that this is indeed an inner product. In this case
+\begin{equation*}
+\norm{ \vec{v} }^2 = 1 \quad \mbox{ if and only if } \quad \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\end{equation*}
+so the unit ball is the ellipse shown in the diagram.
+\end{example}
 
-This computation shows that the cross product is an operation that is not commutative. It also suggests that switching the order of the vectors changes the sign of the result.
-\end{exploration}
+\noindent Example~\ref{exa:030469} graphically illustrates the fact that norms and distances in an inner product space $V$ vary with the choice of inner product in $V$.
 
-\begin{warning}The Cross Product is not a commutative operation.
-\end{warning}
-
-\begin{theorem}\label{th:corssuvnegcrossvu}
-Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^3$, then
-$$\vec{u}\times\vec{v}=-(\vec{v}\times\vec{u})$$
+\begin{theorem}\label{030480}
+If $\vec{v} \neq \vec{0}$ is any vector in an inner product space $V$, then $\frac{1}{\norm{ \vec{v} }} \vec{v}$ is the unique unit vector that is a positive multiple of $\vec{v}$.
 \end{theorem}
+
+The next theorem reveals an important and useful fact about the relationship between norms and inner products, extending the Cauchy inequality for $\RR^n$ (Theorem~\ref{thm:014907}).
+
+\begin{theorem}[Cauchy-Schwarz Inequality]\label{030486}
+If $\vec{v}$ and $\vec{w}$ are two vectors in an inner product space $V$, then
+\begin{equation*}
+\langle \vec{v}, \vec{w} \rangle^2 \leq \norm{ \vec{v} }^2 \norm{ \vec{w} }^2
+\end{equation*}
+Moreover, equality occurs if and only if one of $\vec{v}$ and $\vec{w}$ is a scalar multiple of the other.
+\end{theorem}
+\begin{remark}
+   Hermann Amandus Schwarz (1843--1921) was a German mathematician at the University of Berlin. He had strong geometric intuition, which he applied with great ingenuity to particular problems. A version of the inequality appeared in 1885. 
+\end{remark}
+
 \begin{proof}
-The proof is left to the reader.  (See Practice Problem \ref{prob:corssuvnegcrossvu})
+Write $\norm{\vec{v}} = a$ and $\norm{\vec{w}} = b$. Using Theorem~\ref{thm:030346} we compute:
+\begin{equation}
+\label{eq:thm10_1_4}
+\begin{split}
+	\norm{ b\vec{v} - a \vec{w} }^2 &= b^2 \norm{ \vec{v} }^2 - 2ab \langle \vec{v}, \vec{w} \rangle + a^2\norm{ \vec{w} }^2 = 2ab(ab - \langle \vec{v}, \vec{w} \rangle) \\
+	\norm{ b\vec{v} + a \vec{w} }^2 &= b^2 \norm{ \vec{v} }^2 + 2ab \langle \vec{v}, \vec{w} \rangle + a^2\norm{ \vec{w} }^2 = 2ab(ab + \langle \vec{v}, \vec{w} \rangle) \\
+\end{split}
+\end{equation}
+It follows that $ab - \langle\vec{v}, \vec{w}\rangle \geq 0$ and
+$ab + \langle\vec{v}, \vec{w}\rangle \geq 0$, and hence that $-ab \leq \langle\vec{v}, \vec{w}\rangle \leq ab$. But then $| \langle\vec{v}, \vec{w}\rangle | \leq ab = \norm{\vec{v}} \norm{ \vec{w}}$, as desired.
+
+Conversely, if $|\langle \vec{v},  \vec{w}\rangle | =
+\norm{\vec{v}} \norm{ \vec{w} } = ab$
+then $\langle\vec{v}, \vec{w}\rangle = \pm ab$. Hence (\ref{eq:thm10_1_4}) shows that $b\vec{v} - a\vec{w} = \vec{0}$ or $b\vec{v} + a\vec{w} = \vec{0}$. It follows that one of $\vec{v}$ and $\vec{w}$ is a scalar multiple of the other, even if $a = 0$ or $b = 0$.
 \end{proof}
-The next theorem lists two additional properties of the cross product.  Proofs of these properties are routine and are left to the reader.  (See Practice Problems \ref{prob:scalarassocofcrossprod} and \ref{prob:distofrossprod})
-\begin{theorem}\label{th:crossproductproperties}
-Let $\vec{u}$, $\vec{v}$ and $\vec{w}$ be vectors in $\mathbb{R}^3$, and $k$ be a scalar, then\\
+
+\begin{example}\label{030499}
+If $f$ and $g$ are continuous functions on the interval $[a, b]$, then (see Example~\ref{exa:030334})
+\begin{equation*}
+\left(\int_{a}^{b} f(x)g(x)dx \right) ^2 \leq \int_{a}^{b} f(x)^2 dx \int_{a}^{b} g(x)^2 dx
+\end{equation*}
+\end{example}
+
+Another famous inequality, the so-called \dfn{triangle inequality} (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0010/main}{Triangle Inequality} in the Appendix), also comes from the Cauchy-Schwarz inequality. It is included in the following list of basic properties of the norm of a vector.
+
+\begin{theorem}\label{thm:030504}
+If $V$ is an inner product space, the norm $\norm{ \dotp }$ has the following properties.
+
 \begin{enumerate}
-\item\label{item:scalarassocofcrossprod} Scalar Associativity
-$$(k\vec{u})\times \vec{v}=\vec{u}\times (k\vec{v})=k(\vec{u}\times \vec{v})$$
-\item\label{item:distofrossprod} Distributivity
-$$(\vec{u}+\vec{v})\times \vec{w}=\vec{u}\times \vec{w}+\vec{v}\times \vec{w}$$
-$$\vec{u}\times (\vec{v}+\vec{w})=\vec{u}\times \vec{v}+\vec{u}\times \vec{w}$$
+\item\label{thm:030504a} $\norm{\vec{v}} \geq 0$ for every vector $\vec{v}$ in $V$.
+
+\item\label{thm:030504b} $\norm{\vec{v}} = 0$ if and only if $\vec{v} = \vec{0}$.
+
+\item\label{thm:030504c} $\norm{ r \vec{v}} = |r|\norm{\vec{v}}$ for every $\vec{v}$ in $V$ and every $r$ in $\RR$.
+
+\item\label{thm:030504d} $\norm{\vec{v} + \vec{w}} \leq \norm{\vec{v}} + \norm{\vec{w}}$ for all $\vec{v}$ and $\vec{w}$ in $V$ (\dfn{triangle inequality}).
+
 \end{enumerate}
 \end{theorem}
 
-The cross product has several important geometric properties. The following problems give us a glimpse of these properties.
-
-\begin{exploration}\label{init:ijkcrossproducts}
-Compute the following products:
-$$\vec{i}\times\vec{j}=\begin{bmatrix}\answer{0}\\\answer{0}\\\answer{1}\end{bmatrix},\quad\vec{j}\times\vec{k}=\begin{bmatrix}\answer{1}\\\answer{0}\\\answer{0}\end{bmatrix}$$
-
-For the two vectors in each product, sketch the vectors together with the product vector.  What do you observe about the relationship between the cross product and the plane determined by the two vectors in the product?  
-\begin{hint}
-$\vec{i}\times\vec{j}=\vec{k}$.  Vector $\vec{k}$ is orthogonal to both $\vec{i}$ and $\vec{j}$.  
-\end{hint}
-
-
-
-\end{exploration}
-
-\subsubsection*{Orthogonality Property}
-\begin{exploration}\label{init:orthofcorssproduct}
-In this problem we will return to vectors of $\vec{v}=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}$ and $\vec{u}=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}$ of Example \ref{ex:crossproduct} and Exploration Problem \ref{init:crossproduct2}.  We know that 
-$$\vec{u}\times\vec{v}=\begin{bmatrix}-78\\-25\\-8\end{bmatrix}\quad\text{and}\quad\vec{v}\times\vec{u}=\begin{bmatrix}78\\25\\8\end{bmatrix}$$
-We will now compute the dot product of $\vec{v}\times\vec{u}$ with each of the original vectors $\vec{u}$ and $\vec{v}$.
-$$\vec{u}\dotp(\vec{v}\times\vec{u})=\begin{bmatrix}3\\ -10\\ 2\end{bmatrix}\dotp\begin{bmatrix}78\\25\\8\end{bmatrix}=0$$
-$$\vec{v}\dotp(\vec{v}\times\vec{u})=\begin{bmatrix}-2\\ 4\\ 7\end{bmatrix}\dotp\begin{bmatrix}78\\25\\8\end{bmatrix}=0$$
-It is also easy to verify that $\vec{u}\dotp(\vec{u}\times\vec{v})=0$ and $\vec{v}\dotp(\vec{u}\times\vec{v})=0$.  Recall that the dot product of two vectors is $0$ if and only if the two vectors are orthogonal. (Theorem \ref{th:orth})
-We conclude that, at least in this case, the cross product of two vectors is orthogonal to each of the vectors.  
-
-\end{exploration}
-
-It turns out that the orthogonality property illustrated by Exploration Problems \ref{init:ijkcrossproducts} and \ref{init:orthofcorssproduct}  holds in general.  We state it as a theorem.
-
-\begin{theorem}\label{th:crossproductorthtouandv}
-Let $\vec{u}$ and $\vec{v}$ be vectors of $\RR^3$, then $\vec{u}\times\vec{v}$ is orthogonal to both $\vec{u}$ and $\vec{v}$.
-\end{theorem}
-\begin{proof}This proof can be done by direct computation and is left to the reader.  (See Practice Problem \ref{prob:crossproductorthtouandv})
-\end{proof}
-
-\subsubsection*{Cross Product and the Angle between Vectors}
-Recall that the dot product of $\vec{u}$ and $\vec{v}$ is related to the angle $\theta$ between $\vec{u}$ and $\vec{v}$ by the following formula
-\begin{align}\label{eq:dotproductformula}\vec{u}\dotp\vec{v}=\norm{\vec{u}}\norm{\vec{v}}\cos\theta\end{align}
-We will derive an analogous result for the cross product.  To do so, we will need the following Lemma.
-
-\begin{lemma}\label{lemma:crossprodmagnitude}
-Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^3$.  Then
-$$\norm{\vec{u}\times\vec{v}}^2=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\vec{u}\dotp\vec{v})^2$$
-\end{lemma}
-\begin{proof} The proof is left to the reader.  (See Practice Problem \ref{prob:corssprodmagnitude})
-\end{proof}
-
-The following theorem establishes a relationship between the magnitude of the cross product, the magnitudes of the two vectors involved in the cross product and the angle between the two vectors.  It is important to note that  the identity in this theorem involves the magnitude of the cross product, not the cross product itself.
-
-\begin{theorem}\label{th:crossproductsin}
-Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^3$. Let $\theta$ be the angle between $\vec{u}$ and $\vec{v}$ such that $0\leq\theta\leq \pi$. Then
-$$\norm{\vec{u}\times\vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin\theta$$
-\end{theorem}
 \begin{proof}
-By Lemma \ref{lemma:crossprodmagnitude} and (\ref{eq:dotproductformula}) we have
+Because $\norm{ \vec{v} } = \sqrt{\langle \vec{v}, \vec{v} \rangle}$, properties \ref{thm:030504a} and \ref{thm:030504b} follow immediately from \ref{thm:030346c} and \ref{thm:030346d} of Theorem~\ref{thm:030346}. As to \ref{thm:030504c}, compute
+\begin{equation*}
+\norm{ r\vec{v} } ^2 = \langle r\vec{v}, r\vec{v} \rangle = r^2\langle \vec{v}, \vec{v} \rangle = r^2\norm{ \vec{v} }^2
+\end{equation*}
+Hence \ref{thm:030504c} follows by taking positive square roots. Finally, the fact that $\langle\vec{v}, \vec{w}\rangle \leq \norm{\vec{v}}\norm{\vec{w}}$ by the Cauchy-Schwarz inequality gives
 \begin{align*}
-\norm{\vec{u}\times\vec{v}}^2&=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\vec{u}\dotp\vec{v})^2\\
-&=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\norm{\vec{u}}\norm{\vec{v}}\cos \theta)^2\\
-&=\norm{\vec{u}}^2\norm{\vec{v}}^2-\norm{\vec{u}}^2\norm{\vec{v}}^2\cos^2\theta\\
-&=\norm{\vec{u}}^2\norm{\vec{v}}^2(1-\cos^2\theta)\\
-&=\norm{\vec{u}}^2\norm{\vec{v}}^2\sin^2\theta
+\norm{ \vec{v} + \vec{w} } ^2 =
+\langle \vec{v} + \vec{w}, \vec{v} + \vec{w} \rangle &=
+\norm{ \vec{v} } ^2 + 2 \langle \vec{v}, \vec{w} \rangle +
+\norm{ \vec{w} } ^2 \\
+&\leq \norm{ \vec{v} } ^2 +
+2 \norm{ \vec{v} } \norm{ \vec{w} } +
+\norm{ \vec{w} } ^2 \\
+&= (\norm{ \vec{v} } + \norm{ \vec{w} })^2
 \end{align*}
-Observe that all magnitudes are non-negative.  Also, $\sin\theta\geq 0$ because $0\leq\theta\leq \pi$.  Taking the square root of both sides give us
-$$\norm{\vec{u}\times\vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin\theta$$
+Hence \ref{thm:030504d} follows by taking positive square roots.
 \end{proof}
 
+It is worth noting that the usual triangle inequality for absolute values,
+\begin{equation*}
+| r + s | \leq |r| + |s| \mbox{ for all real numbers } r \mbox{ and } s
+\end{equation*}
+is a special case of \ref{thm:030504d} where $V = \RR = \RR^1$ and the dot product $\langle r, s \rangle = rs$ is used.
+
+In many calculations in an inner product space, it is required to show that some vector $\vec{v}$ is zero. This is often accomplished most easily by showing that its norm $\norm{\vec{v}}$ is zero. Here is an example.
+
+\begin{example}\label{030528}
+Let $\{\vec{v}_{1}, \dots, \vec{v}_{n}\}$ be a spanning set for an inner product space $V$. If $\vec{v}$ in $V$ satisfies $\langle\vec{v}, \vec{v}_{i}\rangle = 0$ for each $i = 1, 2, \dots, n$, show that $\vec{v} = \vec{0}$.
+
+\begin{explanation}
+Write $\vec{v} = r_{1}\vec{v}_{1} + \dots + r_{n}\vec{v}_{n}$, $r_{i}$ in $\RR$. To show that $\vec{v} = \vec{0}$, we show that $\norm{\vec{v}}^{2} = \langle\vec{v}, \vec{v}\rangle = 0$. Compute:
+\begin{equation*}
+\langle \vec{v}, \vec{v} \rangle
+= \langle \vec{v}, r_1\vec{v}_1 + \dots + r_n\vec{v}_n \rangle
+= r_1\langle \vec{v}, \vec{v}_1 \rangle + \dots + r_n \langle \vec{v}, \vec{v}_n \rangle
+= 0
+\end{equation*}
+by hypothesis, and the result follows.
+\end{explanation}
+\end{example}
+
+The norm properties in Theorem~\ref{thm:030504} translate to the following properties of distance familiar from geometry. The proof is Practice Problem \ref{ex:10_1_21}.
+
+\begin{theorem}\label{030545}
+Let $V$ be an inner product space.
+
+\begin{enumerate}
+\item $\mbox{d}(\vec{v}, \vec{w}) \geq 0$ for all $\vec{v}$, $\vec{w}$ in $V$.
+
+\item $\mbox{d}(\vec{v}, \vec{w}) = 0$ if and only if $\vec{v} = \vec{w}$.
+
+\item $\mbox{d}(\vec{v}, \vec{w}) = \mbox{d}(\vec{w}, \vec{v})$ for all $\vec{v}$ and $\vec{w}$ in $V$.
+
+\item $\mbox{d}(\vec{v}, \vec{w}) \leq \mbox{d}(\vec{v}, \vec{u}) + \mbox{d}(\vec{u}, \vec{w})$ for all $\vec{v}$, $\vec{u}$, and $\vec{w}$ in $V$.
+
+\end{enumerate}
+\end{theorem}
 
 \section*{Practice Problems}
-\begin{problem}\label{prob:crossik}
-$\vec{i}\times\vec{k}=$
-\begin{multipleChoice}\choice{$\vec{j}$}
-  \choice[correct]{$-\vec{j}$ }
-  \choice{neither}
-  \end{multipleChoice}
-\end{problem}
 
-\begin{problem}\label{prob:crosski}
-$\vec{k}\times\vec{i}=$
-\begin{multipleChoice}\choice[correct]{$\vec{j}$}
-  \choice{$-\vec{j}$ }
-  \choice{neither}
-  \end{multipleChoice}
-\end{problem}
+\begin{problem}\label{prob:inner_prod_1}
+In each case, determine which of axioms P1--P5 in Definition \ref{def:innerproductspace} fail to hold.
 
-\begin{problem} Find the cross product $\vec{u}\times\vec{v}$, and verify that $\vec{u}\times\vec{v}$ is orthogonal to both $\vec{u}$ and $\vec{v}$.
+\begin{enumerate} 
+\item $V = \RR^2$, $\langle (x_1, y_1), (x_2, y_2) \rangle = x_1y_1x_2y_2$
 
-\begin{problem}\label{prob:crossuv1}
-$\vec{u}=\begin{bmatrix}2\\-1\\4\end{bmatrix}$, $\vec{v}=\begin{bmatrix}0\\3\\1\end{bmatrix}$.
+\item $V = \RR^3$, \\$\langle (x_1, x_2, x_3), (y_1, y_2, y_3) \rangle = x_1y_1 - x_2y_2 + x_3y_3$
 
-Answer:
-$$\vec{u}\times\vec{v}=\begin{bmatrix}\answer{-13}\\\answer{-2}\\\answer{6}\end{bmatrix}$$
-\end{problem}
+Click the arrow to see the answer.
+\begin{expandable}
+P5 fails.
+\end{expandable}
 
-\begin{problem}\label{prob:crossuv2}
-$\vec{u}=\begin{bmatrix}-1\\5\\-3\end{bmatrix}$, $\vec{v}=\begin{bmatrix}2\\-1\\-4\end{bmatrix}$.
+\item $V = \mathbb{C}$, $\langle z, w \rangle = z\overline{w}$, where $\overline{w}$ is complex
+conjugation
 
-Answer:
-$$\vec{u}\times\vec{v}=\begin{bmatrix}\answer{-23}\\\answer{-10}\\\answer{-9}\end{bmatrix}$$
-\end{problem}
-\end{problem}
+Click the arrow to see the answer.
+\begin{expandable}
+P1 fails, as sometimes we get a complex number.  However, we will return to this definition of $\langle\ , \rangle$ in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} -- see \ref{def:025549}
+\end{expandable}
 
-\begin{problem}\label{prob:corssuvnegcrossvu}
-Prove Theorem \ref{th:corssuvnegcrossvu}.
-\end{problem}
+\item $V = \mathbb{P}^3$, $\langle p(x), q(x) \rangle = p(1)q(1)$
 
-\begin{problem}\label{prob:scalarassocofcrossprod}
-Prove Theorem \ref{th:crossproductproperties}\ref{item:scalarassocofcrossprod} in two different ways:
-  \begin{enumerate}
-  \item By direct computation.
-  \item (Optional) By using Theorem \ref{th:elemrowopsanddet}\ref{item:rowconstantmultanddet}. 
-  \end{enumerate}
-\end{problem}
+Click the arrow to see the answer.
+\begin{expandable}
+P5 fails.
+\end{expandable}
 
-\begin{problem}\label{prob:distofrossprod}
-Prove Theorem \ref{th:crossproductproperties}\ref{item:distofrossprod}.
-\end{problem}
+\item $V = \mathbb{M}_{22}$, $\langle A, B \rangle = \mbox{det}(AB)$
 
-\begin{problem}\label{prob:crossproductorthtouandv}
-Prove Theorem \ref{th:crossproductorthtouandv}.
-\end{problem}
+\item $V = \mathcal{F}[0, 1]$, $\langle f, g \rangle = f(1)g(0) + f(0)g(1)$
 
-\begin{problem}\label{prob:crossself}
-Prove that the cross product of any vector with itself is the zero vector.
-\end{problem}
+Click the arrow to see the answer.
+\begin{expandable}
+P5 fails.
+\end{expandable}
 
-\begin{problem}\label{prob:crossprodzero}
-Suppose that $\vec{u}$ is a non-zero vector.  Let $\vec{v}=k\vec{u}$ for $k\neq 0$.  Argue that $\vec{u}\times \vec{v}=\vec{0}$ in two different ways:
-\begin{enumerate}
-\item
-By using Theorem \ref{th:crossproductsin}.
-\item (Optional) By using Theorem \ref{th:detofsingularmatrix}.
 \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:corssprodmagnitude} Prove the following identity for vectors $\vec{u}$ and $\vec{v}$ of $\RR^3$.
-$$\norm{\vec{u}\times\vec{v}}^2=\norm{\vec{u}}^2\norm{\vec{v}}^2-(\vec{u}\dotp\vec{v})^2$$
-(Lemma \ref{lemma:crossprodmagnitude})
+\begin{problem}\label{prob:inner_prod_2}
+Let $V$ be an inner product space. If $U \subseteq V$ is a subspace, show that $U$ is an inner product space using the same inner product.
+
+\begin{hint}
+Axioms P1--P5 hold in $U$ because they hold in $V$.
+\end{hint}
 \end{problem}
 
-\end{document} 
+\begin{problem}\label{prob:inner_prod_3}
+In each case, find a scalar multiple of $\vec{v}$ that is a unit vector.
+
+\begin{enumerate} 
+\item $\vec{v} = f$ in $\mathcal{C}[0, 1]$ where
+$f(x) = x^2$  \\ $\langle f, g \rangle \int_{0}^{1} f(x)g(x)dx$
+
+\item $\vec{v} = f$ in $\mathcal{C}[-\pi, \pi]$ where
+$f(x) = \cos x$ \\ $\langle f, g \rangle \int_{-\pi}^{\pi} f(x)g(x)dx$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\frac{1}{\sqrt{\pi}}f$
+\end{expandable}
+
+\item $\vec{v} =
+\left[ \begin{array}{r}
+1 \\
+3
+\end{array} \right]$
+in $\RR^2$ where $\langle \vec{v}, \vec{w} \rangle = \vec{v}^T
+\left[ \begin{array}{rr}
+1 & 1 \\
+1 & 2
+\end{array} \right]
+\vec{w}$
+
+\item $ \vec{v} =
+\left[ \begin{array}{r}
+3 \\
+-1
+\end{array} \right]$
+in $\RR^2$, $\langle \vec{v}, \vec{w} \rangle = \vec{v}^T
+\left[ \begin{array}{rr}
+1 & -1 \\
+-1 & 2
+\end{array} \right]
+\vec{w}$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\frac{1}{\sqrt{17}}
+\left[ \begin{array}{r}
+3 \\
+-1
+\end{array} \right]$
+\end{expandable}
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_4}
+In each case, find the distance between $\vec{u}$ and $\vec{v}$.
+
+\begin{enumerate} 
+\item $\vec{u} = (3, -1, 2, 0)$, $\vec{v} = (1, 1, 1, 3);
+\langle \vec{u}, \vec{v} \rangle = \vec{u} \dotp \vec{v}$
+
+\item $\vec{u} = (1,  2, -1, 2)$, $\vec{v} = (2, 1, -1, 3);
+\langle \vec{u}, \vec{v} \rangle = \vec{u} \dotp \vec{v}$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\sqrt{3}$
+\end{expandable}
+
+\item $\vec{u} = f$, $\vec{v} = g $ in $\mathcal{C}[0, 1]$ where $f(x) = x^2 $ and $g(x) = 1 - x$; $\langle f, g \rangle = \int_{0}^{1} f(x)g(x)dx$
+
+\item $\vec{u} = f$, $\vec{v} = g $ in $\mathcal{C}[-\pi, \pi]$ where $f(x) = 1$ and $g(x) = \cos x$; $\langle f, g \rangle = \int_{-\pi}^{\pi} f(x)g(x)dx$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$\sqrt{3\pi}$
+\end{expandable}
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{ex:10_1_5}
+Let $a_{1}, a_{2}, \dots, a_{n}$ be positive numbers. Given $\vec{v} = (v_{1}, v_{2}, \dots, v_{n})$ and $\vec{w} = (w_{1}, w_{2}, \dots, w_{n})$, define $\langle\vec{v}, \vec{w}\rangle = a_{1}v_{1}w_{1} + \dots + a_{n}v_{n}w_{n}$. Show that this is an inner product on $\RR^n$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_6}
+If $\{\vec{b}_{1}, \dots, \vec{b}_{n}\}$ is a basis of $V$ and if
+$\vec{v} = v_1\vec{b}_1 + \dots + v_n\vec{b}_n$ and
+$\vec{w} = w_1\vec{b}_1 + \dots + w_n\vec{b}_n$ are vectors in $V$, define
+\begin{equation*}
+\langle \vec{v}, \vec{w} \rangle = v_1w_1 + \dots + v_nw_n .
+\end{equation*}
+Show that this is an inner product on $V$.
+\end{problem}
+
+
+\begin{problem}\label{prob:inner_prod_9}
+Let $\mbox{re}(z)$ denote the real part of the complex number
+$z$. Show that $\langle\ , \rangle$ is an inner product on $\mathbb{C}$ if $\langle\vec{z}, \vec{w}\rangle = \mbox{re}(z\overline{w})$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_10}
+If $T : V \to V$ is an isomorphism of the inner product space $V$, show that
+\begin{equation*}
+\langle \vec{v}, \vec{w} \rangle_1 = \langle T(\vec{v}), T(\vec{w}) \rangle
+\end{equation*}
+defines a new inner product $\langle\ , \rangle_{1}$ on $V$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_11}
+Show that every inner product $\langle\ , \rangle$ on $\RR^n$ has the form $\langle\vec{x}, \vec{y}\rangle = (U\vec{x}) \dotp (U\vec{y})$ for some upper triangular matrix $U$ with positive diagonal entries. [\textit{Hint}: Theorem~\ref{thm:024907}.]
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_12}
+In each case, show that $\langle\vec{v}, \vec{w}\rangle = \vec{v}^{T}A\vec{w}$ defines an inner product on $\RR^2$ and hence show that $A$ is positive definite.
+\begin{enumerate}
+\item
+$A =
+\left[ \begin{array}{rr}
+2 & 1 \\
+1 & 1
+\end{array} \right]$
+\item
+$A =
+\left[ \begin{array}{rr}
+5 & -3 \\
+-3 & 2
+\end{array} \right]$
+\item
+$A =
+\left[ \begin{array}{rr}
+3 & 2 \\
+2 & 3
+\end{array} \right]$
+\item
+$A =
+\left[ \begin{array}{rr}
+3 & 4 \\
+4 & 6
+\end{array} \right]$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+ 
+\item  $  \langle \vec{v}, \vec{v} \rangle = 5v_1^2 - 6v_1v_2 + 2v_2^2 =
+\frac{1}{5}[(5v_1 - 3v_2)^2 + v_2^2] $
+
+
+\item  $ \langle \vec{v}, \vec{v} \rangle = 3v_1^2 + 8v_1v_2 + 6v_2^2 =
+\frac{1}{3}[(3v_1 + 4v_2)^2 + 2v_2^2] $
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_13}
+In each case, find a symmetric matrix $A$ such that $\langle\vec{v}, \vec{w}\rangle = \vec{v}^{T}A\vec{w}$.
+
+
+\begin{enumerate} 
+\item
+$  \left\langle
+\left[ \begin{array}{r}
+v_1 \\
+v_2
+\end{array} \right], \left[ \begin{array}{r}
+w_1 \\
+w_2
+\end{array} \right]
+\right\rangle
+= v_1w_1 + 2v_1w_2 + 2v_2w_1 + 5v_2w_2$
+
+\item
+$\left\langle
+\left[ \begin{array}{r}
+v_1 \\
+v_2
+\end{array} \right], \left[ \begin{array}{r}
+w_1 \\
+w_2
+\end{array} \right]
+\right\rangle
+= v_1w_1 - v_1w_2 - v_2w_1 + 2v_2w_2$
+
+\item
+$\left\langle
+\left[ \begin{array}{r}
+v_1 \\
+v_2 \\
+v_3
+\end{array} \right], \left[ \begin{array}{r}
+w_1 \\
+w_2 \\
+w_3
+\end{array} \right]
+\right\rangle
+= 2v_1w_1 + v_2w_2 + v_3w_3 - v_1w_2 \\ -v_2w_1 + v_2w_3 + v_3w_2$
+
+\item
+$\left\langle
+\left[ \begin{array}{r}
+v_1 \\
+v_2 \\
+v_3
+\end{array} \right], \left[ \begin{array}{r}
+w_1 \\
+w_2 \\
+w_3
+\end{array} \right]
+\right\rangle
+= v_1w_1 + 2v_2w_2 + 5v_3w_3 \\ - 2v_1w_3 - 2v_3w_1$
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+ 
+\item $\left[ \begin{array}{rr}
+1 & -2 \\
+-2 & 1
+\end{array} \right]$
+
+
+\item $\left[ \begin{array}{rrr}
+1 & 0 & -2 \\
+0 & 2 & 0 \\
+-2 & 0 & 5
+\end{array} \right]$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_14}
+If $A$ is symmetric and $\vec{x}^{T}A\vec{x} = 0$ for all columns $\vec{x}$ in $\RR^n$, show that $A = 0$. [\textit{Hint}: Consider
+$\langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle$ where $\langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y}$.]
+
+\begin{hint}
+By the condition, $\langle \vec{x}, \vec{y} \rangle = \frac{1}{2} \langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle = 0$ for all $\vec{x}$, $\vec{y}$. Let $\vec{e}_{i}$ denote column $i$ of $I$. If $A = \left[ a_{ij} \right]$, then $a_{ij} = \vec{e}_{i}^{T}A\vec{e}_{j} = \{\vec{e}_{i}, \vec{e}_{j}\} = 0$ for all $i$ and $j$.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_15}
+Show that the sum of two inner products on $V$ is again an inner product.
+\end{problem}
+
+\begin{problem} \label{ex:10_1_16}
+Let $ \norm{ \vec{u} } = 1$, $\norm{ \vec{v} } = 2$, $\norm{ \vec{w} } = \sqrt{3} $, $\langle \vec{u}, \vec{v} \rangle = -1$, $\langle\vec{u}, \vec{w}\rangle = 0$ and $\langle\vec{v}, \vec{w}\rangle = 3$. Compute:
+\begin{enumerate}
+\item $\langle \vec{v} + \vec{w}, 2\vec{u} - \vec{v} \rangle$
+\item $\langle \vec{u} - 2 \vec{v} - \vec{w}, 3\vec{w} - \vec{v} \rangle$
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+
+\item  $-15$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_17}
+Given the data in Practice Problem \ref{ex:10_1_16}, show that $\vec{u} + \vec{v} = \vec{w}$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_18}
+Show that no vectors exist such that $\norm{\vec{u}} = 1$, $\norm{\vec{v}} = 2$, and $\langle\vec{u}, \vec{v}\rangle = -3$.
+\end{problem}
+
+\begin{problem} \label{ex:10_1_19}
+Complete Example~\ref{exa:030310}.
+\end{problem}
+
+\begin{problem} \label{ex:10_1_20}
+Prove Theorem~\ref{thm:030346}.
+
+\begin{hint}
+\dfn{1.} Using P2:
+$ \langle \vec{u}, \vec{v} + \vec{w} \rangle =
+\langle \vec{v} + \vec{w}, \vec{u} \rangle =
+\langle \vec{v}, \vec{u} \rangle + \langle \vec{w}, \vec{u} \rangle =
+\langle \vec{u}, \vec{v} \rangle + \langle \vec{u}, \vec{w} \rangle$.
+
+\dfn{2.} Using P2 and P4:
+$\langle \vec{v}, r\vec{w} \rangle =
+\langle r\vec{w}, \vec{v} \rangle =
+r \langle \vec{w}, \vec{v} \rangle =
+r \langle \vec{v}, \vec{w} \rangle$.
+
+\dfn{3.} Using P3:
+$\langle \vec{0}, \vec{v} \rangle =
+\langle \vec{0} + \vec{0}, \vec{v} \rangle =
+\langle \vec{0}, \vec{v} \rangle + \langle \vec{0}, \vec{v} \rangle
+$, so $ \langle \vec{0}, \vec{v} \rangle = 0$. The rest is P2.
+
+\dfn{4.} Assume that $\langle \vec{v}, \vec{v} \rangle = 0$. If $\vec{v} \neq \vec{0}$ this contradicts P5, so $\vec{v} = \vec{0}$. Conversely, if $\vec{v} = \vec{0}$, then $\langle \vec{v}, \vec{v} \rangle = 0$ by Part 3 of this theorem.
+\end{hint}
+\end{problem}
+
+\begin{problem} \label{ex:10_1_21}
+Prove Theorem~\ref{thm:030545}.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_22}
+Let $\vec{u}$ and $\vec{v}$ be vectors in an inner product space $V$.
+
+\begin{enumerate} 
+\item Expand $\langle2\vec{u} - 7\vec{v}, 3\vec{u} + 5\vec{v} \rangle$.
+
+\item Expand $\langle3\vec{u} - 4\vec{v}, 5\vec{u} + \vec{v} \rangle$.
+
+\item Show that $\norm{ \vec{u} + \vec{v} } ^2 = \norm{ \vec{u} } ^2 + 2 \langle \vec{u}, \vec{v} \rangle + \norm{ \vec{v} } ^2 $.
+
+\item Show that $\norm{ \vec{u} - \vec{v} } ^2 = \norm{ \vec{u} } ^2 - 2 \langle \vec{u}, \vec{v} \rangle +
+\norm{ \vec{v} } ^2$.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+ 
+\item  $15\norm{\vec{u}}^{2} - 17 \langle \vec{u}, \vec{v} \rangle - 4\norm{\vec{v}}^{2}$
+
+\item  $\norm{\vec{u} + \vec{v}}^{2} = \langle \vec{u} + \vec{v}, \vec{u} + \vec{v} \rangle = \norm{\vec{u}}^{2} + 2\langle \vec{u}, \vec{v}\rangle + \norm{\vec{v}}^{2}$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_23}
+Show that
+\begin{equation*}
+\norm{ \vec{v} } ^2 +
+\norm{ \vec{w} } ^2 = \frac{1}{2} \{
+\norm{ \vec{v} + \vec{w} } ^2 +
+\norm{ \vec{v} - \vec{w} } ^2\}
+\end{equation*}
+for any $\vec{v}$ and $\vec{w}$ in an inner product space.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_24}
+Let $\langle\ , \rangle$ be an inner product on a vector space $V$. Show that the corresponding distance function is translation invariant. That is, show that \newline $\mbox{d}(\vec{v}, \vec{w}) = \mbox{d}(\vec{v} + \vec{u}, \vec{w} + \vec{u})$ for all $\vec{v}$, $\vec{w}$, and $\vec{u}$ in $V$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_25}
+\begin{enumerate} 
+\item Show that $\langle \vec{u}, \vec{v} \rangle = \frac{1}{4}[\norm{ \vec{u} + \vec{v} } ^2 - \norm{ \vec{u} - \vec{v} } ^2]$ for all $\vec{u}$, $\vec{v}$ in an inner product space $V$.
+
+\item If $\langle\ , \rangle$ and $\langle\ , \rangle^\prime$ are two inner products on $V$ that have equal associated norm functions, show that $\langle\vec{u}, \vec{v}\rangle = \langle\vec{u}, \vec{v}\rangle^\prime$ holds for all $\vec{u}$ and $\vec{v}$.
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_26}
+Let $\vec{v}$ denote a vector in an inner product space $V$.
+
+\begin{enumerate} 
+\item Show that $W = \{\vec{w} \mid \vec{w} \mbox{ in } V, \langle\vec{v}, \vec{w} = 0\}$ is a subspace of $V$.
+
+\item Let $W$ be as in (a). If $V = \RR^3$ with the dot product, and if $\vec{v} = (1, -1, 2)$, find a basis for $W$.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+ 
+\item  $\{(1, 1, 0), (0, 2, 1)\}$
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem} \label{ex:10_1_27}
+Given vectors $\vec{w}_{1}, \vec{w}_{2}, \dots, \vec{w}_{n}$ and $\vec{v}$, assume that $\langle\vec{v}, \vec{w}_{i}\rangle = 0$ for each $i$. Show that $\langle\vec{v}, \vec{w}\rangle = 0$ for all $\vec{w}$ in $\mbox{span}\{\vec{w}_{1}, \vec{w}_{2}, \dots, \vec{w}_{n}\}$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_28}
+If $V = \mbox{span}\{\vec{v}_{1}, \vec{v}_{2}, \dots, \vec{v}_{n}\}$ and $\langle\vec{v}, \vec{v}_{i}\rangle = \langle\vec{w}, \vec{v}_i\rangle$ holds for each $i$. Show that $\vec{v} = \vec{w}$.
+
+\begin{hint}
+$\langle \vec{v} - \vec{w}, \vec{v}_{i} \rangle = \langle \vec{v}, \vec{v}_{i} \rangle - \langle \vec{w}, \vec{v}_{i} \rangle = 0$ for each $i$, so $\vec{v} = \vec{w}$ by Practice Problem \ref{ex:10_1_27}.
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_29}
+Use the Cauchy-Schwarz inequality in an inner product space to show that:
+
+\begin{enumerate} 
+\item If $\norm{\vec{u}} \leq 1$, then $\langle\vec{u}, \vec{v}\rangle^{2} \leq \norm{\vec{v}}^{2}$ for all $\vec{v}$ in $V$.
+
+\item $(x \cos \theta + y \sin \theta)^{2} \leq x^{2} + y^{2}$ for all real $x$, $y$, and $\theta$.
+
+\item $\norm{ r_1\vec{v}_1 + \dots + r_n\vec{v}_n } ^2 \leq [r_1 \norm{ \vec{v}_1 } + \dots + r_n \norm{ \vec{v}_n } ]^2$
+for all vectors $\vec{v}_{i}$, and all $r_{i} > 0$ in $\RR$.
+
+\end{enumerate}
+\begin{hint}
+\begin{enumerate} 
+ 
+\item  If $\vec{u} = (\cos \theta, \sin \theta)$ in $\RR^2$ (with the dot product) then $\norm{\vec{u}} = 1$. Use \dfn{(a)} with $\vec{v} = (x, y)$.
+
+\end{enumerate}
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_30}
+If $A$ is a $2 \times n$ matrix, let $\vec{u}$ and $\vec{v}$ denote the rows of $A$.
+
+\begin{enumerate} 
+\item Show that
+$AA^T = \left[ \begin{array}{rr}
+\norm{ \vec{u} } ^2 & \vec{u} \dotp \vec{v} \\
+\vec{u} \dotp \vec{v} & \norm{ \vec{v} } ^2
+\end{array} \right]$.
+
+\item Show that $\mbox{det}(AA^{T}) \geq 0$.
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem} \label{ex:10_1_31}
+\begin{enumerate} 
+\item If $\vec{v}$ and $\vec{w}$ are nonzero vectors in an inner product space $V$, show that
+$-1 \leq \frac{\langle \vec{v}, \vec{w} \rangle}{\norm{ \vec{v} } \norm{ \vec{w} }} \leq 1$, and hence that a unique angle $\theta$ exists such that \newline $\frac{\langle \vec{v}, \vec{w} \rangle}{\norm{ \vec{v} } \norm{ \vec{w} }} = \cos \theta$ and $0 \leq \theta \leq \pi$. This angle $\theta$ is called the
+\dfn{angle between} $\vec{v}$ and $\vec{w}$.
+
+\item Find the angle between $\vec{v} = (1, 2, -1, 1\, 3)$ and $\vec{w} = (2, 1, 0, 2, 0)$ in $\RR^5$ with the dot product.
+
+\item If $\theta$ is the angle between $\vec{v}$ and $\vec{w}$, show that the \dfn{law of cosines} is valid:
+\begin{equation*}
+\norm{ \vec{v} - \vec{w} } = \norm{ \vec{v} } ^2 + \norm{ \vec{w} } ^2 - 2\norm{ \vec{v} } \norm{ \vec{w} } \cos \theta.
+\end{equation*}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_32}
+If $V = \RR^2$, define $\norm{(x, y)} = |x| + |y|$.
+
+\begin{enumerate} 
+\item Show that $\norm{\dotp}$ satisfies the conditions in Theorem~\ref{thm:030504}.
+
+\item Show that $\norm{\dotp}$ does not arise from an inner product on $\RR^2$ given by a matrix $A$. 
+\begin{hint}
+    If it did, use Theorem~\ref{thm:030372} to find numbers $a$, $b$, and $c$ such that $\norm{(x, y)}^{2} = ax^{2} + bxy + cy^{2}$ for all $x$ and $y$.
+\end{hint}
+
+\end{enumerate}
+\end{problem}
+
+\section*{Text Source} This section was adapted from Section 10.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 521--530.
+
+\end{document}
