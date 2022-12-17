@@ -11,24 +11,24 @@
 We have used the dot product in $\RR^n$ to compute the length of vectors (\ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The plan in this section is to define an \dfn{inner product} on an arbitrary real vector space $V$ (of which the dot product is an example in $\RR^n$) and use it to introduce these concepts in $V$.
 
 \begin{definition}\label{def:innerproductspace}
-An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following axioms are satisfied.
+An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following properties are satisfied.
+
+\begin{enumerate}
+\item\label{prop:inner_prod_1}  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
+
+\item\label{prop:inner_prod_2}  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
+
+\item\label{prop:inner_prod_3}  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
+
+\item\label{prop:inner_prod_4} $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
+
+\item\label{prop:inner_prod_5}  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
+
+\end{enumerate}
 \end{definition}
-\begin{itemize}
-\item[\textit{P1.}]\label{prop:inner_prod_1}  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
-
-\item[\textit{P2.}]\label{prop:inner_prod_2}  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
-
-\item[\textit{P3.}]\label{prop:inner_prod_3}  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
-
-\item[\textit{P4.}]\label{prop:inner_prod_4} $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
-
-\item[\textit{P5.}]\label{prop:inner_prod_5}  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
-
-\end{itemize}
-
 A real vector space $V$ with an inner product $\langle\ , \rangle$ will be called an \dfn{inner product space}.  Note that every subspace of an inner product space is again an inner product space using the same inner product.
 \begin{remark}
-    If we regard $\mathbb{C}^n$ as a vector space over the field $\mathbb{C}$  of complex numbers, then the ``standard inner product'' on $\mathbb{C}^n$ defined in Section~\ref{sec:8_6} does not satisfy Axiom P4 (see Theorem~\ref{thm:025575}(3)).
+    If we regard $\mathbb{C}^n$ as a vector space over the field $\mathbb{C}$  of complex numbers, then the ``standard inner product'' on $\mathbb{C}^n$ defined in Section~\ref{sec:8_6} does not satisfy  Property \ref{prop:inner_prod_4} (see Theorem~\ref{thm:025575}(3)).
 \end{remark}
 
 \begin{example}\label{exa:030303}
@@ -46,11 +46,11 @@ $n$-\dfn{space}.
 If $A$ and $B$ are $m \times n$ matrices, define $\langle A, B\rangle = \mbox{tr}(AB^{T})$ where $\mbox{tr}(X)$ is the trace of the square matrix $X$. Show that $\langle\ , \rangle$ is an inner product in $\mathbb{M}_{mn}$.
 
 \begin{explanation}
-P1 is clear. Since $\mbox{tr}(P) = \mbox{tr}(P^{T})$ for every square matrix $P$, we have P2:
+Property \ref{prop:inner_prod_1} is clear. Since $\mbox{tr}(P) = \mbox{tr}(P^{T})$ for every square matrix $P$, we have Property \ref{prop:inner_prod_2}:
 \begin{equation*}
 \langle A, B \rangle = \mbox{tr}(AB^T) = \mbox{tr}[(AB^T)^T] = \mbox{tr}(BA^T) = \langle B, A \rangle
 \end{equation*}
-Next, P3 and P4 follow because trace is a linear transformation $\mathbb{M}_{mn} \to \RR$ (Practice Problem \ref{ex:10_1_19}). Turning to P5, let $\vec{r}_{1}, \vec{r}_{2}, \dots, \vec{r}_{m}$ denote the rows of the matrix $A$. Then the $(i, j)$-entry of $AA^{T}$ is $\vec{r}_{i} \dotp \vec{r}_{j}$, so
+Next, Property \ref{prop:inner_prod_3} and Property \ref{prop:inner_prod_4} follow because trace is a linear transformation $\mathbb{M}_{mn} \to \RR$ (Practice Problem \ref{ex:10_1_19}). Turning to Property \ref{prop:inner_prod_5}, let $\vec{r}_{1}, \vec{r}_{2}, \dots, \vec{r}_{m}$ denote the rows of the matrix $A$. Then the $(i, j)$-entry of $AA^{T}$ is $\vec{r}_{i} \dotp \vec{r}_{j}$, so
 \begin{equation*}
 \langle A, A \rangle = \mbox{tr}(AA^T) =
 \vec{r}_1 \dotp \vec{r}_1 +
@@ -58,7 +58,7 @@ Next, P3 and P4 follow because trace is a linear transformation $\mathbb{M}_{mn}
 \vec{r}_m \dotp \vec{r}_m
 \end{equation*}
 But $\vec{r}_{j} \dotp \vec{r}_{j}$ is the sum of the squares of
-the entries of $\vec{r}_{j}$, so this shows that $\langle A, A\rangle$ is the sum of the squares of all $nm$ entries of $A$. Axiom P5 follows.
+the entries of $\vec{r}_{j}$, so this shows that $\langle A, A\rangle$ is the sum of the squares of all $nm$ entries of $A$.  Property \ref{prop:inner_prod_5} follows.
 \end{explanation}
 \end{example}
 
@@ -77,17 +77,17 @@ defines an inner product on $\mathcal{C}[a, b]$.
 \end{remark}
 
 \begin{explanation}
-Axioms P1 and P2 are clear. As to axiom P4,
+ Property \ref{prop:inner_prod_1} and Property \ref{prop:inner_prod_2} are clear. As to  Property \ref{prop:inner_prod_4},
 \begin{equation*}
 \langle rf, g \rangle = \int_{a}^{b} rf(x)g(x)dx = r\int_{a}^{b} f(x)g(x)dx =
 r\langle f, g \rangle
 \end{equation*}
-Axiom P3 is similar. Finally, theorems of calculus show that $\langle f, f \rangle = \int_{a}^{b} f(x)^2dx \geq 0$ and, if $f$ is continuous, that this is zero if and only if $f$ is the zero function. This gives axiom P5.
+ Property \ref{prop:inner_prod_3} is similar. Finally, theorems of calculus show that $\langle f, f \rangle = \int_{a}^{b} f(x)^2dx \geq 0$ and, if $f$ is continuous, that this is zero if and only if $f$ is the zero function. This gives  Property \ref{prop:inner_prod_5}.
 \end{explanation}
 \end{example}
 
 
-If $\vec{v}$ is any vector, then, using axiom P3, we get
+If $\vec{v}$ is any vector, then, using  Property \ref{prop:inner_prod_3}, we get
 \begin{equation*}
 \langle \vec{0}, \vec{v} \rangle = \langle \vec{0} + \vec{0}, \vec{v} \rangle =
 \langle \vec{0}, \vec{v} \rangle + \langle \vec{0}, \vec{v} \rangle
@@ -118,7 +118,7 @@ If $\langle\ , \rangle$ is an inner product on a space $V$, then, given $\vec{u}
 \begin{equation*}
 \langle r\vec{u} + s\vec{v}, \vec{w} \rangle = \langle r\vec{u}, \vec{w} \rangle + \langle s\vec{v}, \vec{w} \rangle = r\langle \vec{u}, \vec{w} \rangle + s\langle \vec{v}, \vec{w} \rangle
 \end{equation*}
-for all $r$ and $s$ in $\RR$ by axioms P3 and P4. Moreover, there is nothing special about the fact that there are two terms in the linear combination or that it is in the first component:
+for all $r$ and $s$ in $\RR$ by  Property \ref{prop:inner_prod_3} and Property \ref{prop:inner_prod_4}. Moreover, there is nothing special about the fact that there are two terms in the linear combination or that it is in the first component:
 \begin{equation*}
 \langle r_1\vec{v}_1 + r_2\vec{v}_2 + \dots + r_n\vec{v}_n, \vec{w} \rangle =
 r_1\langle \vec{v}_1, \vec{w} \rangle +
@@ -144,7 +144,7 @@ If $A$ is a symmetric $n \times n$ matrix and $\vec{x}$ and $\vec{y}$ are column
 \begin{equation*}
 \langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y} \quad \mbox{ for all columns } \vec{x}, \vec{y} \mbox{ in } \RR^n
 \end{equation*}
-then axioms P1--P4 follow from matrix arithmetic (only P2 requires that $A$ is symmetric). Axiom P5 reads
+then  Property \ref{prop:inner_prod_1}--Property \ref{prop:inner_prod_4} follow from matrix arithmetic (only Property \ref{prop:inner_prod_2} requires that $A$ is symmetric).  Property \ref{prop:inner_prod_5} reads
 \begin{equation*}
 \vec{x}^TA \vec{x} > 0 \quad \mbox{ for all columns } \vec{x} \neq \vec{0} \mbox{ in } \RR^n
 \end{equation*}
@@ -256,7 +256,7 @@ We define the \dfn{distance} between vectors $\vec{v}$ and $\vec{w}$ in an inner
 \end{remark}
 
 
-Note that axiom P5 guarantees that
+Note that  Property \ref{prop:inner_prod_5} guarantees that
 $\langle\vec{v}, \vec{v}\rangle \geq 0$, so $\norm{\vec{v}}$ is a real number.
 
 \begin{example}\label{exa:030446}
@@ -424,7 +424,7 @@ Let $V$ be an inner product space.
 \section*{Practice Problems}
 
 \begin{problem}\label{prob:inner_prod_1}
-In each case, determine which of axioms P1--P5 in Definition \ref{def:innerproductspace} fail to hold.
+In each case, determine which of  Property \ref{prop:inner_prod_1}--Property \ref{prop:inner_prod_5} in Definition \ref{def:innerproductspace} fail to hold.
 
 \begin{enumerate} 
 \item $V = \RR^2$, $\langle (x_1, y_1), (x_2, y_2) \rangle = x_1y_1x_2y_2$
@@ -433,7 +433,7 @@ In each case, determine which of axioms P1--P5 in Definition \ref{def:innerprodu
 
 Click the arrow to see the answer.
 \begin{expandable}
-P5 fails.
+Property \ref{prop:inner_prod_5} fails.
 \end{expandable}
 
 \item $V = \mathbb{C}$, $\langle z, w \rangle = z\overline{w}$, where $\overline{w}$ is complex
@@ -441,14 +441,14 @@ conjugation
 
 Click the arrow to see the answer.
 \begin{expandable}
-P1 fails, as sometimes we get a complex number.  However, we will return to this definition of $\langle\ , \rangle$ in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} -- see \ref{def:025549}
+Property \ref{prop:inner_prod_1} fails, as sometimes we get a complex number.  However, we will return to this definition of $\langle\ , \rangle$ in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} -- see \ref{def:025549}
 \end{expandable}
 
 \item $V = \mathbb{P}^3$, $\langle p(x), q(x) \rangle = p(1)q(1)$
 
 Click the arrow to see the answer.
 \begin{expandable}
-P5 fails.
+Property \ref{prop:inner_prod_5} fails.
 \end{expandable}
 
 \item $V = \mathbb{M}_{22}$, $\langle A, B \rangle = \mbox{det}(AB)$
@@ -457,7 +457,7 @@ P5 fails.
 
 Click the arrow to see the answer.
 \begin{expandable}
-P5 fails.
+Property \ref{prop:inner_prod_5} fails.
 \end{expandable}
 
 \end{enumerate}
@@ -467,7 +467,7 @@ P5 fails.
 Let $V$ be an inner product space. If $U \subseteq V$ is a subspace, show that $U$ is an inner product space using the same inner product.
 
 \begin{hint}
-Axioms P1--P5 hold in $U$ because they hold in $V$.
+ Property \ref{prop:inner_prod_1}--Property \ref{prop:inner_prod_5} hold in $U$ because they hold in $V$.
 \end{hint}
 \end{problem}
 
@@ -744,25 +744,27 @@ Complete Example~\ref{exa:030310}.
 Prove Theorem~\ref{thm:030346}.
 
 \begin{hint}
-\dfn{1.} Using P2:
+\begin{enumerate}
+\item Using Property \ref{prop:inner_prod_2}:
 $ \langle \vec{u}, \vec{v} + \vec{w} \rangle =
 \langle \vec{v} + \vec{w}, \vec{u} \rangle =
 \langle \vec{v}, \vec{u} \rangle + \langle \vec{w}, \vec{u} \rangle =
 \langle \vec{u}, \vec{v} \rangle + \langle \vec{u}, \vec{w} \rangle$.
 
-\dfn{2.} Using P2 and P4:
+\item Using Property \ref{prop:inner_prod_2} and Property \ref{prop:inner_prod_4}:
 $\langle \vec{v}, r\vec{w} \rangle =
 \langle r\vec{w}, \vec{v} \rangle =
 r \langle \vec{w}, \vec{v} \rangle =
 r \langle \vec{v}, \vec{w} \rangle$.
 
-\dfn{3.} Using P3:
+\item Using Property \ref{prop:inner_prod_3}:
 $\langle \vec{0}, \vec{v} \rangle =
 \langle \vec{0} + \vec{0}, \vec{v} \rangle =
 \langle \vec{0}, \vec{v} \rangle + \langle \vec{0}, \vec{v} \rangle
-$, so $ \langle \vec{0}, \vec{v} \rangle = 0$. The rest is P2.
+$, so $ \langle \vec{0}, \vec{v} \rangle = 0$. The rest is Property \ref{prop:inner_prod_2}.
 
-\dfn{4.} Assume that $\langle \vec{v}, \vec{v} \rangle = 0$. If $\vec{v} \neq \vec{0}$ this contradicts P5, so $\vec{v} = \vec{0}$. Conversely, if $\vec{v} = \vec{0}$, then $\langle \vec{v}, \vec{v} \rangle = 0$ by Part 3 of this theorem.
+\item Assume that $\langle \vec{v}, \vec{v} \rangle = 0$. If $\vec{v} \neq \vec{0}$ this contradicts Property \ref{prop:inner_prod_5}, so $\vec{v} = \vec{0}$. Conversely, if $\vec{v} = \vec{0}$, then $\langle \vec{v}, \vec{v} \rangle = 0$ by Part 3 of this theorem.
+\end{enumerate}
 \end{hint}
 \end{problem}
 
