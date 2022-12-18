@@ -25,7 +25,7 @@ extend easily to the complex case. It is not our intention here to give a
  full treatment of complex linear algebra. However, we will carry the
 theory far enough to give another proof of the Real Spectral Theorem (\ref{th:PrinAxes}).
 
-The set of complex numbers is denoted $\mathbb{C}$ . We will use only the most basic properties of these numbers (mainly conjugation and absolute values), and the reader can find this material in Appendix~\ref{chap:appacomplexnumbers}.
+The set of complex numbers is denoted $\mathbb{C}$ . We will use only the most basic properties of these numbers (mainly conjugation and absolute values), and the reader can find this material in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers}.
 
 If $n \ge 1$, we denote the set of all $n$-tuples of complex numbers by $\mathbb{C}^n$. As with $\RR^n$, these $n$-tuples will be written either as row or column matrices and will be referred to as \dfn{vectors}. We define vector operations on $\mathbb{C}^n$ as follows:
 \begin{align*}
@@ -35,12 +35,12 @@ u[v_{1}, v_{2}, \ldots, v_{n}] &= [uv_{1}, uv_{2}, \ldots, uv_{n}] \quad \mbox{ 
 With these definitions, $\mathbb{C}^n$ satisfies the axioms for a vector space (with complex scalars) given in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}. Thus we can speak of spanning sets for $\mathbb{C}^n$, of linearly independent subsets, and of bases. In all cases, the definitions are identical to the real case, except that the scalars are allowed to be complex numbers. In particular, the standard basis of $\RR^n$ remains a basis of $\mathbb{C}^n$, called the \dfn{standard basis} of $\mathbb{C}^n$.
 
 
-\subsection*{The Standard Inner Product}
+\subsection*{A Generalization of the Dot Product for Complex Vectors}
 
-There is a natural generalization to $\mathbb{C}^n$ of the dot product in $\RR^n$ called the \dfn{standard inner product}.  For more on inner products, see \href{}{Inner Product Spaces}.
+There is a generalization to $\mathbb{C}^n$ of the dot product in $\RR^n$.
 
-\begin{definition}{Standard Inner Product in $\RR^n$}\label{def:025549}
-Given $\vec{z} = (z_{1}, z_{2}, \ldots, z_{n})$ and $\vec{w} = (w_{1}, w_{2}, \ldots, w_{n})$ in $\mathbb{C}^n$, define their \dfn{standard inner product} $\langle \vec{z}, \vec{w} \rangle$ by
+\begin{definition}\label{def:025549}
+Given $\vec{z} = [z_{1}, z_{2}, \ldots, z_{n}]$ and $\vec{w} = [w_{1}, w_{2}, \ldots, w_{n}]$ in $\mathbb{C}^n$, define their \dfn{standard inner product} $\langle \vec{z}, \vec{w} \rangle$ by
 \begin{equation*}
 \langle \vec{z}, \vec{w} \rangle = z_{1}\overline{w}_{1} + z_{2}\overline{w}_{2} + \ldots + z_{n}\overline{w}_{n}
 \end{equation*}
@@ -50,15 +50,15 @@ where $\overline{w}$ is the conjugate of the complex number $w$.
 Clearly, if $\vec{z}$ and $\vec{w}$ actually lie in $\RR^n$, then $\langle \vec{z}, \vec{w} \rangle = \vec{z} \dotp \vec{w}$ is the usual dot product.
 
 
-\begin{example}\label{ex:025563}
-If $\vec{z} = (2, 1 - i, 2i, 3 - i)$ and $\vec{w} = (1 - i, -1, -i, 3 + 2i)$, then
+\begin{example}\label{exa:025563}
+If $\vec{z} = [2, 1 - i, 2i, 3 - i]$ and $\vec{w} = [1 - i, -1, -i, 3 + 2i]$, then
 \begin{align*}
 \langle \vec{z}, \vec{w} \rangle &= 2(1 + i) + (1 - i)(-1) + (2i)(i) + (3 - i)(3 - 2i) = 6 -6i \\
 \langle \vec{z}, \vec{z} \rangle &= 2 \cdot 2 + (1 - i)(1 + i) + (2i)(-2i) + (3 - i)(3 + i) = 20
 \end{align*}
 \end{example}
 
-Note that $\langle \vec{z}, \vec{w} \rangle$ is a complex number in general. However, if $\vec{w} = \vec{z} = (z_{1}, z_{2}, \ldots, z_{n})$, the definition gives $\langle \vec{z}, \vec{z} \rangle = |z_{1}|^{2} + \ldots  + |z_{n}|^{2}$ which is a nonnegative real number, equal to $0$ if and only if $\vec{z} = \vec{0}$. This explains the conjugation in the definition of $\langle \vec{z}, \vec{w} \rangle$, and it gives \ref{th:025575d} of the following theorem.
+Note that $\langle \vec{z}, \vec{w} \rangle$ is a complex number in general, as opposed to requiring an inner product to be real as we do in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0070/main}{Inner Product Spaces}. However, if $\vec{w} = \vec{z} = [z_{1}, z_{2}, \ldots, z_{n}]$, the definition gives $\langle \vec{z}, \vec{z} \rangle = |z_{1}|^{2} + \ldots  + |z_{n}|^{2}$ which is a nonnegative real number, equal to $0$ if and only if $\vec{z} = \vec{0}$. This explains the conjugation in the definition of $\langle \vec{z}, \vec{w} \rangle$, and it gives \ref{th:025575d} of the following theorem.
 
 
 \begin{theorem}\label{th:025575}
@@ -77,7 +77,7 @@ $\langle \vec{z}, \vec{w} + \vec{w}_{1} \rangle = \langle \vec{z}, \vec{w} \rang
 \end{theorem}
 
 \begin{proof}
-We leave \ref{th:025575a} and \ref{th:025575b} to the reader (Practice Problem \ref{prb:complex_matrices10}), and \ref{th:025575d} has already been proved. To prove \ref{th:025575c}, write $\vec{z} = (z_{1}, z_{2}, \ldots, z_{n})$ and $\vec{w} = (w_{1}, w_{2}, \ldots, w_{n})$. Then
+We leave \ref{th:025575a} and \ref{th:025575b} to the reader (Practice Problem \ref{prb:complex_matrices10}), and \ref{th:025575d} has already been proved. To prove \ref{th:025575c}, write $\vec{z} = [z_{1}, z_{2}, \ldots, z_{n}]$ and $\vec{w} = [w_{1}, w_{2}, \ldots, w_{n}]$. Then
 \begin{align*}
 \overline{\langle \vec{w}, \vec{z} \rangle} = (\overline{w_{1}\overline{z}_{1} + \ldots + w_{n}\overline{z}_{n}}) &= \overline{w}_{1}\overline{\overline{z}}_{1} + \ldots + \overline{w}_{n}\overline{\overline{z}}_{n} \\
 &= z_{1}\overline{w}_{1} + \ldots + z_{n}\overline{w}_{n} = \langle \vec{z}, \vec{w} \rangle
@@ -209,7 +209,7 @@ $\left[ \begin{array}{ccc}
  \end{array}\right]$ are not.
 \end{example}
 
-The following theorem extends Theorem~\ref{th:024396}, and gives a very useful characterization of Hermitian matrices in terms of the standard inner product in $\mathbb{C}^n$.
+The following theorem extends Theorem~\ref{th:dotpSymmetric}, and gives a very useful characterization of Hermitian matrices in terms of the standard inner product in $\mathbb{C}^n$.
 
 
 \begin{theorem}\label{th:025697}
@@ -236,14 +236,14 @@ Let $A$ be an $n \times n$ complex matrix. As in the real case, a complex number
 \begin{equation*}
 c_{A}(x) = \mbox{det}(xI - A)
 \end{equation*}
-This polynomial has complex coefficients (possibly nonreal). However, the proof of Theorem~\ref{th:009033} goes through to show that the eigenvalues of $A$ are the roots (possibly complex) of $c_{A}(x)$.
+This polynomial has complex coefficients (possibly nonreal). However, the argument in Exploration \ref{exp:slowdown} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{The Characteristic Equation} still works to show that the eigenvalues of $A$ are the roots (possibly complex) of $c_{A}(x)$.
 
 It is at this point that the advantage
 of working with complex numbers becomes apparent. The real numbers are
 incomplete in the sense that the characteristic polynomial of a real
 matrix may fail to have all its roots real. However, this difficulty
 does not occur for the complex numbers. The so-called fundamental
-theorem of algebra ensures that \textit{every} polynomial of positive degree with complex coefficients has a complex root. Hence every square complex matrix $A$ has a (complex) eigenvalue. Indeed (Appendix~\ref{chap:appacomplexnumbers}), $c_{A}(x)$ factors completely as follows:
+theorem of algebra ensures that \textit{every} polynomial of positive degree with complex coefficients has a complex root. Hence every square complex matrix $A$ has a (complex) eigenvalue. Indeed (see \ref{th:034210}), $c_{A}(x)$ factors completely as follows:
 \begin{equation*}
 c_{A}(x) = (x -\lambda_{1})(x -\lambda_{2}) \cdots (x -\lambda_{n})
 \end{equation*}
@@ -278,7 +278,7 @@ If $\mu = \lambda$ and $\vec{w} = \vec{z}$, this becomes $\lambda \langle \vec{z
 \end{corollary}
 
 \begin{proof}
-    Symmetric real matrices are Hermitian, and so the result follows immediately from \ref{th:025729}.
+    Symmetric real matrices are Hermitian, and so the result follows immediately from Theorem \ref{th:025729}.
 \end{proof}
 
 The Real Spectral Theorem (\ref{th:PrinAxes}) asserts that every real symmetric matrix $A$ is orthogonally diagonalizable---that is $U^{T}AU$ is diagonal where $U$ is an orthogonal matrix $(U^{-1} = U^{T})$. The next theorem identifies the complex analogs of these orthogonal real matrices.
@@ -302,7 +302,9 @@ The following are equivalent for an $n \times n$ complex matrix $A$.
 
 \begin{proof}
 If $A = \left[ \begin{array}{cccc}
-\vec{c}_{1} & \vec{c}_{2} & \cdots & \vec{c}_{n}
+| & | & & | \\
+\vec{c}_{1} & \vec{c}_{2} & \cdots & \vec{c}_{n} \\
+| & | & & |
 \end{array}\right]$ is a complex matrix with $j$th column $\vec{c}_{j}$, then $A^T\overline{A} = \left[ \langle \vec{c}_{i}, \vec{c}_{j}\rangle \right]$, as in Theorem~\ref{thm:024227}. Now \ref{th:025759a} $\Leftrightarrow$ \ref{th:025759b} follows, and \ref{th:025759a} $\Leftrightarrow$ \ref{th:025759c} is proved in the same way.
 \end{proof}
 
@@ -323,7 +325,7 @@ The matrix $A = \left[ \begin{array}{rr}
 \end{array}\right]$.
 \end{example}
 
-Given a real symmetric matrix $A$, we saw in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Orthogonal Matrices and Symmetric Matrices} a procedure for finding an orthogonal matrix $U$ such that $U^{T}AU$ is diagonal (see Example~\ref{exa:024374}). The following example illustrates Theorem~\ref{th:025729} and shows that the technique works for complex matrices.
+Given a real symmetric matrix $A$, we saw in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Orthogonal Matrices and Symmetric Matrices} a procedure for finding an orthogonal matrix $Q$ such that $Q^{T}AQ$ is diagonal (see Example~\ref{ex:DiagonalizeSymmetricMatrix}). The following example illustrates Theorem~\ref{th:025729} and shows that the technique works for complex matrices.
 
 \begin{example}\label{ex:025794}
 Consider the Hermitian matrix $A = \left[ \begin{array}{cc}
@@ -379,7 +381,7 @@ is upper triangular. Moreover, the entries on the main diagonal of $T$ are the e
 \end{theorem}
 
 \begin{proof}
-We use induction on $n$, mirroring the form of \ref{th:PrinAxes}. If $n = 1$, $A$ is already upper triangular. If $n > 1$, assume the theorem is valid for $(n - 1) \times (n - 1)$ complex matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $\vec{y}_{1}$ be an eigenvector with $\norm{\vec{y}_{1}} = 1$. Next, use the (complex analog of the) Gram-Schmidt process provides $\vec{y}_{2}, \ldots, \vec{y}_{n}$ such that $\{\vec{y}_{1}, \vec{y}_{2}, \ldots, \vec{y}_{n}\}$ is an orthonormal basis of $\mathbb{C}^n$. If $U_{1} = \left[ \begin{array}{cccc}
+We use induction on $n$, mirroring the form of the proof of \ref{th:PrinAxes}. If $n = 1$, $A$ is already upper triangular. If $n > 1$, assume the theorem is valid for $(n - 1) \times (n - 1)$ complex matrices. Let $\lambda_{1}$ be an eigenvalue of $A$, and let $\vec{y}_{1}$ be an eigenvector with $\norm{\vec{y}_{1}} = 1$. Next, the (complex analog of the) Gram-Schmidt process provides $\vec{y}_{2}, \ldots, \vec{y}_{n}$ such that $\{\vec{y}_{1}, \vec{y}_{2}, \ldots, \vec{y}_{n}\}$ is an orthonormal basis of $\mathbb{C}^n$. If $U_{1} = \left[ \begin{array}{cccc}
 | & | & & | \\
 \vec{y}_{1} & \vec{y}_{2} & \cdots & \vec{y}_{n} \\
 | & | & & |
@@ -449,7 +451,7 @@ The Real Spectral Theorem asserts that a real matrix $A$ is symmetric if and onl
 false for complex matrices: There exist unitarily diagonalizable
 matrices that are not Hermitian.
 
-\begin{example}\label{ex:025874}
+\begin{example}\label{exa:025874}
 Show that the non-Hermitian matrix $A = \left[ \begin{array}{rr}
 0 & 1 \\
 -1 & 0
@@ -478,7 +480,7 @@ There is a very simple way to characterize those complex matrices that are unita
 	-1 & 0
 \end{array}\right]$ in Example~\ref{exa:025874}. In fact we have the following result.
 
-\begin{theorem}\label{025890}
+\begin{theorem}\label{th:025890}
 An $n \times n$ complex matrix $A$ is unitarily diagonalizable if and only if $A$ is normal.
 \end{theorem}
 
