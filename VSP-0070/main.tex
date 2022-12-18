@@ -8,7 +8,7 @@
 
 \section*{Inner Product Spaces}
 
-We have used the dot product in $\RR^n$ to compute the length of vectors (\ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The plan in this section is to define an \dfn{inner product} on an arbitrary real vector space $V$ (of which the dot product is an example in $\RR^n$) and use it to introduce these concepts in $V$.
+We have used the dot product in $\RR^n$ to compute the length of vectors (Corollary \ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The plan in this section is to define an \dfn{inner product} on an arbitrary real vector space $V$ (of which the dot product is an example in $\RR^n$) and use it to introduce these concepts in $V$.
 
 \begin{definition}\label{def:innerproductspace}
 An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following properties are satisfied.
@@ -27,9 +27,6 @@ An \dfn{inner product} on a real vector space $V$ is a function that assigns a r
 \end{enumerate}
 \end{definition}
 A real vector space $V$ with an inner product $\langle\ , \rangle$ will be called an \dfn{inner product space}.  Note that every subspace of an inner product space is again an inner product space using the same inner product.
-\begin{remark}
-    If we regard $\mathbb{C}^n$ as a vector space over the field $\mathbb{C}$  of complex numbers, then the ``standard inner product'' on $\mathbb{C}^n$ defined in Section~\ref{sec:8_6} does not satisfy  Property \ref{prop:inner_prod_4} (see Theorem~\ref{thm:025575}(3)).
-\end{remark}
 
 \begin{example}\label{exa:030303}
 $\RR^n$ is an inner product space with the dot product as inner product:
@@ -111,7 +108,7 @@ Let $\langle\ , \rangle$ be an inner product on a space $V$; let $\vec{v}$, $\ve
 \end{theorem}
 
 \begin{remark}
-    If $r$ is a complex number, then \ref{030346b} must be modified.  See Theorem \ref{th:025575}.
+    If $r$ is a complex number, then \ref{030346b} must be modified.  See Theorem \ref{th:025575} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices}.
 \end{remark}
 
 If $\langle\ , \rangle$ is an inner product on a space $V$, then, given $\vec{u}$, $\vec{v}$, and $\vec{w}$ in $V$,
@@ -144,7 +141,7 @@ If $A$ is a symmetric $n \times n$ matrix and $\vec{x}$ and $\vec{y}$ are column
 \begin{equation*}
 \langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y} \quad \mbox{ for all columns } \vec{x}, \vec{y} \mbox{ in } \RR^n
 \end{equation*}
-then  Property \ref{prop:inner_prod_1}--Property \ref{prop:inner_prod_4} follow from matrix arithmetic (only Property \ref{prop:inner_prod_2} requires that $A$ is symmetric).  Property \ref{prop:inner_prod_5} reads
+then  Properties \ref{prop:inner_prod_1} through \ref{prop:inner_prod_4} follow from matrix arithmetic (only Property \ref{prop:inner_prod_2} requires that $A$ is symmetric).  Property \ref{prop:inner_prod_5} reads
 \begin{equation*}
 \vec{x}^TA \vec{x} > 0 \quad \mbox{ for all columns } \vec{x} \neq \vec{0} \mbox{ in } \RR^n
 \end{equation*}
@@ -302,13 +299,13 @@ The reader can verify (Practice Problem \ref{ex:10_1_5}) that this is indeed an 
 so the unit ball is the ellipse shown in the diagram.
 \end{example}
 
-\noindent Example~\ref{exa:030469} graphically illustrates the fact that norms and distances in an inner product space $V$ vary with the choice of inner product in $V$.
+Example~\ref{exa:030469} graphically illustrates the fact that norms and distances in an inner product space $V$ vary with the choice of inner product in $V$.
 
 \begin{theorem}\label{030480}
 If $\vec{v} \neq \vec{0}$ is any vector in an inner product space $V$, then $\frac{1}{\norm{ \vec{v} }} \vec{v}$ is the unique unit vector that is a positive multiple of $\vec{v}$.
 \end{theorem}
 
-The next theorem reveals an important and useful fact about the relationship between norms and inner products, extending the Cauchy inequality for $\RR^n$ (Theorem~\ref{thm:014907}).
+The next theorem reveals an important and useful fact about the relationship between norms and inner products, extending the Cauchy inequality for $\RR^n$ (Theorem~\ref{th:CS}).
 
 \begin{theorem}[Cauchy-Schwarz Inequality]\label{030486}
 If $\vec{v}$ and $\vec{w}$ are two vectors in an inner product space $V$, then
@@ -338,7 +335,7 @@ Conversely, if $|\langle \vec{v},  \vec{w}\rangle | =
 then $\langle\vec{v}, \vec{w}\rangle = \pm ab$. Hence (\ref{eq:thm10_1_4}) shows that $b\vec{v} - a\vec{w} = \vec{0}$ or $b\vec{v} + a\vec{w} = \vec{0}$. It follows that one of $\vec{v}$ and $\vec{w}$ is a scalar multiple of the other, even if $a = 0$ or $b = 0$.
 \end{proof}
 
-\begin{example}\label{030499}
+\begin{example}\label{exa:030499}
 If $f$ and $g$ are continuous functions on the interval $[a, b]$, then (see Example~\ref{exa:030334})
 \begin{equation*}
 \left(\int_{a}^{b} f(x)g(x)dx \right) ^2 \leq \int_{a}^{b} f(x)^2 dx \int_{a}^{b} g(x)^2 dx
@@ -578,7 +575,10 @@ defines a new inner product $\langle\ , \rangle_{1}$ on $V$.
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_11}
-Show that every inner product $\langle\ , \rangle$ on $\RR^n$ has the form $\langle\vec{x}, \vec{y}\rangle = (U\vec{x}) \dotp (U\vec{y})$ for some upper triangular matrix $U$ with positive diagonal entries. [\textit{Hint}: Theorem~\ref{thm:024907}.]
+Show that every inner product $\langle\ , \rangle$ on $\RR^n$ has the form $\langle\vec{x}, \vec{y}\rangle = (U\vec{x}) \dotp (U\vec{y})$ for some upper triangular matrix $U$ with positive diagonal entries. 
+\begin{hint}
+    Theorem~\ref{thm:024907}
+\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_12}
@@ -590,18 +590,27 @@ $A =
 2 & 1 \\
 1 & 1
 \end{array} \right]$
+
 \item
 $A =
 \left[ \begin{array}{rr}
 5 & -3 \\
 -3 & 2
 \end{array} \right]$
+
+Click the arrow to see the answer.
+\begin{expandable}
+$  \langle \vec{v}, \vec{v} \rangle = 5v_1^2 - 6v_1v_2 + 2v_2^2 =
+\frac{1}{5}[(5v_1 - 3v_2)^2 + v_2^2] $
+\end{expandable}
+
 \item
 $A =
 \left[ \begin{array}{rr}
 3 & 2 \\
 2 & 3
 \end{array} \right]$
+
 \item
 $A =
 \left[ \begin{array}{rr}
@@ -609,18 +618,12 @@ $A =
 4 & 6
 \end{array} \right]$
 \end{enumerate}
-\begin{hint}
-\begin{enumerate} 
- 
-\item  $  \langle \vec{v}, \vec{v} \rangle = 5v_1^2 - 6v_1v_2 + 2v_2^2 =
-\frac{1}{5}[(5v_1 - 3v_2)^2 + v_2^2] $
 
-
-\item  $ \langle \vec{v}, \vec{v} \rangle = 3v_1^2 + 8v_1v_2 + 6v_2^2 =
+Click the arrow to see the answer.
+\begin{expandable}
+$ \langle \vec{v}, \vec{v} \rangle = 3v_1^2 + 8v_1v_2 + 6v_2^2 =
 \frac{1}{3}[(3v_1 + 4v_2)^2 + 2v_2^2] $
-
-\end{enumerate}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_13}
@@ -652,6 +655,14 @@ w_2
 \right\rangle
 = v_1w_1 - v_1w_2 - v_2w_1 + 2v_2w_2$
 
+Click the arrow to see the answer.
+\begin{expandable}
+$\left[ \begin{array}{rr}
+1 & -2 \\
+-2 & 1
+\end{array} \right]$
+\end{expandable}
+
 \item
 $\left\langle
 \left[ \begin{array}{r}
@@ -680,33 +691,30 @@ w_3
 \right\rangle
 = v_1w_1 + 2v_2w_2 + 5v_3w_3 \\ - 2v_1w_3 - 2v_3w_1$
 
-\end{enumerate}
-\begin{hint}
-\begin{enumerate} 
- 
-\item $\left[ \begin{array}{rr}
-1 & -2 \\
--2 & 1
-\end{array} \right]$
-
-
-\item $\left[ \begin{array}{rrr}
+Click the arrow to see the answer.
+\begin{expandable}
+$\left[ \begin{array}{rrr}
 1 & 0 & -2 \\
 0 & 2 & 0 \\
 -2 & 0 & 5
 \end{array} \right]$
+\end{expandable}
 
 \end{enumerate}
-\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_14}
-If $A$ is symmetric and $\vec{x}^{T}A\vec{x} = 0$ for all columns $\vec{x}$ in $\RR^n$, show that $A = 0$. [\textit{Hint}: Consider
-$\langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle$ where $\langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y}$.]
+If $A$ is symmetric and $\vec{x}^{T}A\vec{x} = 0$ for all columns $\vec{x}$ in $\RR^n$, show that $A = 0$. 
 
 \begin{hint}
-By the condition, $\langle \vec{x}, \vec{y} \rangle = \frac{1}{2} \langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle = 0$ for all $\vec{x}$, $\vec{y}$. Let $\vec{e}_{i}$ denote column $i$ of $I$. If $A = \left[ a_{ij} \right]$, then $a_{ij} = \vec{e}_{i}^{T}A\vec{e}_{j} = \{\vec{e}_{i}, \vec{e}_{j}\} = 0$ for all $i$ and $j$.
+Consider
+$\langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle$ where $\langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y}$.
 \end{hint}
+
+Click the arrow to see the answer.
+\begin{expandable}
+By the condition, $\langle \vec{x}, \vec{y} \rangle = \frac{1}{2} \langle \vec{x} + \vec{y}, \vec{x} + \vec{y} \rangle = 0$ for all $\vec{x}$, $\vec{y}$. Let $\vec{e}_{i}$ denote column $i$ of $I$. If $A = \left[ a_{ij} \right]$, then $a_{ij} = \vec{e}_{i}^{T}A\vec{e}_{j} = \{\vec{e}_{i}, \vec{e}_{j}\} = 0$ for all $i$ and $j$.
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_15}
@@ -718,14 +726,10 @@ Let $ \norm{ \vec{u} } = 1$, $\norm{ \vec{v} } = 2$, $\norm{ \vec{w} } = \sqrt{3
 \begin{enumerate}
 \item $\langle \vec{v} + \vec{w}, 2\vec{u} - \vec{v} \rangle$
 \item $\langle \vec{u} - 2 \vec{v} - \vec{w}, 3\vec{w} - \vec{v} \rangle$
-\end{enumerate}
-\begin{hint}
-\begin{enumerate} 
 
-\item  $-15$
-
+$\answer{-15}$
 \end{enumerate}
-\end{hint}
+
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_17}
@@ -780,21 +784,22 @@ Let $\vec{u}$ and $\vec{v}$ be vectors in an inner product space $V$.
 
 \item Expand $\langle3\vec{u} - 4\vec{v}, 5\vec{u} + \vec{v} \rangle$.
 
+Click the arrow to see the answer.
+\begin{expandable}
+$15\norm{\vec{u}}^{2} - 17 \langle \vec{u}, \vec{v} \rangle - 4\norm{\vec{v}}^{2}$
+\end{expandable}
+
 \item Show that $\norm{ \vec{u} + \vec{v} } ^2 = \norm{ \vec{u} } ^2 + 2 \langle \vec{u}, \vec{v} \rangle + \norm{ \vec{v} } ^2 $.
 
 \item Show that $\norm{ \vec{u} - \vec{v} } ^2 = \norm{ \vec{u} } ^2 - 2 \langle \vec{u}, \vec{v} \rangle +
 \norm{ \vec{v} } ^2$.
 
+Click the arrow to see the answer.
+\begin{expandable}
+$\norm{\vec{u} + \vec{v}}^{2} = \langle \vec{u} + \vec{v}, \vec{u} + \vec{v} \rangle = \norm{\vec{u}}^{2} + 2\langle \vec{u}, \vec{v}\rangle + \norm{\vec{v}}^{2}$
+\end{expandable}
 \end{enumerate}
-\begin{hint}
-\begin{enumerate} 
- 
-\item  $15\norm{\vec{u}}^{2} - 17 \langle \vec{u}, \vec{v} \rangle - 4\norm{\vec{v}}^{2}$
 
-\item  $\norm{\vec{u} + \vec{v}}^{2} = \langle \vec{u} + \vec{v}, \vec{u} + \vec{v} \rangle = \norm{\vec{u}}^{2} + 2\langle \vec{u}, \vec{v}\rangle + \norm{\vec{v}}^{2}$
-
-\end{enumerate}
-\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_23}
@@ -829,14 +834,11 @@ Let $\vec{v}$ denote a vector in an inner product space $V$.
 
 \item Let $W$ be as in (a). If $V = \RR^3$ with the dot product, and if $\vec{v} = (1, -1, 2)$, find a basis for $W$.
 
+Click the arrow to see the answer.
+\begin{expandable}
+$\{(1, 1, 0), (0, 2, 1)\}$
+\end{expandable}
 \end{enumerate}
-\begin{hint}
-\begin{enumerate} 
- 
-\item  $\{(1, 1, 0), (0, 2, 1)\}$
-
-\end{enumerate}
-\end{hint}
 \end{problem}
 
 \begin{problem} \label{ex:10_1_27}
@@ -859,17 +861,15 @@ Use the Cauchy-Schwarz inequality in an inner product space to show that:
 
 \item $(x \cos \theta + y \sin \theta)^{2} \leq x^{2} + y^{2}$ for all real $x$, $y$, and $\theta$.
 
+\begin{hint}
+If $\vec{u} = (\cos \theta, \sin \theta)$ in $\RR^2$ (with the dot product) then $\norm{\vec{u}} = 1$. Use (a) with $\vec{v} = (x, y)$.
+\end{hint}
+
 \item $\norm{ r_1\vec{v}_1 + \dots + r_n\vec{v}_n } ^2 \leq [r_1 \norm{ \vec{v}_1 } + \dots + r_n \norm{ \vec{v}_n } ]^2$
 for all vectors $\vec{v}_{i}$, and all $r_{i} > 0$ in $\RR$.
 
 \end{enumerate}
-\begin{hint}
-\begin{enumerate} 
- 
-\item  If $\vec{u} = (\cos \theta, \sin \theta)$ in $\RR^2$ (with the dot product) then $\norm{\vec{u}} = 1$. Use \dfn{(a)} with $\vec{v} = (x, y)$.
 
-\end{enumerate}
-\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_30}
