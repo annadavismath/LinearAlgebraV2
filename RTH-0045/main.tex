@@ -10,16 +10,17 @@
 \end{abstract}
 \maketitle
 
+\section*{Positive Definite Matrices}
 All the eigenvalues of any symmetric
-matrix are real; this section is about the case in which the eigenvalues
+matrix are real (proved later in \ref{cor:ews_symmetric_real}); this section is about the case in which those eigenvalues
  are positive. These matrices, which arise whenever optimization
 (maximum and minimum) problems are encountered, have countless
 applications throughout science and engineering. They also arise in
 statistics (for example, in factor analysis used in the social sciences)
- and in geometry (quadratic forms, for instance). We will encounter them again in \href{}{Inner Product Spaces} when describing all inner products in $\RR^n$.
+ and in geometry (quadratic forms, for instance). We will encounter them again in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0070/main}{Inner Product Spaces} when describing all inner products in $\RR^n$.
 
 
-\begin{definition}\label{024811}
+\begin{definition}\label{def:024811}
 A square matrix is called \dfn{positive definite} if it is symmetric and all its eigenvalues $\lambda$ are positive, that is $\lambda > 0$.
 \end{definition}
 
@@ -27,11 +28,11 @@ Because these matrices are symmetric, the Real Spectral Theorem plays a central 
 
 
 \begin{theorem}\label{thm:024815}
-If $A$ is positive definite, then it is invertible and $\mbox{det}A > 0$.
+If $A$ is positive definite, then it is invertible and $\det A > 0$.
 \end{theorem}
 
 \begin{proof}
-If $A$ is $n \times n$ and the eigenvalues are $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$, then $\mbox{det}A = \lambda_{1}\lambda_{2} \cdots \lambda_{n} > 0$ by the Real Spectral Theorem (or, more specifically, \ref{cor:det_and_tr}).
+If $A$ is $n \times n$ and the eigenvalues are $\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}$, then $\det A = \lambda_{1}\lambda_{2} \cdots \lambda_{n} > 0$ by the Real Spectral Theorem (or, more specifically, \ref{cor:det_and_tr}).
 \end{proof}
 
 If $\vec{x}$ is a column in $\RR^n$ and $A$ is any real $n \times n$ matrix, we view the $1 \times 1$ matrix $\vec{x}^{T}A\vec{x}$ as a real number. With this convention, we have the following characterization of positive definite matrices.
@@ -155,7 +156,7 @@ U & \vec{x} \\
 0 & c
 \end{array}\right]
 \end{equation*}
-as the reader can verify. Taking determinants and applying Theorem~\ref{thm:007890} gives $\mbox{det}A = \mbox{det}(U^{T}) \mbox{det} U \cdot c = c(\mbox{det}U)^{2}$. Hence $c > 0$ because $\mbox{det}A > 0$ by \ref{thm:024907b}, so the above factorization can be written
+as the reader can verify. Taking determinants and applying Theorem~\ref{thm:007890} gives $\det A = \mbox{det}(U^{T}) \mbox{det} U \cdot c = c(\mbox{det}U)^{2}$. Hence $c > 0$ because $\det A > 0$ by \ref{thm:024907b}, so the above factorization can be written
 \begin{equation*}
 A = \left[ \begin{array}{cc}
 U^T & 0 \\
@@ -379,5 +380,10 @@ Let $A$ be a positive definite matrix. If $a$ is a real number, show that $aA$ i
 \begin{problem}\label{prob:pos_def_13}
 Let $A$ be positive definite and write $d_{r} = \mbox{det}{^{(r)}A}$ for each $r = 1, 2, \dots, n$. If $U$ is the upper triangular matrix obtained in step 1 of the algorithm, show that the diagonal elements $u_{11}, u_{22}, \dots, u_{nn}$ of $U$ are given by $u_{11} = d_{1}$, $u_{jj} = d_{j} / d_{j-1}$ if $j > 1$. [\textit{Hint}: If $LA = U$ where $L$ is lower triangular with $1$s on the diagonal, use block multiplication to show that $\mbox{det}{^{(r)}A} = \mbox{det}{^{(r)}U}$ for each $r$.]
 \end{problem}
+
+\section*{Text Source} This section was adapted from Section 8.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, p. 433-437.
+
 
 \end{document} 
