@@ -58,13 +58,13 @@ Note that Theorem~\ref{thm:024830} shows that the positive definite matrices are
 If $U$ is any invertible $n \times n$ matrix, show that $A = U^{T}U$ is positive definite.
 
 
-\begin{solution}
+\begin{explanation}
   If $\vec{x}$ is in $\RR^n$ and $\vec{x} \neq \vec{0}$, then
 \begin{equation*}
 \vec{x}^TA\vec{x} =  \vec{x}^T(U^TU)\vec{x} = (U\vec{x})^T(U\vec{x})= \norm{ U\vec{x} }^2 > 0
 \end{equation*}
 because $U\vec{x} \neq \vec{0}$ ($U$ is invertible). Hence Theorem~\ref{thm:024830} applies.
-\end{solution}
+\end{explanation}
 \end{example}
 
 It is remarkable that the converse to Example~\ref{exa:024865} is also true. In fact every positive definite matrix $A$ can be factored as $A = U^{T}U$ where $U$ is an upper triangular matrix with positive elements on the main
@@ -112,7 +112,7 @@ Q & R
 \vec{0}
 \end{array}\right] = \vec{y}^T(^{(r)}A)\vec{y}
 \end{equation*}
-This shows that $^{(r)}A$ is positive definite by Theorem~\ref{thm:024830}.\footnote{A similar argument shows that, if $B$ is any matrix obtained from a positive definite matrix $A$ by deleting certain rows and deleting the \textit{same} columns, then $B$ is also positive definite.}
+This shows that $^{(r)}A$ is positive definite by Theorem~\ref{thm:024830}. (A similar argument shows that, if $B$ is any matrix obtained from a positive definite matrix $A$ by deleting certain rows and deleting the \textit{same} columns, then $B$ is also positive definite.)
 \end{proof}
 
 If $A$ is positive definite, Lemma~\ref{lem:024890} and Theorem~\ref{thm:024815} show that $\mbox{det}(^{(r)}A) > 0$ for every $r$. This proves part of the following theorem which contains the converse to Example~\ref{exa:024865}, and characterizes the positive definite matrices among the symmetric ones.
@@ -194,7 +194,7 @@ Find the Cholesky factorization of $A = \left[ \begin{array}{rrr}
 \end{array}\right]$.
 
 
-\begin{solution}
+\begin{explanation}
   The matrix $A$ is positive definite by Theorem~\ref{thm:024907} because $\mbox{det}{^{(1)}A} = 10 > 0$, $\mbox{det}{^{(2)}A} = 5 > 0$, and $\mbox{det}{^{(3)}A} = \mbox{det} A = 3 > 0$. Hence Step 1 of the algorithm is carried out as follows:
 \begin{equation*}
 A = \left[ \begin{array}{rrr}
@@ -218,7 +218,7 @@ Now carry out Step 2 on $U_{1}$ to obtain $U = \left[ \def\arraystretch{1.5}\beg
 \end{array}\right]$.
 
 The reader can verify that $U^{T}U = A$.
-\end{solution}
+\end{explanation}
 \end{example}
 
 \begin{proof}[Proof of the Cholesky Algorithm]
