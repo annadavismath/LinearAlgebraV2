@@ -455,17 +455,17 @@ $$\begin{array}{ccccccccc}
 \end{example}
 The Gauss-Jordan Algorithm guarantees the existence of the reduced row-echelon form for all matrices.  
 When doing computations by hand, however, the algorithm may not always be the optimal method of finding a row-echelon form or the reduced row-echelon form because the procedure often leads to fractions early in the process. 
-The following video shows how to arrive at the same reduced row-echelon form for the matrix in Example \ref{ex:gaussjordanalg} without doing any fraction arithmetic.  You will see that we still employ the row operations, but in a different order.
+The following video shows how to arrive at the same reduced row-echelon form for the matrix in Example \ref{ex:gaussjordanalg} without doing any fraction arithmetic.  You will see that we still employ row operations, but in a different order.
 
 \youtube{76Y41ncuLeQ}
 
-The video, again, highlights the fact that regardless of what sequence of elementary row operations we take to arrive at the reduced row-echelon form, the end result is the same.  
+The video highlights the fact that regardless of what sequence of elementary row operations we take to arrive at the reduced row-echelon form, the end result is the same.  
 
 
 
 \subsection*{Rank}
 
-As stated in Theorem \ref{th:uniquenessofrref}, the reduced row-echelon form of a matrix $A$ is uniquely determined by $A$. That is, no matter which series of row operations is used to transform $A$ to its reduced row-echelon matrix, the result will always be the same matrix. By contrast, this is not true for row-echelon matrices: Different sequences of row operations can transform the same matrix $A$ to different row-echelon matrices. However, it is true that the number $r$ of nonzero rows must be the same in each of these row-echelon matrices, as we will see in Theorem \ref{th:dimofrowA}. Hence, the number $r$ depends only on $A$ and not on the way in which $A$ is carried to row-echelon form.  
+As stated in Theorem \ref{th:uniquenessofrref}, the reduced row-echelon form of a matrix $A$ is uniquely determined by $A$. That is, no matter which series of row operations is used to transform $A$ to its reduced row-echelon matrix, the result will always be the same matrix. In contrast, this is not true for row-echelon matrices: different sequences of row operations can transform the same matrix $A$ to different row-echelon matrices. However, it is true that the number $r$ of nonzero rows must be the same in each of these row-echelon matrices, as we will see in Theorem \ref{th:dimofrowA}. Hence, the number $r$ depends only on $A$ and not on the way in which $A$ is carried to row-echelon form.  
 
 \begin{example}\label{ex:rowechofA}
 Matrices (\ref{eq:ref1}) and (\ref{eq:ref2}) of Exploration \ref{init:gaussianelim1} are both row-echelon forms of $A$.  Both matrices have three nonzero rows.  The same is true for $\mbox{rref}(A)$.  
@@ -730,7 +730,7 @@ Suppose a linear system has $4$ equations and $5$ unknowns.  Which of the follow
 \end{problem}
 
 \begin{problem}\label{prob:leadones}
-Suppose $A$ is a matrix such that $\mbox{rref}(A)$ has $5$ leading $1's$.  What do we know to be true about $A$
+Suppose $A$ is a matrix such that $\mbox{rref}(A)$ has $5$ leading $1's$.  What do we know to be true about $A$?  Select ALL that apply.
 \begin{selectAll}
  \choice[correct]{$\mbox{rank}(A)=5$}
  \choice[correct]{$A$ has at least $25$ entries}
