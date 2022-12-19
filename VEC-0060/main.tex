@@ -87,14 +87,16 @@ $$\theta \approx 134.4^{\circ}  $$
 Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$. We say $\vec{u}$ and $\vec{v}$ are \dfn{orthogonal} if $\vec{u}\dotp \vec{v}=0$.
 \end{definition}
 
-If $n=2$ or $n=3$, it is clear from the discussion above that non-zero \dfn{orthogonal} vectors are simply \dfn{perpendicular} vectors (the included angle is $90^{\circ}$).  To see this, suppose that $\vec{u}\dotp\vec{v}=0$ for nonzero vectors $\vec{u},\vec{v}$.  Then from Theorem \ref{th:dotproductcosine} we have
+We can use Theorem \ref{th:dotproductcosine} to show that two non-zero \dfn{orthogonal} vectors of $\RR^n$ are simply \dfn{perpendicular} vectors (the included angle is $90^{\circ}$).  To see this, suppose that $\vec{u}\dotp\vec{v}=0$ for nonzero vectors $\vec{u},\vec{v}$.  Then from Theorem \ref{th:dotproductcosine} we have
 $$0=\norm{\vec{u}}\norm{\vec{v}}\cos\theta.$$
-Since $\vec{u},\vec{v}$ are nonzero vectors, we have $0=\cos\theta$, which implies $\theta=90^{\circ}$.
+Since $\vec{u},\vec{v}$ are nonzero vectors, we have $0=\cos\theta$, which implies $\theta=90^{\circ}$.  The converse also holds.  If $\theta=90^{\circ}$, then the dot product is clearly 0.
+
+The reason we prefer the term ``orthogonal" to ``perpendicular" in this course is because $\RR^n$ is only one example of a \dfn{vector space}, and the dot product is only one example of a more general product, called an \dfn{inner product}.  For vectors in $\RR^n$ a zero dot product happens to coincide with the geometric idea of perpendicularity, but there are many vector spaces that do not possess the visual geometry of $\RR^n$.  (Later in the text, you will encounter vector spaces whose vectors are polynomial functions!)  In these more abstract settings, a zero inner product still signals a special relationship between vectors.  The term \dfn{orthogonal} captures this relationship.
 
 \begin{remark}  By our definition, the zero vector is orthogonal to any vector.  However, we will not use the word \dfn{perpendicular} when the zero vector is involved, as it is not possible to talk about an ``included angle''.
 \end{remark}
 
-For $\RR^n$ with $n>3$, when we no longer have visual interpretation to aid us, our definition of \dfn{orthogonal} vectors in terms of dot product will come in handy.
+%For $\RR^n$ with $n>3$, when we no longer have visual interpretation to aid us, our definition of \dfn{orthogonal} vectors in terms of dot product will come in handy.
 
 \section*{Practice Problems}
 \begin{problem}%\label{prob:anglebetweenvectors}
