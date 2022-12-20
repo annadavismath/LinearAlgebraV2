@@ -40,6 +40,10 @@ from various starting points $A$.  Now what happens when we try the iterative me
     \end{enumerate}
 \end{exploration}
 
+Iterative methods have become more important as computers have become more ubiquitous.  When we execute an iterative method, we are implementing the same sequence of steps repeatedly, and this is something computers do very well.
+
+In this section we will explore two different iterative methods for solving a system of linear equations.  Exploration \ref{exp:gauss-seidel2x2} was a geometric representation of the \dfn{Gauss-Seidel} method for a system of two equations with two unknowns.  We will show how this may be implemented numerically to approximate the solution to a system of equations.  However, we first  explore a related method known as \dfn{Jacobi's method}.
+
 \subsection*{Jacobi's method}
 As you saw in the Exploration above, iterative methods do not give an exact answer, but an approximate answer.  More iterations give a more accurate answer.
 
@@ -165,11 +169,11 @@ We observed in Exploration \ref{exp:gauss-seidel2x2} that the Gauss-Seidel metho
 
 If you experiment with the spreadsheets and the GeoGebra interactive, you can find other systems of equations for which these iterative methods fail to converge to the solution.  At this point you may be wondering why we are studying iterative methods when we cannot be certain that they will converge to the solution!  
 
-There are many situations where iterative methods are, in fact, the best methods we have for performing computations.  We will see a nice example of this later when we study \href{}{The Power Method and the Dominant Eigenvalue}.
+There are many situations where iterative methods are, in fact, the best methods we have for performing computations.  We will see a nice example of this later when we study \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{The Power Method and the Dominant Eigenvalue}.
 
 Also, it turns out that sometimes we can be certain that an iterative method will converge to the solution.  To do so, we examine the \dfn{coefficient matrix} $A$ of a linear system $A \vec{x}= \vec{b}$.  To be clear, when we write a linear system as a single augmented matrix, the coefficient matrix $A$ is the part of an augmented matrix to the left of the vertical line.
 
-We need the following definition, which will also be useful when we study \href{}{Gershgorin's Theorem}.
+We need the following definition, which will also be useful when we study \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0080/main}{Gershgorin's Theorem}.
 
 \begin{definition}\label{def:strict_diag_dom}
 Let $A=[a_{ij}]$ be the $n\times n$ matrix which is the coefficient matrix of the linear system $A \vec{x}= \vec{b}$.  Let
@@ -246,7 +250,7 @@ Note that the converse of this theorem is false.  Sometimes these iterative meth
 
 \section*{Practice Problems}
 
-\begin{problem}\label{prob:systems-iterative}
+\begin{problem}%\label{prob:systems-iterative}
 For each of the following, use Jacobi's method and the Gauss-Seidel method with an initial guess of $x=0,y=0$ to find an approximate solution where each coordinate is within 0.1 of the exact solution.  You can make a copy of the spreadsheets above and modify them to help.  Note that the order of the equations may affect convergence.
 
 \begin{problem}\label{prob:systems-iterative-1}
@@ -267,7 +271,7 @@ For each of the following, use Jacobi's method and the Gauss-Seidel method with 
 
 \end{problem}
 
-\begin{problem}\label{prob:systems-iterative-3x3}
+\begin{problem}%\label{prob:systems-iterative-3x3}
 For each of the following, use Jacobi's method and the Gauss-Seidel method with an initial guess of $x=0,y=0, z=0$ to find an approximate solution where each coordinate is within 0.1 of the exact solution.  You can make a copy of the spreadsheets above and modify them to help.  Note that the order of the equations may affect convergence.
 
 \begin{problem}\label{prob:systems-iterative-3x3-1}
