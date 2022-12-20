@@ -13,29 +13,31 @@
 You are probably familiar with the concept of a \dfn{system of linear equations} and with some methods for solving such systems.  In this section, we will look at the algebra and geometry of finding and interpreting solutions of systems of linear equations.  We will start with two-variable and three-variable systems, then move on to systems involving more variables.  
 
 \subsection*{Algebra of Linear Systems}
-The most commonly taught method for solving systems of linear equations, when students are first introduced to systems, is to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration \ref{init:systwoeqs1} illustrates how the second method works.
+When you were first introduced to systems of equations, you learned to solve for one variable in terms of the other(s), then substitute.  Here, we will introduce another method.  This alternative method involves adding multiples of one equation to another equation in order to eliminate one of the variables.  This method will form the foundation for an algorithm we will develop for solving linear systems and performing other computations related to systems.  Exploration \ref{init:systwoeqs1} illustrates how the second method works.
 
-\begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
+\begin{exploration}\label{init:systwoeqs1} The purpose of this problem is to formalize what you may already know (perhaps under a different name) about \dfn{elementary row operations} as means of solving systems of linear equations.  Consider the system
 
 $$\begin{matrix}
       2x& -&y&=&-4\\
       3x & +&2y&= &1 
     \end{matrix}$$
 
-We will begin by adding twice the first row to the second row and replacing the second row with the sum. $$R_2+2R_1\rightarrow R_2$$
+We will begin by adding twice the first row to the second row, and replacing the second row with the sum. $$R_2+2R_1\rightarrow R_2$$
 
 $$ \begin{matrix}
       2x& -&y&=&-4\\
       7x & +&0y&= &\answer{-7}  
     \end{matrix}$$
 
-Note that this step eliminates $y$ from the second equation.  Next we divide both sides of the second equation by $7$. $$\frac{1}{7}R_2\rightarrow R_2$$
+Note that this step eliminates $y$ from the second equation.  
+
+Next we divide both sides of the second equation by $7$. $$\frac{1}{7}R_2\rightarrow R_2$$
 $$\begin{matrix}
        2x& -&y&=&-4\\
       x & &&= &\answer{-1}
 	   \end{matrix}$$
   
-Our next goal is to eliminate $x$ from the first equation.  To this end, we subtract twice the second row from the first row and replace the first row with the difference. $$R_1-2R_2\rightarrow R_1$$
+We now know what $x$ is.  Our next goal is to eliminate $x$ from the first equation.  To this end, we subtract twice the second row from the first row and replace the first row with the difference. $$R_1-2R_2\rightarrow R_1$$
 
 $$\begin{matrix}
 	 0x& -&y&=&\answer{-2}\\
@@ -59,30 +61,24 @@ $$\begin{matrix}
 This solution can be written as an ordered pair $(-1, 2)$.  
 \end{exploration}
 
-To obtain the solution to Exploration \ref{init:systwoeqs1} we utilized three \dfn{elementary row operations}.  These operations are:
-\begin{itemize}
-\item Switching the order of two equations
-\item Multiplying both sides of an equation by the same non-zero constant
-\item Adding a multiple of one equation to another
-\end{itemize}
-At each stage of the process, the system of equations looked different from the original system, but a quick check will convince you that all six systems have the same solution: $(-1, 2)$.  The six systems are said to be \dfn{equivalent}.  
+In Exploration \ref{init:systwoeqs1} we introduced elementary row operations and the notation associated with them. We now make these definitions formal.
+
+\begin{definition}[Elementary Row Operations]\label{def:elemrowops}
+The following three operations performed on a linear system are called \dfn{elementary row operations}.
+\begin{enumerate}
+\item Switching the order of equations (rows) $i$ and $j$:
+$$R_i\leftrightarrow R_j$$
+\item Multiplying both sides of equation (row) $i$ by the same non-zero constant, $k$, and replacing equation $i$ with the result:
+$$kR_i\rightarrow R_i$$
+\item Adding $k$ times equation (row) $i$ to equation (row) $j$, and replacing equation $j$ with the result:
+$$R_j+kR_i\rightarrow R_j$$
+\end{enumerate}
+\end{definition}
 
 
-It turns out that if a system of equations is transformed into another system through a sequence of elementary row operations, the new system will be equivalent to the original system, in other words, both systems will have the same solution set.  We will formalize this statement at the end of this section.
+As we applied elementary row operations to the system in Exploration \ref{init:systwoeqs1}, the system changed, but a quick check will convince you that all six systems have the same solution: $(-1, 2)$.  The six systems are said to be \dfn{equivalent}.  
 
-\begin{notation}
-As we perform elementary row operations, we describe our steps using the following notation.
-\begin{itemize}
-\item 
-Switching row $i$ and row $j$: $$R_i\leftrightarrow R_j$$
-\item Multiplying both sides of equation $i$ by the same non-zero constant $k$, and replacing equation $i$ with the result:
-$$kR_i$$
-\item 
-Adding $k$ times row $i$ to row $j$, and replacing row $j$ with the result:
-$$R_j+kR_i$$
-\end{itemize}
-
-\end{notation}
+It turns out that if a system of equations is transformed into another system through a sequence of elementary row operations, the new system will be equivalent to the original system, in other words, both systems will have the same solution(s).  We will formalize this statement as Theorem \ref{th:elemRowOpsEquivSys} at the end of this section.
 
 \begin{example}\label{ex:threeeqthreevars1}
 Solve the system of equations using elementary row operations.
@@ -189,7 +185,7 @@ $$\begin{array}{ccccccc}
 	 & &y&&&=&b\\
      & &&&z&=&c
     \end{array}$$
-The short answer to this question is no.  The existence of an equivalent system of this form implies that the original system has a unique solution.  However, it is possible for a system to have no solutions or to have infinitely many solutions.  We will study these different possibilities from an algebraic perspective in subsequent sections.  For now, we will attempt to gain insight into existence and uniqueness of solutions through geometry.     
+The short answer to this question is NO.  The existence of an equivalent system of this form implies that the original system has a unique solution $(a, b, c)$.  However, it is possible for a system to have no solutions or to have infinitely many solutions.  We will study these different possibilities from an algebraic perspective in subsequent sections.  For now, we will attempt to gain insight into existence and uniqueness of solutions through geometry.     
 
 \subsection*{Geometry of Linear Systems in Two Variables}
 Exploration Problem \ref{init:systwoeqs1} offers an example of a linear system of two equations and two unknowns (variables) with a unique solution.  
@@ -213,7 +209,9 @@ Geometrically, the graph of each equation is a line in $\RR^2$.  The point $(-1,
 \end{tikzpicture}
 \end{center}
 
-Given a system of two equations with two unknowns, there are three possible geometric outcomes.  First, the graphs of the two equations intersect at a point.  If this is the case, the system has exactly one solution. We say that the system is \dfn{consistent} and has a \dfn{unique solution}.  
+Given a system of two equations with two unknowns, there are three possible geometric outcomes.  
+\begin{itemize}
+\item First, the graphs of the two equations intersect at a point.  If this is the case, the system has exactly one solution. We say that the system is \dfn{consistent} and has a \dfn{unique solution}.  
 
 \begin{center}
 \begin{tikzpicture}[scale=.5]
@@ -226,7 +224,7 @@ Given a system of two equations with two unknowns, there are three possible geom
     
 \end{tikzpicture}
 \end{center}
-Second, the two lines may have no points in common.  If this is the case, the system has no solutions.  We say that the system is \dfn{inconsistent}.  
+\item Second, the two lines may have no points in common.  If this is the case, the system has no solutions.  We say that the system is \dfn{inconsistent}.  
 \begin{center}
 \begin{tikzpicture}[scale=.5]
 
@@ -238,7 +236,7 @@ Second, the two lines may have no points in common.  If this is the case, the sy
     
 \end{tikzpicture}
 \end{center}
-Finally, the two lines may coincide.  In this case, there are infinitely many points that satisfy both equations simultaneously.  We say that the system is consistent and has infinitely many solutions.
+\item Finally, the two lines may coincide.  In this case, there are infinitely many points that satisfy both equations simultaneously.  We say that the system is consistent and has infinitely many solutions.
 \begin{center}
 \begin{tikzpicture}[scale=.5]
 
@@ -250,7 +248,7 @@ Finally, the two lines may coincide.  In this case, there are infinitely many po
     
 \end{tikzpicture}
 \end{center}
-
+\end{itemize}
 
 \begin{example}\label{ex:systwoeqs2} Solve the system of equations and interpret your results geometrically.
 $$\begin{array}{ccccc}
@@ -258,12 +256,12 @@ $$\begin{array}{ccccc}
 	 4x& -&2y&=&5
     \end{array}$$
 \begin{explanation}
-We will use elementary row operations.  Our goal is to eliminate $y$ from the first equation and eliminate $x$ from the second.  Observe that adding twice the first equation to the second equation accomplishes both tasks.
-$$\begin{array}{ccccc}
-      -2x & +&y&= &3 \\
-	 0x& -&0y&=&11
+We will use elementary row operations.  Adding twice the first equation to the second equation gives us
+$$\begin{array}{cccccc}
+      -2x & +&y&= &3& \\
+	 0x& -&0y&=&11&\quad\leftarrow\mbox{Never true}
     \end{array}$$
-It is clear, however, that there are no values of $x$ and $y$ that would satisfy the second equation.  We conclude that the system is inconsistent.  Plotting the two lines in the same coordinate plane shows that the two lines are parallel.  
+This is where we run into a problem: there are no values of $x$ and $y$ that satisfy the second equation.  We conclude that the system is inconsistent.  Plotting the two lines in the same coordinate plane shows that the two lines are parallel.  
     \begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-4,-4) grid (4,4);
@@ -287,12 +285,12 @@ $$\begin{array}{ccccc}
 \begin{explanation}
 To eliminate $x$ from the second equation, we subtract one quarter of the first equation from the second.  This gives us
 
-$$\begin{array}{ccccc}
-      4x & +&3y&= &2 \\
-	 0x& +&0y&=&0
+$$\begin{array}{cccccc}
+      4x & +&3y&= &2& \\
+	 0x& +&0y&=&0&\quad\leftarrow\mbox{Always true}
     \end{array}$$
     
-Unlike the situation in Example \ref{ex:systwoeqs2}, there are values of $x$ and $y$ that satisfy the second equation.  In fact, any ordered pair $(x, y)$ that satisfies the first equation will satisfy the second equation.  Thus, the solution set for this system is the same as the set of all solutions of $4x+3y=2$.  
+Unlike the situation in Example \ref{ex:systwoeqs2}, any combination of $x$ and $y$ satisfies the second equation.  So, any ordered pair $(x, y)$ that satisfies the first equation will satisfy the second equation.  Thus, the solution set for this system is the same as the set of all solutions of $4x+3y=2$.  
 
 When we plot the two equations of the original system, we find that the two lines coincide.
 
@@ -312,9 +310,10 @@ When we plot the two equations of the original system, we find that the two line
 \end{explanation}
 \end{example}
 
-Given a linear system in two variables and more than two equations, we have a variety of geometric possibilities.  In terms of the number of solutions, there are three possibilities, as described below. 
+Given a linear system in two variables and more than two equations, we have a variety of geometric possibilities.  In terms of the number of solutions, there are three possibilities. 
 
-First, it is possible for the graphs of all equations in the system to intersect at a single point, giving us a unique solution.  
+\begin{itemize}
+\item First, it is possible for the graphs of all equations in the system to intersect at a single point, giving us a unique solution.  
 
 \begin{center}
 \begin{tikzpicture}[scale=.5]
@@ -329,7 +328,7 @@ First, it is possible for the graphs of all equations in the system to intersect
 \end{tikzpicture}
 \end{center}
 
-Second, it is possible for the graphs to have no points common to all of them.  If this is the case, the system is inconsistent.
+\item Second, it is possible for the graphs to have no points common to all of them.  If this is the case, the system is inconsistent.
 
 %\begin{center}[3in]
 \begin{center}
@@ -356,8 +355,8 @@ Second, it is possible for the graphs to have no points common to all of them.  
 \end{center}
 %\end{center}
 
-Finally, it is possible for all of the lines to coincide, giving us infinitely many solutions.
-
+\item Finally, it is possible for all of the lines to coincide, giving us infinitely many solutions.
+\end{itemize}
 \subsection*{Geometry of Linear Systems in Three Variables}
 In Example \ref{ex:threeeqthreevars1} we solved the following linear system of three equations and three unknowns
 $$\begin{array}{ccccccc}
@@ -388,8 +387,9 @@ We found that the system has a unique solution $(1, 2, -1)$.  The graph of each 
 \end{center}
 
 
-Given a linear system of three equations and three variables, there are three ways in which the system can be consistent.
-First, the three planes could intersect at a single point, giving us a unique solution.
+Given a linear system of three equations in three variables, there are three ways in which the system can be consistent.
+\begin{itemize}
+\item First, the three planes could intersect at a single point, giving us a unique solution.
 \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}
@@ -399,7 +399,7 @@ First, the three planes could intersect at a single point, giving us a unique so
 \fill[] (0,0,0) circle (0.1cm);
     \end{tikzpicture}
     \end{center}
-    Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
+\item Second, the three planes can intersect in a line, forming a paddle-wheel shape.  In this case, every point along the line of intersection is a solution to the system, giving us infinitely many solutions.
     \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
@@ -409,7 +409,7 @@ First, the three planes could intersect at a single point, giving us a unique so
 \draw[-](0,0,-2)--(0,0,2) ;
      \end{tikzpicture}
      \end{center}
-     Finally, the three planes can coincide.  If this is the case, there are infinitely many solutions.
+\item Finally, the three planes can coincide.  If this is the case, there are infinitely many solutions.
      \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
@@ -417,6 +417,7 @@ First, the three planes could intersect at a single point, giving us a unique so
 \filldraw[blue, opacity=0.3] (1.5,0,1.5)--(-1.5,0,1.5)--(-1.5,0,-1.5)--(1.5,0,-1.5)--cycle;
 \filldraw[red, opacity=0.3] (1,0,1)--(-1,0,1)--(-1,0,-1)--(1,0,-1)--cycle;    	\end{tikzpicture}
 \end{center}
+\end{itemize}
 There are four ways for a system to be inconsistent.  They are depicted below.
 %\begin{center}[4in]
 \begin{center}
@@ -457,7 +458,7 @@ where $a_1,\ldots ,a_n$ and $b$ are constants.
 \end{definition}
 
 
-An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.  In $\RR^n$ for $n>3$, we say that the graph of a linear equation is a \dfn{hyperplane}. A hyperplane cannot be visualized, but we can still talk about intersections of hyperplanes and their other attributes in algebraic terms.  
+An $n$-tuple $(x_1, x_2,\ldots ,x_n)$ is a \dfn{solution} to the equation $a_1x_1+a_2x_2+\ldots +a_nx_n=b$ provided that it turns the equation into a true statement.  The set of all $n$-tuples that are solutions to a given equation is called the \dfn{graph} of the equation. The graph of a linear equation in two variables is a line in $\RR^2$.  The graph of a linear equation in three variables is a plane in $\RR^3$.  In $\RR^n$, for $n>3$, we say that the graph of a linear equation is a \dfn{hyperplane}. A hyperplane cannot be visualized, but we can still talk about intersections of hyperplanes and their other attributes in algebraic terms.  
 
 A linear system of $m$ equations and $n$ unknowns is typically written as follows
 
@@ -470,26 +471,22 @@ $$\begin{array}{ccccccccc}
 
 
 A \dfn{solution to a system} of linear equations in $n$ variables is an $n$-tuple that satisfies every equation in  the system.  All solutions to a system of equations, taken together, form a \dfn{solution set}.
-%We will focus on algebraic methods for finding solution sets, but we will also consider the geometric aspect of systems to gain additional insights.
 
+\begin{definition}\label{def:equivsystems} Two systems of linear equations are said to be equivalent if they have the same solution set.
+\end{definition}
 
-%\subsection*{Equivalent Systems and Elementary Row Operations}
-
-In Exploration Problem \ref{init:systwoeqs1} we introduced elementary row operations and equivalent systems. We now make these definitions formal.
-
-\begin{definition}[Elementary Row Operations]\label{def:elemrowops}
-The following three operations performed on a linear system are called \dfn{elementary row operations}
+Recall that to solve systems of equations in this section, we utilized three \dfn{elementary row operations}.  These operations are:
 \begin{enumerate}
 \item\label{item:rowswap} Switching the order of two equations
 \item\label{item:constantmult} Multiplying both sides of an equation by the same non-zero constant
 \item\label{item:addrow} Adding a multiple of one equation to another
 \end{enumerate}
-\end{definition}
 
-\begin{definition}\label{def:equivsystems} Two systems of linear equations are said to be equivalent if they have the same solution set.
-\end{definition}
-
-It is not difficult to see that performing a sequence of elementary row operations on a system of equations produces an equivalent system.  We can justify this by considering the row operations one at a time.  Clearly, the order of equations down does not affect the solution set, so \ref{item:rowswap} produces an equivalent system.  Next, you learned years ago that multiplying both sides of an equation by a non-zero constant does not change its solution set, which establishes that \ref{item:constantmult} produces an equivalent system.  To see that \ref{item:addrow} produces an equivalent system, note that if we add a multiple of an equation to another equation in the system, we are adding the same thing to both sides, which does not change the solution set of that equation, nor of the system.
+\begin{theorem}\label{th:elemRowOpsEquivSys}
+    Given a system of linear equations, any of the three elementary row operations performed on the system produces an equivalent system.
+\end{theorem}
+\begin{proof} Clearly, the order of equations does not affect the solution set, so \ref{item:rowswap} produces an equivalent system.  Next, you learned years ago that multiplying both sides of an equation by a non-zero constant does not change its solution set, which establishes that \ref{item:constantmult} produces an equivalent system.  To see that \ref{item:addrow} produces an equivalent system, note that if we add a multiple of an equation to another equation in the system, we are adding the same thing to both sides, which does not change the solution set of that equation, nor of the system.
+\end{proof}
 
 
 
@@ -575,7 +572,7 @@ $$\begin{array}{ccccc}
 \begin{problem}\label{prob:reverserowopsgeometry}
 The following figures show a geometric depiction of two equivalent systems.  (The systems are equivalent because they have the same solution set.)  Can the first system be transformed into the second system by elementary row operations?  If so, how?
 
- %\begin{center}[4in]
+ 
  \begin{center}
 \begin{tikzpicture}[scale=.5]
 \draw[thin,gray!40] (-2,-2) grid (6,6);
