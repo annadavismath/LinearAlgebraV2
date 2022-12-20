@@ -60,41 +60,6 @@ RIGHT-CLICK and DRAG the left panel to rotate the image.
 
 \subsection*{Geometry of Linear Combinations}
 
-\begin{example}\label{ex:lincombgeometry1}
-Express $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$.  Interpret your results geometrically.
-\begin{explanation}
-We need to find scalars $a$ and $b$ such that 
-$$\begin{bmatrix}2\\4\end{bmatrix}=a\begin{bmatrix}2\\1\end{bmatrix}+b\begin{bmatrix}2\\-2\end{bmatrix}$$
-This amounts to solving a system of linear equations
-\begin{align*}
-2a+2b&=2\\
-a-2b&=4
-\end{align*}
-Use your favorite method to solve this system. (Hint: adding the second equation to the first will work well for this system.) You will find that $a=2$ and $b=-1$.  Now we can write $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ as follows:
-
-$$\begin{bmatrix}2\\4\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}+(-1)\begin{bmatrix}2\\-2\end{bmatrix}$$
-
-Geometrically speaking, this means that the vector $\begin{bmatrix}2\\4\end{bmatrix}$ is the diagonal of the parallelogram determined by $2\begin{bmatrix}2\\1\end{bmatrix}$ and $(-1)\begin{bmatrix}2\\-2\end{bmatrix}$.  The original vectors $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ are shown below together with the parallelogram and its diagonal. 
-
-\begin{center}
-\begin{tikzpicture}[scale=1]
-\draw[thin,gray!40] (-4,-4) grid (4,4);
-  \draw[<->] (-4,0)--(4,0);
-  \draw[<->] (0,-4)--(0,4);
-  
-  \filldraw[blue, opacity=0.3](0,0)--(-2,2)--(2,4)--(4,2)--cycle;
-\draw[line width=2pt,red,-stealth](0,0)--(2,1) node[below right]{$\begin{bmatrix}2\\1\end{bmatrix}$};
-\draw[line width=2pt,red,-stealth, dashed](0,0)--(4,2) node[below right]{$2\begin{bmatrix}2\\1\end{bmatrix}$};
- % \fill[blue!40!white] (10,0) circle (0.2cm);
- \draw[line width=2pt,blue,-stealth](0,0)--(2,-2) node[right]{$\begin{bmatrix}2\\-2\end{bmatrix}$};
- \draw[line width=2pt,blue,-stealth, dashed](0,0)--(-2,2) node[above left]{$(-1)\begin{bmatrix}2\\-2\end{bmatrix}$};
- \draw[line width=2pt,-stealth](0,0)--(2,4); 
-\end{tikzpicture}
-\end{center}
-
-\end{explanation}
-\end{example}
-
 \begin{example}\label{ex:lincombparallelogrammethod}
 Use geometry to express $\begin{bmatrix}3\\-4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}-1\\3\end{bmatrix}$ and $\begin{bmatrix}-4\\2\end{bmatrix}$.
 
@@ -213,7 +178,7 @@ Now we can write $\begin{bmatrix}3\\-4\end{bmatrix}$ as a linear combination of 
 
 The method we used in Example \ref{ex:lincombparallelogrammethod} to express the given vector as a linear combination of two other vectors is sufficiently useful that we summarize the steps.
 
-\begin{procedure}\label{pro:lincombgeo} Given two non-collinear vectors $\vec{u}$ and $\vec{v}$ in $\RR^2$, and a vector $\vec{w}$ which is not a scalar multiple of either $\vec{u}$ or $\vec{v}$, we can express $\vec{w}$ as a linear combination of $\vec{u}$ and $\vec{v}$ as follows:
+\begin{procedure}\label{pro:lincombgeo} Given two non-collinear vectors $\vec{u}$ and $\vec{v}$ in $\RR^2$, and a vector $\vec{w}$, we can express $\vec{w}$ as a linear combination of $\vec{u}$ and $\vec{v}$ as follows:
 \begin{enumerate}
 \item Draw lines $L_{\vec{u}}$ and $L_{\vec{v}}$ determined by $\vec{u}$ and $\vec{v}$, respectively.
 \item Through the head of vector $\vec{w}$, draw lines $P_{\vec{u}}$ and $P_{\vec{v}}$, parallel to $L_{\vec{u}}$ and $L_{\vec{v}}$, respectively.
@@ -259,13 +224,17 @@ This GeoGebra interactive will allow you to go through the steps given in Proced
 \begin{enumerate}
     \item Enter components of vectors $\vec{u}$ and $\vec{v}$.
     \item Enter components of vector $\vec{w}$ that you want to express as a linear combination of $\vec{u}$ and $\vec{v}$.
-    \item Use the arrows of the navigation bar at the bottom to go through the steps of Procedure \ref{pro:lincombgeo}
+    \item Use the navigation bar to go through the steps of Procedure \ref{pro:lincombgeo}
 \end{enumerate}
 
 \begin{center} 
 \geogebra{u77b52k8}{800}{600} 
 \end{center}
+
 \end{exploration}
+
+\subsection*{From Geometry to Algebra of Linear Combinations}
+One of the stipulations in Procedure \ref{pro:lincombgeo} is that vectors $\vec{u}$ and $\vec{v}$ should be non-collinear.  You can use the interactive in Exploration \ref{exp:proc4} to investigate what happens when $\vec{u}$ and $\vec{v}$ are collinear.  The following example examines what happens from a geometric as well as an algebraic standpoint.
 \begin{example}\label{ex:lincombgeometry2}
 Can the vector $\begin{bmatrix}3\\2\end{bmatrix}$ be written as a linear combination of vectors $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$?
 \begin{explanation}
@@ -275,9 +244,7 @@ We will start with a geometric approach.
 \draw[thin,gray!40] (-4,-5) grid (7,4);
   \draw[<->] (-4,0)--(7,0);
   \draw[<->] (0,-5)--(0,4);
-  
- 
-\draw[line width=2pt,red,-stealth](0,0)--(-3,1) node[above right]{$\begin{bmatrix}-3\\1\end{bmatrix}$};
+  \draw[line width=2pt,red,-stealth](0,0)--(-3,1) node[above right]{$\begin{bmatrix}-3\\1\end{bmatrix}$};
 
  \draw[line width=2pt,blue,-stealth](0,0)--(6,-2) node[below left]{$\begin{bmatrix}6\\-2\end{bmatrix}$};
 
@@ -303,14 +270,47 @@ This gives us a system of equations
 a-2b&=2
 \end{align*}
 
-When you try to solve this system using your favorite method, you will find that the system is inconsistent.  Thus, $\begin{bmatrix}3\\2\end{bmatrix}$ cannot be written as a linear combination of $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.
+When you try to solve this system, you will find that the system is inconsistent.  Thus, $\begin{bmatrix}3\\2\end{bmatrix}$ cannot be written as a linear combination of $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.
 
-We know that there is no way to express $\begin{bmatrix}3\\2\end{bmatrix}$ as a linear combination of vectors $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.  What would happen if we tried to apply Procedure \ref{pro:lincombgeo} to these vectors?  Just for fun, you can use the GeoGebra interactive above to find out.
+We know that there is no way to express $\begin{bmatrix}3\\2\end{bmatrix}$ as a linear combination of vectors $\begin{bmatrix}-3\\1\end{bmatrix}$ and $\begin{bmatrix}6\\-2\end{bmatrix}$.  What would happen if we tried to apply Procedure \ref{pro:lincombgeo} to these vectors?  You can use the GeoGebra interactive in Exploration \ref{exp:proc4} to find out.
 
 \end{explanation}
 \end{example}
 
-\subsection*{Algebra of Linear Combinations}
+\begin{example}\label{ex:lincombgeometry1}
+Express $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$.  Interpret your results geometrically.
+\begin{explanation}
+We need to find scalars $a$ and $b$ such that 
+$$\begin{bmatrix}2\\4\end{bmatrix}=a\begin{bmatrix}2\\1\end{bmatrix}+b\begin{bmatrix}2\\-2\end{bmatrix}$$
+This amounts to solving a system of linear equations
+\begin{align*}
+2a+2b&=2\\
+a-2b&=4
+\end{align*}
+Use your favorite method to solve this system. (Hint: adding the second equation to the first will work well for this system.) You will find that $a=2$ and $b=-1$.  Now we can write $\begin{bmatrix}2\\4\end{bmatrix}$ as a linear combination of $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ as follows:
+
+$$\begin{bmatrix}2\\4\end{bmatrix}=2\begin{bmatrix}2\\1\end{bmatrix}+(-1)\begin{bmatrix}2\\-2\end{bmatrix}$$
+
+Geometrically speaking, this means that the vector $\begin{bmatrix}2\\4\end{bmatrix}$ is the diagonal of the parallelogram determined by $2\begin{bmatrix}2\\1\end{bmatrix}$ and $(-1)\begin{bmatrix}2\\-2\end{bmatrix}$.  The original vectors $\begin{bmatrix}2\\1\end{bmatrix}$ and $\begin{bmatrix}2\\-2\end{bmatrix}$ are shown below together with the parallelogram and its diagonal. 
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[thin,gray!40] (-4,-4) grid (4,4);
+  \draw[<->] (-4,0)--(4,0);
+  \draw[<->] (0,-4)--(0,4);
+  
+  \filldraw[blue, opacity=0.3](0,0)--(-2,2)--(2,4)--(4,2)--cycle;
+\draw[line width=2pt,red,-stealth](0,0)--(2,1) node[below right]{$\begin{bmatrix}2\\1\end{bmatrix}$};
+\draw[line width=2pt,red,-stealth, dashed](0,0)--(4,2) node[below right]{$2\begin{bmatrix}2\\1\end{bmatrix}$};
+ % \fill[blue!40!white] (10,0) circle (0.2cm);
+ \draw[line width=2pt,blue,-stealth](0,0)--(2,-2) node[right]{$\begin{bmatrix}2\\-2\end{bmatrix}$};
+ \draw[line width=2pt,blue,-stealth, dashed](0,0)--(-2,2) node[above left]{$(-1)\begin{bmatrix}2\\-2\end{bmatrix}$};
+ \draw[line width=2pt,-stealth](0,0)--(2,4); 
+\end{tikzpicture}
+\end{center}
+
+\end{explanation}
+\end{example}
 
 \begin{example}\label{ex:lincombalgebra1}
 If possible, express $\begin{bmatrix}7\\4\\-5\end{bmatrix}$ as a linear combination of $\begin{bmatrix}1\\-2\\1\end{bmatrix}$ and $\begin{bmatrix}3\\0\\-1\end{bmatrix}$.
@@ -343,7 +343,7 @@ $$\begin{array}{ccccccccc}
       4x_1 &+ &x_2 & -&3x_3 &-&x_4&= &3\\
 	 -2x_1& -&x_2 & +&x_3&+&4x_4&=&0
     \end{array}$$
-    At this point you may not have the techniques for solving this system of equations efficiently.  So, we present this problem as an example of a set-up only.  Later in the course you will learn to solve and interpret such systems.
+    
 \end{explanation}
 \end{example}
 
@@ -384,7 +384,8 @@ Use two different approaches (algebraic and geometric) to explain why the vector
 We have seen Procedure \ref{pro:lincombgeo} applied to vectors in $\RR^2$.  The same process can, in certain cases be applied to vectors in $\RR^3$.  In both parts of this problem you will be asked to follow the steps in Procedure \ref{pro:lincombgeo} to express one vector as a linear combination of two given vectors.  Then you will be asked to identify the condition which makes it possible to do so.
 
 \begin{problem}\label{prob:lincombtwovectors4a}
-The following GeoGebra interactive shows vectors ${\bf u}=\begin{bmatrix}3\\0\\-1\end{bmatrix}$, ${\bf v}=\begin{bmatrix}1\\-2\\1\end{bmatrix}$ and ${\bf w}=\begin{bmatrix}7\\4\\-5\end{bmatrix}$
+The following GeoGebra interactive shows vectors ${\bf u}=\begin{bmatrix}3\\0\\-1\end{bmatrix}$, ${\bf v}=\begin{bmatrix}1\\-2\\1\end{bmatrix}$ and ${\bf w}=\begin{bmatrix}7\\4\\-5\end{bmatrix}$.
+RIGHT-CLICK and DRAG to rotate the image.
 \begin{center} 
 \geogebra{kk5hwjka}{800}{600} 
 \end{center}
@@ -404,7 +405,8 @@ The following GeoGebra interactive shows vectors ${\bf u}=\begin{bmatrix}3\\0\\-
 \end{problem}
 
 \begin{problem}\label{prob:lincombtwovectors4b}
-The following GeoGebra interactive shows vectors ${\bf v}=\begin{bmatrix}1\\-2\\1\end{bmatrix}$, ${\bf u}=\begin{bmatrix}3\\0\\-1\end{bmatrix}$, and ${\bf w}=\begin{bmatrix}7\\4\\0\end{bmatrix}$. Right-click and drag to rotate the image.  Use geometry to explain why ${\bf w}$ cannot be expressed as a linear combination of ${\bf v}$ and ${\bf u}$.
+The following GeoGebra interactive shows vectors ${\bf v}=\begin{bmatrix}1\\-2\\1\end{bmatrix}$, ${\bf u}=\begin{bmatrix}3\\0\\-1\end{bmatrix}$, and ${\bf w}=\begin{bmatrix}7\\4\\0\end{bmatrix}$. 
+RIGHT-CLICK and DRAG to rotate the image.  Use geometry to explain why ${\bf w}$ cannot be expressed as a linear combination of ${\bf v}$ and ${\bf u}$.
 
 \begin{center} 
 \geogebra{x9f6qnyr}{800}{600} 
