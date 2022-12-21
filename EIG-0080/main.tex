@@ -24,7 +24,7 @@ As you experiment with the interactive, see if you can answer the following ques
     \item Are there some matrices for which one of the disks does not intersect the others?  Where none of the disks intersect?
 \end{enumerate}
 \begin{center}
-\geogebra{a5jpgbnp}{800}{600}
+\geogebra{jrpqazq4}{800}{600}
 \end{center}
 \end{exploration}
 
@@ -49,7 +49,7 @@ Then the eigenvalues of $A$ are contained in the Gershgorin region $\Gamma(A)$.
 
 The fact that (\ref{eqn:Gersh_disk}) represents a disk in the complex plane is a direct result of the complex distance formula \ref{eqn:distance_formula}. Before proving Gershgorin's theorem, we provide an example and a video to aid in understanding exactly what the theorem says.
 
-\youtube{bZ9A6FU1cUw}
+\youtube{D-87FPpLoXs}
 
 \begin{example}\label{exa:plot_Gersh}
 Plot the eigenvalues and the Gershgorin region of each of the following matrices.
@@ -67,8 +67,10 @@ Plot the eigenvalues and the Gershgorin region of each of the following matrices
 \begin{explanation}
 
 \begin{enumerate}
-    \item $\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and -1, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
-    \item Since $B$ is upper triangular, its eigenvalues are its diagonal entries.  These are the centers of the Gershgorin disks, which proves that the eigenvalues of $B$ are contained in $\Gamma(B)$.  $\Gamma(B)$ consists of four disks.  The first is centered at 1+i with a radius of $2$, since the absolute value of $i$ is 1.   The second is centered at 4 with a radius of $\sqrt{2}$.  The third disk is centered at 2 with a radius of 1.  The fourth disk is centered at -1 with a radius of zero, so in fact, consists only of the eigenvalue -1.
+    \item $00\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and -1, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
+    \item $B$ is a matrix with complex entries, which makes for a more interesting Gershgorin region.  See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} for more on matrices like this one.
+    
+    Since $B$ is upper triangular, its eigenvalues are its diagonal entries.  These are the centers of the Gershgorin disks, which proves that the eigenvalues of $B$ are contained in $\Gamma(B)$.  $\Gamma(B)$ consists of four disks.  The first is centered at 1+i with a radius of $2$, since the absolute value of $i$ is 1.   The second is centered at 4 with a radius of $\sqrt{2}$.  The third disk is centered at 2 with a radius of 1.  The fourth disk is centered at -1 with a radius of zero, so in fact, consists only of the eigenvalue -1.
 \end{enumerate}
 
 \end{explanation}
