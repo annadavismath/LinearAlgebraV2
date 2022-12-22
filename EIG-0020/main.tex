@@ -39,7 +39,7 @@ In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eq
 
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
-$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$.  The left-hand side of the equation is a polynomial in $\lambda$ and is called the \dfn{characteristic polynomial} of $A$.
+$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$. 
 \end{definition}
 
 \begin{example}\label{ex:2x2eig}
@@ -56,7 +56,7 @@ The characteristic equation $(\lambda-1)(\lambda-3)=0$ has solutions $\lambda_1=
 
 \begin{example}\label{ex:2x2eig2}
 Let $B=\begin{bmatrix} 2& 1\\ 4&2
-\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation.
+\end{bmatrix}$.  Compute the eigenvalues of $B$ using the characteristic equation.  (List your answers in an increasing order.)
 
 $\lambda_1=\answer{0}$ and $\lambda_2=\answer{4}$
 \end{example}
@@ -75,7 +75,7 @@ Matrix $C$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.
 \end{explanation}
 \end{example}
 
-In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice in the characteristic polynomial.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
+In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that the eigenvalue $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
 
 The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
 
@@ -93,7 +93,7 @@ So one of the eigenvalues of $D$ is $\lambda=0$.  To get the other eigenvalues w
 \end{example}
 
 \begin{exploration}\label{init:3x3tri}
-Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.
+Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute the eigenvalues of this matrix.  (List your answers in an increasing order.)
 
 $$\lambda_1=\answer{1},\quad\lambda_2=\answer{5},\quad\text{and}\quad\lambda_3=\answer{9}$$
 
@@ -123,7 +123,7 @@ See Practice Problem \ref{prob:eigtri}.
 Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on the main diagonal.
 \end{corollary}
 
-One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve such an equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  
+One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve this polynomial equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  We will explore some of these techniques in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{The Power Method and the Dominant Eigenvalue}.
 
 \subsection{Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,

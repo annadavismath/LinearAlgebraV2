@@ -10,12 +10,7 @@
 \maketitle
 
 \section*{Complex Matrices}
-If $A$ is an $n \times n$ matrix, the characteristic polynomial $c_{A}(x)$ is a polynomial of degree $n$ and the eigenvalues of $A$ are just the roots of $c_{A}(x)$. In most of our examples these roots have been \textit{real} numbers (in fact, the examples have been carefully chosen so this will be the case!); but it need not happen, even when the characteristic polynomial has real coefficients. For example, if $A = \left[ \begin{array}{rr}
-0 & 1 \\
--1 & 0
-\end{array}\right]$ then $c_{A}(x) = x^{2} + 1$ has roots $i$ and $-i$, where $i$ is a complex number satisfying $i^{2} = -1$. Therefore, we have to deal with the possibility that the eigenvalues of a (real) square matrix might be complex numbers.
-
-In fact, nearly everything in this book would remain true if the phrase \textit{real number} were replaced by \textit{complex number}
+Nearly everything we have studied in this book would remain true if the phrase \textit{real number} were replaced by \textit{complex number}
  wherever it occurs. Then we would deal with matrices with complex
 entries, systems of linear equations with complex coefficients (and
 complex solutions), determinants of complex matrices, and vector spaces
@@ -232,20 +227,34 @@ To prove the converse, let $\vec{e}_{j}$ denote column $j$ of the identity matri
 Hence $\overline{A} = A^T$, so $A$ is Hermitian.
 \end{proof}
 
-Let $A$ be an $n \times n$ complex matrix. As in the real case, a complex number $\lambda$ is called an \dfn{eigenvalue} of $A$ if $A\vec{x} = \lambda \vec{x}$ holds for some column $\vec{x} \neq \vec{0}$ in $\mathbb{C}^n$. In this case $\vec{x}$ is called an \dfn{eigenvector} of $A$ corresponding to $\lambda$. The \dfn{characteristic polynomial} $c_{A}(x)$ is defined by
-\begin{equation*}
-c_{A}(x) = \mbox{det}(xI - A)
-\end{equation*}
-This polynomial has complex coefficients (possibly nonreal). However, the argument in Exploration \ref{exp:slowdown} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{The Characteristic Equation} still works to show that the eigenvalues of $A$ are the roots (possibly complex) of $c_{A}(x)$.
+Let $A$ be an $n \times n$ complex matrix. As in the real case, a complex number $\lambda$ is called an \dfn{eigenvalue} of $A$ if $A\vec{x} = \lambda \vec{x}$ holds for some column $\vec{x} \neq \vec{0}$ in $\mathbb{C}^n$. In this case $\vec{x}$ is called an \dfn{eigenvector} of $A$ corresponding to $\lambda$. 
+
+\begin{definition}\label{def:char_poly_complex}
+Let $A$ be an $n \times n$ complex matrix.  Then $$c_{A}(z)=\det(zI-A)$$
+is a degree $n$ polynomial (in $z$) called the \dfn{characteristic polynomial} of $A$.
+\end{definition}
+
+\begin{remark}
+Some books define the characteristic polynomial to be $\det(A-zI)$ (the left side of 
+the characteristic equation \ref{eqn:chareqn}).  Our definition  ensures that the characteristic polynomial is a monic polynomial (i.e., its leading coefficient is 1).  The two polynomials will have the same roots, which are the eigenvalues of the matrix $A$.
+\end{remark}
+If $A$ is an $n \times n$ matrix, the characteristic polynomial $c_{A}(z)$ is a polynomial of degree $n$ and the eigenvalues of $A$ are just the roots of $c_{A}(z)$. In most of our examples these roots have been \textit{real} numbers (in fact, the examples have been carefully chosen so this will be the case!); but it need not happen, even when the characteristic polynomial has real coefficients. For example, if $A = \left[ \begin{array}{rr}
+0 & 1 \\
+-1 & 0
+\end{array}\right]$ then $c_{A}(z) = z^{2} + 1$ has roots $i$ and $-i$, where $i$ is a complex number satisfying $i^{2} = -1$. Therefore, we have to deal with the possibility that the eigenvalues of a (real) square matrix might be complex numbers.
+
+
+For a complex matrix, $c_{A}(z)$ has complex coefficients (possibly nonreal). However, an argument like that given in Exploration \ref{exp:slowdown} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{The Characteristic Equation} still works to show that the eigenvalues of $A$ are the roots (possibly complex) of $c_{A}(z)$.
+
 
 It is at this point that the advantage
 of working with complex numbers becomes apparent. The real numbers are
 incomplete in the sense that the characteristic polynomial of a real
 matrix may fail to have all its roots real. However, this difficulty
 does not occur for the complex numbers. The so-called fundamental
-theorem of algebra ensures that \textit{every} polynomial of positive degree with complex coefficients has a complex root. Hence every square complex matrix $A$ has a (complex) eigenvalue. Indeed (see \ref{th:034210}), $c_{A}(x)$ factors completely as follows:
+theorem of algebra ensures that \textit{every} polynomial of positive degree with complex coefficients has a complex root. Hence every square complex matrix $A$ has a (complex) eigenvalue. Indeed (see \ref{th:034210}), $c_{A}(z)$ factors completely as follows:
 \begin{equation*}
-c_{A}(x) = (x -\lambda_{1})(x -\lambda_{2}) \cdots (x -\lambda_{n})
+c_{A}(z) = (z -\lambda_{1})(z -\lambda_{2}) \cdots (z -\lambda_{n})
 \end{equation*}
 where $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}$ are the eigenvalues of $A$ (with possible repetitions due to multiple roots).
 
@@ -337,10 +346,10 @@ Consider the Hermitian matrix $A = \left[ \begin{array}{cc}
 \begin{explanation}
   The characteristic polynomial of $A$ is
 \begin{equation*}
-c_{A}(x) = \mbox{det}(xI - A) = \mbox{det}\left[ \begin{array}{rr}
+c_{A}(z) = \mbox{det}(zI - A) = \mbox{det}\left[ \begin{array}{rr}
 x - 3 & -2 - i \\
 -2 + i & x - 7
-\end{array}\right] = (x-2)(x-8)
+\end{array}\right] = (z-2)(z-8)
 \end{equation*}
 Hence the eigenvalues are $2$ and $8$ (both real as expected), and corresponding eigenvectors are $\left[ \begin{array}{cc}
 2 + i \\
@@ -459,7 +468,7 @@ Show that the non-Hermitian matrix $A = \left[ \begin{array}{rr}
 
 
 \begin{explanation}
-  The characteristic polynomial is $c_{A}(x) = x^{2} + 1$. Hence the eigenvalues are $i$ and $-i$, and it is easy to verify that $\left[ \begin{array}{r}
+  The characteristic polynomial is $c_{A}(z) = z^{2} + 1$. Hence the eigenvalues are $i$ and $-i$, and it is easy to verify that $\left[ \begin{array}{r}
   i \\
   -1
   \end{array}\right]$ and $\left[ \begin{array}{r}
@@ -504,7 +513,7 @@ t_{11} & 0 \\
 \end{array}\right]$ so $TT^{H} = T^{H}T$ implies $T_{1}T_{1}^H = T_{1}T_{1}^H$. Thus $T_{1}$ is diagonal by induction, and the proof is complete.
 \end{proof}
 
-We conclude this section by using Schur's theorem (Theorem~\ref{th:025814}) to prove a famous theorem about matrices. Recall that the characteristic polynomial of a square matrix $A$ is defined by $c_{A}(x) = \mbox{det}(xI - A)$, and that the eigenvalues of $A$ are just the roots of $c_{A}(x)$.
+We conclude this section by using Schur's theorem (Theorem~\ref{th:025814}) to prove a famous theorem about matrices. Recall that the characteristic polynomial of a square matrix $A$ is defined by $c_{A}(z) = \mbox{det}(zI - A)$, and that the eigenvalues of $A$ are just the roots of $c_{A}(z)$.
 
 \begin{theorem}[Cayley-Hamilton Theorem]\label{th:Cayley_Hamilton}
 If $A$ is an $n \times n$ complex matrix, then $c_{A}(A) = 0$; that is, $A$ is a root of its characteristic polynomial.
@@ -514,9 +523,9 @@ Named after the English mathematician Arthur Cayley (1821--1895) and William Row
 \end{remark}
 
 \begin{proof}
-If $p(x)$ is any polynomial with complex coefficients, then $p(P^{-1}AP) = P^{-1}p(A)P$ for any invertible complex matrix $P$. Hence, by Schur's theorem, we may assume that $A$ is upper triangular. Then the eigenvalues $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}$ of $A$ appear along the main diagonal, so
+If $p(z)$ is any polynomial with complex coefficients, then $p(P^{-1}AP) = P^{-1}p(A)P$ for any invertible complex matrix $P$. Hence, by Schur's theorem, we may assume that $A$ is upper triangular. Then the eigenvalues $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}$ of $A$ appear along the main diagonal, so
 \begin{equation*}
-c_{A}(x) = (x - \lambda_{1})(x - \lambda_{2})(x - \lambda_{3}) \cdots (x -\lambda_{n})
+c_{A}(z) = (z - \lambda_{1})(z - \lambda_{2})(z - \lambda_{3}) \cdots (z -\lambda_{n})
 \end{equation*}
 Thus
 \begin{equation*}
@@ -878,7 +887,7 @@ a & b \\
 \end{problem}
 
 \begin{problem}\label{prb:complex_matrices20}
-If $A$ is Hermitian, show that all the coefficients of $c_{A}(x)$ are real numbers.
+If $A$ is Hermitian, show that all the coefficients of $c_{A}(z)$ are real numbers.
 \end{problem}
 
 \begin{problem}\label{prb:complex_matrices21}

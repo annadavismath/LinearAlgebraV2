@@ -97,7 +97,7 @@ If $A$ and $B$ are $n\times n$ matrices and $A\sim B$, then
 \item\label{th:properties_similar_det} $\det(A) = \det(B)$,
 \item\label{th:properties_similar_rank} $\mbox{rank}(A) = \mbox{rank}(B)$,
 \item\label{th:properties_similar_trace} $\mbox{tr}(A)= \mbox{tr}(B)$,
-\item\label{th:properties_similar_char_poly} $A$ and $B$ have the same characteristic polynomials, and
+\item\label{th:properties_similar_char_poly} $A$ and $B$ have the same characteristic equations, and
 \item\label{th:properties_similar_eig} $A$ and $B$ have the same eigenvalues.
 \end{enumerate}
 \end{theorem}
@@ -118,7 +118,7 @@ As for \ref{th:properties_similar_char_poly},
 \det(B-\lambda I) &= \det \{P^{-1}AP-\lambda(P^{-1}P)\} \\
 &= \det \{ P^{-1}(A-\lambda I)P\} \\
 &= \det (A-\lambda I)
-\end{align*}
+\end{align*}, so $A$ and $B$ have the same characteristic equation.
 Finally, \ref{th:properties_similar_char_poly} implies \ref{th:properties_similar_eig} because the eigenvalues of a matrix are the roots of its characteristic polynomial.
 \end{proof}
 

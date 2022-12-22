@@ -286,18 +286,18 @@ P=[-2 1 0; 1 0 1; 0 1 -2]
 In Exploration~\ref{exp:motivate_diagonalization}, because matrix $A$ was diagonalizable, we were able to cut down on computations.  When we chose to work with $D$ and $P$ instead of $A$ we worked with the eigenvalues and eigenvectors of $A$.  Each column of $P$ is an eigenvector of $A$, and so we repeatedly made use of the following theorem (with $m=5$).
 
 \begin{theorem}\label{th:eigpowers}
-Let $A$ be an $n \times n$ matrix and suppose $Ax=\lambda x$.  Then $A^m x = \lambda^m x$
+Let $A$ be an $n \times n$ matrix and suppose $A\vec{x}=\lambda \vec{x}$.  Then $A^m \vec{x} = \lambda^m \vec{x}$
 \end{theorem}
 
 \begin{proof}
-We prove this theorem by induction on $m$.  Clearly $A^m x = \lambda^m x$ holds when $m=1$, as that was given.  For the inductive step, suppose that we know $A^{m-1} x = \lambda^{m-1} x$.  Then
+We prove this theorem by induction on $m$.  Clearly $A^m \vec{x} = \lambda^m \vec{x}$ holds when $m=1$, as that was given.  For the inductive step, suppose that we know $A^{m-1} \vec{x} = \lambda^{m-1} \vec{x}$.  Then
 \begin{align*}
-    A^m x &= (A A^{m-1}) x \\
-          &= A (A^{m-1} x) \\
-          &= A (\lambda^{m-1} x) \\
-          &= \lambda^{m-1} Ax \\
-          &= \lambda^{m-1} \lambda x \\
-          &= \lambda^m x
+    A^m \vec{x} &= (A A^{m-1}) \vec{x} \\
+          &= A (A^{m-1} \vec{x}) \\
+          &= A (\lambda^{m-1} \vec{x}) \\
+          &= \lambda^{m-1} A\vec{x} \\
+          &= \lambda^{m-1} \lambda \vec{x} \\
+          &= \lambda^m \vec{x}
 \end{align*}
 as desired.
 \end{proof}

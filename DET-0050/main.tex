@@ -399,8 +399,7 @@ $$A'=\begin{bmatrix} a_{11} & a_{12} & \dots  & a_{1n}  \\
    a_{n1} & a_{n2} & \dots  & a_{nn}\end{bmatrix}$$
 Observe that matrices $A$, $A'$ and $B$ are identical except for the $q^{th}$ row, and the $q^{th}$ row of matrix $B$ is the sum of the $q^{th}$ rows of $A$ and $A'$.  Thus, by Lemma \ref{lemma:arowsumofbc}, we have:
 $$\det{B}=\det{A}+\det{A'}$$
-But, by Lemma \ref{lemma:det0lemma}\ref{item:det0lemma2}, 
-$\det{A'}=0$. Therefore 
+Since one row of $A'$ is a scalar multiple of another row, we know $\det{A'}=0$ (see Practice Problem \ref{prob:kAdet}). Therefore 
 $\det{B}=\det{A}$.
    
 \end{proof}
