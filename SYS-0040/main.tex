@@ -10,10 +10,10 @@
 \maketitle
 \section*{Iterative Methods for Solving Linear Systems}
 
-The approaches to solving linear systems we have studied up to this point are often called \dfn{direct methods}, to set them apart from \dfn{iterative methods}, which we study in this section.  When we solve linear systems using \dfn{iterative methods}, we repeat the same procedure (called an \dfn{iteration} many times (usually using a computer), and we look for the outputs to ``converge to'' the actual solution.  Let's begin with an exploration to depict this idea.
+The approaches to solving linear systems we have studied up to this point are often called \dfn{direct methods}, to set them apart from \dfn{iterative methods}, which we study in this section.  When we solve linear systems using \dfn{iterative methods}, we repeat the same procedure (called an \dfn{iteration} many times (usually using a computer), and we look for the outputs to ``converge to'' the actual solution.  Let's begin with an exploration to illustrate this idea.
 
 \begin{exploration}\label{exp:gauss-seidel2x2}
-In the following GeoGebra interactive, the red line is the graph of $ax+by=r$, and the blue line is the graph of $cx+dy=s$.  Our initial guess, point $A$, may be dragged anywhere on the plane before starting the iterative procedure, it is referred to as our ``initial guess''.  Then use the slide-flipping bar on the bottom to proceed through a number of iterations.  One iteration will consist of sliding horizontally from the current point until we hit the red line, followed by sliding vertically until we hit the blue line.  These two steps are then repeated from the new point on the blue line.
+In the following GeoGebra interactive, the red line is the graph of $ax+by=r$, and the blue line is the graph of $cx+dy=s$.  Point $A$, referred to as our ``initial guess,'' may be dragged anywhere on the plane before starting the iterative procedure.  Use the navigation bar on the bottom to proceed through several iterations.  One iteration will consist of sliding horizontally from the current point until we hit the red line, followed by sliding vertically until we hit the blue line.  These two steps are then repeated from the new point on the blue line.
     
     \begin{center}
 \geogebra{hndq9nmq}{800}{650}
@@ -47,7 +47,7 @@ In this section we will explore two different iterative methods for solving a sy
 \subsection*{Jacobi's method}
 As you saw in the Exploration above, iterative methods do not give an exact answer, but an approximate answer.  More iterations give a more accurate answer.
 
-In \dfn{Jacobi's method} for solving a linear system of $n$ equations in $n$ variables, we isolate the first variable in the first equation, we isolate the second variable in the second equation, and in general, we isolate the $i$th variable in the $i$th equation.
+To use \dfn{Jacobi's method} for solving a linear system of $n$ equations in $n$ variables, we isolate the first variable in the first equation, we isolate the second variable in the second equation, and in general, we isolate the $i$th variable in the $i$th equation.
 
 Let's return to the system of equations from Exploration \ref{exp:gauss-seidel2x2}.  To use Jacobi's method to approximate the solution to the system, we solve for a different variable in each of the two equations.  This gives us two formulas, one for each unknown.  We begin with our initial guess $\vec{v}_0$, and use these formulas to compute the next iteration $\vec{v}_1$.  Taking the vector $\vec{v}_1$, and we again apply these formulas to compute the next iteration to arrive at $\vec{v}_2$.
 
@@ -78,7 +78,7 @@ We observe that at each iteration our approximate solution gets closer to the ac
 
 \subsection*{The Gauss-Seidel method}
 
-The \dfn{Gauss-Seidel method} for solving a linear system of $n$ equations in $n$ variables, we use the same set of $n$ formulas as we use in Jacobi's method.  The difference is that we implement the formulas \emph{sequentially} rather than simultaneously.
+To implement the \dfn{Gauss-Seidel method} for solving a linear system of $n$ equations in $n$ variables, we use the same set of $n$ formulas as we use in Jacobi's method.  The difference is that we implement the formulas \emph{sequentially} rather than simultaneously.
 
 To demonstrate, we return to the same system of equations examined above.
 
