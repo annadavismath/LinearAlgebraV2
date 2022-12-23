@@ -11,14 +11,14 @@
 \section*{$\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$}
 \subsection*{Closure}
 
-We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties (see Theorem \ref{th:vecproperties}). These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Before we can give a formal definition of a vector space we need to introduce the concept of \dfn{closure} under an operation.
+We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties (see Theorem \ref{th:vecproperties}). These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Some subsets of $\RR^n$, such as lines and planes that pass through the origin, are vector spaces in their own right.  We will refer to such spaces as \dfn{subspaces} of $\RR^n$.  Before we can give formal definitions of a vector space and a subspace we need to introduce the concept of \dfn{closure} under an operation.
 
  \begin{definition} \label{def:closedunderaddition}
   A set $V$ is said to be \dfn{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
 \end{definition}
 
   \begin{definition} \label{def:closedunderscalarmult}
-  A set $V$ is said to be \dfn{closed under scalar multiplication} if for each element $\vec{v} \in V$  and for each scalar $k$ the product $k\vec{v}$ is also in $V$.
+  A set $V$ is said to be \dfn{closed under scalar multiplication} if for each element $\vec{v} \in V$  and for each scalar $k \in \RR$ the product $k\vec{v}$ is also in $V$.
 \end{definition}
 
 
@@ -49,8 +49,7 @@ The figure below helps us see that the sum of any two vectors in $X_1$ also lies
   \filldraw[blue, opacity=0.3](0,0)--(4,0)--(4,4)--(0,4)--cycle;
 \draw[line width=2pt,red,-stealth](0,0)--(2,1) ;
  \draw[line width=2pt,blue,-stealth](0,0)--(1,3) ;
- 
- \draw[line width=2pt,-stealth](0,0)--(3,4); 
+  \draw[line width=2pt,-stealth](0,0)--(3,4); 
 \end{tikzpicture}\quad
 \begin{tikzpicture}[scale=0.7]
 \draw[thin,gray!40] (-4,-4) grid (4,4);
@@ -72,12 +71,25 @@ The figure below helps us see that the sum of any two vectors in $X_1$ also lies
 Let $X_1$ be as in Example \ref{ex:Q1}.  Let $$X_3=\left\{\begin{bmatrix} x_1\\x_2\end{bmatrix} \in \mathbb{R}^2 : x_1 \le 0, x_2 \le 0 \right\}$$
 In other words, $X_3$ is the set of vectors in $\RR^2$ in the third quadrant (or on an axis on the boundary of the third quadrant).  Now let 
 $$Y = X_1 \bigcup X_3$$ 
-In other words, $Y$ is the set of vectors in $\RR^2$ that are either in the first quadrant, the third quadrant, or lie along one of the axes.  Then $Y$ is closed under scalar multiplication, but $Y$ is not closed under addition.
+In other words, $Y$ is the set of vectors in $\RR^2$ that are either in the first quadrant, the third quadrant, or lie along one of the axes, as shown below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\draw[thin,gray!40] (-4,-4) grid (4,4);
+  \draw[<->] (-4,0)--(4,0);
+  \draw[<->] (0,-4)--(0,4);
+  \filldraw[blue, opacity=0.3](0,0)--(4,0)--(4,4)--(0,4)--cycle;
+\filldraw[blue, opacity=0.3](0,0)--(-4,0)--(-4,-4)--(0,-4)--cycle;
+\end{tikzpicture}
+\end{center}
+Then $Y$ is closed under scalar multiplication, but $Y$ is not closed under addition.
 \end{example}
 
 \subsection*{$\RR^n$ as a Vector Space}
 
 In Theorem \ref{th:vecproperties} we learned that vector addition and scalar multiplication in $\RR^n$ satisfy the following eight properties:
+
+For all vectors $\vec{u}$, $\vec{v}$, $\vec{w}\in\RR^n$, and scalars $k, p\in\RR$,
 \begin{enumerate}
  \item 
   Commutative Property of Addition:\quad
@@ -112,7 +124,7 @@ In Theorem \ref{th:vecproperties} we learned that vector addition and scalar mul
 \end{itemize}      
       The eight properties of vector operations, together with closure, constitute the criteria for a set with two operations to be considered a \dfn{vector space}. So, $\RR^n$ is a vector space.  
       
-      We will encounter other vector spaces later. Any vector space must be closed under both operations, and must satisfy the other eight properties in the list above.  We will see (in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}, for instance) that a wide variety of sets, with a wide variety of operations, are vector spaces (one important reason to study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the elements under the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
+      We will encounter other vector spaces later. Any vector space must be closed under both of its operations, and must satisfy the other eight properties in the list above.  We will see (in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}, for instance) that a wide variety of sets, with a wide variety of operations, are vector spaces (one important reason to study linear algebra).  As we shall see, these sets and their operations may look very different, but the behavior of the elements under the two operations makes them vector spaces.  For now, we simply focus on $\RR^n$.
 
 
 \subsection*{Subspaces of $\RR^n$}
