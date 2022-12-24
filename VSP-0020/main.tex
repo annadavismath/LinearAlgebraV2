@@ -9,10 +9,11 @@
 
 \maketitle
 \section*{$\mathbb{R}^n$ and Subspaces of $\mathbb{R}^n$}
+
+
+We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties (see Theorem \ref{th:vecproperties}). These properties give $\RR^n$ an algebraic structure.  We will begin this section by introducing another property, called \dfn{closure}.  Together, these properties make $\RR^n$ a \dfn{vector space}.  
+
 \subsection*{Closure}
-
-We are familiar with two operations that can be applied to vectors in $\RR^n$, namely, addition and scalar multiplication. We learned that addition and scalar multiplication satisfy many nice properties (see Theorem \ref{th:vecproperties}). These properties give $\RR^n$ an algebraic structure, and make $\RR^n$ a \dfn{vector space}.  Some subsets of $\RR^n$, such as lines and planes that pass through the origin, are vector spaces in their own right.  We will refer to such spaces as \dfn{subspaces} of $\RR^n$.  Before we can give formal definitions of a vector space and a subspace we need to introduce the concept of \dfn{closure} under an operation.
-
  \begin{definition} \label{def:closedunderaddition}
   A set $V$ is said to be \dfn{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
 \end{definition}
@@ -133,7 +134,7 @@ Now that we understand what it means for a set to be closed under addition and s
 
 \begin{definition}\label{def:subspace} Suppose that $V$ is a nonempty subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
 \end{definition}
-We use the term \dfn{subspace} because it turns out that any subset of $\RR^n$ closed under both addition and scalar multiplication is also a vector space in its own right.  In other words, by satisfying the properties of closure, a subset of $\RR^n$ will automatically satisfy the eight vector space properties listed above.  We will prove this in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}.
+We use the term \dfn{subspace} because it turns out that any subset of $\RR^n$ closed under both addition and scalar multiplication is also a vector space in its own right.  In other words, by inheriting vector addition and scalar multiplication from $\RR^n$, and satisfying the properties of closure, a subset of $\RR^n$ will automatically satisfy all vector space properties.  We will prove this in Theorem \ref{th:subspacetestabstract} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0050/main}{Abstract Vector Spaces}.
 
 \begin{example} \label{y-axis_subspace}
 Let $V$ be the set of vectors in $\RR^3$ on the $y-$axis.  Then $V$ is a subspace of $\RR^3$.  
