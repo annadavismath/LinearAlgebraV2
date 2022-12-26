@@ -17,7 +17,7 @@ For a matrix transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$
 \begin{itemize}
     \item $T$ is linear. (Theorem \ref{th:matrixtran})  This means that 
     $$T(k_1\vec{u}+k_2\vec{v})= k_1T(\vec{u})+k_2T(\vec{v})$$
-    for vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$ and constants $k_1$ and $k_2$ in $\RR$.
+    for vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$ and scalars $k_1$ and $k_2$ in $\RR$.
     \item Columns of $A$ are the images of the standard unit vectors of $\RR^n$ under $T$. (Observation \ref{obs:imagesOfijk})
  \begin{equation*} \label{eq:matlintrans}
  A=\begin{bmatrix}
@@ -52,7 +52,7 @@ Because of properties of linear transformations, the information about the image
 \end{explanation}
 \end{example}
 
-In Example \ref{ex:imageofatransformation}, there was nothing particularly special about the vector $\vec{w}$.  Any vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\ldots , \vec{e}_n$.  Therefore, the image of any vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1, \ldots , \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
+In Example \ref{ex:imageofatransformation}, there was nothing special about the vector $\vec{w}$.  Any vector $\vec{x}$ of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\ldots , \vec{e}_n$.  Therefore, the image of any vector $\vec{x}$ under a linear transformation $T:\RR^n\rightarrow \RR^m$ is uniquely determined by the images of $\vec{e}_1, \ldots , \vec{e}_n$.  Knowing $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ allows us to construct a matrix $A$, with $T(\vec{e}_1),\ldots , T(\vec{e}_n)$ as columns, that induces transformation $T$.  We formalize this idea in a theorem.
 
 \begin{theorem}\label{th:matlin} Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation.  Then $T$ is a matrix transformation with
   \begin{equation*} \label{matlintrans}
