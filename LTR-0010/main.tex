@@ -84,7 +84,7 @@ $$7\begin{bmatrix}
 21
 \end{bmatrix}$$.  
 
-Now let's compare how $T_1$ and $T_2$ ``handle" this product.  We compute:
+Now let's compare how $T_1$ and $T_2$ ``handle" this product.  Starting with $T_1$, we compute:
 
 $$
 T_1\left(7\begin{bmatrix}
@@ -96,16 +96,18 @@ T_1\left(7\begin{bmatrix}
 \end{bmatrix}\right)=\begin{bmatrix}
 7\\
 28
-\end{bmatrix} \quad \text{and} \quad
-T_2\left(7\begin{bmatrix}
-4\\
-3
-\end{bmatrix}\right)=T_2\left(\begin{bmatrix}
-28\\
-21
-\end{bmatrix}\right)=\begin{bmatrix}
--6\\
-19\end{bmatrix}$$
+\end{bmatrix} 
+% \quad \text{and} \quad
+% T_2\left(7\begin{bmatrix}
+% 4\\
+% 3
+% \end{bmatrix}\right)=T_2\left(\begin{bmatrix}
+% 28\\
+% 21
+% \end{bmatrix}\right)=\begin{bmatrix}
+% -6\\
+% 19\end{bmatrix}
+$$
 
 Observe that multiplying the original vector by $7$, then applying $T_1$, has the same effect as applying $T_1$ to the original vector, then multiplying the image by $7$.  In other words,
 
@@ -123,6 +125,47 @@ T_1\left(7\begin{bmatrix}
 4\\
 3
 \end{bmatrix}\right)$$
+
+Diagrammatically, this can be represented as follows.
+
+\begin{center}
+ \begin{tikzpicture} 
+      
+    \fill[blue, opacity=0.3] (1,1) rectangle (4,6);
+   \fill[red, opacity=0.2] (7,1) rectangle (12,6);
+   
+   \node[] at (2.5, 6.3)  (p2)    {Domain of $T_1$};
+   \node[] at (9.5, 6.3)  (r3)    {Codomain of $T_1$};
+   
+      \node[] at (2.5, 5)  (a)    {$\begin{bmatrix}4\\3\end{bmatrix}$};
+     \node[] at (2.5, 2)  (b)    {$7\begin{bmatrix}4\\3\end{bmatrix}$};
+     
+    
+    \node[] at (10, 5)  (c)    {$T\left(\begin{bmatrix}4\\3\end{bmatrix}\right)$};
+     \node[] at (9.5, 2)  (d)    {$T\left(7\begin{bmatrix}4\\3\end{bmatrix}\right)=7T\left(\begin{bmatrix}4\\3\end{bmatrix}\right)$};
+     \node[] at (10, 2.2)  (e) {};
+     
+    
+     \draw [->,line width=1pt,-stealth, red]  (a.east)to(c.west);
+     \draw [->,line width=1pt,-stealth, blue]  (b.east)to(d.west);
+     
+     \draw [->,line width=1pt,-stealth, blue]  (a.south)to(b.north);
+     \draw [->,line width=1pt,-stealth,red]  (c.south)to(e.north);
+     
+%Function labels
+      \node[red] at (5.5, 5.3)    {$T_1$};
+      \node[blue] at (5.5, 2.3)    {$T_1$};
+      
+      \node[blue] at (1.7, 3.7)    {Multiply};
+      \node[blue] at (1.7, 3.2)    {by $7$ first};
+      \node[red] at (5.5, 4.7)    {Apply $T_1$ first};   
+      
+  \end{tikzpicture}
+\end{center}
+
+
+
+
 
 You should try to verify that this property does not hold for transformation $T_2$.  In other words,
 
@@ -199,6 +242,78 @@ T(k\vec{u})= kT(\vec{u})
 T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 \end{equation}
 \end{definition}
+
+Equations (\ref{eq:lintrans1}) and (\ref{eq:lintrans2}) of the above definition can be illustrated diagrammatically as follows.
+
+\begin{center}
+ \begin{tikzpicture} 
+      
+    \fill[blue, opacity=0.3] (1,1) rectangle (4,5);
+   \fill[red, opacity=0.2] (7,1) rectangle (10,5);
+   
+   \node[] at (2.5, 5.3)  (p2)    {Domain of $T$};
+   \node[] at (8.5, 5.3)  (r3)    {Codomain of $T$};
+   
+      \node[] at (2.5, 4.5)  (a)    {$\vec{v}$};
+     \node[] at (2.5, 1.5)  (b)    {$k\vec{v}$};
+     
+    
+    \node[] at (9, 4.5)  (c)    {$T(\vec{v})$};
+     \node[] at (8.5, 1.5)  (d)    {$T(k\vec{v})=kT(\vec{v})$};
+     \node[] at (9, 1.6)  (e) {};
+     
+    
+     \draw [->,line width=1pt,-stealth, red]  (a.east)to(c.west);
+     \draw [->,line width=1pt,-stealth, blue]  (b.east)to(d.west);
+     
+     \draw [->,line width=1pt,-stealth, blue]  (a.south)to(b.north);
+     \draw [->,line width=1pt,-stealth,red]  (c.south)to(e.north);
+     
+%Function labels
+      \node[red] at (5.5, 4.8)    {$T$};
+      \node[blue] at (5.5, 1.8)    {$T$};
+      
+      \node[blue] at (1.7, 3.2)    {Multiply};
+      \node[blue] at (1.7, 2.8)    {first};
+      \node[red] at (5.5, 4.2)    {Apply $T$ first};   
+      
+  \end{tikzpicture}
+\end{center}
+
+\begin{center}
+ \begin{tikzpicture} 
+      
+    \fill[blue, opacity=0.3] (1,1) rectangle (4,6);
+   \fill[red, opacity=0.2] (7,1) rectangle (12,6);
+   
+   \node[] at (2.5, 6.3)  (p2)    {Domain of $T$};
+   \node[] at (9.5, 6.3)  (r3)    {Codomain of $T$};
+   
+      \node[] at (2.5, 5)  (a)    {$\vec{u}, \vec{v}$};
+     \node[] at (2.5, 2)  (b)    {$\vec{u}+\vec{v}$};
+     
+    
+    \node[] at (10.5, 5)  (c)    {$T(\vec{u}),T(\vec{v})$};
+     \node[] at (9.5, 2)  (d)    {$T(\vec{u}+\vec{v})=T(\vec{u})+T(\vec{v})$};
+     \node[] at (10.5, 2.2)  (e) {};
+     
+    
+     \draw [->,line width=1pt,-stealth, red]  (a.east)to(c.west);
+     \draw [->,line width=1pt,-stealth, blue]  (b.east)to(d.west);
+     
+     \draw [->,line width=1pt,-stealth, blue]  (a.south)to(b.north);
+     \draw [->,line width=1pt,-stealth,red]  (c.south)to(e.north);
+     
+%Function labels
+      \node[red] at (5.5, 5.3)    {$T$};
+      \node[blue] at (5.5, 2.3)    {$T$};
+      
+      \node[blue] at (1.7, 3.7)    {Add};
+      \node[blue] at (1.7, 3.2)    {first};
+      \node[red] at (5.5, 4.7)    {Apply $T$ first};   
+      
+  \end{tikzpicture}
+\end{center}
 
 \begin{remark}\label{rem:combinedLinearDef}
 Properties (\ref{eq:lintrans1}) and (\ref{eq:lintrans2}) are often combined into a single property.
@@ -320,11 +435,19 @@ we conclude that transformation $T$ is not linear.
 
 In Exploration \ref{init:lintransintro} we introduced a transformation $T_2$ which turned out to be non-linear.  It took some work to show that $T_2$ is not linear.  The following theorem would have made our work easier.
 
-\begin{theorem}\label{th:zerotozero} Let $T:\RR^n\rightarrow \RR^m$ be a linear transformation.  Then $T(\vec{0})=\vec{0}$.  In other words, linear transformations map the zero vector to the zero vector.
+\begin{theorem}\label{th:zerotozero} Let $T:\RR^n\rightarrow \RR^m$ be a linear transformation.  Then 
+\begin{enumerate}
+\item\label{item:zerotozero}
+$T(\vec{0})=\vec{0}$.  In other words, linear transformations map the zero vector to the zero vector.
+\item\label{item:linetoline}
+$T$ maps any line in $\RR^n$ to a line (or the zero vector) in $\RR^m$.
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-Let $\vec{v}$ be any vector in $\RR^n$.  By linearity of $T$, we have:
+To prove part \ref{item:zerotozero}, let $\vec{v}$ be any vector in $\RR^n$.  By linearity of $T$, we have:
 $$T(\vec{0})=T(\vec{v}-\vec{v})=T(\vec{v})-T(\vec{v})=\vec{0}$$
+
+Part \ref{item:linetoline} will become evident after we prove Theorem \ref{th:matlin} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0020/main}{Standard Matrix of a Linear Transformation} and combine it with Practice Problem \ref{prb:linesToLines}.
 \end{proof}
 
 \begin{example}\label{ex:zerotozero}
@@ -395,48 +518,12 @@ Let $T:\RR^n\rightarrow\RR^m$ be a linear transformation induced by $$A=\begin{b
 \begin{enumerate}
 \item \label{item:exlineartrans2a}
 Find $n$ and $m$.
-%\item \label{item:exlineartrans2b}
-%Find $T\left(\begin{bmatrix}
-%-1\\
-%3
-%\end{bmatrix}\right)$ and $T\left(\begin{bmatrix}
-%2\\
-%-5
-%\end{bmatrix}\right)$
-
-%\item \label{item:exlineartrans2c}
-%Find the images of vectors ${\bf i}$ and ${\bf j}$.
 \item \label{item:exlineartrans2d}
 Find the image of $T$.
 \end{enumerate}
 
 \begin{explanation}
-\ref{item:exlineartrans2a} $A$ is a $3\times 2$ matrix, so for the expression $T(\vec{x})=A\vec{x}$ to make sense, $\vec{x}$ has to be a $2\times 1$ vector.  Thus, the domain of $T$ is $\RR^2$ ($n=2$).  The product $A\vec{x}$ is a $3\times 1$ vector.  So, the codomain of $T$ is $\RR^3$ ($m=3$).
-
-%\ref{item:exlineartrans2b} $$T\left(\begin{bmatrix}-1\\3\end{bmatrix}\right)=\begin{bmatrix}
-%2&0\\
-%1&4\\
-%0&1
-%\end{bmatrix}\begin{bmatrix}-1\\3\end{bmatrix}=\begin{bmatrix}\answer{-2}\\\answer{11}\\\answer{3}\end{bmatrix}$$
-%$$T\left(\begin{bmatrix}2\\-5\end{bmatrix}\right)=\begin{bmatrix}
-%2&0\\
-%1&4\\
-%0&1
-%\end{bmatrix}\begin{bmatrix}2\\-5\end{bmatrix}=\begin{bmatrix}\answer{4}\\\answer{-18}\\\answer{-5}\end{bmatrix}$$
-
-%\ref{item:exlineartrans2c}
-%$$T(\vec{i})=T\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\begin{bmatrix}
-%2&0\\
-%1&4\\
-%0&1
-%\end{bmatrix}\begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}\answer{2}\\\answer{1}\\\answer{0}\end{bmatrix}$$
-
-%$$T(\vec{j})=T\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\begin{bmatrix}
-%2&0\\
-%1&4\\
-%0&1
-%\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix}=\begin{bmatrix}\answer{0}\\\answer{4}\\\answer{1}\end{bmatrix}$$
-%Observe that the image of $\vec{i}$ is the first column of $A$, and the image of $\vec{j}$ is the second column of $A$.  If you look at the mechanics of how this happened, you will realize that this is not a coincidence.  We will see this phenomenon again.
+\ref{item:exlineartrans2a} $A$ is a $3\times 2$ matrix, so for the expression $T(\vec{x})=A\vec{x}$ to make sense, $\vec{x}$ has to be a $2\times 1$ vector.  Thus, the domain of $T$ is $\RR^2$ ($n=2$).  The product $A\vec{x}$ is a $3\times 1$ vector.  The codomain of $T$ is $\RR^3$ ($m=3$).
 
 \ref{item:exlineartrans2d}  By Definition \ref{def:function}, the image of $T$ consists of images of all individual vectors in $\RR^2$ under $T$.  Every vector $\vec{v}$  in $\RR^2$ can be written as $\vec{v}=a\vec{i}+b\vec{j}$ for some real numbers  $a$ and $b$.  Consider the image of $\vec{v}$
 $$T(\vec{v})=T(a\vec{i}+b\vec{j})=aT(\vec{i})+bT(\vec{j})=a\begin{bmatrix}2\\1\\0\end{bmatrix}+b\begin{bmatrix}0\\4\\1\end{bmatrix}$$
@@ -461,7 +548,6 @@ Find and draw the image of $T$.
 \begin{explanation}
 \ref{item:lintrans3a} 
 $$n=\answer{3}, \quad m=\answer{2}$$
-%$A$ is a $2\times 3$ matrix.  So, the domain of $T$ is $\RR^3$ and the codomain is $\RR^2$.
 
 \ref{item:lintrans3b} To find the image of $T$, we will take a slightly different approach from what we did in Example \ref{ex:lineartrans2}\ref{item:exlineartrans2d}.
 
@@ -621,6 +707,8 @@ Use a counter-example to prove (\ref{t2}) of Exploration \ref{init:lintransintro
 
 \begin{problem}\label{prob:imageoflincomb}
 Suppose $T:\RR^{10}\rightarrow\RR^2$ is a linear transformation such that $T(\vec{u})=\begin{bmatrix}2\\-1\end{bmatrix}$ and $T(\vec{v})=\begin{bmatrix}-5\\3\end{bmatrix}$.  Find the image of $3\vec{u}-\vec{v}$.
+
+$$T(3\vec{u}-\vec{v})=\begin{bmatrix}\answer{11}\\\answer{-6}\end{bmatrix}$$
 \end{problem}
 
 
@@ -657,9 +745,13 @@ $$T\left(\begin{bmatrix}1\\1\\-2\end{bmatrix}\right)=\begin{bmatrix}\answer{-6}\
 \begin{problem}\label{prob:zerotrans} Prove Theorem \ref{th:zerolintrans}\end{problem}
 
 \begin{problem}
-For each matrix $A$ below, find the domain and the codomain of the linear transformation $T$ induced by $A$; find and draw the image of $T$. (Hint: See Example \ref{ex:lineartrans3}.)
+For each matrix $A$ below, find the domain and the codomain of the linear transformation $T:\RR^n\rightarrow\RR^m$ induced by $A$; find and draw the image of $T$. (Hint: See Example \ref{ex:lineartrans3}.)
+
   \begin{problem}\label{prob:domaincodomain1}
   $$A=\begin{bmatrix}0&0\\1&1\\2&0\end{bmatrix}$$
+  Domain: $\RR^n$, where $n=\answer{2}$.
+
+  Codomain: $\RR^m$, where $m=\answer{3}$.
   \end{problem}
   \begin{problem}\label{prob:domaincodomain2}
   $$A=\begin{bmatrix}3&-1\\-3&1\end{bmatrix}$$
