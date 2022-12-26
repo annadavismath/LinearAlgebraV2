@@ -9,7 +9,7 @@
 \end{abstract}
 \maketitle
 
-Note to Student:  In this section we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
+Note to Student:  In this section we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  Unless indicated otherwise, results and proofs are presented with sufficient generality to accommodate vector spaces other than $\RR^n$ and its subspaces.   This was done to ensure that you can continue to use this section as a reference when you study \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_vecSpaces/main}{Vector Spaces}. If you are already familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
 \section*{Composition and Inverses of Linear Transformations}
 
@@ -131,7 +131,7 @@ $$\begin{bmatrix}3&-1\\-3&1\end{bmatrix}\begin{bmatrix}1&1\\3&3\end{bmatrix}=\be
 
 We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$. (See Theorem \ref{th:propertiesofmatrixmultiplication}.)  We are now in a position to prove this result with ease.  
 
-Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since transformation composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
+Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since function composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
 
 \begin{theorem}[Associativity of Matrix Multiplication] \label{th:associativematrixmult}  Let $A$, $B$ and $C$ be matrices of appropriate dimensions so that the product $(AB)C$ is defined.  Then
 $$ABC=(AB)C=A(BC)$$
@@ -189,8 +189,8 @@ Note that if $S$ is an inverse of $T$, then $M_T$ and $M_S$ are square matrices,
 
 \begin{theorem}\label{th:existunique} Let $T:\RR^n\rightarrow \RR^n$ be a linear transformation, and let $M$ be the standard matrix of $T$.
   \begin{enumerate}
-  \item \label{item:exists} {\bf Existence of Inverses.}  $T$ is invertible if and only if $M$ is invertible.  If $T$ is invertible, then the inverse is induced by $M^{-1}$.
-  \item \label{item:unique}{\bf Uniqueness of Inverses.}  If $S$ is an inverse of $T$, then $S$ is unique.
+  \item \label{item:exists} (Existence of Inverses.)  $T$ is invertible if and only if $M$ is invertible.  If $T$ is invertible, then the inverse is induced by $M^{-1}$.
+  \item \label{item:unique} (Uniqueness of Inverses.)  If $S$ is an inverse of $T$, then $S$ is unique.
   \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -203,9 +203,8 @@ Please note that Theorem \ref{th:existunique} is only applicable in the context 
 Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
-Observe that $\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$ is a basis of $V$ (why?). The information about the images of the basis vectors is sufficient to define a linear transformation. (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0025/main}{Linear Transformations and Bases}) %because every element $\vec{v}$ of $V$ can be written uniquely in the form $$\vec{v}=a\begin{bmatrix}1\\0\\0\end{bmatrix}+b\begin{bmatrix}1\\1\\1\end{bmatrix}$$  
-%and our condition that $T$ is linear determines the image of $\vec{v}$ as follows: $$T(\vec{v})=a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}0\\1\end{bmatrix}$$
-So, at this point we know what transformation $T$ does, but it is still unclear what the matrix of this linear transformation is.
+Observe that $\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$ is a basis of $V$ (why?). The information about the images of the basis vectors is sufficient to define a linear transformation.  This is because every vector $\vec{v}$ in $V$ can be expressed as a linear combination of the basis elements.  The image, $T(\vec{v})$, can be found by applying the linearity properties.
+At this point we know what transformation $T$ does, but it is still unclear what the matrix of this linear transformation is.
 
 Geometrically speaking, the domain of $T$ is a plane in $\RR^3$ and its codomain is $\RR^2$.  
 
@@ -231,14 +230,16 @@ Complete the Explanation of Example \ref{ex:inverseverify} by verifying that $T\
 \begin{problem}\label{prob:candidateforinv}
 Let $T:\RR^2\rightarrow \RR^2$ be a linear transformation given by 
 $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x-5y\\-x+3y\end{bmatrix}$$
-Propose a candidate for an inverse of $T$ and verify your choice using Definition \ref{def:inverseoflintrans}.
+Propose a candidate for the inverse of $T$ and verify your choice using Definition \ref{def:inverseoflintrans}.
+
+$$T^{-1}\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}\answer{3}x+\answer{5}y\\x+\answer{2}y\end{bmatrix}$$
 \end{problem}
 \begin{problem}\label{prob:noinversetrans}Explain why linear transformation $T:\RR^2\rightarrow\RR^2$ given by $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}2x+2y\\-3x-3y\end{bmatrix}$$ does not have an inverse.
 \end{problem}
 \begin{problem}\label{prob:inverseislinear}
 Prove Theorem \ref{th:inverseislinear}.  
 \end{problem}
-\begin{problem}\label{prob:compofinvisinvofcomp} Suppose $T:U\rightarrow V$ and $S:V\rightarrow W$ are linear transformations with inverses $T'$ and $S'$ respectively.  Prove that $T'\circ S'$ is an inverse of $S\circ T$.
+\begin{problem}\label{prob:compofinvisinvofcomp} Suppose $T:U\rightarrow V$ and $S:V\rightarrow W$ are linear transformations with inverses $T'$ and $S'$ respectively.  Prove that $T'\circ S'$ is the inverse of $S\circ T$.
 \end{problem}
 
 \end{document}
