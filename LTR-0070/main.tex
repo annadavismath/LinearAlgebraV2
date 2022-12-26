@@ -9,21 +9,21 @@
 \maketitle
 
 \section*{Geometric Transformations of the Plane}
-In Exploration \ref{exp:shapeTransformation} we saw how geometric shapes in the plane can be manipulated with matrix transformations by applying the transformation matrix to the points that make up the shape.  In this section we will study matrix transformations of the plane in more detail by applying matrix transformations to pixels in photos.  
-We will treat every pixel of an image as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of one such transformation.
+In Exploration \ref{exp:shapeTransformation} we saw how geometric shapes in the plane can be manipulated with matrix transformations.  In this section we will study matrix transformations of the plane in more detail by applying matrix transformations to pixels in photos.  
+We will treat every pixel of a picture as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of one such transformation.
 
 \begin{image}
          \includegraphics[height=1.5in]{twobuildings.jpg}
 \end{image}
 
 Not all transformations are matrix transformations.  Practice Problem \ref{prob:translation_does_not_work} offers a cautionary tale of what happens when we try to find a matrix for a transformation when such a matrix does not exist.
-Luckily, many familiar transformations are matrix transformations, such as rotations, scalings, reflections, and shears. We will focus our attention on those.
+Luckily, many familiar transformations, such as rotations, scalings, reflections, and shears, are matrix transformations. We will focus our attention on those.
 
 Recall that by Observation \ref{obs:imagesOfijk} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations}, we can find a matrix for each transformation by examining what the transformation does to the standard basis vectors $\vec{i}$ and $\vec{j}$. 
 
 \subsection*{Horizontal and Vertical Scaling} 
 
-\begin{exploration}\label{init:vertstretch} Let us attempt to find the standard matrix $M$ of a transformation $T$ that stretches an image vertically by a factor of 2, as shown in the figure below.  
+\begin{exploration}\label{init:vertstretch} Let us attempt to find a matrix $M$ of transformation $T$ that stretches an image vertically by a factor of 2, as shown in the figure below.  
 
 \begin{center}
 		\begin{tikzpicture}[scale=2]
@@ -289,9 +289,9 @@ $$M_{vs}=\begin{bmatrix}
 
 
 \subsection*{Rotations about the Origin}
+For the purpose of the current discussion we will assume that rotations about the origin are matrix transformations.  You are invited to revisit this claim and prove it in Problem \ref{prob:linOfRotRef} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SUPX-0060/main}{Additional Exercises}.
 
-
-\begin{example}\label{ex: rotate45} Find the standard matrix $M_{\theta}$ of a linear transformation $R_{\theta}$ that rotates the image  by $45^{\circ}$ counterclockwise.
+\begin{example}\label{ex: rotate45} Let $R_{45^{\circ}}:\RR^2\rightarrow\RR^2$ be a transformation that rotates $\RR^2$ countercolockwise about the origin by $45^{\circ}$.  Find a matrix that induces $R_{45^{\circ}}$.
 
 %\begin{image}[4in]
  \begin{center}   
@@ -368,10 +368,6 @@ $$M_{\theta}=\begin{bmatrix}
 
 In general, we find the rotation matrix by determining the images of vectors $\vec{i}$ and $\vec{j}$.
 
-
-
-%\begin{figure}[h]
-%\begin{image}[4.5in]
 \begin{center}
 \begin{tikzpicture}[scale=2.5]
   \draw[<->] (-0.5,0)--(1.5,0);
@@ -401,16 +397,17 @@ In general, we find the rotation matrix by determining the images of vectors $\v
   \draw (0,0.5) arc (90:120:0.5) ;
  \end{tikzpicture}
  \end{center}
-%\end{image}
+
 
 \begin{formula}[Counterclockwise Rotation]\label{form:rotation}
-    The transformation that rotates the plane counterclockwise through angle $\theta$ about the origin is induced by
-\begin{equation} \label{eq:rotation}
+    A matrix transformation induced by
+    \begin{equation} \label{eq:rotation}
 M_{\theta}=\begin{bmatrix}
 \cos\theta & -\sin\theta\\
 \sin\theta & \cos\theta
 \end{bmatrix}
 \end{equation}
+rotates the plane counterclockwise through angle $\theta$ about the origin.
 \end{formula}
 
 \subsection*{Reflections about Lines of the Form $y=mx$}
@@ -418,8 +415,6 @@ When a point is reflected about a line, its image is located on the opposite sid
 
 For example, the figure below shows the reflection of point $A$ about line $l$.  Note that the reflection lies on a line through $A$ perpendicular to $l$.
 
-%\begin{figure}[h]
-%\begin{image}[2in]  
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
 
@@ -432,7 +427,7 @@ For example, the figure below shows the reflection of point $A$ about line $l$. 
     \end{center}
  %   \end{image}
  
-    Our task is to find the matrix of a reflection of the plane about an arbitrary line through the origin.
+Our task is to find the matrix of a reflection of the plane about an arbitrary line through the origin.  For now we will assume that such a transformation can be induced by a matrix.  You're invited to revisit this assertion in Problem \ref{prob:linOfRotRef} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SUPX-0060/main}{Additional Exercises}.
   
 
 \begin{exploration}\label{init:reflectionxyaxes}
@@ -606,7 +601,7 @@ Consider the following example which incorporates a reflection as well as a rota
 \begin{enumerate}
     \item Find the matrix of the linear transformation which is obtained by first rotating all vectors counterclockwise by an angle of $\pi /6$ and then reflecting across the $x$-axis.
     \item Multiply the vector $\vec{v}=\begin{bmatrix}
-    1/2 \\ \sqrt{3}/2 \end{bmatrix}$ by the matrix you find to verify it works as it should.
+    1/2 \\ \sqrt{3}/2 \end{bmatrix}$ by the matrix you found in part (a) to illustrate how the transformation works.
 \end{enumerate}
 
 
@@ -644,7 +639,24 @@ M = M_2 M_1 =
 \end{bmatrix}
 \end{equation*}
 
-\item From unit circle trigonometry, we know that $\vec{v}$ makes a $\pi/3$ angle with the $x$-axis.  If we rotate $\vec{v}$ counterclockwise by $\pi /6$, it will point straight up.  Following the rotation with reflection across the $x$-axis will make it point straight down.  Sure enough, 
+\item From unit circle trigonometry, we know that $\vec{v}$ makes a $\pi/3$ angle with the $x$-axis.  If we rotate $\vec{v}$ counterclockwise by $\pi /6$, it will point straight up.  
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+  \draw[<->] (-0.5,0)--(1,0);
+  \draw[<->] (0,-0.5)--(0,1.5);
+\draw[line width=1pt, blue, stealth-](0.5,1.73/2)--(0,0);
+\draw[line width=1pt, red, -stealth](0,0)--(0,1);
+\fill[blue] (0.4,0.3)node[right]{$\pi/3$};
+\fill[red] (0.2,0.7)node[above]{$\pi/6$};
+\draw[blue] (0.4,0) arc (0:60:0.4) ;
+\draw[red] (0.25,1.73/4) arc (60:90:0.5) ;
+\node[blue] at (0.9, 1.75/2)   (b) {$(\frac{1}{2},\frac{\sqrt{3}}{2})$}; 
+ \end{tikzpicture}
+\end{center}
+
+
+Following the rotation with reflection across the $x$-axis will make it point straight down.  Sure enough, 
 $$M\vec{v} = \begin{bmatrix}
 \frac{1}{2}\sqrt{3} & -\frac{1}{2} \\
 -\frac{1}{2} & -\frac{1}{2}\sqrt{3}
@@ -692,8 +704,6 @@ The figure on the left illustrates the action of $T_1$ on a single point $A$.  F
 
 The figure on the right shows the action of $T_2$ on the same point $A$.  The point is first reflected about the line $y=x$, followed by a reflection about the line $y=-2x$.  The final images of point $A$ under $T_1$ and $T_2$ are clearly different.
 
-%\begin{figure}[h]
-%\begin{image}[4.5in]
 \begin{center}
 \begin{tikzpicture}[scale=.3]
 \draw[thin,gray!40] (-8,-8) grid (8,8);
@@ -734,28 +744,24 @@ Since $T_1\neq T_2$, we conclude that $M_{y=x}M_{y=-2x}\neq M_{y=-2x}M_{y=x}$.
 Some pairs of matrices do commute.  For example, geometry makes it is easy to see that two rotation matrices commute.
 \end{example}
 
-
-
-
- 
 \section*{Practice Problems}
 \begin{problem}\label{prob:k0}
 Consider matrices $M_v$ and $M_h$ in (\ref{vscale}) and (\ref{hscale}).  
 \begin{enumerate}
 \item
 If we were to allow $k$ to be zero, what would the resulting transformations accomplish?  
-\item In what way would the resulting matrices be fundamentally different from matrices $M_v$ and $M_h$ $(k\neq 0)$?  
+\item If $k=0$, in what way would the resulting matrices be fundamentally different from matrices $M_v$ and $M_h$ $(k\neq 0)$?  
 \item Do $M_v$ and $M_h$ $(k\neq 0)$ have inverses?  What about $M_v$ and $M_h$ $(k= 0)$?  
 \item What would happen if we allowed $k$ to be negative?
 \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:matrixlintrans} Find the standard matrix $M$ of a linear transformation that would double the length of a photo horizontally, and triple the height of the photo.
+\begin{problem}\label{prob:matrixlintrans} Find a matrix $M$ that would double the length of a photo horizontally, and triple the height of the photo.
 $$M=\begin{bmatrix}\answer{2} & \answer{0}\\\answer{0} & \answer{3}\end{bmatrix}$$
 \end{problem}
 
 \begin{problem}\label{prob:shearedsheep}
-(Sheared Sheep) Find the standard matrix of the linear transformation shown in the figure. 
+(Sheared Sheep) Find a matrix that induces the transformation shown in the figure. 
 %\begin{image}[4in]
    \begin{center}
 		\begin{tikzpicture}[scale=2]
@@ -812,10 +818,16 @@ Does this matrix describe the transformation?  If so, prove it.  If not, explain
 \end{problem}
 
 \begin{problem}\label{prob:translationtrans}
-A transformation $T:\RR^2\rightarrow \RR^2$ that shifts all points in the plane horizontally or vertically by a fixed amount is called a \dfn{translation}.  Is $T$ a linear transformation?  Prove your claim.
+A transformation $T:\RR^2\rightarrow \RR^2$ that shifts all points in the plane horizontally or vertically by a fixed amount is called a \dfn{translation}.  Is $T$ a matrix transformation?  Prove your claim.
+\begin{hint}
+    Use Problem \ref{prb:linesToLines}
+\end{hint}
 \end{problem}
 
-\begin{problem}\label{prob:reflectreflect} A reflection about the line $y=mx$ followed by another reflection about the same line, amounts to the identity transformation.  Prove this using matrix multiplication.
+\begin{problem}\label{prob:reflectreflect} A reflection about the line $y=mx$ followed by another reflection about the same line, returns all points to their original position.  Prove this using matrix multiplication.
+\begin{hint}
+    Find the product of $M_{y=mx}M_{y=mx}$.
+\end{hint}
 \end{problem}
 
 \begin{problem} \label{prob:imageofj}
@@ -827,7 +839,7 @@ Prove that every point along the line $y=\frac{3}{5}x$ in Example \ref{ex:reflec
 \end{problem}
 
 \begin{problem}\label{prob:reflectedduck}
-The figure below shows a sequence of two linear transformations that accomplishes a reflection about the line $y=\frac{3}{5}x$.  The first transformation is a reflection of the plane about the $x$-axis.  The second transformation is a rotation of the plane about the origin.  Find the standard matrices for the two transformations and verify that their product (in the correct order) is the reflection matrix of Example \ref{ex:reflectedduck}.
+The figure below shows a sequence of two matrix transformations that accomplishes a reflection about the line $y=\frac{3}{5}x$.  The first transformation is a reflection of the plane about the $x$-axis.  The second transformation is a rotation of the plane about the origin.  Find matrices that induce the two transformations and verify that their product (in the correct order) is the reflection matrix of Example \ref{ex:reflectedduck}.
 %\begin{figure}[h]
 \begin{center}
      
