@@ -8,7 +8,7 @@
  \end{abstract}
 \maketitle
 
-Note to Student:  In this section we will often use $V$ and $W$ to denote the domain and codomain of linear transformations.  If you are familiar with abstract vector spaces, you can regard $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $V$ and $W$ as subspaces of $\RR^n$. 
+Note to Student:  In this section we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  Unless indicated otherwise, results and proofs are presented with sufficient generality to accommodate vector spaces other than $\RR^n$ and its subspaces.   This was done to ensure that you can continue to use this section as a reference when you study \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_vecSpaces/main}{Vector Spaces}. If you are already familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
 
 \section*{Image and Kernel of a Linear Transformation}
 \subsection*{The Image of a Linear Transformation}
@@ -42,7 +42,7 @@ Every column of $A$ is a scalar multiple of $\begin{bmatrix}1\\2\end{bmatrix}$. 
 
 $$\mbox{im}(T)=\mbox{span}\left(\begin{bmatrix}1\\2\end{bmatrix}, \begin{bmatrix}2\\4\end{bmatrix}, \begin{bmatrix}3\\6\end{bmatrix}\right)=\mbox{span}\left(\begin{bmatrix}1\\2\end{bmatrix}\right)$$
 
-So, the image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatrix}1\\2\end{bmatrix}$.
+The image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatrix}1\\2\end{bmatrix}$.
 
 \ref{item:impart2} The action of $T$ can be illustrated with a sketch.
 
@@ -58,7 +58,7 @@ So, the image of $T$ is a line in $\RR^2$ determined by the vector $\begin{bmatr
   \draw[<->] (5,-1)--(5,3);
   \draw[line width=2pt,blue](4.5,-1)--(6.5,3);
   \node[] at (3.25, 2)   (b) {$T$};
-  \draw [->,line width=1pt,-stealth]  (2,1) to[out=60] (4.5, 1);
+  \draw [->,line width=1pt,-stealth]  (2,1) to[out=45] (4.5, 1);
  \node[blue] at (7, 2.3)   (b) {$\mbox{im}(T)$};
 
 \end{tikzpicture}
