@@ -247,17 +247,17 @@ As an immediate consequence of this theorem, we have the following result.
  $$\det{I}=1$$
  \end{corollary}
 
- We first introduced block matrices in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{Block Matrix Multiplication}.  Matrices of the form $\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and $\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices, are said to be \dfn{block triangular}.  The following theorem makes it easy to compute determinants of such matrices.
+ We first introduced block matrices in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{Block Matrix Multiplication}.  Matrices of the form $\begin{bmatrix}A & C\\O& B\end{bmatrix}$ and $\begin{bmatrix}A & O\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices, are said to be \dfn{block triangular}.  The following theorem makes it easy to compute determinants of such matrices.
 
- \begin{theorem}
-     Consider block triangular matrices $\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and $\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices.  Then
-     $$\det{\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}}=\det{A}\det{B}\quad\mbox{and}\quad\det{\begin{bmatrix}A & \vec{O}\\D& B\end{bmatrix}}=\det{A}\det{B}$$
+ \begin{theorem}\label{th:blockTriDet}
+     Consider block triangular matrices $\begin{bmatrix}A & C\\O& B\end{bmatrix}$ and $\begin{bmatrix}A & O\\D& B\end{bmatrix}$, where $A$ and $B$ are square matrices.  Then
+     $$\det{\begin{bmatrix}A & C\\O& B\end{bmatrix}}=\det{A}\det{B}\quad\mbox{and}\quad\det{\begin{bmatrix}A & O\\D& B\end{bmatrix}}=\det{A}\det{B}$$
  \end{theorem}
 \begin{proof}
-    Write $T=\begin{bmatrix}A & C\\\vec{O}& B\end{bmatrix}$ and proceed by induction on $k$, where $A$ is $k\times k$.  If $k=1$, then the result follows from cofactor expansion along the first column.  In general, let $S_i(T)$ denote the matrix obtained from $T$ by deleting row $i$ and column 1. Then the cofactor expansion along the first column is
+    Write $T=\begin{bmatrix}A & C\\O& B\end{bmatrix}$ and proceed by induction on $k$, where $A$ is $k\times k$.  If $k=1$, then the result follows from cofactor expansion along the first column.  In general, let $S_i(T)$ denote the matrix obtained from $T$ by deleting row $i$ and column 1. Then the cofactor expansion along the first column is
     $$\det{T}=a_{11}\det{S_1(T)}-a_{21}\det{S_2(T)}+\dots + (-1)^{k+1}\det{S_k(T)}$$
     where $a_{11}, a_{21},\dots , a_{k1}$ are the entries in the first column of $A$.  Observe that 
-    $$S_i(T)=\begin{bmatrix}S_i(A) & C_i\\\vec{O}& B\end{bmatrix}$$
+    $$S_i(T)=\begin{bmatrix}S_i(A) & C_i\\O& B\end{bmatrix}$$
     where $i=1,2,\dots , k$, $S_i(A)$ denotes matrix $A$ with column 1 and row $i$ deleted, and $C_i$ denotes matrix $C$ with with row $i$ deleted.
     
     Since $S_i(A)$ is a $(k-1)\times (k-1)$ matrix, by the induction hypothesis,
@@ -273,7 +273,7 @@ As an immediate consequence of this theorem, we have the following result.
     The lower triangular case is similar.
 \end{proof}
 
-\begin{example}
+\begin{example}\label{ex:blockTriDet}
     Find the $\det{A}$ if 
     $$A=\begin{bmatrix}2&1&3&3\\1&-1&-2&1\\0&0&1&1\\0&0&4&1\end{bmatrix}$$
   \begin{explanation}
