@@ -23,17 +23,17 @@ Recall that there are three elementary row operations:
 \item Adding a multiple of one row to another
 \end{enumerate}
 
-Elementary row operations are used to carry a matrix to its reduced row-echelon form.  In Practice Problem \ref{prob:elemrowopsreverse} we established that elementary row operations are reversible.  In other words if we know what elementary row operations   carried $A$ to $\mbox{rref}(A)$, we can undo each operation with another elementary row operation to carry $\mbox{rref}(A)$ back to $A$.  This will prove useful for computing the determinant.  Computing the determinant of $\mbox{rref}(A)$ is easy. (Why?)  If we know what elementary row operations carry $\mbox{rref}(A)$ back to $A$, and what effect each of these operations has on the determinant of $\mbox{rref}(A)$, we could find the determinant of $A$.  
+Elementary row operations are used to carry a matrix to its reduced row-echelon form.  In Practice Problem \ref{prob:elemrowopsreverse} we established that elementary row operations are reversible.  In other words, if we know what elementary row operations   carried $A$ to $\mbox{rref}(A)$, we can undo each operation with another elementary row operation to carry $\mbox{rref}(A)$ back to $A$.  This will prove useful for computing the determinant.  Computing the determinant of $\mbox{rref}(A)$ is easy. (Why?)  If we know what elementary row operations carry $\mbox{rref}(A)$ back to $A$, and what effect each of these operations has on the determinant of $\mbox{rref}(A)$, we could find the determinant of $A$.  
 
 \begin{exploration}\label{init:rowswap}
 Let $$A=\begin{bmatrix}3&-1&-1\\3&1&-2\\-1&4&2\end{bmatrix}$$
-Use your favorite definition to find $\det{A}$.
+Find $\det{A}$.
 $$\det{A}=\answer{21}$$
 Construct matrix $B$ by switching the first and the third rows of $A$.
 $$B=\begin{bmatrix}-1&4&2\\3&1&-2\\3&-1&-1\end{bmatrix}$$
 Find $\det{B}$.
 $$\det{B}=\answer{-21}$$
-Next, let's try switching consecutive rows.  Construct matrix $B'$ by interchanging the second and third rows of $A$.
+Next, let's switch consecutive rows.  Construct matrix $B'$ by interchanging the second and third rows of $A$.
 $$B'=\begin{bmatrix}3&-1&-1\\-1&4&2\\3&1&-2\end{bmatrix}$$
 Find $\det{B'}$.
 $$\det{B'}=\answer{-21}$$
@@ -43,7 +43,7 @@ Next, construct matrix $C$ by multiplying the last row of $A$ by $k$.
 $$C=\begin{bmatrix}3&-1&-1\\3&1&-2\\-k&4k&2k\end{bmatrix}$$
 Find $\det{C}$.
 $$\det{C}=\answer{21}k$$
-It turns out multiplying the first or the second row of $A$ by $k$ yields exactly  the same result as this.
+It turns out that multiplying the first or the second row of $A$ by $k$ yields exactly  the same result as this.
 % You can repeat this problem two more times, multiplying the first and then the second row of $A$ by $k$, the result will still be the same.
 
 Finally, construct matrix $D$ by  adding twice row 3 to row 1.
@@ -53,7 +53,7 @@ $$\det{D}=\answer{21}$$
 This result is particularly surprising.  Try a few more variations of this example to convince yourself that adding a multiple of one row to another row does not appear to affect the determinant.
 \end{exploration}
 
-The following theorem generalizes our observation.
+The following theorem generalizes our observations.
 
 \begin{theorem}\label{th:elemrowopsanddet}
 Let $A=\begin{bmatrix}a_{ij}\end{bmatrix}$ be an $n\times n$ matrix.  
@@ -70,7 +70,7 @@ $$\det{B}=\det{A}$$
 The proof of this theorem is relegated to \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Tedious Proofs Concerning Determinants}.  For a sketch of the proof, you can watch this video:
 \youtube{y0XVK-ey30c}
 
-The following lemma is a useful consequence of Theorem \ref{th:elemrowopsanddet}.
+The following lemma is a useful consequence of parts \ref{item:rowswapanddet} and  \ref{item:rowswapanddet} of Theorem \ref{th:elemrowopsanddet}.
 
 \begin{lemma}\label{lemma:det0lemma}
 Let $A$ be an $n\times n$ matrix.  
@@ -156,7 +156,7 @@ Find $\det{A}$ by applying elementary row operations to reduce $A$ to its row-ec
 \xrightarrow{R_3-2R_2}\\
 \end{array}&\left[\begin{array}{ccc}  
  1&0&-3\\0&1&32/5\\0&0&1/5
- \end{array}\right]=\mbox{ref}(A)\nonumber
+ \end{array}\right]=A'\nonumber
 % \begin{array}{c}
  %\\
  %\\
@@ -166,8 +166,8 @@ Find $\det{A}$ by applying elementary row operations to reduce $A$ to its row-ec
 % 1&0&-3\\0&1&32/5\\0&0&1
 % \end{array}\right]
 \end{align}
-We stop at the row-echelon form of $A$ because its determinant is easy to compute by multiplying its diagonal entries (See Practice Problem \ref{prob:detoftrimat}).
-\begin{align}\label{eq:detofrefa}\det{\big(\mbox{ref}(A)\big)}=\frac{1}{5}\end{align}
+We stop at a row-echelon form, $A'$, of $A$ because its determinant is the product of its diagonal entries (See Practice Problem \ref{prob:detoftrimat}).
+\begin{align}\label{eq:detofrefa}\det{\big(A'\big)}=\frac{1}{5}\end{align}
 
 The following table summarizes the effect of each elementary row operation on the determinant.
 
@@ -176,7 +176,7 @@ $$\begin{array}{|c|c|}
  \hline (2) &\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
  \hline (3) &\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
  \hline (4)&\frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A}\\
- \hline \mbox{ref}(A)& \frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A} \\ \hline
+ \hline A'& \frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A} \\ \hline
  \end{array}$$
  Combining (\ref{eq:detofrefa}) with the information from the table, we get
  $$\frac{1}{5}=\frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{3}\det{A}$$
@@ -190,13 +190,13 @@ $$\begin{array}{|c|c|}
 
 \section*{Practice Problems}
 
-\begin{problem}\label{prob:proofofrowswapanddet}
-Complete the proof of Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet} by showing that the result holds for a $2\times 2$ matrix.
-\end{problem}
+% \begin{problem}\label{prob:proofofrowswapanddet}
+% Complete the proof of Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet} by showing that the result holds for a $2\times 2$ matrix.
+% \end{problem}
 
-\begin{problem}\label{prob:numberofrowswitches}
-Let $p$ and $q$ be two rows of a matrix, with $p<q$.  Show that the switch of $p$ and $q$ requires $2(q-p)-1$ adjacent row interchanges.
-\end{problem}
+% \begin{problem}\label{prob:numberofrowswitches}
+% Let $p$ and $q$ be two rows of a matrix, with $p<q$.  Show that the switch of $p$ and $q$ requires $2(q-p)-1$ adjacent row interchanges.
+% \end{problem}
 
 \begin{problem}\label{prob:proofdet0lemma}
 Prove Lemma \ref{lemma:det0lemma}\ref{item:det0lemma3}.
