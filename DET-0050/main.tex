@@ -12,7 +12,7 @@
 
 
 \section*{Tedious Proofs Concerning Determinants}
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{Finding the Determinant} we described the determinant as a function that assigns a scalar to every square matrix.  The value of the function in the original definition was given by cofactor expansion along the first row of the matrix.  We also observed, through examples, that cofactor expansion along any row or column produces the same value.  Examples, however, do not constitute a sufficient proof of equivalency of different cofactor expansions.  In this section we will prove that cofactor expansions along any row or column produce the same outcome.  This result is known as the Laplace Expansion Theorem. 
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{Finding the Determinant} we described the determinant as a function that assigns a scalar to every square matrix.  The value of the function in the original definition was given by cofactor expansion along the first row of the matrix.  We also observed, through examples, that cofactor expansion along any row or column produces the same value.  Examples, however, do not constitute a sufficient proof of equivalency of different cofactor expansions.  In this section we will prove that cofactor expansions along any row or column produce the same outcome.  This result is known as the Laplace Expansion Theorem.  We will also prove several results concerning elementary row operations.
 
 \subsection*{Cofactor Expansion Along the Top Row}
 Let 
@@ -512,8 +512,15 @@ We will start by showing that cofactor expansion along column $j$ produces the s
 
 To show that the determinant of $A$ can also be computed by cofactor expansion along any row follows from the fact that $\det{A}=\det{A^T}$. (Theorem \ref{th:detoftrans})
 \end{proof}
-% \section*{Practice Problems}
+\section*{Practice Problems}
 
+\begin{problem}\label{prob:proofofrowswapanddet}
+Complete the proof of Theorem \ref{th:elemrowopsanddet}\ref{item:rowswapanddet} by showing that the result holds for a $2\times 2$ matrix.
+\end{problem}
+
+\begin{problem}\label{prob:numberofrowswitches}
+Let $p$ and $q$ be two rows of a matrix, with $p<q$.  Show that the switch of $p$ and $q$ requires $2(q-p)-1$ adjacent row interchanges.
+\end{problem}
 
 
 
