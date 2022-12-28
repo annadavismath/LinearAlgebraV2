@@ -1,12 +1,11 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Application to Markov Chains} \license{CC-BY 4.0}
+\title{Application to Markov Chains} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
-% We study an application of matrix algebra to Markov Chains.
 \end{abstract}
 \maketitle
 
@@ -21,7 +20,7 @@ The general setup is as follows: A ``system'' evolves through a series of ``stag
 A \textbf{Markov chain} is such an evolving system wherein the state to which it will go next depends only on its present state and does not depend on the earlier history of the system.
 \end{definition}
 
-(Note: The name honours Andrei Andreyevich Markov (1856--1922) who was a professor at the university in St. Petersburg, Russia.)
+(Note: The name honors Andrei Andreyevich Markov (1856--1922) who was a professor at the university in St. Petersburg, Russia.)
 
 Even in the case of a Markov chain, the state the system will occupy at any stage is determined only in terms of probabilities. In other words, chance plays a role. For example, if a football team wins a particular game, we do not know whether it will win, draw, or lose the next game. On the other hand, we may know that the team tends to persist in winning streaks; for example, if it wins one game it may win the next game $\frac{1}{2}$ of the time, lose $\frac{4}{10}$ of the time, and draw $\frac{1}{10}$ of the time. These fractions are called the \textbf{probabilities} of these various possibilities. Similarly, if the team loses, it may lose the next game with probability $\frac{1}{2}$ (that is, half the time), win with probability $\frac{1}{4}$, and draw with probability $\frac{1}{4}$. The probabilities of the various outcomes after a drawn game will also be known.
 

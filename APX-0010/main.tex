@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\title{Triangular Inequality} \license{CC BY-NC-SA 4.0}
+\title{Triangle Inequality} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -10,11 +10,11 @@
 \end{abstract}
 \maketitle
 
-\section*{Triangular Inequality}
+\section*{Triangle Inequality}
 
-The \dfn{Triangular Inequality} is a simple, yet powerful result used widely in analysis and topology as well as other branches of mathematics.  The triangular inequality has its roots in geometry. It initially appeared as a proposition in the \dfn{Elements} - a treatise comprised of thirteen books covering plane and solid geometry, and number theory - written by Euclid of Alexandria around 300 B.C.
+The \dfn{Triangle Inequality} is a simple, yet powerful result used widely in analysis and topology as well as other branches of mathematics.  The triangle inequality has its roots in geometry. It initially appeared as a proposition in the \dfn{Elements} - a treatise comprised of thirteen books covering plane and solid geometry, and number theory - written by Euclid of Alexandria around 300 B.C.
 
-The geometric version of the triangular inequality states that the sum of the lengths of any two sides of a triangle is greater than the length the third side.  
+The geometric version of the triangle inequality states that the sum of the lengths of any two sides of a triangle is greater than the length the third side.  
 
 Here we are interested in the vector version of this result.  Given vectors $\vec{v}$ and $\vec{w}$, we have
 $$\norm{\vec{v}+\vec{w}}\leq\norm{\vec{v}}+\norm{\vec{w}}$$
@@ -33,7 +33,7 @@ $$\norm{\vec{v}+\vec{w}}\leq\norm{\vec{v}}+\norm{\vec{w}}$$
 
 Intuitively, we observe that equality occurs when either $\vec{v}$ or $\vec{w}$ (or both) are zero, or when non-zero vectors $\vec{v}$ and $\vec{w}$ point in the same direction, otherwise the inequality is strict.
 
-Proving the triangular inequality requires some preliminary results.
+Proving the triangle inequality requires some preliminary results.
 
 \begin{lemma}\label{lem:triLem}
     For any vectors $\vec{v}$ and $\vec{w}$ in $\RR^n$,
@@ -60,7 +60,7 @@ Proving the triangular inequality requires some preliminary results.
     Recall that by Theorem \ref{th:dotproductcosine}, $\vec{v}\dotp\vec{w}=\norm{\vec{v}}\norm{\vec{w}}\cos\theta$, where $\theta$ is the included angle.  Our result follows from the fact that $|\cos\theta |\leq 1$.
 \end{proof}
 
-\begin{theorem}[Triangular Inequality]\label{th:TriIneq}
+\begin{theorem}[Triangle Inequality]\label{th:TriIneq}
     For any vectors $\vec{v}$ and $\vec{w}$ in $\RR^n$,
     \begin{equation}
         \norm{\vec{v}+\vec{w}}\leq\norm{\vec{v}}+\norm{\vec{w}}

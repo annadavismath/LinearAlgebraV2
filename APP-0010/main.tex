@@ -1,12 +1,11 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Paul Zachlin \and Anna Davis} \title{Application to Network Flow} \license{CC-BY 4.0}
+\title{Application to Network Flow} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
 \begin{abstract}
- %We study an application of systems of equations to network flow.
 \end{abstract}
 \maketitle
 
@@ -146,8 +145,6 @@ Find the possible flows in each of the following networks of pipes.
 \end{tikzpicture}
 \end{center}
 
-
-
 \item 
 
 \begin{center}
@@ -192,23 +189,20 @@ Find the possible flows in each of the following networks of pipes.
 \end{tikzpicture}
 \end{center}
 
+
+Click the arrow to see the answer.
+
+\begin{expandable}
+$\begin{array}[t]{rcrrr}
+	f_1 & = &  85 & - f_4 & - f_7 \\
+	f_2 & = &  60 & - f_4 & - f_7 \\
+	f_3 & = & -75 & + f_4 & + f_6 \\
+	f_5 & = &  40 & - f_6 & - f_7 \\
+\end{array}$
+
+$f_4$, $f_6$, $f_7$ parameters
+\end{expandable}
 \end{enumerate}
-%\begin{sol}
-%\begin{enumerate}[label={\alph*.}]
-%\setcounter{enumi}{1}
-%\item
-%$\arraycolsep=1pt
-%\begin{array}[t]{rcrrr}
-%	f_1 & = &  85 & - f_4 & - f_7 \\
-%	f_2 & = &  60 & - f_4 & - f_7 \\
-%	f_3 & = & -75 & + f_4 & + f_6 \\
-%	f_5 & = &  40 & - f_6 & - f_7 \\
-%\end{array}$
-%
-%$f_4$, $f_6$, $f_7$ parameters
-%
-%\end{enumerate}
-%\end{sol}
 \end{problem}
 
 \begin{problem}\label{prob:pipenetwork2}
@@ -251,19 +245,16 @@ A proposed network of irrigation canals is described in the accompanying diagram
 
 \item If canal $BC$ is closed, what range of flow on $AD$ must be maintained so that no canal carries a flow of more than 30?
 
+Click the arrow to see the answer.
+
+\begin{expandable}
+$\begin{array}[t]{l}
+	f_5 = 15 \\
+	25 \leq f_4 \leq 30
+\end{array}$
+\end{expandable}
+
 \end{enumerate}
-%\begin{sol}
-%\begin{enumerate}[label={\alph*.}]
-%\setcounter{enumi}{1}
-%\item
-%$\arraycolsep=1pt
-%\begin{array}[t]{l}
-%	f_5 = 15 \\
-%	25 \leq f_4 \leq 30
-%\end{array}$
-%
-%\end{enumerate}
-%\end{sol}
 \end{problem}
 
 \begin{problem}\label{prob:pipenetwork3}
