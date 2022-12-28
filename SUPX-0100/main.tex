@@ -2541,12 +2541,48 @@ M_{B_{2} B_{1}} = \left[
 \end{hint}
 \end{problem}
 
+\begin{problem}\label{prob:inner_prod_7}
+If $p = p(x)$ and $q = q(x)$ are polynomials in $\mathbb{P}^{n}$, define
+\begin{equation*}
+\langle p, q \rangle = p(0)q(0) + p(1)q(1) + \dots + p(n)q(n)
+\end{equation*}
+Show that this is an inner product on $\mathbb{P}^{n}$.
+\end{problem}
+
+\begin{problem}\label{prob:inner_prod_8}
+Let $\mathcal{D}_{n}$ denote the space of all functions from the set
+$\{1, 2, 3, \dots, n\}$ to $\RR$ with pointwise addition and
+scalar multiplication. Show
+that $\langle\ , \rangle$ is an inner product on $\mathcal{D}_{n}$ if \newline $\langle\vec{f}, \vec{g}\rangle = f(1)g(1) + f(2)g(2) + \dots + f(n)g(n)$.
+
+\begin{hint}
+P1 and P2 are clear since $f(i)$ and $g(i)$ are real numbers.
+
+\begin{flalign*}
+\mbox{P3: } \langle f + g, h \rangle &= \sum_{i}(f + g)(i) \dotp h(i) &\\
+&= \sum_{i}(f(i) + g(i)) \dotp h(i) &\\
+&= \sum_{i}[f(i)h(i) + g(i)h(i)] &\\
+&= \sum_{i}f(i)h(i) + \sum_{i}g(i)h(i) &\\
+&= \langle f, h \rangle + \langle g, h \rangle. &\\
+\mbox{P4: } \hspace{1em}\langle rf, g \rangle &= \sum_{i}(rf)(i) \dotp g(i) &\\
+&= \sum_{i}rf(i) \dotp g(i) &\\
+&= r \sum_{i}f(i) \dotp g(i) &\\
+&= r\langle f, g \rangle &\\
+\end{flalign*}
+
+P5: If $ f \neq 0 $, then $\langle f, f \rangle = \displaystyle \sum_{i}f(i)^2 > 0 $ because some $f(i) \neq 0$.
+\end{hint}
+\end{problem}
 
 
 
 \section*{Practice Problem Source}
-These problems come from Chapter 9 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
+Problems \ref{prb:10.1} to \ref{prb:10.106} come from Chapter 9 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
 
-Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 469--535.  
+Ken Kuttler, {\it  A First Course in Linear Algebra}, Lyryx 2017, Open Edition, pp. 469--535.
+
+Problems \ref{prob:inner_prod_7} to \ref{} come from Section 10.1 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
+
+W. Keith Nicholson, {\it Linear Algebra with Applications}, Lyryx 2018, Open Edition, pp. 528--530.
 
 \end{document}
