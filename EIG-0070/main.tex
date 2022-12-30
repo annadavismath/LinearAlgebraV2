@@ -122,7 +122,7 @@ and these are approaching the dominant eigenvalue $2$.
 
 
 %\begin{octave}
-\begin{verbatim}
+%\begin{verbatim}
 A=[1 1; 2 0]; %Input a square matrix
 x_0=[1;0]; %Input an initial vector
 maxit =5; %Choose number iterations
@@ -141,7 +141,7 @@ r=0;
 end
 VECTORS
 RQUOTIENTS
-\end{verbatim}
+%\end{verbatim}
 %\end{octave}
 \end{exploration}
 
@@ -178,25 +178,44 @@ You can use Octave to employ the power method.  To do so, go to the \href{https:
 
 %\begin{octave}
 A=[9 2 8; 2 -6 -2; -8 2 -5]; %Input a square matrix
-xinit=[1;1;1]; %Input an initial vector
-maxit =15; %Choose number iterations
+xinit=[1;1;1];
+%Input an initial vector
+maxit =15;
+%Choose number iterations
 x = xinit;
+
 count = 0;
+
 r=0;
+
     while count < maxit
+    
     y=x;
+    
     x = A*y;
+    
         if count > 0; 
+        
         r=(y'*x)/(y'*y);
+        
         RQUOTIENTS(count)=r;
+        
         end
+        
     count = count + 1;
+    
     VECTORS(:,count)=x;
+    
 end
+
 VECTORS
+
 RQUOTIENTS
+
 [EIGENVECTORS, EIGENVALUES]=eig(A)
+
 VECTORS(:,maxit)/norm(VECTORS(:,maxit))
+
 %\end{octave}
 
 We observe that the Rayleigh quotients approach -3, which is the dominant eigenvalue, as we confirm using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector, and we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
