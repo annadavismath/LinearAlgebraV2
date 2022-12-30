@@ -61,11 +61,15 @@ The eigenvalues of $A$ are $2$ and $-1$, with eigenvectors $\left[ \begin{array}
   \end{array}\right]$ and $\left[ \begin{array}{rr}
   1 \\
   -2
-  \end{array}\right]$, as we can verify in the Octave window below. 
+  \end{array}\right]$, as we can verify using Octave. 
+  
+To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 %\begin{octave}
+\begin{verbatim}
 A=[1 1; 2 0]
 [EIGENVECTORS,EIGENVALUES] = eig(A)
+\end{verbatim}
 %\end{octave}
   
 If we take $\vec{x}_{0} = \left[ \begin{array}{rr}
@@ -118,10 +122,11 @@ and these are approaching the dominant eigenvalue $2$.
 
 
 %\begin{octave}
+\begin{verbatim}
 A=[1 1; 2 0]; %Input a square matrix
-%x_0=[1;0]; %Input an initial vector
+x_0=[1;0]; %Input an initial vector
 maxit =5; %Choose number iterations
-%x = x_0;
+x = x_0;
 count = 0;
 r=0;
     while count < maxit
@@ -136,6 +141,7 @@ r=0;
 end
 VECTORS
 RQUOTIENTS
+\end{verbatim}
 %\end{octave}
 \end{exploration}
 
@@ -168,13 +174,13 @@ Use the power method to approximate a dominant eigenvector and eigenvalue of $A 
 -8 & 2 & -5
 \end{array}\right]$
 
-You can use the Octave window below to employ the power method.  We observe that the Rayleigh quotients approach -3, which is the dominant eigenvalue, as we confirm using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector, and we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
+You can use Octave to employ the power method.  To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 %\begin{octave}
 A=[9 2 8; 2 -6 -2; -8 2 -5]; %Input a square matrix
-%x_0=[1;1;1]; %Input an initial vector
+xinit=[1;1;1]; %Input an initial vector
 maxit =15; %Choose number iterations
-%x = x_0;
+x = xinit;
 count = 0;
 r=0;
     while count < maxit
@@ -192,6 +198,10 @@ RQUOTIENTS
 [EIGENVECTORS, EIGENVALUES]=eig(A)
 VECTORS(:,maxit)/norm(VECTORS(:,maxit))
 %\end{octave}
+
+We observe that the Rayleigh quotients approach -3, which is the dominant eigenvalue, as we confirm using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector, and we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
+
+
 \end{exploration}
 
 \section*{Finding Other Eigenvalues}
@@ -214,12 +224,15 @@ We return to the matrix in Exploration \ref{exp:3x3PowerMethod}.  Let $M=\left[ 
 9 & 2 & 8 \\
 2 & -6 & -2 \\
 -8 & 2 & -5
-\end{array}\right]$ and let $A=M^{-1}$.  In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+\end{array}\right]$ and let $A=M^{-1}$.  
+
+Now use Octave to verify that $A=\left[ \begin{array}{rrr}
 17/3 & 13/3 & 22/3 \\
 13/3 & 19/6 & 17/3 \\
 -22/3 & -17/3 & -29/3
 \end{array}\right]$ and that the eigenvalues of $A$ are indeed the reciprocals of the eigenvalues of $M$.
 
+To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 %\begin{octave}
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
@@ -245,21 +258,24 @@ Once again, let $M=\left[ \begin{array}{rrr}
 9 & 2 & 8 \\
 2 & -6 & -2 \\
 -8 & 2 & -5
-\end{array}\right]$ and let $A=M - (-3)I$.  In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+\end{array}\right]$ and let $A=M - (-3)I$.
+
+Using Octave, you can verify that $A=\left[ \begin{array}{rrr}
 12 & 2 & 8 \\
 2 & -3 & -2 \\
 -8 & 2 & -2
 \end{array}\right]$ and that the eigenvalues of $A$ are obtained by subtracting $c=-3$ from (i.e. by adding 3 to) each eigenvalue of $M$.  The dominant eigenvalue of $M$ gives us an eigenvalue of zero for $A$ (you may find it gives a number very close to zero, due to rounding error).  So if we apply the Power Method to $A$ to find its dominant eigenvalue (which is 5), we can add -3 to get the ``second largest'' eigenvalue of $M$ (i.e., the eigenvalue second-farthest from zero), which is 2.
 
+To see this, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 %\begin{octave}
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 c=-3;
 A=M-c*eye(3) %I love the fact that eye(n) is the command for the identity matrix
 eig(A)
-%x_0=[1;1;1]; %Input an initial vector
+xinit=[1;1;1]; %Input an initial vector
 maxit =15; %Choose number iterations
-%x = x_0;
+x = xinit;
 count = 0;
 r=0;
     while count < maxit
@@ -299,21 +315,22 @@ Again we let $M=\left[ \begin{array}{rrr}
 -8 & 2 & -5
 \end{array}\right]$.  We will use the Shifted Inverse Power Method to compute the eigenvalue of $M$ closest to the target $\tau = 1$. 
 
-In the Octave window below, you can verify that $A=\left[ \begin{array}{rrr}
+Using Octave, you can verify that $A=\left[ \begin{array}{rrr}
 5.75 & 3.5 & 6.5 \\
 3.5 & 2 & 4 \\
 -6.5 & -4 & -7.5
 \end{array}\right]$.  When we apply the Power Method to $A$ to find its dominant eigenvalue, our Rayleigh quotients approach 1.  This means that the eigenvalue of $M$ closest to our target $\tau = 1$ is $1+\tau$, or 2.
 
+To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 %\begin{octave}
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 tau=1;
 A=inv(M-tau*eye(3)) %I love the fact that eye(n) is the command for the identity matrix
 eig(A)
-%x_0=[1;1;1]; %Input an initial vector
+xinit=[1;1;1]; %Input an initial vector
 maxit =15; %Choose number iterations
-%x = x_0;
+x = xinit;
 count = 0;
 r=0;
     while count < maxit
