@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\author{Anna Davis\and Paul Zachlin  \and Rosemarie Emanuele \and Paul Bender} \title{Matrix Multiplication} \license{CC-BY 4.0}
+\title{Matrix Multiplication} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -12,61 +12,62 @@
 
 \section*{Matrix Multiplication}
 
-We will introduce matrix multiplication by first considering the special case of a matrix-vector product.  In other words, the first matrix is $m \times n$ and the second matrix is $n \times 1$ for some positive integers $m,n$.  We will employ Octave in the following exploration.
+We will introduce matrix multiplication by first considering the special case of a matrix-vector product.  In other words, the first matrix is $m \times n$ and the second matrix is $n \times 1$ for some positive integers $m,n$. % We will employ Octave in the following exploration.
 
 \subsection*{Matrix-Vector Multiplication}
 
-\begin{exploration}\label{exp:matrixvectormultdef} Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{x}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ Find $A\vec{x}$ using Octave.
+%\begin{exploration}\label{exp:matrixvectormultdef} 
+\begin{example}\label{exp:matrixvectormultdef}
+Let $$A=\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\quad\text{and}\quad \vec{x}=\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}$$ %Find $A\vec{x}$ using Octave.
 
-Notice in the Octave window below, the semicolon is used to indicate a new line of a matrix, and the asterisk indicates matrix multiplication.
+%Notice in the Octave window below, the semicolon is used to indicate a new line of a matrix, and the asterisk indicates matrix multiplication.
 
 %\begin{octave}
-A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
-x=[3;-1;4;1]
-A*x
+%A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
+%x=[3;-1;4;1]
+%A*x
 %\end{octave}
 
-The purpose of this exploration is to understand the matrix-vector product $A\vec{x}$ we computed above.  Note that we can select an entry of a matrix in Octave by naming its row and column.  So A(2,3) = -2.  In the case of a column matrix like $\vec{x}$, we only need to indicate the row to select an entry, so x(3)=4.  We can also select an entire column of matrix $A$ by placing the "dummy colon" as the row.  So A(:,2) gives us the second column of $A$.
+%The purpose of this exploration is to understand the matrix-vector product $A\vec{x}$ we computed above.  Note that we can select an entry of a matrix in Octave by naming its row and column.  So A(2,3) = -2.  In the case of a column matrix like $\vec{x}$, we only need to indicate the row to select an entry, so x(3)=4.  We can also select an entire column of matrix $A$ by placing the "dummy colon" as the row.  So A(:,2) gives us the second column of $A$.
 
 %\begin{octave}
-A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
-x=[3;-1;4;1]
-A(2,3)
-x(3)
-A(:,2)
+%A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0]
+%x=[3;-1;4;1]
+%A(2,3)
+%x(3)
+%A(:,2)
 %\end{octave}  
 
-One way to understand the matrix-vector product $A\vec{x}$ is that we are taking a linear combination of the columns of $A$, using the entries in $x$ as our coefficients.  In the next Octave window we demonstrate this.  
+One way to understand the matrix-vector product $A\vec{x}$ is by thinking of it as a linear combination of the columns of $A$, using the entries in $x$ as our coefficients.  %In the next Octave window we demonstrate this.  
 
 %\begin{octave}
-A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0];
-x=[3;-1;4;1]; %semicolons at the end of a line suppress the output
-x(1)*A(:,1)+x(2)*A(:,2)+x(3)*A(:,3)+x(4)*A(:,4)
-A*x
+%A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0];
+%x=[3;-1;4;1]; %semicolons at the end of a line suppress the output
+%x(1)*A(:,1)+x(2)*A(:,2)+x(3)*A(:,3)+x(4)*A(:,4)
+%A*x
 %\end{octave} 
 
-We have computed 
-$$\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}3\\-1\\4\\1\end{bmatrix}=
-3\begin{bmatrix}2\\0\\-2\end{bmatrix}
--\begin{bmatrix}-1\\3\\4\end{bmatrix}
-+4\begin{bmatrix}3\\-2\\1\end{bmatrix}
-+\begin{bmatrix}2\\1\\0\end{bmatrix}
+%We have computed 
+
+$$A\vec{x}=\begin{bmatrix}\color{red}2&\color{blue}-1&\color{brown}3&2\\ \color{red}0&\color{blue}3&\color{brown}-2&1\\ \color{red}-2&\color{blue}4&\color{brown}1&0\end{bmatrix}\begin{bmatrix}\color{red}3\\ \color{blue}-1\\ \color{brown}4\\1\end{bmatrix}=
+\color{red}3\begin{bmatrix}\color{red}2\\ \color{red}0\\ \color{red}-2\end{bmatrix}\color{black}+
+\color{blue}(-1)\begin{bmatrix}\color{blue}-1\\ \color{blue}3\\ \color{blue}4\end{bmatrix}
+\color{black}+\color{brown}4\begin{bmatrix}\color{brown}3\\ \color{brown}-2\\ \color{brown}1\end{bmatrix}
+\color{black}+\begin{bmatrix}2\\1\\0\end{bmatrix}
 =\begin{bmatrix}21\\-10 \\ -6\end{bmatrix}
 $$
 
 We can also compute the product one entry at a time.  First, let's focus on the first row of $A$.
-$$\begin{bmatrix}{\color{red}2}&{\color{blue}-1}&{\color{orange}3}&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}{\color{red}(2)( 3)}+{\color{blue}(-1)(-1)}+{\color{orange}(3)(4)}+(2)(1)\\ \\ \\\end{bmatrix}=\begin{bmatrix}21\\ \\ \\\end{bmatrix}
+$$\begin{bmatrix}{\color{red}2}&{\color{blue}-1}&{\color{brown}3}&2\\0&3&-2&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{brown}4}\\1\end{bmatrix}=\begin{bmatrix}{\color{red}(2)( 3)}+{\color{blue}(-1)(-1)}+{\color{brown}(3)(4)}+(2)(1)\\ \\ \\\end{bmatrix}=\begin{bmatrix}21\\ \\ \\\end{bmatrix}
 $$
 Next, let's look a the second row of $A$.
-$$\begin{bmatrix}2&-1&3&2\\{\color{red}0}&{\color{blue}3}&{\color{orange}-2}&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}21\\{\color{red}(0)( 3)}+{\color{blue}(3)(-1)}+{\color{orange}(-2)(4)}+(1)(1)\\ \\ \end{bmatrix}=\begin{bmatrix}21\\-10 \\ \\\end{bmatrix}
+$$\begin{bmatrix}2&-1&3&2\\{\color{red}0}&{\color{blue}3}&{\color{brown}-2}&1\\-2&4&1&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{brown}4}\\1\end{bmatrix}=\begin{bmatrix}21\\{\color{red}(0)( 3)}+{\color{blue}(3)(-1)}+{\color{brown}(-2)(4)}+(1)(1)\\ \\ \end{bmatrix}=\begin{bmatrix}21\\-10 \\ \\\end{bmatrix}
 $$
 Finally, let's do the third row of $A$.
-$$\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\{\color{red}-2}&{\color{blue}4}&{\color{orange}1}&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{orange}4}\\1\end{bmatrix}=\begin{bmatrix}21\\-10\\{\color{red}(-2)( 3)}+{\color{blue}(4)(-1)}+{\color{orange}(1)(4)}+(0)(1) \end{bmatrix}=\begin{bmatrix}21\\-10 \\ -6\end{bmatrix}
+$$\begin{bmatrix}2&-1&3&2\\0&3&-2&1\\{\color{red}-2}&{\color{blue}4}&{\color{brown}1}&0\end{bmatrix}\begin{bmatrix}{\color{red}3}\\{\color{blue}-1}\\{\color{brown}4}\\1\end{bmatrix}=\begin{bmatrix}21\\-10\\{\color{red}(-2)( 3)}+{\color{blue}(4)(-1)}+{\color{brown}(1)(4)}+(0)(1) \end{bmatrix}=\begin{bmatrix}21\\-10 \\ -6\end{bmatrix}
 $$
-
-
-
-\end{exploration}
+\end{example}
+%\end{exploration}
 \begin{definition}\label{def:matrixvectormult}
 Let $A$ be an $m\times n$ matrix, and let $\vec{x}$ be an $n\times 1$ vector.  The product $A\vec{x}$ is the $m\times 1$ vector given by:
 $$A\vec{x}=\begin{bmatrix}
