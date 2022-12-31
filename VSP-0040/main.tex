@@ -155,8 +155,8 @@ The nonzero rows of $B$ span $\mbox{row}(A)$.  By Theorem \ref{th:rowsofreflinin
 
 Our observations in Example \ref{ex:basisrowspace} can be generalized to all matrices.  Given any matrix $A$,
 \begin{enumerate}
-    \item The nonzero rows of $\mbox{rref}(A)$ are linearly independent and span $\mbox{row}(A)$.  (Theorem \ref{th:rowsrreflinind}, and Corollary \ref{cor:rowArowrrefA})
-    \item The nonzero rows of any row-echelon form of $A$ are linearly independent and span $\mbox{row}(A)$.  (Theorem \ref{th:rowsreflinind}, and Corollary \ref{cor:rowequiv})
+    \item The nonzero rows of $\mbox{rref}(A)$ are linearly independent (Why?) and span $\mbox{row}(A)$ (Corollary \ref{cor:rowArowrrefA}).
+    \item The nonzero rows of any row-echelon form of $A$ are linearly independent (Why?) and span $\mbox{row}(A)$ (Corollary \ref{cor:rowequiv}).
 \end{enumerate}
 Therefore nonzero rows of $\mbox{rref}(A)$ or the nonzero rows of any row-echelon form of $A$ constitute a basis of $\mbox{row}(A)$.  Since all bases for $\mbox{row}(A)$ must have the same number of elements (Theorem \ref{th:dimwelldefined}), we have just proved the following theorem.
 
@@ -164,16 +164,16 @@ Therefore nonzero rows of $\mbox{rref}(A)$ or the nonzero rows of any row-echelo
 All row-echelon forms of a given matrix have the same number of nonzero rows.
 \end{theorem}
 
-This result was first introduced without proof in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank} where we used it to define the \dfn{rank} of a matrix as the number of nonzero rows in its row-echelon forms.
+This result was first introduced without proof in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{Gaussian Elimination and Rank} where we used it to define the \dfn{rank} of a matrix as the number of nonzero rows in its row-echelon forms.  We can now update the definition of rank as follows.
 
-\begin{theorem}\label{th:dimofrowA}
-Let $A$ be a matrix.  
+\begin{definition}\label{th:dimofrowA}
+For any matrix $A$,  
 %\begin{enumerate}
 %\item The non-zero rows of $\mbox{rref}(A)$ form a basis of $\mbox{row}(A)$.
 %\item 
-$\mbox{dim}\Big(\mbox{row}(A)\Big)=\mbox{rank}(A)$.
+$$\mbox{rank}(A)=\mbox{dim}\Big(\mbox{row}(A)\Big)$$.
 %\end{enumerate}
-\end{theorem}
+\end{definition}
 
 
 \subsection*{Column Space of a Matrix}
