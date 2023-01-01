@@ -239,7 +239,7 @@ y
  y\\
  1
  \end{array}
- \right]$, called the \textbf{homogeneous coordinates}\index{homogeneous coordinates} of $\vec{v}$. Then translation by $\vec{w} = \left[
+ \right]$, called the \dfn{homogeneous coordinates}\index{homogeneous coordinates} of $\vec{v}$. Then translation by $\vec{w} = \left[
  \begin{array}{r}
  p\\
  q
@@ -424,8 +424,23 @@ required.
 
 \section*{Practice Problems}
 
-\begin{problem}
-Consider the letter $A$ described in Figure~\ref{fig:013290}. Find the data matrix for the letter obtained by:
+\begin{problem}\label{prob:app0040_1}
+Consider the letter $A$ below. 
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+\draw[thin,gray!40] (-1,-1) grid (7,10);
+  \draw[line width=2pt,red](0,0)--(3,9);
+  \draw[line width=2pt,red](6,0)--(3,9);
+  \draw[line width=2pt,red](5,3)--(1,3);
+  \fill[] (0,0)node[above=2mm, left=1mm]{$(0,0)$} circle (0.2cm);
+  \fill[] (6,0)node[above=2mm, right=1mm]{$(6,0)$} circle (0.2cm);
+  \fill[] (5,3)node[above=2mm, right=1mm]{$(5,3)$} circle (0.2cm);
+  \fill[] (1,3)node[above=2mm, left=1mm]{$(1,3)$} circle (0.2cm);
+  \fill[] (3,9)node[above=2mm, right=1mm]{$(3,9)$} circle (0.2cm);
+ \end{tikzpicture}
+\end{center}  
+
+Find the data matrix for the letter obtained by:
 
 
 \begin{enumerate} 
@@ -452,11 +467,11 @@ ${\frac{1}{2}\left[
 \end{enumerate}
 \end{problem}
 
-\begin{problem}
-Find the matrix for turning the letter $A$ in Figure~\ref{fig:013290} upside-down in place.
-\end{problem}
+% \begin{problem}\label{prob:app0040_2}
+% Find the matrix for turning the letter $A$ in Figure~\ref{fig:013290} upside-down in place.
+% \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:app0040_3}
 Find the $3 \times 3$ matrix for reflecting in the line $y = mx + b$. Use $\left[
 \begin{array}{c}
 1\\
@@ -465,11 +480,11 @@ m
 \right]$ as direction vector for the line.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:app0040_4}
 Find the $3 \times 3$ matrix for rotating through the angle $\theta$ about the point $P(a, b)$.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:app0040_5}
 Find the reflection of the point $P$ in the line $y = 1 + 2x$ in $\RR^2$ if:
 
 
