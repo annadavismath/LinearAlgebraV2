@@ -66,7 +66,7 @@ where $t$ is a parameter. Thus, the pricing must be such that the total output o
 \end{explanation}
 \end{example}
 
-In general, suppose an economy has $n$ industries, each of which uses some (possibly none) of the production of every industry. We assume first that the economy is \textbf{closed}\index{closed economy} (that is, no product is exported or imported) and that all product is used. Given two industries $i$ and $j$, let $e_{ij}$ denote the proportion of the total annual output of industry $j$ that is consumed by industry $i$. Then $E = \left[ e_{ij} \right]$ is called the \textbf{input-output} matrix.  Clearly,
+In general, suppose an economy has $n$ industries, each of which uses some (possibly none) of the production of every industry. We assume first that the economy is \dfn{closed} (that is, no product is exported or imported) and that all product is used. Given two industries $i$ and $j$, let $e_{ij}$ denote the proportion of the total annual output of industry $j$ that is consumed by industry $i$. Then $E = \left[ e_{ij} \right]$ is called the \dfn{input-output} matrix.  Clearly,
 \begin{equation}\label{eq:IOcond1}
 0 \leq e_{ij} \leq 1 \quad \mbox{for all } i \mbox{ and } j
 \end{equation}
@@ -74,9 +74,9 @@ Moreover, all the output from industry $j$ is used by \textit{some} industry (th
 \begin{equation}\label{eq:IOcond2}
 e_{1j} + e_{2j} + \cdots + e_{ij} = 1 \quad \mbox{for each } j
 \end{equation}
-This condition asserts that each column of $E$ sums to $1$. Matrices satisfying conditions (\ref{eq:IOcond1}) and (\ref{eq:IOcond2}) are called \textbf{stochastic matrices}.
+This condition asserts that each column of $E$ sums to $1$. Matrices satisfying conditions (\ref{eq:IOcond1}) and (\ref{eq:IOcond2}) are called \dfn{stochastic matrices}.
 
-As in Example~\ref{006965}, let $p_{i}$ denote the price of the total annual production of industry $i$. Then $p_{i}$ is the annual revenue of industry $i$. On the other hand, industry $i$ spends $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$ annually for the product it uses ($e_{ij}p_{j}$ is the cost for product from industry $j$). The closed economic system is said to be in \textbf{equilibrium} if the annual expenditure equals the annual revenue for each industry---that is, if
+As in Example~\ref{006965}, let $p_{i}$ denote the price of the total annual production of industry $i$. Then $p_{i}$ is the annual revenue of industry $i$. On the other hand, industry $i$ spends $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$ annually for the product it uses ($e_{ij}p_{j}$ is the cost for product from industry $j$). The closed economic system is said to be in \dfn{equilibrium} if the annual expenditure equals the annual revenue for each industry---that is, if
 \begin{equation*}
 e_{1j}p_{1} + e_{2j}p_{2} + \cdots + e_{ij}p_{n} = p_{i} \quad \mbox{for each } i = 1, 2, \dots, n
 \end{equation*}
@@ -90,7 +90,7 @@ p_{n}
 \begin{equation*}
 E{\bf p} = {\bf p}
 \end{equation*}
-This is called the \textbf{equilibrium condition}, and the solutions ${\bf p}$ are called \textbf{equilibrium price structures}. The equilibrium condition can be written as
+This is called the \dfn{equilibrium condition}, and the solutions ${\bf p}$ are called \dfn{equilibrium price structures}. The equilibrium condition can be written as
 \begin{equation*}
 (I - E){\bf p} = {\bf 0}
 \end{equation*}
@@ -145,7 +145,7 @@ to five figures.
 
 \subsection*{The Open Model}
 
-We now assume that there is a demand for products in the \textbf{open sector} of the economy, which is the part of the economy other than the producing industries (for example, consumers). Let $d_{i}$ denote the total value of the demand for product $i$ in the open sector. If $p_{i}$ and $e_{ij}$ are as before, the value of the annual demand for product $i$ by the producing industries themselves is $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$, so the total annual revenue $p_{i}$ of industry $i$ breaks down as follows:
+We now assume that there is a demand for products in the \dfn{open sector} of the economy, which is the part of the economy other than the producing industries (for example, consumers). Let $d_{i}$ denote the total value of the demand for product $i$ in the open sector. If $p_{i}$ and $e_{ij}$ are as before, the value of the annual demand for product $i$ by the producing industries themselves is $e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}$, so the total annual revenue $p_{i}$ of industry $i$ breaks down as follows:
 \begin{equation*}
 p_{i} = (e_{i1}p_{1} + e_{i2}p_{2} + \cdots + e_{in}p_{n}) + d_{i} \quad \mbox{for each } i = 1, 2, \dots, n
 \end{equation*}
@@ -154,7 +154,7 @@ d_{1} \\
 \vdots \\
 d_{n}
 \end{array} \right]$
- is called the \textbf{demand matrix}, and this gives a matrix equation
+ is called the \dfn{demand matrix}, and this gives a matrix equation
 \begin{equation*}
 {\bf p} = E{\bf p} + {\bf d}
 \end{equation*}
