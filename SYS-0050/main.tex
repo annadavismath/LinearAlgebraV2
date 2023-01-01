@@ -79,7 +79,7 @@ $$\left[\begin{array}{ccc|c}
  We conclude that $\vec{x}=\begin{bmatrix}-2t\\-1-t\\t\end{bmatrix}$.  
  
  Let's take a more careful look at $\vec{x}$.
- $$\vec{x}=\begin{bmatrix}-2t\\-1-t\\t\end{bmatrix}=\begin{bmatrix}0\\-1\\0\end{bmatrix}+\begin{bmatrix}-2\\-1\\1\end{bmatrix}t$$
+ $$\vec{x}=\begin{bmatrix}-2t\\-1-t\\t\end{bmatrix}=\begin{bmatrix}0\\-1\\\answer{0}\end{bmatrix}+\begin{bmatrix}\answer{-2}\\\answer{-1}\\\answer{1}\end{bmatrix}t$$
  We now see that the solution vector $\vec{x}$ is made up of two distinct parts: 
  \begin{itemize}
  \item
@@ -98,8 +98,10 @@ $$\left[\begin{array}{ccc|c}
  So $\begin{bmatrix}-2\\-1\\1\end{bmatrix}$ and all of its scalar multiples are solutions to the associated homogeneous system.  
 \end{exploration}
 
+\begin{observation}
 In Exploration \ref{init:generalplusparticular} we found that the general solution of the equation $A\vec{x}=\vec{b}$ has the form:
  $$\vec{x}=(\text{Any Particular Solution of}\,A\vec{x}=\vec{b}) + (\text{General Solution of}\,A\vec{x}=\vec{0})$$
+ \end{observation}
 It turns out that the general solution of any linear system can be written in this format.  Theorem \ref{th:homogeneous} formalizes this result.
 
 \begin{theorem}\label{th:homogeneous}Suppose $\vec{x}_p$ is a particular solution of $A\vec{x}=\vec{b}$.
