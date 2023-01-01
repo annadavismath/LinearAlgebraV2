@@ -229,7 +229,16 @@ $$\det(A)=5\big(4(\answer{-6})-2(\answer{-5})\big)=\answer{-70}$$
 \subsection*{A Note on Equivalency}
 We initially introduced the determinant of a matrix via cofactor expansion along the top row.  We later observed that cofactor expansion along any row or column produces the same result.  We have to be careful, however, not to use a few examples as ``proof" that all cofactor expansions are equivalent.  Such claims need to be carefully supported with general proofs.  Unfortunately, in this case, the proofs are tedious and conceptually unenlightening.  An interested reader can find them in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Tedious Proofs Concerning Determinants}.
 
-\subsection*{Determinants of Triangular Matrices}
+\subsection*{Determinants of Some Special Matrices}
+We know that we can find the determinant of a matrix by cofactor expansion along the top row or the first column.  (See Theorem \ref{th:rowcolexpequivalence} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0050/main}{Tedious Proofs Concerning Determinants} for proof.)  This property gives rise to a useful result.
+\begin{theorem}\label{th:detoftrans}
+Let $A$ be a square matrix, then
+$$\det{A^T}=\det{A}$$
+\end{theorem}
+\begin{proof}
+    See Practice Problem \ref{prob:detOfTrans}.
+\end{proof}
+
 As we observed earlier, having zeros in a matrix makes it easier for us to compute its determinant.  Recall that that a square matrix is \dfn{upper-triangular} if all of the entries below the main diagonal are zero.  Similarly, a square matrix is called \dfn{lower-triangular} if all of the entries above the main diagonal are zero.  Together, upper and lower triangular matrices are categorized as \dfn{triangular} matrices.
 
 \begin{theorem}\label{lemma:triangulardet}
@@ -309,6 +318,10 @@ Find the determinant of each matrix.
 
 \begin{problem}\label{prob:toprowexp2x2}
 Show that Definition \ref{def:toprowexpansion} is consistent with Definition \ref{def:twobytwodet} by verifying that both produce the same result when applied to a $2\times 2$ matrix.
+\end{problem}
+
+\begin{problem}\label{prob:detOfTrans}
+    Prove Theorem \ref{th:detoftrans}.
 \end{problem}
 
 \begin{problem}\label{prob:detrowswitch}
