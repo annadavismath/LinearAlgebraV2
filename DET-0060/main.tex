@@ -43,14 +43,22 @@ Note that a unique solution to the system exists if and only if the determinant 
 It turns out that a solution to any square system $A\vec{x}=\vec{b}$ can be expressed using ratios of determinants, provided that $A$ is nonsingular.  The general formula for the $i^{th}$ component of the solution vector is
 $$x_i=\frac{\det{(\text{matrix } A \text{ with column } i \text{ replaced by } \vec{b})}}{\det{A}}$$
 
-To formalize this expression, we need to introduce some notation.  Given a matrix $A$ and a vector $\vec{b}$ we use 
+To formalize this expression, we need to introduce some notation.  Given a matrix 
+$$A=\begin{bmatrix}
+           | & |& &|\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_n\\
+		| & |& &|
+         \end{bmatrix}$$ 
+and a vector $\vec{b}$ we use 
 $$A_i(\vec{b})$$
 to denote the matrix obtained from $A$ by replacing the $i^{th}$ column of $A$ with $\vec{b}$. In other words,
-$$A_i(\vec{b})=\begin{bmatrix}
+\begin{equation}\label{eq:AiNotation}
+A_i(\vec{b})=\begin{bmatrix}
            | & |& &|&|&|&&|\\
-		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_{i-1}&\vec{b}&\vec{a}_{i+1}&\dots&\vec{a}_n\\
 		| & |& &|&|&|&&|
-         \end{bmatrix}$$
+         \end{bmatrix}
+\end{equation}
 Using our new notation, we can write the $i^{th}$ component of the solution vector as
 $$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
 
@@ -99,12 +107,13 @@ We are now ready to state and prove Cramer's rule as a theorem.
 \begin{theorem}\label{th:cramer}
 Let $A$ be a nonsingular $n\times n$ matrix, and let $\vec{b}$ be an $n\times 1$ vector.  Then the components of the solution vector $\vec{x}$ of $A\vec{x}=\vec{b}$ are given by
 $$x_i=\frac{\det{A_i(\vec{b})}}{\det{A}}$$
+where $A_i(\vec{b})$ is defined as in (\ref{eq:AiNotation}).
 \end{theorem}
 \begin{proof}
 For this proof we will need to think of matrices in terms of their columns.  Thus,
 $$A=\begin{bmatrix}
            | & |& &|\\
-		A_1 & A_2&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots&\vec{a}_n\\
 		| & |& &|
          \end{bmatrix}$$
 We will also need the identity matrix $I$.  The columns of $I$ are standard unit vectors.
@@ -116,7 +125,7 @@ $$I=\begin{bmatrix}
 Recall that 
 $$A_i(\vec{b})=\begin{bmatrix}
            | & |& &|&|&|&&|\\
-		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_{i-1}&\vec{b}&\vec{a}_{i+1}&\dots&\vec{a}_n\\
 		| & |& &|&|&|&&|
          \end{bmatrix}$$
          
@@ -131,7 +140,7 @@ $$I_i(\vec{x})=\begin{bmatrix}
 Now, consider the product $A\Big(I_i(\vec{x})\Big)$
 \begin{align*}A\Big(I_i(\vec{x})\Big)&=\begin{bmatrix}
            | & |& &|\\
-		A_1 & A_2&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots&\vec{a}_n\\
 		| & |& &|
          \end{bmatrix}\begin{bmatrix}
            | & |& &|&|&|&&|\\
@@ -140,12 +149,12 @@ Now, consider the product $A\Big(I_i(\vec{x})\Big)$
          \end{bmatrix}\\
          &=\begin{bmatrix}
            | & |& &|&|&|&&|\\
-		A_1 & A_2&\dots &A_{i-1}&A\vec{x}&A_{i+1}&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_{i-1}&A\vec{x}&\vec{a}_{i+1}&\dots&\vec{a}_n\\
 		| & |& &|&|&|&&|
          \end{bmatrix}\\
          &=\begin{bmatrix}
            | & |& &|&|&|&&|\\
-		A_1 & A_2&\dots &A_{i-1}&\vec{b}&A_{i+1}&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_{i-1}&\vec{b}&\vec{a}_{i+1}&\dots&\vec{a}_n\\
 		| & |& &|&|&|&&|
          \end{bmatrix}=A_i(\vec{b})
 \end{align*}
@@ -177,30 +186,30 @@ $$I=\begin{bmatrix}
 		| & |& &|
          \end{bmatrix}\quad\text{and}\quad X=\begin{bmatrix}
            | & |& &|\\
-		X_1 & X_2&\dots&X_n\\
+		\vec{x}_1 & \vec{x}_2&\dots&\vec{x}_n\\
 		| & |& &|
          \end{bmatrix}$$
 
 If $AX=I$ then we must have
-$$AX_1=\vec{e}_1$$
-$$AX_2=\vec{e}_2$$
+$$A\vec{x}_1=\vec{e}_1$$
+$$A\vec{x}_2=\vec{e}_2$$
 $$\vdots$$
-$$AX_n=\vec{e}_n$$
+$$A\vec{x}_n=\vec{e}_n$$
 This gives us $n$ systems of equations.  Solution vectors to these systems are the columns of $X$.  Thus, the $j^{th}$ column of $X$ is
-$$X_j=\begin{bmatrix}x_{1j}\\x_{2j}\\\vdots\\x_{nj}\end{bmatrix}\quad\text{such that}\quad AX_j=\vec{e}_j$$
+$$\vec{x}_j=\begin{bmatrix}x_{1j}\\x_{2j}\\\vdots\\x_{nj}\end{bmatrix}\quad\text{such that}\quad A\vec{x}_j=\vec{e}_j$$
 By Cramer's rule 
 $$x_{ij}=\frac{\det{A_i(\vec{e}_j)}}{\det{A}}$$
          
 But
 $$A_i(\vec{e})=\begin{bmatrix}
            | & |& &|&|&|&&|\\
-		A_1 & A_2&\dots &A_{i-1}&\vec{e}_j&A_{i+1}&\dots&A_n\\
+		\vec{a}_1 & \vec{a}_2&\dots &\vec{a}_{i-1}&\vec{e}_j&\vec{a}_{i+1}&\dots&\vec{a}_n\\
 		| & |& &|&|&|&&|
          \end{bmatrix}$$
 To find $\det{A_i(\vec{e}_j)}$, we can expand along the $i^{th}$ column of $A_i(\vec{e}_j)$.  But the $i^{th}$ column of $A_i(\vec{e}_j)$ is the vector $\vec{e}_j$ which has 1 in the $j^{th}$ spot and zeros everywhere else.  Thus 
 $$\det{A_i(\vec{e}_j)}=(-1)^{i+j}\det{A_{ji}}=C_{ji}$$
 We now have
-$$X_j=\begin{bmatrix}C_{j1}/\det{A}\\C_{j2}/\det{A}\\\vdots\\C_{jn}/\det{A}\end{bmatrix}=\frac{1}{\det{A}}\begin{bmatrix}C_{j1}\\C_{j2}\\\vdots\\C_{jn}\end{bmatrix}$$
+$$\vec{x}_j=\begin{bmatrix}C_{j1}/\det{A}\\C_{j2}/\det{A}\\\vdots\\C_{jn}/\det{A}\end{bmatrix}=\frac{1}{\det{A}}\begin{bmatrix}C_{j1}\\C_{j2}\\\vdots\\C_{jn}\end{bmatrix}$$
 Thus,
 $$A^{-1}=X=\frac{1}{\det{A}}\begin{bmatrix}C_{11}&C_{21}&\ldots&C_{n1}\\C_{12}&C_{22}&\ldots&C_{n2}\\\vdots&\vdots&\ddots&\vdots\\
 C_{1n}&C_{2n}&\ldots&C_{nn}\end{bmatrix}$$
