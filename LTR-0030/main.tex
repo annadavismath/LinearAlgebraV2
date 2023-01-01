@@ -9,7 +9,7 @@
 \end{abstract}
 \maketitle
 
-Note to Student:  In this section we will often use $U$, $V$ and $W$ to denote the domain and codomain of linear transformations.  Unless indicated otherwise, results and proofs are presented with sufficient generality to accommodate vector spaces other than $\RR^n$ and its subspaces.   This was done to ensure that you can continue to use this section as a reference when you study \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_vecSpaces/main}{Vector Spaces}. If you are already familiar with abstract vector spaces, you can regard $U$, $V$ and $W$ as finite-dimensional vector spaces, otherwise you may think of $U$, $V$ and $W$ as subspaces of $\RR^n$. 
+Note to Student:  In this section we will often use $U$, $V$ and $W$ to denote subspaces of $\RR^n$, or any other finite-dimensional vector space, such as those we study in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/XLAChapter_vecSpaces/main}{Vector Spaces}. 
 
 \section*{Composition and Inverses of Linear Transformations}
 
@@ -33,7 +33,7 @@ This means that $S\circ T$ maps all vectors of $\RR^2$ to $\vec{0}$.
 
 In addition to the computational approach, it is also useful to visualize what happens geometrically.
 
-First, observe that $T\left(\begin{bmatrix}u_1\\u_2\end{bmatrix}\right)=\begin{bmatrix}u_1+u_2\\3u_1+3u_2\end{bmatrix}=(u_1+u_2)\begin{bmatrix}1\\3\end{bmatrix}$  So, the image of any vector of $\RR^2$ under $T$ lies on the line determined by the vector $\begin{bmatrix}1\\3\end{bmatrix}$.  
+First, observe that $$T\left(\begin{bmatrix}u_1\\u_2\end{bmatrix}\right)=\begin{bmatrix}u_1+u_2\\3u_1+3u_2\end{bmatrix}=(u_1+u_2)\begin{bmatrix}1\\3\end{bmatrix}$$  Therefore the image of any vector of $\RR^2$ under $T$ lies on the line determined by the vector $\begin{bmatrix}1\\3\end{bmatrix}$.  
 
 Even though $S$ is defined on all of $\RR^2$, we are only interested in the action of $S$ on vectors along the line determined by $\begin{bmatrix}1\\3\end{bmatrix}$.  Our computations showed that all such vectors map to $\vec{0}$.
 
@@ -129,12 +129,12 @@ $$\begin{bmatrix}3&-1\\-3&1\end{bmatrix}\begin{bmatrix}1&1\\3&3\end{bmatrix}=\be
 \end{explanation}
 \end{example}
 
-We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, you might have found it cumbersome to prove that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$. (See Theorem \ref{th:propertiesofmatrixmultiplication}.)  We are now in a position to prove this result with ease.  
+We conclude this section by revisiting the associative property of matrix multiplication.  At the time matrix multiplication was introduced, we skipped the cumbersome proof that for appropriately sized matrices $A$, $B$ and $C$, we have $(AB)C=A(BC)$. (See Theorem \ref{th:propertiesofmatrixmultiplication}.)  We are now in a position to prove this result with ease.  
 
 Every matrix induces a linear transformation.  The product of two matrices can be interpreted as a composition of transformations.  Since function composition is associative, so is matrix multiplication. We formalize this observation as a theorem.
 
 \begin{theorem}[Associativity of Matrix Multiplication] \label{th:associativematrixmult}  Let $A$, $B$ and $C$ be matrices of appropriate dimensions so that the product $(AB)C$ is defined.  Then
-$$ABC=(AB)C=A(BC)$$
+$$(AB)C=A(BC)$$
 \end{theorem}
 
 \subsection*{Inverses of Linear Transformations}
@@ -145,7 +145,7 @@ $$(T\circ S)(\vec{v})=T(S(\vec{v}))=T(\frac{1}{2}\vec{v})=(2)\left(\frac{1}{2}\r
 Both composite transformations return the original vector $\vec{v}$.  In other words, $S\circ T=\id_{\RR^2}$ and $T\circ S=\id_{\RR^2}$.  We say that $S$ is an \dfn{inverse} of $T$, and $T$ is an inverse of $S$.
 \end{exploration}
 
-\begin{definition}\label{def:inverseoflintrans} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ such that $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
+\begin{definition}\label{def:inverseoflintrans} Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ that satisfies $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
 \end{definition}
 
 \begin{example}\label{ex:inverseverify} Let $T:\RR^2\rightarrow \RR^2$ be a transformation defined by $T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x+y\\x-y\end{bmatrix}$. (How would you verify that $T$ is linear?)  Show that $S:\RR^2\rightarrow \RR^2$ given by $S\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}0.5x+0.5y\\0.5x-0.5y\end{bmatrix}$ is an inverse of $T$.
