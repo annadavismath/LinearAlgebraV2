@@ -39,7 +39,7 @@ Similarity is an \dfn{equivalence relation}, i.e. for $n \times n$ matrices $A,B
 \ref{item:reflexive} It is clear that $A\sim A$ (let $P=I$).
 
 \ref{item:symmetric}
-Now, if $A\sim B,$ then for some invertible matrix $P$,
+If $A\sim B,$ then for some invertible matrix $P$,
 \begin{equation*}
 A=P^{-1}BP
 \end{equation*}
@@ -117,8 +117,8 @@ As for \ref{th:properties_similar_char_poly},
 \begin{align*}
 \det(B-\lambda I) &= \det \{P^{-1}AP-\lambda(P^{-1}P)\} \\
 &= \det \{ P^{-1}(A-\lambda I)P\} \\
-&= \det (A-\lambda I)
-\end{align*}, so $A$ and $B$ have the same characteristic equation.
+&= \det (A-\lambda I),
+\end{align*} so $A$ and $B$ have the same characteristic equation.
 Finally, \ref{th:properties_similar_char_poly} implies \ref{th:properties_similar_eig} because the eigenvalues of a matrix are the roots of its characteristic polynomial.
 \end{proof}
 
@@ -167,24 +167,24 @@ See Practice Problem~\ref{prob:similarproperties}.
 
 \section*{Practice Problems}
 
-\begin{problem}
+\begin{problem}\label{prob:lessthan}
 At the beginning of this section we mentioned that similarity of $n \times n$ matrices is an \dfn{equivalence relation}.
 
 An equivalence relation is a binary relation $R$ on elements of a set $S$ that has the following properties:
-\begin{enumerate}
+\begin{itemize}
 \item The reflexive property:  $x R x$ for every $x \in S$
 \item The symmetric property:  If $x R y$, then $y R x$ for every $x,y \in S$
 \item The transitive property:  If $x R y$ and $y R z$, then $x R z$ for every $x,y,z \in S$
-\end{enumerate}
+\end{itemize}
 
 Let $S$ be the set of all positive integers.  We can show that the relation ``less than'' (symbolized by $<$) is NOT an equivalence relation on this set.  To see this, note that ``less than'' is not reflexive, because $s<s$ is not true for any positive integer $s$.
 
-\begin{problem}\label{prob:lessthan1}
-Is the relation ``less than'' symmetric?
-\end{problem}
-
-\begin{problem}\label{prob:lessthan2}
-Is the relation ``less than'' transitive?
+\begin{enumerate}
+\item
+Is the relation ``less than'' symmetric? \wordChoice{\choice{Yes}\choice[correct]{No}}
+\item
+Is the relation ``less than'' transitive? \wordChoice{\choice[correct]{Yes}\choice{No}}
+\end{enumerate}
 \end{problem}
 
 \begin{problem}\label{prob:lessthan3}
@@ -194,8 +194,6 @@ Another relation between matrices we have studied in this course is that two mat
     \item symmetric? \wordChoice{\choice[correct]{Yes}\choice{No}}
     \item transitive? \wordChoice{\choice[correct]{Yes}\choice{No}}
 \end{enumerate}
-
-\end{problem}
 
 \end{problem}
 
@@ -302,7 +300,7 @@ If $A$ is invertible, show that $AB$ is similar to $BA$ for all $B$.
 \end{problem}
 
 \begin{problem}\label{prob:similarproperties_rI}
-Show that the only matrix similar to a scalar matrix $A = rI$, $r$ in $\RR$, is $A$ itself.
+Show that the only matrix similar to a scalar matrix $A = rI$, $r\in\RR$, is $A$ itself.
 \end{problem}
 
 \begin{problem}\label{prob:similarproperties_ev}
