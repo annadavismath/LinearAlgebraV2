@@ -11,12 +11,12 @@
 
 \section*{Properties of the Determinant}
 We begin by summarizing the properties of determinants we introduced in previous sections.
-%We first defined the determinant of a matrix using cofactor expansion along the first row. (Definition \ref{def:toprowexpansion} of DET-0010)  We then introduced an alternative definition in terms of cofactor expansion along the first column and proved that the two definitions are equivalent. (Definition \ref{def:firstcolexpansion1} of DET-0020)  We also proved the following simple but useful results:
+
 \begin{summary}
 \begin{itemize}
 \item The determinant of the identity matrix is equal to 1. (Lemma \ref{lemma:detofid})
 \item The determinant of a triangular matrix is equal to the product of the main diagonal entries. (Lemma \ref{lemma:triangulardet})
-
+\item The determinant of the transpose is equal to the determinant of the matrix. (Theorem \ref{th:detoftrans})
 \item If a matrix contains a row of zeros, then its determinant is equal to 0. (Lemma \ref{lemma:det0lemma})
 \item If two rows of a matrix are the same, then the determinant of the matrix is equal to 0.  (Lemma \ref{lemma:det0lemma})
 \item If one row of a matrix is a scalar multiple of another row, then the determinant of the matrix is equal to 0. (Lemma \ref{lemma:det0lemma})
@@ -36,7 +36,6 @@ In this section we will prove the following important results:
 \begin{enumerate}
 \item A square matrix is singular if and only if its determinant is equal to 0.
 \item The determinant of a product is the product of the determinants.
-\item The determinant of the transpose is equal to the determinant of the matrix.
 \end{enumerate}
 To get us started, we need the following lemma.
 \begin{lemma}\label{lemma:detelemproduct} Let $A$ be a square matrix, and let $E$ be an elementary matrix, then
@@ -108,89 +107,72 @@ The following theorem is a nice consequence of Theorem \ref{th:detofproduct}.  W
 $$\det{A^{-1}}=\frac{1}{\det{A}}$$
 \end{theorem}
 
-\subsection*{Determinant of the Transpose}
-In Practice Problem \ref{prob:dettranspose} you proved that $\det{A^T}=\det{A}$.  Your proof most likely relied on the fact that cofactor expansion along the first row produces the same result as cofactor expansion along the first column.  (Theorem \ref{th:rowcolexpequivalence}).  We will now take another look at this result and prove it without the assumption that the two cofactor expansions produce the same outcome.
-\begin{exploration}\label{init:detoftranspose}
-In this problem we will take a look at the determinants of transposes of elementary matrices.  Recall that an elementary matrix is obtained from the identity matrix by means of one elementary row operation.  Consider the following examples of elementary matrices.
-$$E_1=\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix}\quad E_2=\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&5&0\\0&0&0&1\end{bmatrix}\quad E_3=\begin{bmatrix}1&0&4&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
-On your own, write out the transpose of each matrix.  You should observe that $E_1^T=E_1$ and $E_2^T=E_2$.  
+% \subsection*{Determinant of the Transpose}
+% In Practice Problem \ref{prob:dettranspose} you proved that $\det{A^T}=\det{A}$.  Your proof most likely relied on the fact that cofactor expansion along the first row produces the same result as cofactor expansion along the first column.  (Theorem \ref{th:rowcolexpequivalence}).  We will now take another look at this result and prove it without the assumption that the two cofactor expansions produce the same outcome.
+% \begin{exploration}\label{init:detoftranspose}
+% In this problem we will take a look at the determinants of transposes of elementary matrices.  Recall that an elementary matrix is obtained from the identity matrix by means of one elementary row operation.  Consider the following examples of elementary matrices.
+% $$E_1=\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix}\quad E_2=\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&5&0\\0&0&0&1\end{bmatrix}\quad E_3=\begin{bmatrix}1&0&4&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
+% On your own, write out the transpose of each matrix.  You should observe that $E_1^T=E_1$ and $E_2^T=E_2$.  
 
-Now consider $E_3^T$
-$$E_3^T=\begin{bmatrix}1&0&0&0\\0&1&0&0\\4&0&1&0\\0&0&0&1\end{bmatrix}$$
-Clearly $E_3^T\neq E_3$, but what is really important is that $E_3^T$ is also an elementary matrix.  While $E_3$ was obtained from the identity by adding 4 times the third row to the first row, $E_3^T$ was obtained from the identity by adding 4 times the first row to the third row.  By Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}, we know that $\det{E_3^T}=\det{I}=\det{E_3}$.
+% Now consider $E_3^T$
+% $$E_3^T=\begin{bmatrix}1&0&0&0\\0&1&0&0\\4&0&1&0\\0&0&0&1\end{bmatrix}$$
+% Clearly $E_3^T\neq E_3$, but what is really important is that $E_3^T$ is also an elementary matrix.  While $E_3$ was obtained from the identity by adding 4 times the third row to the first row, $E_3^T$ was obtained from the identity by adding 4 times the first row to the third row.  By Theorem \ref{th:elemrowopsanddet}\ref{item:addmultotherrowdet}, we know that $\det{E_3^T}=\det{I}=\det{E_3}$.
 
-So, for all three matrices we have $\det{E_i^T}=\det{E_i}$.
-\end{exploration}
+% So, for all three matrices we have $\det{E_i^T}=\det{E_i}$.
+% \end{exploration}
 
- We can generalize our observations in Exploration \ref{init:detoftranspose} as follows:
-\begin{enumerate}
-\item If $E$ is an elementary matrix obtained from the identity by switching of two rows, then $E^T=E$.
-\item If $E$ is an elementary matrix obtained from the identity by multiplying one row by a non-zero constant, then $E^T=E$.
-\item If $E$ is an elementary matrix obtained from the identity by adding a multiple of one row to another row, then $\det{E^T}=\det{E}$.
-\end{enumerate}
+%  We can generalize our observations in Exploration \ref{init:detoftranspose} as follows:
+% \begin{enumerate}
+% \item If $E$ is an elementary matrix obtained from the identity by switching of two rows, then $E^T=E$.
+% \item If $E$ is an elementary matrix obtained from the identity by multiplying one row by a non-zero constant, then $E^T=E$.
+% \item If $E$ is an elementary matrix obtained from the identity by adding a multiple of one row to another row, then $\det{E^T}=\det{E}$.
+% \end{enumerate}
 
 
-We will now combine the three parts of our generalization into a lemma.
-%The discussion above proves the following Lemma, which, in turn, is a step toward proving Theorem \ref{th:detoftrans}.
+% We will now combine the three parts of our generalization into a lemma.
+% %The discussion above proves the following Lemma, which, in turn, is a step toward proving Theorem \ref{th:detoftrans}.
 
-\begin{lemma}\label{lemma:detofelementarymat}
-Let $E$ be an elementary matrix, then
-$$\det{E^T}=\det{E}$$
-\end{lemma}
+% \begin{lemma}\label{lemma:detofelementarymat}
+% Let $E$ be an elementary matrix, then
+% $$\det{E^T}=\det{E}$$
+% \end{lemma}
 
-\begin{proof}
-We will need to consider three cases.
-
-Case 1.  Suppose $E$ is obtained from the identity by switching rows $p$ and $q$.  Then $E$ is the same as the identity matrix, except that $(p,p)$ and $(q, q)$ entries of $E$ are zero, and $E$ has a 1 in $(q, p)$ and $(p, q)$ spots.  When the transpose is taken, 1's and 0's along the diagonal stay in place, while the $(p,q)$-entry becomes the $(q, p)$-entry and the $(q,p)$-entry becomes the $(p,q)$-entry.  This shows that $E=E^T$, and $\det{E^T}=\det{E}$.
-
-Case 2.  Suppose $E$ is obtained from the identity by multiplying one of the rows by a non-zero constant.  Observe that $E$ is a diagonal matrix, so $E^T=E$ and $\det{E^T}=\det{E}$.
-
-Case 3.  Suppose $E$ is obtained from the identity by adding a $k$ times row $q$ to row $p$.  Then $E$ is the same as the identity matrix, except that the $(p,q)$-entry of $E$ is $k$.  If we take the transpose of $E$, then $k$ will become the $(q,p)$-entry of the transpose.  This means that $E^T$ can be obtained from the identity by adding $k$ times row $p$ to row $q$.  This means that $\det{E^T}=\det{I}=\det{E}$.
-\end{proof}
-
-We are now ready to prove the main result of this section.
-
-\begin{theorem}\label{th:detoftrans}
-Let $A$ be a square matrix, then
-$$\det{A^T}=\det{A}$$
-\end{theorem}
-
-\begin{proof}
-Suppose that $A$ is singular, then $A^T$ is also singular. (Theorem \ref{th:invprop} and Theorem \ref{th:transposeproperties}) Thus, $\det{A}=0=\det{A^T}$.
-
-Suppose $A$ is nonsingular.  Then $A$ is can be written as a product of elementary matrices (Theorem \ref{th:elemmatrices})
-$$A=E_1E_2\ldots E_k$$
-By Theorem \ref{th:transposeproperties}
-$$A^T=E_k^T\ldots E_2^TE_1^T$$
-By Lemma \ref{lemma:detofelementarymat}, $\det{E_i^T}=\det{E_i}$ for $1\leq i\leq k$.
-
-\begin{align*}
-\det{A^T}&=\det{(E_k^T\ldots E_2^TE_1^T)}\\
-&=\det{E_k^T}\ldots \det{E_2^T}\det{E_1^T}\\
-&=\det{E_k}\ldots \det{E_2}\det{E_1}\\
-&=\det{E_1}\det{E_2}\ldots\det{E_k}\\
-&=\det{(E_1E_2\ldots E_k)}\\
-&=\det{A}
-\end{align*}
-\end{proof}
-
-Because $\det{A}=\det{A^T}$, we have the following counterpart of Theorem \ref{th:elemrowopsanddet} for columns.
-
-\begin{theorem}[Elementary Column Operations and the Determinant]\label{th:elemcolopsanddet}
-Let $A$ be an $n\times n$ matrix.  
-\begin{enumerate}
-\item\label{item:colswapanddet}
-If $B$ is obtained from $A$ by interchanging two different columns, then $$\det{B}=-\det{A}$$
-\item \label{item:colconstantmultanddet}
-If $B$ is obtained from $A$ by multiplying one of the columns of $A$ by a non-zero constant $k$.  Then $$\det{B}=k\det{A}$$
-\item \label{item:addmultothercoldet}
-If $B$ is obtained from $A$ by adding a multiple of one column of $A$ to another column, then
-$$\det{B}=\det{A}$$
-\end{enumerate}
-\end{theorem}
 % \begin{proof}
-% This is a direct consequence of the fact that $\det{A^T}=\det{A}$. (Theorem \ref{th:detoftrans})
-%\end{proof}
+% We will need to consider three cases.
+
+% Case 1.  Suppose $E$ is obtained from the identity by switching rows $p$ and $q$.  Then $E$ is the same as the identity matrix, except that $(p,p)$ and $(q, q)$ entries of $E$ are zero, and $E$ has a 1 in $(q, p)$ and $(p, q)$ spots.  When the transpose is taken, 1's and 0's along the diagonal stay in place, while the $(p,q)$-entry becomes the $(q, p)$-entry and the $(q,p)$-entry becomes the $(p,q)$-entry.  This shows that $E=E^T$, and $\det{E^T}=\det{E}$.
+
+% Case 2.  Suppose $E$ is obtained from the identity by multiplying one of the rows by a non-zero constant.  Observe that $E$ is a diagonal matrix, so $E^T=E$ and $\det{E^T}=\det{E}$.
+
+% Case 3.  Suppose $E$ is obtained from the identity by adding a $k$ times row $q$ to row $p$.  Then $E$ is the same as the identity matrix, except that the $(p,q)$-entry of $E$ is $k$.  If we take the transpose of $E$, then $k$ will become the $(q,p)$-entry of the transpose.  This means that $E^T$ can be obtained from the identity by adding $k$ times row $p$ to row $q$.  This means that $\det{E^T}=\det{I}=\det{E}$.
+% \end{proof}
+
+% We are now ready to prove the main result of this section.
+
+% \begin{theorem}\label{th:detoftrans}
+% Let $A$ be a square matrix, then
+% $$\det{A^T}=\det{A}$$
+% \end{theorem}
+
+% \begin{proof}
+% Suppose that $A$ is singular, then $A^T$ is also singular. (Theorem \ref{th:invprop} and Theorem \ref{th:transposeproperties}) Thus, $\det{A}=0=\det{A^T}$.
+
+% Suppose $A$ is nonsingular.  Then $A$ is can be written as a product of elementary matrices (Theorem \ref{th:elemmatrices})
+% $$A=E_1E_2\ldots E_k$$
+% By Theorem \ref{th:transposeproperties}
+% $$A^T=E_k^T\ldots E_2^TE_1^T$$
+% By Lemma \ref{lemma:detofelementarymat}, $\det{E_i^T}=\det{E_i}$ for $1\leq i\leq k$.
+
+% \begin{align*}
+% \det{A^T}&=\det{(E_k^T\ldots E_2^TE_1^T)}\\
+% &=\det{E_k^T}\ldots \det{E_2^T}\det{E_1^T}\\
+% &=\det{E_k}\ldots \det{E_2}\det{E_1}\\
+% &=\det{E_1}\det{E_2}\ldots\det{E_k}\\
+% &=\det{(E_1E_2\ldots E_k)}\\
+% &=\det{A}
+% \end{align*}
+% \end{proof}
+
 
 \section*{Practice Problems}
 \begin{problem}
