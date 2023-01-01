@@ -30,13 +30,16 @@ The middle step was necessary before factoring because \wordChoice{\choice[corre
 This shows that any eigenvector $\vec{x}$ of $A$ is in the \wordChoice{\choice{row space}\choice{column space}\choice[correct]{null space}}  of the related matrix, $A-\lambda I$.
 
 Since eigenvectors are non-zero vectors, this means that $A$ will have eigenvectors if and only if the null space of $A-\lambda I$ is nontrivial.  The only way that $\mbox{null}(A-\lambda I)$ can be nontrivial is if $\mbox{rank}(A-\lambda I)$ \wordChoice{\choice{$=$}\choice[correct]{$<$}\choice{$>$}} $n$.
-\end{exploration}
 
-If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, we see that $\lambda$ is an eigenvalue of $A$ if and only if \begin{align}\label{eqn:chareqn}\mbox{det}(A-\lambda I) = 0\end{align}
+If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singular.  Since $(A-\lambda I)$ must be singular for any eigenvalue $\lambda$, we see that $\lambda$ is an eigenvalue of $A$ if and only if 
+\begin{equation}\label{eqn:chareqn}
+\mbox{det}(A-\lambda I) = \answer{0}
+\end{equation}
+\end{exploration}
+In theory, Exploration \ref{exp:slowdown} offers us a way to find eigenvalues.  To find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$. 
 
 \subsection{Eigenvalues}
-In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$.  
-
+ 
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
 $$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$. 
@@ -77,7 +80,7 @@ Matrix $C$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.
 
 In Example \ref{ex:3x3eig}, the factor  $(\lambda-1)$ appears twice.  This repeated factor gives rise to the eigenvalue $\lambda_1=1$.  We say that the eigenvalue $\lambda_1=1$ has \dfn{algebraic multiplicity} $2$. 
 
-The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
+The three examples above are a bit contrived.  It is not always possible to completely factor the characteristic polynomial using only real numbers.  However, a fundamental fact from algebra is that every degree $n$ polynomial has $n$ roots (counting multiplicity) provided that we allow complex numbers.  This is why sometimes eigenvalues and their corresponding eigenvectors involve complex numbers.  The next example illustrates this point.
 
 \begin{example}\label{ex:3x3_complex_eig}
 Let $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.  Compute the eigenvalues of this matrix.
@@ -130,7 +133,16 @@ Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the
 \begin{align}\label{eqn:nullspace}
  (A-\lambda I) \vec{x}=\vec{0}   
 \end{align} 
-For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. (see Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2})  This motivates the following definition.
+For any given eigenvalue $\lambda$ there are infinitely many eigenvectors associated with it.  In fact, the eigenvectors associated with $\lambda$ form a subspace of $\RR^n$. 
+
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $\lambda$ be an eigenvalue of $A$.  Then the set of all eigenvectors associated with $\lambda$ is a subspace of $\RR^n$.
+\end{theorem}
+\begin{proof}
+    See Practice Problems \ref{prob:eigenspace1} and \ref{prob:eigenspace2}).
+\end{proof}
+
+This motivates the following definition.
 
 \begin{definition}\label{def:eigspace}
 The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
@@ -169,13 +181,15 @@ Let's begin by finding a basis for the eigenspace $\mathcal{S}_0$, which is the 
 From this we see that an eigenvector in $\mathcal{S}_0$ has the form $\begin{bmatrix}-1/2\\1\end{bmatrix}t$. %$\begin{bmatrix}x_1\\x_2\end{bmatrix}$ in $\mathcal{S}_0$ satisfies $x_1+\frac{1}{2} x_2=0$, so that $2x_1=-x_2$. 
 This means that $\left\{\begin{bmatrix}-1/2\\1\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_0$.  By letting $t=-2$, we obtain an arguably nicer-looking basis: $\left\{\begin{bmatrix}1\\-2\end{bmatrix}\right\}$. 
 
-See if you can compute a basis for $\mathcal{S}_4$.  Click on the arrow if you need help.
+See if you can compute a basis for $\mathcal{S}_4$.  
 
-\begin{hint}
+Click on the arrow if you need help.
+
+\begin{expandable}
 To compute a basis for $\mathcal{S}_4$, the subspace of all eigenvectors associated to the eigenvalue $\lambda_2=4$, we compute:
 \begin{align*}\mbox{rref}(B-4I)=\mbox{rref}\left(\begin{bmatrix}-2&1\\4&-2\end{bmatrix}\right)&=\begin{bmatrix}1&-\frac{1}{2}\\0&0\end{bmatrix},
 \end{align*}
-\end{hint}
+\end{expandable}
 
 From this we find that $\left\{\begin{bmatrix}1\\\answer{2}\end{bmatrix}\right\}$ is one possible basis for the eigenspace $\mathcal{S}_4$.
 \end{explanation}
@@ -183,8 +197,6 @@ From this we find that $\left\{\begin{bmatrix}1\\\answer{2}\end{bmatrix}\right\}
 
 \begin{example}\label{ex:eigvectors3x3eig} (Finding eigenvectors for Example \ref{ex:3x3eig})
 We know from Example \ref{ex:3x3eig} that $C=\begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2\end{bmatrix}$ has eigenvalues $\lambda_1=1$ and $\lambda_2=4$.  Compute a basis for the eigenspace associated to each of these eigenvalues.
-\end{example}
-
 \begin{explanation}
 We first find a basis for the eigenspace $\mathcal{S}_1$.  We need to compute a basis for $\mbox{null}(C-I)$.  We compute:
 \begin{align*}\mbox{rref}(C-I)=\mbox{rref}\left(\begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1\end{bmatrix}\right)&=\begin{bmatrix} 1 & 1 & 1\\ 0 & 0 & 0\\ 0 & 0 & 0\end{bmatrix},
@@ -202,6 +214,7 @@ Next we find a basis for the eigenspace $\mathcal{S}_4$.  We need to compute a b
 This time there is one free variable.  %Setting $x_3=t$, we also get $x_1=t$ and $x_2=t$.  From this we see
 The eigenvectors in $\mathcal{S}_4$ have the form $\begin{bmatrix}t\\t\\t\end{bmatrix}$, so a possible basis for the eigenspace $\mathcal{S}_4$ is given by $\left\{\begin{bmatrix}1\\1\\1\end{bmatrix}\right\}$.
 \end{explanation}
+\end{example}
 
 \begin{example}\label{ex:3x3_complex_ev} (Finding eigenvectors for Example \ref{ex:3x3_complex_eig})
 We know from Example \ref{ex:3x3_complex_eig} that $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$ has eigenvalues $\lambda=0$, $\lambda_1=1+i$, and $\lambda_2=1-i$.  Compute a basis for the eigenspace associated with each eigenvalue.
