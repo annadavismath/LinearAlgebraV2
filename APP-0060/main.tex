@@ -17,18 +17,18 @@ The general setup is as follows: A ``system'' evolves through a series of ``stag
 
 
 \begin{definition}{Markov Chain}\label{007191}
-A \textbf{Markov chain} is such an evolving system wherein the state to which it will go next depends only on its present state and does not depend on the earlier history of the system.
+A \dfn{Markov chain} is such an evolving system wherein the state to which it will go next depends only on its present state and does not depend on the earlier history of the system.
 \end{definition}
 
 (Note: The name honors Andrei Andreyevich Markov (1856--1922) who was a professor at the university in St. Petersburg, Russia.)
 
-Even in the case of a Markov chain, the state the system will occupy at any stage is determined only in terms of probabilities. In other words, chance plays a role. For example, if a football team wins a particular game, we do not know whether it will win, draw, or lose the next game. On the other hand, we may know that the team tends to persist in winning streaks; for example, if it wins one game it may win the next game $\frac{1}{2}$ of the time, lose $\frac{4}{10}$ of the time, and draw $\frac{1}{10}$ of the time. These fractions are called the \textbf{probabilities} of these various possibilities. Similarly, if the team loses, it may lose the next game with probability $\frac{1}{2}$ (that is, half the time), win with probability $\frac{1}{4}$, and draw with probability $\frac{1}{4}$. The probabilities of the various outcomes after a drawn game will also be known.
+Even in the case of a Markov chain, the state the system will occupy at any stage is determined only in terms of probabilities. In other words, chance plays a role. For example, if a football team wins a particular game, we do not know whether it will win, draw, or lose the next game. On the other hand, we may know that the team tends to persist in winning streaks; for example, if it wins one game it may win the next game $\frac{1}{2}$ of the time, lose $\frac{4}{10}$ of the time, and draw $\frac{1}{10}$ of the time. These fractions are called the \dfn{probabilities} of these various possibilities. Similarly, if the team loses, it may lose the next game with probability $\frac{1}{2}$ (that is, half the time), win with probability $\frac{1}{4}$, and draw with probability $\frac{1}{4}$. The probabilities of the various outcomes after a drawn game will also be known.
 
 
 We shall treat probabilities informally here: \textit{The probability that a given event will occur is the long-run proportion of the time that the event does indeed occur}. Hence, all probabilities are numbers between $0$ and $1$. A probability of $0$ means the event is impossible and never occurs; events with probability $1$ are certain to occur.
 
 
-If a Markov chain is in a particular state, the probabilities that it goes to the various states at the next stage of its evolution are called the \textbf{transition probabilities} for the chain, and they are assumed to be known quantities. To motivate the general conditions that follow, consider the following simple example. Here the system is a man, the stages are his successive lunches, and the states are the two restaurants he chooses.
+If a Markov chain is in a particular state, the probabilities that it goes to the various states at the next stage of its evolution are called the \dfn{transition probabilities} for the chain, and they are assumed to be known quantities. To motivate the general conditions that follow, consider the following simple example. Here the system is a man, the stages are his successive lunches, and the states are the two restaurants he chooses.
 
 \begin{example}\label{007199}
 A man always eats lunch at one of two restaurants, $A$ and $B$. He never eats at $A$ twice in a row. However, if he eats at $B$, he is three times as likely to eat at $B$ next time as at $A$. Initially, he is equally likely to eat at either restaurant.
@@ -46,9 +46,9 @@ A man always eats lunch at one of two restaurants, $A$ and $B$. He never eats at
   
 %$$
 %\begin{array}{ccccc}
-%   & & \textbf{Present Lunch} \\  
+%   & & \dfn{Present Lunch} \\  
 %   &  & A & B  \\
-%\textbf{Next Lunch} &   A &    0  &    0.25 \\
+%\dfn{Next Lunch} &   A &    0  &    0.25 \\
 %   & B &    1  &    0.75   \\
 % \end{array}
 % $$
@@ -157,9 +157,9 @@ Moreover, as $m$ increases the entries of ${\bf s}_{m}$ get closer and closer to
 %\caption{\label{fig:007242}}
 
 
-Example~\ref{007199} incorporates most of the essential features of all Markov chains. The general model is as follows: The system evolves through various stages and at each stage can be in exactly one of $n$ distinct states. It progresses through a sequence of states as time goes on. If a Markov chain is in state $j$ at a particular stage of its development, the probability $p_{ij}$ that it goes to state $i$ at the next stage is called the \textbf{transition probability}. The $n \times n$ matrix $P = \begin{bmatrix}
+Example~\ref{007199} incorporates most of the essential features of all Markov chains. The general model is as follows: The system evolves through various stages and at each stage can be in exactly one of $n$ distinct states. It progresses through a sequence of states as time goes on. If a Markov chain is in state $j$ at a particular stage of its development, the probability $p_{ij}$ that it goes to state $i$ at the next stage is called the \dfn{transition probability}. The $n \times n$ matrix $P = \begin{bmatrix}
 p_{ij}
-\end{bmatrix}$ is called the \textbf{transition matrix} for the Markov chain. The situation is depicted graphically in the diagram.
+\end{bmatrix}$ is called the \dfn{transition matrix} for the Markov chain. The situation is depicted graphically in the diagram.
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -229,7 +229,7 @@ If the system is in state $j$ at some stage of its evolution, the transition pro
 \begin{equation*}
 p_{1j} + p_{2j} + \cdots + p_{nj} = 1 \quad \mbox{for each } j
 \end{equation*}
-Thus, the columns of $P$ all sum to $1$ and the entries of $P$ lie between $0$ and $1$. Hence $P$ is called a \textbf{stochastic matrix}.
+Thus, the columns of $P$ all sum to $1$ and the entries of $P$ lie between $0$ and $1$. Hence $P$ is called a \dfn{stochastic matrix}.
 
 
 As in Example~\ref{007199}, we introduce the following notation: Let $s_{i}^{(m)}$ denote the probability that the system is in state $i$ after $m$ transitions. The $n \times 1$ matrices
@@ -242,7 +242,7 @@ s_{n}^{(m)}
 \end{bmatrix}
 \quad m = 0, 1, 2, \dots
 \end{equation*}
-are called the \textbf{state vectors} for the Markov chain. Note that the sum of the entries of ${\bf s}_{m}$ must equal $1$ because the system must be in \textit{some} state after $m$ transitions. The matrix ${\bf s}_{0}$ is called the \textbf{initial state vector} for the Markov chain and is given as part of the data of the particular chain. For example, if the chain has only two states, then an initial vector ${\bf s}_0 = \begin{bmatrix}
+are called the \dfn{state vectors} for the Markov chain. Note that the sum of the entries of ${\bf s}_{m}$ must equal $1$ because the system must be in \textit{some} state after $m$ transitions. The matrix ${\bf s}_{0}$ is called the \dfn{initial state vector} for the Markov chain and is given as part of the data of the particular chain. For example, if the chain has only two states, then an initial vector ${\bf s}_0 = \begin{bmatrix}
 1 \\
 0
 \end{bmatrix}$
@@ -347,7 +347,7 @@ Another phenomenon that was observed in Example~\ref{007199} can be expressed in
 0.2 \\
 0.8
 \end{bmatrix}$.
- This means that the first component of ${\bf s}_{m}$ becomes and remains very close to $0.2$ as $m$ becomes large, whereas the second component gets close to $0.8$ as $m$ increases. When this is the case, we say that ${\bf s}_{m}$ \textbf{converges} to ${\bf s}$. For large $m$, then, there is very little error in taking ${\bf s}_{m} = {\bf s}$, so the long-term probability that the system is in state 1 is $0.2$, whereas the probability that it is in state 2 is $0.8$. In Example~\ref{007199}, enough state vectors were computed for the limiting vector ${\bf s}$ to be apparent. However, there is a better way to do this that works in most cases.
+ This means that the first component of ${\bf s}_{m}$ becomes and remains very close to $0.2$ as $m$ becomes large, whereas the second component gets close to $0.8$ as $m$ increases. When this is the case, we say that ${\bf s}_{m}$ \dfn{converges} to ${\bf s}$. For large $m$, then, there is very little error in taking ${\bf s}_{m} = {\bf s}$, so the long-term probability that the system is in state 1 is $0.2$, whereas the probability that it is in state 2 is $0.8$. In Example~\ref{007199}, enough state vectors were computed for the limiting vector ${\bf s}$ to be apparent. However, there is a better way to do this that works in most cases.
 
 Suppose $P$ is the transition matrix of a Markov chain, and assume that the state vectors ${\bf s}_{m}$ converge to a limiting vector ${\bf s}$. Then ${\bf s}_{m}$ is very close to ${\bf s}$ for sufficiently large $m$, so ${\bf s}_{m+1}$ is also very close to ${\bf s}$. Thus, the equation ${\bf s}_{m+1} = P{\bf s}_{m}$ from Theorem~\ref{007270} is closely approximated by
 \begin{equation*}
@@ -375,7 +375,7 @@ In Example~\ref{007199}, where $P = \begin{bmatrix}
  as before.
 
 
-All this is predicated on the existence of a limiting vector for the sequence of state vectors of the Markov chain, and such a vector may not always exist. However, it does exist in one commonly occurring situation. A stochastic matrix $P$ is called \textbf{regular} if some power $P^{m}$ of $P$ has every entry greater than zero. The matrix $P = \begin{bmatrix}
+All this is predicated on the existence of a limiting vector for the sequence of state vectors of the Markov chain, and such a vector may not always exist. However, it does exist in one commonly occurring situation. A stochastic matrix $P$ is called \dfn{regular} if some power $P^{m}$ of $P$ has every entry greater than zero. The matrix $P = \begin{bmatrix}
  0 & 0.25 \\
  1 & 0.75
 \end{bmatrix}$
@@ -402,7 +402,7 @@ and so gives a homogeneous system of linear equations for ${\bf s}$. Finally, th
 
 \noindent This theorem will not be proved here.  The interested reader can find an elementary proof in J. Kemeny, H. Mirkil, J. Snell, and G. Thompson, \textit{Finite Mathematical Structures} (Englewood Cliffs, N.J.: Prentice-Hall, 1958).
 
-If $P$ is the regular transition matrix of a Markov chain, the column ${\bf s}$ satisfying conditions 1 and 2 of Theorem~\ref{007400} is called the \textbf{steady-state vector}for the Markov chain. The entries of ${\bf s}$ are the long-term probabilities that the chain will be in each of the various states.
+If $P$ is the regular transition matrix of a Markov chain, the column ${\bf s}$ satisfying conditions 1 and 2 of Theorem~\ref{007400} is called the \dfn{steady-state vector}for the Markov chain. The entries of ${\bf s}$ are the long-term probabilities that the chain will be in each of the various states.
 
 
 \begin{example}\label{007416}
@@ -534,7 +534,7 @@ Steady state vector $ = \begin{bmatrix}
 \answer{\frac{1}{3}}
 \end{bmatrix}$, probability $ = \answer{0.312}$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:SteadyState&ProbVec3a}
 $$\begin{bmatrix}
 0.4 & 0.1 & 0.5 \\
 0.2 & 0.6 & 0.2 \\
@@ -553,7 +553,7 @@ Steady state vector = $\begin{bmatrix}
 \answer{\frac{2}{5}}
 \end{bmatrix}$, probability $ = \answer{0.306}$
 \end{problem}
-\begin{problem}
+\begin{problem}\label{prob:SteadyState&ProbVec5}
 $$\begin{bmatrix}
 0.1 & 0.3 & 0.3 \\
 0.3 & 0.1 & 0.6 \\
@@ -581,7 +581,7 @@ Assume that there are three social classes---upper, middle, and lower---and that
 \item Of the children of middle-class parents, $80\%$ remain middle-class, whereas the others are evenly split between the upper class and the lower class.
 
 \item For the children of lower-class parents, $60\%$ remain lower-class, whereas $30\%$ become middle-class and $10\%$ upper-class.
-
+\end{enumerate}
 \begin{problem}\label{prob:SocialClass1}
 Find the probability that the grandchild of lower-class parents becomes upper-class.
 \end{problem}
@@ -589,7 +589,7 @@ Find the probability that the grandchild of lower-class parents becomes upper-cl
 Find the long-term breakdown of society into classes.
 $\answer{50}\%$ middle, $\answer{25}\%$ upper, $\answer{25}\%$ lower
 \end{problem}
-\end{enumerate}
+
 \end{problem}
 
 \begin{problem}\label{prob:election}
@@ -639,7 +639,7 @@ If ${\bf s}_{m}$ is the stage-$m$ state vector for a Markov chain, show that ${\
 \end{problem}
 
 \begin{problem}\label{prob:DoublyStochastic1}
-A stochastic matrix is \textbf{doubly stochastic} if all the row sums also equal $1$. Find the steady-state vector for a doubly stochastic matrix.
+A stochastic matrix is \dfn{doubly stochastic} if all the row sums also equal $1$. Find the steady-state vector for a doubly stochastic matrix.
 \end{problem}
 
 \begin{problem}\label{prob:stochastic2}
