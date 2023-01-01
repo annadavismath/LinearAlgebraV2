@@ -181,7 +181,7 @@ We originally defined the determinant of a matrix via expansion along the top ro
 
 When expanding along an arbitrary row or column, we will continue to follow the two patterns we observed earlier.
 \begin{itemize}
-    \item The alternating sign pattern for coefficients will follow the checker-board pattern below.
+    \item The alternating sign pattern for coefficients will follow the checkerboard pattern below.
  $$\begin{bmatrix}+&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\
  +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
  \item Minor matrices will be formed by eliminating the row and column that the corresponding coefficient is in.
@@ -197,7 +197,7 @@ $$A=\begin{bmatrix}4&-1&2&1\\3&0&1&-2\\
 Follow the rules described above to expand along the second row.  Compare your result with the determinant you found in Example \ref{ex:expansiontoprow}.
 \begin{explanation}
 
- The second row has the advantage over other rows in that it contains a zero.  This will simplify our calculations.  Following the checker-board sign pattern along the second row we get
+ The second row has the advantage over other rows in that it contains a zero.  This will simplify our calculations.  Following the checkerboard sign pattern along the second row we get
 
 \begin{align*}
 \det{A}
@@ -216,7 +216,7 @@ Find $\det{A}$ if
 $$A=\begin{bmatrix}4&0&0&0&2\\0&-1&1&0&0\\2&0&0&-5&3\\0&1&4&0&-1\\1&1&5&0&0\end{bmatrix}$$
 
 \begin{explanation}
-The fourth column contains the most zeros, so we will expand along that column.  The  $(3, 4)$-entry is the only non-zero entry in the fourth column.  Following the checker-board pattern, we see that the sign in front of $-5$ is a minus.  
+The fourth column contains the most zeros, so we will expand along that column.  The  $(3, 4)$-entry is the only non-zero entry in the fourth column.  Following the checkerboard pattern, we see that the sign in front of $-5$ is a minus.  
 $$\det{A}=-(-5)\begin{vmatrix}4&0&0&2\\0&-1&1&0\\0&1&4&-1\\1&1&5&0\end{vmatrix}
 $$
 Next we will expand the minor matrix along the top row.

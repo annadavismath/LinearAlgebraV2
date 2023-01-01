@@ -178,7 +178,7 @@ $$A=\begin{bmatrix}a_{11} & a_{12} & \dots &  a_{1j} &  \dots & a_{1n}  \\
   a_{i1} & a_{i2} & \ldots &  a_{ij} &  \ldots & a_{in}\\
   \vdots & \vdots &  & \vdots &   & \vdots  \\
    a_{n1} & a_{n2} & \dots &  a_{nj} &  \dots & a_{nn}\end{bmatrix}$$
-   For convenience, we will refer to the Right Hand Side (RHS) and the Left Hand Side (LHS) of the equality we are trying to prove.
+   For convenience, we will refer to the Right-Hand Side (RHS) and the Left-Hand Side (LHS) of the equality we are trying to prove.
    $$\text{LHS}=\sum_{j=1}^n(-1)^{1+j}a_{1j}\det{A_{1j}}\overset{?}{=}\sum_{i=1}^n(-1)^{i+1}a_{i1}\det{A_{i1}}=\text{RHS}$$
    
    Note that the first term $a_{11}(-1)^{1+1}\det{A_{11}}$ is the same for LHS and RHS, so we will only need to consider $i,j\geq 2$.
@@ -401,12 +401,10 @@ Observe that matrices $A$, $A'$ and $B$ are identical except for the $q^{th}$ ro
 $$\det{B}=\det{A}+\det{A'}$$
 Since one row of $A'$ is a scalar multiple of another row, we know $\det{A'}=0$ (see Practice Problem \ref{prob:kAdet}). Therefore 
 $\det{B}=\det{A}$.
-   
-\end{proof}
-
+   \end{proof}
 
 \subsection*{The Laplace Expansion Theorem}
-Surprisingly, it turns out that the value of the determinant can be computed by expanding along any row or column.  This result is known as the Laplace Expansion Theorem.  We begin by generalizing some earlier definitions.
+As we have seen in examples, the value of the determinant can be computed by expanding along any row or column.  This result is known as the Laplace Expansion Theorem.  We begin by generalizing some earlier definitions.
 
 Given an $n\times n$ matrix 
 $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \dots & a_{1n}  \\
@@ -443,7 +441,7 @@ $$A=\begin{bmatrix}a_{11} & a_{12} & \dots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & 
  
  Define the \dfn{$(i,j)$-cofactor} of $A$ by
  $$C_{ij}=(-1)^{i+j}\det(A_{ij})$$
- Note that the sign of $(-1)^{i+j}$ follows a checker board pattern.
+ Note that the sign of $(-1)^{i+j}$ follows a checkerboard pattern.
  $$\begin{bmatrix}+&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\
  +&-&+&-&+&\ldots\\-&+&-&+&-&\ldots\\\vdots &\vdots  & \vdots & \vdots &\vdots &\ddots \end{bmatrix}$$
 
