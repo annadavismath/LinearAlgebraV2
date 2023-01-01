@@ -269,9 +269,11 @@ then
 \end{align}
 The expression in (\ref{eq:boxproduct}) is sometimes referred to as the \dfn{box product}.
 
+Recall that $\det(A)=\det(A^T)$ (Theorem \ref{th:detoftrans}).  Therefore, the three vectors that determine the parallelogram can be used to form rows or columns of the determinant on the right.  This gives us the following formula.
+
 \begin{formula}\label{form:boxproduct}
 Let $\vec{u}=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix},\quad\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix},\quad\vec{w}=\begin{bmatrix}w_1\\w_2\\w_3\end{bmatrix}$ be vectors in $\RR^3$.  Then the volume of the parallelepiped determined by $\vec{u}$, $\vec{v}$ and $\vec{w}$ is given by 
-$$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{bmatrix}\Big|$$
+$$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{bmatrix}\Big|=\Big|\det\begin{bmatrix}w_1&u_1&v_1\\w_2&u_2&v_2\\w_3&u_3&v_3\end{bmatrix}\Big|$$
 \end{formula}
 
 \subsection*{Determinants and Linear Transformations}
@@ -293,7 +295,7 @@ Change the matrix $M$ to a matrix whose determinant is 1.  Compare the areas of 
 Formulate a conjecture about the relationship between the area of the polygon and the area of its image under a linear transformation.
 \end{question}
 \end{exploration}
-A formal discussion of the concept of area is beyond the scope of this class, so we will not prove your conjecture in Exploration \ref{exp:LinTransAreaDet} for arbitrary figures.  We can, however, tackle the problem of how linear transformations affect areas of parallelograms.  This is the topic of our next example.
+We will not prove your conjecture in Exploration \ref{exp:LinTransAreaDet} for arbitrary figures as it is beyond the scope of this text.  However, we can tackle the problem of how linear transformations affect areas of parallelograms.  This is the topic of our next example.
 
 \begin{example}\label{ex:detLinTransArea}
     Let $T:\RR^2\longrightarrow\RR^2$ be a linear transformation induced by matrix $M$.  Suppose $\vec{u}$ and $\vec{v}$ are vectors in $\RR^2$.  Let $P$ be a parallelogram determined by $\vec{u}$ and $\vec{v}$.  Show that 
