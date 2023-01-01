@@ -16,13 +16,13 @@ In Theorem \ref{th:matrixtran}, we proved that any $n \times n$  matrix induces 
 
 \begin{exploration}\label{init:eignintro}
 Let $A=\begin{bmatrix} 2& 1\\ 1&2
-\end{bmatrix}$.  The following animation helps us to visualize the matrix transformation associated with $A$.
+\end{bmatrix}$.  The following animation helps us to visualize the matrix transformation associated with $A$.  Given a vector $\vec{x}$ in $\RR^2$, its image, $A\vec{x}$, is also in $\RR^2$.  Advance the slider to see the images of the given vectors.
 
 \begin{center}
     \geogebra{ub4kqvmz}{800}{600} 
   \end{center}
 
-Given a vector $\vec{x}$ in $\RR^2$, the vector $A\vec{x}$ is also in $\RR^2$.  For many vectors, $A\vec{x}$ will not be pointing in the same direction as $\vec{x}$.  This is the case for any of the gray vectors in the animation, as we can see that $A\vec{x}$ points in a different direction than $\vec{x}$.  But if we look at the red vectors (vectors parallel to $\begin{bmatrix}-1\\1\end{bmatrix}$), we notice that they appear unchanged in magnitude and direction.  Such vectors are sometimes called \dfn{fixed vectors} of $A$.
+  For many vectors, $A\vec{x}$ does not point in the same direction as $\vec{x}$.  This is the case for all of the gray vectors in the animation, as we can see that $A\vec{x}$ points in a different direction than $\vec{x}$.  But if we look at the red vectors (vectors parallel to $\begin{bmatrix}-1\\1\end{bmatrix}$), we notice that they appear unchanged in magnitude and direction.  Such vectors are sometimes called \dfn{fixed vectors} of $A$.
 
 Looking next at the blue vectors (vectors parallel to $\begin{bmatrix}1\\1\end{bmatrix}$), we observe that the magnitudes of the vectors are changed, but the direction in which the blue vectors point is unchanged by this linear transformation.  
 \end{exploration}
@@ -82,7 +82,7 @@ See Practice Problem \ref{prob:eigenScalarMult}
 A couple of finer points of Definition \ref{def:eigen} require clarification.
   \begin{itemize}
   \item The definition requires that eigenvectors be non-zero.  Imagine what would happen if we allowed $\vec{x}=\vec{0}$ to be an eigenvector of $A$. Clearly $A\vec{0}=\lambda\vec{0}$ for all scalars $\lambda$.  This means that every number would be an eigenvalue of every matrix.  Because eigenvalues are supposed to capture certain information about the matrix, allowing every number to be an eigenvalue of every matrix would defeat the purpose.
-  \item Up to now we had talked about  eigenvectors as vectors whose images under a matrix transformation are parallel to the original vectors.  But the algebraic definition allows non-zero vectors that map to zero to be considered eigenvectors.  (What would an eigenvalue of such an eigenvector be?)  The zero vector has no direction, so we cannot say that the image of such an eigenvector is parallel to the original vector.  Example \ref{ex:eigen} will illustrate this point.
+  \item Until now, we had talked about  eigenvectors as vectors whose images under a matrix transformation are parallel to the original vectors.  But the algebraic definition allows non-zero vectors that map to zero to be considered eigenvectors.  (What would an eigenvalue of such an eigenvector be?)  The zero vector has no direction, so we cannot say that the image of such an eigenvector is parallel to the original vector.  Example \ref{ex:eigen} will illustrate this point.
   \end{itemize}
 \end{observation}
 
@@ -141,7 +141,7 @@ Let $A=\begin{bmatrix}1&6\\1&0\end{bmatrix}$.  The GeoGebra interactive below sh
 \end{center}
 
 \begin{question}
-Note that vectors $\vec{x}_1=\begin{bmatrix}3\\1\end{bmatrix}$ and $\vec{x}_2=\begin{bmatrix}-2\\1\end{bmatrix}$ (and their scalar multiples) remain positioned along the same line even as they change magnitude and direction.  This indicates that $\vec{x}_1$ and $\vec{x}_2$, along with all of their scalar multiples, are eigenvectors of $A$.  What are the eigenvalues associated with these eigenvectors?
+Note that vectors $\vec{x}_1=\begin{bmatrix}3\\1\end{bmatrix}$ and $\vec{x}_2=\begin{bmatrix}-2\\1\end{bmatrix}$ (and their scalar multiples) remain positioned along the same lines even as they change magnitude and direction.  This indicates that $\vec{x}_1$ and $\vec{x}_2$, along with all of their scalar multiples, are eigenvectors of $A$.  What are the eigenvalues associated with these eigenvectors?
 
 Eigenvalue associated with $\vec{x}_1$ is $\lambda_1=\answer{3}$.
 
@@ -224,7 +224,10 @@ Let $M=\begin{bmatrix}
 
 %{\color{red} Inserting a tikz here would be nice, I think.}
 
-Since $M$ rotates every vector in $\RR^2$, \emph{every} nonzero vector changes direction, so there are no eigenvectors in the plane.  But it turns out that $M$ does have eigenvectors and eigenvalues, but in order to find them we need to work with vectors whose entries are complex numbers.  Since these vectors are not in $\RR^2$, we cannot see them.
+Since $M$ rotates every vector in $\RR^2$, \emph{every} nonzero vector changes direction, so there are no eigenvectors in the plane.  It turns out that $M$ does have eigenvectors and eigenvalues, but in order to find them we need to work with vectors whose entries are complex numbers.  Since these vectors are not in $\RR^2$, we cannot see them.  
+
+To follow the computation below, you need to recall that the imaginary unit $i$ is defined to by $i^2=-1$.  Please refer to \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} for more information.
+
 
 %\begin{center}[3in]
 %\begin{tikzpicture}
@@ -285,7 +288,9 @@ Returning to Example \ref{ex:eigsrotation}, let $M=\begin{bmatrix}
 \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}
 \end{bmatrix}$.  Show that $\begin{bmatrix} \frac{\sqrt{2}}{2}\\ -\frac{\sqrt{2}}{2} i \end{bmatrix}$ is an eigenvector of $M$.  What is its corresponding eigenvalue?
-$\answer{\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i}$
+
+Please enter an exact answer; no decimal approximations.  To enter square roots, click inside the answer box, then use the ``Math Editor" button that appears at the top of your XIMERA window.
+$$\answer{\frac{\sqrt{2}}{2}}+\answer{\frac{\sqrt{2}}{2}}i$$
 \end{problem}
 
 
@@ -304,7 +309,9 @@ Arguing geometrically, identify the linear transformation whose standard matrix 
 \begin{problem}\label{prob:eigvalvectorsofdiagmat} Let $A=\begin{bmatrix} 3&0&0\\0&3&0\\0&0&3\end{bmatrix}$.  Can you find an eigenvector and its corresponding eigenvalue?  Can you find another ``eigenpair''?  Can you find all of the eigenvectors of $A$?
 \end{problem}
 
-\begin{problem}\label{prob:rotmatrixrealeig1}The rotation matrix in Example \ref{ex:eigsrotation} has complex eigenvectors and eigenvalues.  Think geometrically to find an example of a (non-identity) rotation matrix with real eigenvectors and eigenvalues.
+\begin{problem}\label{prob:rotmatrixrealeig1}The rotation matrix in Example \ref{ex:eigsrotation} has complex eigenvectors and eigenvalues.  Think geometrically to find an example of a (non-identity) rotation matrix with real eigenvectors and eigenvalues.  
+
+Enter degree measure between 0 and 360.
 
 Answer:  Rotation through $\answer{180}$ degrees.
 \end{problem}
