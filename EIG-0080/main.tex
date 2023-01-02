@@ -10,10 +10,10 @@
 \maketitle
 
 \section*{Gershgorin's Theorem}
-We have seen that eigenvalues are the roots of the characteristic polynomial, and therefore may be complex numbers, even when a matrix has entries that are real.  This section is devoted to a remarkable theorem proved in 1931 called Gershgorin's theorem, which says that the $n$ eigenvalues of an $n \times n$ matrix can be found in a region in the complex plane consisting of $n$ disks.  We explore the theorem for the case $n=3$ before proving the result.  If you have never plotted complex numbers before, you may wish to try Exploration \ref{exp:geometry_complex_numbers} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} before proceeding.
+We have seen that eigenvalues are the roots of the characteristic polynomial, and therefore may be complex numbers, even when a matrix has entries that are real.  This section is devoted to a remarkable theorem proved by S.A. Gershgorin in 1931. Gershgorin's theorem says that the $n$ eigenvalues of an $n \times n$ matrix can be found in a region in the complex plane consisting of $n$ disks.  We explore the theorem for the case $n=3$ before proving the result.  If you have never plotted complex numbers before, you may wish to try Exploration \ref{exp:geometry_complex_numbers} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} before proceeding.
 
 \begin{exploration}\label{init:GershDisks3x3}
-In the GeoGebra exploration below, you can adjust any of the entries of the $3 \times 3$ matrix $A$.  The three eigenvalues are plotted as dots on the complex plane.  The Gershgorin region is the union of three disks, and the boundaries of those disks are plotted in red.  Notice that the eigenvalues are always in the Gershgorin region.
+In the GeoGebra exploration below, you can adjust any of the entries of the $3 \times 3$ matrix $A$.  The three eigenvalues are plotted as dots in the complex plane.  The Gershgorin region is the union of three closed disks whose boundaries are plotted in red.  Notice that the eigenvalues are always in the Gershgorin region.
 
 As you experiment with the interactive, see if you can answer the following questions.
 
@@ -22,13 +22,23 @@ As you experiment with the interactive, see if you can answer the following ques
     \item What is the center of each disk?
     \item What is the radius of each disk?
     \item Are there some matrices for which one of the disks does not intersect the others?  Where none of the disks intersect?
+    \item Try using a matrix with complex number entries.  How is the visual pattern of eigenvalues for such a matrix different from a matrix whose entries are real numbers?
 \end{enumerate}
 \begin{center}
 \geogebra{jrpqazq4}{800}{600}
 \end{center}
 \end{exploration}
 
-In the exploration above you were able to see the eigenvalues of a $3 \times 3$ matrix contained in the Gershgorin region, which consisted of three disks.  In general, for an $n \times n$ matrix $A=[a_{ij}]$, the Gershgorin region consists of $n$ disks in the complex plane.  The centers of the disks are given by the $n$ diagonal entries of $A$.  We get the radius of the disk with center $a_{ii}$ by adding the absolute values of each of the other elements in row $i$.  We state this all formally in the following theorem.
+In the exploration above you were able to see the eigenvalues of a $3 \times 3$ matrix.  The eigenvalues are contained in the Gershgorin region, which consists of three disks.  
+
+In general, for an $n \times n$ matrix $A=[a_{ij}]$, the Gershgorin region consists of $n$ disks in the complex plane:  
+\begin{itemize}
+\item
+The centers of the disks are given by the $n$ diagonal entries of $A$.  
+\item
+We get the radius of the disk with center $a_{ii}$ by adding the absolute values of each of the other elements in row $i$.  
+\end{itemize}
+We state this all formally in the following theorem.
 
 
 \begin{theorem}[Gershgorin]\label{th:Gershgorin}
@@ -47,7 +57,7 @@ $$
 Then the eigenvalues of $A$ are contained in the Gershgorin region $\Gamma(A)$.
 \end{theorem}
 
-The fact that (\ref{eqn:Gersh_disk}) represents a disk in the complex plane is a direct result of the complex distance formula \ref{eqn:distance_formula}. Before proving Gershgorin's theorem, we provide an example and a video to aid in understanding exactly what the theorem says.
+The fact that (\ref{eqn:Gersh_disk}) represents a disk in the complex plane is a direct result of the complex distance formula  (see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} for more information). Before proving Gershgorin's theorem, we provide an example and a video to aid in understanding exactly what the theorem says.
 
 \youtube{D-87FPpLoXs}
 
@@ -67,16 +77,16 @@ Plot the eigenvalues and the Gershgorin region of each of the following matrices
 \begin{explanation}
 
 \begin{enumerate}
-    \item $00\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and -1, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
+    \item $\Gamma(A)$ consists of two disks.  The first is centered at 1 with a radius of 1.  The second is centered at 0 with a radius of 2, so we see that the first disk is contained in the second.  The eigenvalues, 2 and $-1$, are both contained in $\Gamma(A)$ (with 2 being on the boundary).
     \item $B$ is a matrix with complex entries, which makes for a more interesting Gershgorin region.  See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} for more on matrices like this one.
     
-    Since $B$ is upper triangular, its eigenvalues are its diagonal entries.  These are the centers of the Gershgorin disks, which proves that the eigenvalues of $B$ are contained in $\Gamma(B)$.  $\Gamma(B)$ consists of four disks.  The first is centered at 1+i with a radius of $2$, since the absolute value of $i$ is 1.   The second is centered at 4 with a radius of $\sqrt{2}$.  The third disk is centered at 2 with a radius of 1.  The fourth disk is centered at -1 with a radius of zero, so in fact, consists only of the eigenvalue -1.
+    Since $B$ is upper triangular, its eigenvalues are its diagonal entries.  These are the centers of the Gershgorin disks, which proves that the eigenvalues of $B$ are contained in $\Gamma(B)$.  $\Gamma(B)$ consists of four disks.  The first is centered at $1+i$ with a radius of $2$, since the absolute value of $i$ is 1.   The second is centered at 4 with a radius of $\sqrt{2}$.  The third disk is centered at 2 with a radius of 1.  The fourth disk is centered at $-1$ with a radius of zero, so in fact, consists only of the eigenvalue $-1$.
 \end{enumerate}
 
 \end{explanation}
 \end{example}
 
-\begin{proof}
+\begin{proof}[Proof of Gershgorin's Theorem]
 Let $\lambda$ be an eigenvalue of $A$ with corresponding eigenvector $\vec{x}=\begin{bmatrix}
 x_1 \\ x_2 \\ \vdots \\ x_n
 \end{bmatrix}$ so that $A\vec{x}=\lambda\vec{x}$. Let $x_k$ be an entry of $\vec{x}$ such that $|x_k|$ is greater than or equal to the absolute value of every other entry in $\vec{x}$.  Then considering row $k$ of the equation $$A\begin{bmatrix}
@@ -89,7 +99,7 @@ Subtracting yields
 $$\sum_{j\ne k} a_{kj} x_j = (\lambda - a_{kk}) x_k.$$
 Taking the absolute value of both sides, we have
 \begin{align}
-    |\lambda - a_{kk} x_k| &= |\lambda - a_{kk}| |x_k|\label{eqn:pr1} \\ 
+    |(\lambda - a_{kk})x_k| &= |\lambda - a_{kk}| |x_k|\label{eqn:pr1} \\ 
     &= \left|\sum_{j\ne k} a_{kj} x_j\right| \label{eqn:pr2} \\ 
     &\le \sum_{j\ne k} |a_{kj} x_j| \label{eqn:pr3} \\ 
     &= \sum_{j\ne k} |a_{kj}| |x_j| \label{eqn:pr4}\\ 
@@ -102,13 +112,14 @@ These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so 
 \end{proof}
 
 \begin{example}\label{ex:does_Gersh_contain_zero}
-    Sketch the Gerhgorin region for each matrix and use it as an aid for determining whether or not the matrix is singular.
+    Sketch the Gerhgorin region for each matrix and, if possible, use it as an aid for determining whether or not the matrix is singular.
 \begin{enumerate}
-    \item $A=\left[\begin{array}{ccc}  4&1&2\\2&5&1\\2&1&6
- \end{array}\right]$
-    \item $B=\left[\begin{array}{ccc}  2&-1&0\\1&1&-2\\-3&0&2
- \end{array}\right]$
-\end{enumerate}
+    \item $A=\begin{bmatrix}  4&1&2\\2&5&1\\2&1&6
+ \end{bmatrix}$
+    \item $B=\begin{bmatrix}  2&-1&0\\1&1&-2\\-3&0&2
+ \end{bmatrix}$
+ \item $C=\begin{bmatrix}3 & 4 & -1\\0&1&2\\0&0&6\end{bmatrix}$
+ \end{enumerate}
 
 \begin{explanation}
     We can check our sketches of the Gershgorin regions using the GeoGebra interactive in Exploration \ref{init:GershDisks3x3}.
@@ -117,47 +128,74 @@ These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so 
     \item If we sketch the Gershgorin region of matrix $A$, we see that the zero vector is not contained in it.  It follows that zero cannot be an eigenvalue of matrix $A$, and we conclude that $A$ is nonsingular.
 
     \item The Gershgorin region of matrix $B$ contains the zero vector, so there we cannot determine from the Gershgorin region whether or not $B$ is singular.  Instead, if we perform Gaussian elimination on matrix $B$, we will see it is not of full rank, and so $B$ is singular.
+
+    \item The Gershgorin region of matrix $C$ contains the zero vector, so again we cannot determine from the Gershgorin region whether or not $C$ is singular. Observe that $C$ is an upper triangular matrix with non-zero entries along the diagonal.  Therefore $\det{C}\neq 0$.  We conclude that $C$ is non-singular.
 \end{enumerate}
 \end{explanation}
 \end{example}
 
 \section{Practice Problems}
 
-\begin{problem}\label{prob:Gersh}
-    Sketch the Gerhgorin region for each matrix and use it as an aid for determining whether or not the matrix is singular.
+\begin{problem}
+    Sketch the Gerhgorin region for each matrix.  What, if anything, does the region tell us about the matrix being singular or nonsingular?  If the test is inconclusive, test for singularity in some other way.
 
-\begin{enumerate}
-\item $A = \left[ \begin{array}{rr}
+\begin{problem}\label{prob:Gersh1}
+$A = \left[ \begin{array}{rr}
 1 & i\\
 -i & 1
 \end{array}\right]$
 
-\item $B = \left[ \begin{array}{cc}
+\begin{prompt}
+$\Gamma (A)$ \wordChoice{\choice[correct]{contains $0$}\choice{does not contain $0$}}.  The test is \wordChoice{\choice{conclusive}\choice[correct]{inconclusive}}.
+\end{prompt}
+\begin{problem}
+Matrix $A$ is \wordChoice{\choice[correct]{singular}\choice{nonsingular}}.
+\end{problem}
+\end{problem}
+
+\begin{problem}\label{prob:Gersh2}
+$B = \left[ \begin{array}{cc}
 4 & 3 - i \\
 3 + i & 1
 \end{array}\right]$
+\end{problem}
 
-\item $C = \left[ \begin{array}{cc}
+\begin{problem}\label{prob:Gersh3}
+$C = \left[ \begin{array}{cc}
 2 & 1 + i\\
 1 - i & 3
 \end{array}\right]$
+\end{problem}
 
-\item $D = \left[ \begin{array}{ccc}
+\begin{problem}\label{prob:Gersh4}
+$D = \left[ \begin{array}{ccc}
 1 & 0 &  1 + i\\
 0 & 2 & 0 \\
 1 - i & 0 & 0
 \end{array}\right]$
+\end{problem}
 
-\item $E = \left[ \begin{array}{ccc}
+\begin{problem}\label{prob:Gersh5}
+$E = \left[ \begin{array}{ccc}
 1 & 0 & 0\\
 0 & 1 & 1 + i\\
 0 & 1 - i & 2
 \end{array}\right]$
-\end{enumerate}
+\end{problem}
 \end{problem}
 
 \begin{problem}\label{prob:prove_diag_dom_nonsingular}
-    Prove that if a matrix is \dfn{strictly diagonally dominant} (see \ref{def:strict_diag_dom}), that it is nonsingular.
+Let $A=[a_{ij}]$ be the $n\times n$ matrix which is the coefficient matrix of the linear system $A \vec{x}= \vec{b}$.  Let
+$$
+r_i(A):= \sum_{j \ne i} |a_{ij}|
+$$
+denote the sum of the absolute values of the non-diagonal entries in row $i$.  We say that $A$ is \dfn{strictly diagonally dominant} if 
+$$|a_{ii}|>r_i(A)$$
+for all values of $i$ from $i=1$ to $i=n$.
+
+Prove that if a matrix is \dfn{strictly diagonally dominant} 
+    %(see \ref{def:strict_diag_dom}), 
+    then it is nonsingular.
 
     \begin{hint}
     Show that the Gershgorin region cannot contain zero.
