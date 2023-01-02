@@ -9,12 +9,10 @@
 \end{abstract}
 \maketitle
 
-In practice, the problem of finding
-eigenvalues of a matrix is virtually never solved by finding the roots
-of the characteristic polynomial. This is difficult for large matrices
-and iterative methods are much better. The Power Method and some variations are described in this section, which is merely an introduction to the iterative methods used to compute eigenvalues and eigenvectors.  The QR-algorithm \ref{sec:QRalgorithm} is a better iterative method for approximating the eigenvalues of an invertible matrix. 
-
-\section*{Finding the Dominant Eigenvalue using the Power Method}
+\section*{The Power Method and the Dominant Eigenvalue}
+We know eigenvalues as the roots of a characteristic polynomial of a matrix.  In practice, the problem of finding eigenvalues is virtually never solved by finding roots of the characteristic polynomial, as this task is computationally prohibitive for large matrices.  Iterative methods are used instead.  In this section we describe the Power Method and some variations.  In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0040/main}{QR Factorization} we will touch upon a better iterative method for approximating eigenvalues of a non-singular matrix called the QR-algorithm.  The methods we present in this text are a mere introduction to the iterative methods used to compute eigenvalues and eigenvectors.
+  
+\subsection*{Finding the Dominant Eigenvalue using the Power Method}
 
 In Exploration \ref{exp:motivate_diagonalization} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0050/main}{Diagonalizable Matrices and Multiplicity},
  our initial rationale for diagonalizing matrices was to be able to
@@ -168,7 +166,7 @@ The power method requires that the first approximation $\vec{x}_{0}$ be a linear
 %Also, because the method requires repeated multiplications by $A$, it is not recommended unless these multiplications are easy to carry out (for example, if most of the entries of $A$ are zero).
 
 \begin{exploration}\label{exp:3x3PowerMethod}
-Use the power method to approximate a dominant eigenvector and eigenvalue of $A = \left[ \begin{array}{rrr}
+Use the Power Method to approximate a dominant eigenvector and eigenvalue of $A = \left[ \begin{array}{rrr}
 9 & 2 & 8 \\
 2 & -6 & -2 \\
 -8 & 2 & -5
@@ -201,16 +199,15 @@ RQUOTIENTS
 VECTORS(:,maxit)/norm(VECTORS(:,maxit))
 \end{verbatim}
 
-We observe that the Rayleigh quotients approach -3, which is the dominant eigenvalue, as we confirm using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector, and we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
-
+We observe that the Rayleigh quotients approach $-3$, which is the dominant eigenvalue.  We can confirm this using the command `eig'.  To see that our vectors are approaching the dominant eigenvector, in the last step we divide our final approximate vector by its norm to obtain a unit vector. Note that we get the same result as the `eig' command.  In practice, we achieve greater accuracy if we normalize the approximate eigenvector at each iteration rather than waiting until the end.
 
 \end{exploration}
 
-\section*{Finding Other Eigenvalues}
+\subsection*{Finding Other Eigenvalues}
 
 If the Power Method converges to the dominant eigenvalue, how can we determine other eigenvalues of a matrix?  This section is devoted to some variations of the Power Method that address this problem.  Many of the ideas in this section can be employed in other settings.
 
-\subsection*{The Inverse Power Method}
+\subsubsection*{The Inverse Power Method}
 
 The Inverse Power Method is based upon the following theorem.
 
@@ -242,10 +239,10 @@ A=inv(M)
 eig(A)
 \end{verbatim}
 
-If we now apply the Power Method to $A$, the Rayleigh quotients converge toward the dominant eigenvalue of $A$, which is -1.  If we take the reciprocal of the dominant eigenvalue of $A$, we will have found the ``least dominant'' eigenvalue of $M$, i.e., the eigenvalue closest to zero.  Sure enough, the reciprocal of -1 is -1, which is the eigenvalue of $M$ closest to zero.
+If we now apply the Power Method to $A$, the Rayleigh quotients converge toward the dominant eigenvalue of $A$, which is $-1$.  If we take the reciprocal of the dominant eigenvalue of $A$, we will have found the ``least dominant'' eigenvalue of $M$, i.e., the eigenvalue closest to zero.  Sure enough, the reciprocal of $-1$ is $-1$, which is the eigenvalue of $M$ closest to zero.
 
 
-\subsection*{The Shifted Power Method}
+\subsubsection*{The Shifted Power Method}
 Again, we begin with a theorem.
 
 \begin{theorem}\label{th:eig_shifted}
@@ -266,13 +263,11 @@ Using Octave, you can verify that $A=\left[ \begin{array}{rrr}
 12 & 2 & 8 \\
 2 & -3 & -2 \\
 -8 & 2 & -2
-\end{array}\right]$ and that the eigenvalues of $A$ are obtained by subtracting $c=-3$ from (i.e. by adding 3 to) each eigenvalue of $M$.  The dominant eigenvalue of $M$ gives us an eigenvalue of zero for $A$ (you may find it gives a number very close to zero, due to rounding error).  So if we apply the Power Method to $A$ to find its dominant eigenvalue (which is 5), we can add -3 to get the ``second largest'' eigenvalue of $M$ (i.e., the eigenvalue second-farthest from zero), which is 2.
+\end{array}\right]$ and that the eigenvalues of $A$ are obtained by subtracting $c=-3$ from (i.e. by adding 3 to) each eigenvalue of $M$.  The dominant eigenvalue of $M$ gives us an eigenvalue of zero for $A$ (you may find it gives a number very close to zero, due to rounding error).  So if we apply the Power Method to $A$ to find its dominant eigenvalue (which is 5), we can add $-3$ to get the ``second largest'' eigenvalue of $M$ (i.e., the eigenvalue second-farthest from zero), which is 2.
 
 To see this, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 \begin{verbatim}
-    
-
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 c=-3;
@@ -298,7 +293,7 @@ RQUOTIENTS
 RQUOTIENTS(maxit-1)+c
 \end{verbatim}
 
-\subsection*{The Shifted Inverse Power Method}
+\subsubsection*{The Shifted Inverse Power Method}
 
 The Shifted Inverse Power method combines the two ideas we just studied.  Using the Inverse Power method, we know how to find the eigenvalue closest to zero.  We also know that we can change which eigenvalue is the dominant eigenvalue using the Shifted Power method.  With the Shifted Inverse Power method, we are able to find the eigenvalue closest to a target $\tau$, where $\tau$ can be any number, real or complex.    We begin with the following theorem.
 
@@ -397,8 +392,7 @@ In each case, find the exact eigenvalues and determine corresponding eigenvector
 \end{array}\right]$
 \end{enumerate}
 \begin{hint}
-\begin{enumerate}[label={\alph*.}]
-\setcounter{enumi}{1}
+\begin{enumerate}
 \item Eigenvalues $4$, $-1$; eigenvectors
 $\left[ \begin{array}{rr}
 2  \\
@@ -414,7 +408,7 @@ $\vec{x}_{4} = \left[ \begin{array}{rr}
 \end{array}\right]$;
 $r_{3} = 3.94$
 
-\setcounter{enumi}{3}
+
 \item Eigenvalues $\lambda_{1} = \frac{1}{2}(3 + \sqrt{13})$, $\lambda_{2} = \frac{1}{2}(3 - \sqrt{13})$;
 eigenvectors $\left[ \begin{array}{c}
 \lambda_{1}  \\
