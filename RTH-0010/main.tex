@@ -10,7 +10,7 @@
 \section*{Orthogonality and Projections}
 \subsection*{Orthogonal and Orthonormal Sets}
 In this section, we examine what it means for vectors (and sets of
-vectors) to be orthogonal and orthonormal. Recall that two non-zero vectors are orthogonal if their dot product is zero.  (In $\RR^2$ and $\RR^3$ this means that two vectors are perpendicular.)  A collection of non-zero vectors in $\RR^n$ is called \dfn{orthogonal} if the vectors are pair-wise orthogonal.  The diagram below shows two orthogonal vectors in $\RR^2$ and three orthogonal vectors in $\RR^3$.
+vectors) to be orthogonal and orthonormal. Recall that two non-zero vectors are orthogonal if their dot product is zero.  A collection of non-zero vectors in $\RR^n$ is called \dfn{orthogonal} if the vectors are pair-wise orthogonal.  The diagram below shows two orthogonal vectors in $\RR^2$ and three orthogonal vectors in $\RR^3$.
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
 \draw[line width=0.5pt, dashed](-2,-0.5)--(2,-0.5)--(2,3.5)--(-2,3.5)--cycle;
@@ -58,7 +58,7 @@ $\vec{v}_i \dotp \vec{v}_j = 0$ for all $i \neq j$.
 Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
 \end{definition}
 
-An orthogonal set of vectors may not be orthonormal.  To convert an orthogonal set to an orthonormal set, we need divide each vector by its own length.
+An orthogonal set of vectors may not be orthonormal.  To convert an orthogonal set to an orthonormal set, we need to divide each vector by its own length.
 
 \begin{definition}\label{normalizing}
 \dfn{Normalizing} an orthogonal set is the process of turning an orthogonal set into an orthonormal set.
@@ -165,7 +165,7 @@ Recall that every basis of $\RR^n$ (or a subspace $W$ of $\RR^n$) imposes a coor
 \node[blue] at (0.5, 1.5)  (p2)    {$\vec{v}_1$};
 \node[red] at (1.6, 0.2)  (p2)    {$\vec{v}_2$};
 \node[] at (3.5, 2.3)  (p2)    {$\vec{x}$};
-\node[] at (-0.2, 0.2)  (p2)    {$\vec{O}$};
+%\node[] at (-0.2, 0.2)  (p2)    {$\vec{O}$};
  \end{tikzpicture}
  \end{center}
 Vector $\vec{x}$ is visually easy to work with.  In general, one way to express an arbitrary vector as a linear combination of the basis vectors is to solve a system of linear equations, which can be costly.  One reason we like $\{\vec{i},\vec{j}\}$ as a basis of $\RR^2$ is because any vector $\vec{x}$ of $\RR^2$ can be easily expressed as the sum of the orthogonal projections of $\vec{x}$ onto the basis vectors $\vec{i}$ and $\vec{j}$, as shown below.
@@ -208,7 +208,7 @@ We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ 
 
 As you have just discovered in Exploration \ref{exp:orth1a}, we can express an arbitrary vector of $\RR^2$ as the sum of its projections onto the basis vectors, provided that the basis is orthogonal. It turns out that this result holds for any subspace of $\RR^n$, making a basis consisting of orthogonal vectors especially useful. 
 
-If an orthogonal set is a basis for a subspace, we call it an
+If an orthogonal set is a basis, we call it an
 \dfn{orthogonal basis}. Similarly, if an orthonormal set is a basis, we call it an \dfn{orthonormal basis}.
 
 
@@ -356,7 +356,7 @@ If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default 
  \choice[correct]{All of the above.}
  \end{multipleChoice}
  
-  \item Rotate the figure so that you're looking directly down at the plane.  If you're looking at it correctly, you will notice that (1) the parallelogram determined by $\vec{v}_1$ and $\vec{v}_2$ is a rectangle; (2) the sum of projections of $\vec{x}$ onto the basis vectors, $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$, is located directly underneath $\vec{x}$, like a shadow at midday.
+  \item Rotate the figure so that you're looking directly down at the plane.  If you're looking at it correctly, you will notice that (1) the parallelogram determined by the projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$ is a rectangle; (2) the sum of projections, $\mbox{proj}_{\vec{v}_1}\vec{x}+\mbox{proj}_{\vec{v}_2}\vec{x}$, is located directly underneath $\vec{x}$, like a shadow at midday.
  \end{itemize} 
  \end{question}
 
@@ -427,7 +427,7 @@ Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$
 \end{formula}
 
 \subsection*{Orthogonal Decomposition of $\vec{x}$}
-Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_W\vec{x}$ located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
+Definition \ref{def:projOntoSubspace} allows us to express $\vec{x}$ as the sum of its orthogonal projection, $\vec{w}=\mbox{proj}_W\vec{x}$, located in $W$, and a vector we will call $\vec{w}^\perp$ (pronounced ``W-perp"), given by $\vec{w}^\perp=\vec{x}-\vec{w}$. This decomposition of $\vec{x}$ is shown in the diagram below.  
 \begin{center}
 \tdplotsetmaincoords{70}{130}
 	\begin{tikzpicture}[scale=0.8]
@@ -478,7 +478,7 @@ Throughout this section we have worked with orthogonal bases of subspaces.  Does
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:rref_way}
-Retry Example~\ref{fourier} using Gaussian elimination.  Is the method of Example~\ref{fourier} more efficient?
+Retry Example~\ref{fourier} using Gaussian elimination.  Which method seems easier to you?
 \end{problem}
 \begin{problem}\label{prob:vec_eq_0}
     Let $\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\in\RR^n$ and
@@ -488,19 +488,21 @@ Show that $\vec{v}=\vec{0}$.
 \end{problem}
 
 \begin{problem}
-Let $\vec{x} = (1, -2, 1, 6)$ in $\RR^4$, and let $W = \mbox{span}\left((2, 1, 3, -4), (1, 2, 0, 1)\right)$.
+Let $\vec{x} = \begin{bmatrix}1\\ -2\\ 1\\ 6\end{bmatrix}$ in $\RR^4$, and let $W = \mbox{span}\left(\begin{bmatrix}2\\ 1\\ 3\\ -4\end{bmatrix}, \begin{bmatrix}1\\ 2\\ 0\\ 1\end{bmatrix}\right)$.
 \begin{problem}\label{OrthoProj1.1}
 Compute $\mbox{proj}_W(\vec{x})$.
-%ANSWER:  $\frac{1}{10}(-9,3,-21,33) = \frac{3}{10}(-3,1,-7,11)$ 
+
+Answer:  $$\frac{1}{10}\begin{bmatrix}\answer{-9}\\\answer{3}\\\answer{-21}\\\answer{33}\end{bmatrix}$$
 \end{problem}
 
 \begin{problem}\label{OrthoProj1.2}
-Show that $\{(1, 0, 2, -3), (4, 7, 1, 2)\}$ is another orthogonal basis of $W$.
+Show that $\left\{\begin{bmatrix}1\\ 0\\ 2\\ -3\end{bmatrix}, \begin{bmatrix}4\\ 7\\ 1\\ 2\end{bmatrix}\right\}$ is another orthogonal basis of $W$.
 \end{problem}
 
 \begin{problem}\label{OrthoProj1.3}
-Use the basis in part (b) to compute $\mbox{proj}_W(\vec{x})$.
-%ANSWER:  $\frac{1}{70}(-63,21,-147,231) = \frac{3}{10}(-3,1,-7,11)$
+Use the basis in Problem \ref{OrthoProj1.2} to compute $\mbox{proj}_W(\vec{x})$.
+
+Answer:  $$\frac{1}{70}\begin{bmatrix}\answer{-63}\\\answer{21}\\\answer{-147}\\\answer{231}\end{bmatrix}$$
 \end{problem}
 
 \end{problem}
