@@ -10,7 +10,7 @@
 
 \section*{Orthogonal Complements and Decompositions}
 \subsection*{Orthogonal Complements}
-We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \in\RR\}$ is an orthogonal complement of $\{a\vec{i}+b\vec{j} \mid a, b \in\RR\}$.
+We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \in\RR\}$ is an \dfn{orthogonal complement} of $\{a\vec{i}+b\vec{j} \mid a, b \in\RR\}$.
 
   \begin{definition}[Orthogonal Complement of a Subspace of $\RR^n$]\label{def:023776}
 If $W$ is a subspace of $\RR^n$, define the \dfn{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
@@ -47,7 +47,8 @@ Let $W$ be a subspace of $\RR^n$.
 \end{theorem}
 
 \begin{proof}[Proof of Part~\ref{th:023783c}:]
-We must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$.  To show that two sets $\mathcal{S}$ and $\mathcal{T}$ are equal, a common strategy is to show that $\mathcal{S} \subseteq \mathcal{T}$ and also $\mathcal{T} \subseteq \mathcal{S}$.  We employ this strategy now.
+We must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$.  To show that two sets are equal, we must show that all elements of each set are included in the other set.
+%To show that two sets $\mathcal{S}$ and $\mathcal{T}$ are equal, a common strategy is to show that $\mathcal{S} \subseteq \mathcal{T}$ and also $\mathcal{T} \subseteq \mathcal{S}$.  We employ this strategy now.
 
 Clearly, if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. This shows $W^\perp \subseteq \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. For the reverse inclusion, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we need to show that $\vec{x}$ is in $W^\perp$.  We need to show $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. We can write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
 \begin{equation*}
@@ -58,12 +59,12 @@ Clearly, if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for a
 \end{proof}
 
 \begin{example}\label{ex:023829}
-Find a basis for $W^\perp$ if $W = \mbox{span}\left\{\begin{bmatrix}
+Find a basis for $W^\perp$ if $W = \mbox{span}\left(\begin{bmatrix}
   1 \\ -1 \\ 2 \\ 0
   \end{bmatrix},
   \begin{bmatrix}
   1 \\ 0 \\ -2 \\ 3
-  \end{bmatrix}\right\}$ in $\RR^4$.
+  \end{bmatrix}\right)$ in $\RR^4$.
 
 \begin{explanation}
   By Theorem~\ref{th:023783}, $\vec{x} = \begin{bmatrix}
@@ -83,24 +84,24 @@ x & - & y & + & 2z & & & =0\\
 x & & & - & 2z & +& 3w & =0
 \end{array}
 \end{equation*}
-Using Gaussian elimination on this system gives $W^\perp = \mbox{span}\left\{\begin{bmatrix}
+Using Gaussian elimination on this system gives $W^\perp = \mbox{span}\left(\begin{bmatrix}
   2 \\ 4 \\ 1 \\ 0
   \end{bmatrix},
   \begin{bmatrix}
   3 \\ 3 \\ 0 \\ -1
-  \end{bmatrix}\right\}$.  You are asked to confirm this in Practice Problem \ref{prob:Uperp} (which serves as a wonderful review of concepts we covered earlier in the course!).  
+  \end{bmatrix}\right)$.  You are asked to confirm this in Practice Problem \ref{prob:Uperp} (which serves as a wonderful review of concepts we covered earlier in the course!).  
 \end{explanation}
 \end{example}
 
 Some of the important subspaces we studied earlier are orthogonal complements of each other.  Recall the following definitions associated with an $m \times n$ matrix $A$.
 \begin{enumerate}
-    \item Its \dfn{null space}, $\mbox{null}(A) = \{\vec{x}\in \RR^n \mid A\vec{x} = \vec{0}\}$, is a subspace of $\RR^n$.
-    \item Its \dfn{row space}, $\mbox{row}(A) = \mbox{span} \{ \mbox{the rows of } A\}$, is a subspace of $\RR^n$.
-    \item Its \dfn{column space}, $\mbox{col}(A) = \mbox{span} \{ \mbox{the columns of } A\}$, is a subspace of $\RR^m$.
+    \item The \dfn{null space} of $A$, $\mbox{null}(A) = \{\vec{x}\in \RR^n \mid A\vec{x} = \vec{0}\}$, is a subspace of $\RR^n$.
+    \item The \dfn{row space} of $A$, $\mbox{row}(A) = \mbox{span} ( \mbox{the rows of } A)$, is a subspace of $\RR^n$.
+    \item The \dfn{column space} of $A$, $\mbox{col}(A) = \mbox{span} ( \mbox{the columns of } A)$, is a subspace of $\RR^m$.
 \end{enumerate}
 
 \begin{exploration}\label{exp:discoverortho}
-In the following GeoGebra interactive, you can change the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Then, since matrix $A$ is defined using $\vec{v}$ and $\vec{w}$ as its rows, we have $\mbox{row}(A) = \mbox{span}\{\vec{v},\vec{w}\}$.  
+In the following GeoGebra interactive, you can change the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Let $A=\begin{bmatrix}-&\vec{v}&-\\-&\vec{w}&-\end{bmatrix}$.  Then $\mbox{row}(A) = \mbox{span}(\vec{v},\vec{w})$.  
    
 \begin{center}
 \geogebra{f6eavqxs}{950}{800}
@@ -110,7 +111,7 @@ In the following GeoGebra interactive, you can change the coordinates of the vec
         \item Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$? 
         \end{enumerate}
 
-  It is possible to ``break" this interactive (for certain choices of the sliders). If $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, then $\mbox{row}(A)$ is a \wordChoice{\choice{Point}, \choice[correct]{Line},\choice{Plane}}, and the dimension of $\mbox{null}(A)$ is \wordChoice{\choice{1}, \choice[correct]{2},\choice{3}}.  The interactive does not accommodate this situation.  To see what happens when $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, see Practice Problem \ref{prob:brokenInteractive}.
+  It is possible to ``break" this interactive (for certain choices of $\vec{v}$ and $\vec{w}$). If $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, then $\mbox{row}(A)$ is a \wordChoice{\choice{Point}, \choice[correct]{Line},\choice{Plane}}, and the dimension of $\mbox{null}(A)$ is \wordChoice{\choice{1}, \choice[correct]{2},\choice{3}}.  The interactive does not accommodate this situation.  To see what happens when $\vec{v}$ and $\vec{w}$ are scalar multiples of each other, see Practice Problem \ref{prob:brokenInteractive}.
 \end{exploration}
 
 
@@ -142,7 +143,7 @@ Verify each of the statements in Theorem~\ref{th:4subspaces}.
 
 \begin{explanation}
  We compute $\mbox{rref}(A)$ to find a basis for   $\mbox{null}(A)$, $\mbox{row}(A)$, and $\mbox{col}(A)$.  After some work we arrive at:
- $\mbox{null}(A) = \mbox{span}\left\{\begin{bmatrix}-3\\-5\\1\\0\\0\end{bmatrix}, \begin{bmatrix}9\\31\\0\\-3\\1\end{bmatrix}\right\}$ 
+ $\mbox{null}(A) = \mbox{span}\left(\begin{bmatrix}-3\\-5\\1\\0\\0\end{bmatrix}, \begin{bmatrix}9\\31\\0\\-3\\1\end{bmatrix}\right)$ 
  and
  $$\mbox{row}(A)=\mbox{span}\Big(\begin{bmatrix}1&0&3&0&-9\end{bmatrix},
 \begin{bmatrix}0&1&5&0&-31\end{bmatrix},
@@ -158,7 +159,7 @@ Let $\vec{x}\in\RR^n$.  $\vec{x}\in\left(\mbox{row}(A)\right)^\perp$ if and only
 
 \subsection*{Orthogonal Decomposition Theorem}
 
-Now that we have defined the orthogonal complement of a subspace, we are ready to state the main theorem of this section.  If you have studied physics or multi-variable calculus, you are familiar with the idea of expressing a vector in as the sum of its tangential and normal components. (If you haven't yet taken those courses, this section will help to prepare you for them!)  The following theorem is a generalization of that idea.
+Now that we have defined the orthogonal complement of a subspace, we are ready to state the main theorem of this section.  If you have studied physics or multi-variable calculus, you are familiar with the idea of expressing a vector in as the sum of its tangential and normal components. (If you haven't yet taken those courses, this section will help to prepare you for them!)  The following theorem is a generalization of this idea.
 
 \begin{theorem}[Orthogonal Decomposition Theorem]\label{th:OrthoDecomp}
 Let $W$ be a subspace of $\RR^n$ and let $\vec{x} \in \RR^n$.  Then there exist unique vectors $\vec{w} \in W$ and $\vec{w}^\perp \in W^\perp$ such that $\vec{x} = \vec{w} + \vec{w}^\perp$.
@@ -167,7 +168,7 @@ Let $W$ be a subspace of $\RR^n$ and let $\vec{x} \in \RR^n$.  Then there exist 
 \begin{proof}
 This is an example of an ``existence and uniqueness'' theorem, so there are two things to prove.  If we have an orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$ for $W$, then it is easy to show that our orthogonal decomposition exists for $\vec{x}$. We let $\vec{w}=\mbox{proj}_W(\vec{x})$, which is clearly in $W$, and we let  $\vec{w}^\perp = \vec{x} - \vec{w}$, and we have $\vec{w} + \vec{w}^\perp = \vec{w} + (\vec{x} - \vec{w}) = \vec{x}$, so we need to see that $\vec{w}^\perp \in W^\perp$.
 
-By Theorem~\ref{th:023783}~\ref{th:023783c}, it suffices to show that $\vec{w}^\perp$ if orthogonal to each of the basis vectors $\vec{f}_i, i=1,\ldots,m$.  We compute for $i=1,\ldots,m$
+By Theorem~\ref{th:023783}~\ref{th:023783c}, it suffices to show that $\vec{w}^\perp$ is orthogonal to each of the basis vectors $\vec{f}_i, i=1,\ldots,m$.  We compute for $i=1,\ldots,m$
 \begin{align*}
     \vec{f}_i \dotp \vec{w}^\perp 
     &= \vec{f}_i \dotp (\vec{x} - \vec{w}) \\
@@ -190,12 +191,12 @@ This vector is in $W$ (because $\vec{w}$ and $\vec{w}^\prime$ are in $W$) and it
 \end{proof}
 
 \begin{example}\label{ex:OrthogDecomp}
-Let $W$ be a subspace given by $W = \mbox{span}\left\{\begin{bmatrix}
+Let $W$ be a subspace given by $W = \mbox{span}\left(\begin{bmatrix}
   1 \\ 0 \\ 1 \\ 0
   \end{bmatrix},
   \begin{bmatrix}
   0 \\ 1 \\ 0 \\ 2
-\end{bmatrix}\right\}$, and let $\vec{x}=\begin{bmatrix}
+\end{bmatrix}\right)$, and let $\vec{x}=\begin{bmatrix}
   1 \\ 2 \\ 3 \\ 4
   \end{bmatrix}$.  Write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
   
@@ -223,6 +224,9 @@ $$\vec{w}=\mbox{proj}_W(\vec{x})
   \end{bmatrix} = \begin{bmatrix}
   -1 \\ 0 \\ 1 \\ 0
   \end{bmatrix}.$
+
+  This gives us
+  $$\vec{x}=\vec{w}+\vec{w}^\perp=\begin{bmatrix}2\\2\\2\\4\end{bmatrix}+\begin{bmatrix}-1\\0\\1\\0\end{bmatrix}$$
   \end{explanation}
   \end{example}
   
@@ -236,7 +240,7 @@ T(\vec{x}) = \mbox{proj}_W(\vec{x}) \quad \mbox{ for all }\vec{x}\mbox{ in }\RR^
 \begin{enumerate}
 \item\label{th:ProjLinTran_a} $T$ is a linear transformation.  (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0010/main}{Introduction to Linear Transformations}.)
 
-\item\label{th:ProjLinTran_b} The image of $T$ is $W$ and the kernel of $T$ is $ W^\perp$.  (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0050/main}{Image and Kernel of a Linear Transformation}.)
+\item\label{th:ProjLinTran_b} $\mbox{im}(T)$ is $W$ and $\mbox{ker}(T)$ is $ W^\perp$.  (See \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0050/main}{Image and Kernel of a Linear Transformation}.)
 
 \item\label{th:ProjLinTran_c} $\mbox{dim}(W) + \mbox{dim}(W^\perp) = n$.
 
@@ -244,12 +248,12 @@ T(\vec{x}) = \mbox{proj}_W(\vec{x}) \quad \mbox{ for all }\vec{x}\mbox{ in }\RR^
 \end{theorem}
 
 \begin{proof}
-If $W = \{\vec{0}\}$, then $W^\perp = \RR^n$, and so $T(\vec{x}) = \vec{0}_\vec{x} = \vec{0}$ for all $\vec{x}$. Thus $T = 0$ is the zero (linear) operator, so \ref{th:ProjLinTran_a}, \ref{th:ProjLinTran_b}, and \ref{th:ProjLinTran_c} hold. Hence assume that $W \neq \{\vec{0}\}$.
+If $W = \{\vec{0}\}$, then $W^\perp = \RR^n$, and so $T(\vec{x}) = \vec{0}$ for all $\vec{x}$. Thus $T = 0$ is the zero (linear) operator, so \ref{th:ProjLinTran_a}, \ref{th:ProjLinTran_b}, and \ref{th:ProjLinTran_c} hold. Hence assume that $W \neq \{\vec{0}\}$.
 
 \begin{enumerate}
 \item If $\{\vec{q}_{1}, \vec{q}_{2}, \dots, \vec{q}_{m}\}$ is an orthonormal basis of $W$, then
 \begin{equation}\label{orthonormalUeq}
-T(\vec{x}) = (\vec{x} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{x} \dotp \vec{q}_{2})\vec{q}_{2} + \dots + (\vec{x} \dotp \vec{q}_{m})\vec{q}_{m} \quad \mbox{ for all }\vec{x} \mbox{ in } \RR^n
+T(\vec{x}) = (\vec{x} \dotp \vec{q}_{1})\vec{q}_{1} + (\vec{x} \dotp \vec{q}_{2})\vec{q}_{2} + \dots + (\vec{x} \dotp \vec{q}_{m})\vec{q}_{m} \quad \mbox{ for all }\vec{x}\in \RR^n
 \end{equation}
 by the definition of the projection. Thus $T$ is a linear transformation because
 \begin{equation*}
@@ -257,9 +261,9 @@ by the definition of the projection. Thus $T$ is a linear transformation because
 \end{equation*}
 
 \item %This proof is correct, but perhaps written at a higher level than most of the proofs in our book.
-We have the image of $T$ is a subset of $W$ by (\ref{orthonormalUeq}) because each $\vec{q}_{i}$ is in $W$. But if $\vec{x}$ is in $W$, then $\vec{x} = T(\vec{x})$ by (\ref{orthonormalUeq}) and Theorem \ref{th:fourierexpansion} applied to the space $W$. This shows that $W$ is a subset of the image of $T$, so the image of $T$ is $W$.
+We have $\mbox{im}(T)$ is a subset of $W$ by (\ref{orthonormalUeq}) because each $\vec{q}_{i}$ is in $W$. But if $\vec{x}$ is in $W$, then $\vec{x} = T(\vec{x})$ by (\ref{orthonormalUeq}) and Theorem \ref{th:fourierexpansion} applied to the space $W$. This shows that $W$ is a subset of $\mbox{im}(T)$, so $\mbox{im}(T)$ is $W$.
 
-Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{q}_{i} = 0$ for each $i$ (again because each $\vec{q}_{i}$ is in $W$) so $\vec{x}$ is in the kernel of $T$ by (\ref{th:023783}). Hence $W^\perp$ is in the kernel of $T$. On the other hand, Theorem~\ref{th:023783} shows that $\vec{x} - T(\vec{x})$ is in $W^\perp$ for all $\vec{x}$ in $\RR^n$, and it follows that the kernel of $T$ is in $W^\perp$. Hence the kernel of $T$ is $W^\perp$, proving \ref{th:ProjLinTran_b}.
+Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{q}_{i} = 0$ for each $i$ (again because each $\vec{q}_{i}$ is in $W$) so $\vec{x}$ is in $\mbox{ker}(T)$ by (\ref{th:023783}). Hence $W^\perp$ is in $\mbox{ker}(T)$. On the other hand, Theorem~\ref{th:023783} shows that $\vec{x} - T(\vec{x})$ is in $W^\perp$ for all $\vec{x}$ in $\RR^n$, and it follows that $\mbox{ker}(T)$ is in $W^\perp$. Hence $\mbox{ker}(T)$ is $W^\perp$, proving \ref{th:ProjLinTran_b}.
 
 \item This follows from \ref{th:ProjLinTran_a}, \ref{th:ProjLinTran_b}, and the Rank-Nullity theorem (Theorem~\ref{th:ranknullityforT}).
 \end{enumerate}
@@ -267,11 +271,11 @@ Now suppose that $\vec{x}$ is in $W^\perp$. Then $\vec{x} \dotp \vec{q}_{i} = 0$
 
 \section*{Practice Problems}
 \begin{problem}\label{prob:Uperp}
-Solve the linear system in Example \ref{ex:023829} and use your result to find a basis for $W^\perp$ if $W = \mbox{span}\left((1, -1, 2, 0), (1, 0, -2, 3)\right)$ in $\RR^4$.
+Solve the linear system in Example \ref{ex:023829} and use your result to find a basis for $W^\perp$ if $W = \mbox{span}\left(\begin{bmatrix}1\\ -1\\ 2\\ 0\end{bmatrix}, \begin{bmatrix}1\\ 0\\ -2\\ 3\end{bmatrix}\right)$ in $\RR^4$.
 \end{problem}
 
 \begin{problem}\label{prob:brokenInteractive}
-In this problem we return to the interactive in Exploration \ref{exp:discoverortho}, and we consider the case where the matrix $A$ is rank 1 (which that interactive could not handle).  This time, the sliders define row 1 of matrix $A$, and row 2 will be 2 times row 1.  Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$?
+In this problem we return to the GeoGebra interactive in Exploration \ref{exp:discoverortho}, and we consider the case where the matrix $A$ has rank 1 (which Exploration \ref{exp:discoverortho} could not handle).  This time, the sliders define row 1 of matrix $A$, and row 2 will be 2 times row 1.  Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$?
 
     \begin{center}
 \geogebra{tyntjmdp}{950}{800}
@@ -280,34 +284,35 @@ In this problem we return to the interactive in Exploration \ref{exp:discoverort
 \end{problem}
 
 \begin{problem}\label{prob:finishex4subspaces}
-In this problem you are asked to finish Example \ref{ex:4subspaces}.  More specifically, for the matrix $A=\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix}$, show that $\mbox{null}(A^T) = (\mbox{col}(A))^\perp$.  It may be helpful to consult \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{\underline{Subspaces of $\RR^n$ Associated with Matrices}}, where we found a basis for the column space of this matrix.
+In this problem you are asked to finish Example \ref{ex:4subspaces}.  More specifically, for the matrix $$A=\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix},$$ show that $\mbox{null}(A^T) = (\mbox{col}(A))^\perp$.  It may be helpful to consult \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}, where we found a basis for the column space of this matrix.
 \end{problem}
 
 \begin{problem}
-In each case, write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
+In each case, write $\vec{x}$ as $\vec{x} = \vec{w} + \vec{w}^\perp$, where $\vec{w}=\mbox{proj}_W(\vec{x})$ and $\vec{w}^\perp = \vec{x} - \vec{w}$.
+%In each case, write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
 
 \begin{problem}\label{OrthoDecomp2}
-$\vec{x} = (2, 1, 6)$, $W = \mbox{span}\left((3, -1, 2), (2, 0, -3)\right)$
+$\vec{x} = \begin{bmatrix}2\\ 1\\ 6\end{bmatrix}$, $W = \mbox{span}\left(\begin{bmatrix}3\\ -1\\ 2\end{bmatrix}, \begin{bmatrix}2\\ 0\\ -3\end{bmatrix}\right)$
 \end{problem}
 
 \begin{problem}\label{OrthoDecomp4}
-$\vec{x} = (2, 0, 1, 6)$, \\ \hspace*{-1em}$W = \mbox{span}\left\{(1, 1, 1, 1), (1, 1, -1, -1), (1, -1, 1, -1)\right\}$
+$\vec{x} = \begin{bmatrix}2\\ 0\\ 1\\ 6\end{bmatrix}$, $W = \mbox{span}\left(\begin{bmatrix}1\\ 1\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 1\\ -1\\ -1\end{bmatrix}, \begin{bmatrix}1\\ -1\\ 1\\ -1\end{bmatrix}\right)$
 \end{problem}
 
 \begin{problem}\label{OrthoDecomp6}
-$\vec{x} = (a, b, c, d)$, \\ $W = \mbox{span}\left((1, -1, 2, 0), (-1, 1, 1, 1)\right)$
+$\vec{x} = \begin{bmatrix}a\\ b\\ c\\ d\end{bmatrix}$, $W = \mbox{span}\left(\begin{bmatrix}1\\ -1\\ 2\\ 0\end{bmatrix}, \begin{bmatrix}-1\\ 1\\ 1\\ 1\end{bmatrix}\right)$
 \end{problem}
 \end{problem}
 	
 
 \begin{problem}\label{Uperp}
-Let $W = \mbox{span}\left(\vec{w}_{1}, \vec{w}_{2}, \dots, \vec{w}_{k}\right)$, $\vec{w}_{i}$ in $\RR^n$, and let $A$ be the $k \times n$ matrix with the $\vec{w}_{i}$ as rows.
+Let $W = \mbox{span}\left(\vec{w}_{1}, \vec{w}_{2}, \dots, \vec{w}_{k}\right)$, $\vec{w}_{i}\in \RR^n$, and let $A$ be the $k \times n$ matrix with the $\vec{w}_{i}$ as rows.
 
 
 \begin{enumerate}
-\item Show that $W^\perp = \{\vec{x} \mid  \vec{x} \mbox{ in } \RR^n, A\vec{x}^{T} = \vec{0}\}$.
+\item Show that $W^\perp = \{\vec{x} \mid  \vec{x}\in \RR^n, A\vec{x}^{T} = \vec{0}\}$.
 
-\item Use part (a) to find $W^\perp$ if \\ $W = \mbox{span}\left\{(1, -1, 2, 1), (1, 0, -1, 1)\right\}$.
+\item Use part (a) to find $W^\perp$ if $$W = \mbox{span}\left(\begin{bmatrix}1\\ -1\\ 2\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 0\\ -1\\ 1\end{bmatrix}\right).$$
 %ANSWER:  $W^\perp = \mbox{span}\left((1, 3, 1, 0), (-1, 0, 0, 1)\right)$
 \end{enumerate}
 
@@ -344,7 +349,7 @@ Let $\{\vec{q}_{1}, \vec{q}_{2}, \dots , \vec{q}_{m}\}$ be an orthonormal basis 
 \end{problem}
 
 \begin{problem}\label{prob:8_1_11}
-If $W$ is a subspace of $\RR^n$, show that $\vec{x} = \mbox{proj}_W(\vec{x}) + \mbox{proj}_{W^\perp}\vec{x}$ for all $\vec{x}$ in $\RR^n$.
+If $W$ is a subspace of $\RR^n$, show that $\vec{x} = \mbox{proj}_W(\vec{x}) + \mbox{proj}_{W^\perp}(\vec{x})$ for all $\vec{x}$ in $\RR^n$.
 \end{problem}
 
 \begin{problem}\label{prob:8_1_12}
