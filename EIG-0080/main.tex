@@ -158,6 +158,13 @@ $B = \left[ \begin{array}{cc}
 4 & 3 - i \\
 3 + i & 1
 \end{array}\right]$
+
+\begin{prompt}
+$\Gamma (A)$ \wordChoice{\choice[correct]{contains $0$}\choice{does not contain $0$}}.  The test is \wordChoice{\choice{conclusive}\choice[correct]{inconclusive}}.
+\end{prompt}
+\begin{problem}
+Matrix $A$ is \wordChoice{\choice{singular}\choice[correct]{nonsingular}}.
+\end{problem}
 \end{problem}
 
 \begin{problem}\label{prob:Gersh3}
@@ -165,6 +172,13 @@ $C = \left[ \begin{array}{cc}
 2 & 1 + i\\
 1 - i & 3
 \end{array}\right]$
+
+\begin{prompt}
+$\Gamma (A)$ \wordChoice{\choice{contains $0$}\choice[correct]{does not contain $0$}}.  The test is \wordChoice{\choice[correct]{conclusive}\choice{inconclusive}}.
+\end{prompt}
+\begin{problem}
+Matrix $A$ is \wordChoice{\choice{singular}\choice[correct]{nonsingular}}.
+\end{problem}
 \end{problem}
 
 \begin{problem}\label{prob:Gersh4}
@@ -173,6 +187,13 @@ $D = \left[ \begin{array}{ccc}
 0 & 2 & 0 \\
 1 - i & 0 & 0
 \end{array}\right]$
+
+\begin{prompt}
+$\Gamma (A)$ \wordChoice{\choice[correct]{contains $0$}\choice{does not contain $0$}}.  The test is \wordChoice{\choice{conclusive}\choice[correct]{inconclusive}}.
+\end{prompt}
+\begin{problem}
+Matrix $A$ is \wordChoice{\choice{singular}\choice[correct]{nonsingular}}.
+\end{problem}
 \end{problem}
 
 \begin{problem}\label{prob:Gersh5}
@@ -181,17 +202,24 @@ $E = \left[ \begin{array}{ccc}
 0 & 1 & 1 + i\\
 0 & 1 - i & 2
 \end{array}\right]$
+
+\begin{prompt}
+$\Gamma (A)$ \wordChoice{\choice[correct]{contains $0$}\choice{does not contain $0$}}.  The test is \wordChoice{\choice{conclusive}\choice[correct]{inconclusive}}.
+\end{prompt}
+\begin{problem}
+Matrix $A$ is \wordChoice{\choice[correct]{singular}\choice{nonsingular}}.
+\end{problem}
 \end{problem}
 \end{problem}
 
 \begin{problem}\label{prob:prove_diag_dom_nonsingular}
-Let $A=[a_{ij}]$ be the $n\times n$ matrix which is the coefficient matrix of the linear system $A \vec{x}= \vec{b}$.  Let
+Let $A=[a_{ij}]$ be an $n\times n$ matrix, and let
 $$
 r_i(A):= \sum_{j \ne i} |a_{ij}|
 $$
 denote the sum of the absolute values of the non-diagonal entries in row $i$.  We say that $A$ is \dfn{strictly diagonally dominant} if 
 $$|a_{ii}|>r_i(A)$$
-for all values of $i$ from $i=1$ to $i=n$.
+for $i=1,\dots , n$.
 
 Prove that if a matrix is \dfn{strictly diagonally dominant} 
     %(see \ref{def:strict_diag_dom}), 
