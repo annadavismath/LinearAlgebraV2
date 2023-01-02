@@ -11,8 +11,8 @@
 \maketitle
 
 \section*{Gram-Schmidt Orthogonalization}
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonal Vectors} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \textbf{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
-Our task is to show that every subspace of $\RR^n$ \textit{has} an orthogonal basis.  We will start with intuitive explorations in lower dimensions, then proceed to formalize our results for subspaces of $\RR^n$.
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonal Vectors} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \dfn{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
+Our next task is to show that every subspace of $\RR^n$ \textit{has} an orthogonal basis.  We will start with intuitive explorations in lower dimensions, then proceed to formalize our results for subspaces of $\RR^n$.
 
 \subsection*{A Visual Guide to Creating an Orthogonal Basis}  
 Given an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$, let's start building our orthogonal basis, $\{\vec{f}_1, \vec{f}_2\}$, by setting $\vec{f}_1 = \vec{v}_1$. To find the next element of our orthogonal basis, consider the orthogonal projection of $\vec{v}_2$ onto $\vec{f}_1$.  (See the figure below.)  
@@ -246,36 +246,43 @@ We could not add a multiple of $\vec{f}$ to $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}
 
 \begin{problem}\label{prob:extend}
 
-    \item Try Example 2 again starting with some other vector $v_4 \in \RR^4$.
+    \item Try Example 2 again starting with some other vector $\vec{v}_4 \in \RR^4$.
 
 \end{problem}
 
-\begin{problem}\label{GS}
-In each case, use the Gram-Schmidt algorithm to convert the given basis $\mathcal{B}$ of $V$ into an orthogonal basis.  
+\begin{problem}
+In each case, use the Gram-Schmidt algorithm to convert the given basis $\mathcal{B}$ of $V$ to an orthogonal basis.  
 
 \begin{problem}\label{GS1}
-$V = \RR^2$, $\mathcal{B} = \{(1, -1), (2, 1)\}$
-%$\{(\answer{2},\answer{1}),(\answer{-\frac{3}{5}},\answer{\frac{6}{5}})\}$
-\end{problem}
-\begin{problem}
-$V = \RR^2$, $\mathcal{B} = \{(2, 1), (1, 2)\}$
-\end{problem}
-\begin{problem}
-$V = \RR^3$, $\mathcal{B} = \{(1, -1, 1), (1, 0, 1), (1, 1, 2)\}$
+$V = \RR^2$, $\mathcal{B} = \left\{\begin{bmatrix}1\\ -1\end{bmatrix}, \begin{bmatrix}2\\ 1\end{bmatrix}\right\}$
 
-%$\{(\answer{0},\answer{1},\answer{1}),(\answer{1},\answer{1},\answer{1}),(\answer{1},\answer{-2},\answer{2})\}$
+% Click on the arrow to see one possible answer:
+% \begin{expandable}
+% $\left\{\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}-3/5\\6/5\end{bmatrix}\right\}$
+% \end{expandable}
 \end{problem}
-\begin{problem}
-$V = \RR^3$, $\mathcal{B} = \{(0, 1, 1), (1, 1, 1), (1, -2, 2)\}$
+\begin{problem}\label{GS2}
+$V = \RR^2$, $\mathcal{B} = \left\{\begin{bmatrix}2\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 2\end{bmatrix}\right\}$
+\end{problem}
+\begin{problem}\label{GS3}
+$V = \RR^3$, $\mathcal{B} = \left\{\begin{bmatrix}1\\ -1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 0\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 1\\ 2\end{bmatrix}\right\}$
+\end{problem}
+\begin{problem}\label{GS4}
+$V = \RR^3$, $\mathcal{B} = \left\{\begin{bmatrix}0\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ -2\\ 2\end{bmatrix}\right\}$
+
+% Click the arrow to see one possible answer:
+% \begin{expandable}
+% $\left\{\begin{bmatrix}0\\1\\1\end{bmatrix},\begin{bmatrix}1\\1\\1\end{bmatrix},\begin{bmatrix}1\\-2\\2\end{bmatrix}\right\}$
+% \end{expandable}
 \end{problem}
 \end{problem}
 
-\begin{problem}
-Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal.
-\begin{hint}
-Let $R$ be the row-echelon form of $A$, and use the Gram-Schmidt process on the nonzero rows of $R$ from the bottom up.
-\end{hint}
-\end{problem}
+% \begin{problem}
+% Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal.
+% \begin{hint}
+% Let $R$ be the row-echelon form of $A$, and use the Gram-Schmidt process on the nonzero rows of $R$ from the bottom up.
+% \end{hint}
+% \end{problem}
 
 
 
