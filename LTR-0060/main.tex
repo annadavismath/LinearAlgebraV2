@@ -198,7 +198,7 @@ $$\tau_2\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=a+(a+c)x+(b-c)x^2+dx^3
 In Exploration \ref{init:isomorph} we made good use of a transformation that maps every element of $\mathbb{P}^2$ to its coordinate vector in $\RR^3$.  We observed that this transformation is linear and invertible, therefore it is an isomorphism.  The following example generalizes this result.
 
 \begin{theorem}\label{ex:coordmapiso}
-Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be a basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is an isomorphism.
+Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be an ordered basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is an isomorphism.
 \end{theorem}
 \begin{proof}
 We leave the proof of this result to the reader.  (See Practice Problem \ref{prob:verifyisomorphism}.)
@@ -208,7 +208,7 @@ We leave the proof of this result to the reader.  (See Practice Problem \ref{pro
 
 \begin{exploration}\label{init:basestobasesiso}
 In Exploration \ref{init:isomorph} we defined a transformation $T:\mathbb{P}^2\rightarrow \RR^3$ by
-$T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$. We later observed that  $T$ is an isomorphism.  We will now examine the effect of $T$ on two different basis of $\mathbb{P}^2$.
+$T(a+bx+cx^2)=\begin{bmatrix}a\\b\\c\end{bmatrix}$. We later observed that  $T$ is an isomorphism.  We will now examine the effect of $T$ on two different bases of $\mathbb{P}^2$.
 
 Let 
 $\mathcal{B}_1=\{1, x, x^2\}$ and $\mathcal{B}_2=\{x, 1+x, x+x^2\}$.  (Recall that $\mathcal{B}_2$ is a basis of $\mathbb{P}^2$ by Example \ref{ex:coordvectorinpolyvectspace2} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces}.)
