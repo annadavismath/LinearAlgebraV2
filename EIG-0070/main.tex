@@ -63,7 +63,6 @@ The eigenvalues of $A$ are $2$ and $-1$, with eigenvectors $\left[ \begin{array}
   
 To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
-
 \begin{verbatim}
 A=[1 1; 2 0]
 [EIGENVECTORS,EIGENVALUES] = eig(A)
@@ -118,9 +117,10 @@ and these are approaching the dominant eigenvalue $2$.
   \end{array}\right]$.  You may need to increase the number of iterations to see convergence.
 \end{enumerate}
 
-
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 \begin{verbatim}
+% The Power Method
 A=[1 1; 2 0]; %Input a square matrix
 x_0=[1;0]; %Input an initial vector
 maxit =5; %Choose number iterations
@@ -175,6 +175,7 @@ Use the Power Method to approximate a dominant eigenvector and eigenvalue of $A 
 You can use Octave to employ the power method.  To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 \begin{verbatim}
+% The Power Method
 A=[9 2 8; 2 -6 -2; -8 2 -5]; %Input a square matrix
 xinit=[1;1;1];
 %Input an initial vector
@@ -233,6 +234,7 @@ Now use Octave to verify that $A=\left[ \begin{array}{rrr}
 
 To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 \begin{verbatim}
+% Eigenvalues of the inverse are reciprocals of eigenvalues of the matrix
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 A=inv(M)
@@ -268,6 +270,7 @@ Using Octave, you can verify that $A=\left[ \begin{array}{rrr}
 To see this, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
 \begin{verbatim}
+% The shifted power method
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 c=-3;
@@ -322,7 +325,9 @@ Using Octave, you can verify that $A=\left[ \begin{array}{rrr}
 \end{array}\right]$.  When we apply the Power Method to $A$ to find its dominant eigenvalue, our Rayleigh quotients approach 1.  This means that the eigenvalue of $M$ closest to our target $\tau = 1$ is $1+\tau$, or 2.
 
 To do so, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
 \begin{verbatim}
+% The shifted inverse power method
 M=[9 2 8; 2 -6 -2; -8 2 -5];
 eig(M)
 tau=1;
