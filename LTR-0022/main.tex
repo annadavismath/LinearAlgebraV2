@@ -78,7 +78,7 @@ To answer this question we will try to determine what $T$ does to an arbitrary v
 
 If $\vec{v}$ is a vector in $\RR^2$, then $\vec{v}$ can be uniquely expressed as a linear combination of $\vec{i}$ and $\vec{j}$
 $$\vec{v}=a\vec{i}+b\vec{j}$$  By linearity of $T$ we have $$T(\vec{v})=T(a\vec{i}+b\vec{j})=aT(\vec{i})+bT(\vec{j})=a\begin{bmatrix}3\\-2\end{bmatrix}+b\begin{bmatrix}-1\\2\end{bmatrix}$$
-This shows that the image of any vector of $\RR^2$ under $T$ is completely determined by the action of $T$ on the standard unit vectors $\vec{i}$ and $\vec{j}$.  
+This shows that the image of every vector of $\RR^2$ under $T$ is completely determined by the action of $T$ on the standard unit vectors $\vec{i}$ and $\vec{j}$.  
 
 Vectors $\vec{i}$ and $\vec{j}$ form a standard basis of $\RR^2$.  What if we want to use a different basis?  
 
@@ -91,53 +91,18 @@ $$S(\vec{v})=S\left(a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}2\\-1\end{
 
 Again, we see how a linear transformation is completely determined by its action on a basis.
 
+Theorem \ref{th:uniquerep} assures us that given a basis, every vector has a unique representation as a linear combination of the basis vectors.  Imagine what would happen if this were not the case.  In the first part of this exploration, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  
+
 \end{exploration}
 
-Our discussion thus far hinged on the fact that the representation of a vector in terms of the given basis elements is unique.  Imagine what would happen if this were not the case.  In Exploration \ref{init:tij}, for instance, we might have been able to represent $\vec{v}$ as $a\vec{i}+b\vec{j}$ and $c\vec{i}+d\vec{j}$ ($a\neq c$ or $b\neq d$).  This would have potentially resulted in $\vec{v}$ mapping to two different elements: $aT(\vec{i})+bT(\vec{j})$ and $cT(\vec{i})+dT(\vec{j})$, implying that $T$ is not even a function.  Fortunately, Theorem \ref{th:linindbasis}  assures us that in $\RR^n$ vector representation in terms of the elements of a basis is unique, and Theorem \ref{th:uniquerep} does the same for abstract vector spaces.
+Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of a vector space $V$.  To define a linear transformation $T:V\rightarrow W$, it is sufficient to state the image of each basis vector under $T$.  Once the images of the basis vectors are established, we can determine the images of all vectors of $V$ as follows:
 
-Suppose we want to define a linear transformation $T:V\rightarrow W$.  Let $\mathcal{B}=\{\vec{v}_1,\ldots,\vec{v}_p\}$ be a basis of $V$.  To define $T$, it is sufficient to state the image of each basis vector under $T$.  Once the images of the basis vectors are established, we can determine the images of all vectors of $V$ as follows:
-
-Given any vector $\vec{v}$ of $V$, we can uniquely express $\vec{v}$ as a linear combination of $\vec{v}_1,\ldots,\vec{v}_p$.  Thus,
-$$\vec{v}=a_1\vec{v}_1+\ldots+a_p\vec{v}_p$$ for some scalar coefficients $a_1,\ldots,a_p$.
-We find $T(\vec{v})$ as follows:
-$$T(\vec{v})=T(a_1\vec{v}_1+\ldots+a_p\vec{v}_p)=a_1T(\vec{v}_1)+\ldots+a_pT(\vec{v}_p)$$
+Given any vector $\vec{v}$ of $V$, write $\vec{v}$ as a linear combination of the elements of $\mathcal{B}$
+$$\vec{v}=a_1\vec{v}_1+\ldots+a_p\vec{v}_p.$$ 
+Then
+$$T(\vec{v})=T(a_1\vec{v}_1+\ldots+a_p\vec{v}_p)=a_1T(\vec{v}_1)+\ldots+a_pT(\vec{v}_p).$$
 
 
-In our final example, we will consider $T$ in the context of a basis of the codomain, as well as a basis of the domain.  This will later help us tackle the question of the matrix of $T$ associated with bases other than the standard basis of $\RR^n$.
-
-\begin{example}\label{ex:subtosub1}
-Let
-$$\vec{v}_1=\begin{bmatrix}1\\2\\0\end{bmatrix}\quad\text{and}\quad\vec{v}_2=\begin{bmatrix}0\\1\\1\end{bmatrix}$$
-$$\vec{w}_1=\begin{bmatrix}1\\0\\1\end{bmatrix}\quad\text{and}\quad\vec{w}_2=\begin{bmatrix}1\\0\\0\end{bmatrix}$$
-Let $$V=\text{span}(\vec{v}_1, \vec{v}_2)\quad\text{and}\quad W=\text{span}(\vec{w}_1, \vec{w}_2)$$
-
-Because each of $\{\vec{v}_1, \vec{v}_2\}$ and $\{\vec{w}_1, \vec{w}_2\}$ is linearly independent, let 
-$$\mathcal{B}=\{\vec{v}_1, \vec{v}_2\}\quad\text{and}\quad\mathcal{C}=\{\vec{w}_1, \vec{w}_2\}$$
-be bases of $V$ and $W$, respectively.
-
-
-Define a linear transformation $T:V\rightarrow W$ by 
-$$T(\vec{v}_1)=2\vec{w}_1-3\vec{w}_2\quad\text{and} \quad T(\vec{v}_2)=-\vec{w}_1+4\vec{w}_2$$
-
-\begin{enumerate}
-\item \label{item:subtosub1a}
-Verify that $\vec{v}=\begin{bmatrix}2\\5\\1\end{bmatrix}$ is in $V$.
-\item\label{item:subtosub1b}
-Find $T(\vec{v})$.
-\end{enumerate}
-\begin{explanation}
-\ref{item:subtosub1a} We need to express $\vec{v}$ as a linear combination of $\vec{v}_1$ and $\vec{v}_2$.  This can be done by observation or by solving the equation
-$$\begin{bmatrix}1&0\\2&1\\0&1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}2\\5\\1\end{bmatrix}$$
-We find that $a=2$ and $b=1$, so $\vec{v}=2\vec{v}_1+\vec{v}_2$.  Thus $\vec{v}$ is in $V$.
-
-\ref{item:subtosub1b} By linearity of $T$ we have \begin{align*}T(\vec{v})=T(2\vec{v}_1+\vec{v}_2)&=2T(\vec{v}_1)+T(\vec{v}_2)\\&=2(2\vec{w}_1-3\vec{w}_2)+(-\vec{w}_1+4\vec{w}_2)\\&=3\vec{w}_1-2\vec{w}_2=\begin{bmatrix}1\\0\\3\end{bmatrix}
-\end{align*}
-
-The important observation here is that given a linear transformation defined on the basis elements of $V$ in terms of the basis elements of $W$, we are able to find the image of any $\vec{v}$ in $V$ in terms of the basis elements of $W$. We will visit this idea again in Exploration \ref{init:matlintransgeneral}.
-
-\end{explanation}
-
-\end{example}
 
 
 
@@ -146,12 +111,14 @@ The important observation here is that given a linear transformation defined on 
 \subsection*{Coordinate Vectors}
 Transformations that map vectors to their coordinate vectors will prove to be of great importance.  In this section we will prove that such transformations are linear and give several examples.
 
-Recall that if $V$ is a vector space, and  $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ is a basis for $V$ then any vector $\vec{v}$ of $V$ can be written as a unique linear combination of the elements of $\mathcal{B}$.  In other words, $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$ for some scalars $a_1, \ldots ,a_n$.  The vector in $\RR^n$ whose components are the coefficients $a_1, \ldots ,a_n$  is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to $\mathcal{B}$} and is denoted by $[\vec{v}]_{\mathcal{B}}$.  (Definition \ref{def:coordvector} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces}.)  
+If $V$ is a vector space, and  $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$ is an ordered basis for $V$ then any vector $\vec{v}$ of $V$ can be uniquely expressed as $\vec{v}=a_1\vec{v}_1+\ldots +a_n\vec{v}_n$ for some scalars $a_1, \ldots ,a_n$.  Vector $[\vec{v}]_{\mathcal{B}}$ in $\RR^n$ given by 
+$$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}$$
+is said to be the \dfn{coordinate vector for $\vec{v}$ with respect to the ordered basis $\mathcal{B}$}.  (See Definition \ref{def:coordvector}.)  
 
 It turns out that the transformation $T:V\rightarrow \RR^n$ defined by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is linear.  Before we prove linearity of $T$, consider the following examples.
 
 \begin{example}\label{ex:abstvectsplintranscoordvect1}
-Consider $\mathbb{M}_{2,2}$.  Let $\mathcal{B}=\left\{\begin{bmatrix}1&0\\0&0\end{bmatrix}, \begin{bmatrix}0&1\\0&0\end{bmatrix}, \begin{bmatrix}0&0\\1&0\end{bmatrix}, \begin{bmatrix}0&0\\0&1\end{bmatrix}\right\}$ be a basis for $\mathbb{M}_{2,2}$.  (You should do a quick mental check that $\mathcal{B}$ is a legitimate basis.)  Define $T:\mathbb{M}_{2,2}\rightarrow \RR^4$ by $T(A)=[A]_{\mathcal{B}}$.  Find $T\left(\begin{bmatrix}-2&3\\1&-5\end{bmatrix}\right)$.
+Consider $\mathbb{M}_{2,2}$.  Let $\mathcal{B}=\left\{\begin{bmatrix}1&0\\0&0\end{bmatrix}, \begin{bmatrix}0&1\\0&0\end{bmatrix}, \begin{bmatrix}0&0\\1&0\end{bmatrix}, \begin{bmatrix}0&0\\0&1\end{bmatrix}\right\}$ be an ordered basis for $\mathbb{M}_{2,2}$.  (You should do a quick mental check that $\mathcal{B}$ is a legitimate basis.)  Define $T:\mathbb{M}_{2,2}\rightarrow \RR^4$ by $T(A)=[A]_{\mathcal{B}}$.  Find $T\left(\begin{bmatrix}-2&3\\1&-5\end{bmatrix}\right)$.
 \begin{explanation}
 We need to find the coordinate vector for $\begin{bmatrix}-2&3\\1&-5\end{bmatrix}$ with respect to $\mathcal{B}$.
 $$\begin{bmatrix}-2&3\\1&-5\end{bmatrix}=-2\begin{bmatrix}1&0\\0&0\end{bmatrix}+ 3\begin{bmatrix}0&1\\0&0\end{bmatrix}+ \begin{bmatrix}0&0\\1&0\end{bmatrix}+ (-5)\begin{bmatrix}0&0\\0&1\end{bmatrix}$$
@@ -188,10 +155,10 @@ $$\begin{array}{ccccccc}
 \end{example}
 
 \begin{theorem}\label{th:coordvectmappinglinear}
-Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be a basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is a linear transformation.
+Let $V$ be an $n$-dimensional vector space, and let $\mathcal{B}$ be an ordered basis for $V$.  Then  $T:V\rightarrow \RR^n$ given by $T(\vec{v})=[\vec{v}]_{\mathcal{B}}$ is a linear transformation.
 \end{theorem}
 \begin{proof}
-First observe that Theorem \ref{th:uniquerep} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} guarantees that there is only one way to represent each element of $V$ as a linear combination of elements of $\mathcal{B}$.  Thus each element of $V$ maps to exactly one element of $\RR^n$, as long as the order in which elements of $\mathcal{B}$ appear is taken into account.  (The order of elements of $\mathcal{B}$ is important as it determines the order of components of the coordinate vectors.)  This proves that $T$ is a function, or a transformation.  We will now prove that $T$ is linear.
+First observe that Theorem \ref{th:uniquerep} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} guarantees that there is only one way to represent each element of $V$ as a linear combination of elements of $\mathcal{B}$.  Thus each element of $V$ maps to exactly one element of $\RR^n$, as long as the order in which elements of $\mathcal{B}$ appear is taken into account.  This proves that $T$ is a function, or a transformation.  We will now prove that $T$ is linear.
 
 Let $\vec{v}$ be an element of $V$.  We will first show that $T(k\vec{v})=kT(\vec{v})$.  Suppose $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}$, then $\vec{v}$ can be written as a unique linear combination:
 $$\vec{v}=a_1\vec{v}_1+ \ldots +a_n\vec{v}_n$$
@@ -203,6 +170,47 @@ We have:
 \end{align*}
 We leave it to the reader to verify that $T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})$.  (See Practice Problem \ref{prob:completeproofoflin}.)
 \end{proof}
+
+In our final example, we will consider $T$ in the context of a basis of the codomain, as well as a basis of the domain.  This will later help us tackle the question of the matrix of $T$ associated with bases other than the standard basis of $\RR^n$.
+
+\begin{example}\label{ex:subtosub1}
+Let
+$$\vec{v}_1=\begin{bmatrix}1\\2\\0\end{bmatrix}\quad\text{and}\quad\vec{v}_2=\begin{bmatrix}0\\1\\1\end{bmatrix}$$
+$$\vec{w}_1=\begin{bmatrix}1\\0\\1\end{bmatrix}\quad\text{and}\quad\vec{w}_2=\begin{bmatrix}1\\0\\0\end{bmatrix}$$
+Let $$V=\text{span}(\vec{v}_1, \vec{v}_2)\quad\text{and}\quad W=\text{span}(\vec{w}_1, \vec{w}_2)$$
+
+Because each of $\{\vec{v}_1, \vec{v}_2\}$ and $\{\vec{w}_1, \vec{w}_2\}$ is linearly independent, let 
+$$\mathcal{B}=\{\vec{v}_1, \vec{v}_2\}\quad\text{and}\quad\mathcal{C}=\{\vec{w}_1, \vec{w}_2\}$$
+be ordered bases of $V$ and $W$, respectively.
+
+
+Define a linear transformation $T:V\rightarrow W$ by 
+$$T(\vec{v}_1)=2\vec{w}_1-3\vec{w}_2\quad\text{and} \quad T(\vec{v}_2)=-\vec{w}_1+4\vec{w}_2$$
+
+\begin{enumerate}
+\item \label{item:subtosub1a}
+Verify that $\vec{v}=\begin{bmatrix}2\\5\\1\end{bmatrix}$ is in $V$ and find the coordinate vector $[\vec{v}]_{\mathcal{B}}$.
+\item\label{item:subtosub1b}
+Find $T(\vec{v})$ and the coordinate vector $[T(\vec{v})]_{\mathcal{C}}$.
+\end{enumerate}
+\begin{explanation}
+\ref{item:subtosub1a} We need to express $\vec{v}$ as a linear combination of $\vec{v}_1$ and $\vec{v}_2$.  This can be done by observation or by solving the equation
+$$\begin{bmatrix}1&0\\2&1\\0&1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}2\\5\\1\end{bmatrix}$$
+We find that $a=2$ and $b=1$, so $\vec{v}=2\vec{v}_1+\vec{v}_2$.  Thus $\vec{v}$ is in $V$.  The coordinate vector for $\vec{v}$ with respect to the ordered basis $\mathcal{B}$ is 
+$$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}2\\1\end{bmatrix}$$
+
+\ref{item:subtosub1b} By linearity of $T$ we have \begin{align*}T(\vec{v})=T(2\vec{v}_1+\vec{v}_2)&=2T(\vec{v}_1)+T(\vec{v}_2)\\&=2(2\vec{w}_1-3\vec{w}_2)+(-\vec{w}_1+4\vec{w}_2)\\&=3\vec{w}_1-2\vec{w}_2=\begin{bmatrix}1\\0\\3\end{bmatrix}
+\end{align*}
+
+The coordinate vector for $T(\vec{v})$ with respect to the ordered basis $\mathcal{C}$ is 
+$$[T(\vec{v})]_{\mathcal{C}}=\begin{bmatrix}3\\-2\end{bmatrix}.$$
+
+%The important observation here is that given a linear transformation defined on the basis elements of $V$ in terms of the basis elements of $W$, we are able to find the image of any $\vec{v}$ in $V$ in terms of the basis elements of $W$. We will visit this idea again in Exploration \ref{init:matlintransgeneral}.
+
+\end{explanation}
+
+\end{example}
+
 
 %\begin{center}
 %\begin{tikzpicture}[scale=1]
@@ -279,19 +287,19 @@ Is $T$ a linear transformation?  If so, prove it.  If not, give a counterexample
 \end{problem}
 \end{problem}
 
-\begin{problem}
-Define $T:\mathbb{P}^2\rightarrow\mathbb{P}^3$ by $T(p(x))=xp(x)$.  
+% \begin{problem}
+% Define $T:\mathbb{P}^2\rightarrow\mathbb{P}^3$ by $T(p(x))=xp(x)$.  
 
-\begin{problem}\label{prob:lintransmultbyx1}
-Find $T(-x^2+2x-4)$.
+% \begin{problem}\label{prob:lintransmultbyx1}
+% Find $T(-x^2+2x-4)$.
 
-Answer: $$T(-x^2+2x-4)=\answer{-x^3+2x^2-4x}$$
-\end{problem}
+% Answer: $$T(-x^2+2x-4)=\answer{-x^3+2x^2-4x}$$
+% \end{problem}
 
-\begin{problem}\label{prob:lintransmultbyx2}
-Is $T$ a linear transformation?  If so, prove it.  If not, give a counterexample.
-\end{problem}
-\end{problem}
+% \begin{problem}\label{prob:lintransmultbyx2}
+% Is $T$ a linear transformation?  If so, prove it.  If not, give a counterexample.
+% \end{problem}
+% \end{problem}
 
 \begin{problem}\label{prob:symmMatLinTrans}
 Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $\mathbb{M}_{2,2}$.  In Example \ref{ex:symmetricmatsubspace} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{Bases and Dimension of Abstract Vector Spaces} we demonstrated that $\mathcal{B} = \left\{
@@ -336,37 +344,39 @@ $$T(x+1)=\begin{bmatrix}\answer{0}\\\answer{1}\\\answer{0}\end{bmatrix}$$
 $$T(x^2-3x+1)=\begin{bmatrix}\answer{3}\\\answer{-1}\\\answer{2}\end{bmatrix}$$
 \end{problem}
 
-\begin{problem}
-Let $$\vec{v}_1=\begin{bmatrix}1\\3\\0\end{bmatrix},\quad \vec{v}_2=\begin{bmatrix}0\\1\\-2\end{bmatrix}$$
-$$\vec{w}_1=\begin{bmatrix}1\\-1\\4\end{bmatrix},\quad \vec{w}_2=\begin{bmatrix}0\\2\\-1\end{bmatrix}$$
+% \begin{problem}
+% Let $$\vec{v}_1=\begin{bmatrix}1\\3\\0\end{bmatrix},\quad \vec{v}_2=\begin{bmatrix}0\\1\\-2\end{bmatrix}$$
+% $$\vec{w}_1=\begin{bmatrix}1\\-1\\4\end{bmatrix},\quad \vec{w}_2=\begin{bmatrix}0\\2\\-1\end{bmatrix}$$
 
-Let $V=\text{span}(\vec{v}_1, \vec{v}_2)$ and $W=\text{span}(\vec{w}_1, \vec{w}_2)$.
+% Let $V=\text{span}(\vec{v}_1, \vec{v}_2)$ and $W=\text{span}(\vec{w}_1, \vec{w}_2)$.
 
-Suppose $T:V\rightarrow W$ is a linear transformation such that 
-$$T(\vec{v}_1)=\begin{bmatrix}2\\0\\7\end{bmatrix},\quad T(\vec{v}_2)=\begin{bmatrix}-1\\7\\1\end{bmatrix}$$
-  \begin{problem}\label{prob:lintransandbasis1}
-  Verify that vectors $\begin{bmatrix}2\\0\\7\end{bmatrix}$ and $\begin{bmatrix}-1\\7\\1\end{bmatrix}$ are in $W$ by expressing each as a linear combination of $\vec{w}_1$ and $\vec{w}_2$.
-  $$\begin{bmatrix}2\\0\\7\end{bmatrix}=\answer{2}\vec{w}_1+\answer{1}\vec{w}_2$$
-  $$\begin{bmatrix}-1\\7\\1\end{bmatrix}=\answer{-1}\vec{w}_1+\answer{3}\vec{w}_2$$
-  \end{problem}
+% Suppose $T:V\rightarrow W$ is a linear transformation such that 
+% $$T(\vec{v}_1)=\begin{bmatrix}2\\0\\7\end{bmatrix},\quad T(\vec{v}_2)=\begin{bmatrix}-1\\7\\1\end{bmatrix}$$
+%   \begin{problem}\label{prob:lintransandbasis1}
+%   Verify that vectors $\begin{bmatrix}2\\0\\7\end{bmatrix}$ and $\begin{bmatrix}-1\\7\\1\end{bmatrix}$ are in $W$ by expressing each as a linear combination of $\vec{w}_1$ and $\vec{w}_2$.
+%   $$\begin{bmatrix}2\\0\\7\end{bmatrix}=\answer{2}\vec{w}_1+\answer{1}\vec{w}_2$$
+%   $$\begin{bmatrix}-1\\7\\1\end{bmatrix}=\answer{-1}\vec{w}_1+\answer{3}\vec{w}_2$$
+%   \end{problem}
   
-  \begin{problem}\label{prob:lintransandbasis2}
-  Show that $\vec{v}=\begin{bmatrix}1\\2\\2\end{bmatrix}$ is in $V$ by expressing it as a linear combination of $\vec{v}_1$ and $\vec{v}_2$.
-  $$\vec{v}=\answer{1}\vec{v}_1+\answer{-1}\vec{v}_2$$
-  \end{problem}
+%   \begin{problem}\label{prob:lintransandbasis2}
+%   Show that $\vec{v}=\begin{bmatrix}1\\2\\2\end{bmatrix}$ is in $V$ by expressing it as a linear combination of $\vec{v}_1$ and $\vec{v}_2$.
+%   $$\vec{v}=\answer{1}\vec{v}_1+\answer{-1}\vec{v}_2$$
+%   \end{problem}
   
-  \begin{problem}\label{prob:lintransandbasis3}
-  Find $T(\vec{v})$ and express it as a linear combination of $\vec{w}_1$ and $\vec{w}_2$.
-  $$T(\vec{v})=\answer{3}\vec{w}_1+\answer{-2}\vec{w}_2$$
-  \end{problem}
-  \end{problem}
+%   \begin{problem}\label{prob:lintransandbasis3}
+%   Find $T(\vec{v})$ and express it as a linear combination of $\vec{w}_1$ and $\vec{w}_2$.
+%   $$T(\vec{v})=\answer{3}\vec{w}_1+\answer{-2}\vec{w}_2$$
+%   \end{problem}
+%   \end{problem}
 
 
-\begin{problem}\label{prob:lintransandbasis4} Let $V$ and $W$ be vector spaces, and let $\mathcal{B}_V=\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ and $\mathcal{B}_W=\{\vec{w}_1,\vec{w}_2, \vec{w}_3\}$ be bases of $V$ and $W$, respectively.  Suppose $T:V\rightarrow W$ is a linear transformation such that: $$T(\vec{v}_1)=\vec{w}_2$$ $$T(\vec{v}_2)=2\vec{w}_1-3\vec{w}_2$$
+\begin{problem}\label{prob:lintransandbasis4} Let $V$ and $W$ be vector spaces, and let $\mathcal{B}_V=\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ and $\mathcal{B}_W=\{\vec{w}_1,\vec{w}_2, \vec{w}_3\}$ be ordered bases of $V$ and $W$, respectively.  Suppose $T:V\rightarrow W$ is a linear transformation such that: $$T(\vec{v}_1)=\vec{w}_2$$ $$T(\vec{v}_2)=2\vec{w}_1-3\vec{w}_2$$
 $$T(\vec{v}_3)=\vec{w}_2+\vec{w}_3$$
 $$T(\vec{v}_4)=-\vec{w}_1$$
 If $\vec{v}=-2\vec{v}_1+3\vec{v}_2-\vec{v}_4$, express $T(\vec{v})$ as a linear combination of vectors of $\mathcal{B}_W$.
 $$T(\vec{v})=\answer{7}\vec{w}_1-\answer{11}\vec{w}_2+\answer{0}\vec{w}_3$$
+Find $[\vec{v}]_{\mathcal{B}_V}$ and $[T(\vec{v})]_{\mathcal{B}_{W}}$
+$$[\vec{v}]_{\mathcal{B}_V}=\begin{bmatrix}\answer{-2}\\\answer{3}\\\answer{0}\\\answer{-1}\end{bmatrix},\quad [T(\vec{v})]_{\mathcal{B}_{W}}=\begin{bmatrix}\answer{7}\\\answer{-11}\\\answer{0}\end{bmatrix}$$
 \end{problem}
 
 
