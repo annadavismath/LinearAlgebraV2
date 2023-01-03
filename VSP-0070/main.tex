@@ -8,7 +8,7 @@
 
 \section*{Inner Product Spaces}
 
-We have used the dot product in $\RR^n$ to compute the length of vectors (Corollary \ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The plan in this section is to define an \dfn{inner product} on an arbitrary real vector space $V$ (of which the dot product is an example in $\RR^n$) and use it to introduce these concepts in $V$.
+We have used the dot product in $\RR^n$ to compute the length of vectors (Corollary \ref{cor:length_via_dotprod}) and also the \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0060/main}{angle between vectors}. The goal of this section is to define an \dfn{inner product} on an arbitrary vector space $V$ over the real numbers. The dot product is an example an inner product for $\RR^n$.
 
 \begin{definition}\label{def:innerproductspace}
 An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following properties are satisfied.
@@ -62,8 +62,8 @@ the entries of $\vec{r}_{j}$, so this shows that $\langle A, A\rangle$ is the su
 The next example is important in analysis.
 
 \begin{example}\label{exa:030334}
-Let $\mathcal{C}[a, b]$ denote the vector space of
-continuous functions from $[a, b]$ to $\RR$, a subspace of $\mathcal{F}[a, b]$. Show that
+Let $\mathcal{F}[a,b]$ be the set of all functions $f:[a,b]\rightarrow\RR$.  Observe that $\mathcal{F}[a,b]$ is a vector space.  Let $\mathcal{C}[a,b]$ be a subset of $\mathcal{F}[a,b]$ consisting of all continuous functions.  Why is $\mathcal{C}[a,b]$ a subspace of $\mathcal{F}[a,b]$?
+Show that
 \begin{equation*}
 \langle f, g \rangle = \int_{a}^{b} f(x)g(x)dx
 \end{equation*}
@@ -84,7 +84,7 @@ r\langle f, g \rangle
 \end{example}
 
 
-If $\vec{v}$ is any vector, then, using  Property \ref{prop:inner_prod_3}, we get
+If $\vec{v}$ is any vector, then, using  Property \ref{prop:inner_prod_3} of Definition \ref{def:innerproductspace}, we get
 \begin{equation*}
 \langle \vec{0}, \vec{v} \rangle = \langle \vec{0} + \vec{0}, \vec{v} \rangle =
 \langle \vec{0}, \vec{v} \rangle + \langle \vec{0}, \vec{v} \rangle
@@ -115,7 +115,7 @@ If $\langle\ , \rangle$ is an inner product on a space $V$, then, given $\vec{u}
 \begin{equation*}
 \langle r\vec{u} + s\vec{v}, \vec{w} \rangle = \langle r\vec{u}, \vec{w} \rangle + \langle s\vec{v}, \vec{w} \rangle = r\langle \vec{u}, \vec{w} \rangle + s\langle \vec{v}, \vec{w} \rangle
 \end{equation*}
-for all $r$ and $s$ in $\RR$ by  Property \ref{prop:inner_prod_3} and Property \ref{prop:inner_prod_4}. Moreover, there is nothing special about the fact that there are two terms in the linear combination or that it is in the first component:
+for all $r$ and $s$ in $\RR$ by  Property \ref{prop:inner_prod_3} and Property \ref{prop:inner_prod_4} of Definition \ref{def:innerproductspace}. Moreover, there is nothing special about the fact that there are two terms in the linear combination or that it is in the first component:
 \begin{equation*}
 \langle r_1\vec{v}_1 + r_2\vec{v}_2 + \dots + r_n\vec{v}_n, \vec{w} \rangle =
 r_1\langle \vec{v}_1, \vec{w} \rangle +
@@ -141,7 +141,7 @@ If $A$ is a symmetric $n \times n$ matrix and $\vec{x}$ and $\vec{y}$ are column
 \begin{equation*}
 \langle \vec{x}, \vec{y} \rangle = \vec{x}^TA\vec{y} \quad \mbox{ for all columns } \vec{x}, \vec{y} \mbox{ in } \RR^n
 \end{equation*}
-then  Properties \ref{prop:inner_prod_1} through \ref{prop:inner_prod_4} follow from matrix arithmetic (only Property \ref{prop:inner_prod_2} requires that $A$ is symmetric).  Property \ref{prop:inner_prod_5} reads
+then  Properties \ref{prop:inner_prod_1} -\ref{prop:inner_prod_4} of Definition \ref{def:innerproductspace} follow from matrix arithmetic (only Property \ref{prop:inner_prod_2} of Definition \ref{def:innerproductspace} requires that $A$ is symmetric).  Property \ref{prop:inner_prod_5} of Definition \ref{def:innerproductspace} reads
 \begin{equation*}
 \vec{x}^TA \vec{x} > 0 \quad \mbox{ for all columns } \vec{x} \neq \vec{0} \mbox{ in } \RR^n
 \end{equation*}
@@ -233,7 +233,7 @@ Let $\langle\ , \rangle$ be an inner product on $\RR^n$ given as in Theorem~\ref
 \left[ \begin{array}{cccc}
 x_1 & x_2 & \cdots & x_n
 \end{array} \right]^T $, then $\langle\vec{x}, \vec{x}\rangle = \vec{x}^{T}A\vec{x}$ is an expression in the variables
-$x_{1}, x_{2}, \dots, x_{n}$ called a \dfn{quadratic form}. For more on quadratic forms, see Section~\ref{sec:8_8} of [Nicholson], pp. 472--482.
+$x_{1}, x_{2}, \dots, x_{n}$ called a \dfn{quadratic form}. For more on quadratic forms, see Section 8.8 of [Nicholson], pp. 472--482.
 
 \subsection*{Norm and Distance}
 
@@ -253,7 +253,7 @@ We define the \dfn{distance} between vectors $\vec{v}$ and $\vec{w}$ in an inner
 \end{remark}
 
 
-Note that  Property \ref{prop:inner_prod_5} guarantees that
+Note that  Property \ref{prop:inner_prod_5} of Definition \ref{def:innerproductspace} guarantees that
 $\langle\vec{v}, \vec{v}\rangle \geq 0$, so $\norm{\vec{v}}$ is a real number.
 
 \begin{example}\label{exa:030446}
@@ -263,7 +263,7 @@ The norm of a continuous function $f = f(x)$ in $\mathcal{C}[a, b]$ (with the in
 \begin{equation*}
 \norm{ f } = \sqrt{\int_{a}^{b} f(x)^2dx}
 \end{equation*}
-Hence $\norm{ f}^{2}$ is the area beneath the graph of $y = f(x)^{2}$ between $x = a$ and $x = b$ (shaded in the diagram).
+Hence $\norm{ f}^{2}$ is the area beneath the graph of $y = f(x)^{2}$ between $x = a$ and $x = b$.
 \end{example}
 
 \begin{example}\label{030454}
@@ -284,7 +284,7 @@ A vector $\vec{v}$ in an inner product space $V$ is called a \dfn{unit vector} i
 \end{equation*}
 Hence the unit ball in $\RR^2$ is the \dfn{unit circle} $x^{2} + y^{2} = 1$ with centre at the origin and radius $1$. However, the shape of the unit ball varies with the choice of inner product.
 
-\begin{example}\label{030469}
+\begin{example}\label{exa:030469}
 %NEED FIGURE
 
 
@@ -318,10 +318,9 @@ Moreover, equality occurs if and only if one of $\vec{v}$ and $\vec{w}$ is a sca
    Hermann Amandus Schwarz (1843--1921) was a German mathematician at the University of Berlin. He had strong geometric intuition, which he applied with great ingenuity to particular problems. A version of the inequality appeared in 1885. 
 \end{remark}
 
-\begin{proof}
+\begin{proof}[Proof of Cauchy-Schwarz Inequality]
 Write $\norm{\vec{v}} = a$ and $\norm{\vec{w}} = b$. Using Theorem~\ref{thm:030346} we compute:
-\begin{equation}
-\label{eq:thm10_1_4}
+\begin{equation}\label{eq:thm10_1_4}
 \begin{split}
 	\norm{ b\vec{v} - a \vec{w} }^2 &= b^2 \norm{ \vec{v} }^2 - 2ab \langle \vec{v}, \vec{w} \rangle + a^2\norm{ \vec{w} }^2 = 2ab(ab - \langle \vec{v}, \vec{w} \rangle) \\
 	\norm{ b\vec{v} + a \vec{w} }^2 &= b^2 \norm{ \vec{v} }^2 + 2ab \langle \vec{v}, \vec{w} \rangle + a^2\norm{ \vec{w} }^2 = 2ab(ab + \langle \vec{v}, \vec{w} \rangle) \\
@@ -424,9 +423,9 @@ Let $V$ be an inner product space.
 In each case, determine which of  Property \ref{prop:inner_prod_1}--Property \ref{prop:inner_prod_5} in Definition \ref{def:innerproductspace} fail to hold.
 
 \begin{enumerate} 
-\item $V = \RR^2$, $\langle (x_1, y_1), (x_2, y_2) \rangle = x_1y_1x_2y_2$
+\item $V = \RR^2$, $\left\langle \begin{bmatrix}x_1\\ y_1\end{bmatrix}, \begin{bmatrix}x_2\\ y_2\end{bmatrix} \right\rangle = x_1y_1x_2y_2$
 
-\item $V = \RR^3$, \\$\langle (x_1, x_2, x_3), (y_1, y_2, y_3) \rangle = x_1y_1 - x_2y_2 + x_3y_3$
+\item $V = \RR^3$, \\$\left\langle \begin{bmatrix}x_1\\ x_2\\ x_3\end{bmatrix}, \begin{bmatrix}y_1\\ y_2\\ y_3\end{bmatrix} \right\rangle = x_1y_1 - x_2y_2 + x_3y_3$
 
 Click the arrow to see the answer.
 \begin{expandable}
@@ -438,7 +437,7 @@ conjugation
 
 Click the arrow to see the answer.
 \begin{expandable}
-Property \ref{prop:inner_prod_1} fails, as sometimes we get a complex number.  However, we will return to this definition of $\langle\ , \rangle$ in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} -- see \ref{def:025549}
+Property \ref{prop:inner_prod_1} fails, as sometimes we get a complex number.  However, we will return to this definition of $\langle\ , \rangle$ in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices} -- see Definition \ref{def:025549}
 \end{expandable}
 
 \item $V = \mathbb{P}^3$, $\langle p(x), q(x) \rangle = p(1)q(1)$
@@ -523,10 +522,10 @@ $\frac{1}{\sqrt{17}}
 In each case, find the distance between $\vec{u}$ and $\vec{v}$.
 
 \begin{enumerate} 
-\item $\vec{u} = (3, -1, 2, 0)$, $\vec{v} = (1, 1, 1, 3);
+\item $\vec{u} = \begin{bmatrix}3\\ -1\\ 2\\ 0\end{bmatrix}$, $\vec{v} = \begin{bmatrix}1\\ 1\\ 1\\ 3\end{bmatrix};
 \langle \vec{u}, \vec{v} \rangle = \vec{u} \dotp \vec{v}$
 
-\item $\vec{u} = (1,  2, -1, 2)$, $\vec{v} = (2, 1, -1, 3);
+\item $\vec{u} = \begin{bmatrix}1\\  2\\ -1\\ 2\end{bmatrix}$, $\vec{v} = \begin{bmatrix}2\\ 1\\ -1\\ 3\end{bmatrix};
 \langle \vec{u}, \vec{v} \rangle = \vec{u} \dotp \vec{v}$
 
 Click the arrow to see the answer.
@@ -547,7 +546,7 @@ $\sqrt{3\pi}$
 \end{problem}
 
 \begin{problem}\label{ex:10_1_5}
-Let $a_{1}, a_{2}, \dots, a_{n}$ be positive numbers. Given $\vec{v} = (v_{1}, v_{2}, \dots, v_{n})$ and $\vec{w} = (w_{1}, w_{2}, \dots, w_{n})$, define $\langle\vec{v}, \vec{w}\rangle = a_{1}v_{1}w_{1} + \dots + a_{n}v_{n}w_{n}$. Show that this is an inner product on $\RR^n$.
+Let $a_{1}, a_{2}, \dots, a_{n}$ be positive numbers. Given $\vec{v} = \begin{bmatrix}v_{1}\\ v_{2}\\ \vdots\\ v_{n}\end{bmatrix}$ and $\vec{w} = \begin{bmatrix}w_{1}\\ w_{2}\\ \vdots\\ w_{n}\end{bmatrix}$, define $\langle\vec{v}, \vec{w}\rangle = a_{1}v_{1}w_{1} + \dots + a_{n}v_{n}w_{n}$. Show that this is an inner product on $\RR^n$.
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_6}
@@ -773,7 +772,7 @@ $, so $ \langle \vec{0}, \vec{v} \rangle = 0$. The rest is Property \ref{prop:in
 \end{problem}
 
 \begin{problem} \label{ex:10_1_21}
-Prove Theorem~\ref{thm:030545}.
+Prove Theorem~\ref{thm:030346}.
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_22}
@@ -832,11 +831,11 @@ Let $\vec{v}$ denote a vector in an inner product space $V$.
 \begin{enumerate} 
 \item Show that $W = \{\vec{w} \mid \vec{w} \mbox{ in } V, \langle\vec{v}, \vec{w} = 0\}$ is a subspace of $V$.
 
-\item Let $W$ be as in (a). If $V = \RR^3$ with the dot product, and if $\vec{v} = (1, -1, 2)$, find a basis for $W$.
+\item Let $W$ be as in (a). If $V = \RR^3$ with the dot product, and if $\vec{v} = \begin{bmatrix}1\\ -1\\ 2\end{bmatrix}$, find a basis for $W$.
 
 Click the arrow to see the answer.
 \begin{expandable}
-$\{(1, 1, 0), (0, 2, 1)\}$
+$\left\{\begin{bmatrix}1\\ 1\\ 0\end{bmatrix}, \begin{bmatrix}0\\ 2\\ 1\end{bmatrix}\right\}$
 \end{expandable}
 \end{enumerate}
 \end{problem}
@@ -862,7 +861,7 @@ Use the Cauchy-Schwarz inequality in an inner product space to show that:
 \item $(x \cos \theta + y \sin \theta)^{2} \leq x^{2} + y^{2}$ for all real $x$, $y$, and $\theta$.
 
 \begin{hint}
-If $\vec{u} = (\cos \theta, \sin \theta)$ in $\RR^2$ (with the dot product) then $\norm{\vec{u}} = 1$. Use (a) with $\vec{v} = (x, y)$.
+If $\vec{u} = (\cos \theta, \sin \theta)$ in $\RR^2$ (with the dot product) then $\norm{\vec{u}} = 1$. Use (a) with $\vec{v} = \begin{bmatrix}x\\ y\end{bmatrix}$.
 \end{hint}
 
 \item $\norm{ r_1\vec{v}_1 + \dots + r_n\vec{v}_n } ^2 \leq [r_1 \norm{ \vec{v}_1 } + \dots + r_n \norm{ \vec{v}_n } ]^2$
@@ -893,7 +892,7 @@ $AA^T = \left[ \begin{array}{rr}
 $-1 \leq \frac{\langle \vec{v}, \vec{w} \rangle}{\norm{ \vec{v} } \norm{ \vec{w} }} \leq 1$, and hence that a unique angle $\theta$ exists such that \newline $\frac{\langle \vec{v}, \vec{w} \rangle}{\norm{ \vec{v} } \norm{ \vec{w} }} = \cos \theta$ and $0 \leq \theta \leq \pi$. This angle $\theta$ is called the
 \dfn{angle between} $\vec{v}$ and $\vec{w}$.
 
-\item Find the angle between $\vec{v} = (1, 2, -1, 1\, 3)$ and $\vec{w} = (2, 1, 0, 2, 0)$ in $\RR^5$ with the dot product.
+\item Find the angle between $\vec{v} = \begin{bmatrix}1\\ 2\\ -1\\ 1\\ 3\end{bmatrix}$ and $\vec{w} = \begin{bmatrix}2\\ 1\\ 0\\ 2\\ 0\end{bmatrix}$ in $\RR^5$ with the dot product.
 
 \item If $\theta$ is the angle between $\vec{v}$ and $\vec{w}$, show that the \dfn{law of cosines} is valid:
 \begin{equation*}
@@ -903,14 +902,14 @@ $-1 \leq \frac{\langle \vec{v}, \vec{w} \rangle}{\norm{ \vec{v} } \norm{ \vec{w}
 \end{problem}
 
 \begin{problem}\label{prob:inner_prod_32}
-If $V = \RR^2$, define $\norm{(x, y)} = |x| + |y|$.
+If $V = \RR^2$, define $\norm{\begin{bmatrix}x\\ y\end{bmatrix}} = |x| + |y|$.
 
 \begin{enumerate} 
 \item Show that $\norm{\dotp}$ satisfies the conditions in Theorem~\ref{thm:030504}.
 
 \item Show that $\norm{\dotp}$ does not arise from an inner product on $\RR^2$ given by a matrix $A$. 
 \begin{hint}
-    If it did, use Theorem~\ref{thm:030372} to find numbers $a$, $b$, and $c$ such that $\norm{(x, y)}^{2} = ax^{2} + bxy + cy^{2}$ for all $x$ and $y$.
+    If it did, use Theorem~\ref{thm:030372} to find numbers $a$, $b$, and $c$ such that $\norm{\begin{bmatrix}x\\ y\end{bmatrix}}^{2} = ax^{2} + bxy + cy^{2}$ for all $x$ and $y$.
 \end{hint}
 
 \end{enumerate}
