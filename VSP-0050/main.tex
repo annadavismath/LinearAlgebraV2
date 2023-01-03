@@ -49,6 +49,10 @@ and satisfies the following properties:
   $1\vec{u}=\vec{u}$
   \end{enumerate}
 
+  \begin{remark}
+      All scalars in this chapter are assumed to be real numbers.  Complex scalars are considered in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0050/main}{Complex Matrices}.
+  \end{remark}
+
 In the next two examples we will explore two sets other than $\RR^n$ endowed with addition and scalar multiplication and satisfying the same properties.
 
 \begin{example}\label{ex:setofmatricesvectorspace}
@@ -67,9 +71,9 @@ In addition, Theorems \ref{th:propertiesofaddition} and \ref{th:propertiesscalar
   \item 
   Associative Property of Addition: $\quad (A+B)+C=A+(B+C)$
   \item 
-  Existence of Additive Identity:  $\quad A+\vec{0}=A$ where $\vec{0}$ is the $m \times n$ zero matrix
+  Existence of Additive Identity:  $\quad A+O=A$ where $O$ is the $m \times n$ zero matrix
   \item 
-  Existence of Additive Inverse:  $\quad A+(-A)=\vec{0}$
+  Existence of Additive Inverse:  $\quad A+(-A)=O$
   \item
   Distributive Property over Matrix Addition:  $\quad k(A+B)=kA+kB$
   \item
@@ -138,7 +142,12 @@ The additive inverse of $f_1$ is a function $-f_1$ given by $-f_1(x)=-mx+(-b)$. 
   Associative Property for Scalar Multiplication:\quad $(k(pf_1))=(kp)f_1$ 
   
   This property holds because
-  \begin{align*}k(p(f_1(x)))&=k(p(m_1 x + b_1))\\&=k(p m_1 x +p b_1)\\ &= (kp) m_1 x + (kp) b_1\\ &= (kp)(m_1 x + b_1)\\&=(kp)f_1(x)\end{align*}
+  \begin{align*}k(p(f_1(x)))&=k(p(m_1 x + b_1))\\
+  &=k(p m_1 x +p b_1)\\ 
+  &=kp m_1 x +kp b_1\\ 
+  &= (kp) m_1 x + (kp) b_1\\ 
+  &= (kp)(m_1 x + b_1)\\
+  &=(kp)f_1(x)\end{align*}
   
   \item 
   Multiplication by $1$ 
@@ -187,11 +196,13 @@ Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace} sh
 We will refer to elements of $V$ as \dfn{vectors}.  
 \end{definition}
 
+When scalars $k$ and $p$ in the above definition are restricted to real numbers, as they are in this chapter, vector space $V$ may be referred to as  a \dfn{vector space over the real numbers}.
+
 \begin{example}\label{ex:MLexamplesofvectspaces}
 $\mathbb{M}_{m,n}$ and $\mathbb{L}$ are vector spaces. (See Examples \ref{ex:setofmatricesvectorspace} and \ref{ex:linfunctionsvectspace})
 \end{example}
 %{\color{red}(Adopted from Nicholson)}
-Sets of polynomials provide an important source of examples, so we review some basic facts. A \dfn{polynomial} in $x$ is an expression
+Sets of polynomials provide an important source of examples, so we review some basic facts. A \dfn{polynomial with real coefficients} in $x$ is an expression
 \begin{equation*}
 p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_nx^n
 \end{equation*}
@@ -202,7 +213,7 @@ Let $\mathbb{P}$ denote the set of all polynomials and suppose that
 p(x) &= a_0 + a_1x + a_2x^2 + \ldots \\
 q(x) &= b_0 + b_1x + b_2x^2 + \ldots
 \end{align*}
-are two polynomials in $\mathbb{P}$ (possibly of different degrees). Then $p(x)$ and $q(x)$ are called \dfn{equal} [written $p(x) = q(x)$] if and only if all the corresponding coefficients are equal---that is, $a_{0} = b_{0}$, $a_{1} = b_{1}$, $a_{2} = b_{2}$, and so on. In particular, $a_{0} + a_{1}x + a_{2}x^{2} + \ldots = 0$ means that $a_{0} = 0$, $a_{1} = 0$, $a_{2} = 0$, $\ldots$. 
+are two polynomials in $\mathbb{P}$ (possibly of different degrees). Then $p(x)$ and $q(x)$ are called \dfn{equal} (written $p(x) = q(x)$) if and only if all the corresponding coefficients are equal---that is, $a_{0} = b_{0}$, $a_{1} = b_{1}$, $a_{2} = b_{2}$, and so on. In particular, $a_{0} + a_{1}x + a_{2}x^{2} + \ldots = 0$ means that $a_{0} = 0$, $a_{1} = 0$, $a_{2} = 0$, $\ldots$. 
 
 The set $\mathbb{P}$ has an addition and scalar multiplication defined on it as follows: if $p(x)$ and $q(x)$ are as before and $k$ is a real number,
 \begin{align*}
@@ -365,7 +376,7 @@ See Practice Problem \ref{prob:spanisasubspaceabstract}.
 
 \section*{Practice Problems}
 \begin{problem}
-(Adapted from Kuttler, Exercises 9.1.1-9.1.4) Is the set of all points in $\mathbb{R}^2$ a vector space under the given definitions of addition and scalar multiplication?    In each case be specific about which vector space properties hold and which properties fail.
+Is the set of all points in $\mathbb{R}^2$ a vector space under the given definitions of addition and scalar multiplication?    In each case be specific about which vector space properties hold and which properties fail.
   \begin{problem}\label{prob:abstractvectspace1}
   Addition: $(a, b)+(c, d)=(a+d, b+c)$\\ Scalar Multiplication: $k(a, b)=(ka, kb)$
   \end{problem}
@@ -398,7 +409,7 @@ A solution to such an equation is a function.
   \end{enumerate}
   \end{problem}
 \begin{problem}\label{prob:abstractvectspacecomplex}
-In this problem we will check that the set $\mathbb{C}$ of all complex numbers is in fact a vector space.  Let $z_1 = a_1 + b_1 i$ be a complex number where $i=\sqrt{-1}$.  Similarly, let $z_2 = a_2 + b_2 i$ and $z_3 = a_3 + b_3 i$ be complex numbers and let $k$ and $p$ be real number scalars.  Check that complex numbers are closed under addition and multiplication, and that they satisfy each of the vector space properties.
+In this problem we will check that the set $\mathbb{C}$ of all complex numbers is in fact a vector space.  Let $z_1 = a_1 + b_1 i$ be a complex number.  Similarly, let $z_2 = a_2 + b_2 i$, $z_3 = a_3 + b_3 i$ be complex numbers, and let $k$ and $p$ be real number scalars.  Check that complex numbers are closed under addition and multiplication, and that they satisfy each of the vector space properties.
 \end{problem}
 
 \begin{problem}\label{prob:abstractvectspace6}
@@ -415,7 +426,7 @@ Is the subset of all symmetric $n\times n$ matrices a subspace of $\mathbb{M}_{n
 
 \begin{problem}\label{prob:abstractvectspace8}
 Let $Z$ be a subset of $\mathbb{M}_{n,n}$ that consists of $n\times n$ matrices that commute with {\it every} matrix in $\mathbb{M}_{n,n}$ under matrix multiplication. In other words,
-$$Z=\{B : BY=YB \mbox{ for all } Y \mbox{ in } \mathbb{M}_{n,n}\}$$
+$$Z=\{B : BY=YB \mbox{ for all } Y \in \mathbb{M}_{n,n}\}$$
 
 Is $Z$ a subspace of $\mathbb{M}_{n,n}$?
 
