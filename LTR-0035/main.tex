@@ -60,25 +60,20 @@ Second, observe that our definition of an inverse of $T:V\rightarrow W$ requires
 
 \begin{center}
 \begin{tikzpicture}
- \node[] at (0, 1)  (topleft)    {$\vec{b}$};
- \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
- \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
-  \node[gray] at (2, 1)  (comment)    {(Nothing maps to $\vec{b}$)};
+ \node[] at (0, 3)  (topleft)    {$\vec{b}$};
+ \node[] at (-2, 2)  (bottomleft)    {$\vec{v}$};
+ \node[] at (0, 2)  (cleft1)    {$T(\vec{v})$};
+  \node[gray] at (2, 3)  (comment)    {(Nothing maps to $\vec{b}$)};
   \draw [->,line width=0.5pt,-stealth]  (bottomleft.east) to (cleft1.west);
- \end{tikzpicture}
- \end{center}
- 
- \begin{center}
-\begin{tikzpicture}
- \node[] at (0, 1)  (topright)    {$\vec{b}$};
+  \node[] at (0, 1)  (topright)    {$\vec{b}$};
  \node[] at (-2, 0)  (bottomleft)    {$\vec{v}$};
  \node[] at (-2, 1)  (topleft)    {?};
  \node[] at (0, 0)  (cleft1)    {$T(\vec{v})$};
- \node[gray] at (-6, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
+ \node[gray] at (3, 1)  (comment)    {($\vec{b}$ has nothing to map ``back" to)};
   
   \draw [->,line width=0.5pt,-stealth]  (cleft1.west) to (bottomleft.east);
   \draw [->,line width=0.5pt,-stealth]  (topright.west) to (topleft.east);
-  \node[] at (-4, -1)  (caption)    {Figure 2.  Nothing maps to $\vec{b}$.};
+  \node[] at (0, -1)  (caption)    {Figure 2.  What happens when nothing maps to $\vec{b}$.};
  \end{tikzpicture}
  \end{center}
 
@@ -221,30 +216,29 @@ No element of $\RR^2$ maps to $\begin{bmatrix}1\\1\\1\end{bmatrix}$.
 \end{example}
 
 \begin{example}\label{ex:onto1} Prove that the linear transformation $T:\RR^2\rightarrow \RR^2$ whose standard matrix is $$A=\begin{bmatrix}1&0\\2&1\end{bmatrix}$$ is onto.
-\begin{proof} Let $\vec{b}$ be an element of the codomain ($\RR^2$).  We need to find $\vec{x}$ in the domain ($\RR^2$) such that $T(\vec{x})=\vec{b}$. 
+\begin{explanation} Let $\vec{b}$ be an element of the codomain ($\RR^2$).  We need to find $\vec{x}$ in the domain ($\RR^2$) such that $T(\vec{x})=\vec{b}$. 
 Observe that $A$ is invertible, and $$A^{-1}=\begin{bmatrix}1&0\\-2&1\end{bmatrix}$$
  Let $\vec{x}=\begin{bmatrix}1&0\\-2&1\end{bmatrix}\vec{b}$, then 
  $$T(\vec{x})=\begin{bmatrix}1&0\\2&1\end{bmatrix}\left(\begin{bmatrix}1&0\\-2&1\end{bmatrix}\vec{b}\right)=I\vec{b}=\vec{b}$$
-\end{proof}
+\end{explanation}
 \end{example}
 
 \begin{example}\label{ex:onto2} Prove that the linear transformation $T:\RR^3\rightarrow \RR^2$ induced by $$A=\begin{bmatrix}1&1&-1\\2&3&-1\end{bmatrix}$$ is onto.
 
-
-\begin{proof}
+\begin{explanation}
 
 Let $\vec{b}$ be an element of $\RR^2$.  We need to show that there exists $\vec{x}$ in $\RR^3$ such that $T(\vec{x})=A\vec{x}=\vec{b}$. 
 Observe that
  $$\mbox{rref}(A)=\begin{bmatrix}1 & 0 & -2\\0 & 1 & 1\end{bmatrix}$$
  This means that $A\vec{x}=\vec{b}$ has a solution (in fact, it has infinitely many solutions) for every $\vec{b}$ in $\RR^2$.  Therefore every $\vec{b}$ in $\RR^2$ is an image of some $\vec{x}$ in $\RR^3$. We conclude that $T$ is onto. 
-\end{proof}
+\end{explanation}
 \end{example}
 
 \begin{example}\label{ex:subtosub} Let $$V=\text{span}\left(\begin{bmatrix}1\\0\\0\end{bmatrix}, \begin{bmatrix}1\\1\\1\end{bmatrix}\right)$$
 Define a linear transformation $$T:V\rightarrow \RR^2$$
 by $$T\left(\begin{bmatrix}1\\0\\0\end{bmatrix}\right)=\begin{bmatrix}1\\1\end{bmatrix}\quad \text{and} \quad T\left(\begin{bmatrix}1\\1\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}$$
 Show that $T$ is one-to-one and onto.
-\begin{proof}
+\begin{explanation}
 We will now show that $T$ is one-to-one.  
 Suppose 
 $$T(\vec{u})=T(\vec{v})$$
@@ -263,7 +257,7 @@ This implies that $a=c$ which, in turn, implies $b=d$.  This gives us $\vec{u}=\
 Next we will show that $T$ is onto.  
 The key observation is that vectors $\begin{bmatrix}1\\1\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$ span $\RR^2$.  %Perhaps this is easiest seen by noting that $$\text{rank}\left(\begin{bmatrix}1&0\\1&1\end{bmatrix}\right)=2$$
 This means that given a vector $\vec{v}$ in $\RR^2$, we can write $\vec{v}$ as $\vec{v}=a\begin{bmatrix}1\\1\end{bmatrix}+b\begin{bmatrix}0\\1\end{bmatrix}$.  But this means that $\vec{v}=T\left(a\begin{bmatrix}1\\0\\0\end{bmatrix}+b\begin{bmatrix}1\\1\\1\end{bmatrix}\right)$  We conclude that $T$ is onto. 
-\end{proof}
+\end{explanation}
 \end{example}
 
 \subsection*{Existence of Inverses}
@@ -298,7 +292,7 @@ Recall that $T$ was introduced in Exploration \ref {init:subtosub} of \href{http
 
 \subsection*{Uniqueness of Inverses}
 
-Definition \ref{def:inverse} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
+Definition \ref{def:inverse} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0030/main}{Composition and Inverses of Linear Transformations} refers to $S$ as \dfn{an} inverse of $T$, implying that there may be more than one such transformation $S$.  We will now show that if such a transformation $S$ exists, it is unique.  This will allow us to refer to it as {\it the} inverse of $T$ and to start using $T^{-1}$ to denote the unique inverse of $T$.
 
 \begin{theorem}\label{th:inverseisunique}
 If $T$ is a linear transformation, and $S$ is an inverse of $T$.  Then $S$ is unique.
@@ -314,21 +308,21 @@ $$S=S\circ \id_W=S\circ(T\circ S')=(S\circ T)\circ S'=\id_V\circ S'=S'$$
 \end{proof}
 
 \section*{Practice Problems}
-\begin{problem}
+\begin{problem}\label{prob:inverses1}
 Show that a linear transformation $T:\RR^2\rightarrow \RR^2$ with standard matrix $A=\begin{bmatrix}2&-4\\-3&6\end{bmatrix}$ is not one-to-one.
 \begin{hint}
         Show that multiple vectors map to $\vec{0}$.
       \end{hint}
 \end{problem}
  
- \begin{problem}
+ \begin{problem}\label{prob:inverses2}
  Show that a linear transformation $T:\RR^2\rightarrow \RR^3$ with standard matrix $A=\begin{bmatrix}1&2\\-1&1\\0&1\end{bmatrix}$ is not onto.
  \begin{hint}
  Find $\vec{b}$ such that $A\vec{x}=\vec{b}$ has no solutions.
  \end{hint}
  \end{problem}
  
- \begin{problem}
+ \begin{problem}\label{prob:inverses3}
  Suppose that a linear transformation $T:\RR^3\rightarrow \RR^3$ has a standard matrix $A$ such that $\text{rref}(A)=I$.
  
  Prove that $T$ is one-to-one.
@@ -341,7 +335,7 @@ Show that a linear transformation $T:\RR^2\rightarrow \RR^2$ with standard matri
  \end{hint}
  \end{problem}
  
- \begin{problem}
+ \begin{problem}\label{prob:inverses4}
  Define a transformation $T:\RR^2\rightarrow \RR^2$ by 
  $$T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)=\begin{bmatrix}x\\-2x+4y\end{bmatrix}$$
  Show that $T$ is a linear transformation that has an inverse.
@@ -350,7 +344,7 @@ You will need to demonstrate that $T$ is one-to-one and onto.
  \end{hint}
  \end{problem}
  
- \begin{problem}
+ \begin{problem}\label{prob:inverses5}
  Let $V=\text{span}\left(\begin{bmatrix}1\\0\\1\end{bmatrix}, \begin{bmatrix}0\\1\\0\end{bmatrix}\right)$.  Define a linear transformation $T:V\rightarrow \RR^2$ by
  $$T\left(\begin{bmatrix}1\\0\\1\end{bmatrix}\right)=\begin{bmatrix}0\\1\end{bmatrix}\quad \text{and}\quad T\left(\begin{bmatrix}0\\1\\0\end{bmatrix}\right)=\begin{bmatrix}-1\\1\end{bmatrix}$$
  Prove that $T$ has an inverse.
