@@ -49,6 +49,25 @@ The following screenshot highlights the \dfn{navigation bar} and the \dfn{slider
 \end{center}
 GeoGebra offers many more features.  Make sure to read the directions in each interactive!
 
+\subsection*{Octave Cells}
+Matrix calculations are easy to perform using Octave cells.  Octave exercises appear in the Additional Exercises section at the end of each chapter.  A few other sections also contain Octave exercises.%, indicated by the following:
+
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+If you click the link to go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, you will see the image below.  Notice the dropdown menu in the lower right-hand corner where you can select Octave as the language.  Try copying the following code into a cell to see how it works.
+
+\begin{verbatim}
+% Understanding matrix-vector multiplication as linear combinations of columns
+A=[2 -1 3 2; 0 3 -2 1; -2 4 1 0];
+x=[3;-1;4;1]; %semicolons at the end of a line suppress the output
+x(1)*A(:,1)+x(2)*A(:,2)+x(3)*A(:,3)+x(4)*A(:,4)
+A*x
+\end{verbatim} 
+
+\begin{image}
+\includegraphics{SageCell.jpg}
+\end{image}
+
 \subsection*{Saving your Work and Keeping Track of Progress}
 One of the most common questions about XIMERA is, "Do I have to log in to use it?"  Here is what we recommend:
 \begin{itemize}
