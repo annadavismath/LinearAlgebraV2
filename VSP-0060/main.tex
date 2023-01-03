@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\title{Bases and Dimension for Abstract Vector Spaces} \license{CC BY-NC-SA 4.0}
+\title{Bases and Dimension of Abstract Vector Spaces} \license{CC BY-NC-SA 4.0}
 \begin{document}
 
 \begin{abstract}
@@ -9,7 +9,7 @@
 \maketitle
 
 
-\section*{Bases and Dimension for Abstract Vector Spaces}
+\section*{Bases and Dimension of Abstract Vector Spaces}
 When working with $\RR^n$ and subspaces of $\RR^n$ we developed several fundamental ideas including \dfn{span}, \dfn{linear independence}, \dfn{bases} and \dfn{dimension}.  We will find that these concepts generalize easily to abstract vector spaces and that analogous results hold in these new settings.
 \subsection*{Linear Independence}
 \begin{definition}[Linear Independence]\label{def:linearindependenceabstract}
@@ -21,7 +21,7 @@ If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $
 \end{definition}
 
 \begin{example}\label{ex:polyindset} 
-Show that $P=\{1 + x, 3x + x^{2}, 2 + x - x^{2}\}$ is independent in $\mathbb{P}^{2}$.
+Show that $P=\{1 + x, 3x + x^{2}, 2 + x - x^{2}\}$ is linearly independent in $\mathbb{P}^{2}$.
 
 \begin{explanation}
 Consider the linear combination equation
@@ -47,12 +47,12 @@ The only solution is $a = b = c = 0$.  We conclude that $P$ is linearly independ
 Recall that our motivation for defining a basis of a subspace of $\RR^n$ was to have a collection of vectors such that every vector of the subspace can be expressed as a unique linear combination of the vectors in that collection.  Definition of a basis (\ref{def:basis}) generalizes to abstract vector spaces as follows.
 
 \begin{definition}\label{def:basisabstract}
-Let $V$ be a vector space.  A set $\mathcal{B}$ of vectors of $V$ is called a \dfn{basis} of $V$  provided that $\mathcal{B}$
+Let $V$ be a vector space.  A set $\mathcal{B}$ of vectors of $V$ is called a \dfn{basis} of $V$ provided that 
 \begin{enumerate}
 \item \label{item:defbasis1abstract}
-Spans $V$
+$\mbox{span}(\mathcal{B})=V$ 
 \item \label{item:defbasis2abstract}
-Is linearly independent
+$\mathcal{B}$ is linearly independent.
 \end{enumerate}
 \end{definition}
 
@@ -111,7 +111,7 @@ Suppose $a_{0}1 + a_{1}x + \dots + a_{n}x^{n} = 0$, then $a_{0} = a_{1} = \ldots
 \begin{example}\label{ex:CAbasis}
 Consider the subset
 \begin{equation*}
-C_A = \{X \mbox{ in } \mathbb{M}_{2,2} : AX = XA \}
+C_A = \{X \in\mathbb{M}_{2,2} : AX = XA \}
 \end{equation*}
 of $\mathbb{M}_{2,2}$. 
 
@@ -142,8 +142,8 @@ c & d
 Let 
 $$\mathcal{B}=\left\{\begin{bmatrix}1&1\\0&0\end{bmatrix},\begin{bmatrix}1&0\\0&1\end{bmatrix}\right\}$$
 
-The set $\mathcal{B}$ is linearly independent. (See Practice Problem \ref{prob:CABlinind}) Every element $X$ of $C_A$ can be written as a linear combination of elements of $\mathcal{B}$.  Thus $C_A=\mbox{span}\mathcal{B}$
- So $\mathcal{B}$ is a basis of $C_A$ and $\mbox{dim}(C_A) = 2$.
+The set $\mathcal{B}$ is linearly independent. (See Practice Problem \ref{prob:CABlinind}) Every element $X$ of $C_A$ can be written as a linear combination of elements of $\mathcal{B}$.  Thus $C_A=\mbox{span}\mathcal{B}$.
+ Therefore $\mathcal{B}$ is a basis of $C_A$, and $\mbox{dim}(C_A) = 2$.
 \end{explanation}
 \end{example}
 
@@ -220,13 +220,19 @@ Let $V$ be a vector space, and let $\mathcal{B}=\{\vec{v}_1, \ldots ,\vec{v}_n\}
 $$[\vec{v}]_{\mathcal{B}}=\begin{bmatrix}a_1\\\vdots \\a_n\end{bmatrix}$$
 \end{definition}
 
+\begin{remark}\label{rem:coordVectOrder}
+The order of in which vectors $\vec{v}_1, \ldots ,\vec{v}_n$ appear in $\mathcal{B}$ of Definition \ref{def:coordvector} is important.  Switching the order of these vectors would switch the order of the coordinate vector components.  For this reason, we will often use the term \dfn{ordered basis} to describe $\mathcal{B}$ in the context of coordinate vectors.
+\end{remark}
+
 \begin{example}\label{ex:coordvectorinpolyvectspace}
-The coordinate vector for $p(x)=4-3x^2+5x^3$ in $\mathbb{P}^4$ with respect to $\mathcal{B}=\{1, x, x^2, x^3, x^4\}$ is 
-$$[p(x)]_{\mathcal{B}}=\begin{bmatrix}4\\0\\-3\\5\\0\end{bmatrix}$$
+The coordinate vector for $p(x)=4-3x^2+5x^3$ in $\mathbb{P}^4$ with respect to the ordered basis $\mathcal{B}_1=\{1, x, x^2, x^3, x^4\}$ is 
+$$[p(x)]_{\mathcal{B}_1}=\begin{bmatrix}4\\0\\-3\\5\\0\end{bmatrix}$$
+Now let's change the order of the elements in $\mathcal{B}_1$.  The coordinate vector for $p(x)=4-3x^2+5x^3$ with respect to the ordered basis $\mathcal{B}_2=\{x^4, x^3, x^2, x, 1\}$ is 
+$$[p(x)]_{\mathcal{B}_2}=\begin{bmatrix}0\\5\\-3\\0\\4\end{bmatrix}$$
 \end{example}
 
 \begin{example}\label{ex:coordvectorinpolyvectspace2}
-Show that the set $\mathcal{B}=\{x, 1+x, x+x^2\}$ is a basis for $\mathbb{P}^2$, and find the coordinate vector for $p(x)=4-x+3x^2$ with respect to $\mathcal{B}$.
+Show that the set $\mathcal{B}=\{x, 1+x, x+x^2\}$ is a basis for $\mathbb{P}^2$. Keep the order of elements in $\mathcal{B}$ and find the coordinate vector for $p(x)=4-x+3x^2$ with respect to the ordered basis $\mathcal{B}$.
 \begin{explanation}
 We will begin by showing that the elements of $\mathcal{B}$ are linearly independent.  Suppose 
 $$ax+b(1+x)+c(x+x^2)=0$$
@@ -238,7 +244,7 @@ $$\begin{array}{ccccccc}
      a & +&b&+&c&= &0 \\
 	 & &&&c&=&0
      \end{array}$$
-This gives us a unique solution $a=b=c=0$.  We conclude that $\mathcal{B}$ is linearly independent.
+The solution $a=b=c=0$ is unique.  We conclude that $\mathcal{B}$ is linearly independent.
 
 Next, we need to show that $\mathcal{B}$ spans $\mathbb{P}^2$.  To this end, we will consider a generic element $p(x)=\alpha+\beta x+\gamma x^2$ of $\mathbb{P}^2$ and attempt to express it as a linear combination of the elements of $\mathcal{B}$.
 $$ax+b(1+x)+c(x+x^2)=\alpha+\beta x+\gamma x^2$$
@@ -252,7 +258,7 @@ $$\begin{array}{ccccccc}
      \end{array}$$
 Solving this linear system of $a$, $b$ and $c$ gives us
 $$a=\beta-\alpha-\gamma,\quad b=\alpha,\quad c=\gamma$$
-(You need to verify this)  This shows that every element of $\mathbb{P}^2$ can be written as a linear combination of elements of $\mathcal{B}$.  Therefore $\mathcal{B}$ is a basis for $\mathbb{P}^2$.
+(You should verify this.)  This shows that every element of $\mathbb{P}^2$ can be written as a linear combination of elements of $\mathcal{B}$.  Therefore $\mathcal{B}$ is a basis for $\mathbb{P}^2$.
 
 To find the coordinate vector for $p(x)=4-x+3x^2$ with respect to $\mathcal{B}$ we need to express $p(x)$ as a linear combination of the elements of $\mathcal{B}$.  Fortunately, we have already done all the necessary work.  For $p(x)$, $\alpha=4$, $\beta=-1$ and $\gamma=3$.  This gives us the coefficients of the linear combination: $a=\beta-\alpha-\gamma=-8$, $b=\alpha=4$, $c=\gamma=3$.  We now write $p(x)$ as a linear combination
 $$p(x)=-8(x)+4(1+x)+3(x+x^2)$$
@@ -273,8 +279,28 @@ Recall that the set $V$ of all symmetric $2\times 2$ matrices is a subspace of $
 0 & 1 \\
 1 & 0
 \end{bmatrix}
-\right\}$ is a basis for $V$.  Find the coordinate vector with respect to $\mathcal{B}$ for 
-$$A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}$$
+\right\}$ is a basis for $V$.  
+Let $A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}$.  Observe that $A$ is an element of $V$.
+\begin{enumerate}
+\item
+Find the coordinate vector with respect to the ordered basis $\mathcal{B}$ for $A$.
+
+\item 
+Let $\mathcal{B}'=\left\{
+ \begin{bmatrix}
+0 & 0 \\
+0 & 1
+\end{bmatrix}, 
+\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\right\}$ be another ordered basis for $V$.  Find the coordinate vector for $A$ with respect to $\mathcal{B}'$.
+\end{enumerate}
 \begin{explanation}
 We write $A$ as a linear combination of the elements of $\mathcal{B}$.
 $$A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}=2\begin{bmatrix}1&0\\0&0\end{bmatrix}+\begin{bmatrix}
@@ -284,8 +310,10 @@ $$A=\begin{bmatrix}2&-3\\-3&1\end{bmatrix}=2\begin{bmatrix}1&0\\0&0\end{bmatrix}
 0 & 1 \\
 1 & 0
 \end{bmatrix}$$
-Thus, the coordinate vector is
+Thus, the coordinate vector with respect to $\mathcal{B}$ is
 $$[A]_{\mathcal{B}}=\begin{bmatrix}2\\1\\-3\end{bmatrix}$$
+The coordinate vector with respect to $\mathcal{B}'$ is
+$$[A]_{\mathcal{B}'}=\begin{bmatrix}\answer{1}\\\answer{2}\\\answer{-3}\end{bmatrix}$$
 \end{explanation}
 \end{example}
 
@@ -343,7 +371,7 @@ Show that each set in Practice Problems \ref{prob:linindabstractvsp1}-\ref{prob:
 \end{problem}
 
 \begin{problem}
-Find the coordinate vector for $p(x)=6-2x+4x^2$ with respect to the given basis $\mathcal{B}$ of $\mathbb{P}^2$.
+Find the coordinate vector for $p(x)=6-2x+4x^2$ with respect to the given ordered basis $\mathcal{B}$ of $\mathbb{P}^2$.
 
 \begin{problem}\label{prob:coordvectors1}
 $$\mathcal{B}=\{1 + x, 1 - x, x + x^{2}\}$$
@@ -358,7 +386,7 @@ $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{8}\\\answer{2}\\\answer{4}\end{bma
 \end{problem}
 \end{problem}
 \begin{problem}\label{prob:coordvectors3}
-Find the coordinate vector for $A=\begin{bmatrix}4&-3\\1&2\end{bmatrix}$ with respect to the basis
+Find the coordinate vector for $A=\begin{bmatrix}4&-3\\1&2\end{bmatrix}$ with respect to the ordered basis
 $$\mathcal{B}=
 \left\{
 \begin{bmatrix}
