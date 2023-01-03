@@ -3,7 +3,7 @@
 
 \title{Diagonalizable Matrices and Multiplicity} \license{CC BY-NC-SA 4.0}
 
-\begin{document}
+\begin{document}  
 \begin{abstract}
 \end{abstract}
 \maketitle
@@ -30,13 +30,16 @@ Diagonal matrices have some nice properties, as we demonstrate below.
 Let
 $M =\begin{bmatrix}1 & 2 & 3\\ 4&5&6\\7&8&9\end{bmatrix}$ and let $D =\begin{bmatrix}2 & 0 & 0\\ 0&-5&0\\0&0&10\end{bmatrix}$.  Compute $MD$ and $DM$ using Octave.
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Understanding multiplication by a diagonal matrix
 M=[1 2 3; 4 5 6; 7 8 9]
 D=diag([2 -5 10]) 
 %The function diag(vector) creates a square matrix with diagonal vector and the remaining entries zero. The function diag() can also be used to return the diagonal of a matrix.  For example, diag(M) would return [1;5;9].
 M*D
 D*M
-%\end{octave}
+\end{verbatim}
 
 %$$MD = \begin{bmatrix} \answer{2} & \answer{-10} & \answer{30}\\ \answer{8}&\answer{-25}&\answer{60}\\\answer{14}&\answer{-40}&\answer{90}\end{bmatrix} \quad DM= \begin{bmatrix} \answer{2} & \answer{4} & \answer{6}\\ \answer{-20}&\answer{-25}&\answer{-30}\\\answer{70}&\answer{80}&\answer{90}\end{bmatrix}$$
 
@@ -256,12 +259,15 @@ Let $A=\begin{bmatrix}
 \end{bmatrix}$.  
 Would it be easier to compute $A^5$ or $D^5$ if you had to do so by hand, without a computer?  Certainly $D^5$ is easier, due to the number of zero entries!  Let's use Octave to compute both.
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Powers of a diagonal matrix are easy to compute
 A=[2 0 0; 1 4 -1; -2 -4 4]
 D=diag([2 2 6]) 
-%HARD = A^5
-%EZ = D^5
-%\end{octave}
+HARD = A^5
+EZ = D^5
+\end{verbatim}
 
 We see that raising a diagonal matrix to a power amounts to simply raising each entry to that same power, whereas computing $A^5$ requires many more calculations.  However, we learned in Example~\ref{ex:diagonalizematrix} that $A$ is similar to $D$, and we can use this to make our computation easier.  This is because
 \begin{align*}
@@ -273,14 +279,16 @@ We see that raising a diagonal matrix to a power amounts to simply raising each 
 \end{align*}
 With this in mind, it is not as daunting to calculate $A^5$ by hand.  We can compute the product $PD^5$ quite easily since $D^5$ is diagonal, as we learned in Exploration~\ref{init:multiplydiag}.  That leaves just one product of $3 \times 3$ matrices to compute by hand to compute $A^5$.  And the savings in work would certainly be more pronounced for larger matrices or for powers larger that 5.
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
 A=[2 0 0; 1 4 -1; -2 -4 4]
 D=diag([2 2 6])
 P=[-2 1 0; 1 0 1; 0 1 -2]
-%EZ = D^5
-%P*EZ*P^{-1}
-%HARD = A^5
-%\end{octave}
+EZ = D^5
+P*EZ*P^{-1}
+HARD = A^5
+\end{verbatim}
 \end{exploration}  
 
 In Exploration~\ref{exp:motivate_diagonalization}, because matrix $A$ was diagonalizable, we were able to cut down on computations.  When we chose to work with $D$ and $P$ instead of $A$ we worked with the eigenvalues and eigenvectors of $A$.  Each column of $P$ is an eigenvector of $A$, and so we repeatedly made use of the following theorem (with $m=5$).
@@ -302,7 +310,7 @@ We prove this theorem by induction on $m$.  Clearly $A^m \vec{x} = \lambda^m \ve
 as desired.
 \end{proof}
 
-Matrix $A$ from the explorations had a repeated eigenvalue of 2.  The next theorem and corollary show that matrices which have \emph{distinct} eigenvalues (where none are repeated) have desirable properties.
+Matrix $A$ from the Example \ref{ex:diagonalizematrix} and Exploration \ref{exp:motivate_diagonalization} had a repeated eigenvalue of 2.  The next theorem and corollary show that matrices which have \emph{distinct} eigenvalues (where none are repeated) have desirable properties.
 
 \begin{theorem}\label{th:linindepeigenvectors}
 Let $A$ be an $n\times n$ matrix, and suppose that $A$
@@ -341,7 +349,11 @@ The corollary that follows from this theorem gives a useful tool in determining 
 Let $A$ be an $n \times n$ matrix and suppose it has $n$ distinct eigenvalues. Then it follows that $A$ is diagonalizable.
 \end{corollary}
 
-The corollary tells us that many matrices can be diagonalized in this way.
+%The corollary tells us that many matrices can be diagonalized in this way.
+\begin{remark}
+    Note that Corollary \ref{th:distincteigenvalues} is NOT an ``if and only if statement".  This means that if $A$ has repeated eigenvalues it is still sometimes possible to diagonalize $A$, as seen in Example \ref{ex:diagonalizematrix}.
+\end{remark}
+
 \begin{definition}\label{def:eigdecomposition}
 If we are able to diagonalize $A$, say $A=PDP^{-1}$, we say that $PDP^{-1}$ is an \dfn{eigenvalue decomposition} of $A$.
 \end{definition}
@@ -515,6 +527,8 @@ Show that computing the inverse of $P$ is not really necessary by comparing the 
 In each case, decide whether the matrix $A$ is diagonalizable. If so, find $P$ such that $P^{-1}AP$ is diagonal.
 
 \begin{problem}\label{prb:diagonalizable}
+\begin{enumerate}
+
 \item $\begin{bmatrix}
 1 & 0 & 0 \\
 1 & 2 & 1 \\
@@ -539,6 +553,7 @@ In each case, decide whether the matrix $A$ is diagonalizable. If so, find $P$ s
 2 & 3 & 1
 \end{bmatrix}$
 \wordChoice{\choice{Diagonalizable}\choice[correct]{Not Diagonalizable}}
+\end{enumerate}
 \end{problem}
 
 %\setcounter{enumi}{1}
