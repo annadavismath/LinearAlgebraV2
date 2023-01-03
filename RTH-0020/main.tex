@@ -15,7 +15,7 @@ We will now consider the set of vectors that are orthogonal to every vector in a
   \begin{definition}[Orthogonal Complement of a Subspace of $\RR^n$]\label{def:023776}
 If $W$ is a subspace of $\RR^n$, define the \dfn{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
 \begin{equation*}
-W^\perp = \{\vec{x} \mbox{ in } \RR^n \mid \vec{x} \dotp \vec{y} = 0 \mbox{ for all } \vec{y} \mbox{ in } W\}
+W^\perp = \{\vec{x} \in\RR^n \mid \vec{x} \dotp \vec{y} = 0 \mbox{ for all } \vec{y} \in W\}
 \end{equation*}
 \end{definition}
 
@@ -335,7 +335,7 @@ Let $W$ be a subspace of $\RR^n$. If $\vec{x}$ in $\RR^n$ can be written in any 
 Let $W$ be a subspace of $\RR^n$ and let $\vec{x}$ be a vector in $\RR^n$. Using Practice Problem \ref{prob:8_1_7}, or otherwise, show that $\vec{x}$ is in $W$ if and only if $\vec{x} = \mbox{proj}_W(\vec{x})$.
 
 \begin{hint}
-Write $\vec{w} = \mbox{proj}_W(\vec{x})$. Then $\vec{w}$ is in $W$ by definition. If $\vec{x}$ is $W$, then $\vec{x} - \vec{w}$ is in $W$. But $\vec{x} - \vec{w}$ is also in $W^\perp$ by Theorem~\ref{023885}, so $\vec{x} - \vec{w}$ is in $W \cap U^\perp = \{\vec{0}\}$. Thus $\vec{x} = \vec{w}$.
+Write $\vec{w} = \mbox{proj}_W(\vec{x})$. Then $\vec{w}$ is in $W$ by definition. If $\vec{x}$ is $W$, then $\vec{x} - \vec{w}$ is in $W$. But $\vec{x} - \vec{w}$ is also in $W^\perp$, so $\vec{x} - \vec{w}$ is in $W \cap U^\perp = \{\vec{0}\}$. Thus $\vec{x} = \vec{w}$.
 \end{hint}
 \end{problem}
 
@@ -353,7 +353,7 @@ If $W$ is a subspace of $\RR^n$, show that $\vec{x} = \mbox{proj}_W(\vec{x}) + \
 \end{problem}
 
 \begin{problem}\label{prob:8_1_12}
-If $\{\vec{v}_{1}, \dots, \vec{v}_{n}\}$ is an orthogonal basis of $\RR^n$ and $W = \mbox{span}\left(\vec{v}_{1}, \dots, \vec{v}_{m}\right)$, show that \\ $W^\perp = \mbox{span}\left(\vec{v}_{m + 1}, \dots, \vec{v}_{n}\right)$.
+If $\{\vec{v}_{1}, \dots, \vec{v}_{n}\}$ is an orthogonal basis of $\RR^n$ and $W = \mbox{span}\left(\vec{v}_{1}, \dots, \vec{v}_{m}\right)$, $m<n$. Show that $W^\perp = \mbox{span}\left(\vec{v}_{m + 1}, \dots, \vec{v}_{n}\right)$.
 \end{problem}
 
 
