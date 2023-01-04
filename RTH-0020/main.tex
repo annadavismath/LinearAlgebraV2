@@ -47,10 +47,10 @@ Let $W$ be a subspace of $\RR^n$.
 \end{theorem}
 
 \begin{proof}[Proof of Part~\ref{th:023783c}:]
-We must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$.  To show that two sets are equal, we must show that all elements of each set are included in the other set.
+We must show that $W^\perp = \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$.  To show that two sets are equal, we must show that all elements of one set are included in the other set, and then we must show the reverse inclusion.
 %To show that two sets $\mathcal{S}$ and $\mathcal{T}$ are equal, a common strategy is to show that $\mathcal{S} \subseteq \mathcal{T}$ and also $\mathcal{T} \subseteq \mathcal{S}$.  We employ this strategy now.
 
-Clearly, if $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. This shows $W^\perp \subseteq \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. For the reverse inclusion, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we need to show that $\vec{x}$ is in $W^\perp$.  We need to show $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. We can write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
+If $\vec{x}$ is in $W^\perp$ then $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$ because each $\vec{x}_{i}$ is in $W$. This shows $W^\perp \subseteq \{\vec{x} \mid \vec{x} \dotp \vec{x}_{i} = 0 \mbox{ for each } i\}$. For the reverse inclusion, suppose that $\vec{x} \dotp \vec{x}_{i} = 0$ for all $i$; we need to show that $\vec{x}$ is in $W^\perp$.  We need to show $\vec{x} \dotp \vec{y} = 0$ for each $\vec{y}$ in $W$. We can write $\vec{y} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} + \dots  + c_{k}\vec{x}_{k}$, where each $c_{i}$ is in $\RR$. Then
 \begin{equation*}
 \vec{x} \dotp \vec{y} = c_{1}(\vec{x} \dotp \vec{x}_{1}) + c_{2}(\vec{x} \dotp \vec{x}_{2})+ \dots +c_{k}(\vec{x} \dotp \vec{x}_{k}) = c_{1}0 + c_{2}0 + \dots + c_{k}0 = 0
 \end{equation*}
