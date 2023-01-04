@@ -15,10 +15,10 @@ Recall that an $n \times n$ matrix $A$ is diagonalizable if and only if it has $
 \begin{equation*}
 P^{-1}AP \mbox{ is diagonal.}
 \end{equation*}
-As we have seen, the really nice bases of $\RR^n$ are the orthogonal ones, so a natural question is: which $n \times n$ matrices have $n$ orthogonal eigenvectors, so that columns of $P$ form an orthogonal basis for $\RR^n$? These turn out to be precisely the \dfn{symmetric matrices} (matrices for which $A=A^T$), and this is the main result of this section.
+As we have seen, the nice bases of $\RR^n$ are the orthogonal ones, so a natural question is: which $n \times n$ matrices have $n$ orthogonal eigenvectors, so that columns of $P$ form an orthogonal basis for $\RR^n$? These turn out to be precisely the \dfn{symmetric matrices} (matrices for which $A=A^T$), and this is the main result of this section.
 
 \section*{Orthogonal Matrices}
-Before proceeding, recall that an orthogonal set of vectors is called \dfn{orthonormal} if $\norm{\vec{q}} = 1$ for each vector $\vec{q}$ in the set, and that any orthogonal set $\{\vec{v}_{1}, \vec{v}_{2}, \dots, \vec{v}_{k}\}$ can be ``\textit{normalized}'', that is converted into an orthonormal set $\left\{ \frac{1}{\norm{\vec{v}_{1}}}\vec{v}_{1}, \frac{1}{\norm{\vec{v}_{2}}}\vec{v}_{2}, \dots, \frac{1}{\norm{\vec{v}_{k}}}\vec{v}_{k} \right\}$. In particular, if a matrix $A$ has $n$ orthogonal eigenvectors, they can (by normalizing) be taken to be orthonormal. The corresponding diagonalizing matrix (we will use $Q$ instead of $P$) has orthonormal columns, and such matrices are very easy to invert.
+Recall that an orthogonal set of vectors is called \dfn{orthonormal} if $\norm{\vec{q}} = 1$ for each vector $\vec{q}$ in the set, and that any orthogonal set $\{\vec{v}_{1}, \vec{v}_{2}, \dots, \vec{v}_{k}\}$ can be ``\textit{normalized}'', i.e. converted into an orthonormal set $\left\{ \frac{1}{\norm{\vec{v}_{1}}}\vec{v}_{1}, \frac{1}{\norm{\vec{v}_{2}}}\vec{v}_{2}, \dots, \frac{1}{\norm{\vec{v}_{k}}}\vec{v}_{k} \right\}$. In particular, if a matrix $A$ has $n$ orthogonal eigenvectors, they can (by normalizing) be taken to be orthonormal. The corresponding diagonalizing matrix (we will use $Q$ instead of $P$) has orthonormal columns, and such matrices are very easy to invert.
 
 
 \begin{theorem}\label{th:orthogonal_matrices}
@@ -59,57 +59,106 @@ In view of \ref{th:orthogonal_matrices_b} and \ref{th:orthogonal_matrices_c} of 
 \end{remark}
 
 It is not enough that the rows of a matrix $A$ are merely orthogonal for $A$ to be an orthogonal matrix. Here is an example.
+%\begin{exploration}\label{exp:make_orthogonal}
+%\begin{octave} 
+%A=[2 1 1; -1 1 1; 0 -1 1]
+%\end{octave}
+%\begin{enumerate}
+ %   \item Check that matrix $A$ in the Octave window has rows that are orthogonal.
+  %  \begin{hint}
+  %  A(1,:)*transpose(A(2,:)) 
+    
+  %  A(2,:)*transpose(A(3,:)) 
+    
+  %  A(1,:)*transpose(A(3,:)) 
+    
+  %  \end{hint}
+ %   \item Check that matrix $A$ in the Octave window has columns that are NOT orthogonal.
+ %   \begin{hint}
+ %   transpose(A(:,1))*A(:,2) 
+    
+ %   etc.
+    
+ %   \end{hint}
+ %   \item Check that matrix $A$ in the Octave window has rows that are NOT orthonormal.
+ %   \begin{hint}
+ %   A(1,:)*transpose(A(1,:)) 
+    
+ %   A(2,:)*transpose(A(2,:)) 
+    
+ %   A(3,:)*transpose(A(3,:)) 
+    
+ %   \end{hint}
+%    \item Create a matrix $Q$ by normalizing each of the rows of $A$.
+%    \begin{hint}
+%    q1=A(1,:)/norm(A(1,:)); 
+    
+%    q2=A(2,:)/norm(A(2,:));
+    
+%    q3=A(3,:)/norm(A(3,:));
+    
+%    Q = [q1;q2;q3]
+    
+%    \end{hint}
+%    \item Check that $Q$ is an orthogonal matrix.
+%    \begin{hint}
+%    You should get $Q = \begin{bmatrix}
+%\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}} & %\frac{1}{\sqrt{6}} \\
+%\frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & %\frac{1}{\sqrt{3}} \\
+%0 & \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+%\end{bmatrix}$, and one can check that this is orthogonal in a number of ways.
+ %   \end{hint}
+%\end{enumerate}
+
+%\end{exploration}
 
 \begin{exploration}\label{exp:make_orthogonal}
-%\begin{octave} 
-A=[2 1 1; -1 1 1; 0 -1 1]
-%\end{octave}
+Let $A=\begin{bmatrix}
+    2&1&1\\-1&1&1\\0&-1&1
+\end{bmatrix}$
 \begin{enumerate}
-    \item Check that matrix $A$ in the Octave window has rows that are orthogonal.
-    \begin{hint}
-    A(1,:)*A(2,:)' 
-    
-    A(2,:)*A(3,:)' 
-    
-    A(1,:)*A(3,:)' 
-    
-    \end{hint}
-    \item Check that matrix $A$ in the Octave window has columns that are NOT orthogonal.
-    \begin{hint}
-    A(:,1)'*A(:,2) 
-    
-    etc.
-    
-    \end{hint}
-    \item Check that matrix $A$ in the Octave window has rows that are NOT orthonormal.
-    \begin{hint}
-    A(1,:)*A(1,:)' 
-    
-    A(2,:)*A(2,:)' 
-    
-    A(3,:)*A(3,:)' 
-    
-    \end{hint}
+    \item Check that matrix $A$ has rows that are orthogonal.
+    \item Check that matrix $A$ has columns that are NOT orthogonal.
+    \item Check that matrix $A$ has rows that are NOT orthonormal.
     \item Create a matrix $Q$ by normalizing each of the rows of $A$.
-    \begin{hint}
-    q1=A(1,:)/norm(A(1,:)); 
-    
-    q2=A(2,:)/norm(A(2,:));
-    
-    q3=A(3,:)/norm(A(3,:));
-    
-    Q = [q1;q2;q3]
-    
-    \end{hint}
     \item Check that $Q$ is an orthogonal matrix.
-    \begin{hint}
-    You should get $Q = \begin{bmatrix}
+\end{enumerate}
+
+Click the arrow to see the answer.
+\begin{expandable}
+You should get $Q = \begin{bmatrix}
 \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{6}} \\
 \frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} \\
 0 & \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
 \end{bmatrix}$, and one can check that this is orthogonal in a number of ways.
-    \end{hint}
-\end{enumerate}
+\end{expandable}
+
+This exploration can certainly be done by hand (although it takes some time), but it also makes for a very nice Octave exercise.
+
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+    %Exploration from Section 9.4 Orthogonal Matrices and Symmetric Matrices
+    A=[2 1 1; -1 1 1; 0 -1 1]
+    %Check that matrix A has rows that are orthogonal.
+    A(1,:)*transpose(A(2,:)) 
+    A(2,:)*transpose(A(3,:)) 
+    A(1,:)*transpose(A(3,:)) 
+    %Check that matrix A has columns that are NOT orthogonal.
+    transpose(A(:,1))*A(:,2) 
+    %(This is 1 of 3 calculations to do.)
+    %Check that matrix A in the Octave window has rows that are NOT orthonormal.
+    %(See the results from the first question.)
+    %Create a matrix Q by normalizing each of the rows of A.
+    q1=A(1,:)/norm(A(1,:)); 
+    q2=A(2,:)/norm(A(2,:));
+    q3=A(3,:)/norm(A(3,:));
+    Q = [q1;q2;q3]
+    %Check that Q is an orthogonal matrix.
+    Q*transpose(Q)
+    %(You may get numbers close to zero in some places you expect to get zero due to rounding error)
+\end{verbatim}
+    
 
 \end{exploration}
 
@@ -118,7 +167,7 @@ We studied the idea of closure when we studied \href{https://ximera.osu.edu/oerl
 \begin{theorem}\label{th:orthogonal_product_inverse}
 \begin{enumerate}
     \item\label{th:orthogonal_product}
-    If $P$ and $Q$ are orthogonal matrices, then $PQ$ is also orthogonal.
+    If $P$ and $Q$ are orthogonal matrices, then $PQ$ is also orthogonal. (We say that the set of orthogonal matices is closed under matrix multiplication.)
     \item\label{th:orthogonal_inverse}
     If $P$ is an orthogonal matrix, then so is $P^{-1} = P^{T}$.
 \end{enumerate}
@@ -142,8 +191,8 @@ We now shift our focus from orthogonal matrices to another important class of $n
 
 When we began our study of eigenvalues and eigenvectors, we saw numerous examples of matrices with entries that were real numbers with eigenvalues that were complex numbers.  It can be shown that symmetric matrices only have real eigenvalues.  We also learned that some matrices are diagonalizable while other matrices are not.  It turns out that every symmetric matrix is diagonalizable.  In fact, we can say more, but first we need the following definition.
 
-\begin{definition}
-An $n \times n$ matrix $A$ is said to be \dfn{orthogonally diagonalizable} when an orthogonal matrix $Q$ can be found such that  $Q^{-1}AQ = Q^{T}AQ$ is diagonal.
+\begin{definition}\label{def:orthDiag}
+An $n \times n$ matrix $A$ is said to be \dfn{orthogonally diagonalizable} if an orthogonal matrix $Q$ can be found such that  $Q^{-1}AQ = Q^{T}AQ$ is diagonal.
 \end{definition}
 
 We have learned earlier that when we diagonalize a matrix $A$, we write $P^{-1}AP=D$ for some matrix $P$ where $D$ is diagonal, and the diagonal entries are the eigenvalues of $A$.  We have also learned that the columns of the matrix $P$ are the corresponding eigenvectors of $A$.  So when a matrix is orthogonally diagonalizable, we are able to accomplish the diagonalization using a matrix $Q$ consisting of $n$ eigenvectors that form an orthonormal basis for $\RR^n$.  The following remarkable theorem shows that the matrices that have this property are precisely the symmetric matrices.
@@ -209,7 +258,7 @@ is diagonal. Because $Q_{1}Q_{2}$ is orthogonal by Theorem \ref{th:orthogonal_pr
 \end{proof}
 
 
-Because the eigenvalues of a real symmetric matrix are real, Theorem~\ref{th:PrinAxes} is also called the \dfn{Real Spectral Theorem}, and the set of distinct eigenvalues is called the \dfn{spectrum} of the matrix. A similar result holds for matrices with complex entries.
+Because the eigenvalues of a real symmetric matrix are real, Theorem~\ref{th:PrinAxes} is also called the \dfn{Real Spectral Theorem}, and the set of distinct eigenvalues is called the \dfn{spectrum} of the matrix. A similar result holds for matrices with complex entries (Theorem \ref{th:025890}).
 
 
 \begin{example}\label{ex:DiagonalizeSymmetricMatrix}
@@ -222,11 +271,11 @@ Find an orthogonal matrix $Q$ such that $Q^{-1}AQ$ is diagonal, where $A = \begi
 \begin{explanation}
  The characteristic polynomial of $A$ is (adding twice row 1 to row 2):
 \begin{equation*}
-c_{A}(x) = \det \begin{bmatrix}
-x - 1 & 0 & 1 \\
-0 & x - 1 & -2 \\
-1 & -2 & x - 5
-\end{bmatrix} = x(x - 1)(x - 6)
+c_{A}(z) = \det \begin{bmatrix}
+z - 1 & 0 & 1 \\
+0 & z - 1 & -2 \\
+1 & -2 & z - 5
+\end{bmatrix} = z(z - 1)(z - 6)
 \end{equation*}
 Thus the eigenvalues are $\lambda = 0$, $1$, and $6$, and corresponding eigenvectors are
 \begin{equation*}
@@ -318,11 +367,11 @@ Orthogonally diagonalize the symmetric matrix $A = \begin{bmatrix}
 \begin{explanation}
   The characteristic polynomial is
 \begin{equation*}
-c_{A}(x) = \det  \begin{bmatrix}
-x-8 & 2 & -2 \\
-2 & x-5 & -4 \\
--2 & -4 & x-5
-\end{bmatrix} = x(x-9)^2
+c_{A}(z) = \det  \begin{bmatrix}
+z-8 & 2 & -2 \\
+2 & z-5 & -4 \\
+-2 & -4 & z-5
+\end{bmatrix} = z(z-9)^2
 \end{equation*}
 Hence the distinct eigenvalues are $0$ and $9$ are of algebraic multiplicity $1$ and $2$, respectively.  The geometric multiplicities must be the same, for $A$ is diagonalizable, being symmetric. It follows that $\mbox{dim}(\mathcal{S}_0) = 1$ and $\mbox{dim}(\mathcal{S}_9) = 2$.  Gaussian elimination gives
 \begin{equation*}
@@ -412,7 +461,7 @@ A\vec{q}_1 & A\vec{q}_2  & \cdots & A\vec{q}_n \\
 \end{bmatrix}=QD, $$
 where $D$ is the diagonal matrix with diagonal entries $\lambda_1, \lambda_2, \ldots, \lambda_n$.  But then $Q^TAQ=D$, proving this half of the theorem.
 
-For the converse, if $A$ is orthogonally diagonalizable, then by Theorem \ref{th:PrinAxes} it is symmetric.  But then Theorem~\ref{th:symmetric_has_ortho_ev} tells us that eigenvectors corresponding to distinct eigenvalues are orthogonal.  Because $A$ is (orthogonally) diagonalizable, we know the geometric multiplicity of each eigenvalue is equal to its algebraic multiplicity.  This implies that e can use Gram-Schmidt on each eigenspace of dimension > 1 to get a full set of $n$ orthogonal eigenvectors.
+For the converse, if $A$ is orthogonally diagonalizable, then by Theorem \ref{th:PrinAxes} it is symmetric.  But then Theorem~\ref{th:symmetric_has_ortho_ev} tells us that eigenvectors corresponding to distinct eigenvalues are orthogonal.  Because $A$ is (orthogonally) diagonalizable, we know the geometric multiplicity of each eigenvalue is equal to its algebraic multiplicity.  This implies that we can use Gram-Schmidt on each eigenspace of dimension $> 1$ to get a full set of $n$ orthogonal eigenvectors.
 \end{proof}
 \end{theorem}
 
@@ -440,7 +489,7 @@ If $A$ is an $n \times n$ matrix with real eigenvalues $\lambda_{1}, \lambda_{2}
 Suppose $A$ is orthogonally diagonalizable.  Prove that $A$ is symmetric.  (This is the easy direction of the "if and only if" in Theorem \ref{th:PrinAxes}.)
 \end{problem}
 
-\begin{problem}\label{prob:make_ortho_matrix}
+\begin{problem}%\label{prob:make_ortho_matrix}
 Normalize the rows to make each of the following matrices orthogonal.
 
 % 
@@ -473,7 +522,6 @@ $A = \begin{bmatrix}
 2 & 2 & -1
 \end{bmatrix}$
 \end{problem}
-
 \end{problem}
 
 \begin{problem}\label{prob:triag_orthogonal}
@@ -489,7 +537,7 @@ If $Q$ is orthogonal, show that $kQ$ is orthogonal if and only if $k = 1$ or $k 
 \end{problem}
 
 \begin{problem}\label{prob:thirdrow}
-If the first two rows of an orthogonal matrix are $(\frac{1}{3}, \frac{2}{3}, \frac{2}{3})$ and $(\frac{2}{3}, \frac{1}{3}, \frac{-2}{3})$, find all possible third rows.
+If the first two rows of an orthogonal matrix are $[\frac{1}{3}, \frac{2}{3}, \frac{2}{3}]$ and $[\frac{2}{3}, \frac{1}{3}, \frac{-2}{3}]$, find all possible third rows.
 \end{problem}
 
 \begin{problem}\label{prob:findQ}
@@ -589,9 +637,9 @@ Show that the following are equivalent for a symmetric matrix $A$.
 \begin{enumerate}
 \item $A$ is orthogonal.
 \item $A^{2} = I$.
-\item* All eigenvalues of $A$ are $\pm 1$.
+\item All eigenvalues of $A$ are $\pm 1$.
 \end{enumerate}
-[Hint: For (b) if and only if (c), use Theorem~\ref{thm:024303}.]
+[Hint: For (b) if and only if (c), use Theorem~\ref{th:detofproduct}.]
 
 
 %\begin{sol}
@@ -609,7 +657,7 @@ We call matrices $A$ and $B$ \dfn{orthogonally similar} (and write $A \stackrel{
 
 
 \begin{enumerate}
-\item Show that $A \stackrel{\circ}{\sim} A$ for all $A$; $A \stackrel{\circ}{\sim} B \Rightarrow B \stackrel{\circ}{\sim} A$; and $A \stackrel{\circ}{\sim} B$ and $B \stackrel{\circ}{\sim} C \Rightarrow A \stackrel{\circ}{\sim} C$.
+\item Show that $A \stackrel{\circ}{\sim} A$ for all $A$; $A \stackrel{\circ}{\sim} B \Rightarrow B \stackrel{\circ}{\sim} A$; and $A \stackrel{\circ}{\sim} B$ and $B \stackrel{\circ}{\sim} C \Rightarrow A \stackrel{\circ}{\sim} C$. (This means that ``orthogonally similar" is an \dfn{equivalence relation}.)
 
 \item Show that the following are equivalent for two symmetric matrices $A$ and $B$.
 
@@ -727,7 +775,7 @@ We call a square matrix $E$ a \dfn{projection matrix} if $E^{2} = E = E^{T}$.
 \end{problem}
 
 \begin{problem}\label{prob:ortho21}
-A matrix that we obtain from the identity matrix by writing its rows in a different order is called a \dfn{permutation matrix}. Show that every permutation matrix is orthogonal.
+A matrix that we obtain from the identity matrix by writing its rows in a different order is called a \dfn{permutation matrix} (see Theorem \ref{th:LUPA}). Show that every permutation matrix is orthogonal.
 \end{problem}
 
 \begin{problem}\label{prob:ortho22}
@@ -763,11 +811,17 @@ Let $A$ be a skew-symmetric matrix; that is, $A^{T} = -A$. Assume that $A$ is an
 
 
 \begin{enumerate} 
-\item Show that $I + A$ is invertible. [\textit{Hint}: By Theorem~\ref{thm:004553}, it suffices to show that $(I + A)\vec{x} = \vec{0}$, $\vec{x}$ in $\RR^n$, implies $\vec{x} = \vec{0}$. Compute $\vec{x} \dotp \vec{x} = \vec{x}^{T}\vec{x}$, and use the fact that $A\vec{x} = -\vec{x}$ and $A^{2}\vec{x} = \vec{x}$.]
+\item Show that $I + A$ is invertible. 
+\begin{hint}
+By Theorem~\ref{thm:004553}, it suffices to show that $(I + A)\vec{x} = \vec{0}$, $\vec{x}$ in $\RR^n$, implies $\vec{x} = \vec{0}$. Compute $\vec{x} \dotp \vec{x} = \vec{x}^{T}\vec{x}$, and use the fact that $A\vec{x} = -\vec{x}$ and $A^{2}\vec{x} = \vec{x}$.
+\end{hint}
 
 \item Show that $Q = (I - A)(I + A)^{-1}$ is orthogonal.
 
-\item Show that every orthogonal matrix $P$ such that $I + P$ is invertible arises as in part (b) from some skew-symmetric matrix $A$. \newline [\textit{Hint}: Solve $P = (I - A)(I + A)^{-1}$ for $A$.]
+\item Show that every orthogonal matrix $P$ such that $I + P$ is invertible arises as in part (b) from some skew-symmetric matrix $A$. 
+\begin{hint}
+Solve $P = (I - A)(I + A)^{-1}$ for $A$.
+\end{hint}
 
 \end{enumerate}
 %\begin{sol}
@@ -786,16 +840,21 @@ Show that the following are equivalent for an $n \times n$ matrix $Q$.
 \begin{enumerate} 
 \item $Q$ is orthogonal.
 
-\item $\norm{Q\vec{x}} = \norm{\vec{x}}$ for all columns $\vec{x}$ in $\RR^n$.
+\item $\norm{Q\vec{x}} = \norm{\vec{x}}$ for all $\vec{x}\in\RR^n$.
 
-\item $\norm{ Q\vec{x} - Q\vec{y}} = \norm{\vec{x} - \vec{y}}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
+\item $\norm{ Q\vec{x} - Q\vec{y}} = \norm{\vec{x} - \vec{y}}$ for all $\vec{x}$, $\vec{y}\in \RR^n$.
 
-\item $(Q\vec{x}) \dotp (Q\vec{y}) = \vec{x} \dotp \vec{y}$ for all columns $\vec{x}$ and $\vec{y}$ in $\RR^n$.
+\item $(Q\vec{x}) \dotp (Q\vec{y}) = \vec{x} \dotp \vec{y}$ for all columns $\vec{x}$, $\vec{y}\in\RR^n$.
 
 \begin{hint}
-For (c) $\Rightarrow$ (d), see Exercise \ref{ex:5_3_14}(a). For (d) $\Rightarrow$ (a), show that column $i$ of $Q$ equals $Q\vec{e}_{i}$, where $\vec{e}_{i}$ is column $i$ of the identity matrix.
+%For (c) $\Rightarrow$ (d), see Exercise \ref{ex:5_3_14}(a). 
+For (d) $\Rightarrow$ (a), show that column $i$ of $Q$ equals $Q\vec{e}_{i}$, where $\vec{e}_{i}$ is column $i$ of the identity matrix.
 \end{hint}
 \end{enumerate}
+\begin{remark}
+    This exercise shows that linear transformations with orthogonal standard matrices are distance-preserving (b,c) and angle-preserving (d).
+\end{remark}
+
 \end{problem}
 
 
