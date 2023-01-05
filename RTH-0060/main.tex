@@ -9,6 +9,7 @@
 \end{abstract}
 \maketitle
 
+\section*{SVD Decomposition}
 We begin this section with an important definition.
 
 \begin{definition}\label{singularvalues}
@@ -68,7 +69,7 @@ A=U\left[
 \end{array}
 \right] V^T
 \end{equation*}
-where $\sigma $ is of the form
+where $\sigma $ is a block matrix of the form
 \[
 \sigma =\left[
 \begin{array}{ccc}
@@ -150,7 +151,8 @@ A^TA\vec{v}_{i}=\sigma _{i}^{2}\vec{v}_{i}$ where $\sigma
 _{i}^{2}>0$ for $i=1,\dots ,k,\left( \sigma _{i}>0\right) $ and equals zero
 if $i>k.$ Thus for $i>k,$ $A\vec{v}_{i}=\vec{0}$ because
 \begin{equation*}
- A\vec{v}_{i}\dotp A\vec{v}_{i} = A^TA\vec{v}_{i} \dotp \vec{v}_{i}  = \vec{0} \dotp \vec{v}_{i} =0
+ A\vec{v}_{i}\dotp A\vec{v}_{i} = (A\vec{v}_i)^T(A\vec{v}_i)=\vec{v}_i^T(A^TA\vec{v}_i)=\vec{0}
+ %A^TA\vec{v}_{i} \dotp \vec{v}_{i}  = \vec{0} \dotp \vec{v}_{i} =0
 \end{equation*}
 For $i=1,\dots ,k,$ define $\vec{u}_{i}\in \RR^{m}$ by
 \begin{equation*}
@@ -159,11 +161,11 @@ For $i=1,\dots ,k,$ define $\vec{u}_{i}\in \RR^{m}$ by
 Thus $A\vec{v}_{i}=\sigma _{i}\vec{u}_{i}.$ Now
 \begin{eqnarray*}
 \vec{u}_{i} \dotp \vec{u}_{j} &=&  \sigma _{i}^{-1}A
-\vec{v}_{i} \dotp \sigma _{j}^{-1}A\vec{v}_{j}  = \sigma_{i}^{-1}\vec{v}_{i} \dotp \sigma _{j}^{-1}A^TA\vec{v}_{j} \\
+\vec{v}_{i} \dotp \sigma _{j}^{-1}A\vec{v}_{j}  = \sigma_{i}^{-1}\vec{v}_{i}^T \sigma _{j}^{-1}A^TA\vec{v}_{j} \\
 &=& \sigma _{i}^{-1}\vec{v}_{i} \dotp \sigma _{j}^{-1}\sigma _{j}^{2} \vec{v}_{j} =
-\frac{\sigma _{j}}{\sigma _{i}}\left( \vec{v}_{i} \dotp \vec{v}_{j}\right)
-=\delta _{ij}
+\frac{\sigma _{j}}{\sigma _{i}}\left( \vec{v}_{i} \dotp \vec{v}_{j}\right)%=\delta _{ij} 
 \end{eqnarray*}
+This means that $\vec{u}_{i} \dotp \vec{u}_{j}=1$ when $i=j$ and $\vec{u}_{i} \dotp \vec{u}_{j}=0$ when $i\neq j$.
 Thus $\left\{ \vec{u}_{1}, \dots, \vec{u}_{k}\right\}$ is an orthonormal set of
 vectors in $\RR^{m}.$ Also,
 \begin{equation*}
@@ -171,7 +173,7 @@ AA^T\vec{u}_{i}=AA^T\sigma _{i}^{-1}A\vec{v}_{i}=\sigma
 _{i}^{-1}AA^TA\vec{v}_{i}=\sigma _{i}^{-1}A\sigma _{i}^{2}\vec{v}
 _{i}=\sigma _{i}^{2}\vec{u}_{i}
 \end{equation*}
-Now extend $\left\{ \vec{u}_{1}, \dots, \vec{u}_{k}\right\}$ to an orthonormal
+Now, using Gram-Schmidt, extend $\left\{ \vec{u}_{1}, \dots, \vec{u}_{k}\right\}$ to an orthonormal
 basis for all of $\RR^{m},\left\{ \vec{u}_{1},\dots,\vec{u}_{m}\right\}$
 and let
 \begin{equation*}
@@ -222,7 +224,7 @@ where $\sigma $ is given in the statement of the theorem.
 The SVD has as an immediate corollary which is given in the following interesting result.
 
 \begin{corollary}\label{cor:ranksingularvalues}
-Let $A$ be an $m\times n$ matrix. Then the rank of $A$ and $A^T$ equals
+Let $A$ be an $m\times n$ matrix. Then the rank of $A$ (or of $A^T$) equals
 the number of singular values.
 \end{corollary}
 
@@ -274,15 +276,15 @@ To begin, we compute $AA^T$ and $A^TA$.
 6 & -2 & 10 \end{array}\right]\]
 Since $AA^T$ is $2\times 2$ while $A^T A$ is $3\times 3$, and $AA^T$
 and $A^TA$ have the same {\em nonzero} eigenvalues (by Lemma
-\ref{lem:samenonzeroeigenvalues}), we compute the characteristic polynomial  $c_{AA^T}(x)$ (because it's
+\ref{lem:samenonzeroeigenvalues}), we compute the characteristic polynomial  $c_{AA^T}(x)$ (because it is
 easier to compute than $c_{A^TA}(x)$).
 \begin{eqnarray*}
-c_{AA^T}(x)& = &\det(xI-AA^T)=  \det \left[\begin{array}{cc}
-x-11 & -5 \\ -5 & x-11 \end{array}\right]\\
-& = &(x-11)^2 - 25 \\
-& = & x^2-22x+121-25\\
-& = & x^2-22x+96\\
-& = & (x-16)(x-6)
+c_{AA^T}(z)& = &\det(zI-AA^T)=  \det \left[\begin{array}{cc}
+z-11 & -5 \\ -5 & z-11 \end{array}\right]\\
+& = &(z-11)^2 - 25 \\
+& = & z^2-22z+121-25\\
+& = & z^2-22z+96\\
+& = & (z-16)(z-6)
 \end{eqnarray*}
 Therefore, the eigenvalues of $AA^T$ are $\lambda_1=16$ and $\lambda_2=6$.
 
@@ -522,10 +524,10 @@ First consider $A^TA$
 \end{array}
 \right]
 \end{equation*}
-What are some eigenvalues and eigenvectors? Some computing shows these are
+What are some eigenvalues and eigenvectors? Some computing shows that the eigenvalues are $0$ and $16$.  Furthermore, we can find a basis for each eigenspace.
 
 \begin{equation*}
-\left\{ \left[
+\mathcal{S}_0=\mbox{span}\left( \left[
 \begin{array}{c}
 0 \\
 0 \\
@@ -537,13 +539,14 @@ What are some eigenvalues and eigenvectors? Some computing shows these are
 \frac{1}{5}\sqrt{5} \\
 0
 \end{array}
-\right] \right\} \leftrightarrow 0,\left\{ \left[  
+\right] \right),
+\quad\mathcal{S}_{16}=\mbox{span}\left( \left[  
 \begin{array}{c}
 \frac{1}{5}\sqrt{5} \\
 \frac{2}{5}\sqrt{5} \\
 0
 \end{array}
-\right] \right\} \leftrightarrow 16
+\right] \right) 
 \end{equation*}
 Thus the matrix $V$ is given by
 \begin{equation*}
@@ -564,20 +567,20 @@ Next consider $AA^T$
 \end{array}
 \right]
 \end{equation*}
-Eigenvectors and eigenvalues are
+Eigenvalues are $0$ and $16$, and eigenspaces are
 
 \begin{equation*}
-\left\{ \left[  
+\mathcal{S}_0=\mbox{span}\left(\left[  
 \begin{array}{c}
 -\frac{1}{2}\sqrt{2} \\
 \frac{1}{2}\sqrt{2}
 \end{array}
-\right] \right\} \leftrightarrow 0,\left\{ \left[  
+\right] \right),\quad\mathcal{S}_{16}=\mbox{span}\left( \left[  
 \begin{array}{c}
 \frac{1}{2}\sqrt{2} \\
 \frac{1}{2}\sqrt{2}
 \end{array}
-\right] \right\} \leftrightarrow 16
+\right] \right) 
 \end{equation*}
 Thus you can let $U$ be given by
 \begin{equation*}
