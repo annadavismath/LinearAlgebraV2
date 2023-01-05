@@ -10,6 +10,17 @@
 \maketitle
 
 
+\begin{center}
+\begin{tikzpicture}[scale=1]
+  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
+  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
+  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
+\end{tikzpicture}
+ 
+UNDER CONSTRUCTION -- COMING SOON
+\end{center}
+
+
 This is from Nicholson's section on QR, and may be helpful:
 
 In Section~\ref{sec:5_6} we found how to find a best approximation $\vec{z}$ to a solution of a (possibly inconsistent) system $A\vec{x} = \vec{b}$ of linear equations: take $\vec{z}$ to be any solution of the ``normal'' equations $(A^{T}A)\vec{z} = A^{T}\vec{b}$. If $A$ has independent columns this $\vec{z}$ is unique ($A^{T}A$ is invertible by Theorem~\ref{thm:015672}), so it is often desirable to compute $(A^{T}A)^{-1}$. This is particularly useful in least squares approximation (Section~\ref{sec:5_6}). This is simplified if we have a QR-factorization of $A$ (and is one of the main reasons for the importance of Theorem~\ref{th:QR-025133}). For if $A = QR$ is such a factorization, then $Q^{T}Q = I_{n}$ because $Q$ has orthonormal columns (verify), so we obtain
