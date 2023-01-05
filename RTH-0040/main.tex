@@ -10,6 +10,7 @@
 \end{abstract}
 \maketitle
 
+\section*{QR Factorization}
 One of the main virtues of orthogonal
 matrices is that they can be easily inverted---the transpose is the
 inverse. This fact, combined with the factorization theorem in this
@@ -195,7 +196,7 @@ The first of these equations gives $1 = \norm{ \vec{c}_{1} } = \norm{ t_{11}\vec
 
 \section*{QR-Algorithm for approximating eigenvalues}\label{sec:QRalgorithm}
 
-In \href{}{The Power Method and the Dominant Eigenvalue}, we learned about an iterative method for computing eigenvalues.  We also mentioned that a better method for approximating the eigenvalues of an invertible matrix $A$ depends on the QR-factorization of $A$.  While it is beyond the scope of this book to pursue a detailed discussion of this methods, we give an example and conclude with some remarks on the QR-algorithm. The interested reader is referred to
+In \href{}{The Power Method and the Dominant Eigenvalue}, we learned about an iterative method for computing eigenvalues.  We also mentioned that a better method for approximating the eigenvalues of an invertible matrix $A$ depends on the QR-factorization of $A$.  While it is beyond the scope of this book to pursue a detailed discussion of this method, we give an example and conclude with some remarks on the QR-algorithm. The interested reader is referred to
  J. M. Wilkinson, \textit{The Algebraic Eigenvalue Problem} (Oxford, England: Oxford University Press, 1965)\index{\textit{The Algebraic Eigenvalue Problem} (Wilkinson)} or G. W. Stewart, \textit{Introduction to Matrix Computations} (New York: Academic Press, 1973)\index{\textit{Introduction to Matrix Computations} (Stewart)}.
 
 The \dfn{QR-algorithm} uses QR-factorization repeatedly to create a sequence of matrices $A_{1} =A, A_{2}, A_{3}, \dots,$ as follows:
@@ -261,13 +262,13 @@ This is converging to $\left[ \begin{array}{rr}
 \end{explanation}
 \end{example}
 
-\textbf{Shifting.} We first learned about the concept of \dfn{shifting} in \href{}{The Power Method and the Dominant Eigenvalue}.  Convergence is accelerated if, at stage $k$ of the algorithm, a number $\tau_{k}$ is chosen and $A_{k} - \tau_{k}I$ is factored in the form $Q_{k}R_{k}$ rather than $A_{k}$ itself. Then
+\subsubsection*{Shifting.} We first learned about the concept of \dfn{shifting} in \href{}{The Power Method and the Dominant Eigenvalue}.  Convergence is accelerated if, at stage $k$ of the algorithm, a number $\tau_{k}$ is chosen and $A_{k} - \tau_{k}I$ is factored in the form $Q_{k}R_{k}$ rather than $A_{k}$ itself. Then
 \begin{equation*}
 Q_{k}^{-1}A_{k}Q_{k} = Q_{k}^{-1}(Q_{k}R_{k} + \tau_{k}I)Q_{k} = R_{k}Q_{k} + \tau_{k}I
 \end{equation*}
 so we take $A_{k+1} = R_{k}Q_{k} + \tau_{k}I$. If the shifts $\tau_{k}$ are carefully chosen, convergence can be greatly improved.
 
-\textbf{Preliminary Preparation.} A matrix such as
+\subsubsection*{Preliminary Preparation.} A matrix such as
 \begin{equation*}
 \left[ \begin{array}{rrrrr}
 \ast  & \ast & \ast & \ast & \ast  \\
@@ -283,7 +284,7 @@ B = H_{m}^T \cdots H_{1}^TAH_{1} \cdots H_{m}
 \end{equation*}
 is in upper Hessenberg form. Then the QR-algorithm can be efficiently applied to $B$ and, because $B$ is similar to $A$, it produces the eigenvalues of $A$.
 
-\textbf{Complex Eigenvalues.} If some of the eigenvalues of a real matrix $A$ are not real, the QR-algorithm converges to a block upper triangular matrix where the diagonal blocks are either $1 \times 1$ (the real eigenvalues) or $2 \times 2$ (each providing a pair of conjugate complex eigenvalues of $A$).
+\subsubsection*{Complex Eigenvalues.} If some of the eigenvalues of a real matrix $A$ are not real, the QR-algorithm converges to a block upper triangular matrix where the diagonal blocks are either $1 \times 1$ (the real eigenvalues) or $2 \times 2$ (each providing a pair of conjugate complex eigenvalues of $A$).
 
 \section*{Practice Problems}
 
@@ -314,7 +315,6 @@ In each case find the QR-factorization of $A$.
 \end{enumerate}
 \begin{hint}
 \begin{enumerate} 
-\setcounter{enumi}{1}
 \item  $Q = \frac{1}{\sqrt{5}}\left[ \begin{array}{rr}
 2 & -1 \\
 1 & 2
@@ -324,7 +324,6 @@ In each case find the QR-factorization of $A$.
 0 & 1
 \end{array}\right]$
 
-\setcounter{enumi}{3}
 \item  $Q = \frac{1}{\sqrt{3}}\left[ \begin{array}{rrr}
 1 & 1 & 0 \\
 -1 & 0 & 1 \\
@@ -346,19 +345,18 @@ Let $A$ and $B$ denote matrices.
 
 
 \begin{enumerate} 
-\item If $A$ and $B$ have independent columns, show that $AB$ has independent columns. [\textit{Hint}: Theorem~\ref{thm:015672}.]
+\item If $A$ and $B$ have independent columns, show that $AB$ has independent columns. %[\textit{Hint}: Theorem~\ref{thm:015672}.]
 
 \item Show that $A$ has a QR-factorization if and only if $A$ has independent columns.
 
 \item If $AB$ has a QR-factorization, show that the same is true of $B$ but not necessarily $A$.
-
-
-[\textit{Hint}: Consider $AA^{T}$ where $A = \left[ \begin{array}{rrr}
+\end{enumerate}
+\begin{hint}
+Consider $AA^{T}$ where $A = \left[ \begin{array}{rrr}
 1 & 0 & 0 \\
 1 & 1 & 1
-\end{array}\right]$.]
-
-\end{enumerate}
+\end{array}\right]$.
+\end{hint}
 \begin{hint}
 If $A$ has a QR-factorization, use (a). For the converse use Theorem~\ref{thm:025133}.
 \end{hint}
@@ -369,9 +367,9 @@ If $R$ is upper triangular and invertible, show that there exists a diagonal mat
 \end{problem}
 
 \begin{problem}\label{prob:fullQR}
-If $A$ has independent columns, let \\ $A = QR$ where $Q$ has orthonormal columns and $R$ is invertible and upper triangular. [Some authors call \textit{this} a QR-factorization of $A$.] Show that there is a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $A = (QD)(DR)$ is the QR-factorization of $A$.
+If $A$ has independent columns, let \\ $A = QR$ where $Q$ has orthonormal columns and $R$ is invertible and upper triangular. (Some authors call \textit{this} a QR-factorization of $A$.) Show that there is a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $A = (QD)(DR)$ is the QR-factorization of $A$.
 \begin{hint}
-\ref{prob:take_diag_positive}
+See Practice Problem \ref{prob:take_diag_positive}
 \end{hint}
 \end{problem}
 
@@ -389,9 +387,10 @@ In each case, find the exact eigenvalues and then approximate them using the QR-
 1 & 0
 \end{array}\right]$
 \end{enumerate}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \begin{enumerate} 
-\setcounter{enumi}{1}
 \item  Eigenvalues $\lambda_{1} = \frac{1}{2}(3 + \sqrt{13}) = 3.302776$, $\lambda_{2} = \frac{1}{2}(3 - \sqrt{13}) = -0.302776$
 
 $A_{1} = \left[ \begin{array}{rr}
@@ -423,15 +422,16 @@ $A_{3} = \frac{1}{109}\left[ \begin{array}{rr}
 \end{array}\right]$
 
 \end{enumerate}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:QR-symmetric}
 If $A$ is symmetric, show that each matrix $A_{k}$ in the QR-algorithm is also symmetric. Deduce that they converge to a diagonal matrix.
 
-\begin{hint}
-Use induction on $k$. If $k = 1$, $A_{1} = A$. In general $A_{k+1} = Q_{k}^{-1}A_{k}Q_{k} = Q_{k}^{T}A_{k}Q_{k}$, so the fact that $A_{k}^{T} = A_{k}$ implies $A_{k+1}^{T} = A_{k+1}$. The eigenvalues of $A$ are all real (Theorem \ref{thm:016145}), so the $A_{k}$ converge to an upper triangular matrix $T$. But $T$ must also be symmetric (it is the limit of symmetric matrices), so it is diagonal.
-\end{hint}
+Click the arrow to see answer.
+\begin{expandable}
+Use induction on $k$. If $k = 1$, $A_{1} = A$. In general $A_{k+1} = Q_{k}^{-1}A_{k}Q_{k} = Q_{k}^{T}A_{k}Q_{k}$, so the fact that $A_{k}^{T} = A_{k}$ implies $A_{k+1}^{T} = A_{k+1}$. The eigenvalues of $A$ are all real (Theorem \ref{cor:ews_symmetric_real}), so the $A_{k}$ converge to an upper triangular matrix $T$. But $T$ must also be symmetric (it is the limit of symmetric matrices), so it is diagonal.
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{QR-special-2x2}
