@@ -9,11 +9,11 @@
 \end{abstract}
 \maketitle
 
-\section*{Exercises for Ch 6 Linear Transformations}
+\section*{Additional Exercises for Chapter 6: Linear Transformations}
 
 \subsection*{Review Exercises}
 
-\begin{problem}\label{prb:6.1} Show the map $T:\mathbb{R}^{n}\mapsto \mathbb{R}^{m}$ defined by
+\begin{problem}\label{prb:6.1} Show the map $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$ defined by
 $T\left( \vec{x} \right) =A\vec{x}$ where $A$ is an $m\times n$ matrix
 and $\vec{x}$ is an $m\times 1$ column vector is a linear transformation.
 \begin{hint}
@@ -24,7 +24,9 @@ This result follows from the properties of matrix multiplication.
 \begin{problem}\label{prb:6.2} Show that the function $T_{\vec{u}}$ defined by $T_{\vec{u}}
 \left( \vec{v}\right) = \vec{v}-\mbox{proj}_{\vec{u}}\left(
 \vec{v}\right) $ is also a linear transformation.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \begin{eqnarray*}
 T_{\vec{u}}\left( a\vec{v}+b\vec{w}\right) &=&a\vec{v}+b\vec{w}-\frac{\left( a\vec{v}+b\vec{w}\right)\dotp \vec{u} }{\norm{ \vec{u}
 } ^{2}}\vec{u} \\
@@ -33,21 +35,9 @@ T_{\vec{u}}\left( a\vec{v}+b\vec{w}\right) &=&a\vec{v}+b\vec{w}-\frac{\left( a\v
 &=&aT_{\vec{u}}\left( \vec{v}\right) +bT_{\vec{u}}\left( \vec{w}
 \right)
 \end{eqnarray*}
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:6.4} Show that if a function $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$
-is linear, then it is \textbf{always }the case that $T\left(\vec{0}\right) = \vec{0}$.
-%\begin{hint}
-%\end{hint}
-\end{problem}
-
-\begin{problem}\label{prb:linesToLines} Show that if a function $T:\mathbb{R}^{n}\rightarrow \mathbb{R}^{m}$
-is linear, then it is \textbf{always }the case that $T$ maps a line to a line (or the origin).
-\begin{hint}
-A line in $\RR^n$ can be expressed as $\vec{x}(t)=\vec{v}t+\vec{v}_0$.
-\end{hint}
-\end{problem}
 
 \begin{problem}\label{prb:6.3} Let $\vec{u}$ be a fixed vector. The function
 $T_{\vec{u}}$ defined by $T_{\vec{u}}\vec{v}=\vec{u}+\vec{v}$ has the effect of
@@ -63,7 +53,9 @@ transformations take $\vec{0}$ to $\vec{0}$ which $T$ does not. Also $T_{\vec{a}
 
 \begin{problem}\label{prb:6.11}  Find the matrix for the linear transformation which
 rotates every vector in $\mathbb{R}^{2}$ through an angle of $\pi /3.$
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 $\left[
 \begin{array}{cc}
 \cos \left(
@@ -76,13 +68,15 @@ $\left[
 \frac{1}{2}\sqrt{3} & \frac{1}{2}
 \end{array}
 \right] $
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
 \begin{problem}\label{prb:6.12} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $\pi /4.$
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 $\left[
 \begin{array}{cc}
 \cos \left( \frac{\pi }{4}\right) & -\sin \left( \frac{\pi }{4}\right) \\
@@ -94,12 +88,14 @@ $\left[
 \frac{1}{2}\sqrt{2} & \frac{1}{2}\sqrt{2}
 \end{array}
 \right] $
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.13} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $-\pi /3.$
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 $\left[
 \begin{array}{cc}
 \cos \left( -\frac{\pi }{3}\right) & -\sin \left( -\frac{\pi }{3}\right) \\
@@ -111,12 +107,14 @@ $\left[
 -\frac{1}{2}\sqrt{3} & \frac{1}{2}
 \end{array}
 \right] $
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.14} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $2\pi /3.$
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 $\left[
 \begin{array}{cc}
 \cos \left( \frac{2\pi }{3}\right) & -\sin \left( \frac{2\pi }{3}\right) \\
@@ -128,14 +126,19 @@ $\left[
 \frac{1}{2}\sqrt{3} & -\frac{1}{2}
 \end{array}
 \right] $
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.15} Find the matrix for the linear transformation which rotates every
-vector in $\mathbb{R}^{2}$ through an angle of $\pi /12.$ \textbf{Hint:\ }
-Note that $\pi /12=\pi /3-\pi /4.$
+vector in $\mathbb{R}^{2}$ through an angle of $\pi /12.$ 
+
 \begin{hint}
-\begin{eqnarray*}
+Note that $\pi /12=\pi /3-\pi /4.$
+\end{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
+ \begin{eqnarray*}
 &&\left[
 \begin{array}{cc}
 \cos \left( \frac{\pi }{3}\right)  & -\sin \left( \frac{\pi }{3}\right)  \\
@@ -157,13 +160,15 @@ Note that $\pi /12=\pi /3-\pi /4.$
 \end{array}
 \right]
 \end{eqnarray*}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.16} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $2\pi /3$ and then reflects
 across the $x$ axis.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{rr}
@@ -183,13 +188,15 @@ across the $x$ axis.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.17} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $\pi /3$ and then reflects
 across the $x$ axis.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{rr}
@@ -208,13 +215,15 @@ across the $x$ axis.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.18} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $\pi /4$ and then reflects
 across the $x$ axis.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{rr}
@@ -233,13 +242,15 @@ across the $x$ axis.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.19} Find the matrix for the linear transformation which rotates every
 vector in $\mathbb{R}^{2}$ through an angle of $\pi /6$ and then reflects
 across the $x$ axis followed by a reflection across the $y$ axis.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{rr}
@@ -258,13 +269,15 @@ across the $x$ axis followed by a reflection across the $y$ axis.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.20} Find the matrix for the linear transformation which reflects every
 vector in $\mathbb{R}^{2}$ across the $x$ axis and then rotates every vector
 through an angle of $\pi /4$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{cc}
@@ -283,13 +296,15 @@ through an angle of $\pi /4$.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.21} Find the matrix for the linear transformation which reflects every
 vector in $\mathbb{R}^{2}$ across the $y$ axis and then rotates every vector
 through an angle of $\pi /4$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{cc}
@@ -308,13 +323,15 @@ through an angle of $\pi /4$.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.22} Find the matrix for the linear transformation which reflects every
 vector in $\mathbb{R}^{2}$ across the $x$ axis and then rotates every vector
 through an angle of $\pi /6$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{cc}
@@ -333,13 +350,15 @@ through an angle of $\pi /6$.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.23} Find the matrix for the linear transformation which reflects every
 vector in $\mathbb{R}^{2}$ across the $y$ axis and then rotates every vector
 through an angle of $\pi /6$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{cc}
@@ -358,13 +377,17 @@ through an angle of $\pi /6$.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.24} Find the matrix for the linear transformation which rotates every
-vector in $\mathbb{R}^{2}$ through an angle of $5\pi /12.$ \textbf{Hint:\ }
-Note that $5\pi /12=2\pi /3-\pi /4.$
+vector in $\mathbb{R}^{2}$ through an angle of $5\pi /12.$ 
 \begin{hint}
+Note that $5\pi /12=2\pi /3-\pi /4.$
+\end{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{cc}
@@ -389,7 +412,7 @@ Note that $5\pi /12=2\pi /3-\pi /4.$
 \right]
 \]
 Note that it doesn't matter about the order in this case.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -404,7 +427,9 @@ Note that it doesn't matter about the order in this case.
 2 \\
 -1
 \end{array} \right]$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 The matrix of $S \circ T$ is given by $BA$.
 \[
 \left[ \begin{array}{rr}
@@ -442,7 +467,7 @@ Now, $\left( S \circ T \right) \left( \vec{x} \right) = (BA) \vec{x}$.
 \right]
 \]
 
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -459,7 +484,9 @@ Now, $\left( S \circ T \right) \left( \vec{x} \right) = (BA) \vec{x}$.
 1 \\
 -4
 \end{array} \right]$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 To find $\left( S \circ T \right) \left( \vec{x} \right)$ we compute $S(T(\vec{x}))$.
 \[
 \left[ \begin{array}{rr}
@@ -477,7 +504,7 @@ To find $\left( S \circ T \right) \left( \vec{x} \right)$ we compute $S(T(\vec{x
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -500,7 +527,9 @@ To find $\left( S \circ T \right) \left( \vec{x} \right)$ we compute $S(T(\vec{x
 2 & 1 \\
 5 & 2
 \end{array} \right]$. Find the matrix of $T^{-1}$.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 The matrix of $T^{-1}$ is $A^{-1}$.
 \[
 \left[ \begin{array}{rr}
@@ -514,7 +543,7 @@ The matrix of $T^{-1}$ is $A^{-1}$.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.9} Let $T$ be a linear transformation induced by the matrix $A = \left[ \begin{array}{rr}
@@ -599,7 +628,8 @@ y
 \]
 Find a basis for $\ker \left( T\right)$ and $\mbox{im} \left( T\right) $.
 
-\begin{hint}
+Click on the arrow to see answer.
+\begin{expandable}
 A basis for $\ker \left( T\right)$ is
 $\left\{ \left[
 \begin{array}{r}
@@ -616,7 +646,7 @@ $\left\{ \left[
 \right] \right\}$. \\
 There are many other possibilities for the specific bases, but in this case
 $\dim \left( \ker \left( T\right) \right)=1 $ and $\dim \left( \mbox{im} \left( T\right) \right)=1$.
-\end{hint}
+\end{expandable}
 
 \end{problem}
 
@@ -639,10 +669,12 @@ y
 Find a basis for $\ker \left( T\right)$ and $\mbox{im}
 \left( T\right) $.
 
-\begin{hint}
+Click on the arrow to see answer.
+
+\begin{expandable}
 In this case $\ker \left( T\right) =\{0\}$
 and $\mbox{im} \left( T\right) = \mathbb{R}^2$ (pick any basis of $\mathbb{R}^2$).
-\end{hint}
+\end{expandable}
 
 \end{problem}
 
@@ -713,19 +745,103 @@ z
 \]
 What is $\dim  ( \ker \left( T \right) )$?
 
-\begin{hint}
+Click on the arrow to see answer.
+\begin{expandable}
 We can easily see that $\dim  ( \mbox{im} \left( T \right) ) =1$, and thus
 $\dim  ( \ker \left( T \right) ) = 3 - \dim  ( \mbox{im} \left( T \right) ) = 3- 1 = 2$.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \subsection*{Challenge Exercises}
+
+\begin{problem}\label{prob:linofRotRef}
+Argue geometrically to prove that the following transformations are linear:
+\begin{enumerate}
+\item Rotation of the plane about the origin through angle $\theta$.
+\item Reflection of the plane about the line $y=mx$.
+\end{enumerate}
+\begin{hint}
+Think in terms of linearity diagrams.
+\begin{center}
+ \begin{tikzpicture} 
+      
+    \fill[blue, opacity=0.3] (1,1) rectangle (4,5);
+   \fill[red, opacity=0.2] (7,1) rectangle (10,5);
+   
+   \node[] at (2.5, 5.3)  (p2)    {Domain of $T$};
+   \node[] at (8.5, 5.3)  (r3)    {Codomain of $T$};
+   
+      \node[] at (2.5, 4.5)  (a)    {$\vec{v}$};
+     \node[] at (2.5, 1.5)  (b)    {$k\vec{v}$};
+     
+    
+    \node[] at (9, 4.5)  (c)    {$T(\vec{v})$};
+     \node[] at (8.5, 1.5)  (d)    {$T(k\vec{v})=kT(\vec{v})$};
+     \node[] at (9, 1.6)  (e) {};
+     
+    
+     \draw [->,line width=1pt,-stealth, red]  (a.east)to(c.west);
+     \draw [->,line width=1pt,-stealth, blue]  (b.east)to(d.west);
+     
+     \draw [->,line width=1pt,-stealth, blue]  (a.south)to(b.north);
+     \draw [->,line width=1pt,-stealth,red]  (c.south)to(e.north);
+     
+%Function labels
+      \node[red] at (5.5, 4.8)    {$T$};
+      \node[blue] at (5.5, 1.8)    {$T$};
+      
+      \node[blue] at (1.7, 3.2)    {Multiply};
+      \node[blue] at (1.7, 2.8)    {first};
+      \node[red] at (5.5, 4.2)    {Apply $T$ first};   
+      
+  \end{tikzpicture}
+\end{center}
+
+\begin{center}
+ \begin{tikzpicture} 
+      
+    \fill[blue, opacity=0.3] (1,1) rectangle (4,6);
+   \fill[red, opacity=0.2] (7,1) rectangle (12,6);
+   
+   \node[] at (2.5, 6.3)  (p2)    {Domain of $T$};
+   \node[] at (9.5, 6.3)  (r3)    {Codomain of $T$};
+   
+      \node[] at (2.5, 5)  (a)    {$\vec{u}, \vec{v}$};
+     \node[] at (2.5, 2)  (b)    {$\vec{u}+\vec{v}$};
+     
+    
+    \node[] at (10.5, 5)  (c)    {$T(\vec{u}),T(\vec{v})$};
+     \node[] at (9.5, 2)  (d)    {$T(\vec{u}+\vec{v})=T(\vec{u})+T(\vec{v})$};
+     \node[] at (10.5, 2.2)  (e) {};
+     
+    
+     \draw [->,line width=1pt,-stealth, red]  (a.east)to(c.west);
+     \draw [->,line width=1pt,-stealth, blue]  (b.east)to(d.west);
+     
+     \draw [->,line width=1pt,-stealth, blue]  (a.south)to(b.north);
+     \draw [->,line width=1pt,-stealth,red]  (c.south)to(e.north);
+     
+%Function labels
+      \node[red] at (5.5, 5.3)    {$T$};
+      \node[blue] at (5.5, 2.3)    {$T$};
+      
+      \node[blue] at (1.7, 3.7)    {Add};
+      \node[blue] at (1.7, 3.2)    {first};
+      \node[red] at (5.5, 4.7)    {Apply $T$ first};   
+      
+  \end{tikzpicture}
+\end{center}
+What happens when you rotate two vectors first, then add them, versus adding the two vectors first, then rotating the sum?  
+\end{hint}
+\end{problem}
 
 \begin{problem}\label{prb:6.25} Find the matrix of the linear transformation which rotates every
 vector in $\mathbb{R}^{3}$ counter clockwise about the $z$ axis when viewed
 from the positive $z$ axis through an angle of 30$^{\circ }$ and then
 reflects through the $xy$ plane.
-\begin{hint}
+
+Click on the arrow to see answer.
+\begin{expandable}
 \[
 \left[
 \begin{array}{rrr}
@@ -749,7 +865,7 @@ reflects through the $xy$ plane.
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:6.26} Let $\vec{u}=\left[
@@ -833,6 +949,73 @@ a^{2}-b^{2} & 2ab \\
 \end{array}
 \right]
 \]
+\end{hint}
+\end{problem}
+
+\begin{problem}\label{prb:5.30} Suppose $A$ is an $m\times n$ matrix and $B$ is an $n\times p$ matrix.  Let $T_A$ and $T_B$ be linear transformations induced by $A$ and $B$, respectively.
+Show that
+\begin{equation*}
+\dim \left( \mbox{null} \left( AB\right) \right) \leq \dim \left( \mbox{null} \left(
+A\right) \right) +\dim \left( \mbox{null} \left( B\right) \right) .
+\end{equation*}
+Alternatively,
+\begin{equation*}
+\dim \left( \mbox{ker} \left( T_A\circ T_B\right) \right) \leq \dim \left( \mbox{ker} \left(
+T_A\right) \right) +\dim \left( \mbox{ker} \left( T_B\right) \right) .
+\end{equation*}
+
+ 
+\begin{hint}
+Consider the subspace, $T_B\left( \mathbb{R}^{p}\right) \cap
+\mbox{ker} \left( T_A\right) $ and suppose a basis for this subspace is $\left\{
+\vec{w}_{1},\cdots ,\vec{w}_{k}\right\} .$ Now suppose $\left\{
+\vec{u}_{1},\cdots ,\vec{u}_{r}\right\} $ is a basis for $\mbox{ker} \left(
+T_B\right) .$ Let $\left\{ \vec{z}_{1},\cdots ,\vec{z}_{k}\right\} $ be
+such that $B\vec{z}_{i}=\vec{w}_{i}$ and argue that
+\begin{equation*}
+\mbox{ker} \left( T_A\circ T_B\right) \subseteq \mbox{span}\left\{ \vec{u}_{1},\cdots ,
+\vec{u}_{r},\vec{z}_{1},\cdots ,\vec{z}_{k}\right\} .
+\end{equation*}
+\end{hint}
+
+\begin{hint}
+Suppose $AB\vec{x}=\vec{0}.$ Then $B\vec{x}\in \mbox{ker}
+\left( T_A\right) \cap T_B\left( \mathbb{R}^{p}\right) $ and so $B\vec{x}
+=\sum_{i=1}^{k}B\vec{z}_{i}$ showing that
+\[
+\vec{x}-\sum_{i=1}^{k}\vec{z}_{i}\in \mbox{ker} \left( T_B\right)
+\]
+Consider $T_B\left( \mathbb{R}^{p}\right) \cap \mbox{ker} \left( T_A\right) $ and let
+a basis be $\left\{ \vec{w}_{1},\cdots ,\vec{w}_{k}\right\} .$ Then
+each $\vec{w}_{i}$ is of the form $B\vec{z}_{i}=\vec{w}_{i}$.
+Therefore, $\left\{ \vec{z}_{1},\cdots ,\vec{z}_{k}\right\} $ is
+linearly independent and $AB\vec{z}_{i}=0.$ Now let $\left\{ \vec{u}
+_{1},\cdots ,\vec{u}_{r}\right\} $ be a basis for $\mbox{ker} \left( T_B\right) .$
+If $AB\vec{x}=\vec{0}$, then $B\vec{x} \in \mbox{ker} \left( T_A\right) \cap T_B\left(
+\mathbb{R}^{p}\right) $ and so $B\vec{x}=\sum_{i=1}^{k}c_{i}B\vec{z}
+_{i}$ which implies
+\[
+\vec{x}-\sum_{i=1}^{k}c_{i}\vec{z}_{i}\in \mbox{ker} \left( T_B\right)
+\]
+and so it is of the form
+\[
+\vec{x}-\sum_{i=1}^{k}c_{i}\vec{z}_{i}=\sum_{j=1}^{r}d_{j}\vec{u}
+_{j}
+\]
+It follows that if $AB\vec{x}=\vec{0}$ so that $\vec{x}\in \mbox{ker} \left(
+T_A\circ T_B\right) ,$ then
+\[
+\vec{x}\in \mbox{span}\left( \vec{z}_{1},\cdots ,\vec{z}_{k},
+\vec{u}_{1},\cdots ,\vec{u}_{r}\right) .
+\]
+Therefore,
+\begin{eqnarray*}
+\dim \left( \mbox{ker} \left( T_A\circ T_B\right) \right)  &\leq &k+r=\dim \left( T_B\left(
+\mathbb{R}^{p}\right) \cap \mbox{ker} \left( T_A\right) \right) +\dim \left( \mbox{ker}
+\left( T_B\right) \right)  \\
+&\leq &\dim \left( \mbox{ker} \left( T_A\right) \right) +\dim \left( \mbox{ker} \left(
+T_B\right) \right)
+\end{eqnarray*}
 \end{hint}
 \end{problem}
 
