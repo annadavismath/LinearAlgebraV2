@@ -17,7 +17,7 @@ A hyperlinked term will take you to the section where the term is defined.  Pare
 \subsection{A}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{addition of vectors}
 
-adjoint of a matrix
+%adjoint of a matrix
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0060/main}{adjugate of a matrix}
 
@@ -46,7 +46,7 @@ $\mathcal{S}$ is linearly independent.
 \end{enumerate}
 \end{expandable}
 
-Basis Theorem
+%Basis Theorem
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{block matrices}
 
@@ -54,7 +54,10 @@ Basis Theorem
 
 \subsection{C}
 
-change-of-basis matrix
+change-of-basis matrix (\ref{def:matlintransgenera})
+\begin{expandable}
+    Matrix $A$ of Theorem \ref{th:matlintransgeneral} is called the matrix of $T$ with respect to ordered bases $\mathcal{B}$ and $\mathcal{C}$.
+\end{expandable}
 
 characteristic equation (\ref{def:chareqcharpoly})
 \begin{expandable}
@@ -99,7 +102,7 @@ $$(S\circ T)(\vec{u})=S(T(\vec{u}))$$
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{consistent system}
 
-convergence
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{convergence}
 
 coordinate vector with respect to a basis (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0030/main}{in $\RR^n$}) (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{abstract vector spaces})
 
@@ -183,7 +186,7 @@ $$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Distance between point and line}
 
-divergence
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{divergence}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0010/main}{domain of a linear transformation} 
 
@@ -258,14 +261,14 @@ equivalent linear systems (\ref{def:equivsystems})
     Two systems of linear equations are said to be equivalent if they have the same solution set.
 \end{expandable}
 
-Euclidean norm
+%Euclidean norm
 
 
 \subsection{F}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{free variable}
 
-fundamental subspaces of a matrix
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{fundamental subspaces of a matrix}
 
 
 \subsection{G}
@@ -374,7 +377,7 @@ isomorphism (\ref{def:isomorphism})
     Let $V$ and $W$ be vector spaces.  If there exists an invertible linear transformation $T:V\rightarrow W$ we say that $V$ and $W$ are \dfn{isomorphic} and write $V\cong W$.  The invertible linear transformation $T$ is called an \dfn{isomorphism}.
 \end{expandable}
 
-iterate
+%iterate
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{iterative methods}
 
@@ -403,9 +406,9 @@ leading entry (leading 1) (\ref{def:leadentry})
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{leading variable}
 
-least squares error %wait and see
+% least squares error %wait and see
 
-least squares solution %wait and see
+% least squares solution %wait and see
 
 linear combination of vectors (\ref{def:lincomb})
 \begin{expandable}
@@ -414,7 +417,7 @@ $$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots + a_n\vec{v}_n$$
 for some scalars $a_1, a_2, \ldots ,a_n$.
 \end{expandable}
 
-linear dependence/independence of matrices
+%linear dependence/independence of matrices
 
 linear equation (\ref{def:lineq})
 \begin{expandable}
@@ -484,7 +487,7 @@ that $a_{ij}=b_{ij}$ for all $1\leq i\leq m$ and
 $1\leq j\leq n$.
 \end{expandable}
 
-matrix factorization
+%matrix factorization
 
 matrix multiplication (by a matrix) (\ref{def:matmatproduct})
 \begin{expandable}
@@ -521,13 +524,13 @@ matrix of a linear transformation with respect to the given bases (\ref{def:matl
     Matrix $A$ of Theorem \ref{th:matlintransgeneral} is called the matrix of $T$ with respect to ordered bases $\mathcal{B}$ and $\mathcal{C}$.
 \end{expandable}
 
-matrix powers
+%matrix powers
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{minor of a square matrix}
 
 \subsection{N}
 
-negative of a matrix
+%negative of a matrix
 
 norm (\ref{def:030438})
 
@@ -581,7 +584,10 @@ W^\perp = \{\vec{x} \in\RR^n \mid \vec{x} \dotp \vec{y} = 0 \mbox{ for all } \ve
 \end{equation*}
 \end{expandable}
 
-Orthogonal Decomposition Theorem
+Orthogonal Decomposition Theorem (\ref{th:OrthoDecomp})
+\begin{expandable}
+    Let $W$ be a subspace of $\RR^n$ and let $\vec{x} \in \RR^n$.  Then there exist unique vectors $\vec{w} \in W$ and $\vec{w}^\perp \in W^\perp$ such that $\vec{x} = \vec{w} + \vec{w}^\perp$.
+\end{expandable}
 
 orthogonal matrix (\ref{def:orthogonal matrices})
 \begin{expandable}
@@ -636,7 +642,7 @@ $\vec{v}_i \dotp \vec{v}_j = 0$ for all $i \neq j$.
 Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
 \end{expandable}
 
-outer product
+%outer product
 
 
 
@@ -670,11 +676,11 @@ positive definite matrix (\ref{def:024811})
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{power method (and its variants)}
 
-properties of determinants
+% properties of determinants
 
-properties of matrix algebra
+% properties of matrix algebra 
 
-properties of orthogonal matrices
+% properties of orthogonal matrices
 
 \subsection{Q}
 
@@ -685,7 +691,7 @@ QR factorization (\ref{def:QR-factorization})
 
 \subsection{R}
 
-range of a linear transformation
+%range of a linear transformation
 
 rank of a linear transformation (\ref{def:rankofT})
 \begin{expandable}
@@ -730,7 +736,7 @@ redundant vectors (\ref{def:redundant})
     Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a set of vectors in $\RR^n$.  If we can remove one vector without changing the span of this set, then that vector is \dfn{redundant}.  In other words, if $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$ we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
 \end{expandable}
 
-representation of matrix products
+%representation of matrix products
 
 row echelon form (\ref{def:ref})
 \begin{expandable}
@@ -770,7 +776,7 @@ Standard Unit Vectors (\ref{def:standardunitvecrn})
 %\end{definition}
 \end{expandable}
 
-scalar multiple of a matrix
+%scalar multiple of a matrix
 
 similar matrices (\ref{def:similar})
 \begin{expandable}
@@ -797,7 +803,7 @@ skew symmetric matrix (\ref{def:symmetricandskewsymmetric})
 \dfn{skew symmetric} if $A=-A^{T}.$
 \end{expandable}
 
-span of a set of matrices
+%span of a set of matrices
 
 span of a set of vectors (\ref{def:span})
 \begin{expandable}
@@ -808,7 +814,7 @@ and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0090/main}{spanning set}
 
-spectral decomposition
+%spectral decomposition
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Spectral Theorem}
 
@@ -861,7 +867,7 @@ symmetric matrix (\ref{def:symmetricandskewsymmetric})
 \dfn{skew symmetric} if $A=-A^{T}.$
 \end{expandable}
 
-system of linear equations
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{system of linear equations}
 
 
 
@@ -881,7 +887,7 @@ A^{T} = \begin{bmatrix} a _{ij}\end{bmatrix}^{T}= \begin{bmatrix} a_{ji} \end{bm
 \end{equation*}
 \end{expandable}
 
-triangle inequality
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0010/main}{triangle inequality}
 
 \subsection{U}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0036/main}{Unit Vector}
