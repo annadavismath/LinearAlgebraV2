@@ -39,9 +39,9 @@ basis (\ref{def:basis})
 \begin{expandable}
     A set $\mathcal{S}$ of vectors is called a \dfn{basis} of $\RR^n$ (or a basis of a subspace $V$ of $\RR^n$) provided that 
 \begin{enumerate}
-\item \label{item:defbasis1}
+\item 
 $\mbox{span}(\mathcal{S})=\RR^n$ (or $V$)
-\item \label{item:defbasis2}
+\item 
 $\mathcal{S}$ is linearly independent.
 \end{enumerate}
 \end{expandable}
@@ -342,15 +342,15 @@ inner product (\ref{def:innerproductspace})
     An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following properties are satisfied.
 
 \begin{enumerate}
-\item\label{prop:inner_prod_1}  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
+\item  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
 
-\item\label{prop:inner_prod_2}  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
+\item  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
 
-\item\label{prop:inner_prod_3}  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
+\item  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
 
-\item\label{prop:inner_prod_4} $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
+\item $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
 
-\item\label{prop:inner_prod_5}  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
+\item  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
 
 \end{enumerate}
 \end{expandable}
@@ -426,10 +426,10 @@ where $a_1,\ldots ,a_n$ and $b$ are constants.
 linear transformation (\ref{def:lin}) (also see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0022/main}{Linear Transformations of Abstract Vector Spaces})
 \begin{expandable}
     A transformation $T:\RR^n\rightarrow \RR^m$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$, and scalars $k$.
-\begin{equation}\label{eq:lintrans1}
+\begin{equation}
 T(k\vec{u})= kT(\vec{u})
 \end{equation}
-\begin{equation}\label{eq:lintrans2}
+\begin{equation}
 T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 \end{equation}
 \end{expandable}
@@ -437,7 +437,7 @@ T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
 linearly dependent vectors (\ref{def:linearindependence})
 \begin{expandable}
     Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
-\begin{equation}\label{eq:defLinInd}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
+\begin{equation}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
 is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
 
 If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
@@ -446,7 +446,7 @@ If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $
 linearly independent vectors (\ref{def:linearindependence})
 \begin{expandable}
     Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
-\begin{equation}\label{eq:defLinInd}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
+\begin{equation}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
 is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
 
 If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
@@ -591,7 +591,7 @@ orthogonal matrix (\ref{def:orthogonal matrices})
 Orthogonal projection onto a subspace of $\RR^n$ (\ref{def:projOntoSubspace})
 \begin{expandable}
     Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. If $\vec{x}$ is in $\RR^n$, the vector
-\begin{equation}\label{def:projectontoWeasy}
+\begin{equation}
 \vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
 \end{equation}
 is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$. 
@@ -907,28 +907,28 @@ vector space (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0020/main
   \end{itemize}
   and the following properties hold for $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $V$ and scalars $k$ and $p$:
   \begin{enumerate}
-   \item \label{item:commaddvectspdef}
+   \item 
   Commutative Property of Addition:\quad
   $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
-  \item \label{item:assaddvectspdef}
+  \item 
   Associative Property of Addition:\quad
   $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$
-  \item \label{item:idaddvectspdef}
+  \item 
   Existence of Additive Identity:\quad
   $\vec{u}+\vec{0}=\vec{u}$
-  \item \label{item:invaddvectspdef}
+  \item 
   Existence of Additive Inverse:\quad
   $\vec{u}+(-\vec{u})=\vec{0}$
-  \item \label{item:distvectaddvectspdef}
+  \item 
   Distributive Property over Vector Addition:\quad
   $k(\vec{u}+\vec{v})=k\vec{u}+k\vec{v}$
-  \item \label{item:distscalaraddvectspdef}
+  \item 
   Distributive Property over Scalar Addition:\quad
   $(k+p)\vec{u}=k\vec{u}+p\vec{u}$
-  \item \label{item:assmultvectspdef}
+  \item 
   Associative Property for Scalar Multiplication:\quad
   $k(p\vec{u})=(kp)\vec{u}$
-  \item \label{item:idmultvectspdef}
+  \item 
   Multiplication by $1$:\quad
   $1\vec{u}=\vec{u}$
   \end{enumerate}
