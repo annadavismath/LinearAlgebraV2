@@ -945,25 +945,33 @@ p+q-n\leq k
 
 \subsection*{Octave Exercises}
 \begin{problem}\label{oct:find_dim_span_vectors}
-Use the Octave window below to check your work on Problems \ref{prb:5.1} to \ref{prb:5.8}.  Problem \ref{prb:5.1} is started in the Octave window.  See if you can interpret the result to answer the question.
+Use Octave to check your work on Problems \ref{prb:5.1} to \ref{prb:5.8}.   Problem \ref{prb:5.1} is in the code below.  
 
-%\begin{octave}
-v1=[2 1 1 1]';
-v2=[-1 0 -1 -1]';
-v3=[5 2 3 3]';
-v4=[-1 1 -2 -2]';
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Find a basis for column vectors
+v1=transpose([2 1 1 1]);
+v2=transpose([-1 0 -1 -1]);
+v3=transpose([5 2 3 3]);
+v4=transpose([-1 1 -2 -2]);
 A=[v1 v2 v3 v4];
 % We can answer all of these questions by performing Gauss-Jordan elimination.
 rref(A)
+\end{verbatim}
 \end{problem}
 
 \begin{problem}\label{oct:find_basis_important_subspaces}
-Use the Octave window below to check your work on Problems \ref{prb:5.32} to \ref{prb:5.38}.  Problem \ref{prb:5.36} is started in the Octave window.  See if you can interpret the result to answer the question.
+Use Octave to check your work on Problems \ref{prb:5.32} to \ref{prb:5.38}.   Problem \ref{prb:5.36} is started in the code below.  See if you can interpret the result to answer the question.  
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Find a basis for row(A) and column(A)
 A=[0 0 -1 0 1; 1 2 3 -2 -18; 1 2 2 -1 -11; -1 -2 -2 1 11]
 % We can answer all of these questions by performing Gauss-Jordan elimination.
 rref(A)
+\end{verbatim}
 \end{problem}
 
 \section*{Bibliography}
