@@ -1184,25 +1184,31 @@ These equations are linear in the new variables $x_{1} = x^{2}$, $x_{2} = xy$, a
 
 \subsection*{Octave Exercises}
 \begin{problem}\label{oct:rref}
-Use the Octave window below to check your work on Problems \ref{prb:2.18} to \ref{prb:2.38}.  The command $\mbox{rref}(A)$ is an easy way to obtain the reduced row echelon form of a matrix.  It is more challenging to go through the steps of Gaussian elimination, but it can be done.  The first two steps of \ref{prb:2.18} are done in the Octave window.  See if you can add one more command which will put the matrix into row echelon form.
+Use Octave to check your work on Problems \ref{prb:2.18} to \ref{prb:2.38}.  The command $\mbox{rref}(A)$ is an easy way to obtain the reduced row echelon form of a matrix.  It is more challenging to go through the steps of Gaussian elimination, but it can be done.
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.  The code does the first two steps of \ref{prb:2.18}.  See if you can add one more command which will put the matrix into row echelon form.
+
+\begin{verbatim}
+% Solving systems using Gaussian elimination
 A=[2 -1 3 -1; 1 0 2 1; 1 -1 1 -2];
 R=rref(A)
 A
 A(2,:)=-1/2*A(1,:)+A(2,:)
 A(3,:)=-1/2*A(1,:)+A(3,:)
-%\end{octave}
+\end{verbatim}
 \end{problem}
 
 \begin{problem}\label{oct:rank}
-Use the Octave window below to check your work on Problems \ref{prb:2.44} to \ref{prb:2.54}.  The command $\mbox{rank}(A)$ is an easy way to obtain the rank of a matrix.  Of course, you can also use $\mbox{rref}(A)$ and you obtain even more information!  Problem \ref{prb:2.44} is entered below.
+Use Octave to check your work on Problems \ref{prb:2.44} to \ref{prb:2.54}.  The command $\mbox{rank}(A)$ is an easy way to obtain the rank of a matrix.  Of course, you can also use $\mbox{rref}(A)$ and you obtain even more information!  Problem \ref{prb:2.44} is entered in the code below.  
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Computing the rank of a matrix
 A=[4 -16 -1 -5; 1 -4 0 -1; 1 -4 -1 -2]
 r=rank(A)
 R=rref(A)
-%\end{octave}
+\end{verbatim}
 \end{problem}
 
 \section*{Bibliography}
