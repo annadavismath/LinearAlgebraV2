@@ -13,15 +13,111 @@
 
 
 \section{INDEX}
-A hyperlinked term will take you to the section where the term was defined.  Parenthetical hyperlink will take you to the specific definition of formula in the section.  Use arrows on the right to display the definition or formula in the index.
+A hyperlinked term will take you to the section where the term is defined.  Parenthetical hyperlink will take you to the specific definition of formula in the section.  Use arrows on the right to display the definition or formula in the index.
 \subsection{A}
-\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{Addition of Vectors}
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{addition of vectors}
+
+adjoint of a matrix
+
+algebraic multiplicity of an eigenvalue
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{augmented matrix}
+
+
 \subsection{B}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{back substitution}
+
+basis
+
+Basis Theorem
 
 \subsection{C}
 
+change-of-basis matrix
+
+characteristic equation
+
+characteristic polynomial
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{coefficient matrix}
+
+cofactor expansion
+
+cofactor of a square matrix %see 7.6 LaPlace Expansion
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{column matrix (vector)}
+
+column space of a matrix
+
+composition of linear transformations
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{consistent system}
+
+convergence
+
+coordinate vector with respect to a basis
+
+Cramer's Rule
+
+cross product (\ref{def:crossproduct})
+\begin{expandable}
+    Let $\vec{u=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix}}$ and $\vec{v}=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}$ be vectors in $\RR^3$.  The \dfn{cross product} of $\vec{u}$ and $\vec{v}$, denoted by $\vec{u}\times\vec{v}$, is given by
+$$\vec{u}\times\vec{v}=(u_2v_3-u_3v_2)\vec{i}-(u_1v_3-u_3v_1)\vec{j}+(u_1v_2-u_2v_1)\vec{k}
+=\begin{bmatrix}u_2v_3-u_3v_2\\-u_1v_3+u_3v_1\\u_1v_2-u_2v_1\end{bmatrix}$$
+\end{expandable}
+
 \subsection{D}
-Distance in $\RR^n$ (\ref{form:distRn})
+determinant ($2\times 2$) (\ref{def:twodetcrossprod})
+\begin{expandable}
+    A $2\times 2$ \dfn{determinant} is a number associated with a $2\times 2$ matrix
+
+$$\det{\begin{bmatrix}
+a & b\\
+c & d
+\end{bmatrix}}=\begin{vmatrix}
+a & b\\
+c & d
+\end{vmatrix} =ad-bc$$
+\end{expandable}
+
+determinant ($3\times 3$) (\ref{def:threedetcrossprod})
+\begin{expandable}
+    A $3\times 3$ \dfn{determinant} is a number associated with a $3\times 3$ matrix
+$$\det{\begin{bmatrix}
+a_1 & a_2 & a_3\\
+b_1 & b_2 &b_3\\
+c_1 &c_2 &c_3
+\end{bmatrix}}=
+\begin{vmatrix}
+a_1 & a_2 & a_3\\
+b_1 & b_2 &b_3\\
+c_1 &c_2 &c_3
+\end{vmatrix} =a_1
+\begin{vmatrix}
+b_2 & b_3\\
+c_2 & c_3
+\end{vmatrix} -a_2
+\begin{vmatrix}
+b_1 & b_3\\
+c_1 & c_3
+\end{vmatrix} +a_3
+\begin{vmatrix}
+b_1 & b_2\\
+c_1 & c_2
+\end{vmatrix}
+$$
+\end{expandable}
+
+diagonal matrix
+
+diagonalizable matrix
+
+dimension
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0020/main}{Direction vector}
+
+Distance between points in $\RR^n$ (\ref{form:distRn})
 \begin{expandable}
 %\begin{formula}
 Let $A(a_1, a_2,\ldots ,a_n)$ and $B(b_1, b_2,\ldots ,b_n)$ be points in $\RR^n$.  The distance between $A$ and $B$ is given by
@@ -29,7 +125,11 @@ $$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
 %\end{formula}
 \end{expandable}
 
-Dot Product (\ref{def:dotproduct})
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0070/main}{Distance between point and line}
+
+divergence
+
+dot product (\ref{def:dotproduct})
 \begin{expandable}
  %   \begin{definition}
   Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$.  The \dfn{dot
@@ -39,11 +139,65 @@ $$\vec{u}\dotp\vec{v}=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\dotp\beg
 %\end{definition}
 \end{expandable}
 
+
 \subsection{E}
+
+eigenspace
+
+eigenvalue
+
+eigenvector
+
+elementary matrix
+
+elementary row operations (\ref{def:elemrowops})
+\begin{expandable}
+    The following three operations performed on a linear system are called \dfn{elementary row operations}.
+\begin{enumerate}
+\item Switching the order of equations (rows) $i$ and $j$:
+$$R_i\leftrightarrow R_j$$
+\item Multiplying both sides of equation (row) $i$ by the same non-zero constant, $k$, and replacing equation $i$ with the result:
+$$kR_i\rightarrow R_i$$
+\item Adding $k$ times equation (row) $i$ to equation (row) $j$, and replacing equation $j$ with the result:
+$$R_j+kR_i\rightarrow R_j$$
+\end{enumerate}
+\end{expandable}
+
+equivalent linear systems (\ref{def:equivsystems})
+\begin{expandable}
+    Two systems of linear equations are said to be equivalent if they have the same solution set.
+\end{expandable}
+
+Euclidean norm
+
 
 \subsection{F}
 
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{free variable}
+
+fundamental subspaces of a matrix
+
+
 \subsection{G}
+
+Gaussian elimination (\ref{def:GaussianElimination})
+\begin{expandable}
+    The process of using the elementary row operations on a matrix to transform it into row-echelon form is called \dfn{Gaussian Elimination}.
+\end{expandable}
+
+Gauss-Jordan elimination (\ref{def:GaussJordanElimination})
+\begin{expandable}
+    The process of using the elementary row operations on a matrix to transform it into reduced row-echelon form is called \dfn{Gauss-Jordan elimination}.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{Gauss-Seidel method}
+
+geometric multiplicity of an eigenvalue
+
+Gerschgorin's Disk Theorem
+
+Gram-Schmidt Process
+
 
 \subsection{H}
 Head - Tail Formula (\ref{form:headminustailrn})
@@ -54,31 +208,174 @@ Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's 
 $$\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\ \vdots \\b_n-a_n\end{bmatrix}$$
 
 %\end{formula}
-
 \end{expandable}
+
+homogeneous system %we can skip this if we want
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{hyperplane}
 
 \subsection{I}
 
+identity matrix
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{inconsistent system}
+
+inner product
+
+inner product space
+
+inverse of a linear transformation
+
+isomorphism
+
+inverse of a square matrix
+
+iterate
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{iterative methods}
+
 \subsection{J}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{Jacobi's method}
+
 
 \subsection{K}
 
+kernel of a linear transformation
+
 \subsection{L}
 
+Laplace Expansion Theorem
+
+leading entry (leading 1) (\ref{def:leadentry})
+\begin{expandable}
+    The first non-zero entry in a row of a matrix (when read from left to right) is called the \dfn{leading entry}.  When the leading entry is 1, we refer to it as a \dfn{leading 1}.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{leading variable}
+
+least squares error %wait and see
+
+least squares solution %wait and see
+
+linear combination of vectors (\ref{def:lincomb})
+\begin{expandable}
+    A vector $\vec{v}$ is said to be a \dfn{linear combination} of vectors $\vec{v}_1, \vec{v}_2,\ldots, \vec{v}_n$ if 
+$$\vec{v}=a_1\vec{v}_1+ a_2\vec{v}_2+\ldots + a_n\vec{v}_n$$
+for some scalars $a_1, a_2, \ldots ,a_n$.
+\end{expandable}
+
+linear dependence/independence of matrices
+
+linear equation (\ref{def:lineq})
+\begin{expandable}
+    A \dfn{linear equation} in variables $x_1, \ldots, x_n$ is an equation that can be written in the form
+$$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
+where $a_1,\ldots ,a_n$ and $b$ are constants.
+\end{expandable}
+
+linear transformation
+
+linearly dependent vectors (\ref{def:linearindependence})
+\begin{expandable}
+    Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
+\begin{equation}\label{eq:defLinInd}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
+is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
+
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
+\end{expandable}
+
+linearly independent vectors (\ref{def:linearindependence})
+\begin{expandable}
+    Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k$ be vectors of $\RR^n$.  We say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly independent} if the only solution to 
+\begin{equation}\label{eq:defLinInd}c_1\vec{v}_1+c_2\vec{v}_2+\ldots +c_p\vec{v}_k=\vec{0}\end{equation}
+is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
+
+If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
+\end{expandable}
+
+LU factorization
+
 \subsection{M}
-Magnitude of a Vector (\ref{def:normrn})
+Magnitude of a vector (\ref{def:normrn})
 \begin{expandable}
   %  \begin{definition}
 Let $\vec{v}=\begin{bmatrix}v_1\\ v_2\\ \vdots \\v_n\end{bmatrix}$ be a vector in $\RR^n$, then the \dfn{length}, or the \dfn{magnitude}, of $\vec{v}$ is given by
 $$  \norm{\vec{v}}=\sqrt{v_1^2+v_2^2+\ldots +v_n^2}$$
 %\end{definition}
 \end{expandable}
-    
 
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{main diagonal}
+    
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{matrix}
+
+matrix addition (\ref{def:additionofmatrices})
+\begin{expandable}
+    Let $A=\begin{bmatrix} a_{ij}\end{bmatrix} $ and $B=\begin{bmatrix} b_{ij}\end{bmatrix}$ be two
+$m\times n$ matrices. Then the \dfn{sum of matrices} $A$ and $B$, denoted by $A+B$,  is an $m \times n$
+matrix  given by 
+$$A+B=\begin{bmatrix}a_{ij}+b_{ij}\end{bmatrix}$$
+\end{expandable}
+
+matrix equality (\ref{def:equalityofmatrices})
+\begin{expandable}
+    Let $A=\begin{bmatrix} a_{ij}\end{bmatrix}$ and $B=\begin{bmatrix} b_{ij}\end{bmatrix}$ be two $m \times n$ matrices. Then $A=B$ means
+that $a_{ij}=b_{ij}$ for all $1\leq i\leq m$ and 
+$1\leq j\leq n$.
+\end{expandable}
+
+matrix factorization
+
+matrix multiplication (by a matrix)
+
+matrix multiplication (by a scalar) (\ref{def:scalarmultofmatrices})
+\begin{expandable}
+    If $A=\begin{bmatrix} a_{ij}\end{bmatrix} $ and $k$ is a scalar,
+then $kA=\begin{bmatrix} ka_{ij}\end{bmatrix}$. 
+\end{expandable}
+
+matrix multiplication (by a vector)
+
+matrix of a linear transformation
+
+matrix powers
+
+minor of a square matrix
 
 \subsection{N}
 
+negative of a matrix
+
+norm
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{normal vector}
+
+null space of a matrix
+
+nullity of a matrix
+
+
 \subsection{O}
+one-to-one
+
+onto
+
+orthogonal basis
+
+orthogonal complement of a subspace
+
+Orthogonal Decomposition Theorem
+
+orthogonal matrix
+
+Orthogonal projection onto a subspace
+
+Orthogonal projection onto a vector (\ref{def:projection})
+\begin{expandable}
+    Let $\vec{v}$ be a vector, and let $\vec{d}$ be a non-zero vector.  The \dfn{projection of $\vec{v}$ onto $\vec{d}$} is given by 
+$$\mbox{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$
+\end{expandable}
+
 Orthogonal vectors (\ref{def:orthovectors}) 
 \begin{expandable}
  %   \begin{definition}
@@ -86,11 +383,93 @@ Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$. We say $\vec{u}$ and $\vec{v}
 %\end{definition}
 \end{expandable}
 
+
+orthogonally diagonalizable matrix
+
+orthonormal basis
+
+orthonormal set of vectors
+
+outer product
+
+
+
 \subsection{P}
+
+
+
+parametric equation of a line (\ref{form:paramlinend})
+\begin{expandable}
+    Let $\vec{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}$ be a direction vector for line $l$ in $\RR^n$, and let $(a_1, a_2,\ldots , a_n)$ be an arbitrary point on $l$.  Then the following parametric equations describe $l$:
+\[
+x_1=v_1t+a_1\]
+\[x_2=v_2t+a_2\]
+\[\vdots\]
+\[x_n=v_nt+a_n
+\]
+\end{expandable}
+
+partitioned matrices (block multiplication)
+
+permutation matrix
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{pivot}
+
+power method (and its variants)
+
+properties of determinants
+
+properties of matrix algebra
+
+properties of orthogonal matrices
 
 \subsection{Q}
 
+QR factorization
+
 \subsection{R}
+
+range of a linear transformation
+
+rank of a matrix (\ref{def:rankofamatrix})
+\begin{expandable}
+    The \dfn{rank} of matrix $A$, denoted by $\mbox{rank}(A)$, is the number of nonzero rows that remain after we reduce $A$ to row-echelon form by elementary row operations.
+\end{expandable}
+
+Rank Theorem
+
+reduced row echelon form (\ref{def:rref})
+\begin{expandable}
+    A matrix that is already in \dfn{row-echelon} form is said to be in \dfn{reduced row-echelon form} if:
+\begin{enumerate}
+\item Each leading entry is $1$
+\item All entries {\it above} and below each leading $1$ are $0$
+\end{enumerate}
+\end{expandable}
+
+redundant vectors (\ref{def:redundant})
+\begin{expandable}
+    Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$ be a set of vectors in $\RR^n$.  If we can remove one vector without changing the span of this set, then that vector is \dfn{redundant}.  In other words, if $$\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\right)=\mbox{span}\left(\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{j-1},\vec{v}_{j+1},\dots,\vec{v}_k\right)$$ we say that $\vec{v}_j$ is a redundant element of $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_k\}$, or simply redundant.
+\end{expandable}
+
+representation of matrix products
+
+row echelon form (\ref{def:ref})
+\begin{expandable}
+    A matrix is said to be in \dfn{row-echelon form} if:
+\begin{enumerate}
+\item All entries below each leading entry are 0.
+\item Each leading entry is in a column to the right of the leading entries in the rows above it.
+\item All rows of zeros, if there are any, are located below non-zero rows.
+\end{enumerate}
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{row equivalent matrices}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{row matrix (vector)}
+
+row space of a matrix
+
 
 \subsection{S}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Scalar} 
@@ -110,17 +489,77 @@ Standard Unit Vectors (\ref{def:standardunitvecrn})
 %\end{definition}
 \end{expandable}
 
-\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{Subtraction of vectors}
+scalar multiple of a matrix
+
+similar matrices
+
+singular value decomposition (SVD)
+
+singular values
+
+span of a set of matrices
+
+span of a set of vectors (\ref{def:span})
+\begin{expandable}
+    Let $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ be vectors in $\RR^n$.  The set $S$ of all linear combinations of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ is called the \dfn{span} of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  We write 
+$$S=\mbox{span}(\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p)$$
+and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.  Any vector in $S$ is said to be \dfn{in the span} of $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$.  The set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p\}$ is called a \dfn{spanning set} for $S$.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0090/main}{spanning set}
+
+spectral decomposition
+
+Spectral Theorem
+
+standard basis
+
+strictly diagonally dominant (\ref{def:strict_diag_dom})
+\begin{expandable}
+    Let $A=[a_{ij}]$ be the $n\times n$ matrix which is the coefficient matrix of the linear system $A \vec{x}= \vec{b}$.  Let
+$$
+r_i(A):= \sum_{j \ne i} |a_{ij}|
+$$
+denote the sum of the absolute values of the non-diagonal entries in row $i$.  We say that $A$ is \dfn{strictly diagonally dominant} if 
+$$|a_{ii}|>r_i(A)$$
+for all values of $i$ from $i=1$ to $i=n$.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{square matrix}
+
+standard matrix of a linear transformation
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Standard Position}
 
+subspace
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{Subtraction of vectors}
+
+symmetric matrix
+
+system of linear equations
+
+
+
 \subsection{T}
 
+transpose of a matrix
+
+triangle inequality
+
 \subsection{U}
-\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0036/main}{Unit vector}
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0036/main}{Unit Vector}
 
 \subsection{V}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Vector}
+
+Vector equation of a line (\ref{form:vectorlinend})
+\begin{expandable}
+    Let $\vec{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}$ be a direction vector for line $l$ in $\RR^n$, and let $(a_1, a_2,\ldots , a_n)$ be an arbitrary point on $l$.  Then the following vector equation describes $l$:
+$$\vec{x}(t)=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}t+\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}$$
+\end{expandable}
+
+vector space
 
 \subsection{W}
 
@@ -129,5 +568,12 @@ Standard Unit Vectors (\ref{def:standardunitvecrn})
 \subsection{Y}
 
 \subsection{Z}
+
+zero matrix (\ref{def:zeromatrix})
+\begin{expandable}
+    The $m\times n$ \dfn{zero matrix} is the $m\times n$ matrix
+having every entry equal to zero. The zero matrix is
+denoted by $O$.
+\end{expandable}
 
 \end{document}
