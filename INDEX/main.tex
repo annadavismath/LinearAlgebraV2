@@ -19,7 +19,14 @@ A hyperlinked term will take you to the section where the term is defined.  Pare
 
 adjoint of a matrix
 
-algebraic multiplicity of an eigenvalue
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0060/main}{adjugate of a matrix}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{algebraic multiplicity of an eigenvalue}
+
+associated homogeneous system (\ref{def:asshomsys})
+\begin{expandable}
+    Given any linear system $A\vec{x}=\vec{b}$, the system $A\vec{x}=\vec{0}$ is called the \dfn{associated homogeneous system}.
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{augmented matrix}
 
@@ -28,37 +35,75 @@ algebraic multiplicity of an eigenvalue
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{back substitution}
 
-basis
+basis (\ref{def:basis})
+\begin{expandable}
+    A set $\mathcal{S}$ of vectors is called a \dfn{basis} of $\RR^n$ (or a basis of a subspace $V$ of $\RR^n$) provided that 
+\begin{enumerate}
+\item \label{item:defbasis1}
+$\mbox{span}(\mathcal{S})=\RR^n$ (or $V$)
+\item \label{item:defbasis2}
+$\mathcal{S}$ is linearly independent.
+\end{enumerate}
+\end{expandable}
 
 Basis Theorem
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{block matrices}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0070/main}{box product}
 
 \subsection{C}
 
 change-of-basis matrix
 
-characteristic equation
+characteristic equation (\ref{def:chareqcharpoly})
+\begin{expandable}
+    The equation 
+$$\mbox{det}(A-\lambda I) = 0$$ is called the \dfn{characteristic equation} of $A$. 
+\end{expandable}
 
-characteristic polynomial
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0020/main}{characteristic polynomial}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0045/main}{Cholesky factorization}
+
+closed under addition (\ref{def:closedunderaddition})
+\begin{expandable}
+    A set $V$ is said to be \dfn{closed under addition} if for each element $\vec{u} \in V$ and $\vec{v} \in V$ the sum $\vec{u}+\vec{v}$ is also in $V$.
+\end{expandable}
+
+closed under scalar multiplication (\ref{def:closedunderscalarmult})
+\begin{expandable}
+    A set $V$ is said to be \dfn{closed under scalar multiplication} if for each element $\vec{v} \in V$  and for each scalar $k \in \RR$ the product $k\vec{v}$ is also in $V$.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0010/main}{codomain of a linear transformation}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0020/main}{coefficient matrix}
 
-cofactor expansion
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{cofactor expansion}
 
-cofactor of a square matrix %see 7.6 LaPlace Expansion
+%cofactor of a square matrix %see 7.6 LaPlace Expansion
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{column matrix (vector)}
 
-column space of a matrix
+column space of a matrix (\ref{def:colspace})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix.  The \dfn{column space} of $A$, denoted by $\mbox{col}(A)$, is the subspace of $\RR^m$ spanned by the columns of $A$.
+\end{expandable}
 
-composition of linear transformations
+composition of linear transformations (\ref{def:compoflintrans})
+\begin{expandable}
+    Let $U$, $V$ and $W$ be vector spaces, and let $T:U\rightarrow V$ and $S:V\rightarrow W$ be linear transformations.  The \dfn{composition} of $S$ and $T$ is the transformation $S\circ T:U\rightarrow W$ given by
+$$(S\circ T)(\vec{u})=S(T(\vec{u}))$$
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{consistent system}
 
 convergence
 
-coordinate vector with respect to a basis
+coordinate vector with respect to a basis (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0030/main}{in $\RR^n$}) (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{abstract vector spaces})
 
-Cramer's Rule
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0060/main}{Cramer's Rule}
 
 cross product (\ref{def:crossproduct})
 \begin{expandable}
@@ -109,11 +154,22 @@ c_1 & c_2
 $$
 \end{expandable}
 
-diagonal matrix
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0025/main}{diagonal matrix}
 
-diagonalizable matrix
+diagonalizable matrix (\ref{def:diagonalizable})
+\begin{expandable}
+    Let $A$ be an $n\times n$ matrix. Then $A$ is said to be \dfn{diagonalizable} if there exists an invertible matrix $P$ such that
+\begin{equation*}
+P^{-1}AP=D
+\end{equation*}
+where $D$ is a diagonal matrix.  In other words, a matrix $A$ is diagonalizable if it is similar to a diagonal matrix, $A \sim D$.
+\end{expandable}
 
-dimension
+dimension (\ref{def:dimension}) (also see \ref{def:dimensionabstract})
+\begin{expandable}
+    Let $V$ be a subspace of $\RR^n$.  The \dfn{dimension} of $V$ is the number, $m$, of elements in any basis of $V$.  We write
+$$\mbox{dim}(V)=m$$
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0020/main}{Direction vector}
 
@@ -129,6 +185,17 @@ $$AB=\sqrt{(a_1-b_1)^2+(a_2-b_2)^2+\ldots +(a_n-b_n)^2}$$
 
 divergence
 
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0010/main}{domain of a linear transformation} 
+
+dominant eigenvalue (\ref{def:dominant ew,ev})
+\begin{expandable}
+    An eigenvalue $\lambda$ of an $n \times n$ matrix $A$ is called a \dfn{dominant eigenvalue} if $\lambda$ has multiplicity $1$, and
+\begin{equation*}
+|\lambda| > |\mu| \quad \mbox{ for all eigenvalues } \mu \neq \lambda
+\end{equation*}
+Any corresponding eigenvector is called a \dfn{dominant eigenvector} of $A$.
+\end{expandable}
+
 dot product (\ref{def:dotproduct})
 \begin{expandable}
  %   \begin{definition}
@@ -142,13 +209,34 @@ $$\vec{u}\dotp\vec{v}=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\dotp\beg
 
 \subsection{E}
 
-eigenspace
+eigenspace (\ref{def:eigspace})
+\begin{expandable}
+    The set of all eigenvectors associated with a given eigenvalue of a matrix is known as the \dfn{eigenspace} associated with that eigenvalue.
+\end{expandable}
 
-eigenvalue
+eigenvalue (\ref{def:eigen})
+\begin{expandable}
+    Let $A$ be an $n \times n$ matrix.  We say that a non-zero vector $\vec{x}$ is an \dfn{eigenvector} of $A$ if $$A\vec{x} = \lambda \vec{x}$$
+for some scalar $\lambda$.
+We say that $\lambda$ is an \dfn{eigenvalue} of $A$ associated with the eigenvector $\vec{x}$.
+\end{expandable}
 
-eigenvector
+eigenvalue decomposition (\ref{def:eigdecomposition})
+\begin{expandable}
+    If we are able to diagonalize $A$, say $A=PDP^{-1}$, we say that $PDP^{-1}$ is an \dfn{eigenvalue decomposition} of $A$.
+\end{expandable}
 
-elementary matrix
+eigenvector (\ref{def:eigen})
+\begin{expandable}
+    Let $A$ be an $n \times n$ matrix.  We say that a non-zero vector $\vec{x}$ is an \dfn{eigenvector} of $A$ if $$A\vec{x} = \lambda \vec{x}$$
+for some scalar $\lambda$.
+We say that $\lambda$ is an \dfn{eigenvalue} of $A$ associated with the eigenvector $\vec{x}$.
+\end{expandable}
+
+elementary matrix (\ref{def:elemmatrix})
+\begin{expandable}
+    An \dfn{elementary matrix} is a square matrix formed by applying a single elementary row operation to the identity matrix.
+\end{expandable}
 
 elementary row operations (\ref{def:elemrowops})
 \begin{expandable}
@@ -162,6 +250,8 @@ $$kR_i\rightarrow R_i$$
 $$R_j+kR_i\rightarrow R_j$$
 \end{enumerate}
 \end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0040/main}{equivalence relation}
 
 equivalent linear systems (\ref{def:equivsystems})
 \begin{expandable}
@@ -192,25 +282,37 @@ Gauss-Jordan elimination (\ref{def:GaussJordanElimination})
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0040/main}{Gauss-Seidel method}
 
-geometric multiplicity of an eigenvalue
+geometric multiplicity of an eigenvalue (\ref{def:geommulteig})
+\begin{expandable}
+    The \dfn{geometric multiplicity} of an eigenvalue $\lambda$ is the dimension of the corresponding eigenspace $\mathcal{S}_\lambda$.
+\end{expandable}
 
-Gerschgorin's Disk Theorem
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0080/main}{Gerschgorin's Disk Theorem}
 
-Gram-Schmidt Process
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0015/main}{Gram-Schmidt Process}
 
 
 \subsection{H}
-Head - Tail Formula (\ref{form:headminustailrn})
+% Head - Tail Formula (\ref{form:headminustailrn})
+% \begin{expandable}
+% %    \begin{formula}
+%   [``Head - Tail'' Formula in $\RR^n$]
+% Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's head is at $B(b_1, b_2, \ldots ,b_n)$, then 
+% $$\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\ \vdots \\b_n-a_n\end{bmatrix}$$
+
+% %\end{formula}
+% \end{expandable}
+
+homogeneous system (\ref{def:homogeneous})
 \begin{expandable}
-%    \begin{formula}
-  [``Head - Tail'' Formula in $\RR^n$]
-Suppose a vector's tail is at point $A(a_1, a_2, \ldots ,a_n)$ and the vector's head is at $B(b_1, b_2, \ldots ,b_n)$, then 
-$$\overrightarrow{AB}=\begin{bmatrix}b_1-a_1\\ b_2-a_2\\ \vdots \\b_n-a_n\end{bmatrix}$$
-
-%\end{formula}
+    A system of linear equations is called \dfn{homogeneous} if the system can be written in the form
+$$\begin{array}{ccccccccc}
+      a_{11}x_1 &+ &a_{12}x_2&+&\ldots&+&a_{1n}x_n&= &0 \\
+	 a_{21}x_1 &+ &a_{22}x_2&+&\ldots&+&a_{2n}x_n&= &0 \\
+     &&&&\vdots&&&& \\
+     a_{m1}x_1 &+ &a_{m2}x_2&+&\ldots&+&a_{mn}x_n&= &0
+    \end{array}$$
 \end{expandable}
-
-homogeneous system %we can skip this if we want
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{hyperplane}
 
@@ -218,17 +320,59 @@ homogeneous system %we can skip this if we want
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0020/main}{identity matrix}
 
+identity transformation (\ref{def:idtransonrn})
+\begin{expandable}
+    The \dfn{identity transformation} on $V$, denoted by $\id_V$, is a transformation that maps each element of $V$ to itself.
+
+In other words,
+$$\id_V:V\rightarrow V$$ is a transformation such that $$\id_V(\vec{v})=\vec{v}\quad\text{for all}\quad \vec{v} \in V$$
+\end{expandable}
+
+image of a linear transformation (\ref{def:imageofT})
+\begin{expandable}
+    Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  The \dfn{image} of $T$, denoted by $\mbox{im}(T)$, is the set
+$$\mbox{im}(T)=\{T(\vec{v}):\vec{v}\in V\}$$
+In other words, the image of $T$ consists of individual images of all vectors of $V$.
+\end{expandable}
+
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0010/main}{inconsistent system}
 
-inner product
+inner product (\ref{def:innerproductspace})
+\begin{expandable}
+    An \dfn{inner product} on a real vector space $V$ is a function that assigns a real number $\langle\vec{v}, \vec{w}\rangle$ to every pair $\vec{v}$, $\vec{w}$ of vectors in $V$ in such a way that the following properties are satisfied.
 
-inner product space
+\begin{enumerate}
+\item\label{prop:inner_prod_1}  $\langle\vec{v}, \vec{w}\rangle$ \textit{is a real number for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
 
-inverse of a linear transformation
+\item\label{prop:inner_prod_2}  $\langle\vec{v}, \vec{w}\rangle = \langle\vec{w}, \vec{v}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$.
 
-isomorphism
+\item\label{prop:inner_prod_3}  $\langle\vec{v} + \vec{w}, \vec{u}\rangle = \langle\vec{v}, \vec{u}\rangle + \langle\vec{w}, \vec{u}\rangle$ \textit{for all} $\vec{u}$, $\vec{v}$, \textit{and} $\vec{w}$ \textit{in} $V$.
 
-inverse of a square matrix
+\item\label{prop:inner_prod_4} $\langle r\vec{v}, \vec{w}\rangle = r\langle\vec{v}, \vec{w}\rangle$ \textit{for all} $\vec{v}$ \textit{and} $\vec{w}$ \textit{in} $V$ \textit{and all} $r$ \textit{in} $\RR$.
+
+\item\label{prop:inner_prod_5}  $\langle\vec{v}, \vec{v}\rangle > 0$ \textit{for all} $\vec{v} \neq \vec{0}$ \textit{in} $V$.
+
+\end{enumerate}
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0070/main}{inner product space}
+
+inverse of a linear transformation (\ref{def:inverseoflintrans})
+\begin{expandable}
+    Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  A transformation $S:W\rightarrow V$ that satisfies $S\circ T=\id_V$ and $T\circ S=\id_W$ is called an \dfn{inverse} of $T$. If $T$ has an inverse, $T$ is called \dfn{invertible}.
+\end{expandable}
+
+inverse of a square matrix (\ref{def:matinverse})
+\begin{expandable}
+    Let $A$ be an $n\times n$ matrix.  An $n\times n$ matrix $B$ is called an \dfn{inverse} of $A$ if 
+$$AB=BA=I$$
+where $I$ is an $n\times n$ identity matrix.  If such an inverse matrix exists, we say that $A$ is \dfn{invertible}.  If an inverse does not exist, we say that $A$ is not invertible.
+\end{expandable}
+
+isomorphism (\ref{def:isomorphism})
+\begin{expandable}
+    Let $V$ and $W$ be vector spaces.  If there exists an invertible linear transformation $T:V\rightarrow W$ we say that $V$ and $W$ are \dfn{isomorphic} and write $V\cong W$.  The invertible linear transformation $T$ is called an \dfn{isomorphism}.
+\end{expandable}
 
 iterate
 
@@ -241,11 +385,16 @@ iterate
 
 \subsection{K}
 
-kernel of a linear transformation
+kernel of a linear transformation (\ref{def:kernel})
+\begin{expandable}
+    Let $V$ and $W$ be vector spaces, and let $T:V\rightarrow W$ be a linear transformation.  The \dfn{kernel} of $T$, denoted by $\mbox{ker}(T)$, is the set
+$$\mbox{ker}(T)=\{\vec{v}:T(\vec{v})=\vec{0}\}$$
+In other words, the kernel of $T$ consists of all vectors of $V$ that map to $\vec{0}$ in $W$.
+\end{expandable}
 
 \subsection{L}
 
-Laplace Expansion Theorem
+Laplace Expansion Theorem (\ref{th:laplace1})
 
 leading entry (leading 1) (\ref{def:leadentry})
 \begin{expandable}
@@ -274,7 +423,16 @@ $$a_1x_1+a_2x_2+\ldots +a_nx_n=b$$
 where $a_1,\ldots ,a_n$ and $b$ are constants.
 \end{expandable}
 
-linear transformation
+linear transformation (\ref{def:lin}) (also see \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0022/main}{Linear Transformations of Abstract Vector Spaces})
+\begin{expandable}
+    A transformation $T:\RR^n\rightarrow \RR^m$ is called a \dfn{ linear transformation} if the following are true for all vectors $\vec{u}$ and $\vec{v}$ in $\RR^n$, and scalars $k$.
+\begin{equation}\label{eq:lintrans1}
+T(k\vec{u})= kT(\vec{u})
+\end{equation}
+\begin{equation}\label{eq:lintrans2}
+T(\vec{u}+\vec{v})= T(\vec{u})+T(\vec{v})
+\end{equation}
+\end{expandable}
 
 linearly dependent vectors (\ref{def:linearindependence})
 \begin{expandable}
@@ -294,7 +452,9 @@ is the \dfn{trivial solution} $c_1=c_2=\ldots =c_k=0$.
 If, in addition to the trivial solution, a \dfn{non-trivial solution} (not all $c_1, c_2,\ldots ,c_k$ are zero) exists, then we say that the set $\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_k\}$ is \dfn{linearly dependent}.
 \end{expandable}
 
-LU factorization
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0070/main}{lower triangular matrix}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0070/main}{LU factorization}
 
 \subsection{M}
 Magnitude of a vector (\ref{def:normrn})
@@ -356,44 +516,100 @@ or, equivalently,
 $$A\vec{x}=\begin{bmatrix}a_{11}x_1+a_{12}x_2+\ldots +a_{1n}x_n\\a_{21}x_1+a_{22}x_2+\ldots +a_{2n}x_n\\\vdots\\a_{m1}x_1+a_{m2}x_2+\ldots +a_{mn}x_n\end{bmatrix}$$
 \end{expandable}
 
-matrix of a linear transformation
+matrix of a linear transformation with respect to the given bases (\ref{def:matlintransgenera})
+\begin{expandable}
+    Matrix $A$ of Theorem \ref{th:matlintransgeneral} is called the matrix of $T$ with respect to ordered bases $\mathcal{B}$ and $\mathcal{C}$.
+\end{expandable}
 
 matrix powers
 
-minor of a square matrix
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{minor of a square matrix}
 
 \subsection{N}
 
 negative of a matrix
 
-norm
+norm (\ref{def:030438})
+
+
+nonsingular matrix (\ref{def:nonsingularmatrix})
+\begin{expandable}
+    A square matrix $A$ is said to be \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.  Otherwise we say that $A$ is \dfn{singular}.
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RRN-0030/main}{normal vector}
 
-null space of a matrix
+null space of a matrix (\ref{def:nullspace})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix.  The \dfn{null space} of $A$, denoted by $\mbox{null}(A)$, is the set of all vectors $\vec{x}$ in $\RR^n$ such that $A\vec{x}=\vec{0}$.
+\end{expandable}
 
-nullity of a matrix
+nullity of a linear transformation (\ref{def:nullityT})
+\begin{expandable}
+    The \dfn{nullity} of a linear transformation $T:V\rightarrow W$, is the dimension of the kernel of $T$.
+$$\mbox{nullity}(T)=\mbox{dim}(\mbox{ker}(T))$$
+\end{expandable}
+
+nullity of a matrix (\ref{def:matrixnullity})
+\begin{expandable}
+    Let $A$ be a matrix.  The dimension of the null space of $A$ is called the \dfn{nullity} of $A$.
+$$\mbox{dim}\Big(\mbox{null}(A)\Big)=\mbox{nullity}(A)$$
+\end{expandable}
 
 
 \subsection{O}
-one-to-one
+one-to-one (\ref{def:onetoone})
+\begin{expandable}
+    A linear transformation $T:V\rightarrow W$ is \dfn{one-to-one} if 
+$$T(\vec{v}_1)=T(\vec{v}_2)\quad \text{implies that}\quad \vec{v}_1=\vec{v}_2$$
+\end{expandable}
 
-onto
+onto (\ref{def:onto})
+\begin{expandable}
+    A linear transformation $T:V\rightarrow W$ is \dfn{onto} if for every element $\vec{w}$ of $W$, there exists an element $\vec{v}$ of $V$ such that $T(\vec{v})=\vec{w}$.
+\end{expandable}
 
-orthogonal basis
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0060/main}{ordered basis}
 
-orthogonal complement of a subspace
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{orthogonal basis}
+
+orthogonal complement of a subspace of $\RR^n$ (\ref{def:023776})
+\begin{expandable}
+    If $W$ is a subspace of $\RR^n$, define the \dfn{orthogonal complement} $W^\perp$ of $W$ (pronounced ``$W$-perp'') by
+\begin{equation*}
+W^\perp = \{\vec{x} \in\RR^n \mid \vec{x} \dotp \vec{y} = 0 \mbox{ for all } \vec{y} \in W\}
+\end{equation*}
+\end{expandable}
 
 Orthogonal Decomposition Theorem
 
-orthogonal matrix
+orthogonal matrix (\ref{def:orthogonal matrices})
+\begin{expandable}
+    An $n \times n$ matrix $Q$ is called an \dfn{orthogonal matrix} if it satisfies one (and hence all) of the conditions in Theorem~\ref{th:orthogonal_matrices}.
+\end{expandable}
 
-Orthogonal projection onto a subspace
+Orthogonal projection onto a subspace of $\RR^n$ (\ref{def:projOntoSubspace})
+\begin{expandable}
+    Let $W$ be a subspace of $\RR^n$ with orthogonal basis $\{\vec{f}_{1}, \vec{f}_{2}, \dots, \vec{f}_{m}\}$. If $\vec{x}$ is in $\RR^n$, the vector
+\begin{equation}\label{def:projectontoWeasy}
+\vec{w}=\mbox{proj}_W(\vec{x}) = \mbox{proj}_{\vec{f}_1}\vec{x} + \mbox{proj}_{\vec{f}_2}\vec{x} + \dots + \mbox{proj}_{\vec{f}_m}\vec{x}
+\end{equation}
+is called the \dfn{orthogonal projection} of $\vec{x}$ onto $W$. 
+\end{expandable}
 
 Orthogonal projection onto a vector (\ref{def:projection})
 \begin{expandable}
     Let $\vec{v}$ be a vector, and let $\vec{d}$ be a non-zero vector.  The \dfn{projection of $\vec{v}$ onto $\vec{d}$} is given by 
 $$\mbox{proj}_{\vec{d}}\vec{v}=\left(\frac{\vec{v}\dotp\vec{d}}{\norm{\vec{d}}^2}\right)\vec{d}$$
+\end{expandable}
+
+orthogonal set of vectors (\ref{orthset})
+\begin{expandable}
+    Let $\{ \vec{v}_1, \vec{v}_2, \cdots, \vec{v}_k \}$ be a set of nonzero
+vectors in $\RR^n$. Then this set is called an
+\dfn{orthogonal set} if 
+$\vec{v}_i \dotp \vec{v}_j = 0$ for all $i \neq j$.
+Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
 \end{expandable}
 
 Orthogonal vectors (\ref{def:orthovectors}) 
@@ -404,11 +620,21 @@ Let $\vec{u}$ and $\vec{v}$ be vectors in $\RR^n$. We say $\vec{u}$ and $\vec{v}
 \end{expandable}
 
 
-orthogonally diagonalizable matrix
+orthogonally diagonalizable matrix (\ref{def:orthDiag})
+\begin{expandable}
+    An $n \times n$ matrix $A$ is said to be \dfn{orthogonally diagonalizable} if an orthogonal matrix $Q$ can be found such that  $Q^{-1}AQ = Q^{T}AQ$ is diagonal.
+\end{expandable}
 
-orthonormal basis
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{orthonormal basis}
 
-orthonormal set of vectors
+orthonormal set of vectors (\ref{orthset})
+\begin{expandable}
+    Let $\{ \vec{v}_1, \vec{v}_2, \cdots, \vec{v}_k \}$ be a set of nonzero
+vectors in $\RR^n$. Then this set is called an
+\dfn{orthogonal set} if 
+$\vec{v}_i \dotp \vec{v}_j = 0$ for all $i \neq j$.
+Moreover, if $\norm{\vec{v}_i}=1$ for $i=1,\ldots,m$ (i.e. each vector in the set is a unit vector), we say the set of vectors is an \dfn{orthonormal set}.
+\end{expandable}
 
 outer product
 
@@ -429,13 +655,20 @@ x_1=v_1t+a_1\]
 \]
 \end{expandable}
 
-partitioned matrices (block multiplication)
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0050/main}{particular solution}
 
-permutation matrix
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0023/main}{partitioned matrices (block multiplication)}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0070/main}{permutation matrix}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/SYS-0030/main}{pivot}
 
-power method (and its variants)
+positive definite matrix (\ref{def:024811})
+\begin{expandable}
+    A square matrix is called \dfn{positive definite} if it is symmetric and all its eigenvalues $\lambda$ are positive.  We write $\lambda>0$ when eigenvalues are real and positive.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{power method (and its variants)}
 
 properties of determinants
 
@@ -445,18 +678,43 @@ properties of orthogonal matrices
 
 \subsection{Q}
 
-QR factorization
+QR factorization (\ref{def:QR-factorization})
+\begin{expandable}
+    Let $A$ be an $m \times n$ matrix with independent columns. A \dfn{QR-factorization} of $A$ expresses it as $A = QR$ where $Q$ is $m \times n$ with orthonormal columns and $R$ is an invertible and upper triangular matrix with positive diagonal entries.
+\end{expandable}
 
 \subsection{R}
 
 range of a linear transformation
 
-rank of a matrix (\ref{def:rankofamatrix})
+rank of a linear transformation (\ref{def:rankofT})
 \begin{expandable}
-    The \dfn{rank} of matrix $A$, denoted by $\mbox{rank}(A)$, is the number of nonzero rows that remain after we reduce $A$ to row-echelon form by elementary row operations.
+    The \dfn{rank} of a linear transformation $T:V\rightarrow W$, is the dimension of the image of $T$.
+$$\mbox{rank}(T)=\mbox{dim}(\mbox{im}(T))$$
 \end{expandable}
 
-Rank Theorem
+rank of a matrix (\ref{def:rankofamatrix}) (\ref{th:dimofrowA})
+\begin{expandable}
+    The \dfn{rank} of matrix $A$, denoted by $\mbox{rank}(A)$, is the number of nonzero rows that remain after we reduce $A$ to row-echelon form by elementary row operations.
+
+    For any matrix $A$,  
+$$\mbox{rank}(A)=\mbox{dim}\Big(\mbox{row}(A)\Big)$$
+
+\end{expandable}
+
+Rank-Nullity Theorem for linear transformations (\ref{th:ranknullityforT})
+\begin{expandable}
+    Let $T:V\rightarrow W$ be a linear transformation.  Suppose $\mbox{dim}(V)=n$, then
+$$\mbox{rank}(T)+\mbox{nullity}(T)=n$$
+\end{expandable}
+
+Rank-Nullity Theorem for matrices (\ref{th:matrixranknullity})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix.  Then 
+$$\mbox{rank}(A)+\mbox{nullity}(A)=n$$
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{Rayleigh quotients}
 
 reduced row echelon form (\ref{def:rref})
 \begin{expandable}
@@ -488,7 +746,10 @@ row echelon form (\ref{def:ref})
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{row matrix (vector)}
 
-row space of a matrix
+row space of a matrix (\ref{def:rowspace})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix.  The \dfn{row space} of $A$, denoted by $\mbox{row}(A)$, is the subspace of $\RR^n$ spanned by the rows of $A$.
+\end{expandable}
 
 
 \subsection{S}
@@ -511,11 +772,30 @@ Standard Unit Vectors (\ref{def:standardunitvecrn})
 
 scalar multiple of a matrix
 
-similar matrices
+similar matrices (\ref{def:similar})
+\begin{expandable}
+    If $A$ and $B$ are $n \times n$ matrices, we say that $A$ and $B$ are \dfn{similar}, if $B = P^{-1}AP$ for some invertible matrix $P$.  In this case we write $A \sim B$.
+\end{expandable}
 
-singular value decomposition (SVD)
+singular matrix (\ref{def:nonsingularmatrix})
+\begin{expandable}
+    A square matrix $A$ is said to be \dfn{nonsingular} provided that $\mbox{rref}(A)=I$.  Otherwise we say that $A$ is \dfn{singular}.
+\end{expandable}
 
-singular values
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0060/main}{singular value decomposition (SVD)}
+
+singular values (\ref{singularvalues})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix. The \dfn{singular values} of $A$ are the square roots of the positive
+eigenvalues of $A^TA.$ 
+\end{expandable}
+
+skew symmetric matrix (\ref{def:symmetricandskewsymmetric})
+\begin{expandable}
+    An $n\times n$ matrix $A$ is said to be
+\dfn{symmetric} if $A=A^{T}.$ It is said to be
+\dfn{skew symmetric} if $A=-A^{T}.$
+\end{expandable}
 
 span of a set of matrices
 
@@ -530,9 +810,12 @@ and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.
 
 spectral decomposition
 
-Spectral Theorem
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Spectral Theorem}
 
-standard basis
+standard basis (\ref{def:standardbasis})
+\begin{expandable}
+    The set $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is called the \dfn{standard basis} of $\RR^n$.
+\end{expandable}
 
 strictly diagonally dominant (\ref{def:strict_diag_dom})
 \begin{expandable}
@@ -547,15 +830,36 @@ for all values of $i$ from $i=1$ to $i=n$.
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{square matrix}
 
-standard matrix of a linear transformation
+standard matrix of a linear transformation (\ref{def:standardmatoflintrans})
+\begin{expandable}
+    The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Standard Position}
 
-subspace
+subspace of $\RR^n$ (\ref{def:subspace})
+\begin{expandable}
+    Suppose that $V$ is a nonempty subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
+\end{expandable}
+
+subspace (\ref{def:subspaceabstract})
+\begin{expandable}
+    A nonempty subset $U$ of a vector space $V$ is called a \dfn{subspace} of $V$, provided that $U$ is itself a vector space when given the same addition and scalar multiplication as $V$.
+\end{expandable}
+
+subspace test (\ref{th:subspacetestabstract})
+\begin{expandable}
+    Let $U$ be a nonempty subset of a vector space $V$.  If $U$ is closed under the operations of addition and scalar multiplication of $V$, then $U$ is a subspace of $V$.
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0030/main}{Subtraction of vectors}
 
-symmetric matrix
+symmetric matrix (\ref{def:symmetricandskewsymmetric})
+\begin{expandable}
+    An $n\times n$ matrix $A$ is said to be
+\dfn{symmetric} if $A=A^{T}.$ It is said to be
+\dfn{skew symmetric} if $A=-A^{T}.$
+\end{expandable}
 
 system of linear equations
 
@@ -563,12 +867,26 @@ system of linear equations
 
 \subsection{T}
 
-transpose of a matrix
+trace of a matrix (\ref{def:trace})
+\begin{expandable}
+    The \dfn{trace} of an $n \times n$ matrix $A$, abbreviated $\mbox{tr} A$, is defined to be the sum of the main diagonal elements of $A$.  In other words, if $ A = [a_{ij}]$, then $$\mbox{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$$  We may also write $\mbox{tr}(A) =\sum_{i=1}^n a_{ii}$.
+\end{expandable}
+
+transpose of a matrix (\ref{def:matrixtranspose})
+\begin{expandable}
+    Let $A=\begin{bmatrix} a _{ij}\end{bmatrix}$ be an $m\times n$ matrix. Then the \dfn{transpose of $A$}, denoted by $A^{T}$, is the $n\times m$
+matrix given by 
+\begin{equation*}
+A^{T} = \begin{bmatrix} a _{ij}\end{bmatrix}^{T}= \begin{bmatrix} a_{ji} \end{bmatrix}
+\end{equation*}
+\end{expandable}
 
 triangle inequality
 
 \subsection{U}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0036/main}{Unit Vector}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0070/main}{upper triangular matrix}
 
 \subsection{V}
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Vector}
@@ -579,7 +897,43 @@ Vector equation of a line (\ref{form:vectorlinend})
 $$\vec{x}(t)=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}t+\begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}$$
 \end{expandable}
 
-vector space
+vector space (\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0020/main}{$\RR^n$})
+(\ref{def:vectorspacegeneral})
+\begin{expandable}
+    Let $V$ be a nonempty set.  Suppose that elements of $V$ can be added together and multiplied by scalars.  The set $V$, together with operations of addition and scalar multiplication, is called a \dfn{vector space} provided that 
+  \begin{itemize}
+  \item[] $V$ is closed under addition
+  \item[] $V$ is closed under scalar multiplication
+  \end{itemize}
+  and the following properties hold for $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $V$ and scalars $k$ and $p$:
+  \begin{enumerate}
+   \item \label{item:commaddvectspdef}
+  Commutative Property of Addition:\quad
+  $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
+  \item \label{item:assaddvectspdef}
+  Associative Property of Addition:\quad
+  $(\vec{u}+\vec{v})+\vec{w}=\vec{u}+(\vec{v}+\vec{w})$
+  \item \label{item:idaddvectspdef}
+  Existence of Additive Identity:\quad
+  $\vec{u}+\vec{0}=\vec{u}$
+  \item \label{item:invaddvectspdef}
+  Existence of Additive Inverse:\quad
+  $\vec{u}+(-\vec{u})=\vec{0}$
+  \item \label{item:distvectaddvectspdef}
+  Distributive Property over Vector Addition:\quad
+  $k(\vec{u}+\vec{v})=k\vec{u}+k\vec{v}$
+  \item \label{item:distscalaraddvectspdef}
+  Distributive Property over Scalar Addition:\quad
+  $(k+p)\vec{u}=k\vec{u}+p\vec{u}$
+  \item \label{item:assmultvectspdef}
+  Associative Property for Scalar Multiplication:\quad
+  $k(p\vec{u})=(kp)\vec{u}$
+  \item \label{item:idmultvectspdef}
+  Multiplication by $1$:\quad
+  $1\vec{u}=\vec{u}$
+  \end{enumerate}
+We will refer to elements of $V$ as \dfn{vectors}.  
+\end{expandable}
 
 \subsection{W}
 
@@ -594,6 +948,14 @@ zero matrix (\ref{def:zeromatrix})
     The $m\times n$ \dfn{zero matrix} is the $m\times n$ matrix
 having every entry equal to zero. The zero matrix is
 denoted by $O$.
+\end{expandable}
+
+zero transformation (\ref{def:zerotransonrn})
+\begin{expandable}
+    The \dfn{zero transformation}, $Z$, maps every element of the domain to the zero vector.
+
+In other words,
+$$Z:V\rightarrow W$$ is a transformation such that $$Z(\vec{v})=\vec{0}\quad\text{for all}\quad \vec{v} \in V$$
 \end{expandable}
 
 \end{document}
