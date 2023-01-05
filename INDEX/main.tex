@@ -326,7 +326,12 @@ $1\leq j\leq n$.
 
 matrix factorization
 
-matrix multiplication (by a matrix)
+matrix multiplication (by a matrix) (\ref{def:matmatproduct})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix whose rows are vectors $\vec{r}_1$, $\vec{r}_2,\ldots ,\vec{r}_n$.  Let $B$ be an $n\times p$ matrix with columns $\vec{b}_1, \vec{b}_2, \ldots, \vec{b}_p$.  Then the entries of the matrix product $AB$ are given by the dot products
+\begin{align*}AB&=\begin{bmatrix}-&\vec{r}_1&-\\-&\vec{r}_2&-\\ &\vdots & \\-&\vec{r}_i &-\\ &\vdots& \\-&\vec{r}_m&-\end{bmatrix}\begin{bmatrix}|&|&&|&&|\\\vec{b}_1& \vec{b}_2 &\ldots  & \vec{b}_j&\ldots& \vec{b}_p\\|&|&&|&&|\end{bmatrix}\\ &=\begin{bmatrix}\vec{r}_1\dotp \vec{b}_1&\vec{r}_1\dotp \vec{b}_2&\ldots&\vec{r}_1\dotp \vec{b}_j&\ldots &\vec{r}_1\dotp \vec{b}_p\\\vec{r}_2\dotp \vec{b}_1&\vec{r}_2\dotp \vec{b}_2&\ldots&\vec{r}_2\dotp \vec{b}_j&\ldots &\vec{r}_2\dotp \vec{b}_p\\\vdots&\vdots&&\vdots&&\vdots\\\vec{r}_i\dotp \vec{b}_1&\vec{r}_i\dotp \vec{b}_2&\ldots&\vec{r}_i\dotp \vec{b}_j&\ldots &\vec{r}_i\dotp \vec{b}_p\\\vdots&\vdots&&\vdots&&\vdots\\\vec{r}_m\dotp \vec{b}_1&\vec{r}_m\dotp \vec{b}_2&\ldots&\vec{r}_m\dotp \vec{b}_j&\ldots &\vec{r}_m\dotp \vec{b}_p\end{bmatrix}
+\end{align*}
+\end{expandable}
 
 matrix multiplication (by a scalar) (\ref{def:scalarmultofmatrices})
 \begin{expandable}
@@ -334,7 +339,21 @@ matrix multiplication (by a scalar) (\ref{def:scalarmultofmatrices})
 then $kA=\begin{bmatrix} ka_{ij}\end{bmatrix}$. 
 \end{expandable}
 
-matrix multiplication (by a vector)
+matrix multiplication (by a vector) (\ref{def:matrixvectormult})
+\begin{expandable}
+    Let $A$ be an $m\times n$ matrix, and let $\vec{x}$ be an $n\times 1$ vector.  The product $A\vec{x}$ is the $m\times 1$ vector given by:
+$$A\vec{x}=\begin{bmatrix}
+           a_{11} & a_{12}&\dots&a_{1n}\\
+           a_{21}&a_{22} &\dots &a_{2n}\\
+		\vdots & \vdots&\ddots &\vdots\\
+		a_{m1}&\dots &\dots &a_{mn}
+         \end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}=
+         x_1\begin{bmatrix}a_{11}\\a_{21}\\ \vdots \\a_{m1}\end{bmatrix}+
+         x_2\begin{bmatrix}a_{12}\\a_{22}\\ \vdots \\a_{m2}\end{bmatrix}+\dots+
+         x_n\begin{bmatrix}a_{1n}\\a_{2n}\\ \vdots \\a_{mn}\end{bmatrix}$$
+or, equivalently,
+$$A\vec{x}=\begin{bmatrix}a_{11}x_1+a_{12}x_2+\ldots +a_{1n}x_n\\a_{21}x_1+a_{22}x_2+\ldots +a_{2n}x_n\\\vdots\\a_{m1}x_1+a_{m2}x_2+\ldots +a_{mn}x_n\end{bmatrix}$$
+\end{expandable}
 
 matrix of a linear transformation
 
