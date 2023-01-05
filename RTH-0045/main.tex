@@ -21,7 +21,7 @@ statistics (for example, in factor analysis used in the social sciences)
 
 
 \begin{definition}\label{def:024811}
-A square matrix is called \dfn{positive definite} if it is symmetric and all its eigenvalues $\lambda$ are positive, that is $\lambda > 0$.
+A square matrix is called \dfn{positive definite} if it is symmetric and all its eigenvalues $\lambda$ are positive.  We write $\lambda>0$ when eigenvalues are real and positive.
 \end{definition}
 
 Because these matrices are symmetric, the Real Spectral Theorem (\ref{th:PrinAxes}) plays a central role in the theory.
@@ -43,16 +43,18 @@ A symmetric matrix $A$ is positive definite if and only if $\vec{x}^{T} A \vec{x
 \end{theorem}
 
 \begin{proof}
-$A$ is symmetric so, by the Real Spectral Theorem, let $P^{T}AP = D = \mbox{diag}(\lambda_{1}, \lambda_{2}, \dots, \lambda_{n})$ where $P^{-1} = P^{T}$ and the $\lambda_{i}$ are the eigenvalues of $A$. Given a column $\vec{x}$ in $\RR^n$, write $\vec{y} = P^{T}\vec{x} = \left[ \begin{array}{cccc}
+$A$ is symmetric.  Using  the Real Spectral Theorem, let $Q^{T}AQ = D = \mbox{diag}(\lambda_{1}, \lambda_{2}, \dots, \lambda_{n})$ where $Q^{-1} = Q^{T}$ and the $\lambda_{i}$ are the eigenvalues of $A$. Given a column $\vec{x}$ in $\RR^n$, write $\vec{y} = Q^{T}\vec{x} = \left[ \begin{array}{cccc}
 y_{1} & y_{2} & \dots & y_{n}
 \end{array}\right]^T$. Then
 \begin{equation} \label{symmetricEq}
-\vec{x}^TA\vec{x} = \vec{x}^T(PDP^T)\vec{x} = \vec{y}^TD\vec{y} = \lambda_{1}y_{1}^2 + \lambda_{2}y_{2}^2 + \dots + \lambda_{n}y_{n}^2
+\vec{x}^TA\vec{x} = \vec{x}^T(QDQ^T)\vec{x} = \vec{y}^TD\vec{y} = \lambda_{1}y_{1}^2 + \lambda_{2}y_{2}^2 + \dots + \lambda_{n}y_{n}^2
 \end{equation}
-If $A$ is positive definite and $\vec{x} \neq \vec{0}$, then $\vec{x}^{T}A\vec{x} > 0$ by (\ref{symmetricEq}) because some $y_{j} \neq 0$ and every $\lambda_{i} > 0$. Conversely, if $\vec{x}^{T}A\vec{x} > 0$ whenever $\vec{x} \neq \vec{0}$, let $\vec{x} = P\vec{e}_{j} \neq \vec{0}$ where $\vec{e}_{j}$ is column $j$ of $I_{n}$. Then $\vec{y} = \vec{e}_{j}$, so (\ref{symmetricEq}) reads $\lambda_{j} = \vec{x}^{T}A\vec{x} > 0$.
+If $A$ is positive definite and $\vec{x} \neq \vec{0}$, then $\vec{x}^{T}A\vec{x} > 0$ by (\ref{symmetricEq}) because some $y_{j} \neq 0$ and every $\lambda_{i} > 0$. Conversely, if $\vec{x}^{T}A\vec{x} > 0$ whenever $\vec{x} \neq \vec{0}$, let $\vec{x} = Q\vec{e}_{j} \neq \vec{0}$ where $\vec{e}_{j}$ is column $j$ of $I_{n}$. Then $\vec{y} = \vec{e}_{j}$, so (\ref{symmetricEq}) reads $\lambda_{j} = \vec{x}^{T}A\vec{x} > 0$.
 \end{proof}
 
-Note that Theorem~\ref{thm:024830} shows that the positive definite matrices are exactly the symmetric matrices $A$ for which the quadratic form $q = \vec{x}^{T}A\vec{x}$ takes only positive values.
+Note that Theorem~\ref{thm:024830} shows that the positive definite matrices are exactly the symmetric matrices $A$ for which the quadratic form $q = \vec{x}^{T}A\vec{x}$ takes only positive values.  
+
+The next example of a positive definite matrix is one we will see again in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0060/main}{SVD Decomposition}
 
 \begin{example}\label{exa:024865}
 If $U$ is any invertible $n \times n$ matrix, show that $A = U^{T}U$ is positive definite.
@@ -154,9 +156,9 @@ U^T & 0 \\
 \end{array}\right] \left[ \begin{array}{cc}
 U & \vec{x} \\
 0 & c
-\end{array}\right]
+\end{array}\right].
 \end{equation*}
-as the reader can verify. Taking determinants gives $\det A = \mbox{det}(U^{T}) \mbox{det} U \cdot c = c(\mbox{det}U)^{2}$. Hence $c > 0$ because $\det A > 0$ by \ref{thm:024907b}, so the above factorization can be written
+Taking determinants gives $\det A = \mbox{det}(U^{T}) \mbox{det} U \cdot c = c(\mbox{det}U)^{2}$. Hence $c > 0$ because $\det A > 0$ by \ref{thm:024907b}, so the above factorization can be written
 \begin{equation*}
 A = \left[ \begin{array}{cc}
 U^T & 0 \\
@@ -168,7 +170,7 @@ U & \vec{x} \\
 \end{equation*}
 Since $U$ has positive diagonal entries, this proves \ref{thm:024907c}.
 
-As to the uniqueness, suppose that $A = U^TU = U_{1}^TU_{1}$ are two Cholesky factorizations. Now write $D = UU_{1}^{-1} = (U^T)^{-1}U_{1}^T$. Then $D$ is upper triangular, because $D = UU_{1}^{-1}$, and lower triangular, because $D = (U^T)^{-1}U_{1}^T$, and so it is a diagonal matrix. Thus $U = DU_{1}$ and $U_{1} = DU$, so it suffices to show that $D = I$. But eliminating $U_{1}$ gives $U = D^{2}U$, so $D^{2} = I$ because $U$ is invertible. Since the diagonal entries of $D$ are positive (this is true of $U$ and $U_{1}$), it follows that $D = I$.
+To prove uniqueness, suppose that $A = U^TU = U_{1}^TU_{1}$ are two Cholesky factorizations. Now write $D = UU_{1}^{-1} = (U^T)^{-1}U_{1}^T$. Then $D$ is upper triangular, because $D = UU_{1}^{-1}$, and lower triangular, because $D = (U^T)^{-1}U_{1}^T$, and so it is a diagonal matrix. Thus $U = DU_{1}$ and $U_{1} = DU$, so it suffices to show that $D = I$. But eliminating $U_{1}$ gives $U = D^{2}U$, so $D^{2} = I$ because $U$ is invertible. Since the diagonal entries of $D$ are positive (this is true of $U$ and $U_{1}$), it follows that $D = I$.
 \end{proof}
 
 The remarkable thing is that the matrix $U$ in the Cholesky factorization is easy to obtain from $A$ using row operations. The key is that Step 1 of the following algorithm is \textit{possible} for any positive definite matrix $A$. A proof of the algorithm is given following Example~\ref{exa:024959}.
@@ -223,7 +225,7 @@ The reader can verify that $U^{T}U = A$.
 
 \begin{proof}[Proof of the Cholesky Algorithm]
 If $A$ is positive definite, let $A = U^{T}U$ be the Cholesky factorization, and let $D = \mbox{diag}(d_{1}, \dots, d_{n})$ be the common diagonal of $U$ and $U^{T}$. Then $U^{T}D^{-1}$ is lower triangular with ones on the diagonal (call such matrices LT-1). Hence $L = (U^{T}D^{-1})^{-1}$ is also LT-1, and so $I_{n} \to L$ by a sequence of row operations each of which adds a multiple of a row
-to a lower row (verify; modify columns right to left). But then $A \to LA$ by the same sequence of row operations. Since $LA = [D(U^{T})^{-1}][U^{T}U] = DU$ is upper triangular with positive entries on the diagonal, this shows that Step 1 of the algorithm is possible.
+to a lower row (modify columns right to left). But then $A \to LA$ by the same sequence of row operations. Since $LA = [D(U^{T})^{-1}][U^{T}U] = DU$ is upper triangular with positive entries on the diagonal, this shows that Step 1 of the algorithm is possible.
 
 Turning to Step 2, let $A \to U_{1}$ as in Step 1 so that $U_{1} = L_{1}A$ where $L_{1}$ is
 LT-1. Since A is symmetric, we get
@@ -352,9 +354,10 @@ If $A$ is positive definite, show that \\ $A = CC^{T}$ where $C$ has orthogonal 
 \begin{problem}\label{prob:pos_def_10}
 If $A$ is positive definite, show that $A = C^{2}$ where $C$ is positive definite.
 
-\begin{hint}
+Click the arrow for answer.
+\begin{expandable}
 Let $P^{T}AP = D = \mbox{diag}(\lambda_{1}, \dots, \lambda_{n})$ where $P^{T} = P$. Since $A$ is positive definite, each eigenvalue $\lambda_{i} > 0$. If $B = \mbox{diag}(\sqrt{\lambda_{1}}, \dots, \sqrt{\lambda_{n}})$ then $B^{2} = D$, so $A = PB^{2}P^{T} = (PBP^{T})^{2}$. Take $C = PBP^{T}$. Since $C$ has eigenvalues $\sqrt{\lambda_{i}} > 0$, it is positive definite.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:pos_def_11}
@@ -367,18 +370,19 @@ Let $A$ be a positive definite matrix. If $a$ is a real number, show that $aA$ i
 
 \item Show that a matrix $A$ is positive definite if and only if $A$ is symmetric and admits a factorization $A = LDU$ as in (a).
 \end{enumerate}
-\begin{hint}
-\begin{enumerate}[label={\alph*.}]
-\setcounter{enumi}{1}
-\item  If $A$ is positive definite, use Theorem~\ref{thm:024815} to write $A = U^{T}U$ where $U$ is upper triangular with positive diagonal $D$. Then $A = (D^{-1}U)^{T}D^{2}(D^{-1}U)$ so $A = L_{1}D_{1}U_{1}$ is such a factorization if $U_{1} = D^{-1}U$, $D_{1} = D^{2}$, and $L_{1} = U^T_1$. Conversely, let $A^{T} = A = LDU$ be such a factorization. Then $U^{T}D^{T}L^{T} = A^{T} = A = LDU$, so $L = U^{T}$ by \textbf{(a)}. Hence $A = LDL^{T} = V^{T}V$ where $V = LD_{0}$ and $D_{0}$ is diagonal with $D^2_0 = D$ (the matrix $D_{0}$ exists because $D$ has positive diagonal entries). Hence $A$ is symmetric, and it is positive definite by Example~\ref{exa:024865}.
 
-\end{enumerate}
-\end{hint}
+Click the arrow for answer.
+\begin{expandable}
+If $A$ is positive definite, use Theorem~\ref{thm:024815} to write $A = U^{T}U$ where $U$ is upper triangular with positive diagonal $D$. Then $A = (D^{-1}U)^{T}D^{2}(D^{-1}U)$ so $A = L_{1}D_{1}U_{1}$ is such a factorization if $U_{1} = D^{-1}U$, $D_{1} = D^{2}$, and $L_{1} = U^T_1$. Conversely, let $A^{T} = A = LDU$ be such a factorization. Then $U^{T}D^{T}L^{T} = A^{T} = A = LDU$, so $L = U^{T}$ by \textbf{(a)}. Hence $A = LDL^{T} = V^{T}V$ where $V = LD_{0}$ and $D_{0}$ is diagonal with $D^2_0 = D$ (the matrix $D_{0}$ exists because $D$ has positive diagonal entries). Hence $A$ is symmetric, and it is positive definite by Example~\ref{exa:024865}.
+\end{expandable}
 \end{problem}
 
 
 \begin{problem}\label{prob:pos_def_13}
-Let $A$ be positive definite and write $d_{r} = \mbox{det}{^{(r)}A}$ for each $r = 1, 2, \dots, n$. If $U$ is the upper triangular matrix obtained in step 1 of the algorithm, show that the diagonal elements $u_{11}, u_{22}, \dots, u_{nn}$ of $U$ are given by $u_{11} = d_{1}$, $u_{jj} = d_{j} / d_{j-1}$ if $j > 1$. [\textit{Hint}: If $LA = U$ where $L$ is lower triangular with $1$s on the diagonal, use block multiplication to show that $\mbox{det}{^{(r)}A} = \mbox{det}{^{(r)}U}$ for each $r$.]
+Let $A$ be positive definite and write $d_{r} = \det{\left(^{(r)}A\right)}$ for each $r = 1, 2, \dots, n$. If $U$ is the upper triangular matrix obtained in step 1 of the algorithm, show that the diagonal elements $u_{11}, u_{22}, \dots, u_{nn}$ of $U$ are given by $u_{11} = d_{1}$, $u_{jj} = d_{j} / d_{j-1}$ if $j > 1$. 
+\begin{hint}
+If $LA = U$ where $L$ is lower triangular with $1$s on the diagonal, use block multiplication to show that $\det{\left(^{(r)}A\right)} = \det{\left(^{(r)}U\right)}$ for each $r$.
+\end{hint}
 \end{problem}
 
 \section*{Text Source} This section was adapted from Section 8.3 of Keith Nicholson's \href{https://open.umn.edu/opentextbooks/textbooks/linear-algebra-with-applications}{\it Linear Algebra with Applications}. (CC-BY-NC-SA)
