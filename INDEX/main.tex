@@ -524,7 +524,7 @@ matrix of a linear transformation with respect to the given bases (\ref{def:matl
     Matrix $A$ of Theorem \ref{th:matlintransgeneral} is called the matrix of $T$ with respect to ordered bases $\mathcal{B}$ and $\mathcal{C}$.
 \end{expandable}
 
-%matrix powers
+%matrix powers (\ref{exp:motivate_diagonalization})
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0010/main}{minor of a square matrix}
 
@@ -759,22 +759,9 @@ row space of a matrix (\ref{def:rowspace})
 
 
 \subsection{S}
-\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Scalar} 
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Scalar}
 
-Standard Unit Vectors (\ref{def:standardunitvecrn})
-\begin{expandable}
-    %\begin{definition}
-  Let $\vec{e}_i$ denote a vector that has $1$ as the $i^{th}$ component and zeros elsewhere.  In other words, $$\vec{e}_i=\begin{bmatrix}
-0\\
-0\\
-\vdots\\
-1\\
-\vdots\\
-0
-\end{bmatrix}$$ 
-  where $1$ is in the $i^{th}$ position.  We say that  $\vec{e}_i$ is a \dfn{standard unit vector of $\RR^n$}.
-%\end{definition}
-\end{expandable}
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0070/main}{scalar triple product}
 
 %scalar multiple of a matrix
 
@@ -814,13 +801,41 @@ and we say that vectors $\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_p$ \dfn{span} $S$.
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0090/main}{spanning set}
 
-%spectral decomposition
+spectral decomposition - another name for eigenvalue decomposition (\ref{def:eigdecomposition})
+\begin{expandable}
+    If we are able to diagonalize $A$, say $A=PDP^{-1}$, we say that $PDP^{-1}$ is an \dfn{eigenvalue decomposition} of $A$.
+\end{expandable}
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{Spectral Theorem}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0035/main}{spectrum} 
+The set of distinct eigenvalues of a matrix.
 
 standard basis (\ref{def:standardbasis})
 \begin{expandable}
     The set $\{\vec{e}_1, \ldots ,\vec{e}_n\}$ is called the \dfn{standard basis} of $\RR^n$.
+\end{expandable}
+
+standard matrix of a linear transformation (\ref{def:standardmatoflintrans})
+\begin{expandable}
+    The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
+\end{expandable}
+
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Standard Position}
+
+Standard Unit Vectors (\ref{def:standardunitvecrn})
+\begin{expandable}
+    %\begin{definition}
+  Let $\vec{e}_i$ denote a vector that has $1$ as the $i^{th}$ component and zeros elsewhere.  In other words, $$\vec{e}_i=\begin{bmatrix}
+0\\
+0\\
+\vdots\\
+1\\
+\vdots\\
+0
+\end{bmatrix}$$ 
+  where $1$ is in the $i^{th}$ position.  We say that  $\vec{e}_i$ is a \dfn{standard unit vector of $\RR^n$}.
+%\end{definition}
 \end{expandable}
 
 strictly diagonally dominant (\ref{def:strict_diag_dom})
@@ -836,21 +851,14 @@ for all values of $i$ from $i=1$ to $i=n$.
 
 \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/MAT-0010/main}{square matrix}
 
-standard matrix of a linear transformation (\ref{def:standardmatoflintrans})
+subspace (\ref{def:subspaceabstract})
 \begin{expandable}
-    The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
+    A nonempty subset $U$ of a vector space $V$ is called a \dfn{subspace} of $V$, provided that $U$ is itself a vector space when given the same addition and scalar multiplication as $V$.
 \end{expandable}
-
-\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VEC-0010/main}{Standard Position}
 
 subspace of $\RR^n$ (\ref{def:subspace})
 \begin{expandable}
     Suppose that $V$ is a nonempty subset of $\RR^n$ that is closed under addition and closed under scalar multiplication.  Then $V$ is a \dfn{subspace} of $\RR^n$.
-\end{expandable}
-
-subspace (\ref{def:subspaceabstract})
-\begin{expandable}
-    A nonempty subset $U$ of a vector space $V$ is called a \dfn{subspace} of $V$, provided that $U$ is itself a vector space when given the same addition and scalar multiplication as $V$.
 \end{expandable}
 
 subspace test (\ref{th:subspacetestabstract})
