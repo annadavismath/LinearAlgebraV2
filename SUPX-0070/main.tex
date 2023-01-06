@@ -9,7 +9,7 @@
 \end{abstract}
 \maketitle
 
-\section*{Exercises for Ch 7 Determinants}
+\section*{Additional Exercises for Chapter 7: Determinants}
 
 \begin{problem}\label{prb:7.1} Find the determinants of the following matrices.
 
@@ -46,20 +46,12 @@
 1 & 2 & 4 \\
 0 & 1 & 3 \\
 -2 & 5 & 1
-\end{array} \right]$. Find the following.
-\begin{enumerate}
-\item $minor(A)_{11}$
-\item $minor(A)_{21}$
-\item $minor(A)_{32}$
-\item $\mbox{cof}(A)_{11}$
-\item $\mbox{cof}(A)_{21}$
-\item $\mbox{cof}(A)_{32}$
-\end{enumerate}
-%\begin{hint}
-%\begin{enumerate}
-%\item
-%\end{enumerate}
-%\end{hint}
+\end{array} \right]$. When doing cofactor expansion along the top row, we encounter three minor matrices.  What are they?
+
+Click the arrow to see answer.
+\begin{expandable}
+$$\begin{bmatrix}1&3\\5&1\end{bmatrix},\quad\begin{bmatrix}0&3\\-2&1\end{bmatrix},\quad\begin{bmatrix}0&1\\-2&5\end{bmatrix}$$
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.3} Find the determinants of the following matrices.
@@ -87,16 +79,18 @@
 \end{array}
 \right] $
 \end{enumerate}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \begin{enumerate}
 \item The answer is $31$.
 \item The answer is $375$.
 \item The answer is $-2$.
 \end{enumerate}
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.4} Find the following determinant by expanding along the first row and
+\begin{problem}\label{prb:7.4} Find the following determinant by (a) expanding along the first row, (b)
 second column.
 \begin{equation*}
 \left|
@@ -107,7 +101,9 @@ second column.
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{ccc}
@@ -117,10 +113,10 @@ second column.
 \end{array}
 \right| =  6
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.5} Find the following determinant by expanding along the first column and
+\begin{problem}\label{prb:7.5} Find the following determinant by (a) expanding along the first column, (b)
 third row.
 \begin{equation*}
 \left|
@@ -131,7 +127,9 @@ third row.
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{ccc}
@@ -141,10 +139,10 @@ third row.
 \end{array}
 \right| =  2
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.6} Find the following determinant by expanding along the second row and
+\begin{problem}\label{prb:7.6} Find the following determinant by expanding (a) along the second row, (b)
 first column.
 \begin{equation*}
 \left|
@@ -155,7 +153,9 @@ first column.
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{ccc}
@@ -165,7 +165,7 @@ first column.
 \end{array}
 \right| = 6
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.7} Compute the determinant by cofactor expansion. Pick the easiest row or
@@ -180,7 +180,9 @@ column to use.
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{cccc}
@@ -191,10 +193,10 @@ column to use.
 \end{array}
 \right| = -4
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.8} Find the determinant of the following matrices.
+\begin{problem}\label{prb:7.8} Find the determinants of the following matrices.
 
 \begin{enumerate}
 \item
@@ -243,9 +245,11 @@ b & d
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 It does not change the determinant. This was just taking the transpose.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.10} An operation is done to get from the first matrix to the second.
@@ -264,10 +268,12 @@ a & b
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 In this case two rows were switched and so the resulting determinant is $-1$
 times the first.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -287,9 +293,11 @@ a+c & b+d
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 The determinant is unchanged. It was just the first row added to the second.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -309,10 +317,12 @@ a & b \\
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 The second row was multiplied by 2 so the determinant of the result is 2
 times the original determinant.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.13} An operation is done to get from the first matrix to the second.
@@ -331,37 +341,44 @@ d & c
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 In this case the two columns were switched so the determinant of the second
 is $-1$ times the determinant of the first.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
 \begin{problem}\label{prb:7.14} Let $A$ be an $r\times r$ matrix and suppose there are $r-1$ rows
 (columns) such that all rows (columns) are linear combinations of these $r-1$
 rows (columns). Show $\det \left( A\right) =0.$
+
 \begin{hint}
 If the determinant is nonzero, then it will remain nonzero with row operations applied to the matrix.
-However, by assumption, you can obtain a row of zeros by doing row
-operations. Thus the determinant must have been zero after all.
+In this case, you can obtain a row of zeros by doing row
+operations. Thus the determinant must be zero.
 \end{hint}
 \end{problem}
 
 \begin{problem}\label{prb:7.15} Show $\det \left( aA\right) =a^{n}\det \left( A\right) $ for an $n \times n $ matrix $A
 $ and scalar $a$.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 $\det \left( aA\right) =\det
 \left( aIA\right) =\det \left( aI\right) \det \left( A\right) =a^{n}\det
 \left( A\right) .$ The matrix which has $a$ down the main diagonal has
 determinant equal to $a^{n}$.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
 \begin{problem}\label{prb:7.16} Construct $2\times 2$ matrices $A$ and $B$ to show that the
 $\det A \det B = \det (AB)$.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det
 \left( \left[
@@ -389,13 +406,15 @@ $\det A \det B = \det (AB)$.
 \end{array}
 \right] = -2 \times 4 = -8
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.17} Is it true that $\det \left( A+B\right) =\det \left( A\right) +\det
 \left( B\right) ?$ If this is so, explain why. If it is not so,
 give a counter example.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 This is not true at all. Consider $A=\left[
 \begin{array}{cc}
 1 & 0 \\
@@ -407,41 +426,47 @@ This is not true at all. Consider $A=\left[
 0 & -1
 \end{array}
 \right] .$
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.18} An $n\times n$ matrix is called \textbf{nilpotent}
-\index{nilpotent} if for some positive integer, $k$ it follows $A^{k}=0.$ If
+\begin{problem}\label{prb:7.18} An $n\times n$ matrix is called \dfn{nilpotent}
+if for some positive integer, $k$ it follows $A^{k}=O.$ If
 $A$ is a nilpotent matrix and $k$ is the smallest possible integer such that
-$A^{k}=0,$ what are the possible values of $\det \left( A\right) ?$
-\begin{hint}
+$A^{k}=O,$ what are the possible values of $\det \left( A\right)$?
+
+Click the arrow to see answer.
+\begin{expandable}
 It must
-be 0 because $0=\det \left( 0\right) =\det \left( A^{k}\right) =\left( \det
+be $O$ because $0=\det \left( 0\right) =\det \left( A^{k}\right) =\left( \det
 \left( A\right) \right) ^{k}.$
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.19} \label{exerorthogonal}A matrix is said to be \textbf{orthogonal} \index{matrix!orthogonal} if
+\begin{problem}\label{prb:7.19}A matrix is said to be \dfn{orthogonal} if
 $A^{T}A=I.$ Thus the inverse of an orthogonal matrix is just its transpose.
 What are the possible values of $\det \left( A\right) $ if $A$ is an
 orthogonal matrix?
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 You would need $\det \left( AA^{T}\right) =\det
 \left( A\right) \det \left( A^{T}\right) =\det \left( A\right) ^{2}=1$ and
 so $\det \left( A\right) =1,$ or $-1$.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.20} Let $A$ and $B$ be two $n\times n$ matrices. $A\sim B$
 ($A$ is \textbf{similar} to $B$) means there exists an invertible matrix $P$
 such that $A=P^{-1}BP.$ Show that if $A\sim B,$ then
-$\det \left( A\right) =\det \left( B\right) .$
-\begin{hint}
+$\det \left( A\right) =\det \left( B\right)$.
+
+Click the arrow to see answer.
+\begin{expandable}
 $\det \left( A\right) =\det
 \left( S^{-1}BS\right) =\det \left( S^{-1}\right) \det \left( B\right) \det
 \left( S\right) =\det \left( B\right) \det \left( S^{-1}S\right) =\det
 \left( B\right) $.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.21} Tell whether each statement is true or false. If true, provide a proof. If false, provide a counter example.
@@ -470,13 +495,15 @@ A\right) ^{-1}.$
 \item If $A$ is a real $n\times n$ matrix, then $\det \left( A^{T}A\right)
 \geq 0.$
 
-\item If $A^{k}=0$ for some positive integer $k,$ then $\det \left(
+\item If $A^{k}=O$ for some positive integer $k,$ then $\det \left(
 A\right) =0.$
 
 \item If $AX=0$ for some $X \neq 0,$ then $\det \left(
 A\right) =0.$
 \end{enumerate}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \begin{enumerate}
 \item False. Consider $\left[
 \begin{array}{rrr}
@@ -495,7 +522,7 @@ A\right) =0.$
 \item True.
 \item True.
 \end{enumerate}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.22} Find the determinant using row operations to first simplify.
@@ -508,7 +535,9 @@ A\right) =0.$
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{rrr}
@@ -518,7 +547,7 @@ A\right) =0.$
 \end{array}
 \right| = -6
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.23} Find the determinant using row operations to first simplify.
@@ -531,7 +560,9 @@ A\right) =0.$
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \left|
 \begin{array}{rrr}
@@ -541,7 +572,7 @@ A\right) =0.$
 \end{array}
 \right| = -32
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.24} Find the determinant using row operations to first simplify.
@@ -555,7 +586,9 @@ A\right) =0.$
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 One can row reduce this using only row operation 3 to
 \[
 \left[
@@ -578,7 +611,7 @@ and therefore, the determinant is $-63.$
 \end{array}
 \right| = 63
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.25} Find the determinant using row operations to first simplify.
@@ -592,8 +625,11 @@ and therefore, the determinant is $-63.$
 \end{array}
 \right|
 \end{equation*}
-\begin{hint}
-One can row reduce this using only row operation 3 to$\allowbreak $%
+
+Click the arrow to see answer.
+\begin{expandable}
+One can row reduce this using only row operation 3 to
+
 \[
 \left[
 \begin{array}{rrrr}
@@ -615,7 +651,7 @@ Thus the determinant is given by
 \end{array}
 \right| = 211
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.26} Let
@@ -632,7 +668,9 @@ A=
 Determine whether the matrix $A$ has an inverse by finding whether the
 determinant is non zero. If the determinant is nonzero, find the inverse
 using the formula for the inverse which involves the cofactor matrix.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 $\det
 \left[
 \begin{array}{ccc}
@@ -702,13 +740,13 @@ $\det
 \right] ^{T} \\
 &=& \left[
 \begin{array}{rrr}
-\vspace{0.05in}\frac{1}{13} & -\vspace{0.05in}\frac{3}{13} & \vspace{0.05in}\frac{4}{13} \\
--\vspace{0.05in}\frac{3}{13} & \vspace{0.05in}\frac{9}{13} & \vspace{0.05in}\frac{1}{13} \\
-\vspace{0.05in}\frac{6}{13} & -\vspace{0.05in}\frac{5}{13} & -\vspace{0.05in}\frac{2}{13}
+\frac{1}{13} & -\frac{3}{13} & \frac{4}{13} \\
+-\frac{3}{13} & \frac{9}{13} & \frac{1}{13} \\
+\frac{6}{13} & -\frac{5}{13} & -\frac{2}{13}
 \end{array}
 \right]
 \end{eqnarray*}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.27} Let
@@ -725,7 +763,9 @@ A=
 Determine whether the matrix $A$ has an inverse by finding whether the
 determinant is non zero. If the determinant is nonzero, find the inverse
 using the formula for the inverse.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 $\det
 \left[
 \begin{array}{ccc}
@@ -742,12 +782,12 @@ $\det
 \end{array}
 \right]^{T} = \left[
 \begin{array}{rrr}
-\vspace{0.05in}\frac{1}{7} & -\vspace{0.05in}\frac{2}{7} & \vspace{0.05in}\frac{2}{7} \\
-\vspace{0.05in}\frac{3}{7} & \vspace{0.05in}\frac{1}{7} & -\vspace{0.05in}\frac{1}{7} \\
--\vspace{0.05in}\frac{6}{7} & \vspace{0.05in}\frac{5}{7} & \vspace{0.05in}\frac{2}{7}
+\frac{1}{7} & -\frac{2}{7} & \frac{2}{7} \\
+\frac{3}{7} & \frac{1}{7} & -\frac{1}{7} \\
+-\frac{6}{7} & \frac{5}{7} & \frac{2}{7}
 \end{array}
 \right] $
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.28} Let
@@ -764,7 +804,9 @@ A=
 Determine whether the matrix $A$ has an inverse by finding whether the
 determinant is non zero. If the determinant is nonzero, find the inverse
 using the formula for the inverse.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{ccc}
@@ -779,12 +821,12 @@ so it has an inverse which is
 \left[
 \begin{array}{rrr}
 1 & 0 & -3 \\
--\vspace{0.05in}\frac{2}{3} & \vspace{0.05in}\frac{1}{3} & \vspace{0.05in}\frac{5}{3} \\
-\vspace{0.05in}\frac{2}{3} & -\vspace{0.05in}\frac{1}{3} & -\vspace{0.05in}\frac{2}{3}
+-\frac{2}{3} & \frac{1}{3} & \frac{5}{3} \\
+\frac{2}{3} & -\frac{1}{3} & -\frac{2}{3}
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.29} Let
@@ -820,7 +862,9 @@ A =
 Determine whether the matrix $A$ has an inverse by finding whether the
 determinant is non zero. If the determinant is nonzero, find the inverse
 using the formula for the inverse.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{rrr}
@@ -834,13 +878,13 @@ and so it has an inverse. The inverse turns out to equal
 \[
 \left[
 \begin{array}{rrr}
--\vspace{0.05in}\frac{1}{2} & \vspace{0.05in}\frac{3}{2} & 0 \\
-\vspace{0.05in}\frac{3}{2} & -\vspace{0.05in}\frac{9}{2} & 1 \\
-\vspace{0.05in}\frac{1}{2} & -\vspace{0.05in}\frac{1}{2} & 0
+-\frac{1}{2} & \frac{3}{2} & 0 \\
+\frac{3}{2} & -\frac{9}{2} & 1 \\
+\frac{1}{2} & -\frac{1}{2} & 0
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.31} For the following matrices, determine if they are invertible. If so, use the formula for the inverse in terms of the cofactor matrix to
@@ -896,6 +940,8 @@ $\left[
 \end{hint}
 \end{problem}
 
+\subsection{Challenge Exercises}
+
 \begin{problem}\label{prb:7.32} Consider the matrix
 \begin{equation*}
 A =
@@ -909,9 +955,11 @@ A =
 \end{equation*}
 Does there exist a value of $t$ for which this matrix fails to have an
 inverse? Explain.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
  No. It has a nonzero determinant for all $t$
-\end{hint}
+\end{expandable}
 \end{problem}
 
 
@@ -928,7 +976,9 @@ t & 0 & 2
 \end{equation*}
 Does there exist a value of $t$ for which this matrix fails to have an
 inverse? Explain.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{ccc}
@@ -939,7 +989,7 @@ t & 0 & 2
 \right] = t^{3}+2
 \]
 and so it has no inverse when $t=-\sqrt[3]{2}$
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.34} Consider the matrix
@@ -955,7 +1005,9 @@ e^{t} & \cosh t & \sinh t
 \end{equation*}
 Does there exist a value of $t$ for which this matrix fails to have an
 inverse? Explain.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{ccc}
@@ -966,7 +1018,7 @@ e^{t} & \cosh t & \sinh t
 \right] = 0
 \]
 and so this matrix fails to have a nonzero determinant at any value of $t$.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.35} Consider the matrix
@@ -982,7 +1034,9 @@ e^{t} & 2e^{-t}\sin t & -2e^{-t}\cos t
 \end{equation*}
 Does there exist a value of $t$ for which this matrix fails to have an
 inverse? Explain.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{ccc}
@@ -993,11 +1047,12 @@ e^{t} & 2e^{-t}\sin t & -2e^{-t}\cos t%
 \right] = 5e^{-t} \neq 0
 \]
 and so this matrix is always invertible.
-\end{hint}
+\end{expandable}
 \end{problem}
 
-\begin{problem}\label{prb:7.36} \label{exerdeterminant3}Show that if $\det \left( A\right) \neq 0$ for $A$
+\begin{problem}\label{prb:7.36} Show that if $\det \left( A\right) \neq 0$ for $A$
 an $n\times n$ matrix, it follows that if $AX=0,$ then $X=0$.
+
 \begin{hint}
 If $\det \left( A\right) \neq 0,$ then $A^{-1}$ exists and so you could
 multiply on both sides on the left by $A^{-1}$ and obtain that $X=0$.
@@ -1005,19 +1060,24 @@ multiply on both sides on the left by $A^{-1}$ and obtain that $X=0$.
 \end{problem}
 
 \begin{problem}\label{prb:7.37} Suppose $A,B$ are $n\times n$ matrices and that $AB=I.$ Show that then
-$BA=I.$ \textbf{Hint:\ } First explain why
+$BA=I.$ 
+\begin{hint}
+First explain why
 $\det \left( A\right) ,\det \left( B\right) $ are both nonzero. Then $\left(
 AB\right) A=A$ and then show $BA\left( BA-I\right) =0.$ From this use what
 is given to conclude $A\left( BA-I\right) =0.$ Then use Problem
 \ref{prb:7.36}.
-\begin{hint}
+\end{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 You have $1=\det \left( A\right) \det \left( B\right) $.
 Hence both $A$ and $B$ have inverses. Letting $X$ be given,
 \[
 A\left( BA-I\right) X=\left( AB\right) AX-AX=AX-AX = 0
 \]
 and so it follows from the above problem that $\left( BA-I\right)X=0.$ Since $X$ is arbitrary, it follows that $BA=I.$
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.38} Use the formula for the inverse in terms of the cofactor matrix to
@@ -1031,7 +1091,9 @@ e^{t} & 0 & 0 \\
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \[
 \det \left[
 \begin{array}{ccc}
@@ -1058,7 +1120,7 @@ e^{-t} & 0 & 0 \\
 \end{array}
 \right]
 \end{eqnarray*}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.39} Find the inverse, if it exists, of the matrix
@@ -1072,7 +1134,9 @@ e^{t} & -\cos t & -\sin t
 \end{array}
 \right]
 \end{equation*}
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 \begin{eqnarray*}
 &&\left[
 \begin{array}{ccc}
@@ -1091,7 +1155,7 @@ e^{t} & -\cos t & -\sin t
 \end{array}
 \right]
 \end{eqnarray*}
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prb:7.40} Suppose $A$ is an upper triangular matrix. Show that $A^{-1}$ exists
@@ -1106,12 +1170,14 @@ triangular matrix is just the product of the entries on the main diagonal.
 
 \begin{problem}\label{prb:7.41} If $A,B,$ and $C$ are each $n\times n$ matrices and $ABC$ is
 invertible, show why each of $A,B,$ and $C$ are invertible.
-\begin{hint}
+
+Click the arrow to see answer.
+\begin{expandable}
 This follows
 because $\det \left( ABC\right) =\det \left( A\right) \det \left( B\right)
 \det \left( C\right) $ and if this product is nonzero, then each determinant
 in the product is nonzero and so each of these matrices is invertible.
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \section*{Practice Problem Source}
