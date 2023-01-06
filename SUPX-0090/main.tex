@@ -9,7 +9,7 @@
 \end{abstract}
 \maketitle
 
-\section*{Exercises for Ch 9 Orthogonality}
+\section*{Additional Exercises for Chapter 9: Orthogonality}
 
 \begin{problem}\label{prob:find_ortho_basis_span}
 
@@ -178,7 +178,9 @@ orthonormal basis for the following span:
 \end{array}
 \right] \right\}
 \]
-\begin{hint}
+
+Click the arrow to see the answer.
+\begin{expandable}
 A solution is
 \[
 \left[
@@ -201,7 +203,7 @@ A solution is
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:use_GS_on_span_2} 
@@ -232,7 +234,9 @@ orthonormal basis for the following span:
 \end{array}
 \right] \right\}
 \]
-\begin{hint}
+
+Click the arrow to see the answer.
+\begin{expandable}
 A solution is
 \[
 \left[
@@ -258,7 +262,7 @@ A solution is
 \end{array}
 \right]
 \]
-\end{hint}
+\end{expandable}
 \end{problem}
 
 \begin{problem}\label{prob:find_orthonormal_subspace_variables}  
@@ -317,35 +321,39 @@ So a basis is $\left[
 In each case, write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
 
 \begin{problem}\label{OrthoDecomp1}
-$\vec{x} = (1, 5, 7)$, $W = \mbox{span}\left((1, -2, 3), (-1, 1, 1)\right)$
+$\vec{x} = \begin{bmatrix}1\\ 5\\ 7\end{bmatrix}$, $W = \mbox{span}\left(\begin{bmatrix}1\\ -2\\ 3\end{bmatrix}, \begin{bmatrix}-1\\ 1\\ 1\end{bmatrix}\right)$
 
 Click the arrow to see the answer.
 \begin{expandable}
-$\vec{x} = \frac{1}{182}(271,-221,1030)  + \frac{1}{182}(93,403,62)$
+$\vec{x} = \frac{1}{182}\begin{bmatrix}271\\-221\\1030\end{bmatrix}  + \frac{1}{182}\begin{bmatrix}93\\403\\62\end{bmatrix}$
 \end{expandable}
 \end{problem}
 
 \begin{problem}\label{OrthoDecomp3}
-$\vec{x} = (3, 1, 5, 9)$, \\ $W = \mbox{span}\left((1, 0, 1, 1), (0, 1, -1, 1), (-2, 0, 1, 1)\right)$
+$\vec{x} = \begin{bmatrix}3\\ 1\\ 5\\ 9\end{bmatrix}$
+
+$W = \mbox{span}\left(\begin{bmatrix}1\\ 0\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}0\\ 1\\ -1\\ 1\end{bmatrix}, \begin{bmatrix}-2\\ 0\\ 1\\ 1\end{bmatrix}\right)$
 
 Click the arrow to see the answer.
 \begin{expandable}
-$\vec{x}= \frac{1}{4}(1, 7, 11, 17) + \frac{1}{4}(7, -7, -7, 7)$
+$\vec{x}= \frac{1}{4}\begin{bmatrix}1\\ 7\\ 11\\ 17\end{bmatrix} + \frac{1}{4}\begin{bmatrix}7\\ -7\\ -7\\ 7\end{bmatrix}$
 \end{expandable}
 \end{problem}
 
 \begin{problem}\label{OrthoDecomp5}
-$\vec{x} = (a, b, c, d)$, \\ $W = \mbox{span}\left((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0)\right)$
+$\vec{x} = \begin{bmatrix}a\\ b\\ c\\ d\end{bmatrix}$
+
+$W = \mbox{span}\left(\begin{bmatrix}1\\ 0\\ 0\\ 0\end{bmatrix}, \begin{bmatrix}0\\ 1\\ 0\\ 0\end{bmatrix}, \begin{bmatrix}0\\ 0\\ 1\\ 0\end{bmatrix}\right)$
 
 Click the arrow to see the answer.
 \begin{expandable}
-$\vec{x} = \frac{1}{12}(5a - 5b + c - 3d, -5a + 5b - c + 3d, a - b + 11c + 3d, -3a + 3b + 3c + 3d) + \frac{1}{12}(7a + 5b - c + 3d, 5a + 7b + c - 3d, -a + b + c -3d, 3a - 3b - 3c + 9d)$
+$\vec{x} = \frac{1}{12}\begin{bmatrix}5a - 5b + c - 3d\\ -5a + 5b - c + 3d\\ a - b + 11c + 3d\\ -3a + 3b + 3c + 3d\end{bmatrix} + \frac{1}{12}\begin{bmatrix}7a + 5b - c + 3d\\ 5a + 7b + c - 3d\\ -a + b + c -3d\\ 3a - 3b - 3c + 9d\end{bmatrix}$
 \end{expandable}
 \end{problem}
 
 \end{problem}
 
-\begin{problem}\label{prob:make_ortho_matrix_reprise}
+\begin{problem}%\label{prob:make_ortho_matrix_reprise}
 Normalize the rows to make each of the following matrices orthogonal.
 
 \begin{problem}\label{prob:make_ortho_matrix2} 
@@ -509,7 +517,7 @@ A=\left[
 \end{equation*}
 
 \begin{hint} 
-One eigenvalue is -2.
+One eigenvalue is $-2$.
 
 Click the arrow to see the answer. \begin{expandable}
 The eigenvectors and eigenvalues are:
@@ -534,8 +542,8 @@ The eigenvectors and eigenvalues are:
 \end{array}
 \right] \right\} \leftrightarrow -2
 \]
-\begin{eqnarray*}
-&&\left[
+$$
+\left[
 \begin{array}{ccc}
 \sqrt{3}/3 & -\sqrt{2}/2 & -\sqrt{6}/6 \\
 \sqrt{3}/3 & \sqrt{2}/2 & -\sqrt{6}/6 \\
@@ -547,15 +555,14 @@ The eigenvectors and eigenvalues are:
 1 & -1 & 1 \\
 1 & 1 & -1
 \end{array}
-\right]  \\
-&&\cdot \left[
+\right] \left[
 \begin{array}{ccc}
 \sqrt{3}/3 & -\sqrt{2}/2 & -\sqrt{6}/6 \\
 \sqrt{3}/3 & \sqrt{2}/2 & -\sqrt{6}/6 \\
 \sqrt{3}/3 & 0 & \frac{1}{3}\sqrt{2}\sqrt{3}
 \end{array}
 \right]
-\end{eqnarray*}
+$$
 \[
 =\left[
 \begin{array}{rrr}
@@ -1059,11 +1066,11 @@ Since $\lambda \neq \mu ,$ it follows $X \dotp \vec{y} =0.$
 \subsection*{Challenge Exercises}
 
 \begin{problem}\label{prob:8_1_13}
-If $W$ is a subspace of $\RR^n$, show that $\left(U^{\perp}\right)^\perp = U$. [\textit{Hint}: Show that $W \subseteq \left(U^{\perp}\right)^\perp$, then use Theorem~\ref{th:023783}~\ref{th:023783c} twice.]
+If $W$ is a subspace of $\RR^n$, show that $\left(U^{\perp}\right)^\perp = U$. \begin{hint}Show that $W \subseteq \left(U^{\perp}\right)^\perp$, then use Theorem~\ref{th:023783c} twice.\end{hint}
 \end{problem}
 
 \begin{problem}\label{prob:8_1_14}
-If $W$ is a subspace of $\RR^n$, show how to find an $n \times n$ matrix $A$ such that $W = \{\vec{x} \mid A\vec{x} = \vec{0}\}$. [\textit{Hint}: Practice Problem~\ref{prob:8_1_13}.]
+If $W$ is a subspace of $\RR^n$, show how to find an $n \times n$ matrix $A$ such that $W = \{\vec{x} \mid A\vec{x} = \vec{0}\}$. \begin{hint}Practice Problem~\ref{prob:8_1_13}.\end{hint}
 
 \begin{hint}
 Let $\{\vec{y}_{1}, \vec{y}_{2}, \dots, \vec{y}_{m}\}$ be a basis of $W^\perp$, and let $A$ be the $n \times n$ matrix with rows $\vec{y}^T_1, \vec{y}^T_2, \dots, \vec{y}^T_m, 0, \dots, 0$. Then $A\vec{x} = \vec{0}$ if and only if $\vec{y}_{i} \dotp \vec{x} = 0$ for each $i = 1, 2, \dots, m$; if and only if $\vec{x}$ is in $W^{\perp \perp} = U$.
@@ -1071,18 +1078,19 @@ Let $\{\vec{y}_{1}, \vec{y}_{2}, \dots, \vec{y}_{m}\}$ be a basis of $W^\perp$, 
 \end{problem}
 
 \begin{problem}\label{prob:8_1_16}
-If $U$ and $W$ are subspaces, show that $(U + W)^\perp = U^\perp \cap W^\perp$. [See Practice Problem \ref{prob:5_1_22}.]
+If $U$ and $W$ are subspaces, define $U+W$ to be the set of all possible sums of elements of $U$ with elements of $W$.  Is $U+W$ a subspace?
+Show that $(U + W)^\perp = U^\perp \cap W^\perp$. 
 \end{problem}
 
 \begin{problem}
-Think of $\RR^n$ as consisting of rows.
+Think of $\RR^n$ as consisting of row vectors.
 
 \begin{problem}\label{prob:8_1_17.1}
-\item Let $E$ be an $n \times n$ matrix, and let \\ $W = \{\vec{x} E \mid \vec{x} \mbox{ in } \RR^n\}$. Show that the following are equivalent.
+\item Let $E$ be an $n \times n$ matrix, and let $W = \{\vec{x} E \mid \vec{x} \mbox{ in } \RR^n\}$. Show that the following are equivalent.
 
 
 \begin{enumerate}
-\item $E^{2} = E = E^{T}$ ($E$ is a \dfn{projection matrix}.
+\item $E^{2} = E = E^{T}$ ($E$ is a \dfn{projection matrix}).
 
 \item $(\vec{x} - \vec{x}E) \dotp (\vec{y}E) = 0$ for all $\vec{x}$ and $\vec{y}$ in $\RR^n$.
 
