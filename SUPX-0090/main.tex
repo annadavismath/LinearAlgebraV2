@@ -1162,9 +1162,11 @@ a & 0 & b
 
 \subsection*{Octave Exercises}
 \begin{problem}\label{oct:ortho_diagonalize}
-Use the Octave window below to check your work on Problems \ref{prb:9.1} to \ref{prb:9.12}.  The first steps of \ref{prb:9.2} are done in the Octave window.  See if you can finish the rest of the problem.
+Use Octave to check your work on Problems \ref{prb:9.1} to \ref{prb:9.12}.   The first steps of \ref{prb:9.2} are in the code below.  See if you can finish the rest of the problem.  
 
-%\begin{octave}
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
 A=[4 1 -2; 1 4 -2; -2 -2 7];
 
 [Q,D]=eig(A)
@@ -1175,11 +1177,11 @@ rref(A-3*eye(size(A)))
 
 % By hand, we will not get the same eigenvectors for 3 that Octave did, and we will need to
 % orthogonalize them using Gram-Schmidt.  Octave does so automatically.  Observe:
-Q'*Q
+transpose(Q)*Q
 
 % And so we can check that the following is (approximately) the same as D:
-Q'*A*Q
-%\end{octave}
+transpose(Q)*A*Q
+\end{verbatim}
 
 \end{problem}
 
