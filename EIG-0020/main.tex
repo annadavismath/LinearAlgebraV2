@@ -38,7 +38,7 @@ If the rank of an $n \times n$ matrix is less than $n$, then the matrix is singu
 \end{exploration}
 In theory, Exploration \ref{exp:slowdown} offers us a way to find eigenvalues.  To find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$. 
 
-\subsection{Eigenvalues}
+\subsection*{Eigenvalues}
  
 \begin{definition}\label{def:chareqcharpoly}
 The equation 
@@ -128,7 +128,7 @@ Let $D$ be a diagonal matrix.  Then the eigenvalues of $D$ are the entries on th
 
 One final note about eigenvalues.  We began this section with the sentence, "In theory, then, to find the eigenvalues of $A$, one can solve Equation (\ref{eqn:chareqn}) for $\lambda$."  In general, one does not attempt to compute eigenvalues by solving the characteristic equation of a matrix, as there is no simple way to solve this polynomial equation for $n>4$.  Instead, one can often approximate the eigenvalues using \dfn{iterative methods}.  We will explore some of these techniques in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{The Power Method and the Dominant Eigenvalue}.
 
-\subsection{Eigenvectors}
+\subsection*{Eigenvectors}
 Once we have computed an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the next step is to compute the associated eigenvectors.  In other words, we seek vectors $\vec{x}$ such that $A\vec{x}=\lambda \vec{x}$, or equivalently,
 \begin{align}\label{eqn:nullspace}
  (A-\lambda I) \vec{x}=\vec{0}   

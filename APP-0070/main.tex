@@ -1,0 +1,99 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{Curve Fitting} \license{CC BY-NC-SA 4.0}
+
+\begin{document}
+
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+\begin{onlineOnly}
+\section*{Curve Fitting}
+\end{onlineOnly}
+
+We know that two points determine a line.  Do you know how many points determine a parabola?  What about a cubic?  To address these questions we will start with an alternative way of finding an equation of a line.
+
+\begin{exploration}\label{exp:curveFitLine}
+Consider two points $A(-3, 2)$ and $B(1,-2)$.  We will find a function $f$ whose graph is a line that passes through these points.  We know that $f(x)=ax+b$ for some constants $a$ and $b$.  Because the graph of $f$ passes through $A$ and $B$, we must have the following:
+$$\begin{matrix}
+      f(-3)&=&a(-3)&+&b&=&2\\
+      f(1)&=&a(1)&+&b&=&-2
+    \end{matrix}$$
+To solve for $a$ and $b$, we need to solve the following matrix equation:
+$$\begin{bmatrix}\answer{-3} & \answer{1}\\\answer{1} & \answer{1}\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}\answer{2}\\\answer{-2}\end{bmatrix}$$
+Solving the equation, we find that $a=-1$ and $b=-1$.  This gives us:
+$$f(x)=-x-1$$
+
+The GeoGebra interactive below shows two points $A$ and $B$, together with the matrix equation that produces function coefficients for the function whose graph passes through $A$ and $B$.  Drag the points around the plane to see how the matrix equation changes.
+
+% \begin{pdfOnly}
+% Access GeoGebra interactives through the online version of this text at 
+
+% \href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+% \end{pdfOnly}
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{aupuxe5j}{950}{650}
+\end{center}
+\end{onlineOnly}
+
+From a purely formal standpoint, we observe that the matrix equation has the form:
+$$\begin{bmatrix}x\text{-coordinate} & 1\\x\text{-coordinate} & 1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}y\text{-coordinate}\\y\text{-coordinate}\end{bmatrix}$$
+where each row corresponds to one point.
+\end{exploration}
+
+Now we are ready to move to quadratic, and higher degree polynomial functions.
+
+Linear function in Exploration \ref{exp:curveFitLine} had two unknown coefficients that we needed to find in order to determine the function. Two points gave us a system of two equations and two unknowns.
+
+A quadratic polynomial function, whose graph is a parabola, has the form:
+$$f(x)=ax^2+bx+c$$
+Three unknown coefficients will require three points to determine them.
+
+\begin{exploration}\label{exp:curveFitParabola}
+We will find a quadratic function of the form $f(x)=ax^2+bx+c$ whose graph passes through $A(-2,2)$, $B(0, -1)$ and $C(1, 5)$.
+To do this, we need to find coefficients $a$, $b$ and $c$ such that
+$$\begin{matrix}f(-2)&=&a(-2)^2&+&b(-2)&+&c&=&2\\f(0)&=&a(0)^2&+&b(0)&+&c&=&-1\\f(1)&=&a(1)^2&+&b(1)&+&c&=&5\end{matrix}$$
+
+The following GeoGebra interactive shows points $A$, $B$, and $C$, together with the matrix equation, and its solution.
+
+%     \begin{pdfOnly}
+% Access GeoGebra interactives through the online version of this text at 
+
+% \href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+% \end{pdfOnly}
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{m6mbcykf}{950}{650}
+\end{center}
+\end{onlineOnly}
+
+Drag the points around the plane to observe changes in the coefficient matrix.  Think geometrically to find locations of $A$, $B$ and $C$ such that
+\begin{itemize}
+    \item $a=b=0$; $c\neq 0$.
+    \item $a=0$; $b, c\neq 0$.
+\end{itemize}
+\end{exploration}
+
+\section*{Practice Problems}
+\begin{problem}\label{prob:systemProblems}
+Two GeoGebra screenshots are shown below:
+    \begin{image}
+         \includegraphics[height=1.5in]{pointsCoincide.jpg}\quad
+         \includegraphics[height=1.5in]{verticalPoints.jpg}
+\end{image}
+In the first screenshot, points $A$ and $B$ coincide.  In the second screenshot, point $A$ is located directly above point $B$. 
+In both cases, GeoGebra failed to produce a linear function whose graph passes through $A$ and $B$.
+
+Based on what you know about functions and geometry, explain why the process fails for these two examples. How do your observations correspond to what happens from an algebraic standpoint?
+\end{problem}
+
+
+
+
+
+\end{document}
