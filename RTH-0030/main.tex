@@ -9,6 +9,9 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
+\section*{Least-Squares Approximation}
+\end{onlineOnly}
 
 \begin{center}
 \begin{tikzpicture}[scale=1]
@@ -19,6 +22,77 @@
  
 UNDER CONSTRUCTION -- COMING SOON
 \end{center}
+
+Often an exact solution to a problem in applied mathematics is difficult or impossible to obtain. However, it is usually just as useful to find an approximation to a solution. In particular, finding ``linear approximations" is a potent technique in applied mathematics. One basic case is the situation where a system
+of linear equations has no solution, and it is desirable to find a ``best approximation" to a solution to the
+system. In this section best approximations are defined and a method for finding them is described. 
+
+\begin{exploration}\label{exp:leastSq1}
+    Let
+    $$A=\begin{bmatrix}3 & 1\\1 & 2\\1 & 2\end{bmatrix};\quad\text{and}\quad \vec{b}=\begin{bmatrix}2\\1\\3\end{bmatrix}$$
+    Consider the matrix equation $A\vec{x}=\vec{b}$.
+    A quick examination of the last two rows should convince you that this equation has no solutions.  In other words, $\vec{b}$ is not in the span of the columns of $A$.
+
+    We will attempt to find the next best thing to a solution to $A\vec{x}=\vec{b}$ by finding $\vec{z}$ such that $\norm{\vec{b}-A\vec{z}}$ is as small as possible.  
+
+    The following GeoGebra interactive will help you understand the geometry behind finding $\vec{z}$.  RIGHT-CLICK and DRAG to rotate the image for a better view.
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{mm7wauhw}{950}{650}
+\end{center}
+\end{onlineOnly}
+\end{exploration}
+
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}
+
+    \draw[line width=2pt,blue](-3,1,1)--(5,6,5);
+    
+    \draw[line width=0.5pt, dashed, gray](-3,1,1)--(5,1,1);
+    \draw[line width=0.5pt, dashed, gray](5,1,1)--(5,1,5);
+    \draw[line width=0.5pt, dashed, gray](5,1,1)--(5,6,1);
+    \draw[line width=0.5pt, dashed, gray](5,6,5)--(5,6,1);
+    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(5,6,1);
+    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(-3,6,5);
+    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(-3,1,1);
+    \draw[line width=0.5pt, dashed, gray](-3,6,5)--(-3,1,5);
+    \draw[line width=0.5pt, dashed, gray](-3,6,5)--(5,6,5);
+    
+    
+    \draw[line width=1pt,red, dashed, -stealth](5,1,5)--(5,5.8,5);
+    \draw[line width=1pt,red, dashed, -stealth](-3,1,5)--(4.9,1,5);
+     \draw[line width=1pt,red, dashed,-stealth](-3,1,1)--(-3,1,4.8);
+     
+    
+    \fill[red] (-3,1,1) node[above left]{$(1,-3,1)$} circle (0.1cm); 
+    \fill[red] (5,6,5) node[above left]{$(5,5,6)$} circle (0.1cm);
+    
+    \node[red] at (0.8, 1.3, 5)   {over $8$};
+    \node[red] at (-2.1, 1.3, 3.6)   {out $4$};
+    \node[red] at (5.1, 3, 4)   {up $5$};
+    
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+\begin{tikzpicture}[scale=0.5]
+   \filldraw[blue, opacity=0.3](0,0,2)--(0,2,2)--(0,2,-2)--(0,0,-2)--cycle;
+   \filldraw[red, opacity=0.3] (2,0,2)--(0,0,2)--(0,0,-2)--(2,0,-2)--cycle;
+   \filldraw[gray, opacity=0.5] (0,2,2)--(0,2,-2)--(2,0,-2)--(2,0,2)--cycle;
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
+
 
 
 This is from Nicholson's section on QR, and may be helpful:
