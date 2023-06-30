@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\title{Best Approximation and Least-Squares} \license{CC BY-NC-SA 4.0}
+\title{Least-Squares Approximation} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -10,7 +10,7 @@
 \maketitle
 
 \begin{onlineOnly}
-\section*{Best Approximation and Least-Squares}
+\section*{Least-Squares Approximation}
 \end{onlineOnly}
 
 \begin{center}
@@ -63,7 +63,9 @@ Our geometric observations will help us develop a method for finding $\vec{z}$ .
 
   Suppose $A$ is an $m\times n$ matrix, and $\vec{b}$ is a column vector in $\RR^m$.  Consider the matrix equation $A\vec{x}=\vec{b}$. If this equation does not have a solution, we can attempt to find a best approximation by finding $\vec{z}$ which minimizes the error $\norm{\vec{b}-A\vec{z}}$.  
   
-  In the case when $\text{col}(A)$ is a subspace of $\RR^3$, it is easy to see that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\left(A\vec{z}\right)^{\perp}=\vec{b}-A\vec{z}$, as shown below.
+  In the case when $\text{col}(A)$ is a subspace of $\RR^3$, 
+  %it is easy to see 
+  we can see geometrically that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\left(A\vec{z}\right)^{\perp}=\vec{b}-A\vec{z}$, as shown below.
 
 \begin{center}
 \tdplotsetmaincoords{70}{130}
@@ -81,11 +83,13 @@ Our geometric observations will help us develop a method for finding $\vec{z}$ .
       \end{tikzpicture}
 \end{center}
 
-What we observed for a $3\times 2$ matrix $A$, holds in general.  We will use this fact to find $\vec{z}$.
+What we observed for %a
+the 
+$3\times 2$ matrix $A$, holds in general.  We will use this fact to find $\vec{z}$.
 
 Every vector in $\text{col}(A)$ can be written in the form $A\vec{x}$ for some $\vec{x}$ in $\RR^m$.  Our goal is to find $\vec{z}$ such that $A\vec{z}$ is the orthogonal projection of $\vec{b}$ onto $\text{col}(A)$. By Corollary \ref{cor:orthProjOntoW}, every vector $A\vec{x}$ in $\text{col}(A)$ is orthogonal to $\vec{b}-A\vec{z}$.  Therefore, we have
 \begin{eqnarray*}
-    0=(A\vec{x})\dotp(\vec{b}-A\vec{X})&=&\left(A\vec{x}\right)^T(\vec{b}-A\vec{z})\\
+    0=(A\vec{x})\dotp(\vec{b}-A\vec{x})&=&\left(A\vec{x}\right)^T(\vec{b}-A\vec{z})\\
     &=&\vec{x}^TA^T(\vec{b}-A\vec{x})\\
     &=&\vec{x}\dotp\left(A^T(\vec{b}-A\vec{z})\right)
 \end{eqnarray*}
@@ -110,7 +114,7 @@ We now return to the matrix equation $A\vec{x}=\vec{b}$ of Exploration \ref{exp:
 \begin{explanation}
     Recall that $$A=\begin{bmatrix}3 & 1\\1 & 2\\1 & 2\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}2\\1\\3\end{bmatrix}$$
 
-Observe that the columns of $A$ are linearly independent, so $(A^TA)^{-1}$ exists.  Applying equation (\ref{eq:leastSquaresZ}), we compute
+In this case, $(A^TA)^{-1}$ exists.  Applying equation (\ref{eq:leastSquaresZ}), we compute
 \begin{eqnarray*}
 \vec{z}&=&\left(\begin{bmatrix}3 & 1 & 1\\1 & 2 & 2\end{bmatrix}\begin{bmatrix}3 & 1\\1 & 2\\1& 2\end{bmatrix}\right)^{-1}\begin{bmatrix}3 & 1 & 1\\1 & 2 & 2\end{bmatrix}\begin{bmatrix}2\\1\\3\end{bmatrix}\\
 &=&\begin{bmatrix}11 & 7\\7 & 9\end{bmatrix}^{-1}\begin{bmatrix}10\\10\end{bmatrix}=\begin{bmatrix}0.18 & -0.14\\-0.14 & 0.22\end{bmatrix}\begin{bmatrix}10\\10\end{bmatrix}\\
@@ -231,7 +235,7 @@ We found this fit by minimizing $\norm{\vec{b}-A\vec{z}}$.  We will investigate 
         -0.43\\0.64\\-0.21
     \end{bmatrix}
 \end{equation}
-Observe that each entry of $\vec{b}-A\vec{z}$ is the signed vertical distance between the point and the line.
+Observe that each entry of $\vec{b}-A\vec{z}$ is the signed vertical distance between a particular point and the line.
 
 \begin{equation}
     \norm{\vec{b}-A\vec{z}}^2=(-0.43)^2+0.64^2+(-0.21)^2\approx 0.64
@@ -247,6 +251,54 @@ The following GeoGebra interactive will help you explore this idea.
 \end{onlineOnly}
 \end{exploration}
 
+
+In Exploration \ref{exp:leastSq2} we discovered that $\norm{\vec{b}-A\vec{z}}^2$ is the sum of vertical distances between the given data points and the proposed line.  By minimizing $\norm{\vec{b}-A\vec{z}}$, we minimize the sum of squares of vertical distances.  This observation holds in general.  Given a collection of points $(x_1, y_1), (x_2, y_2),\dots ,(x_n, y_n)$, finding a linear function of the form $f(x)=ax+b$ that best fits the points we would find a best solution to the system
+$$\begin{bmatrix}x_1&1\\x_2&1\\\vdots&\vdots\\x_n&1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}y_1\\y_2\\\vdots\\y_n\end{bmatrix}$$
+by minimizing
+$$\norm{\begin{bmatrix}y_1-(ax_1+b)\\y_2-(ax_2+b)\\\vdots\\y_n-(ax_n+b)\end{bmatrix}}^2=(y_1-(ax_1+b))^2+(y_2-(ax_2+b))^2+\dots +(y_n-(ax_n+b))^2$$
+A geometric interpretation of $y_i-(ax_i+b)$ is shown below.
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\draw[thin,gray!40] (-1,-1) grid (4,4);
+   \draw[line width=2pt](-1,-1)--(2.75,4) ;
+\fill[blue] (2,1) node[below right]{$(x_i, y_i)$}  circle (0.08cm);
+\fill[red] (2,3) node[above left] {$(x_i, ax_i+b)$}circle (0.08cm);
+\draw[line width=0.5pt, dashed](2,1)--(2,3);
+\node[] at (2.8, 2)   {$y_i-(ax_i+b)$};
+ \end{tikzpicture}
+ \end{center}
+
+ The line we obtain in this fashion is called a \emph{line of best fit} or a \emph{trendline}, and the method we used is referred to as the  \emph{method of least squares}.
+
+ We can apply the method of least squares to find best fitting non-linear functions.  
+
+ \begin{example}\label{ex:leastSquaresPoly}
+Find the least squares approximating quadratic polynomial of the form $f(x)=ax^2+bx+c$ for the following points.
+$$(-3, 3), (-1, 1), (0, 1), (1, 2), (3, 4)$$
+
+\begin{explanation}
+    We are looking for an approximate solution to the system of equations
+    $$\begin{matrix}a(-3)^2&+&b(-3)&+&c&=&3\\a(-1)^2&+&b(-1)&+&c&=&1\\a(0)^2&+&b(0)&+&c&=&1\\a(1)^2&+&b(1)&+&c&=&2\\a(3)^2&+&b(3)&+&c&=&4\end{matrix}$$
+    This corresponds to the matrix equation
+    $$\begin{bmatrix}9&-3&1\\1&-1&1\\0&0&1\\1&1&1\\9&3&1\end{bmatrix}\begin{bmatrix}a\\b\\c\end{bmatrix}=\begin{bmatrix}3\\1\\1\\2\\4\end{bmatrix}$$
+    Using the normal equations, we obtain
+    $$A^TA\vec{z}=A^T\vec{b}$$
+    $$\begin{bmatrix}164&0&20\\0&20&0\\20&0&5\end{bmatrix}\vec{z}=\begin{bmatrix}66\\11\\4\end{bmatrix}$$
+    Solving for $\vec{z}$ yields
+    $$\vec{z}=\begin{bmatrix}0.26\\0.20\\1.15\end{bmatrix}$$
+
+    Therefore, the quadratic function of best fit is given by $f(x)=0.26x^2+0.2x+1.15$.  You can see the graph and the points shown below.
+
+\begin{onlineOnly}
+\begin{center}
+\desmos{kxbnnn5cwr}{950}{650}
+\end{center}
+\end{onlineOnly}
+   
+\end{explanation}
+ \end{example}
 
 
 % In many scientific investigations, data are collected that relate two variables. For example, if $x$ is the
