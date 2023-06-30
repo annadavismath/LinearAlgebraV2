@@ -1,7 +1,7 @@
 \documentclass{ximera}
 \input{../preamble.tex}
 
-\title{Least-Squares Approximation} \license{CC BY-NC-SA 4.0}
+\title{Best Approximation and Least-Squares} \license{CC BY-NC-SA 4.0}
 
 \begin{document}
 
@@ -10,7 +10,7 @@
 \maketitle
 
 \begin{onlineOnly}
-\section*{Least-Squares Approximation}
+\section*{Best Approximation and Least-Squares}
 \end{onlineOnly}
 
 \begin{center}
@@ -26,81 +26,265 @@ UNDER CONSTRUCTION -- COMING SOON
 Often an exact solution to a problem in applied mathematics is difficult or impossible to obtain. However, it is usually just as useful to find an approximation to a solution. In particular, finding ``linear approximations" is a potent technique in applied mathematics. One basic case is the situation where a system
 of linear equations has no solution, and it is desirable to find a ``best approximation" to a solution to the
 system. In this section best approximations are defined and a method for finding them is described. 
-
+\subsection*{Best Approximate Solutions}
 \begin{exploration}\label{exp:leastSq1}
     Let
-    $$A=\begin{bmatrix}3 & 1\\1 & 2\\1 & 2\end{bmatrix};\quad\text{and}\quad \vec{b}=\begin{bmatrix}2\\1\\3\end{bmatrix}$$
+    $$A=\begin{bmatrix}3 & 1\\1 & 2\\1 & 2\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}2\\1\\3\end{bmatrix}$$
     Consider the matrix equation $A\vec{x}=\vec{b}$.
     A quick examination of the last two rows should convince you that this equation has no solutions.  In other words, $\vec{b}$ is not in the span of the columns of $A$.
 
-    We will attempt to find the next best thing to a solution to $A\vec{x}=\vec{b}$ by finding $\vec{z}$ such that $\norm{\vec{b}-A\vec{z}}$ is as small as possible.  
+    If $\vec{z}$ were an exact solution to $A\vec{x}=\vec{b}$, then $\vec{b}-A\vec{z}$ would be $\vec{0}$.  Since the equation does not have a solution, we will attempt to find the next best thing to a solution by finding $\vec{z}$ such that $\norm{\vec{b}-A\vec{z}}$ is as small as possible.  The quantity $\norm{\vec{b}-A\vec{z}}$ is called the \emph{error}.
 
-    The following GeoGebra interactive will help you understand the geometry behind finding $\vec{z}$.  RIGHT-CLICK and DRAG to rotate the image for a better view.
+    The following GeoGebra interactive will help you understand the geometry behind finding $\vec{z}$.  
+    
+    RIGHT-CLICK and DRAG to rotate the image for a better view.
 
 \begin{onlineOnly}
 \begin{center}
 \geogebra{mm7wauhw}{950}{650}
 \end{center}
 \end{onlineOnly}
+
+ Record your best guess for $\vec{z}$ -- you will have a chance to check your answer in Example \ref{ex:leastSquares1}.
+
+What did you discover about the geometry of minimizing $\norm{\vec{b}-A\vec{z}}$? 
+Select all that apply.
+
+\begin{selectAll}
+    \choice{$\vec{z}$ is orthogonal to the plane spanned by the columns of $A$.}
+    \choice{$\norm{\vec{b}-A\vec{z}}$ is orthogonal to $\text{col}(A)$.}
+    \choice[correct]{$\vec{b}-A\vec{z}$ is orthogonal to $\text{col}(A)$.}
+    \choice{$A\vec{z}$ is orthogonal to $\text{col}(A)$.}
+     \choice[correct]{$A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$.}
+\end{selectAll}
+
+Our geometric observations will help us develop a method for finding $\vec{z}$ .  
+\end{exploration}
+
+  Suppose $A$ is an $m\times n$ matrix, and $\vec{b}$ is a column vector in $\RR^m$.  Consider the matrix equation $A\vec{x}=\vec{b}$. If this equation does not have a solution, we can attempt to find a best approximation by finding $\vec{z}$ which minimizes the error $\norm{\vec{b}-A\vec{z}}$.  
+  
+  In the case when $\text{col}(A)$ is a subspace of $\RR^3$, it is easy to see that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\left(A\vec{z}\right)^{\perp}=\vec{b}-A\vec{z}$, as shown below.
+
+\begin{center}
+\tdplotsetmaincoords{70}{130}
+	\begin{tikzpicture}[scale=0.8]
+\filldraw[blue, opacity=0.2] (0,0,0)--(5,0,0)--(5,0,5)--(0,0,5)--cycle;
+\node[label={left:$\vec{b}-A\vec{z}$}] at (4.5,0.6,0) {};
+\node[label={above:$\vec{b}$}] at (2,1.5,2) {};
+\node[label={above:$A\vec{z}$}] at (2.2,0,3.5) {};
+\draw[->,line width=1.5mm, -stealth, blue,opacity=0.5](4,0,4)--(4,3,4) ;
+   \draw[->,line width=0.8mm, -stealth, black](0,0,0)--(1,0,5) ;
+    \draw[->,line width=0.8mm, -stealth, black](0,0,0)--(5,0,1) ;
+   \draw[->,line width=0.8mm, -stealth, red](0,0,0)--(4,3,4) ;
+    \draw[->,line width=1.5mm, -stealth, red,opacity=0.2](0,0,0)--(4,0,4) ;
+    %\node[label={below: $\vec{w}=\mbox{proj}_W\vec{x}=\mbox{proj}_{\vec{f}_1}\vec{x}+\mbox{proj}_{\vec{f}_2}\vec{x}$}] at (3,-1,3) {};
+      \end{tikzpicture}
+\end{center}
+
+What we observed for a $3\times 2$ matrix $A$, holds in general.  We will use this fact to find $\vec{z}$.
+
+Every vector in $\text{col}(A)$ can be written in the form $A\vec{x}$ for some $\vec{x}$ in $\RR^m$.  Our goal is to find $\vec{z}$ such that $A\vec{z}$ is the orthogonal projection of $\vec{b}$ onto $\text{col}(A)$. By Corollary \ref{cor:orthProjOntoW}, every vector $A\vec{x}$ in $\text{col}(A)$ is orthogonal to $\vec{b}-A\vec{z}$.  Therefore, we have
+\begin{eqnarray*}
+    0=(A\vec{x})\dotp(\vec{b}-A\vec{X})&=&\left(A\vec{x}\right)^T(\vec{b}-A\vec{z})\\
+    &=&\vec{x}^TA^T(\vec{b}-A\vec{x})\\
+    &=&\vec{x}\dotp\left(A^T(\vec{b}-A\vec{z})\right)
+\end{eqnarray*}
+But this means that $A^T(\vec{b}-A\vec{z})$ is orthogonal to \emph{every} vector of $\RR^m$, including itself.  Therefore,
+\begin{eqnarray}
+A^T(\vec{b}-A\vec{z})&=&\vec{0}\nonumber\\
+A^T\vec{b}-A^TA\vec{z}&=&\vec{0}\nonumber\\
+A^TA\vec{z}&=&A^T\vec{b}\label{eq:normalForZ}
+\end{eqnarray}
+
+The system of linear equations in (\ref{eq:normalForZ}) is called \emph{normal equations for} $\vec{z}$.  If $A^TA$ is invertable, then we have the following formula for finding $\vec{z}$
+
+\begin{equation}\label{eq:leastSquaresZ}
+    \vec{z}=(A^TA)^{-1}A^T\vec{b}
+\end{equation}
+
+We will return to the question of invertability of $A^TA$ in Theorem \ref{th:ATAinverse}.  For now, let's revisit the problem posed in Exploration \ref{exp:leastSq1}.
+
+\begin{example}\label{ex:leastSquares1}
+We now return to the matrix equation $A\vec{x}=\vec{b}$ of Exploration \ref{exp:leastSq1} to find $\vec{z}$ that best approximates a solution.
+
+\begin{explanation}
+    Recall that $$A=\begin{bmatrix}3 & 1\\1 & 2\\1 & 2\end{bmatrix}\quad\text{and}\quad \vec{b}=\begin{bmatrix}2\\1\\3\end{bmatrix}$$
+
+Observe that the columns of $A$ are linearly independent, so $(A^TA)^{-1}$ exists.  Applying equation (\ref{eq:leastSquaresZ}), we compute
+\begin{eqnarray*}
+\vec{z}&=&\left(\begin{bmatrix}3 & 1 & 1\\1 & 2 & 2\end{bmatrix}\begin{bmatrix}3 & 1\\1 & 2\\1& 2\end{bmatrix}\right)^{-1}\begin{bmatrix}3 & 1 & 1\\1 & 2 & 2\end{bmatrix}\begin{bmatrix}2\\1\\3\end{bmatrix}\\
+&=&\begin{bmatrix}11 & 7\\7 & 9\end{bmatrix}^{-1}\begin{bmatrix}10\\10\end{bmatrix}=\begin{bmatrix}0.18 & -0.14\\-0.14 & 0.22\end{bmatrix}\begin{bmatrix}10\\10\end{bmatrix}\\
+&=&\begin{bmatrix}0.4\\0.8\end{bmatrix}
+    \end{eqnarray*}    
+\end{explanation}
+Compare this answer to your guess in Exploration \ref{exp:leastSq1}.  If your guess was correct, nice job!  If your guess was different, try setting $\vec{z}$ to the correct answer and examine the geometry of the problem.    
+\end{example}
+
+We now come back to the question of when $A^TA$ is invertable.
+
+\begin{theorem}\label{th:ATAinverse}
+If columns of matrix $A$ are linearly independent, then $A^TA$ is invertable.    
+\end{theorem}
+
+\begin{proof}
+    Let $A$ be a matrix with linearly independent columns.  We will show that $\left(A^TA\right)\vec{x}=\vec{0}$ has only the trivial solution.  For $\vec{x}$, a solution of $A^TA\vec{x}=\vec{0}$, we have
+    \begin{eqnarray*}
+        \norm{A\vec{x}}^2&=&(A\vec{x})\dotp(A\vec{x})\\
+        &=&\left(A\vec{x}\right)^TA\vec{x}\\
+        &=&\vec{x}^TA^TA\vec{x}\\
+        &=&\vec{x}^T\dotp\vec{0}=0
+    \end{eqnarray*}
+    Therefore $A\vec{x}=\vec{0}$.  By linear independence of the columns of $A$ we conclude that $\vec{x}=\vec{0}$.
+\end{proof}    
+
+    We summarize our findings in the following theorem.
+
+    \begin{theorem}\label{th:bestApprox}
+    Let $A$ be an $m\times n$ matrix, let $\vec{b}$ be a column vector in $\RR^m$.  Consider the matrix equation
+    $$A\vec{x}=\vec{b}$$
+    \begin{enumerate}
+        \item Any solution $\vec{z}$ to the normal equations 
+        $$\left(A^TA\right)\vec{z}=A^T\vec{b}$$
+        is a best approximation to a solution to $A\vec{x}=\vec{b}$ in the sense that $\norm{\vec{b}-A\vec{z}}$ is minimized.
+        \item If the columns of $A$ are linearly independent, then $A^TA$ is invertible and $\vec{z}$ is given uniquely by 
+        $$\vec{z}=\left(A^TA\right)^{-1}A^T\vec{b}$$
+    \end{enumerate}
+    \end{theorem}
+
+    \begin{example}\label{ex:leastSq2}
+        The sytem of linear equations
+        $$\begin{matrix}3x & - & y&=&4\\x&+&2y&=&0\\2x&+&y&=&1\end{matrix}$$
+        has no solution.  Find the vector $\vec{z}$ that best approximates a solution.
+
+        \begin{explanation}
+            In this case,
+            $$A=\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix}$$            $$A^TA=\begin{bmatrix}3&1&2\\-1&2&1\end{bmatrix}\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix}=\begin{bmatrix}14&1\\1&6\end{bmatrix}$$
+            is invertible.  Using the normal equation $\left(A^TA\right)\vec{z}=A^T\vec{z}$ we compute, $$\begin{bmatrix}14&1\\1&6\end{bmatrix}\vec{z}=\begin{bmatrix}14\\-3\end{bmatrix}$$ $$\vec{z}=\frac{1}{83}\begin{bmatrix}87\\-56\end{bmatrix}$$
+            With this vector $\vec{z}$, the left sides of the equations become
+            $$\begin{matrix}3(87/83) & - & (-56/83)&\approx&3.82\\(87/83)&+&2(-56/83)&\approx&-0.30\\2(87/83)&+&(-56/83)&\approx&1.42\end{matrix}$$
+            This is as close as possible to a solution.
+        \end{explanation}
+    \end{example}
+
+\begin{example}\label{ex:leastSquares3}
+The average number $g$ of goals per game scored by a hockey player seems to be related linearly to
+two factors: the number $x_1$ of years of experience and the number $x_2$ of goals in the preceding 10
+games. The data on the following page were collected on four players. Find the linear function $g=a_0+a_1x_1+a_2x_2$ that best fits the data.
+$$\begin{array}{|c|c|c|} 
+ \hline g&x_1&x_2\\ \hline 0.8&5&3\\  0.8&3&4\\
+ 0.6 &1&5\\
+ 0.4 &2&1\\
+ \hline 
+ \end{array}$$
+
+\begin{explanation}
+    If the relationship is given by $g=a_0+a_1x_1+a_2x_2$, then the data can be described as follows:
+    $$\begin{bmatrix}1&5&3\\1&3&4\\1&1&5\\1&2&1\end{bmatrix}\begin{bmatrix}a_1\\a_2\\a_3\end{bmatrix}=\begin{bmatrix}0.8\\0.8\\0.6\\0.4\end{bmatrix}$$
+    Using Theorem \ref{th:bestApprox}, we get
+    $$\vec{z}=\underbrace{\frac{1}{42}\begin{bmatrix}
+        119&-17&-19\\-17&5&1\\-19&1&5
+    \end{bmatrix}}_{\left(A^TA\right)^{-1}}\underbrace{\begin{bmatrix}
+        1&1&1&1\\5&3&1&2\\3&4&5&1
+    \end{bmatrix}}_{A^T}\begin{bmatrix}
+        0.8\\0.8\\0.6\\0.4
+    \end{bmatrix}=\begin{bmatrix}
+        0.14\\0.09\\0.08
+    \end{bmatrix}$$
+    Hence the best-fitting function is $g=0.14+0.09x_1+0.08x_2$.  
+\end{explanation}    
+\end{example}
+
+\subsection*{Polynomial Regression}
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APP-0070/main}{Curve Fitting}, we discussed how to fit a function to a set of data points, so that the graph of the function passes through each of the points.  We also discussed why doing so is sometimes impossible (two points lie one above the other), and may not even be desirable.  In this section we will learn how to approximate a collection of data points with a line (or a curve) that fits the ``trend" of the points.  We will start with data that fit a linear pattern.  
+
+\begin{exploration}\label{exp:leastSq2}
+    Consider the points $(1,1)$, $(2, 3)$ and $(4,4)$.  These points do not lie on a straight line, but they have a general upward linear trend.  (Typically there would be many more points to consider, but we will limit our exploration to what we can do by hand.)  Our goal is to find a line that fits these points as closely as possible.  
+
+    We are looking for a function $f$ of the form $f(x)=ax+b$ such that the following infeasible system is satisfied as closely as possible
+    $$\begin{matrix}a(1)&+&b&=&1\\a(2)&+&b&=&3\\a(4)&+&b&=&4\end{matrix}$$
+
+    From the first part of this section we know how to find a best approximation.  By Theorem \ref{th:bestApprox}, we have
+    \begin{eqnarray*}
+\vec{z}=\begin{bmatrix}a\\b\end{bmatrix}&=&\left(A^TA\right)^{-1}A^T\vec{b}\\
+&=&\left(\begin{bmatrix}1&2&4\\1&1&1\end{bmatrix}\begin{bmatrix}
+1&1\\2&1\\4&1\end{bmatrix}\right)^{-1}\begin{bmatrix}1&2&4\\1&1&1\end{bmatrix}\begin{bmatrix}
+    1\\3\\4
+\end{bmatrix}=\begin{bmatrix}13/14\\1/2\end{bmatrix}
+\end{eqnarray*}
+According to our computations, the line that best fits the data is given by $$f(x)=\frac{13}{14}x+\frac{1}{2}$$
+Let's take a look.
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[thin,gray!40] (-1,-1) grid (5,5);
+  \draw[<->] (-1,0)--(5,0);
+  \draw[<->] (0,-1)--(0,5);
+  \draw[line width=2pt](-1,-0.43)--(5,5.14) ;
+\fill[blue] (1,1)  circle (0.08cm);
+\fill[blue] (2,3) circle (0.08cm);
+\fill[blue] (4,4) circle (0.08cm);
+ \end{tikzpicture}
+ \end{center}
+
+We found this fit by minimizing $\norm{\vec{b}-A\vec{z}}$.  We will investigate the meaning of this expression in relation to the line and the data points.
+\begin{equation}
+    \vec{b}-A\vec{z}=\begin{bmatrix}1\\3\\4\end{bmatrix}-\begin{bmatrix}(13/14)(1)+1/2\\(13/14)(2)+1/2\\{(13/14)(4)+1/2}\end{bmatrix}\approx\begin{bmatrix}
+        -0.43\\0.64\\-0.21
+    \end{bmatrix}
+\end{equation}
+Observe that each entry of $\vec{b}-A\vec{z}$ is the signed vertical distance between the point and the line.
+
+\begin{equation}
+    \norm{\vec{b}-A\vec{z}}^2=(-0.43)^2+0.64^2+(-0.21)^2\approx 0.64
+\end{equation}
+
+Minimizing $\norm{\vec{b}-A\vec{z}}$ also minimizes $\norm{\vec{b}-A\vec{z}}^2$.  Therefore, what we have minimized is the sum of squares of the vertical distances between the data points and the line.
+The following GeoGebra interactive will help you explore this idea.
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{crgw4usb}{950}{650}
+\end{center}
+\end{onlineOnly}
 \end{exploration}
 
 
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}
 
-    \draw[line width=2pt,blue](-3,1,1)--(5,6,5);
-    
-    \draw[line width=0.5pt, dashed, gray](-3,1,1)--(5,1,1);
-    \draw[line width=0.5pt, dashed, gray](5,1,1)--(5,1,5);
-    \draw[line width=0.5pt, dashed, gray](5,1,1)--(5,6,1);
-    \draw[line width=0.5pt, dashed, gray](5,6,5)--(5,6,1);
-    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(5,6,1);
-    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(-3,6,5);
-    \draw[line width=0.5pt, dashed, gray](-3,6,1)--(-3,1,1);
-    \draw[line width=0.5pt, dashed, gray](-3,6,5)--(-3,1,5);
-    \draw[line width=0.5pt, dashed, gray](-3,6,5)--(5,6,5);
-    
-    
-    \draw[line width=1pt,red, dashed, -stealth](5,1,5)--(5,5.8,5);
-    \draw[line width=1pt,red, dashed, -stealth](-3,1,5)--(4.9,1,5);
-     \draw[line width=1pt,red, dashed,-stealth](-3,1,1)--(-3,1,4.8);
-     
-    
-    \fill[red] (-3,1,1) node[above left]{$(1,-3,1)$} circle (0.1cm); 
-    \fill[red] (5,6,5) node[above left]{$(5,5,6)$} circle (0.1cm);
-    
-    \node[red] at (0.8, 1.3, 5)   {over $8$};
-    \node[red] at (-2.1, 1.3, 3.6)   {out $4$};
-    \node[red] at (5.1, 3, 4)   {up $5$};
-    
-\end{tikzpicture}
-\end{center}
+% In many scientific investigations, data are collected that relate two variables. For example, if $x$ is the
+% number of dollars spent on advertising by a manufacturer and $y$ is the value of sales in the region in
+% question, the manufacturer could generate data by spending $x_1,\,x_2,\, \dots,\, x_n$ dollars at different times and
+% measuring the corresponding sales values $y_1,\, y_2,\,\dots ,\, y_n$.
 
-\begin{center}
-\tdplotsetmaincoords{70}{130}
-\begin{tikzpicture}[scale=0.5]
-   \filldraw[blue, opacity=0.3](0,0,2)--(0,2,2)--(0,2,-2)--(0,0,-2)--cycle;
-   \filldraw[red, opacity=0.3] (2,0,2)--(0,0,2)--(0,0,-2)--(2,0,-2)--cycle;
-   \filldraw[gray, opacity=0.5] (0,2,2)--(0,2,-2)--(2,0,-2)--(2,0,2)--cycle;
-\end{tikzpicture}
-\end{center}
+% Suppose it is known that a linear relationship exists between the variables
+% $x$ and $y$ -- in other words, that $y = a+bx$ for some constants $a$ and
+% $b$. If the data are plotted, the points $(x_1, y_1),\, (x_2, y_2),\dots ,\, (x_n, y_n)$ may
+% appear to lie on a straight line and estimating $a$ and $b$ requires finding
+% the “best-fitting” line through these data points. For example, if five data
+% points occur as shown in the diagram, line $L_1$ is clearly a better fit than line
+% $L_2$. In general, the problem is to find the values of the constants $a$ and $b$
+% such that the line $y = a+bx$ best approximates the data in question. Note
+% that an exact fit would be obtained if $a$ and $b$ were such that $y_i = a+bx_i$
+% were true for each data point $(x_i, y_i)$. But this is too much to expect. So, the choice of $a$ and $b$ should be made in such a
+% way that the errors between the observed values $y_i$ and the corresponding fitted values $a+bx_i$ are in some
+% sense minimized. 
+
+
+
+% Least squares approximation is a way to do this.
+% The first thing we must do is explain exactly what we mean by the best fit of a line y = a+bx to an
+% observed set of data points (x1, y1), (x2, y2), . . . , (xn, yn). For convenience, write the linear function
+% r0+r1x as
+% f
 
 
 
 
 
+% This is from Nicholson's section on QR, and may be helpful:
 
-
-
-
-
-This is from Nicholson's section on QR, and may be helpful:
-
-In Section~\ref{sec:5_6} we found how to find a best approximation $\vec{z}$ to a solution of a (possibly inconsistent) system $A\vec{x} = \vec{b}$ of linear equations: take $\vec{z}$ to be any solution of the ``normal'' equations $(A^{T}A)\vec{z} = A^{T}\vec{b}$. If $A$ has independent columns this $\vec{z}$ is unique ($A^{T}A$ is invertible by Theorem~\ref{thm:015672}), so it is often desirable to compute $(A^{T}A)^{-1}$. This is particularly useful in least squares approximation (Section~\ref{sec:5_6}). This is simplified if we have a QR-factorization of $A$ (and is one of the main reasons for the importance of Theorem~\ref{th:QR-025133}). For if $A = QR$ is such a factorization, then $Q^{T}Q = I_{n}$ because $Q$ has orthonormal columns (verify), so we obtain
-\begin{equation*}
-A^TA = R^TQ^TQR = R^TR
-\end{equation*}
-Hence computing $(A^{T}A)^{-1}$ amounts to finding $R^{-1}$, and this is a routine matter because $R$ is upper triangular. Thus the difficulty in computing $(A^{T}A)^{-1}$ lies in obtaining the QR-factorization of $A$.
+% In Section~\ref{sec:5_6} we found how to find a best approximation $\vec{z}$ to a solution of a (possibly inconsistent) system $A\vec{x} = \vec{b}$ of linear equations: take $\vec{z}$ to be any solution of the ``normal'' equations $(A^{T}A)\vec{z} = A^{T}\vec{b}$. If $A$ has independent columns this $\vec{z}$ is unique ($A^{T}A$ is invertible by Theorem~\ref{thm:015672}), so it is often desirable to compute $(A^{T}A)^{-1}$. This is particularly useful in least squares approximation (Section~\ref{sec:5_6}). This is simplified if we have a QR-factorization of $A$ (and is one of the main reasons for the importance of Theorem~\ref{th:QR-025133}). For if $A = QR$ is such a factorization, then $Q^{T}Q = I_{n}$ because $Q$ has orthonormal columns (verify), so we obtain
+% \begin{equation*}
+% A^TA = R^TQ^TQR = R^TR
+% \end{equation*}
+% Hence computing $(A^{T}A)^{-1}$ amounts to finding $R^{-1}$, and this is a routine matter because $R$ is upper triangular. Thus the difficulty in computing $(A^{T}A)^{-1}$ lies in obtaining the QR-factorization of $A$.
 
 \end{document}
