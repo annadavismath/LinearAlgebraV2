@@ -11,7 +11,10 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Bases and Dimension}
+\end{onlineOnly}
+
 Recall that a \dfn{basis} of a subspace $V$ of $\RR^n$ is a subset of $V$ that is linearly independent and spans $V$.  A basis allows us to uniquely express every element of $V$ as a linear combination of the elements of the basis.  Several questions may come to mind at this time.  Does every subspace of $\RR^n$ have a basis?  We know that bases are not unique.  If there is more than one basis, what, if anything, do they have in common?
 
 \subsection*{Exploring Dimension}
@@ -51,7 +54,7 @@ We have to proceed carefully because we don't want the dimension to depend on ou
 Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $\RR^n$ (or a subspace $V$ of $\RR^n$).  Then $s=t$.
 \end{theorem}
 \begin{proof}
-Suppose $s\neq t$.  Without loss of generality, assume that $t<s$.  Because $\mathcal{B}$ spans $V$, every $\vec{w}_i$ of $\mathcal{C}$ can be written as a linear combination of elements of $\mathcal{B}$:
+Suppose $s\neq t$.  Without loss of generality, assume that $s>t$.  Because $\mathcal{B}$ spans $V$, every $\vec{w}_i$ of $\mathcal{C}$ can be written as a linear combination of elements of $\mathcal{B}$:
 $$\vec{w}_i=a_{1i}\vec{v}_1+a_{2i}\vec{v}_{2}+\ldots +a_{ti}\vec{v}_t$$
 
 Consider the vector equation
@@ -77,7 +80,7 @@ For all $1\leq j\leq t$.
 This gives us a system of $t$ equations and $s$ unknowns.  We can write the system as a matrix equation.
 $$\begin{bmatrix}a_{11}&a_{12}&\ldots &a_{1s}\\a_{21}&a_{22}&\ldots &a_{2s}\\\vdots&\vdots&\ddots&\vdots\\a_{t1}&a_{t2}&\ldots&a_{ts}\end{bmatrix}\begin{bmatrix}b_1\\b_2\\\vdots\\b_s\end{bmatrix}=\vec{0}$$
 
-Recall our assumption that $s<t$.  By Theorem \ref{th:rankandsolutions}, we know that the system has infinitely many solutions.  This shows that equation (\ref{eq:sizeofbases}) has a nontrivial solution.  But this shows that $\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ is linearly dependent and contradicts our assumption that $\mathcal{C}$ is a basis of $V$.  We conclude that $s=t$.
+Recall our assumption that $s>t$.  By Theorem \ref{th:rankandsolutions}, we know that the system has infinitely many solutions.  This shows that equation (\ref{eq:sizeofbases}) has a nontrivial solution.  But this shows that $\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ is linearly dependent and contradicts our assumption that $\mathcal{C}$ is a basis of $V$.  We conclude that $s=t$.
 \end{proof}
 
 
@@ -123,11 +126,12 @@ If $\mbox{span}(\vec{u}_1, \vec{v}_1,\ldots ,\vec{v}_k) = V$ we are done; otherw
 \end{proof}
 
 \section*{Practice Problems}
-\begin{problem}
+\emph{Problems \ref{prob:finddimension1}-\ref{prob:finddimension3}}
 For each given set $S$ of vectors, find $\mbox{dim}(\mbox{span}(S))$.
 \begin{hint}
 Use Theorem \ref{th:linindandrank} of VEC-0110.
 \end{hint}
+
 \begin{problem}\label{prob:finddimension1}
 $$S=\left\{\begin{bmatrix}1\\1\\0\\1\end{bmatrix}, \begin{bmatrix}0\\1\\1\\1\end{bmatrix}, \begin{bmatrix}1\\0\\1\\1\end{bmatrix}, \begin{bmatrix}1\\1\\0\\1\end{bmatrix} \right\}$$
 Answer: $\mbox{dim}(\mbox{span}(S))=\answer{3}$
@@ -143,8 +147,6 @@ $$S=\left\{\begin{bmatrix}1\\1\\-3\end{bmatrix}, \begin{bmatrix}-3\\2\\1\end{bma
 Answer: $\mbox{dim}(\mbox{span}(S))=\answer{3}$
 \end{problem}
 
-
-\end{problem}
 
 \begin{problem}\label{prob:atmostnlinindinrnproof}
 Prove Lemma \ref{lemma:atmostnlinindinrn}.
