@@ -310,10 +310,10 @@ To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell We
 A=[9 -3 1;1 -1 1;0 0 1;1 1 1; 9 3 1];
 % Define vector b
 b=[3;1;1;2;4];
-% Let B be the inverse of A^TA.  The transpose is denoted by '
-B= inv(A'*A);
+% Let B be the inverse of A^TA.  
+B= inv(transpose(A)*A);
 % Now we solve for z
-ans=B*A'*b
+ans=B*transpose(A)*b
 \end{verbatim}
 
 You will be able to re-use this code to complete some of the more tedious homework problems.
