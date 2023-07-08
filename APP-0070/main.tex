@@ -24,8 +24,7 @@ UNDER CONSTRUCTION -- COMING SOON
 \end{center}
 
 
-In this section we will 
-We know that two points determine a line.  Do you know how many points determine a parabola?  What about a cubic?  To address these questions we will start with an alternative way of finding an equation of a line.
+We know that two points determine a line.  Do you know how many points determine a quadratic function of the form $f(x)=ax^2+bx+c$?  Given any number of points in the plane, is it always possible to find a polynomial function whose graph contains every one of the given points?  To address these questions we will start with an alternative way of finding an equation of a line.
 
 \begin{exploration}\label{exp:curveFitLine}
 Consider two points $A(-3, 2)$ and $B(1,-2)$.  We will find a function $f$ whose graph is a line that passes through these points.  We know that $f(x)=ax+b$ for some constants $a$ and $b$.  Because the graph of $f$ passes through $A$ and $B$, we must have the following:
@@ -53,7 +52,7 @@ The GeoGebra interactive below shows two points $A$ and $B$, together with the m
 \end{onlineOnly}
 
 From a purely formal standpoint, we observe that the matrix equation has the form:
-$$\begin{bmatrix}x\text{-coordinate} & 1\\x\text{-coordinate} & 1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}y\text{-coordinate}\\y\text{-coordinate}\end{bmatrix}$$
+$$\begin{matrix}\text{point }A\rightarrow\\\text{point }B\rightarrow\end{matrix}\begin{bmatrix}x\text{-coordinate} & 1\\x\text{-coordinate} & 1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}y\text{-coordinate}\\y\text{-coordinate}\end{bmatrix}$$
 where each row corresponds to one point.
 \end{exploration}
 
@@ -61,7 +60,7 @@ Now we are ready to move to quadratic, and higher degree polynomial functions.
 
 Linear function in Exploration \ref{exp:curveFitLine} had two unknown coefficients that we needed to find in order to determine the function. Two points gave us a system of two equations and two unknowns.
 
-A quadratic polynomial function, whose graph is a parabola, has the form:
+A quadratic polynomial function, whose graph is a parabola, can be written the form:
 $$f(x)=ax^2+bx+c$$
 Three unknown coefficients will require three points to determine them.
 
@@ -89,10 +88,36 @@ Drag the points around the plane to observe changes in the coefficient matrix.  
     \item $a=b=0$; $c\neq 0$.
     \item $a=0$; $b, c\neq 0$.
 \end{itemize}
+
+Observe the structure of the matrix equation.
+$$\begin{matrix}\text{point }A\rightarrow\\\text{point }B\rightarrow\\\text{point }C\rightarrow\end{matrix}\begin{bmatrix}(x\text{-coordinate})^2&x\text{-coordinate} & 1\\(x\text{-coordinate})^2&x\text{-coordinate} & 1\\(x\text{-coordinate})^2&x\text{-coordinate} & 1\end{bmatrix}\begin{bmatrix}a\\b\\c\end{bmatrix}=\begin{bmatrix}y\text{-coordinate}\\y\text{-coordinate}\\y\text{-coordinate}\end{bmatrix}$$
 \end{exploration}
 
+In general (provided that no one point lies directly above another), given $n$ points, we can always find an $(n-1)$-degree polynomial function whose graph contains every one of the given points.  To find such a polynomial function, given by $f(x)=a_{n-1}x^{n-1}+\dots +a_1x+a_0$, we need to solve a system of $n$ equations with $n$ unknowns which translates into the following matrix equation.
+
+\begin{equation}\label{eq:matEq}\begin{bmatrix}\vdots&\vdots &\vdots &\vdots\\(x\text{-coordinate})^{n-1}&\dots &x\text{-coordinate} &1\\\vdots&\vdots &\vdots &\vdots\end{bmatrix}\begin{bmatrix}a_{n-1}\\\vdots\\a_1\\a_0\end{bmatrix}=\begin{bmatrix}\vdots\\y\text{-coordinate}\\\vdots\end{bmatrix}\end{equation}
+
+In Practice Problems \ref{prob:systemProblems1} and \ref{prob:systemProblems2} you will show that the matrix equation in (\ref{eq:matEq}) has a unique solution if and only if no two of the given points share an $x$-coordinate.
+
+\subsection*{On the Dangers of Overfitting}
+It is exciting to know that we can fit a function to a set of data points, but before we get carried away fitting a 299-degree polynomial function to 300 points, let's consider the following situation.
+
+In the GeoGebra interactive below, you can see that points $A$ - $F$ form a somewhat linear pattern.  A linear model can be used to describe these points.  Click on the ``Display linear model" check-box to see the trend line.  (You will learn how to find such models in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0030/main}{Least-Squares Approximation}).  You can see that even though the line does not pass through any of the given points, it fits the overall pattern of the points and can be used to estimate the $y$-coordinates of other points whose $x$-coordinates fall within the limits of the scatter plot.
+
+It might be tempting to think that we can find a better model by finding a $5^{th}$-degree polynomial function whose graph contains every one of the six points.  Click on the ``Display 5th degree poly model" check-box to see the alternative model.  Can this model be successfully used to make predictions?
+
+Try moving individual points around to see how their placement affects the line and the curve.
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{z2qhxkmm}{950}{650}
+\end{center}
+\end{onlineOnly}
+
+The modeling process which insists on fitting the existing data points exactly, at the risk of failing to predict future observations, is referred to as \emph{overfitting}.  While sometimes it is beneficial to have a curve that passes through specific points, more often it is the trend, not the individual instances, that we try to capture.  We will return to this topic in   \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0030/main}{Least-Squares Approximation}.
+
 \section*{Practice Problems}
-\begin{problem}\label{prob:systemProblems}
+\begin{problem}\label{prob:systemProblems1}
 Two GeoGebra screenshots are shown below:
     \begin{image}
          \includegraphics[height=1.5in]{pointsCoincide.jpg}\quad
@@ -102,8 +127,22 @@ In the first screenshot, points $A$ and $B$ coincide.  In the second screenshot,
 In both cases, GeoGebra failed to produce a linear function whose graph passes through $A$ and $B$.
 
 Based on what you know about functions and geometry, explain why the process fails for these two examples. How do your observations correspond to what happens from an algebraic standpoint?
+
+\begin{multipleChoice}
+    \choice{Both systems are inconsistent.}
+    \choice{The first system is inconsistent, the second has infinitely many solutions.}
+    \choice{Both systems have infinitely many solutions.}
+    \choice[correct]{The first system has infinitely many solutions, the second system is inconsistent.}
+\end{multipleChoice}
 \end{problem}
 
+\begin{problem}\label{prob:prob:systemProblems2}
+Prove that equation (\ref{eq:matEq}) has a unique solution if and only if no two given points share an $x$-coordinate.
+\begin{hint}
+    Show that the rows of the matrix are linearly independent if and only if no two given points share an $x$-coordinate.
+\end{hint}
+Under what circumstances is a solution not unique?  Under what circumstances does a solution not exist?
+\end{problem}
 
 
 
