@@ -13,15 +13,15 @@
 \section*{Curve Fitting}
 \end{onlineOnly}
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
-  \filldraw[orange] (0,0) ellipse (2cm and 1cm);
-  \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
-\end{tikzpicture}
+% \begin{center}
+% \begin{tikzpicture}[scale=1]
+%   \filldraw[orange](-0.25,3.5)--(0.25,3.5)--(1.5,0)--(-1.5,0)--cycle;
+%   \filldraw[orange] (0,0) ellipse (2cm and 1cm);
+%   \filldraw[orange] (0,3.5) ellipse (0.25cm and 0.15cm);
+% \end{tikzpicture}
  
-UNDER CONSTRUCTION -- COMING SOON
-\end{center}
+% UNDER CONSTRUCTION -- COMING SOON
+% \end{center}
 
 
 We know that two points determine a line.  Do you know how many points determine a quadratic function of the form $f(x)=ax^2+bx+c$?  Given any number of points in the plane, is it always possible to find a polynomial function whose graph contains every one of the given points?  To address these questions we will start with an alternative way of finding an equation of a line.
@@ -60,7 +60,7 @@ Now we are ready to move to quadratic, and higher degree polynomial functions.
 
 Linear function in Exploration \ref{exp:curveFitLine} had two unknown coefficients that we needed to find in order to determine the function. Two points gave us a system of two equations and two unknowns.
 
-A quadratic polynomial function, whose graph is a parabola, can be written the form:
+A quadratic polynomial function, whose graph is a parabola, is given by:
 $$f(x)=ax^2+bx+c$$
 Three unknown coefficients will require three points to determine them.
 
@@ -99,6 +99,24 @@ In general (provided that no one point lies directly above another), given $n$ p
 
 In Practice Problems \ref{prob:systemProblems1} and \ref{prob:systemProblems2} you will show that the matrix equation in (\ref{eq:matEq}) has a unique solution if and only if no two of the given points share an $x$-coordinate.
 
+\subsection*{Using Technology}
+Throughout this section we have omitted the tedious process of solving matrix equations.  It is useful to practice solving smaller  matrix equations by hand, but for larger matrices, we can use technology.  Below is the Octave code that can be used to find the solution to Exploration \ref{exp:curveFitParabola}.  You will be able to modify this code to solve some of the practice problems.
+
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Define the coefficient matrix
+A=[4 -2 1;0 0 1;1 1 1];
+% Define vector b
+b=[2;-1;5];
+% We can find the solution in two ways
+% Method 1: ans1=A^(-1)b  
+ans1=inv(A)*b
+% Method 2
+ans2=A\b
+% If A is invertible, both methods produce the same result.
+\end{verbatim}
+
 \subsection*{On the Dangers of Overfitting}
 It is exciting to know that we can fit a function to a set of data points, but before we get carried away fitting a 299-degree polynomial function to 300 points, let's consider the following situation.
 
@@ -114,15 +132,57 @@ Try moving individual points around to see how their placement affects the line 
 \end{center}
 \end{onlineOnly}
 
-The modeling process which insists on fitting the existing data points exactly, at the risk of failing to predict future observations, is referred to as \emph{overfitting}.  While sometimes it is beneficial to have a curve that passes through specific points, more often it is the trend, not the individual instances, that we try to capture.  We will return to this topic in   \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0030/main}{Least-Squares Approximation}.
+Any modeling process which insists on fitting the existing data points exactly, at the risk of failing to predict future observations, is referred to as \emph{overfitting}.  While sometimes it is beneficial to have a curve that passes through specific points, more often it is the trend, not the individual instances, that we try to capture.  We will return to this topic in   \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0030/main}{Least-Squares Approximation}.
 
 \section*{Practice Problems}
+\begin{problem}
+In each case, find a polynomial function of an appropriate degree that passes through the given points.
+
+\begin{problem}\label{prob:polyFit1}
+    $$(-3,0), (2, -2), (-1,1)$$
+ $$f(x)=\answer{-0.3x^2-0.7x+0.6}$$
+ Plot the graph of $f$ in the Desmos window below.
+
+ \begin{onlineOnly}
+\begin{center}
+\desmos{aba3troiar}{950}{650}
+\end{center}
+\end{onlineOnly}
+\end{problem}
+
+\begin{problem}\label{prob:polyFit2}
+$$(0,4), (-2, 2), (-1,1), (0.5, 1)$$
+$$g(x)=\answer{-3.2x^3-7.6x^2-1.4x+4}$$
+
+ Plot the graph of $g$ in the Desmos window below.
+     \begin{onlineOnly}
+\begin{center}
+\desmos{a0fvniud45}{950}{650}
+\end{center}
+\end{onlineOnly}
+\end{problem}
+    
+\end{problem}
+
 \begin{problem}\label{prob:systemProblems1}
 Two GeoGebra screenshots are shown below:
-    \begin{image}
-         \includegraphics[height=1.5in]{pointsCoincide.jpg}\quad
-         \includegraphics[height=1.5in]{verticalPoints.jpg}
-\end{image}
+
+\begin{center}
+        \begin{tikzpicture}
+\node[inner sep=0pt, anchor=base] (p1) at (0,0)
+  {\includegraphics[height=30mm]{pointsCoincide.jpg}};
+         \end{tikzpicture}
+  \quad\quad
+   \begin{tikzpicture}[scale=2]
+ \node[inner sep=0pt, anchor=base]  (p2) at (0,0)
+  {\includegraphics[height=30mm]{verticalPoints.jpg}};
+    \end{tikzpicture}
+    \end{center}
+
+%     \begin{image}
+%          \includegraphics[height=1.5in]{pointsCoincide.jpg}\quad
+%          \includegraphics[height=1.5in]{verticalPoints.jpg}
+% \end{image}
 In the first screenshot, points $A$ and $B$ coincide.  In the second screenshot, point $A$ is located directly above point $B$. 
 In both cases, GeoGebra failed to produce a linear function whose graph passes through $A$ and $B$.
 
@@ -136,7 +196,7 @@ Based on what you know about functions and geometry, explain why the process fai
 \end{multipleChoice}
 \end{problem}
 
-\begin{problem}\label{prob:prob:systemProblems2}
+\begin{problem}\label{prob:systemProblems2}
 Prove that equation (\ref{eq:matEq}) has a unique solution if and only if no two given points share an $x$-coordinate.
 \begin{hint}
     Show that the rows of the matrix are linearly independent if and only if no two given points share an $x$-coordinate.
