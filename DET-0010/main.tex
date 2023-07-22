@@ -10,7 +10,10 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Finding the Determinant}
+\end{onlineOnly}
+
 In this section we will define a function that assigns to each square matrix $A$ a scalar output called the \dfn{determinant of $A$}.  We will denote the determinant of $A$ by $\det{A}$.  For a matrix with real number entries, the output of the determinant function will always be a real number.
 
 One important property of the determinant is its connection to matrix inverses.  We will find that a matrix $A$ is singular if and only if $\det{A}=0$.  For nonsingular matrices, we will establish a formula that gives the inverse of a matrix exclusively in terms of determinants.  This property will be addressed in detail in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0040/main}{Poperties of the Determinant}, and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/DET-0060/main}{Determinants and Inverses of Nonsingular Matrices}.
@@ -19,6 +22,7 @@ Geometrically speaking, the determinant of a matrix of a linear transformation i
 
 \subsection*{Cofactor Expansion Along the Top Row}
 To start from the beginning, let us define the determinant of a $1\times 1$ matrix.
+
 \begin{definition}\label{def:onebyonedet} Let
 $A=\begin{bmatrix}a\end{bmatrix}$.  Define the \dfn{determinant} of $A$ by $\det{A}=a$.
 \end{definition}
@@ -56,6 +60,7 @@ $$A=\begin{bmatrix}3&-2&1\\5&-1&2\\1&4&1\end{bmatrix}$$
 \end{example}
 
 We now formalize what we learned in Example \ref{ex:threebythreedet1}.
+
 \begin{definition}\label{def:threebythreedet}
 Let
 $$A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}$$
@@ -273,10 +278,10 @@ As an immediate consequence of this theorem, we have the following result.
     $$\det{S_i(T)}=\det{S_i(A)}\cdot \det{B}$$
     This gives us
     \begin{align*}
-        \det{T}=&a_{11}\det{S_1(T)}-a_{21}\det{S_2(T)}+\dots + (-1)^{k+1}\det{S_k(T)}\\
+        \det{T}=&a_{11}\det{S_1(T)}-a_{21}\det{S_2(T)}+\dots + (-1)^{k+1}a_{k1}\det{S_k(T)}\\
         =&a_{11}\det{S_1(A)}\cdot\det{B}-a_{21}\det{S_2(A)}\cdot\det{B}+\dots \\
-        &\dots+ (-1)^{k+1}\det{S_k(A)}\cdot\det{B}\\
-        =&\Big(a_{11}\det{S_1(A)}-a_{21}\det{S_2(A)}+\dots + (-1)^{k+1}\det{S_k(A)}\Big)\det{B}\\
+        &\dots+ (-1)^{k+1}a_{k1}\det{S_k(A)}\cdot\det{B}\\
+        =&\Big(a_{11}\det{S_1(A)}-a_{21}\det{S_2(A)}+\dots + (-1)^{k+1}a_{k1}\det{S_k(A)}\Big)\det{B}\\
         =&\det{A}\det{B}
     \end{align*}
     The lower triangular case is similar.
@@ -293,8 +298,9 @@ As an immediate consequence of this theorem, we have the following result.
 
 \section*{Practice Problems}
 
-\begin{problem}
+\emph{Problems \ref{prob:2x2det1}-\ref{prob:laplace}}
 Find the determinant of each matrix.
+
   \begin{problem}\label{prob:2x2det1}
   $$A=\begin{bmatrix}4&-2\\3&7\end{bmatrix}$$
   Answer:
@@ -312,8 +318,6 @@ Find the determinant of each matrix.
    Answer:
   $$\det(C)=\answer{12}$$
  \end{problem}
-\end{problem}
-
 
 
 \begin{problem}\label{prob:toprowexp2x2}
