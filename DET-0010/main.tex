@@ -250,8 +250,10 @@ As we observed earlier, having zeros in a matrix makes it easier for us to compu
 If $A$ is a triangular matrix, then $\det{A}$ is equal to the product of its diagonal entries.
 \end{theorem}
 \begin{proof}
-We proceed by induction on $n$, where $A$ is an $n\times n$ matrix.  It is easy to see that this result holds for $n=1, 2$.  Suppose that the result holds for $(n-1)\times (n-1)$ triangular matrices.  We need to show that it holds for $n\times n$ triangular matrices.  Suppose $A=[a_{ij}]$ is a triangular matrix. 
- Then the first row or column or $A$ will consist of zeros, with a possible exception of $a_{11}$.  We will take advantage of these zeros and expand along the first row (or column) of $A$.  As we do so, we obtain a single product of $a_{11}$ and the determinant of a minor matrix obtained by crossing out the first row and column of $A$.  But this minor $(n-1)\times (n-1)$ matrix is also a triangular matrix with diagonal etries $a_{22}, a_{33},\ldots, a_{nn}$.  By induction hypothesis, its determinant is equal to the product of its diagonal entries, $a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn}$.  Therefore $$\det{A}=a_{11}(a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn})$$
+We proceed by induction on $n$, where $A$ is an $n\times n$ matrix.  It is easy to see that this result holds for $n=1, 2$.  Suppose that the result holds for $(n-1)\times (n-1)$ triangular matrices.  We need to show that it holds for $n\times n$ triangular matrices.  
+
+Suppose $A=[a_{ij}]$ is a triangular matrix. Then, with the exception of $a_{11}$, the entries in the first row (or column) of $A$ are guaranteed to be zeros.
+  We will take advantage of these zeros and expand along the first row (or column) of $A$.  As we do so, we obtain a single product of $a_{11}$ and the determinant of a minor matrix obtained by crossing out the first row and column of $A$.  But this minor $(n-1)\times (n-1)$ matrix is also a triangular matrix with diagonal etries $a_{22}, a_{33},\ldots, a_{nn}$.  By induction hypothesis, its determinant is equal to the product of its diagonal entries, $a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn}$.  Therefore $$\det{A}=a_{11}(a_{22}\cdot a_{33}\cdot\ldots\cdot a_{nn})$$
  This completes the proof.
 \end{proof}
 
