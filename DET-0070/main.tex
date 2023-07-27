@@ -9,7 +9,9 @@
  \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Determinants, Areas, and Volumes}
+\end{onlineOnly}
 
 \subsection*{$2\times 2$ Determinant and the Area of a Parallelogram}
 
@@ -55,9 +57,20 @@ $$\mbox{Area}=\norm{\vec{u}\times\vec{v}}$$
     $$\vec{u}=\begin{bmatrix}-2\\1\\3\end{bmatrix},\quad \vec{v}=\begin{bmatrix}1\\6\\2\end{bmatrix}$$
 \begin{explanation}
     We can start by visualizeing the parallelogram in GeoGebra.  RIGHT-CLICK and DRAG to rotate the image below.  The area of the parallelogram, rounded to two decimal places, is displayed inside the parallelogram.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+
+\begin{onlineOnly}    
 \begin{center}
 \geogebra{g7g6kjqm}{600}{400}
 \end{center}
+\end{onlineOnly}
+
     To find the exact area we compute
     $$\vec{u}\times \vec{v}=\begin{bmatrix}-2\\1\\3\end{bmatrix}\times \begin{bmatrix}1\\6\\2\end{bmatrix}=\begin{vmatrix}\vec{i} &\vec{j} &\vec{k}\\-2 & 1 & 3\\1 & 6 & 2\end{vmatrix}=\begin{bmatrix}\answer{-16}\\\answer{7}\\\answer{-13}\end{bmatrix}$$
 
@@ -106,6 +119,7 @@ $$\mbox{Area}=\norm{\begin{bmatrix}0\\0\\ad-bc\end{bmatrix}}=|ad-bc|=\Big|\det\b
 
 So the area of the parallelogram turns out to be the absolute value of the determinant of the matrix whose rows (or columns) are the two vectors that determine the parallelogram. 
 The following formula summarizes our discussion.
+
 \begin{formula}\label{form:areaofparallelogramdeterminant} Let $\vec{u}=\begin{bmatrix}a\\b\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}c\\d\end{bmatrix}$ be vectors of $\RR^2$.  The area of the parallelogram determined by $\vec{u}$ and $\vec{v}$ is given by
 $$\mbox{Area}=\Big|{\det\begin{bmatrix}a&b\\c&d\end{bmatrix}}\Big|=\Big|\det\begin{bmatrix}a&c\\b&d\end{bmatrix}\Big|$$
 \end{formula}
@@ -251,10 +265,26 @@ $$\mbox{Area of Base}=\norm{\vec{u}\times\vec{v}}$$
 
 The height of the parallelepiped is measured along a line perpendicular to the base.  By Theorem \ref{th:crossproductorthtouandv}, $\vec{u}\times\vec{v}$ lies on such a line.  Let $\theta$ be the angle between $\vec{w}$ and $\vec{u}\times\vec{v}$, $0\leq \theta\leq\pi$.  Then the height, $h$, of the parallelepiped is given by 
 $$h=\norm{\vec{w}}|\cos\theta |$$
+
+It may be difficult to visualize this in two dimensions.  Below is a replica of of the above diagram in GeoGebra.  RIGHT-CLICK and to rotate the image.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
+\begin{center}
+\geogebra{tfuzeqwr}{900}{700}
+\end{center}
+\end{onlineOnly}
+
 This gives us the following formula for the volume of the parallelepiped
 $$\mbox{Volume}=\norm{\vec{u}\times\vec{v}}\norm{\vec{w}}|\cos\theta |=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
 
 We have established the following formula.
+
 \begin{formula}\label{form:volumeparallelepiped}
 The volume of a parallelepiped determined by vectors $\vec{u}$, $\vec{v}$ and $\vec{w}$ in $\RR^3$ is given by\\
 $$\mbox{Volume}=|(\vec{u}\times\vec{v})\dotp\vec{w}|$$
@@ -267,7 +297,7 @@ $$\vec{u}=\begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix},\quad\vec{v}=\begin{bmatrix}
 then
 \begin{align}\label{eq:boxproduct}(\vec{u}\times\vec{v})\dotp\vec{w}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}\dotp\begin{bmatrix}w_1\\w_2\\w_3\end{bmatrix}=\begin{vmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}
 \end{align}
-The expression in (\ref{eq:boxproduct}) is sometimes referred to as the \dfn{box product}.
+The expression in (\ref{eq:boxproduct}) is sometimes referred to as the \dfn{box product} or the \dfn{scalar triple product}.
 
 Recall that $\det(A)=\det(A^T)$ (Theorem \ref{th:detoftrans}).  Therefore, the three vectors that determine the parallelogram can be used to form rows or columns of the determinant on the right side of (\ref{eq:boxproduct}).  This gives us the following formula.
 
@@ -278,11 +308,22 @@ $$\mbox{Volume}=\Big|\det\begin{bmatrix}w_1&w_2&w_3\\u_1&u_2&u_3\\v_1&v_2&v_3\en
 
 \subsection*{Determinants and Linear Transformations}
 We will now turn our attention to the determinant of a matrix of a linear transformation.  
+
 \begin{exploration}\label{exp:LinTransAreaDet}
 The following GeoGebra interactive shows a polygon $P$ located in the domain of a linear transformation $T$ induced by the matrix $M$.  The right-hand side shows the image of $P$ under $T$.  The number inside each polygon indicates its area.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{nr8jsz4w}{950}{700}
 \end{center}
+\end{onlineOnly}
+
 \begin{question}
 Let $M=\begin{bmatrix}1&1\\-1&2\end{bmatrix}$.  Find the determinant of $M$.
 $$\det{M}=\answer{3}$$
