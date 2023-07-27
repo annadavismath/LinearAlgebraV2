@@ -86,26 +86,30 @@ What we observed for %a
 the 
 $3\times 2$ matrix $A$, holds in general.  We will use this fact to find $\vec{z}$.
 
-Every vector in $\text{col}(A)$ can be written in the form $A\vec{x}$ for some $\vec{x}$ in $\RR^m$.  Our goal is to find $\vec{z}$ such that $A\vec{z}$ is the orthogonal projection of $\vec{b}$ onto $\text{col}(A)$. By Corollary \ref{cor:orthProjOntoW}, every vector $A\vec{x}$ in $\text{col}(A)$ is orthogonal to $\vec{b}-A\vec{z}$.  Therefore, we have
-\begin{eqnarray*}
-    0=(A\vec{x})\dotp(\vec{b}-A\vec{x})&=&\left(A\vec{x}\right)^T(\vec{b}-A\vec{z})\\
-    &=&\vec{x}^TA^T(\vec{b}-A\vec{x})\\
-    &=&\vec{x}\dotp\left(A^T(\vec{b}-A\vec{z})\right)
-\end{eqnarray*}
-But this means that $A^T(\vec{b}-A\vec{z})$ is orthogonal to \emph{every} vector of $\RR^m$, including itself.  Therefore,
+Every vector in $\text{col}(A)$ can be written in the form $A\vec{x}$ for some $\vec{x}$ in $\RR^m$.  Our goal is to find $\vec{z}$ such that $A\vec{z}$ is the orthogonal projection of $\vec{b}$ onto $\text{col}(A)$. By Corollary \ref{cor:orthProjOntoW}, every vector $A\vec{x}$ in $\text{col}(A)$ is orthogonal to $\vec{b}-A\vec{z}$.  This means $\vec{b}-A\vec{z}$ is in the orthogonal complement of $\text{col}(A)$, which is $\text{null}(A^T)$.
+
+Therefore, we have
+%{\begin{eqnarray*}
+%    0=(A\vec{x})\dotp(\vec{b}-A\vec{x})&=&\left(A\vec{x}\right)^T(\vec{b}-A\vec{z})\\
+%    &=&\vec{x}^TA^T(\vec{b}-A\vec{z})\\
+%    &=&\vec{x}\dotp\left(A^T(\vec{b}-A\vec{z})\right)
+%\end{eqnarray*}
+%But this means that $A^T(\vec{b}-A\vec{z})$ is orthogonal to \emph{every} vector of $\RR^m$, including itself.  Therefore,
+
 \begin{eqnarray}
 A^T(\vec{b}-A\vec{z})&=&\vec{0}\nonumber\\
 A^T\vec{b}-A^TA\vec{z}&=&\vec{0}\nonumber\\
 A^TA\vec{z}&=&A^T\vec{b}\label{eq:normalForZ}
 \end{eqnarray}
 
-The system of linear equations in (\ref{eq:normalForZ}) is called \emph{normal equations for} $\vec{z}$.  If $A^TA$ is invertable, then we have the following formula for finding $\vec{z}$
+Since $\vec{b}-A\vec{z}$ is normal to the subspace $\text{col}(A)$, we call the system of linear equations in (\ref{eq:normalForZ}) the \emph{normal equations for} $\vec{z}$.  If $A^TA$ is invertible, then we can write
+%have the following formula for finding $\vec{z}$
 
 \begin{equation}\label{eq:leastSquaresZ}
     \vec{z}=(A^TA)^{-1}A^T\vec{b}
 \end{equation}
 
-We will return to the question of invertability of $A^TA$ in Theorem \ref{th:ATAinverse}.  For now, let's revisit the problem posed in Exploration \ref{exp:leastSq1}.
+We will return to the question of invertibility of $A^TA$ in Theorem \ref{th:ATAinverse}.  For now, let's revisit the problem posed in Exploration \ref{exp:leastSq1}.
 
 \begin{example}\label{ex:leastSquares1}
 We now return to the matrix equation $A\vec{x}=\vec{b}$ of Exploration \ref{exp:leastSq1} to find $\vec{z}$ that best approximates a solution.
@@ -123,10 +127,10 @@ In this case, $(A^TA)^{-1}$ exists.  Applying equation (\ref{eq:leastSquaresZ}),
 Compare this answer to your guess in Exploration \ref{exp:leastSq1}.  If your guess was correct, nice job!  If your guess was different, try setting $\vec{z}$ to the correct answer and examine the geometry of the problem.    
 \end{example}
 
-We now come back to the question of when $A^TA$ is invertable.
+We now come back to the question of when $A^TA$ is invertible.
 
 \begin{theorem}\label{th:ATAinverse}
-If columns of matrix $A$ are linearly independent, then $A^TA$ is invertable.    
+If columns of matrix $A$ are linearly independent, then $A^TA$ is invertible.    
 \end{theorem}
 
 \begin{proof}
@@ -196,6 +200,21 @@ $$\begin{array}{|c|c|c|}
     Hence the best-fitting function is $g=0.14+0.09x_1+0.08x_2$.  
 \end{explanation}    
 \end{example}
+
+\subsection*{Another Application of QR-factorization}
+
+When solving the normal equations in (\ref{eq:normalForZ}), it is advantageous to have a $QR$-factorization of $A$.  For then we can write
+\begin{eqnarray*}
+A^TA\vec{z}&=&A^T\vec{b} \\
+(QR)^T(QR)\vec{z}&=&(QR)^T\vec{b} \\
+R^TQ^TQR\vec{z}&=&R^TQ^T\vec{b} \\
+R^TR\vec{z}&=&R^TQ^T\vec{b}.
+\end{eqnarray*}
+
+Since $R$ is invertible, then $R^T$ also has an inverse, and multiplying on the left by it yields
+$$R\vec{z} = Q^T b.$$
+
+This last equation is easily solved by back-substitution, since $R$ is upper triangular.
 
 \subsection*{Polynomial Regression}
 In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APP-0070/main}{Curve Fitting}, we discussed how to fit a function to a set of data points, so that the graph of the function passes through each of the points.  We also discussed why doing so is sometimes impossible (two points lie one above the other), and may not even be desirable.  In this section we will learn how to approximate a collection of data points with a line (or a curve) that fits the ``trend" of the points.  We will start with data that fit a linear pattern.  
@@ -301,7 +320,7 @@ $$(-3, 3), (-1, 1), (0, 1), (1, 2), (3, 4)$$
 \end{explanation}
  \end{example}
 
-In this section we chose not to dwell on the tedious process of finding $\left(A^TA\right)^{-1}$.  You should be able to perform this computation by hand for smaller matrices.  For larger matrices, using technology is the only reasonable option.  Below, we go through the process of finding the solution for Example \ref{ex:leastSquaresPoly} using Octave.
+%In this section we chose not to dwell on the tedious process of finding $\left(A^TA\right)^{-1}$.  You should be able to perform this computation by hand for smaller matrices.  For larger matrices, using technology is the only reasonable option.  Below, we go through the process of finding the solution for Example \ref{ex:leastSquaresPoly} using Octave.
 
 To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
 
@@ -310,13 +329,21 @@ To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell We
 A=[9 -3 1;1 -1 1;0 0 1;1 1 1; 9 3 1];
 % Define vector b
 b=[3;1;1;2;4];
+tic
 % Let B be the inverse of A^TA.  
 B= inv(transpose(A)*A);
 % Now we solve for z
 ans=B*transpose(A)*b
+toc
+%Here we try the computation again using QR-factorization, and it is more efficient
+tic
+% Compute the QR-factorization of A  
+[Q,R]=qr(A);
+ans=R\(Q'*b)
+toc
 \end{verbatim}
 
-You will be able to re-use this code to complete some of the more tedious homework problems.
+%You will be able to re-use this code to complete some of the more tedious homework problems.
 
  \begin{example}\label{ex:leastSq3}
      Given the data points $(-1, 0)$, $(0,1)$, and $(1,4)$, find the least squares approximating function of the form $f(x)=ax+b2^x$.
