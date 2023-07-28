@@ -66,7 +66,7 @@ Our geometric observations will help us develop a method for finding $\vec{z}$ .
   Suppose $A$ is an $m\times n$ matrix, and $\vec{b}$ is a column vector in $\RR^m$.  Consider the matrix equation $A\vec{x}=\vec{b}$. If this equation does not have a solution, we can attempt to find a best approximation by finding $\vec{z}$ which minimizes the \emph{error}, $\norm{\vec{b}-A\vec{z}}$.  The expression $\norm{\vec{b}-A\vec{z}}$ is also sometimes called the \emph{residual}.  The error (or the residual) is given in terms of a vector norm. Recall that our definition of the norm involves the sum of squares of the vector components.  When we minimize the norm, we minimize the sum of squares.  This is why the method we are describing is often referred to as \emph{least squares}.  We will explore this idea further later in this section.
   
   In the case when $\text{col}(A)$ is a subspace of $\RR^3$, 
-  we can see geometrically that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\left(A\vec{z}\right)^{\perp}=\vec{b}-A\vec{z}$, as shown below.
+  we can see geometrically that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\vec{b}-A\vec{z}$, as shown below.
 
 \begin{center}
 \tdplotsetmaincoords{70}{130}
@@ -245,6 +245,8 @@ We found this fit by minimizing $\norm{\vec{b}-A\vec{z}}$.  We will now investig
     \end{bmatrix}
 \end{equation}
 Observe that each entry of $\vec{b}-A\vec{z}$ is the signed vertical distance between a particular point and the line.
+
+Instead of computing the error, $\norm{\vec{b}-A\vec{z}}$, we will compute $\norm{\vec{b}-A\vec{z}}^2$ to avoid the square root.
 
 \begin{equation}
     \norm{\vec{b}-A\vec{z}}^2=(-0.43)^2+0.64^2+(-0.21)^2\approx 0.64
@@ -428,15 +430,15 @@ $$f(x)=\answer{-1.7}x+\answer{-0.4}$$
 \end{problem}
 \end{problem}
 
+\begin{problem}\label{prob:useOctave}
+    Modify the Octave code in Example \ref{ex:leastSquaresPolyRevisited} to retry the problem in Example \ref{ex:leastSquares3}.  Is $QR$ quicker?
+\end{problem}
+
 \begin{problem}\label{prob:leastSq3}
 Use Octave to find the least squares approximating quadratic function for the following data points.
 $$(-2,1),(0,0),(3,2),(4,3)$$
 Round your answers to three decimal places.
 $$f(x)=\answer{0.194}x^2+\answer{-0.024}x+\answer{0.127}$$
-\end{problem}
-
-\begin{problem}\label{prob:useOctave}
-    Modify the Octave code in Example \ref{ex:leastSquaresPolyRevisited} to retry the problem in Example \ref{ex:leastSquares3}.  Is $QR$ quicker?
 \end{problem}
 
 \begin{problem}\label{ex:5_6_14}
