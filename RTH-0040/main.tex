@@ -10,12 +10,15 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{QR Factorization}
+\end{onlineOnly}
+
 One of the main virtues of orthogonal
 matrices is that they can be easily inverted---the transpose is the
 inverse. This fact, combined with the factorization theorem in this
 section, provides a useful way to simplify many matrix calculations (for
- example, in least squares approximation).
+ example, in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0030/main}{least squares approximation}).
 
 
 \begin{definition}\label{def:QR-factorization}
@@ -341,34 +344,35 @@ $R = \frac{1}{\sqrt{3}}\left[ \begin{array}{rrr}
 \end{expandable}
 \end{problem}
 
-\begin{problem}\label{prob:indcolumns}
-Let $A$ and $B$ denote matrices.
+%\begin{problem}\label{prob:indcolumns}
+%Let $A$ and $B$ denote matrices.
 
 
-\begin{enumerate} 
-\item If $A$ and $B$ have independent columns, show that $AB$ has independent columns. %[\textit{Hint}: Theorem~\ref{thm:015672}.]
+%\begin{enumerate} 
+%\item If $A$ and $B$ have independent columns, show that $AB$ has independent columns. %[\textit{Hint}: Theorem~\ref{thm:015672}.]
 
-\item Show that $A$ has a QR-factorization if and only if $A$ has independent columns.
+%\item Show that $A$ has a QR-factorization if and only if $A$ has independent columns.
+%\begin{hint}
+%If $A$ has a QR-factorization, use (a). For the converse use Theorem~\ref{thm:025133}.
+%\end{hint}
 
-\item If $AB$ has a QR-factorization, show that the same is true of $B$ but not necessarily $A$.
-\end{enumerate}
-\begin{hint}
-Consider $AA^{T}$ where $A = \left[ \begin{array}{rrr}
-1 & 0 & 0 \\
-1 & 1 & 1
-\end{array}\right]$.
-\end{hint}
-\begin{hint}
-If $A$ has a QR-factorization, use (a). For the converse use Theorem~\ref{thm:025133}.
-\end{hint}
-\end{problem}
+%\item If $AB$ has a QR-factorization, show that the same is true of $B$ but not necessarily $A$.
+%\end{enumerate}
+%\begin{hint}
+%Consider $AA^{T}$ where $A = \left[ \begin{array}{rrr}
+%1 & 0 & 0 \\
+%1 & 1 & 1
+%\end{array}\right]$.
+%\end{hint}
+
+%\end{problem}
 
 \begin{problem}\label{prob:take_diag_positive}
 If $R$ is upper triangular and invertible, show that there exists a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $R_{1} = DR$ is invertible, upper triangular, and has positive diagonal entries.
 \end{problem}
 
 \begin{problem}\label{prob:fullQR}
-If $A$ has independent columns, let \\ $A = QR$ where $Q$ has orthonormal columns and $R$ is invertible and upper triangular. (Some authors call \textit{this} a QR-factorization of $A$.) Show that there is a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $A = (QD)(DR)$ is the QR-factorization of $A$.
+If $A$ has independent columns, let \\ $A = QR$ where $Q$ has orthonormal columns and $R$ is invertible and upper triangular. (Some authors do not require a $QR$-factorization to have positive diagonal entries.) Show that there is a diagonal matrix $D$ with diagonal entries $\pm 1$ such that $A = (QD)(DR)$ is the QR-factorization of $A$.
 \begin{hint}
 See Practice Problem \ref{prob:take_diag_positive}
 \end{hint}
