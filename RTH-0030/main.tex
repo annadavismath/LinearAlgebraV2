@@ -23,9 +23,11 @@
 % UNDER CONSTRUCTION -- COMING SOON
 % \end{center}
 
-Often an exact solution to a problem in applied mathematics is difficult or impossible to obtain. However, it is usually just as useful to find an approximation to a solution. In particular, finding ``linear approximations" is a potent technique in applied mathematics. One basic case is the situation where a system
+Often an exact solution to a problem in applied mathematics is difficult or impossible to obtain. However, it is usually just as useful to find an approximation to a solution. In particular, finding ``linear approximations" is a powerful technique in applied mathematics. One basic case is the situation where a system
 of linear equations has no solution, and it is desirable to find a ``best approximation" to a solution to the
-system. In this section best approximations are defined and a method for finding them is described. 
+system. 
+
+We begin by defining the ``best approximation'' in a natural way, and showing that computing the best approximation reduces to solving a related system of linear equations  called the \emph{normal equations}.  Next, we show that $QR$-factorization provides us with a more efficient way to solve the normal equations and compute the best approximation.  We conclude this section with an application to mathematical modeling called \emph{polynomial regression}. 
 \subsection*{Best Approximate Solutions}
 \begin{exploration}\label{exp:leastSq1}
     Let
@@ -61,7 +63,7 @@ Select all that apply.
 Our geometric observations will help us develop a method for finding $\vec{z}$ .  
 \end{exploration}
 
-  Suppose $A$ is an $m\times n$ matrix, and $\vec{b}$ is a column vector in $\RR^m$.  Consider the matrix equation $A\vec{x}=\vec{b}$. If this equation does not have a solution, we can attempt to find a best approximation by finding $\vec{z}$ which minimizes the error $\norm{\vec{b}-A\vec{z}}$.  
+  Suppose $A$ is an $m\times n$ matrix, and $\vec{b}$ is a column vector in $\RR^m$.  Consider the matrix equation $A\vec{x}=\vec{b}$. If this equation does not have a solution, we can attempt to find a best approximation by finding $\vec{z}$ which minimizes the \emph{error}, $\norm{\vec{b}-A\vec{z}}$.  The expression $\norm{\vec{b}-A\vec{z}}$ is also sometimes called the \emph{residual}.  The expression for error is given in terms of a vector norm. Recall that our definition of the norm involves the sum of squares of the vector components.  When we minimize the norm, we minimize the sum of squares.  This is why the method we are describing is often referred to as \emph{least squares}.  We will explore this idea further later in this section.
   
   In the case when $\text{col}(A)$ is a subspace of $\RR^3$, 
   we can see geometrically that $\vec{z}$ is the best approximation if and only if $A\vec{z}$ is an orthogonal projection of $\vec{b}$ onto $\text{col}(A)$, and the error is the magnitude of $\left(A\vec{z}\right)^{\perp}=\vec{b}-A\vec{z}$, as shown below.
@@ -82,9 +84,7 @@ Our geometric observations will help us develop a method for finding $\vec{z}$ .
       \end{tikzpicture}
 \end{center}
 
-What we observed for %a
-the 
-$3\times 2$ matrix $A$, holds in general.  We will use this fact to find $\vec{z}$.
+What we observed above, holds in general.  We will use this fact to find $\vec{z}$.
 
 Every vector in $\text{col}(A)$ can be written in the form $A\vec{x}$ for some $\vec{x}$ in $\RR^m$.  Our goal is to find $\vec{z}$ such that $A\vec{z}$ is the orthogonal projection of $\vec{b}$ onto $\text{col}(A)$. By Corollary \ref{cor:orthProjOntoW}, every vector $A\vec{x}$ in $\text{col}(A)$ is orthogonal to $\vec{b}-A\vec{z}$.  This means $\vec{b}-A\vec{z}$ is in the orthogonal complement of $\text{col}(A)$, which is $\text{null}(A^T)$.
 
@@ -124,7 +124,7 @@ In this case, $(A^TA)^{-1}$ exists.  Applying equation (\ref{eq:leastSquaresZ}),
 &=&\begin{bmatrix}0.4\\0.8\end{bmatrix}
     \end{eqnarray*}    
 \end{explanation}
-Compare this answer to your guess in Exploration \ref{exp:leastSq1}.  If your guess was correct, nice job!  If your guess was different, try setting $\vec{z}$ to the correct answer and examine the geometry of the problem.    
+Compare this answer to your guess in Exploration \ref{exp:leastSq1}.  If your guess was correct, nice job!  If your guess was different, try setting $\vec{z}$ to the correct answer and use the GeoGebra interactive in Exploration \ref{exp:leastSq1} to examine the geometry of the problem.    
 \end{example}
 
 We now come back to the question of when $A^TA$ is invertible.
@@ -163,10 +163,15 @@ If columns of matrix $A$ are linearly independent, then $A^TA$ is invertible.
         $$\begin{matrix}3x & - & y&=&4\\x&+&2y&=&0\\2x&+&y&=&1\end{matrix}$$
         has no solution.  Find the vector $\vec{z}$ that best approximates a solution.
 
-        \begin{explanation}
-            In this case,
-            $$A=\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix}$$            $$A^TA=\begin{bmatrix}3&1&2\\-1&2&1\end{bmatrix}\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix}=\begin{bmatrix}14&1\\1&6\end{bmatrix}$$
-            is invertible.  Using the normal equation $\left(A^TA\right)\vec{z}=A^T\vec{z}$ we compute, $$\begin{bmatrix}14&1\\1&6\end{bmatrix}\vec{z}=\begin{bmatrix}14\\-3\end{bmatrix}$$ $$\vec{z}=\frac{1}{83}\begin{bmatrix}87\\-56\end{bmatrix}$$
+        \begin{explanation}            
+            We have $$A=\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix},\quad\begin{bmatrix}4\\0\\1\end{bmatrix}.$$ 
+            The normal equations are $\left(A^TA\right)\vec{z}=A^T\vec{b}$.  We compute
+                       $$\begin{bmatrix}3&1&2\\-1&2&1\end{bmatrix}\begin{bmatrix}3&-1\\1&2\\2&1\end{bmatrix}\vec{z}=\begin{bmatrix}3&1&2\\-1&2&1\end{bmatrix}\begin{bmatrix}4\\0\\1\end{bmatrix}.$$
+                       $$\begin{bmatrix}14&1\\1&6\end{bmatrix}\vec{z}=\begin{bmatrix}14\\-3\end{bmatrix}$$ 
+            
+            
+            We observe that is $A^TA$ is invertible. 
+ Multiplying on the left by $(A^TA)^{-1}$ yields $$\vec{z}=\frac{1}{83}\begin{bmatrix}87\\-56\end{bmatrix}$$
             With this vector $\vec{z}$, the left sides of the equations become
             $$\begin{matrix}3(87/83) & - & (-56/83)&\approx&3.82\\(87/83)&+&2(-56/83)&\approx&-0.30\\2(87/83)&+&(-56/83)&\approx&1.42\end{matrix}$$
             This is as close as possible to a solution.
@@ -186,7 +191,7 @@ $$\begin{array}{|c|c|c|}
 
 \begin{explanation}
     If the relationship is given by $g=a_0+a_1x_1+a_2x_2$, then the data can be described as follows:
-    $$\begin{bmatrix}1&5&3\\1&3&4\\1&1&5\\1&2&1\end{bmatrix}\begin{bmatrix}a_1\\a_2\\a_3\end{bmatrix}=\begin{bmatrix}0.8\\0.8\\0.6\\0.4\end{bmatrix}$$
+    $$\begin{bmatrix}1&5&3\\1&3&4\\1&1&5\\1&2&1\end{bmatrix}\begin{bmatrix}a_0\\a_1\\a_2\end{bmatrix}=\begin{bmatrix}0.8\\0.8\\0.6\\0.4\end{bmatrix}$$
     Using Theorem \ref{th:bestApprox}, we get
     $$\vec{z}=\underbrace{\frac{1}{42}\begin{bmatrix}
         119&-17&-19\\-17&5&1\\-19&1&5
@@ -201,23 +206,8 @@ $$\begin{array}{|c|c|c|}
 \end{explanation}    
 \end{example}
 
-\subsection*{Another Application of QR-factorization}
-
-When solving the normal equations in (\ref{eq:normalForZ}), it is advantageous to have a $QR$-factorization of $A$.  For then we can write
-\begin{eqnarray*}
-A^TA\vec{z}&=&A^T\vec{b} \\
-(QR)^T(QR)\vec{z}&=&(QR)^T\vec{b} \\
-R^TQ^TQR\vec{z}&=&R^TQ^T\vec{b} \\
-R^TR\vec{z}&=&R^TQ^T\vec{b}.
-\end{eqnarray*}
-
-Since $R$ is invertible, then $R^T$ also has an inverse, and multiplying on the left by it yields
-$$R\vec{z} = Q^T b.$$
-
-This last equation is easily solved by back-substitution, since $R$ is upper triangular.
-
-\subsection*{Polynomial Regression}
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APP-0070/main}{Curve Fitting}, we discussed how to fit a function to a set of data points, so that the graph of the function passes through each of the points.  We also discussed why doing so is sometimes impossible (two points lie one above the other), and may not even be desirable.  In this section we will learn how to approximate a collection of data points with a line (or a curve) that fits the ``trend" of the points.  We will start with data that fit a linear pattern.  
+\subsection*{Application of Least Squares to Curve Fitting}
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APP-0070/main}{Curve Fitting}, we discussed how to fit a function to a set of data points, so that the graph of the function passes through each of the points.  We also discussed why doing so is sometimes impossible (two points lie one above the other), and may not even be desirable (overfitting).  In this section we will learn how to approximate a collection of data points with a line (or a curve) that fits the ``trend" of the points.  We will start with data that fit a linear pattern.  
 
 \begin{exploration}\label{exp:leastSq2}
     Consider the points $(1,1)$, $(2, 3)$ and $(4,4)$.  These points do not lie on a straight line, but they have a general upward linear trend.  (Typically there would be many more points to consider, but we will limit our exploration to what we can do by hand.)  Our goal is to find a line that fits these points as closely as possible.  
@@ -248,7 +238,7 @@ Let's take a look.
  \end{tikzpicture}
  \end{center}
 
-We found this fit by minimizing $\norm{\vec{b}-A\vec{z}}$.  We will investigate the meaning of this expression in relation to the line and the data points.
+We found this fit by minimizing $\norm{\vec{b}-A\vec{z}}$.  We will now investigate the meaning of this expression in relation to the line and the data points.
 \begin{equation}
     \vec{b}-A\vec{z}=\begin{bmatrix}1\\3\\4\end{bmatrix}-\begin{bmatrix}(13/14)(1)+1/2\\(13/14)(2)+1/2\\{(13/14)(4)+1/2}\end{bmatrix}\approx\begin{bmatrix}
         -0.43\\0.64\\-0.21
@@ -271,7 +261,7 @@ The following GeoGebra interactive will help you explore this idea.
 \end{exploration}
 
 
-In Exploration \ref{exp:leastSq2} we discovered that $\norm{\vec{b}-A\vec{z}}^2$ is the sum of vertical distances between the given data points and the proposed line.  By minimizing $\norm{\vec{b}-A\vec{z}}$, we minimize the sum of squares of vertical distances.  This observation holds in general.  Given a collection of points $(x_1, y_1), (x_2, y_2),\dots ,(x_n, y_n)$, finding a linear function of the form $f(x)=ax+b$ that best fits the points we would find a best solution to the system
+In Exploration \ref{exp:leastSq2} we discovered that $\norm{\vec{b}-A\vec{z}}^2$ is the sum of squares of vertical distances between the given data points and the proposed line.  By minimizing $\norm{\vec{b}-A\vec{z}}$, we minimize the sum of squares of vertical distances.  This observation holds in general.  Given a collection of points $(x_1, y_1), (x_2, y_2),\dots ,(x_n, y_n)$, finding a linear function of the form $f(x)=ax+b$ that best fits the points we would find a best solution to the system
 $$\begin{bmatrix}x_1&1\\x_2&1\\\vdots&\vdots\\x_n&1\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}y_1\\y_2\\\vdots\\y_n\end{bmatrix}$$
 by minimizing
 $$\norm{\begin{bmatrix}y_1-(ax_1+b)\\y_2-(ax_2+b)\\\vdots\\y_n-(ax_n+b)\end{bmatrix}}^2=(y_1-(ax_1+b))^2+(y_2-(ax_2+b))^2+\dots +(y_n-(ax_n+b))^2$$
@@ -302,10 +292,25 @@ $$(-3, 3), (-1, 1), (0, 1), (1, 2), (3, 4)$$
     $$\begin{matrix}a(-3)^2&+&b(-3)&+&c&=&3\\a(-1)^2&+&b(-1)&+&c&=&1\\a(0)^2&+&b(0)&+&c&=&1\\a(1)^2&+&b(1)&+&c&=&2\\a(3)^2&+&b(3)&+&c&=&4\end{matrix}$$
     This corresponds to the matrix equation
     $$\begin{bmatrix}9&-3&1\\1&-1&1\\0&0&1\\1&1&1\\9&3&1\end{bmatrix}\begin{bmatrix}a\\b\\c\end{bmatrix}=\begin{bmatrix}3\\1\\1\\2\\4\end{bmatrix}$$
-    Using the normal equations, we obtain
+    Multiplying on the left by $A^T$ gives us the normal equations.
     $$A^TA\vec{z}=A^T\vec{b}$$
     $$\begin{bmatrix}164&0&20\\0&20&0\\20&0&5\end{bmatrix}\vec{z}=\begin{bmatrix}66\\11\\4\end{bmatrix}$$
-    Solving for $\vec{z}$ yields
+    It turns out that $A^TA$ is invertible, so it is easy to solve for $\vec{z}$.  You can use technology to accomplish this.  We will demonstrate how to do this using Octave.  
+
+To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Define matrix A
+A=[9 -3 1;1 -1 1;0 0 1;1 1 1; 9 3 1];
+% Define vector b
+b=[3;1;1;2;4];
+% Let B be the inverse of A^TA.  
+B= inv(transpose(A)*A);
+% Now we solve for z
+ans=B*transpose(A)*b
+\end{verbatim}
+    
+    We arrive at the solution
     $$\vec{z}=\begin{bmatrix}0.26\\0.20\\1.15\end{bmatrix}$$
 
     Therefore, the quadratic function of best fit is given by $f(x)=0.26x^2+0.2x+1.15$.  You can see the graph and the points shown below.
@@ -316,34 +321,9 @@ $$(-3, 3), (-1, 1), (0, 1), (1, 2), (3, 4)$$
 \end{center}
 \end{onlineOnly}
 
- 
+Before the end of this section we will return to this problem with a more computationally efficient approach.
 \end{explanation}
  \end{example}
-
-%In this section we chose not to dwell on the tedious process of finding $\left(A^TA\right)^{-1}$.  You should be able to perform this computation by hand for smaller matrices.  For larger matrices, using technology is the only reasonable option.  Below, we go through the process of finding the solution for Example \ref{ex:leastSquaresPoly} using Octave.
-
-To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
-
-\begin{verbatim}
-% Define matrix A
-A=[9 -3 1;1 -1 1;0 0 1;1 1 1; 9 3 1];
-% Define vector b
-b=[3;1;1;2;4];
-tic
-% Let B be the inverse of A^TA.  
-B= inv(transpose(A)*A);
-% Now we solve for z
-ans=B*transpose(A)*b
-toc
-%Here we try the computation again using QR-factorization, and it is more efficient
-tic
-% Compute the QR-factorization of A  
-[Q,R]=qr(A);
-ans=R\(Q'*b)
-toc
-\end{verbatim}
-
-%You will be able to re-use this code to complete some of the more tedious homework problems.
 
  \begin{example}\label{ex:leastSq3}
      Given the data points $(-1, 0)$, $(0,1)$, and $(1,4)$, find the least squares approximating function of the form $f(x)=ax+b2^x$.
@@ -367,6 +347,51 @@ Therefore, the function of best fit (of the given form) is given by $$f(x)=\frac
 \end{onlineOnly}
 \end{explanation}
  \end{example}
+
+\subsection*{$QR$-Factorization: A Quicker Way to do Least Squares}
+
+When solving the normal equations in (\ref{eq:normalForZ}), it is advantageous to have a $QR$-factorization of $A$.  For then we can write
+\begin{eqnarray*}
+A^TA\vec{z}&=&A^T\vec{b} \\
+(QR)^T(QR)\vec{z}&=&(QR)^T\vec{b} \\
+R^TQ^TQR\vec{z}&=&R^TQ^T\vec{b} \\
+R^TR\vec{z}&=&R^TQ^T\vec{b}.
+\end{eqnarray*}
+
+Since $R$ is invertible, then $R^T$ also has an inverse, and multiplying on the left by it yields
+$$R\vec{z} = Q^T b.$$
+
+This last equation is easily solved by back-substitution, since $R$ is upper triangular.
+This greatly reduces the amount of computations we need to make, as we will observe by using Octave in our final example of the section.  
+
+\begin{example}\label{ex:leastSquaresPolyRevisited}
+Let's return to the Octave calculations we did in Example \ref{ex:leastSquaresPoly}, so we can see the improvement.
+
+\begin{explanation}
+    To use Octave, go to the \href{https://sagecell.sagemath.org/}{Sage Math Cell Webpage}, copy the code below into the cell, select OCTAVE as the language, and press EVALUATE.
+
+\begin{verbatim}
+% Define matrix A
+A=[9 -3 1;1 -1 1;0 0 1;1 1 1; 9 3 1];
+% Define vector b
+b=[3;1;1;2;4];
+tic %this command begins a timer so we can compare how long it takes to perform our computations
+% Let B be the inverse of A^TA.  
+B= inv(transpose(A)*A);
+% Now we solve for z
+ans=B*transpose(A)*b
+toc % This command gives us the amount of time it took to perform the calculations
+% Here we try the computation again using QR-factorization, and we will see it is more efficient
+tic  %start the timer
+% Compute the QR-factorization of A  
+[Q,R]=qr(A);
+ans=R\(transpose(Q)*b)
+toc  % Is the result noticeably faster?
+\end{verbatim}
+
+\end{explanation}
+
+\end{example}
 
 \section*{Practice Problems}
 
@@ -408,6 +433,23 @@ Use Octave to find the least squares approximating quadratic function for the fo
 $$(-2,1),(0,0),(3,2),(4,3)$$
 Round your answers to three decimal places.
 $$f(x)=\answer{0.194}x^2+\answer{-0.024}x+\answer{0.127}$$
+\end{problem}
+
+\begin{problem}\label{prob:useOctave}
+    Modify the Octave code in Example \ref{ex:leastSquaresPolyRevisited} to retry the problem in Example \ref{ex:leastSquares3}.  Is $QR$ quicker?
+\end{problem}
+
+\begin{problem}\label{ex:5_6_14}
+If $A$ is an $m \times n$ matrix, it can be proved that there exists a unique $n \times m$ matrix $A^{\#}$ satisfying the following four conditions: $AA^{\#}A = A$; $A^{\#}AA^{\#} = A^{\#}$; $AA^{\#}$ and $A^{\#}A$ are symmetric. The matrix $A^{\#}$ is called the \emph{Moore-Penrose} inverse.
+
+\begin{enumerate}
+\item If $A$ is square and invertible, show that $A^{\#} = A^{-1}$.
+
+\item If $\text{rank} A = m$, show that $A^{\#} = A^{T}(AA^{T})^{-1}$.
+
+\item If $\text{rank} A = n$, show that $A^{\#} = (A^{T}A)^{-1}A^{T}$.  (Notice the appearance of the Moore-Penrose inverse arrived when we solve the normal equations, arriving at Equation (\ref{eq:leastSquaresZ})). 
+
+\end{enumerate}
 \end{problem}
 
 
