@@ -10,8 +10,11 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Gram-Schmidt Orthogonalization}
-In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonal Vectors} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \dfn{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
+\end{onlineOnly}
+
+In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonality and Projections} we said that a set $\{ \vec{f}_1, \vec{f}_2, \dots, \vec{f}_m\}$ of nonzero vectors in $\RR^n$ is called an \dfn{orthogonal set} if $\vec{f}_i \dotp \vec{f}_j =0$ for all $i \neq j$.  In this section we will prove that every orthogonal set is linearly independent, and therefore it is a basis for its span.  We have already seen that the expansion of a vector as a linear combination of orthogonal basis vectors is easy to obtain because formulas exist for the coefficients.  Hence the orthogonal bases are the ``nice'' bases. %, and much of this chapter is devoted to extending results about bases to orthogonal bases. This leads to some very powerful methods and theorems. 
 Our next task is to show that every subspace of $\RR^n$ \textit{has} an orthogonal basis.  We will start with intuitive explorations in lower dimensions, then proceed to formalize our results for subspaces of $\RR^n$.
 
 \subsection*{A Visual Guide to Creating an Orthogonal Basis}  
@@ -50,33 +53,58 @@ Given an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$, let's start buil
 Next, let $\vec{f}_2=\vec{v}_2-\mbox{proj}_{\vec{f}_1}\vec{v}_2$.  Observe that $\vec{f}_2$ is orthogonal to $\vec{f}_1$ (See Theorem \ref{th:orthDecompX} of \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/RTH-0010/main}{Orthogonality and Projections}).  This gives us an orthogonal collection $\mathcal{B}=\{\vec{f}_1,\vec{f}_2\}$.  It is intuitively clear that $\vec{f}_1$ and $\vec{f}_2$ are linearly independent.  Therefore $\mathcal{B}$ is an orthogonal basis of $\RR^2$.
 
 The following exploration illustrates this process dynamically.
+
 \begin{exploration}\label{exp:orth1}
 Choose an arbitrary basis $\{\vec{v}_1, \vec{v}_2\}$ of $\RR^2$ by dragging the tips of vectors $\vec{v}_1$ and $\vec{v}_2$ to desired positions.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis of $\RR^2$.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{xtqppyav}{800}{600}
 \end{center}
+\end{onlineOnly}
 \end{exploration}
 
 We can apply this process to any two-dimensional subset of $\RR^n$.  The following exploration will guide you through the process of constructing an orthogonal basis for a plane spanned by two arbitrary vectors in $\RR^3$.
+
 \begin{exploration}\label{exp:orth2}
 Let $W =\mbox{span}\left({\bf v}_1,{\bf v}_2\right)$. $W$ is a plane through the origin in $\RR^3$.  Use the navigation bar at the bottom of the interactive window to go through the steps of constructing an orthogonal basis for $W$.  RIGHT-CLICK and DRAG to rotate the image for a better view.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
     \begin{center}
 \geogebra{zghsfkym}{900}{600}
 \end{center}
+\end{onlineOnly}
 \end{exploration}
 
 In the next exploration, we take the process of constructing an orthogonal basis to the edge of the visual realm and construct an orthogonal basis for $\RR^3$.
+
 \begin{exploration}\label{exp:orth3}
 In the GeoGebra interactive below $\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ is a basis of $\RR^3$.  Use check boxes to go through the steps for constructing an orthogonal basis starting with the given basis.  RIGHT-CLICK and DRAG to rotate the image for a better view.
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{qjpvmsws}{900}{800}
 \end{center}
+\end{onlineOnly}
 \end{exploration}
-
-
-
-
-
 
 
 \subsection*{Gram-Schmidt Orthogonalization Algorithm}
@@ -246,11 +274,12 @@ We could not add a multiple of $\vec{f}$ to $\{\vec{f}_1, \vec{f}_2, \vec{f}_3\}
 
 \begin{problem}\label{prob:extend}
 
-    \item Try Example 2 again starting with some other vector $\vec{v}_4 \in \RR^4$.
+    Try Example \ref{ex:GSextend} again starting with some other vector $\vec{v}_4 \in \RR^4$.
 
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{GS1}-\ref{GS4}}
+
 In each case, use the Gram-Schmidt algorithm to convert the given basis $\mathcal{B}$ of $V$ to an orthogonal basis.  
 
 \begin{problem}\label{GS1}
@@ -261,12 +290,15 @@ $V = \RR^2$, $\mathcal{B} = \left\{\begin{bmatrix}1\\ -1\end{bmatrix}, \begin{bm
 % $\left\{\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}-3/5\\6/5\end{bmatrix}\right\}$
 % \end{expandable}
 \end{problem}
+
 \begin{problem}\label{GS2}
 $V = \RR^2$, $\mathcal{B} = \left\{\begin{bmatrix}2\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 2\end{bmatrix}\right\}$
 \end{problem}
+
 \begin{problem}\label{GS3}
 $V = \RR^3$, $\mathcal{B} = \left\{\begin{bmatrix}1\\ -1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 0\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 1\\ 2\end{bmatrix}\right\}$
 \end{problem}
+
 \begin{problem}\label{GS4}
 $V = \RR^3$, $\mathcal{B} = \left\{\begin{bmatrix}0\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ 1\\ 1\end{bmatrix}, \begin{bmatrix}1\\ -2\\ 2\end{bmatrix}\right\}$
 
@@ -275,7 +307,7 @@ $V = \RR^3$, $\mathcal{B} = \left\{\begin{bmatrix}0\\ 1\\ 1\end{bmatrix}, \begin
 % $\left\{\begin{bmatrix}0\\1\\1\end{bmatrix},\begin{bmatrix}1\\1\\1\end{bmatrix},\begin{bmatrix}1\\-2\\2\end{bmatrix}\right\}$
 % \end{expandable}
 \end{problem}
-\end{problem}
+
 
 % \begin{problem}
 % Let $A$ be an $n \times n$ matrix of rank $r$. Show that there is an invertible $n \times n$ matrix $M$ such that $MA$ is a row-echelon matrix with the property that the first $r$ rows are orthogonal.
