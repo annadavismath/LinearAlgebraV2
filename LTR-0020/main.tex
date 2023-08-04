@@ -8,10 +8,12 @@
  \end{abstract}
 \maketitle
 
-
+\begin{onlineOnly}
 \section*{Standard Matrix of a Linear Transformation from $\RR^n$ to $\RR^m$}
+\end{onlineOnly}
 
 In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0005/main}{Matrix Transformations} and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0010/main}{Introduction to Linear Transformations} we learned several important properties of matrix transformations of $\RR^n$ and subspaces of $\RR^n$.  Let's summarize the main points.
+
 \begin{summary}\label{sum:matrixTrans}
 For a matrix transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$ matrix $A$ we have the following results:
 \begin{itemize}
@@ -88,16 +90,10 @@ Theorem \ref{th:matrixtran} shows that every matrix transformation is linear.  T
 The results of this section rely on the fact that every vector of $\RR^n$ can be written as a unique linear combination of the standard unit vectors $\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n$.  These vectors form the \dfn{standard basis} for $\RR^n$.  We will see in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0080/main}{Matrix of a Linear Transformation with Respect to Arbitrary Bases} that the matrix used to represent a linear transformation depends on a choice of basis.  Because we are using the standard basis, it is natural to name the matrix in Theorem \ref{th:matlin} accordingly.
 
 \begin{definition} \label{def:standardmatoflintrans}
-  
-The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
-  
-\end{definition}
+  The matrix in Theorem \ref{th:matlin} is known as the \dfn{standard matrix of the linear transformation} $T$.
+  \end{definition}
 
-
-
-
-
- \begin{example}\label{ex:findmatrix2}
+\begin{example}\label{ex:findmatrix2}
  The standard matrix of a linear transformation $T:\RR^3\rightarrow \RR^2$ such that $T(\vec{i})=\begin{bmatrix}2\\-1\end{bmatrix}$, $T(\vec{j})=\begin{bmatrix}-1\\3\end{bmatrix}$ and $T(\vec{k})=\begin{bmatrix}0\\4\end{bmatrix}$ is
  $$A=\begin{bmatrix}2&-1&0\\-1&3&4\end{bmatrix}$$
  \end{example}
@@ -180,39 +176,44 @@ Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T(
 
 $$T\Big(\begin{bmatrix}4\\-1\end{bmatrix}\Big)=\begin{bmatrix}\answer{-16}\\\answer{9}\\\answer{-1}\end{bmatrix}$$
 \end{problem}
+
 \begin{problem}\label{prob:standardmatrix}
 Suppose that a linear transformation $T:\RR^2\rightarrow\RR^3$ is such that  $T\Big(\begin{bmatrix}1\\-1\end{bmatrix}\Big)=\begin{bmatrix}1\\4\\-1\end{bmatrix}$ and $T\Big(\begin{bmatrix}2\\0\end{bmatrix}\Big)=\begin{bmatrix}0\\6\\4\end{bmatrix}$.  Find the standard matrix $A$ of $T$.
-
 $$A=\begin{bmatrix}\answer{0}&\answer{-1}\\\answer{3}&\answer{-1}\\\answer{2}&\answer{3}\end{bmatrix}$$
 \end{problem}
-\begin{problem} 
+
+\emph{Problems \ref{prob:standardmatrix1}-\ref{prob:standardmatrix4}}
 Find the standard matrix $A$ of each linear transformation $T:\RR^2\rightarrow\RR^2$ described below.
+
   \begin{problem}\label{prob:standardmatrix1}
   $T$ doubles the $x$ component of every vector and triples the $y$ component.
   
   $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{3}\end{bmatrix}$$
   \end{problem}
+
   \begin{problem}\label{prob:standardmatrix2}
   $T$ reverses the direction of each vector.
   
   $$A=\begin{bmatrix}\answer{-1}&\answer{0}\\\answer{0}&\answer{-1}\end{bmatrix}$$
   \end{problem}
+
   \begin{problem}\label{prob:standardmatrix5}
   $T$ doubles the length of each vector.
   
   $$A=\begin{bmatrix}\answer{2}&\answer{0}\\\answer{0}&\answer{2}\end{bmatrix}$$
   \end{problem}
+
   \begin{problem}\label{prob:standardmatrix3}
   $T$ projects each vector onto the $x$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}4\\0\end{bmatrix}$)
   
   $$A=\begin{bmatrix}\answer{1}&\answer{0}\\\answer{0}&\answer{0}\end{bmatrix}$$
   \end{problem}
+
   \begin{problem}\label{prob:standardmatrix4}
   $T$ projects each vector onto the $y$-axis. (e.g. $T\left(\begin{bmatrix}4\\5\end{bmatrix}\right)=\begin{bmatrix}0\\5\end{bmatrix}$)
   
   $$A=\begin{bmatrix}\answer{0}&\answer{0}\\\answer{0}&\answer{1}\end{bmatrix}$$
  \end{problem}
- \end{problem}
- 
+
 
 \end{document} 
