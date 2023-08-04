@@ -8,8 +8,10 @@
 \end{abstract}
 \maketitle
 
-
+\begin{onlineOnly}
 \section*{Bases and Dimension of Abstract Vector Spaces}
+\end{onlineOnly}
+
 When working with $\RR^n$ and subspaces of $\RR^n$ we developed several fundamental ideas including \dfn{span}, \dfn{linear independence}, \dfn{bases} and \dfn{dimension}.  We will find that these concepts generalize easily to abstract vector spaces and that analogous results hold in these new settings.
 \subsection*{Linear Independence}
 \begin{definition}[Linear Independence]\label{def:linearindependenceabstract}
@@ -78,6 +80,7 @@ In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0035/main}{Bases and
 Let $V$ be a vector space.  Suppose $\mathcal{B}=\{\vec{v}_1, \vec{v}_2,\ldots ,\vec{v}_t\}$ and $\mathcal{C}=\{\vec{w}_1, \vec{w}_2,\ldots ,\vec{w}_s\}$ be two bases of $V$.  Then $s=t$.
 \end{theorem}
 Now we can state the definition.
+
 \begin{definition}\label{def:dimensionabstract}
 Let $V$ be a subspace of a vector space $W$.  The \dfn{dimension} of $V$ is the number, $m$, of elements in any basis of $V$.  We write
 $$\mbox{dim}(V)=m$$
@@ -326,7 +329,8 @@ Coordinate vectors will play a vital role in establishing one of the most fundam
 Prove that set $\mathcal{B}=\left\{\begin{bmatrix}1&1\\0&0\end{bmatrix},\begin{bmatrix}1&0\\0&1\end{bmatrix}\right\}$ of Example \ref{ex:CAbasis} is linearly independent.
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{prob:linindabstractvsp1}-\ref{prob:linindabstractvsp3}}
+
 Show that each of the following sets of vectors is linearly independent.
 
 \begin{problem}\label{prob:linindabstractvsp1}
@@ -364,13 +368,14 @@ $$
 in $\mathbb{M}_{2,2}$
 \end{problem}
 
-\end{problem}
+
 
 \begin{problem}\label{prob:linindabstractvsp123}
 Show that each set in Practice Problems \ref{prob:linindabstractvsp1}-\ref{prob:linindabstractvsp3} is a basis for its respective vector space.
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{prob:coordvectors1}-\ref{prob:coordvectors2}}
+
 Find the coordinate vector for $p(x)=6-2x+4x^2$ with respect to the given ordered basis $\mathcal{B}$ of $\mathbb{P}^2$.
 
 \begin{problem}\label{prob:coordvectors1}
@@ -384,7 +389,7 @@ $$\mathcal{B}=\{x^{2}, x + 1, 1 - x - x^{2}\}$$
 Answer:
 $$[p(x)]_{\mathcal{B}}=\begin{bmatrix}\answer{8}\\\answer{2}\\\answer{4}\end{bmatrix}$$
 \end{problem}
-\end{problem}
+
 \begin{problem}\label{prob:coordvectors3}
 Find the coordinate vector for $A=\begin{bmatrix}4&-3\\1&2\end{bmatrix}$ with respect to the ordered basis
 $$\mathcal{B}=
