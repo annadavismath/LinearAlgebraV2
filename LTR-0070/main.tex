@@ -8,7 +8,10 @@
  \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Geometric Transformations of the Plane}
+\end{onlineOnly}
+
 In Exploration \ref{exp:shapeTransformation} we saw how geometric shapes in the plane can be manipulated with matrix transformations.  In this section we will study matrix transformations of the plane in more detail by applying matrix transformations to pixels in photos.  
 We will treat every pixel of a picture as a point or a vector in $\RR^2$.  A transformation is applied to each pixel, and the output pixel is colored the same color as the input pixel.  The figure below shows the result of one such transformation.
 
@@ -672,9 +675,19 @@ You can use the GeoGebra interactive below to decompose a matrix into a product 
 
 Consider the matrix $M=\begin{bmatrix} 1 & 0\\-1 & -1\end{bmatrix}$.  This matrix induces a transformation that can be broken into two parts: (1) a reflection followed by (2) a shear.  Find matrices $M_1$ and $M_2$ that induce the reflection and the shear respectively.  Verify that the product of the two matrices is equal to $M$ (be careful about the order of the product!).
 $$M=M_2M_1=\begin{bmatrix}\answer{1}&\answer{0}\\\answer{-1}&\answer{1}\end{bmatrix}\begin{bmatrix}\answer{1}&\answer{0}\\\answer{0}&\answer{-1}\end{bmatrix}$$
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{d6jyt85s}{950}{500}
 \end{center}
+\end{onlineOnly}
+
 Let  $M=\begin{bmatrix}-1&0\\0&-1\end{bmatrix}$.  Use the GeoGebra interactive above to visually examine the transformation induced by $M$.  The composition of which transformations is equivalent to the transformation induced by $M$? 
 \begin{multipleChoice}  
 \choice{Rotation by 180 degrees.}  

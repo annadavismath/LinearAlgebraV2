@@ -7,7 +7,9 @@
  \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Orthogonal Projections}
+\end{onlineOnly}
 
 Given a line $l$ and a vector $\vec{v}$ emanating from a point on $l$, it is sometimes convenient to express $\vec{v}$ as the sum of a vector $\vec{v}_{\parallel}$, parallel to $l$, and a vector $\vec{v}_{\perp}$, perpendicular to $l$.  If you have taken a physics course, you may have seen a force vector decomposed into the sum of two components: one parallel and one perpendicular to the direction of motion.
 
@@ -158,17 +160,20 @@ $$\norm{\vec{v}_{\perp}}=\frac{1}{3}\sqrt{49+4+25}=\frac{\sqrt{78}}{3}$$
 \end{example}
 
 \section*{Practice Problems}
-\begin{problem}%\label{prob:proj1}
+\emph{Problems \ref{prob:proj1a}-\ref{prob:proj1b}}
+
 Find $\mbox{proj}_{\vec{d}}\vec{v}$.  
+
   \begin{problem}\label{prob:proj1a}
   If $\vec{d}=\begin{bmatrix}-1\\3\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}1\\4\end{bmatrix}$ then
   $$\mbox{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{-1.1}\\\answer{3.3}\end{bmatrix}$$
     \end{problem}
+    
     \begin{problem}\label{prob:proj1b}
     If $\vec{d}=\begin{bmatrix}0\\2\\1\end{bmatrix}$ and $\vec{v}=\begin{bmatrix}-1\\-4\\2\end{bmatrix}$ then
     $$\mbox{proj}_{\vec{d}}\vec{v}=\begin{bmatrix}\answer{0}\\\answer{-2.4}\\\answer{-1.2}\end{bmatrix}$$
     \end{problem}
-\end{problem}
+
 \begin{problem}\label{prob:proj2}
 Find the projection of vector $\vec{v}$ onto line $l$. (If entering answers in decimal form, round to the nearest one hundredth.)
 
@@ -187,6 +192,7 @@ Find the projection of vector $\vec{v}$ onto line $l$. (If entering answers in d
 Answer:
 $$\begin{bmatrix}\answer[tolerance=0.005]{-95/26}\\\answer[tolerance=0.005]{19/26}\end{bmatrix}$$
 \end{problem}
+
 \begin{problem}\label{prob:distpttoline}
 Find the distance between point $A$ and line $l$.
 
@@ -203,9 +209,11 @@ Find the distance between point $A$ and line $l$.
 
 Answer: $\sqrt{\answer{3.2}}$.
 \end{problem}
+
 \begin{problem}\label{prob:proj3}
 Show that $\mbox{proj}_{\vec{d}}\vec{v}$ does not depend on the length of $\vec{d}$ by proving that $\mbox{proj}_{\vec{d}}\vec{v}=\mbox{proj}_{k\vec{d}}\vec{v}$ for $k\neq 0$.  What does this result mean geometrically?  Illustrate your response with a diagram.
 \end{problem}
+
 \begin{problem}\label{prob:circletangenttoline}
 Find the radius of a circle centered at $(4, 2)$ if the line $y=\frac{3}{2}x+3$ is tangent to the circle.  Enter your response as a fraction.
 
@@ -213,9 +221,17 @@ Answer:
 $$r=\sqrt{\answer{196/13}}$$
 The graph below shows the line $y=\frac{3}{2}x+3$ together with a circle of radius $1$.  Change the value of $r$ to the radius you have found to visualize the correct answer.
 
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center} 
 \geogebra{bngnjxee}{800}{600} 
 \end{center}
+\end{onlineOnly}
 
 
 

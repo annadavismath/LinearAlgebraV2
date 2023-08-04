@@ -11,8 +11,9 @@
 \maketitle
 
 
-
+\begin{onlineOnly}
 \section*{Homogeneous Linear Systems}
+\end{onlineOnly}
 
 \begin{definition}\label{def:homogeneous}
 A system of linear equations is called \dfn{homogeneous} if the system can be written in the form
@@ -51,9 +52,18 @@ y&=-\frac{1}{3}t\\
 z&=t
 \end{align*}
 Each of the equations in the original system represents a plane through the origin in $\RR^3$.  The system has infinitely many solutions.  Geometrically, we can interpret these solutions as points lying on the line shared by the three planes.  The above solution is a parametric representation of this line.  Use the GeoGebra demo below to take a better look at the system. (RIGHT-CLICK and DRAG to rotate the image.)
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
     \geogebra{gxjnusja}{800}{600} 
   \end{center}
+  \end{onlineOnly}
 
 \end{explanation}
 \end{example}
@@ -140,7 +150,7 @@ $$\left[\begin{array}{ccc|c}
 
 \section*{Practice Problems}
 
-\begin{problem}
+\emph{Problems \ref{prob:hompluspart1}-\ref{prob:hompluspart2}}
 For each matrix $A$ and vector $\vec{b}$ below, find a solution to $A\vec{x}=\vec{b}$ and  express your solution as a sum of a particular solution and a general solution to the associated homogeneous system.
 
 \begin{problem}\label{prob:hompluspart1}
@@ -150,20 +160,23 @@ $$A=\begin{bmatrix}1&1&3&1\\3&4&2&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\beg
 \begin{problem}\label{prob:hompluspart2}
 $$A=\begin{bmatrix}3&2&1\\1&-1&1\\4&1&1\end{bmatrix}\quad\text{and}\quad\vec{b}=\begin{bmatrix}10\\2\\12\end{bmatrix}$$
 \end{problem}
-\end{problem}
+
 
 \begin{problem}\label{prob:infmanysolutionshom}
 Prove that a consistent system has infinitely many solutions if and only if the associated homogeneous system has infinitely many solutions.
 \end{problem}
 
-\begin{problem} If possible, construct an example of each of the following.  If not possible, explain why.
+\emph{Problems \ref{prob:homexample1}-\ref{prob:homexample2}}
+If possible, construct an example of each of the following.  If not possible, explain why.
+
   \begin{problem}\label{prob:homexample1}
   An inconsistent system with an associated homogeneous system that has infinitely many solutions.
   \end{problem}
+  
   \begin{problem}\label{prob:homexample2}
   An inconsistent system with an associated homogeneous system that has a unique (trivial) solution.
   \end{problem}
-\end{problem}
+
 
 \begin{problem}\label{prob:lincombsolutions}
 Prove that a linear combination of any number of solutions of a homogeneous equation is a solution of the same equation.

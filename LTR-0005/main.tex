@@ -7,7 +7,11 @@
 \begin{abstract}
 \end{abstract}
 \maketitle
+
+\begin{onlineOnly}
 \section*{Matrix Transformations}
+\end{onlineOnly}
+
 \subsection*{Functions from $\RR^n$ into $\RR^m$}
 In the past you have worked with functions $f:\RR\longrightarrow \RR$.  Most of the time such functions were defined algebraically.  For example, we can define $f$ by $f(x)=x^2$.  This function takes a number in the \dfn{domain} ($\RR$) and \dfn{maps} it to the square of the number in the \dfn{codomain} (also $\RR$).  Previously, you might have visualized function $f$ by looking at its graph, the set of all points of the form $(x, f(x))$ in $\RR^2$.  In this course, we will find it more useful to look at functions diagrammatically.  For instance, the diagram below shows that $f$ maps 2 to 4.  We say that 4 is the \dfn{image of} 2 \dfn{under $f$}.
 \begin{center}
@@ -131,9 +135,17 @@ We immediately see that the $y$ component of the vector remains unchanged.  We a
 \begin{exploration}\label{exp:shapeTransformation}
 Make your own shape by moving points $A, B, C, D, E, F, G$ in the left pane.  (You can also move the entire figure by clicking and dragging the whole polygon.)  The images of the points and the polygon under the transformation induced by $M$ are shown on the right.
 
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{cvxdwput}{950}{700}
 \end{center}
+\end{onlineOnly}
 
 Try each of the following matrices to determine what each transformation accomplishes.  (Type pi into GeoGebra to get $\pi$.)
 $$M_1=\begin{bmatrix}1&0\\0&2\end{bmatrix},\quad M_2=\begin{bmatrix}1/2&0\\0&1\end{bmatrix},\quad M_3=\begin{bmatrix}1&2\\0&1\end{bmatrix}$$
@@ -203,6 +215,7 @@ We will study linear transformations in depth later in this chapter.
 
 \subsection*{Where did $\vec{i}$ Go?}
 In this section we will look at the images of standard unit vectors under a matrix transformation, and discuss why this information is helpful.
+
 \begin{exploration}\label{exp:imagesOfijk}
     Let $A=\begin{bmatrix}1&2&3\\4&5&6\\7&8&9\end{bmatrix}$.
     Find the following products:
@@ -224,6 +237,7 @@ Observe that the image of $\vec{i}$ is the first column of $A$, the image of $\v
 \end{exploration}
 
 We formalize our findings in Exploration \ref{exp:imagesOfijk} as follows.
+
 \begin{observation}\label{obs:imagesOfijk}
     In general, the linear transformation $T:\RR^n\rightarrow\RR^m$, induced by an $m\times n$ matrix $A$ maps the standard unit vectors $\vec{e}_1\ldots \vec{e}_n$ to the columns of $A$.  We summarize this observation by expressing columns of $A$ as images of vectors $\vec{e}_1\ldots \vec{e}_n$ under $T$.
  
@@ -263,9 +277,19 @@ Let $T:\RR^2\longrightarrow \RR^2$ be a matrix transformation induced by the mat
     \item Change the entries of matrix $A$;
     \item Change vector $\vec{x}$ by dragging its tip.
 \end{itemize}
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{nhs3wnqd}{950}{700}
 \end{center}
+\end{onlineOnly}
+
 Choose your matrix $A$.  Visually verify the following claims:
 \begin{itemize}
     \item The image of $\vec{i}$ is the first column of matrix $A$.

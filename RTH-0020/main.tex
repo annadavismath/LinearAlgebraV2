@@ -8,7 +8,10 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Orthogonal Complements and Decompositions}
+\end{onlineOnly}
+
 \subsection*{Orthogonal Complements}
 We will now consider the set of vectors that are orthogonal to every vector in a given subspace.  As a quick example, consider the $xy$-plane in $\RR^3$.  Clearly, every scalar multiple of the standard unit vector $\vec{k}$ in $\RR^3$ is orthogonal to every vector in the $xy$-plane.  We say that the set $\{c\vec{k} \mid c \in\RR\}$ is an \dfn{orthogonal complement} of $\{a\vec{i}+b\vec{j} \mid a, b \in\RR\}$.
 
@@ -102,10 +105,18 @@ Some of the important subspaces we studied earlier are orthogonal complements of
 
 \begin{exploration}\label{exp:discoverortho}
 In the following GeoGebra interactive, you can change the coordinates of the vectors $\vec{v}$ and $\vec{w}$ using the sliders.  (At this stage make sure that $\vec{v}$ and $\vec{w}$ are not collinear.) Let $A=\begin{bmatrix}-&\vec{v}&-\\-&\vec{w}&-\end{bmatrix}$.  Then $\mbox{row}(A) = \mbox{span}(\vec{v},\vec{w})$.  RIGHT-CLICK and DRAG to rotate the coordinate system for a better view.
-   
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}   
 \begin{center}
 \geogebra{f6eavqxs}{950}{800}
 \end{center}
+\end{onlineOnly}
 
 \begin{enumerate}
         \item Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$? 
@@ -276,17 +287,25 @@ Solve the linear system in Example \ref{ex:023829} and use your result to find a
 \begin{problem}\label{prob:brokenInteractive}
 In this problem we return to the GeoGebra interactive in Exploration \ref{exp:discoverortho}, and we consider the case where the matrix $A$ has rank 1 (which Exploration \ref{exp:discoverortho} could not handle).  This time, the sliders define row 1 of matrix $A$, and row 2 will be 2 times row 1.  Follow the prompts in the interactive to visualize $\mbox{row}(A)$ and $\mbox{null}(A)$.  What relationships do you observe between $\mbox{row}(A)$ and $\mbox{null}(A)$?
 
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
     \begin{center}
 \geogebra{tyntjmdp}{950}{800}
 \end{center}
-
+\end{onlineOnly}
 \end{problem}
 
 \begin{problem}\label{prob:finishex4subspaces}
 In this problem you are asked to finish Example \ref{ex:4subspaces}.  More specifically, for the matrix $$A=\begin{bmatrix}2&-1&1&-4&1\\1&0&3&3&0\\-2&1&-1&5&2\\4&-1&7&2&1\end{bmatrix},$$ show that $\mbox{null}(A^T) = (\mbox{col}(A))^\perp$.  It may be helpful to consult \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/VSP-0040/main}{Subspaces of $\RR^n$ Associated with Matrices}, where we found a basis for the column space of this matrix.
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{OrthoDecomp2}-\ref{OrthoDecomp6}}
+
 In each case, write $\vec{x}$ as $\vec{x} = \vec{w} + \vec{w}^\perp$, where $\vec{w}=\mbox{proj}_W(\vec{x})$ and $\vec{w}^\perp = \vec{x} - \vec{w}$.
 %In each case, write $\vec{x}$ as the sum of a vector in $W$ and a vector in $W^\perp$.
 
@@ -301,7 +320,7 @@ $\vec{x} = \begin{bmatrix}2\\ 0\\ 1\\ 6\end{bmatrix}$, $W = \mbox{span}\left(\be
 \begin{problem}\label{OrthoDecomp6}
 $\vec{x} = \begin{bmatrix}a\\ b\\ c\\ d\end{bmatrix}$, $W = \mbox{span}\left(\begin{bmatrix}1\\ -1\\ 2\\ 0\end{bmatrix}, \begin{bmatrix}-1\\ 1\\ 1\\ 1\end{bmatrix}\right)$
 \end{problem}
-\end{problem}
+
 	
 
 \begin{problem}\label{Uperp}

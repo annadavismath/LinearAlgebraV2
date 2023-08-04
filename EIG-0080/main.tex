@@ -9,7 +9,10 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Gershgorin's Theorem}
+\end{onlineOnly}
+
 We have seen that eigenvalues are the roots of the characteristic polynomial, and therefore may be complex numbers, even when a matrix has entries that are real.  This section is devoted to a remarkable theorem proved by S.A. Gershgorin in 1931. Gershgorin's theorem says that the $n$ eigenvalues of an $n \times n$ matrix can be found in a region in the complex plane consisting of $n$ disks.  We explore the theorem for the case $n=3$ before proving the result.  If you have never plotted complex numbers before, you may wish to try Exploration \ref{exp:geometry_complex_numbers} in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers} before proceeding.
 
 \begin{exploration}\label{init:GershDisks3x3}
@@ -24,9 +27,18 @@ As you experiment with the interactive, see if you can answer the following ques
     \item Are there some matrices for which one of the disks does not intersect the others?  Where none of the disks intersect?
     \item Try using a matrix with complex number entries.  How is the visual pattern of eigenvalues for such a matrix different from a matrix whose entries are real numbers?
 \end{enumerate}
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{jrpqazq4}{800}{600}
 \end{center}
+\end{onlineOnly}
 \end{exploration}
 
 In the exploration above you were able to see the eigenvalues of a $3 \times 3$ matrix.  The eigenvalues are contained in the Gershgorin region, which consists of three disks.  
@@ -136,7 +148,7 @@ These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so 
 
 \section*{Practice Problems}
 
-\begin{problem}
+\emph{Problems \ref{prob:Gersh1}-\ref{prob:Gersh5}}
     Sketch the Gerhgorin region for each matrix.  What, if anything, does the region tell us about the matrix being singular or nonsingular?  If the test is inconclusive, test for singularity in some other way.
 
 \begin{problem}\label{prob:Gersh1}
@@ -210,7 +222,7 @@ $\Gamma (A)$ \wordChoice{\choice[correct]{contains $0$}\choice{does not contain 
 Matrix $A$ is \wordChoice{\choice[correct]{singular}\choice{nonsingular}}.
 \end{problem}
 \end{problem}
-\end{problem}
+
 
 \begin{problem}\label{prob:prove_diag_dom_nonsingular}
 Let $A=[a_{ij}]$ be an $n\times n$ matrix, and let

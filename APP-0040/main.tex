@@ -9,7 +9,10 @@
 \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Application to Computer Graphics}
+\end{onlineOnly}
+
 Computer graphics deals with images
 displayed on a computer screen, and so arises in a variety of
 applications, ranging from word processors, to \textit{Star Wars}
@@ -365,9 +368,17 @@ If we write $\vec{w} = \left[
 \end{array}
 \right]$, the idea is to use a composite of transformations: First translate the letter by $-\vec{w}$ so that the point $\vec{w}$ moves to the origin, then rotate this translated letter, and then translate it by $\vec{w}$ back to its original position. The following GeoGebra interactive illustrates this sequence.
 
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{yd5agbdg}{950}{650}
 \end{center}
+\end{onlineOnly}
 
 The matrix arithmetic is as follows (remember the order of composition!):
 \begin{align*}

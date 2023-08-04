@@ -9,7 +9,10 @@
  \end{abstract}
 \maketitle
 
+\begin{onlineOnly}
 \section*{Linear Independence}
+\end{onlineOnly}
+
 If a friend told you that they have a line spanned by $\begin{bmatrix}1\\1\end{bmatrix}$ and $\begin{bmatrix}2\\2\end{bmatrix}$ and $\begin{bmatrix}3\\3\end{bmatrix}$, you would probably think that your friend's description is a little excessive.  Isn't one of the above vectors sufficient to describe the line?  A line can be described as a span of one vector, but it can also be described as a span of two or more vectors.  There are many advantages, however, to using the most efficient description possible.  In this section we will begin to explore what makes a description ``more efficient."
 \subsection*{Redundant Vectors}
 
@@ -70,11 +73,21 @@ In Exploration \ref{exp:redundantVecs1} we found one vector to be redundant beca
 \begin{exploration}\label{exp:redundantVecs2}
     Consider the set of vectors $$\left\{\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right\}$$
 The three vectors are shown below. RIGHT-CLICK and DRAG to rotate the interactive graph.
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{x72vbsaw}{400}{400}
+\end{center}
+\end{onlineOnly}
 
 $\mbox{span}\left(\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}2\\0\\1\end{bmatrix},\begin{bmatrix}4\\4\\-1\end{bmatrix}\right)$ is \wordChoice{\choice{A line}, \choice[correct]{A plane}, \choice{$\RR^3$}, \choice{A parallelepiped}}
-\end{center}
+
 
 Can we remove one of the vectors from the set without changing the span?  Observe that we can write $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ as a linear combination of the other two vectors
  \begin{equation}\label{eq:redundant}\begin{bmatrix}4\\4\\-1\end{bmatrix}=2\begin{bmatrix}1\\2\\-1\end{bmatrix}+1\begin{bmatrix}2\\0\\1\end{bmatrix}\end{equation}
@@ -344,8 +357,8 @@ and demonstrated that $\begin{bmatrix}4\\4\\-1\end{bmatrix}$ is redundant by usi
 
 
 
-
-\begin{problem} Are the given vectors linearly independent?
+\emph{Problems \ref{prob:linindmultchoice1}-\ref{prob:linindmultchoice4}}
+ Are the given vectors linearly independent?
 
 \begin{problem}\label{prob:linindmultchoice1}
 $$\begin{bmatrix}-1\\0\end{bmatrix}, \begin{bmatrix}2\\3\end{bmatrix},\begin{bmatrix}4\\-1\end{bmatrix}$$
@@ -396,9 +409,10 @@ $$\begin{bmatrix}3\\1\\4\\1\end{bmatrix}, \begin{bmatrix}-2\\1\\1\\1\end{bmatrix
 
 \end{problem}
 
-\end{problem}
 
-\begin{problem} True or False?
+\emph{Problems \ref{prob:TFlinind1}-\ref{prob:TFlinind2}}
+True or False?
+
 \begin{problem}\label{prob:TFlinind1}
 Any set containing the zero vector is linearly dependent.
 \begin{multipleChoice}
@@ -409,6 +423,7 @@ Any set containing the zero vector is linearly dependent.
  Can the zero vector be removed from the set without changing the span?
  \end{hint}
  \end{problem}
+ 
 \begin{problem}\label{prob:TFlinind2}
 A set containing five vectors in $\RR^2$ is linearly dependent.
 \begin{multipleChoice}
@@ -420,9 +435,8 @@ A set containing five vectors in $\RR^2$ is linearly dependent.
  \end{hint}
 \end{problem}
 
-\end{problem}
 
-\begin{problem}
+\emph{Problems \ref{prob:linindmultchoice5}-\ref{prob:linindmultchoice7}}
 Each problem below provides information about vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$.  If possible, determine whether the vectors are linearly dependent or independent.
 
 \begin{problem}\label{prob:linindmultchoice5}
@@ -452,9 +466,9 @@ $$2\vec{v}_1+ 0\vec{v}_2+ 0\vec{v}_3=\vec{0}$$
  \end{multipleChoice}
 \end{problem}
 
-\end{problem}
 
-\begin{problem}
+
+\emph{Problems \ref{prob:linindmultchoice9}-\ref{prob:linindmultchoice10}}
 Each diagram below shows a collection of vectors.  Are the vectors linearly dependent or independent?
 
 
@@ -495,9 +509,6 @@ Each diagram below shows a collection of vectors.  Are the vectors linearly depe
 \end{center}
 \end{problem}
 
-
-
-\end{problem}
 
 \begin{problem}\label{prob:Adding1OK}
 Suppose $\{\vec{v}_{1}, \dots , \vec{v}_{m}\}$ is a linearly independent set in $\RR^n$, and that $\vec{v}_{m+1}$ is not in $\mbox{span}\left(\vec{v}_{1}, \dots , \vec{v}_{m}\right)$.  Prove that $\{\vec{v}_{1}, \dots , \vec{v}_{m}, \vec{v}_{m+1}\}$ is also linearly independent.

@@ -8,16 +8,27 @@
 
 \end{abstract}
 \maketitle
+
+\begin{onlineOnly}
 \section*{Iterative Methods for Solving Linear Systems}
+\end{onlineOnly}
 
 The approaches to solving linear systems we have studied up to this point are often called \dfn{direct methods}, to set them apart from \dfn{iterative methods}, which we study in this section.  When we solve linear systems using \dfn{iterative methods}, we repeat the same procedure (called an \dfn{iteration} many times (usually using a computer), and we look for the outputs to ``converge to'' the actual solution.  Let's begin with an exploration to illustrate this idea.
 
 \begin{exploration}\label{exp:gauss-seidel2x2}
 In the following GeoGebra interactive, the red line is the graph of $ax+by=r$, and the blue line is the graph of $cx+dy=s$.  Point $A$, referred to as our ``initial guess,'' may be dragged anywhere on the plane before starting the iterative procedure.  Use the navigation bar on the bottom to proceed through several iterations.  One iteration will consist of sliding horizontally from the current point until we hit the red line, followed by sliding vertically until we hit the blue line.  These two steps are then repeated from the new point on the blue line.
-    
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}    
     \begin{center}
 \geogebra{hndq9nmq}{800}{650}
 \end{center}
+\end{onlineOnly}
 
     \begin{enumerate}
         \item Try solving the system of equations
@@ -134,9 +145,19 @@ We perform Gauss-Jordan elimination by applying elementary row operations as des
  \end{array}\right]
 \end{equation*}
 This shows that the three planes in $\RR^3$ share a common intersection point at $\left(\frac{1}{8},\frac{1}{8},\frac{1}{8} \right)$, which is easily verified by looking at the original equations, and can also be seen in the GeoGebra graph below (RIGHT-CLICK AND DRAG TO ROTATE).
-\begin{center}
+
+\begin{pdfOnly}
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
+    \begin{center}
 \geogebra{nuvt2rde}{800}{650}
 \end{center}
+\end{onlineOnly}
+
 Now we solve the same linear system using our iterative methods.  In order to use Jacobi's method or the Gauss-Seidel method, we solve for $x$ in the first equation, we solve for $y$ in the second equation, and we solve for $z$ in the third equation.  We get three formulas.
 \begin{equation*}\begin{array}{ccccccc}
       5x & +&y&+&2z&= &1 \\ 
@@ -155,7 +176,15 @@ Below is a link to a spreadsheet which can be used to solve a linear system of 3
 
 To use the spreadsheet, SAVE A COPY of the sheet.  Then you will be able to change the yellow boxes to input a system of equations as well as the initial values. 
 
+\begin{pdfOnly}
+Access spreadsheet link through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+\end{pdfOnly}
+
+\begin{onlineOnly}
 \href{https://docs.google.com/spreadsheets/d/1cjRChe6nwq1S-f-bGsnMFI632cuALhfUHnSvD_lC7oQ/edit?usp=sharing}{LINK TO SPREADSHEET}
+\end{onlineOnly}
 
 
 

@@ -7,7 +7,11 @@
 \begin{abstract}
 \end{abstract}
 \maketitle
+
+\begin{onlineOnly}
 \section*{Orthogonality and Projections}
+\end{onlineOnly}
+
 \subsection*{Orthogonal and Orthonormal Sets}
 In this section, we examine what it means for vectors (and sets of
 vectors) to be orthogonal and orthonormal. Recall that two non-zero vectors are orthogonal if their dot product is zero.  A collection of non-zero vectors in $\RR^n$ is called \dfn{orthogonal} if the vectors are pair-wise orthogonal.  The diagram below shows two orthogonal vectors in $\RR^2$ and three orthogonal vectors in $\RR^3$.
@@ -200,9 +204,17 @@ We can see why an ``upright" coordinate system with basis $\{\vec{i},\vec{j}\}$ 
         \item Pick another pair of orthogonal vectors $\vec{v}_1$ and $\vec{v}_2$.  Verify that $\vec{x}$ is the sum of its projections.
     \end{itemize}
 
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
     \begin{center}
 \geogebra{nsqzhsxv}{800}{600}
 \end{center}
+\end{onlineOnly}
 \end{exploration}
 
 
@@ -338,9 +350,18 @@ In the previous section we found that given a subspace $W$ of $\RR^n$ with an or
 In the GeoGebra interactive below, $W$ is a plane spanned by $\vec{v}_1$ and $\vec{v}_2$, in $\RR^3$.  $W$ is subspace of $\RR^3$.  In the initial set up, $\vec{v}_1$ and $\vec{v}_2$ are orthogonal.  Vector $\vec{x}$ is not in $W$.  
 
 Use check-boxes to construct the sum of orthogonal projections of $\vec{x}$ onto $\vec{v}_1$ and $\vec{v}_2$.  RIGHT-CLICK and DRAG to rotate the image.   
+
+\pdfOnly{
+Access GeoGebra interactives through the online version of this text at 
+
+\href{https://ximera.osu.edu/oerlinalg}{https://ximera.osu.edu/oerlinalg}.
+}
+
+\begin{onlineOnly}
 \begin{center}
 \geogebra{hehqyayz}{950}{800}
 \end{center}
+\end{onlineOnly}
 
 \begin{question}
 If moved, return the basis vectors $\vec{v}_1$ and $\vec{v}_2$ to their default position (set $s_1=s_2=0$) to ensure that they are orthogonal.  
@@ -420,6 +441,7 @@ An illustration of Definition \ref{def:projOntoSubspace} for a two-dimensional s
 \end{center}
 
 Using equation (\ref{eq:orthProj}) multiple times, we can also express $\vec{w}$ in Definition \ref{def:projOntoSubspace} using the following formula.
+
 \begin{formula}\label{form:orthProjOntoW}
 \begin{equation}\label{def:projectontoW}
 \vec{w} = \mbox{proj}_W(\vec{x}) =\frac{\vec{x} \dotp \vec{f}_{1}}{\norm{\vec{f}_{1}}^2}\vec{f}_{1} + \frac{\vec{x} \dotp \vec{f}_{2}}{\norm{\vec{f}_{2}}^2}\vec{f}_{2}+ \dots +\frac{\vec{x} \dotp \vec{f}_{m}}{\norm{\vec{f}_{m}}^2}\vec{f}_{m}
@@ -480,6 +502,7 @@ Throughout this section we have worked with orthogonal bases of subspaces.  Does
 \begin{problem}\label{prob:rref_way}
 Retry Example~\ref{fourier} using Gaussian elimination.  Which method seems easier to you?
 \end{problem}
+
 \begin{problem}\label{prob:vec_eq_0}
     Let $\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\in\RR^n$ and
 suppose $\mbox{span}\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_k\}=\RR^n$.
@@ -487,8 +510,10 @@ Furthermore, suppose that there exists a vector $\vec{v}\in\RR^n$ for which $\ve
 Show that $\vec{v}=\vec{0}$.
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{OrthoProj1.1}-\ref{OrthoProj1.3}}
+
 Let $\vec{x} = \begin{bmatrix}1\\ -2\\ 1\\ 6\end{bmatrix}$ in $\RR^4$, and let $W = \mbox{span}\left(\begin{bmatrix}2\\ 1\\ 3\\ -4\end{bmatrix}, \begin{bmatrix}1\\ 2\\ 0\\ 1\end{bmatrix}\right)$.
+
 \begin{problem}\label{OrthoProj1.1}
 Compute $\mbox{proj}_W(\vec{x})$.
 
@@ -505,7 +530,7 @@ Use the basis in Problem \ref{OrthoProj1.2} to compute $\mbox{proj}_W(\vec{x})$.
 Answer:  $$\frac{1}{70}\begin{bmatrix}\answer{-63}\\\answer{21}\\\answer{-147}\\\answer{231}\end{bmatrix}$$
 \end{problem}
 
-\end{problem}
+
 \begin{problem}\label{prob:proofCor}
 Prove Corollary \ref{cor:orthProjOntoW}
 \end{problem}
