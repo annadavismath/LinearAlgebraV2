@@ -9,7 +9,11 @@
 
 \end{abstract}
 \maketitle
+
+\begin{onlineOnly}
 \section*{The Characteristic Equation}
+\end{onlineOnly}
+
 Let $A$ be an $n \times n$ matrix.  In \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors Algebraically and Geometrically} we learned that the eigenvectors and eigenvalues of $A$ are vectors $\vec{x}$ and scalars $\lambda$ that satisfy the equation  
 \begin{align}\label{def:eigen} A \vec{x} = \lambda \vec{x}\end{align}
 We listed a few reasons why we are interested in finding eigenvalues and eigenvectors, but we did not give any process for finding them.  In this section we will focus on a process which can be used for small matrices.  For larger matrices, the best methods we have are iterative methods, and we will explore some of these in \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0070/main}{The Power Method and the Dominant Eigenvalue}.
@@ -225,9 +229,9 @@ From this we see that for any eigenvector $\begin{bmatrix}x_1\\x_2\\x_3\end{bmat
 So one possible basis for the eigenspace $\mathcal{S}_0$ is given by $$\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}\right\}$$
 Next we find a basis for the eigenspace $\mathcal{S}_{1+i}$.  We need to compute a basis for $\mbox{null}(D-(1+i)I)$.  We compute:
 \begin{align*}\mbox{rref}(D-(1+i)I)&=\mbox{rref}\left(\begin{bmatrix} -(1+i)&0&0\\ 0 &1-(1+i)&1\\ 0 & -1&1-(1+i)\end{bmatrix}\right) \\
-&=\begin{bmatrix} 1 & 0 &0\\ 0 & 1 & -i\\ 0 & 0 & 0\end{bmatrix}
+&=\begin{bmatrix} 1 & 0 &0\\ 0 & 1 & i\\ 0 & 0 & 0\end{bmatrix}
 \end{align*}
-There is one free variable.  Setting $x_3=t$, we get $x_1=0$ and $x_2=ti$.  From this we see that eigenvectors in $\mathcal{S}_4$ have the form $\begin{bmatrix}0\\i\\1\end{bmatrix}t$, so a possible basis for the eigenspace $\mathcal{S}_{1+i}$ is given by $\left\{\begin{bmatrix}0\\i\\1\end{bmatrix}\right\}$.
+There is one free variable.  Setting $x_3=t$, we get $x_1=0$ and $x_2=ti$.  From this we see that eigenvectors in $\mathcal{S}_{1+i}$ have the form $\begin{bmatrix}0\\i\\1\end{bmatrix}t$, so a possible basis for the eigenspace $\mathcal{S}_{1+i}$ is given by $\left\{\begin{bmatrix}0\\i\\1\end{bmatrix}\right\}$.
 We ask you in Practice Problem \ref{prob:3x3_complex_ev} to show that $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$ is a basis for $\mathcal{S}_{1-i}$.
 \end{explanation}
 \end{example}
@@ -244,18 +248,21 @@ A square matrix $A$ is singular if and only if $\det{A}=0$.(see  \ref{th:detofsi
 
 \section*{Practice Problems}
 
-\begin{problem}
+\emph{Problems \ref{prob:eigenspace1}-\ref{prob:eigenspace2}}
 In this exercise we will prove that the eigenvectors associated with an eigenvalue $\lambda$ of an $n \times n$ matrix $A$ form a subspace of $\RR^n$.
+
 \begin{problem}\label{prob:eigenspace1}
 Let $\vec{x}$ and $\vec{y}$ be eigenvectors of $A$ associated with $\lambda$.  Show that $\vec{x}+\vec{y}$ is also an eigenvector of $A$ associated with $\lambda$.  (This shows that the set of eigenvectors of $A$ associated with $\lambda$ is closed under addition).
 \end{problem}
+
 \begin{problem}\label{prob:eigenspace2}
 Show that the set of eigenvectors of $A$ associated with $\lambda$ is closed under scalar multiplication.
 \end{problem}
-\end{problem}
 
-\begin{problem}
+
+\emph{Problems \ref{prob:eigenspace3}-\ref{prob:eigenspace4}}
 Compute the eigenvalues of the given matrix and find the corresponding eigenspaces.
+
 \begin{problem}\label{prob:eigenspace3}
 $$\begin{bmatrix}4&1\\8&-3\end{bmatrix}$$
 Answer:
@@ -264,6 +271,7 @@ $$\lambda_1=\answer{-4},\quad\lambda_2=\answer{5}$$
 
 A basis for $\lambda_1$ is $\left\{\begin{bmatrix}\answer{-1/8}\\1\end{bmatrix}\right\}$.  A basis for $\lambda_2$ is $\left\{\begin{bmatrix}\answer{1}\\1\end{bmatrix}\right\}$.
 \end{problem}
+
 \begin{problem}\label{prob:eigenspace4}
 $$\begin{bmatrix}1&-2\\2&1\end{bmatrix}$$
 Answer:
@@ -272,14 +280,15 @@ $$\lambda_1=\answer{1}+\answer{2}i,\quad\lambda_2=\answer{1}-\answer{2}i$$
 
 A basis for $\lambda_1$ is $\left\{\begin{bmatrix}i\\\answer{1}\end{bmatrix}\right\}$.  A basis for $\lambda_2$ is $\left\{\begin{bmatrix}-i\\\answer{1}\end{bmatrix}\right\}$.
 \end{problem}
-\end{problem}
+
 
 \begin{problem}\label{prob:3x3tri_ev}
 Let $T=\begin{bmatrix} 1 & 2 & 3\\ 0 & 5 & 6\\ 0 & 0 & 9\end{bmatrix}$.  Compute a basis for each of the eigenspaces of this matrix, $\mathcal{S}_1$, $\mathcal{S}_5$, and $\mathcal{S}_9$.
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{prob:3x3fromKuttler1}-\ref{prob:3x3fromKuttler2}}
 Let $A=\begin{bmatrix} 9 & 2 & 8\\ 2 & -6 & -2\\ -8 & 2 & -5\end{bmatrix}$.  
+
 \begin{problem}\label{prob:3x3fromKuttler1}
 Compute the eigenvalues of this matrix. 
 \begin{hint}
@@ -299,9 +308,9 @@ Answer:
 A basis for $\mathcal{S}_{\lambda_1}$ is $\left\{\begin{bmatrix}1\\\answer{2}\\\answer{-2}\end{bmatrix}\right\}$, 
 a basis for $\mathcal{S}_{\lambda_2}$ is $\left\{\begin{bmatrix}-2\\\answer{-2}\\\answer{3}\end{bmatrix}\right\}$,
 
-and a basis for $\mathcal{S}_{\lambda_3}$ is $\left\{\begin{bmatrix}2\\\answer{3}\\\answer{-2}\end{bmatrix}\right\}$.
+and a basis for $\mathcal{S}_{\lambda_3}$ is $\left\{\begin{bmatrix}2\\\answer{1}\\\answer{-2}\end{bmatrix}\right\}$.
 \end{problem}
-\end{problem}
+
 
 \begin{problem}\label{prob:3x3_complex_ev}
 Complete Example \ref{ex:3x3_complex_ev} by showing that a basis for $\mathcal{S}_{1-i}$ is given by $\left\{\begin{bmatrix}0\\-i\\1\end{bmatrix}\right\}$, where  $\mathcal{S}_{1-i}$ is the eigenspace associated with the eigenvalue $\lambda=1-i$ of the matrix $D=\begin{bmatrix} 0&0&0\\ 0 &1&1\\ 0 & -1&1\end{bmatrix}$.
@@ -312,8 +321,9 @@ Complete Example \ref{ex:3x3_complex_ev} by showing that a basis for $\mathcal{S
 Prove Theorem \ref{th:eigtri}.  (HINT:  Proceed by induction on the dimension n.  For the inductive step, compute $\det(A-\lambda I)$ by expanding along the first column (or row) if $T$ is upper (lower) triangular.)
 \end{problem}
 
-\begin{problem}
+\emph{Problems \ref{prob:eigvectorstransfr2_1}-\ref{prob:eigvectorstransfr2_3}}
 The following set of problems deals with geometric interpretation of eigenvalues and eigenvectors, as well as linear transformations of the plane.  Please use \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/EIG-0010/main}{Describing Eigenvalues and Eigenvectors Algebraically and Geometrically} and \href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/LTR-0070/main}{Geometric Transformations of the Plane} for reference.
+
 \begin{problem}\label{prob:eigvectorstransfr2_1}
 Recall that a vertical stretch/compression of the plane is a linear transformation whose standard matrix is $$M_v=\begin{bmatrix}1&0\\0&k\end{bmatrix}$$
 Find the eigenvalues of $M_v$.  Find a basis for the eigenspace corresponding to each eigenvalue.
@@ -360,13 +370,14 @@ $$M_{y=mx}=\frac{1}{1+m^2}\begin{bmatrix}
 2m & m^2-1
 \end{bmatrix}$$
 Verify that the eigenvalues of $M_{y=mx}$ are
-$$\lambda_1=m^2+1\quad\text{and}\quad\lambda_2=-m^2-1$$
-Find a basis for eigenspaces $\mathcal{S}_{\lambda_1}$ and $\mathcal{S}_{\lambda_2}$.  (For simplicity, assume that $m\neq 0$.)
+1 and -1.
 
-Answer:  A basis for $\mathcal{S}_{\lambda_1}$ is $\left\{\begin{bmatrix}1/m\\\answer{1}\end{bmatrix}\right\}$
-and a basis for $\mathcal{S}_{\lambda_2}$ is $\left\{\begin{bmatrix}-m\\\answer{1}\end{bmatrix}\right\}$
+Find a basis for eigenspaces $\mathcal{S}_{1}$ and $\mathcal{S}_{-1}$.  (For simplicity, assume that $m\neq 0$.)
 
-Choose the best description of $\mathcal{S}_{\lambda_1}$.
+Answer:  A basis for $\mathcal{S}_{1}$ is $\left\{\begin{bmatrix}1\\\answer{m}\end{bmatrix}\right\}$
+and a basis for $\mathcal{S}_{-1}$ is $\left\{\begin{bmatrix}m\\\answer{-1}\end{bmatrix}\right\}$
+
+Choose the best description of $\mathcal{S}_{1}$.
 \begin{multipleChoice}
     \choice{All vectors in $\RR^2$.}
     \choice[correct]{All vectors with ``slope" $m$.}
@@ -374,7 +385,7 @@ Choose the best description of $\mathcal{S}_{\lambda_1}$.
     \choice{All vectors with ``slope" $-1/m$.}
 \end{multipleChoice}
 
-Choose the best description of $\mathcal{S}_{\lambda_2}$.
+Choose the best description of $\mathcal{S}_{-1}$.
 \begin{multipleChoice}
     \choice{All vectors along the line $y=mx$.}
     \choice{All vectors parallel to the $x$-axis.}
@@ -385,7 +396,7 @@ Choose the best description of $\mathcal{S}_{\lambda_2}$.
 Use geometry to explain why the eigenspaces you found make sense.
 
 \end{problem}
-\end{problem}
+
 
 \section*{Exercise Source}
 Practice Problem \ref{prob:3x3fromKuttler1} is adopted from Problem 7.1.11 of Ken Kuttler's \href{https://open.umn.edu/opentextbooks/textbooks/a-first-course-in-linear-algebra-2017}{\it A First Course in Linear Algebra}. (CC-BY)
