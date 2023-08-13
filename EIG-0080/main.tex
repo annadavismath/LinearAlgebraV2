@@ -117,14 +117,15 @@ Taking the absolute value of both sides, we have
     &= \sum_{j\ne k} |a_{kj}| |x_j| \label{eqn:pr4}\\ 
     &\le \sum_{j\ne k} |a_{kj}| |x_k| \label{eqn:pr5}
 \end{align}
-Here equations \ref{eqn:pr1} and \ref{eqn:pr4} follow from property C2 of \ref{eqn:complex_number_properties}, inequality \ref{eqn:pr3} follows from the Triangle Inequality (C12 of \ref{eqn:complex_number_properties}), and we arrive at inequality \ref{eqn:pr5} by replacing each $\vec{x}_j$ in inequality \ref{eqn:pr4} by $\vec{x}_k$.
+Here equations \ref{eqn:pr1} and \ref{eqn:pr4} follow from property C2 of %\ref{eqn:complex_number_properties}
+\href{https://ximera.osu.edu/oerlinalg/LinearAlgebra/APX-0020/main}{Complex Numbers}, inequality \ref{eqn:pr3} follows from the Triangle Inequality (C12 of \ref{eqn:complex_number_properties}), and we arrive at inequality \ref{eqn:pr5} by replacing each $\vec{x}_j$ in inequality \ref{eqn:pr4} by $\vec{x}_k$.
 
 These inequalties show that $|\lambda - a_{kk}| \le \sum_{j\ne k} |a_{kj}|$, so $\lambda \in \Gamma_k(A)$, and hence $\lambda \in \Gamma(A)$, as desired.
 
 \end{proof}
 
 \begin{example}\label{ex:does_Gersh_contain_zero}
-    Sketch the Gerhgorin region for each matrix and, if possible, use it as an aid for determining whether or not the matrix is singular.
+    Sketch the Gershgorin region for each matrix and, if possible, use it as an aid for determining whether or not the matrix is singular.
 \begin{enumerate}
     \item $A=\begin{bmatrix}  4&1&2\\2&5&1\\2&1&6
  \end{bmatrix}$
